@@ -110,7 +110,7 @@ button {
     opacity: 0;
 }
 
-/* Calcul du délai pour chaque image (3 images = 4s chacune) */
+/* Calcul du délai pour chaque image (7 images = 4s chacune) */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
