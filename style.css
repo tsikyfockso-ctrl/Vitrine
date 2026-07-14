@@ -13,6 +13,13 @@ nav {
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
 }
+:root {
+    --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
+}
+
+nav {
+    background-color: var(--couleur-principale);
+}
 header { 
   height: 80vh; 
   display: flex; 
