@@ -50,11 +50,16 @@ button {
   border-radius: 10px; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
-.logo img {
+.logo-container {
+    width: 60px;
     height: 60px;
-    width: 60px; /* Force un format carré pour l'arrondi */
-    border-radius: 50%; /* Crée le cercle */
-    object-fit: cover; /* Assure que l'image remplit bien le cercle */
-    object-position: center;
-    border: 2px solid white; /* Optionnel : ajoute un cadre élégant */
+    border-radius: 50%;
+    
+    /* C'est ici l'astuce pour un cercle parfait */
+    background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
+    background-size: cover;      /* L'image remplit le cercle sans déformation */
+    background-position: center; /* Centre le logo dans le cercle */
+    background-repeat: no-repeat;
+    
+    border: 2px solid white;
 }
