@@ -29,16 +29,13 @@ nav {
 nav {
     background-color: var(--couleur-principale);
 }
-header { 
-  width: 100%;
-  height: 400px;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  background: transparent;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  color: white; 
+header {
+    width: 100%;
+    height: 400px; /* Définissez une hauteur fixe ici */
+    position: relative; /* Indispensable pour que l'image le suive */
+    overflow: hidden;   /* Coupe tout ce qui dépasse */
+    background-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
 }
 button { 
   padding: 15px 30px; 
@@ -129,10 +126,12 @@ button {
     100% { opacity: 0; }
 }
 .slide img {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;       /* L'image prend toute la largeur du conteneur */
-    height: 100%;      /* L'image prend toute la hauteur du conteneur */
-    object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
-    object-position: bottom; /* Centre l'image pour garder les éléments importants visibles */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Force le remplissage complet */
+    object-position: bottom; /* Aligne l'image en bas comme demandé */
+    display: block;         /* Supprime l'espace blanc sous l'image */
 }
