@@ -53,7 +53,7 @@ button {
 .logo img {
     height: 60px;
     width: 60px; /* Force un format carré pour l'arrondi */
-    border-radius: 50%; /* Crée le cercle */
+    border-radius: 100%; /* Crée le cercle */
     object-fit: cover; /* Assure que l'image remplit bien le cercle */
     border: 2px solid white; /* Optionnel : ajoute un cadre élégant */
 }
