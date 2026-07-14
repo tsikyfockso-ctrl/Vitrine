@@ -73,3 +73,25 @@ button {
     
     border: 3px solid white;
 }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Espace entre les boutons */
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #333;
+    background: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 25px; /* Forme arrondie moderne */
+    font-weight: 600;
+    transition: all 0.3s ease; /* Animation fluide */
+}
+
+/* Effet au survol de la souris */
+.nav-btn:hover {
+    background: #333;
+    color: white;
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
