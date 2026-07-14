@@ -4,7 +4,7 @@ body {
   padding: 0; 
   background: #f9f9f9;
     /* 1.75 correspond à 175% */
-    /*transform: scale(1.75); 
+  transform: scale(1.75); 
     
     /* Cela permet de garder le site centré malgré l'agrandissement */
     transform-origin: top center; 
