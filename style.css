@@ -30,7 +30,8 @@ nav {
     background-color: var(--couleur-principale);
 }
 header { 
-  height: 40vh; 
+  width: 100%;
+  height: 400px;
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -97,7 +98,8 @@ button {
     transform: translateY(-2px); /* Léger effet de soulèvement */
 }
 .slideshow-container {
-    height: 40vh;
+    width: 100%;
+    height: 400px;
     overflow: hidden; /* Cache les images qui ne sont pas visibles */
     position: relative;
 }
@@ -127,6 +129,8 @@ button {
     100% { opacity: 0; }
 }
 .slide img {
+    top: 0;
+    left: 0;
     width: 100%;       /* L'image prend toute la largeur du conteneur */
     height: 100%;      /* L'image prend toute la hauteur du conteneur */
     object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
