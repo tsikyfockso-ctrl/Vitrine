@@ -45,7 +45,7 @@ button {
   padding: 50px 5%; 
 }
 .card { 
-  background: white; 
+  background: white;
   padding: 20px; 
   border-radius: 10px; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
@@ -53,7 +53,8 @@ button {
 .logo img {
     height: 60px;
     width: 60px; /* Force un format carré pour l'arrondi */
-    border-radius: 100%; /* Crée le cercle */
+    border-radius: 50%; /* Crée le cercle */
     object-fit: cover; /* Assure que l'image remplit bien le cercle */
+    object-position: center;
     border: 2px solid white; /* Optionnel : ajoute un cadre élégant */
 }
