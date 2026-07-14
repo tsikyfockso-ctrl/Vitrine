@@ -53,7 +53,7 @@ button {
 .logo-container {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 100%;
     
     /* C'est ici l'astuce pour un cercle parfait */
     background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
@@ -61,5 +61,5 @@ button {
     background-position: center; /* Centre le logo dans le cercle */
     background-repeat: no-repeat;
     
-    border: 2px solid white;
+    border: 5px solid white;
 }
