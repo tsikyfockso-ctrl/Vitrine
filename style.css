@@ -2,7 +2,16 @@ body {
   font-family: 'Segoe UI', sans-serif; 
   margin: 0; 
   padding: 0; 
-  background: #f9f9f9; 
+  background: #f9f9f9;
+    /* 1.75 correspond à 175% */
+    transform: scale(1.75); 
+    
+    /* Cela permet de garder le site centré malgré l'agrandissement */
+    transform-origin: top center; 
+    
+    /* Important : ajuste la largeur pour éviter que le site ne déborde */
+    width: 57.14%; /* (100 / 1.75 = 57.14) */
+    margin: 0 auto;
 }
 nav {
     display: flex;
