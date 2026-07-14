@@ -37,6 +37,8 @@ header {
   justify-content: center; 
   background: #222; 
   color: white; 
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 button { 
   padding: 15px 30px; 
