@@ -30,7 +30,6 @@ nav {
     background-color: var(--couleur-principale);
 }
 header {
-    header { 
     height: 40vh; 
     display: flex; 
     flex-direction: column; 
