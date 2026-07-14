@@ -97,8 +97,7 @@ button {
     transform: translateY(-2px); /* Léger effet de soulèvement */
 }
 .slideshow-container {
-    width: 100%;
-    height: 400px; /* Adaptez la hauteur */
+    height: 40vh;
     overflow: hidden; /* Cache les images qui ne sont pas visibles */
     position: relative;
 }
