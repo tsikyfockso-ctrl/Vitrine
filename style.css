@@ -8,7 +8,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 15px 5%;
     /* Utilisation d'une couleur de fond fixe basée sur votre logo */
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
@@ -61,5 +61,5 @@ button {
     background-position: center; /* Centre le logo dans le cercle */
     background-repeat: no-repeat;
     
-    border: 5px solid white;
+    border: 3px solid white;
 }
