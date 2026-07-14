@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+    // Attend que l'image soit chargée
+    const logoImg = document.querySelector('.logo img');
+    logoImg.addEventListener('load', function() {
+        // Crée un canvas pour analyser les pixels
+        const canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0);
+        
+        // Récupère la couleur du pixel central
+        const pixel = ctx.getImageData(this.width/2, this.height/2, 1, 1).data;
+        const color = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+        
+        // Applique la couleur au nav
+        document.querySelector('nav').style.backgroundColor = color;
+    });
+</script>
     <nav>
         <div class="logo">
            <img src="logo_vitrine/Mayah.png" alt="Mayah Store Logo" style="height: 100px;"> 
