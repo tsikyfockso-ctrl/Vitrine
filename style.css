@@ -37,7 +37,7 @@ header {
     background-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
 }
-/*button { 
+button { 
   padding: 15px 30px; 
   background: #e74c3c; 
   color: white; 
@@ -45,7 +45,7 @@ header {
   cursor: pointer; 
   border-radius: 5px; 
 }
-*/
+
 .grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
