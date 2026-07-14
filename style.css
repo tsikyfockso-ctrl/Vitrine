@@ -37,8 +37,6 @@ header {
     align-items: center; 
     justify-content: center; 
     color: white; 
-    position: relative; /* Indispensable pour que l'image le suive */
-    overflow: hidden;   /* Coupe tout ce qui dépasse */
     background-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
 }
