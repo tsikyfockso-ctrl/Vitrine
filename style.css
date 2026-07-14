@@ -21,13 +21,10 @@ nav {
     /* Utilisation d'une couleur de fond fixe basée sur votre logo */
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
+    background-color: var(--couleur-principale);
 }
 :root {
     --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
-}
-
-nav {
-    background-color: var(--couleur-principale);
 }
 header {
     width: 100%;
@@ -35,7 +32,7 @@ header {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    justify-content: center; 
+    /*justify-content: center;*/
     color: white; 
     background-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
