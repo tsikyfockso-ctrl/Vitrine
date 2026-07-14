@@ -106,7 +106,7 @@ button {
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: slide-animation 12s infinite; /* Temps total du cycle */
+    animation: slide-animation 24s infinite; /* Temps total du cycle */
     opacity: 0;
 }
 
