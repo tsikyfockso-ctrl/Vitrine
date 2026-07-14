@@ -127,7 +127,7 @@ button {
     100% { opacity: 0; }
 }
 .slide img {
-    width: 100%;       /* L'image prend toute la largeur du conteneur */
+    width: 200%;       /* L'image prend toute la largeur du conteneur */
     height: 100%;      /* L'image prend toute la hauteur du conteneur */
     object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
     object-position: center; /* Centre l'image pour garder les éléments importants visibles */
