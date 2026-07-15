@@ -36,6 +36,34 @@ header {
     color: white; 
     background-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
+    position: relative;
+}
+.fixed-overlay {
+    position: absolute; /* Reste à la même place */
+    top: 50%;           /* Centre vertical */
+    left: 50%;          /* Centre horizontal */
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    z-index: 10;        /* Assure que c'est au-dessus des images */
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.fixed-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ombre pour bien voir le texte */
+}
+
+/* Bouton */
+.fixed-overlay button {
+    padding: 15px 30px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
 }
 button { 
   padding: 15px 30px; 
