@@ -107,6 +107,16 @@ button {
     animation: slide-animation 24s infinite; /* Temps total du cycle */
     opacity: 0;
 }
+.slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
+    pointer-events: none; /* Permet aux clics de traverser cette couche */
+}
 
 /* Calcul du délai pour chaque image (7 images = 4s chacune) */
 .slide:nth-child(1) { animation-delay: 0s; }
