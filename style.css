@@ -114,7 +114,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.10); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
+    background-color: rgba(0, 0, 0, 0.8); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
     pointer-events: none; /* Permet aux clics de traverser cette couche */
 }
 
