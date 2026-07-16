@@ -177,7 +177,9 @@ button {
     box-sizing: border-box;
 }
 /* Cache le bandeau intrusif de Google en haut de page */
-.goog-te-banner-frame.skiptranslate {
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate iframe {
     display: none !important;
 }
 
@@ -185,6 +187,7 @@ button {
 body {
     top: 0px !important;
     position: static !important;
+    margin-top: 0px !important;
 }
 
 /* Style moderne pour le conteneur du widget */
