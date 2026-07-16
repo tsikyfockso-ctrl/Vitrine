@@ -174,16 +174,42 @@ button {
     padding: 0;
     box-sizing: border-box;
 }
-/* Rend le sélecteur plus moderne et l'aligne avec vos boutons */
-#google_translate_element {
-    margin-left: 20px;
-}
-
-/* Optionnel : Supprime le bandeau Google qui apparaît en haut du site */
+/* Cache le bandeau intrusif de Google en haut de page */
 .goog-te-banner-frame {
     display: none !important;
 }
 
+/* Force le corps de la page à ne pas être décalé par le bandeau */
 body {
-    top: 0 !important; /* Corrige le décalage causé par le bandeau Google */
+    top: 0 !important;
+}
+
+/* Style moderne pour le conteneur du widget */
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+/* Modifie la "boîte" de sélection de langue */
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 25px; /* Arrondi moderne */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol pour rester cohérent avec vos autres boutons */
+.goog-te-combo:hover {
+    border-color: #e74c3c; /* Couleur de votre bouton principal */
+}
+
+/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
+.goog-logo-link {
+    display: none !important;
 }
