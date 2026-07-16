@@ -21,3 +21,14 @@ produits.forEach(p => {
 document.getElementById('cta-btn').addEventListener('click', () => {
     document.querySelector('#produits').scrollIntoView({ behavior: 'smooth' });
 });
+// Surveille l'apparition du bandeau Google et le supprime
+const observer = new MutationObserver(() => {
+    const banner = document.querySelector('.goog-te-banner-frame');
+    if (banner) {
+        banner.style.display = 'none';
+        document.body.style.top = '0px';
+    }
+});
+
+// Lance la surveillance sur tout le document
+observer.observe(document.body, { childList: true, subtree: true });
