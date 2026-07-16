@@ -104,8 +104,8 @@ button {
     list-style: none;
     display: flex;
     gap: 15px; /* Espace entre les boutons */
-    margin-right: auto; /* Pousse tout ce qui est à droite vers la droite */
-    margin-left: 20px;
+    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
+    margin-left: auto;
 }
 
 .nav-btn {
@@ -231,6 +231,8 @@ nav {
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
 }
 
 /* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
