@@ -174,3 +174,16 @@ button {
     padding: 0;
     box-sizing: border-box;
 }
+/* Rend le sélecteur plus moderne et l'aligne avec vos boutons */
+#google_translate_element {
+    margin-left: 20px;
+}
+
+/* Optionnel : Supprime le bandeau Google qui apparaît en haut du site */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+body {
+    top: 0 !important; /* Corrige le décalage causé par le bandeau Google */
+}
