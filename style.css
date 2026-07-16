@@ -104,6 +104,8 @@ button {
     list-style: none;
     display: flex;
     gap: 15px; /* Espace entre les boutons */
+    margin-right: auto; /* Pousse tout ce qui est à droite vers la droite */
+    margin-left: 20px;
 }
 
 .nav-btn {
