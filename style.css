@@ -213,3 +213,25 @@ body {
 .goog-logo-link {
     display: none !important;
 }
+/* Assurez-vous que votre nav est bien un conteneur flexible centré */
+nav {
+    display: flex;
+    justify-content: space-between; /* Garde les éléments aux extrémités */
+    align-items: center;
+    padding: 15px 5%;
+    position: relative; /* Indispensable */
+}
+
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
+.nav-links {
+    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
+}
