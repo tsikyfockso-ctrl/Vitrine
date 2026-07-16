@@ -114,7 +114,6 @@ button {
     border-radius: 25px; /* Forme arrondie moderne */
     font-weight: 600;
     transition: all 0.3s ease; /* Animation fluide */
-    align-items: right;
 }
 
 /* Effet au survol de la souris */
@@ -219,15 +218,15 @@ nav {
     display: flex;
     justify-content: space-between; /* Garde les éléments aux extrémités */
     align-items: center;
-    padding: 5px 5%;
+    padding: 10px 5%;
     position: relative; /* Indispensable */
 }
 
 /* On force le conteneur du widget à se placer au centre absolu */
 #google_translate_element {
     position: absolute;
-    left: 30%;
-    transform: translateX(-30%);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
 }
