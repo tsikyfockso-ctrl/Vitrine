@@ -79,7 +79,7 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 20px; 
   padding: 50px 5%;
-  margin-right: 2px;
+  margin-left: 5px;
 }
 .card { 
   background: white;
