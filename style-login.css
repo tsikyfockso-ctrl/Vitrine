@@ -33,7 +33,6 @@ body {
     display: flex;
     flex-direction: column; /* Organise les éléments les uns sous les autres */
     align-items: center;    /* Centre horizontalement */
-    text-align: center;     /* Centre le texte à l'intérieur des éléments */
 }
 
 input {
