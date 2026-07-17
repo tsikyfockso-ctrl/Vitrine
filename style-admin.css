@@ -54,14 +54,17 @@ main h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     text-align: center;
 }
-/* 1. Masquer la bannière Google Translate définitivement */
-.goog-te-banner-frame.skiptranslate, 
-.goog-te-banner-frame {
+/* 1. Masquer la bannière Google Translate définitivement */ 
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate iframe {
     display: none !important;
 }
 
 body {
-    top: 0 !important;
+    top: 0px !important;
+    position: static !important;
+    margin-top: 0px !important;
 }
 
 /* 2. Moderniser le menu déroulant (le widget) */
@@ -76,7 +79,10 @@ body {
     outline: none;
     transition: border-color 0.3s;
 }
-
+/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
+.goog-logo-link {
+    display: none !important;
+}
 #google_translate_element select:hover {
     border-color: #1877f2;
 }
