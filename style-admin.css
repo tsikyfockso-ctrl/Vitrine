@@ -54,70 +54,23 @@ main h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     text-align: center;
 }
-/* Cache le bandeau intrusif de Google en haut de page */
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-.skiptranslate iframe {
-    display: none !important;
-}
-
-/* Force le corps de la page à ne pas être décalé par le bandeau */
-body {
-    top: 0px !important;
-    position: static !important;
-    margin-top: 0px !important;
-}
-
-/* Style moderne pour le conteneur du widget */
-#google_translate_element {
-    display: flex;
-    align-items: center;
-    background: transparent;
-}
-
-/* Modifie la "boîte" de sélection de langue */
-.goog-te-combo {
-    padding: 8px 12px;
-    border-radius: 25px; /* Arrondi moderne */
-    border: 1px solid #ddd;
-    background-color: #ffffff;
-    color: #333;
+/* Personnalisation légère du widget Google */
+#google_translate_element select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #dddfe2;
     cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    outline: none;
-    transition: all 0.3s ease;
 }
 
-/* Effet au survol pour rester cohérent avec vos autres boutons */
-.goog-te-combo:hover {
-    border-color: #e74c3c; /* Couleur de votre bouton principal */
+.goog-te-gadget {
+    font-size: 0 !important; /* Cache le texte "Powered by Google" */
 }
-
-/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
-.goog-logo-link {
+/* Masquer la bannière Google Translate qui apparaît en haut */
+.goog-te-banner-frame {
     display: none !important;
 }
-/* Assurez-vous que votre nav est bien un conteneur flexible centré */
-nav {
-    display: flex;
-    justify-content: space-between; /* Garde les éléments aux extrémités */
-    align-items: center;
-    padding: 10px 5%;
-    position: relative; /* Indispensable */
-}
 
-/* On force le conteneur du widget à se placer au centre absolu */
-#google_translate_element {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
-}
-}
-
-/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
-.nav-links {
-    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
+/* Optionnel : Supprimer l'espace vide laissé par la bannière */
+body {
+    top: 0 !important;
 }
