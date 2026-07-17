@@ -35,6 +35,25 @@ body {
     cursor: pointer; 
     transition: background 0.3s;
 }
+
+.logout-btn:hover { 
+    background-color: #d92240; 
+}
+
+/* Contenu principal */
+main { 
+    padding: 40px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+main h1 { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+}
 /* Cache le bandeau intrusif de Google en haut de page */
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
@@ -77,22 +96,28 @@ body {
 /* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
 .goog-logo-link {
     display: none !important;
-
-.logout-btn:hover { 
-    background-color: #d92240; 
+}
+/* Assurez-vous que votre nav est bien un conteneur flexible centré */
+nav {
+    display: flex;
+    justify-content: space-between; /* Garde les éléments aux extrémités */
+    align-items: center;
+    padding: 10px 5%;
+    position: relative; /* Indispensable */
 }
 
-/* Contenu principal */
-main { 
-    padding: 40px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
 }
 
-main h1 { 
-    background: white; 
-    padding: 30px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    text-align: center;
+/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
+.nav-links {
+    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
 }
