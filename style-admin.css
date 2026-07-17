@@ -1,0 +1,56 @@
+/* Réinitialisation de base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: Helvetica, Arial, sans-serif; 
+    background-color: #f0f2f5; 
+    color: #1c1e21; 
+}
+
+/* Barre de navigation */
+.admin-nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 40px; 
+    background: #ffffff; 
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
+    position: sticky;
+    top: 0;
+}
+
+.admin-nav strong { 
+    font-size: 20px; 
+    color: #1877f2; 
+}
+
+/* Bouton Déconnexion */
+.logout-btn { 
+    background-color: #f02849; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background 0.3s;
+}
+
+.logout-btn:hover { 
+    background-color: #d92240; 
+}
+
+/* Contenu principal */
+main { 
+    padding: 40px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+main h1 { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+}
