@@ -247,4 +247,5 @@ nav {
 #produits h2 {
     margin-left: 30px; /* Ajustez ce nombre pour décaler plus ou moins */
     text-align: left;  /* S'assure que le texte est bien aligné à gauche */
+    height: 20px;
 }
