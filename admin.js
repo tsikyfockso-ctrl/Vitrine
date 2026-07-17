@@ -3,5 +3,5 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
     
     // Redirige l'utilisateur vers la page de login
-    window.location.href = "login.html";
+    window.location.href ="login.html";
 });
