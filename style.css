@@ -246,6 +246,6 @@ nav {
 }
 #produits h2 {
     margin-top: 50px; /* Espace au-dessus du titre */
-    margin-left: 30px; /* Ajustez ce nombre pour décaler plus ou moins */
+    margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
     text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
 }
