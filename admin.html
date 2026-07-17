@@ -22,31 +22,29 @@
     <script src="admin.js"></script>
     <!-- Widget Google Translate -->
 <div id="google_translate_element" style="margin-left: 20px;"></div>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
-}
+   <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'fr',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
-    // Observe les modifications du DOM pour supprimer la bannière de Google
-    const observer = new MutationObserver((mutations, obs) => {
+<script>
+    // Surveillance active pour supprimer la bannière dès qu'elle apparaît
+    const hideGoogleBanner = () => {
         const banner = document.querySelector('.goog-te-banner-frame');
-        const body = document.body;
-        
         if (banner) {
-            banner.style.display = 'none';
-            // Supprime le décalage imposé par Google sur le body
-            body.style.top = '0px';
-            body.style.position = 'static';
+            banner.remove(); // Supprime complètement l'élément
         }
-    });
+        // Force le haut de page à rester en place
+        document.body.style.top = '0px';
+    };
 
-    observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-    });
+    // Vérifie toutes les 100ms si Google a injecté la bannière
+    setInterval(hideGoogleBanner, 100);
 </script>
 </body>
 </html>
