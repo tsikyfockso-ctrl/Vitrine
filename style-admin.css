@@ -58,7 +58,8 @@ main h1 {
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 .goog-logo-link,
-.skiptranslate iframe {
+.skiptranslate iframe,
+#goog-gt-tt {
     display: none !important;
 }
 
@@ -91,4 +92,12 @@ body {
 /* Cacher le texte "Powered by" */
 .goog-te-gadget {
     font-size: 0 !important;
+}
+/* Style moderne pour le select */
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #dddfe2;
+    background: white;
+    cursor: pointer;
 }
