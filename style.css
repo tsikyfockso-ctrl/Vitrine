@@ -249,3 +249,57 @@ nav {
     margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
     text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
 }
+/* --- COMPATIBILITÉ SMARTPHONE --- */
+
+@media (max-width: 768px) {
+    /* 1. Annulation de l'échelle qui rend le site trop petit sur mobile */
+    body {
+        transform: none !important; /* Désactive le scale sur mobile */
+        width: 100% !important;      /* Occupe toute la largeur */
+        overflow-x: hidden;          /* Empêche le débordement horizontal */
+    }
+
+    /* 2. Adaptation de la navigation */
+    nav {
+        flex-direction: column;      /* Empile les éléments */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-right: 0;
+        margin-left: 0;
+        gap: 10px;
+        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
+        justify-content: center;
+    }
+
+    /* 3. Déplacement du widget traducteur pour éviter les chevauchements */
+    #google_translate_element {
+        position: static;            /* Annule le positionnement absolu */
+        transform: none;
+        order: 1;                    /* Change l'ordre d'affichage si nécessaire */
+    }
+
+    /* 4. Adaptation du Header et du Slideshow */
+    header, .slideshow-container {
+        height: 300px;               /* Réduit la hauteur sur mobile */
+    }
+
+    .fixed-overlay h1 {
+        font-size: 1.5rem;           /* Titre plus petit */
+    }
+
+    /* 5. Grille des produits */
+    .grid {
+        grid-template-columns: 1fr;  /* Une seule colonne sur mobile */
+        padding: 20px 10px;
+    }
+
+    /* 6. Ajustement des marges spécifiques */
+    #produits h2 {
+        margin-left: 10px;
+        text-align: center;
+    }
+}
+
