@@ -54,23 +54,34 @@ main h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     text-align: center;
 }
-/* Personnalisation légère du widget Google */
-#google_translate_element select {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #dddfe2;
-    cursor: pointer;
-}
-
-.goog-te-gadget {
-    font-size: 0 !important; /* Cache le texte "Powered by Google" */
-}
-/* Masquer la bannière Google Translate qui apparaît en haut */
+/* 1. Masquer la bannière Google Translate définitivement */
+.goog-te-banner-frame.skiptranslate, 
 .goog-te-banner-frame {
     display: none !important;
 }
 
-/* Optionnel : Supprimer l'espace vide laissé par la bannière */
 body {
     top: 0 !important;
+}
+
+/* 2. Moderniser le menu déroulant (le widget) */
+#google_translate_element select {
+    background-color: #ffffff;
+    border: 1px solid #dddfe2;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#google_translate_element select:hover {
+    border-color: #1877f2;
+}
+
+/* Cacher le texte "Powered by" */
+.goog-te-gadget {
+    font-size: 0 !important;
 }
