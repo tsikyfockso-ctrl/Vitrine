@@ -53,3 +53,23 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+/* Le conteneur qui force l'image à être un rond parfait */
+.logo-circle {
+    width: 120px;       /* Largeur de votre cercle (ajustez selon vos besoins) */
+    height: 120px;      /* Hauteur de votre cercle (doit être égale à la largeur) */
+    border-radius: 50%; /* C'est la magie : rend l'élément circulaire */
+    overflow: hidden;   /* Cache tout ce qui dépasse du cercle */
+    display: flex;      /* Centre l'image parfaitement */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espace entre le logo et le titre */
+    border: 3px solid #1877f2; /* Optionnel : ajoute une bordure autour du rond */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optionnel : petite ombre douce */
+}
+
+/* L'image à l'intérieur du cercle */
+.logo-circle img {
+    width: 100%;       /* L'image remplit toute la largeur du cercle */
+    height: 100%;      /* L'image remplit toute la hauteur du cercle */
+    object-fit: cover; /* S'assure que l'image ne soit pas déformée (recadre intelligemment) */
+}
