@@ -245,6 +245,6 @@ nav {
     margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
 }
 #produits h2 {
-    margin-left: 50px; /* Ajustez ce nombre pour décaler plus ou moins */
+    margin-left: 30px; /* Ajustez ce nombre pour décaler plus ou moins */
     text-align: left;  /* S'assure que le texte est bien aligné à gauche */
 }
