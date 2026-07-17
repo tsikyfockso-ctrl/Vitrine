@@ -73,3 +73,6 @@ button {
     height: 100%;      /* L'image remplit toute la hauteur du cercle */
     object-fit: cover; /* S'assure que l'image ne soit pas déformée (recadre intelligemment) */
 }
+.footer {
+    margin-top: 50px;
+}
