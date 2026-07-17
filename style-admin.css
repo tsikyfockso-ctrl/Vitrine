@@ -57,6 +57,7 @@ main h1 {
 /* 1. Masquer la bannière Google Translate définitivement */ 
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
+.goog-logo-link,
 .skiptranslate iframe {
     display: none !important;
 }
