@@ -31,8 +31,6 @@ body {
     width: 800px;
     min-height: 300px;
     display: flex;
-    flex-direction: column; /* Organise les éléments les uns sous les autres */
-    align-items: center;    /* Centre horizontalement */
 }
 
 input {
