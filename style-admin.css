@@ -1,139 +1,58 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: 
-    border-box; 
-}
-body { 
-    font-family: Helvetica, Arial, sans-serif; 
-    background-color: #f0f2f5; 
-}
+/* Nettoyage de la syntaxe de base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; }
 
 .admin-nav { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 15px 40px; 
-    background: #ffffff; 
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
-}
-/* Alignement du groupe de gauche */
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espace entre le titre et le traducteur */
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 15px 40px; background: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
 }
 
-/* Alignement du groupe de droite */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-/* Responsive Mobile */
-@media (max-width: 600px) {
-.admin-nav { 
-    flex-direction: column; 
-    gap: 15px; 
-}
- main { 
-     padding: 10px; 
- } 
-}
+/* Groupe gauche : Logo + Traducteur */
+.nav-left { display: flex; align-items: center; gap: 20px; }
 
-/* Fixes Google Translate */
-.goog-te-banner-frame, 
-.skiptranslate { 
-    display: none !important; 
-}
+/* Groupe droit : Boutons */
+.nav-right { display: flex; align-items: center; gap: 15px; }
 
-#google_translate_element {
-    display: block !important;
-    margin: 0 10px;
-    visibility: visible !important;
-    opacity: 1 !important;
-    min-width: 100px; /* Assure que le bouton a une taille */
-}
-/* Style moderne pour le conteneur du widget */
+/* Correction unique pour Google Translate */
 #google_translate_element {
     display: flex !important;
-    align-items: auto;
-    background: transparent;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important; /* Important : remet dans le flux normal */
 }
 
-/* Modifie la "boîte" de sélection de langue */
+/* Style de la boîte de sélection */
 .goog-te-combo {
     padding: 8px 12px;
-    border-radius: 25px; /* Arrondi moderne */
+    border-radius: 25px;
     border: 1px solid #ddd;
     background-color: #ffffff;
-    color: #333;
     cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    outline: none;
-    transition: all 0.3s ease;
 }
 
-/* Effet au survol pour rester cohérent avec vos autres boutons */
-.goog-te-combo:hover {
-    border-color: #e74c3c; /* Couleur de votre bouton principal */
-}
+/* Masquer les éléments inutiles de Google */
+.goog-te-banner-frame, .skiptranslate, .goog-logo-link { display: none !important; }
+body { top: 0px !important; position: static !important; }
 
-/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
-.goog-logo-link {
-    display: none !important;
-}
-/* On force le conteneur du widget à se placer au centre absolu */
-#google_translate_element {
-    position: static;
-    transform: translateX(-50%);
-    display: flex;
-    z-index: 10; /* Assure que le widget reste bien visible au-dessus */
-}
-body { 
-    top: 0px !important; 
-    position: static !important; 
-}
-/* Bouton d'accès */
+/* Boutons et Modale */
 .inbox-btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
 
-/* Modal (la boîte qui s'ouvre) */
 .modal {
-    display: none; /* Caché par défaut */
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000;
 }
 
-.modal-content {
-    background: white; padding: 30px; border-radius: 16px;
-    width: 90%; max-width: 400px; text-align: center;
+.modal-content { background: white; padding: 30px; border-radius: 16px; width: 90%; max-width: 400px; text-align: center; }
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    color: white; border: none; padding: 10px 20px; border-radius: 25px;
+    font-weight: 600; cursor: pointer; transition: all 0.3s ease;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .admin-nav { flex-direction: column; gap: 10px; }
-}
-.logout-btn {
-    background: linear-gradient(135deg, #ff4757, #ff6b81); /* Dégradé rouge moderne */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px; /* Très arrondi */
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Espace entre texte et icône */
-    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
-}
-
-.logout-btn:hover {
-    transform: translateY(-2px); /* Léger soulèvement au survol */
-    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
-    background: linear-gradient(135deg, #ff6b81, #ff4757);
-}
-
-.logout-btn:active {
-    transform: translateY(0);
+    .admin-nav { flex-direction: column; gap: 15px; }
 }
