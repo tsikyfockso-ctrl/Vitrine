@@ -10,6 +10,7 @@
     <nav class="admin-nav">
         <strong>Mayah Store Admin</strong>
         <div id="google_translate_element"></div>
+        <button id="inboxBtn" class="inbox-btn">Boîte de réception (✉️)</button>
         <button id="logoutBtn" class="logout-btn">Déconnexion</button>
     </nav>
 
@@ -17,10 +18,12 @@
         <h1>Bienvenue dans votre tableau de bord</h1>
         
         <!-- Boîte de réception déplacée ici pour être bien visible -->
-        <div class="admin-inbox">
-            <h3>Boîte de réception</h3>
-            <div id="inbox-messages"></div>
-        </div>
+     <div id="inboxModal" class="modal">
+        <div class="modal-content">
+          <h3>Boîte de réception</h3>
+          <div id="inbox-messages"></div>
+          <button onclick="closeModal()">Fermer</button>
+      </div>
     </main>
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
