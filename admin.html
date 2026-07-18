@@ -7,39 +7,46 @@
     <link rel="stylesheet" href="style-admin.css">
 </head>
 <body>
+
     <nav class="admin-nav">
         <div class="nav-left">
-        <strong>Mayah Store Admin</strong>
-        <div id="google_translate_element"></div>
+            <strong>Mayah Store Admin</strong>
+            <!-- ID unique pour le traducteur, dans le flux normal -->
+            <div id="google_translate_element"></div>
         </div>
+
         <div class="nav-right">
-        <button id="inboxBtn" class="inbox-btn">Boîte de réception (✉️)</button>
-        <button id="logoutBtn" class="logout-btn">Déconnexion</button>
+            <button id="inboxBtn" class="inbox-btn">Boîte de réception (✉️)</button>
+            <button id="logoutBtn" class="logout-btn">Déconnexion 🚪</button>
         </div>
     </nav>
 
     <main>
         <h1>Bienvenue dans votre tableau de bord</h1>
         
-        <!-- Boîte de réception déplacée ici pour être bien visible -->
-     <div id="inboxModal" class="modal">
-        <div class="modal-content">
-          <h3>Boîte de réception</h3>
-          <div id="inbox-messages"></div>
-          <button onclick="closeModal()">Fermer</button>
-      </div>
-     </div>
+        <!-- Fenêtre modale de la boîte de réception -->
+        <div id="inboxModal" class="modal">
+            <div class="modal-content">
+                <h3>Boîte de réception</h3>
+                <div id="inbox-messages"></div>
+                <button onclick="closeModal()">Fermer</button>
+            </div>
+        </div>
     </main>
+
+    <!-- 1. Votre script logique -->
     <script src="admin.js"></script>
-     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <script type="text/javascript">
-           function googleTranslateElementInit() {
-             new google.translate.TranslateElement({
-                 pageLanguage: 'fr', 
-                 includedLanguages: 'fr,en,es,it,de', 
-                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                 autoDisplay: false
-             }, 'google_translate_element');
+
+    <!-- 2. Script Google Translate (placé après admin.js pour sécurité) -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr', 
+                includedLanguages: 'fr,en,es,it,de', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
         }
     </script>
 </body>
