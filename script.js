@@ -31,4 +31,17 @@ const observer = new MutationObserver(() => {
 });
 
 // Lance la surveillance sur tout le document
-observer.observe(document.body, { childList: true, subtree: true });
+observer.observe(document.body, { childList: true, subtree: true 
+});
+function sendNotificationToAdmin(message, type = "info") {
+    const notification = {
+        message: message,
+        type: type,
+        timestamp: new Date().getTime()
+    };
+    // On enregistre dans la mémoire du navigateur
+    localStorage.setItem("admin_notification", JSON.stringify(notification));
+}
+
+// Exemple : appeler cette fonction quand un client fait une action
+// sendNotificationToAdmin("Un nouveau client a passé commande !", "success");
