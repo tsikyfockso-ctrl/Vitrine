@@ -33,6 +33,12 @@ body {
 .skiptranslate { 
     display: none !important; 
 }
+
+#google_translate_element {
+    display: block !important;
+    margin: 0 10px;
+}
+
 body { 
     top: 0px !important; 
     position: static !important; 
