@@ -62,3 +62,27 @@ body {
 @media (max-width: 600px) {
     .admin-nav { flex-direction: column; gap: 10px; }
 }
+.logout-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b81); /* Dégradé rouge moderne */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Très arrondi */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espace entre texte et icône */
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px); /* Léger soulèvement au survol */
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
+    background: linear-gradient(135deg, #ff6b81, #ff4757);
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+}
