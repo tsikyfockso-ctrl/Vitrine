@@ -57,7 +57,7 @@ body {
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
     display: flex !important;
-    align-items: center;
+    align-items: auto;
     background: transparent;
 }
 
