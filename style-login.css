@@ -25,6 +25,8 @@ body {
 .brand p { font-size: 24px; color: #1c1e21; }
 
 .login-card {
+    margin-top: 50px;
+    margin-left: auto;
     background: white;
     padding: 100px;
     border-radius: 50px;
