@@ -17,6 +17,19 @@ body {
     background: #ffffff; 
     box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
 }
+/* Alignement du groupe de gauche */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre le titre et le traducteur */
+}
+
+/* Alignement du groupe de droite */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 /* Responsive Mobile */
 @media (max-width: 600px) {
 .admin-nav { 
@@ -43,8 +56,8 @@ body {
 }
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
-    display: flex;
-    align-items: auto;
+    display: flex !important;
+    align-items: center;
     background: transparent;
 }
 
