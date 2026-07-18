@@ -75,13 +75,29 @@ body {
 }
 
 /* Boutons et Modale */
-.inbox-btn { 
-    background: #3498db; 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    border-radius: 6px; 
-    cursor: pointer; 
+.inbox-btn {
+    background: linear-gradient(135deg, #3742fa, #5760ff); /* Dégradé bleu électrique */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Forme pilule */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(87, 96, 255, 0.3); /* Ombre bleutée */
+}
+
+.inbox-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(87, 96, 255, 0.4);
+    background: linear-gradient(135deg, #5760ff, #3742fa); /* Inversion du dégradé au survol */
+}
+
+.inbox-btn:active {
+    transform: translateY(0);
 }
 
 .modal {
