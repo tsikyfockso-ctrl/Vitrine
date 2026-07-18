@@ -1,29 +1,29 @@
 document.getElementById('logoutBtn').addEventListener('click', function() {
-    // Supprime la clé qui indique que l'admin est connecté
     localStorage.removeItem("isAdmin");
-    
-    // Redirige l'utilisateur vers la page de login
-    window.location.href ="login.html";
+    window.location.href = "login.html";
 });
+
 function checkAdminNotifications() {
+    const inbox = document.getElementById("inbox-messages");
+    if (!inbox) return;
+
     const data = localStorage.getItem("admin_notification");
     if (data) {
         const note = JSON.parse(data);
-        const inbox = document.getElementById("inbox-messages");
-        
-        // Créer l'élément de message
-        const div = document.createElement("div");
-        div.className = `msg-item ${note.type}`;
-        div.innerHTML = `<strong>Nouveau:</strong> ${note.message} <button onclick="clearNotification()">Supprimer</button>`;
-        
-        inbox.appendChild(div);
+        inbox.innerHTML = `
+            <div class="msg-item ${note.type}">
+                <span><strong>Nouveau:</strong> ${note.message}</span>
+                <button onclick="clearNotification()">Supprimer</button>
+            </div>
+        `;
+    } else {
+        inbox.innerHTML = '<p style="color: #888; text-align: center;">Aucun message reçu.</p>';
     }
 }
 
 function clearNotification() {
     localStorage.removeItem("admin_notification");
-    document.getElementById("inbox-messages").innerHTML = "";
+    checkAdminNotifications();
 }
 
-// Lancer la vérification au chargement de la page admin
-window.onload = checkAdminNotifications;
+document.addEventListener('DOMContentLoaded', checkAdminNotifications);
