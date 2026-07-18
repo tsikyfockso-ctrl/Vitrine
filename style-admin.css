@@ -85,12 +85,10 @@ body {
 }
 /* On force le conteneur du widget à se placer au centre absolu */
 #google_translate_element {
-    position: absolute;
-    left: 50%;
+    position: static;
     transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+    z-index: 10; /* Assure que le widget reste bien visible au-dessus */
 }
 body { 
     top: 0px !important; 
