@@ -2,37 +2,33 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-    <style>
-        .admin-nav { display: flex; justify-content: space-between; padding: 20px; background: #fff; border-bottom: 2px solid #eee; }
-        .logout-btn { background: #f02849; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
-    </style>
+    <link rel="stylesheet" href="style-admin.css">
 </head>
 <body>
     <nav class="admin-nav">
         <strong>Mayah Store Admin</strong>
-        <div class="admin-inbox">
-    <h3>Boîte de réception Admin</h3>
-    <div id="inbox-messages"></div>
-        </div>
         <div id="google_translate_element"></div>
-        <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'fr',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <div style="display: flex; align-items: center; gap: 15px;">
         <button id="logoutBtn" class="logout-btn">Déconnexion</button>
-        </div>
     </nav>
-    <main style="padding: 20px;">
+
+    <main>
         <h1>Bienvenue dans votre tableau de bord</h1>
+        
+        <!-- Boîte de réception déplacée ici pour être bien visible -->
+        <div class="admin-inbox">
+            <h3>Boîte de réception</h3>
+            <div id="inbox-messages"></div>
+        </div>
     </main>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr', autoDisplay: false}, 'google_translate_element');
+        }
+    </script>
     <script src="admin.js"></script>
 </body>
 </html>
