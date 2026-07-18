@@ -31,3 +31,11 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
 
 // Exemple : Notification d'erreur
 // showNotification("Erreur lors de la sauvegarde", "error");
+// Test manuel
+const container = document.getElementById('notification-container');
+const note = document.createElement('div');
+note.style.background = 'red';
+note.style.color = 'white';
+note.style.padding = '20px';
+note.innerText = "TEST DE NOTIFICATION";
+container.appendChild(note);
