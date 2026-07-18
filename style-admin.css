@@ -37,11 +37,14 @@ body {
 #google_translate_element {
     display: block !important;
     margin: 0 10px;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 100px; /* Assure que le bouton a une taille */
 }
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
     display: flex;
-    align-items: center;
+    align-items: auto;
     background: transparent;
 }
 
