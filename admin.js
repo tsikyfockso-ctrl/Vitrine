@@ -16,7 +16,7 @@ function showNotification(message, type = 'success') {
     // Supprime la notification après 3 secondes
     setTimeout(() => {
         note.remove();
-    }, 3000000);
+    }, 3000);
 }
 // Exemple : Notification lors de la déconnexion
 document.getElementById('logoutBtn').addEventListener('click', function() {
@@ -28,14 +28,3 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
         window.location.href = "login.html";
     }, 1000);
 });
-
-// Exemple : Notification d'erreur
-// showNotification("Erreur lors de la sauvegarde", "error");
-// Test manuel
-const container = document.getElementById('notification-container');
-const note = document.createElement('div');
-note.style.background = 'red';
-note.style.color = 'white';
-note.style.padding = '20px';
-note.innerText = "TEST DE NOTIFICATION";
-container.appendChild(note);
