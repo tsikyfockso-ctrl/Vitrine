@@ -4,8 +4,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    margin: 0 auto;       /* Centre la page */
+    max-width: 1200px;    /* Le site ne dépassera jamais 1200px sur PC */
+    width: 100%;   
 }
 
 .login-container {
@@ -78,3 +79,25 @@ button {
     height: 100%;      /* L'image remplit toute la hauteur du cercle */
     object-fit: cover; /* S'assure que l'image ne soit pas déformée (recadre intelligemment) */
 }
+
+@media (max-width: 768px) {
+    /* 1. Annulation de l'échelle qui rend le site trop petit sur mobile */
+    body {
+        transform: none !important; /* Désactive le scale sur mobile */
+        width: 100% !important;      /* Occupe toute la largeur */
+        overflow-x: hidden;          /* Empêche le débordement horizontal */
+    }
+    /* 2. Adaptation de la navigation */
+    nav {
+        flex-direction: column;      /* Empile les éléments */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-right: 0;
+        margin-left: 0;
+        gap: 10px;
+        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
+        justify-content: center;
+    }
