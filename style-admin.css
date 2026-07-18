@@ -21,10 +21,6 @@ body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; }
     visibility: visible !important;
     opacity: 1 !important;
     position: static !important; /* Important : remet dans le flux normal */
-    /* C'est cette ligne qui déplace tout à droite */
-    margin-left: auto; 
-    /* On ajoute un peu d'espace avec les boutons de droite */
-    margin-right: 20px;
 }
 
 /* Style de la boîte de sélection */
