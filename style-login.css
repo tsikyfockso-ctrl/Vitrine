@@ -26,11 +26,11 @@ body {
 
 .login-card {
     background: white;
-    padding: 200px;
-    border-radius: 100px;
+    padding: 100px;
+    border-radius: 50px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    width: 800px;
-    min-height: 300px;
+    width: 400px;
+    min-height: 200px;
 }
 
 input {
