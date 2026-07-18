@@ -57,9 +57,7 @@ main h1 {
 /* 1. Masquer la bannière Google Translate définitivement */ 
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
-.goog-logo-link,
-.skiptranslate iframe,
-#goog-gt-tt {
+.skiptranslate iframe {
     display: none !important;
 }
 
@@ -68,36 +66,29 @@ body {
     position: static !important;
     margin-top: 0px !important;
 }
-
-/* 2. Moderniser le menu déroulant (le widget) */
-#google_translate_element select {
-    background-color: #ffffff;
-    border: 1px solid #dddfe2;
+/* Style moderne pour le conteneur du widget */
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+/* Modifie la "boîte" de sélection de langue */
+.goog-te-combo {
     padding: 8px 12px;
-    border-radius: 8px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    border-radius: 25px; /* Arrondi moderne */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
     cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+}
+/* Effet au survol pour rester cohérent avec vos autres boutons */
+.goog-te-combo:hover {
+    border-color: #e74c3c; /* Couleur de votre bouton principal */
 }
 /* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
 .goog-logo-link {
     display: none !important;
-}
-#google_translate_element select:hover {
-    border-color: #1877f2;
-}
-
-/* Cacher le texte "Powered by" */
-.goog-te-gadget {
-    font-size: 0 !important;
-}
-/* Style moderne pour le select */
-.goog-te-combo {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #dddfe2;
-    background: white;
-    cursor: pointer;
 }
