@@ -123,3 +123,22 @@ body {
 .notification.fade-out {
     opacity: 0;
 }
+.admin-inbox {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.msg-item {
+    padding: 15px;
+    background: #eef2f3;
+    border-left: 5px solid #3498db;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.msg-item.success { border-left-color: #28a745; }
+.msg-item.error { border-left-color: #dc3545; }
