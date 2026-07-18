@@ -1,18 +1,36 @@
 /* Nettoyage de la syntaxe de base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+   margin: 0; 
+   padding: 0; 
+   box-sizing: border-box; 
+}
 
-body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; }
-
+body { 
+    font-family: Helvetica, Arial, sans-serif; 
+    background-color: #f0f2f5; 
+}
 .admin-nav { 
-    display: flex; justify-content: space-between; align-items: center; 
-    padding: 15px 40px; background: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 40px; 
+    background: #ffffff; 
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
 }
 
 /* Groupe gauche : Logo + Traducteur */
-.nav-left { display: flex; align-items: center; gap: 20px; }
+.nav-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
 
 /* Groupe droit : Boutons */
-.nav-right { display: flex; align-items: center; gap: 15px; }
+.nav-right { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
 
 /* Correction unique pour Google Translate */
 #google_translate_element {
@@ -33,26 +51,63 @@ body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; }
 }
 
 /* Masquer les éléments inutiles de Google */
-.goog-te-banner-frame, .skiptranslate, .goog-logo-link { display: none !important; }
-body { top: 0px !important; position: static !important; }
-
-/* Boutons et Modale */
-.inbox-btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
-
-.modal {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000;
+.goog-te-banner-frame, 
+.skiptranslate, 
+.goog-logo-link { 
+    display: none !important; 
+}
+body { 
+    top: 0px !important; 
+    position: static !important;
 }
 
-.modal-content { background: white; padding: 30px; border-radius: 16px; width: 90%; max-width: 400px; text-align: center; }
+/* Boutons et Modale */
+.inbox-btn { 
+    background: #3498db; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5); 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000;
+}
+
+.modal-content { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 16px; 
+    width: 90%; 
+    max-width: 400px; 
+    text-align: center;
+}
 
 .logout-btn {
     background: linear-gradient(135deg, #ff4757, #ff6b81);
-    color: white; border: none; padding: 10px 20px; border-radius: 25px;
-    font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 25px;
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .admin-nav { flex-direction: column; gap: 15px; }
+    .admin-nav { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
 }
