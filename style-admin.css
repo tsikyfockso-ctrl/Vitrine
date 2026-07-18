@@ -38,7 +38,44 @@ body {
     display: block !important;
     margin: 0 10px;
 }
+/* Style moderne pour le conteneur du widget */
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
 
+/* Modifie la "boîte" de sélection de langue */
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 25px; /* Arrondi moderne */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol pour rester cohérent avec vos autres boutons */
+.goog-te-combo:hover {
+    border-color: #e74c3c; /* Couleur de votre bouton principal */
+}
+
+/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
+.goog-logo-link {
+    display: none !important;
+}
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
 body { 
     top: 0px !important; 
     position: static !important; 
