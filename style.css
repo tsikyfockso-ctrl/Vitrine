@@ -336,3 +336,13 @@ nav {
     border-radius: 8px;
     cursor: pointer;
 }
+.msg-card {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.comment-panel {
+    /* Vos styles existants... */
+    max-height: 400px;
+    overflow-y: auto;
+}
