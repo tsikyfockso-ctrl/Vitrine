@@ -49,15 +49,30 @@ function checkAdminNotifications() {
 
 // Fonction pour ouvrir une nouvelle fenêtre
 function openMessageWindow(index) {
-    const messages = JSON.parse(localStorage.getItem("admin_messages_list"));
-    const note = messages[index];
-    
-    // Création d'une fenêtre éphémère
-    const win = window.open("", "_blank", "width=400,height=300");
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
+    let note = messages[index];
+
+    const win = window.open("", "_blank", "width=400,height=400");
     win.document.write(`
         <h3>Message de ${note.nom}</h3>
-        <p>${note.message}</p>
+        <p><strong>Client :</strong> ${note.message}</p>
         <hr>
-        <button onclick="window.close()">Fermer</button>
+        <textarea id="replyText" placeholder="Votre réponse...">${note.reponse || ''}</textarea><br>
+        <button onclick="saveReply(${index})">Envoyer la réponse</button>
+        <script>
+            function saveReply(idx) {
+                const rep = document.getElementById('replyText').value;
+                window.opener.updateReply(idx, rep);
+                window.close();
+            }
+        </script>
     `);
 }
+
+// Fonction appelée par la fenêtre éphémère pour mettre à jour le stockage
+window.updateReply = function(index, rep) {
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
+    messages[index].reponse = rep;
+    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
+    alert("Réponse enregistrée !");
+};
