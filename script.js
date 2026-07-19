@@ -1,77 +1,67 @@
-// Remplacez votre ancienne injection de produits statiques par ceci :
-async function loadProductsFromStock() {
-const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
-const container = document.getElementById('product-container');
-try {
-const response = await fetch(url);
-const stock = await response.json();
-container.innerHTML = stock.map(p => `
-
-${p.nom}
-
-Prix : ${p.prix}€
-
-Ajouter au panier
-
-`).join('');
-} catch (error) {
-console.error("Erreur de chargement :", error);
-}
-}
-
-// Appeler cette fonction au chargement de index.html
+// --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
     loadClientMessages();
     loadProductsFromStock();
+    initEventListeners();
 };
 
-// Interaction simple
-document.getElementById('cta-btn').addEventListener('click', () => {
-    document.querySelector('#produits').scrollIntoView({ behavior: 'smooth' });
-});
-// Surveille l'apparition du bandeau Google et le supprime
-const observer = new MutationObserver(() => {
-    const banner = document.querySelector('.goog-te-banner-frame');
-    if (banner) {
-        banner.style.display = 'none';
-        document.body.style.top = '0px';
-    }
-});
+// --- 2. GESTION DES PRODUITS (GOOGLE SHEETS) ---
+async function loadProductsFromStock() {
+    const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
+    const container = document.getElementById('product-container');
+    if (!container) return;
 
-// Lance la surveillance sur tout le document
-observer.observe(document.body, { childList: true, subtree: true 
-});
-function sendNotificationToAdmin(message, type = "info") {
-    const notification = {
-        message: message,
-        type: type,
-        timestamp: new Date().getTime()
-    };
-    // On enregistre dans la mémoire du navigateur
-    localStorage.setItem("admin_notification", JSON.stringify(notification));
+    try {
+        const response = await fetch(url);
+        const stock = await response.json();
+        
+        container.innerHTML = stock.map(p => `
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="${p.img}" alt="${p.nom}">
+                </div>
+                <h3>${p.nom}</h3>
+                <p>Prix : ${p.prix}€</p>
+                <button>Ajouter au panier</button>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error("Erreur de chargement des produits :", error);
+    }
 }
 
-// Charger les messages au démarrage de la page
-window.onload = loadClientMessages;
-// Rafraîchissement automatique toutes les 2 secondes
-setInterval(loadClientMessages, 2000);
+// --- 3. ÉVÉNEMENTS INTERACTIFS (Correction erreur null) ---
+function initEventListeners() {
+    const ctaBtn = document.getElementById('cta-btn');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            const produitsSection = document.querySelector('#produits');
+            if (produitsSection) {
+                produitsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+}
 
+// --- 4. MESSAGERIE CLIENT ---
 function sendComment() {
-    const name = document.getElementById("userName").value;
-    const msg = document.getElementById("userMsg").value;
-    if (!name || !msg) return alert("Remplissez tout");
+    const nameInput = document.getElementById("userName");
+    const msgInput = document.getElementById("userMsg");
+    
+    if (!nameInput.value || !msgInput.value) return alert("Veuillez remplir votre nom et message.");
 
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     messages.push({
-        nom: name,
-        message: msg,
+        nom: nameInput.value,
+        message: msgInput.value,
         date: new Date().toLocaleDateString(),
         reponse: "",
         lu: false
     });
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    document.getElementById("userName").value = "";
-    document.getElementById("userMsg").value = "";
+    
+    nameInput.value = "";
+    msgInput.value = "";
     loadClientMessages();
 }
 
@@ -79,10 +69,24 @@ function loadClientMessages() {
     const container = document.getElementById("client-messages");
     if (!container) return;
     const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+    
     container.innerHTML = messages.map(m => `
         <div class="msg-card">
             <p><strong>${m.nom} :</strong> ${m.message}</p>
-            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente...</em></p>'}
+            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente de réponse...</em></p>'}
         </div>
     `).join('');
 }
+
+// Rafraîchissement automatique des messages
+setInterval(loadClientMessages, 2000);
+
+// --- 5. DIVERS (Bandeau Google) ---
+const observer = new MutationObserver(() => {
+    const banner = document.querySelector('.goog-te-banner-frame');
+    if (banner) {
+        banner.style.display = 'none';
+        document.body.style.top = '0px';
+    }
+});
+observer.observe(document.body, { childList: true, subtree: true });
