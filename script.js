@@ -1,21 +1,22 @@
-const produits = [
-    { nom: "Produit A", prix: "29€" },
-    { nom: "Produit B", prix: "45€" },
-    { nom: "Produit C", prix: "19€" }
-];
-
-const container = document.getElementById('product-container');
-
-// Injection dynamique des produits
-produits.forEach(p => {
-    container.innerHTML += `
+// Remplacez votre ancienne injection de produits statiques par ceci :
+function loadProductsFromStock() {
+    const container = document.getElementById('product-container');
+    const stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
+    
+    container.innerHTML = stock.map(p => `
         <div class="card">
             <h3>${p.nom}</h3>
-            <p>Prix : ${p.prix}</p>
+            <p>Prix : ${p.prix}€</p>
             <button>Ajouter au panier</button>
         </div>
-    `;
-});
+    `).join('');
+}
+
+// Appeler cette fonction au chargement de index.html
+window.onload = () => {
+    loadClientMessages();
+    loadProductsFromStock();
+};
 
 // Interaction simple
 document.getElementById('cta-btn').addEventListener('click', () => {
