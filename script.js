@@ -63,6 +63,7 @@ function sendComment() {
         message: msg,
         date: new Date().toLocaleDateString(),
         reponse: "" 
+        lu: false // Nouveau message = non lu
     });
 
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
