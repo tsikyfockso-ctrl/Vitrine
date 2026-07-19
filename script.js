@@ -45,3 +45,17 @@ function sendNotificationToAdmin(message, type = "info") {
 
 // Exemple : appeler cette fonction quand un client fait une action
 // sendNotificationToAdmin("Un nouveau client a passé commande !", "success");
+
+function sendComment() {
+    const msg = document.getElementById("userMsg").value;
+    if (msg) {
+        const notification = {
+            message: msg,
+            date: new Date().toLocaleDateString()
+        };
+        // On sauvegarde le message pour qu'il soit lu par admin.html
+        localStorage.setItem("admin_notification", JSON.stringify(notification));
+        alert("Message envoyé à l'administration !");
+        document.getElementById("userMsg").value = "";
+    }
+}
