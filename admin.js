@@ -25,16 +25,18 @@ function checkAdminNotifications() {
         let messages = JSON.parse(data);
         inbox.innerHTML = ""; 
         
+        // Remplacez votre boucle forEach actuelle par ceci pour inclure le bouton :
         messages.forEach((note, index) => {
-            const div = document.createElement("div");
-            div.innerHTML = `
-                <div style="padding:10px; border:1px solid #ccc; margin:5px;">
-                    <p><strong>${note.nom} :</strong> ${note.message}</p>
-                    <button onclick="openMessageWindow(${index})">Répondre</button>
-                </div>
-            `;
-            inbox.appendChild(div);
-        });
+          const div = document.createElement("div");
+          div.className = "msg-item";
+          div.innerHTML = `
+         <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
+            <a href="#" onclick="openMessageWindow('${index}')" style="font-weight:bold;">${note.nom}</a>
+            <button class="delete-btn" onclick="deleteMessage(${index})">Effacer</button>
+        </div>
+    `;
+    inbox.appendChild(div);
+});
     }
 }
 
@@ -56,6 +58,16 @@ function openMessageWindow(index) {
             }
         </script>
     `);
+}
+
+function deleteMessage(index) {
+    if (confirm("Voulez-vous vraiment supprimer ce message ?")) {
+        let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+        messages.splice(index, 1); // Retire l'objet à l'index donné
+        localStorage.setItem("admin_messages_list", JSON.stringify(messages));
+        checkAdminNotifications(); // Rafraîchit l'affichage
+        alert("Message supprimé.");
+    }
 }
 
 // Mise à jour et fermeture
