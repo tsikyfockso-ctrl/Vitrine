@@ -36,7 +36,16 @@ function checkAdminNotifications() {
         const div = document.createElement("div");
         div.style.padding = "10px";
         div.style.borderBottom = "1px solid #eee";
-        div.innerHTML = `${point} <a href="#" onclick="openMessageAndMarkRead(${index})" style="font-weight:${note.lu ? 'normal' : 'bold'}">${note.nom}</a> <button onclick="deleteMessage(${index})">Effacer</button>`;
+        div.innerHTML = `
+          <div style="display: flex; align-items: center;">
+            ${point} <a href="#" onclick="openMessageAndMarkRead(${index})" style="font-weight:${note.lu ? 'normal' : 'bold'}; text-decoration:none;">${note.nom}
+            </a>
+            </div>
+            <p style="margin: 5px 0 10px 25px; font-size: 0.9em; color: #555;">
+                "${note.message}"
+            </p>
+            <button onclick="deleteMessage(${index})" style="margin-left: 25px;">Effacer</button>`;
+        
         inbox.appendChild(div);
     });
 }
