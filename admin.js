@@ -79,3 +79,28 @@ function deleteMessage(index) {
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
     checkAdminNotifications();
 }
+
+function openMessageWindow(index) {
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
+    let note = messages[index];
+
+    const win = window.open("", "_blank", "width=400,height=400");
+    win.document.write(`
+        <div style="padding: 20px;">
+            <h3>Répondre à ${note.nom}</h3>
+            <div style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                <strong>Message du client :</strong><br>
+                ${note.message}
+            </div>
+            <textarea id="replyText" style="width:100%; height:100px;" placeholder="Votre réponse ici...">${note.reponse || ''}</textarea><br><br>
+            <button onclick="saveAndClose()">Envoyer</button>
+        </div>
+        <script>
+            function saveAndClose() {
+                const rep = document.getElementById('replyText').value;
+                window.opener.updateReply(${index}, rep);
+                window.close();
+            }
+        </script>
+    `);
+}
