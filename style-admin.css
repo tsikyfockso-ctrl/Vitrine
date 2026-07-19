@@ -160,3 +160,17 @@ body {
         gap: 15px;
         padding: 15px;
     }
+.delete-btn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #ff6b81;
+}
