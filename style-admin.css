@@ -88,6 +88,8 @@ body {
     align-items: center;
     gap: 8px;
     box-shadow: 0 4px 10px rgba(87, 96, 255, 0.3); /* Ombre bleutée */
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .inbox-btn:hover {
