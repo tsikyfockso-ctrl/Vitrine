@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="Mayah Store" />
 <link rel="manifest" href="site.webmanifest" />
 </head>
-<body>
+<body onload="loadClientMessages()">
     <nav>
         <div class="logo-container"></div>
         <ul class="nav-links">
@@ -76,7 +76,7 @@ function googleTranslateElementInit() {
     
     <textarea id="userMsg" placeholder="Votre message ici..." required></textarea>
     <button onclick="sendComment()">Envoyer</button>
-        
+    
     <hr>
     <h3>Vos messages</h3> 
     <div id="client-messages"></div>
