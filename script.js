@@ -55,14 +55,15 @@ function sendComment() {
         alert("Veuillez remplir votre nom et votre message.");
         return;
     }
-
-    const notification = {
-        nom: name, // On enregistre le nom
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+    
+    messages.push({
+        nom: name,
         message: msg,
         date: new Date().toLocaleDateString()
-    };
+    });
 
-    localStorage.setItem("admin_notification", JSON.stringify(notification));
+    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
     alert("Merci " + name + ", votre message a été envoyé !");
     
     // Réinitialisation
