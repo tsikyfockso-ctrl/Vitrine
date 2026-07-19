@@ -113,3 +113,43 @@ function deleteMessage(index) {
 // Lancer la surveillance
 setInterval(updateNotificationBadge, 2000);
 updateNotificationBadge();
+
+// Fonction pour ajouter un produit
+function addProduct() {
+    const name = document.getElementById("prodName").value;
+    const price = document.getElementById("prodPrice").value;
+    
+    if (!name || !price) return alert("Remplissez les champs");
+
+    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
+    stock.push({ nom: name, prix: price });
+    localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
+    
+    document.getElementById("prodName").value = "";
+    document.getElementById("prodPrice").value = "";
+    loadStock(); // Rafraîchir l'affichage
+}
+
+// Fonction pour charger et afficher le stock
+function loadStock() {
+    const stockList = document.getElementById("stock-list");
+    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
+    
+    stockList.innerHTML = stock.map((p, index) => `
+        <div style="padding: 10px; border-bottom: 1px solid #ccc;">
+            ${p.nom} - ${p.prix}€ 
+            <button onclick="removeProduct(${index})">Supprimer</button>
+        </div>
+    `).join('');
+}
+
+// Fonction pour supprimer un produit
+function removeProduct(index) {
+    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
+    stock.splice(index, 1);
+    localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
+    loadStock();
+}
+
+// Charger le stock au démarrage de la page admin
+loadStock();
