@@ -47,15 +47,25 @@ function sendNotificationToAdmin(message, type = "info") {
 // sendNotificationToAdmin("Un nouveau client a passé commande !", "success");
 
 function sendComment() {
+    const name = document.getElementById("userName").value;
     const msg = document.getElementById("userMsg").value;
-    if (msg) {
-        const notification = {
-            message: msg,
-            date: new Date().toLocaleDateString()
-        };
-        // On sauvegarde le message pour qu'il soit lu par admin.html
-        localStorage.setItem("admin_notification", JSON.stringify(notification));
-        alert("Message envoyé à l'administration !");
-        document.getElementById("userMsg").value = "";
+
+    // Vérification : si le nom ou le message est vide, le navigateur affichera une alerte
+    if (!name || !msg) {
+        alert("Veuillez remplir votre nom et votre message.");
+        return;
     }
+
+    const notification = {
+        nom: name, // On enregistre le nom
+        message: msg,
+        date: new Date().toLocaleDateString()
+    };
+
+    localStorage.setItem("admin_notification", JSON.stringify(notification));
+    alert("Merci " + name + ", votre message a été envoyé !");
+    
+    // Réinitialisation
+    document.getElementById("userName").value = "";
+    document.getElementById("userMsg").value = "";
 }
