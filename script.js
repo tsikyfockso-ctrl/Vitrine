@@ -50,36 +50,39 @@ function sendComment() {
     const name = document.getElementById("userName").value;
     const msg = document.getElementById("userMsg").value;
 
-    // Vérification : si le nom ou le message est vide, le navigateur affichera une alerte
     if (!name || !msg) {
         alert("Veuillez remplir votre nom et votre message.");
         return;
     }
+
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
     messages.push({
         nom: name,
         message: msg,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleDateString(),
+        reponse: "" 
     });
 
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    alert("Merci " + name + ", votre message a été envoyé !");
+    alert("Message envoyé !");
     
-    // Réinitialisation
     document.getElementById("userName").value = "";
     document.getElementById("userMsg").value = "";
+    loadClientMessages();
 }
+
 function loadClientMessages() {
     const container = document.getElementById("client-messages");
     const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
     container.innerHTML = messages.map(m => `
-        <div class="msg-card">
-            <p><strong>Vous :</strong> ${m.message}</p>
+        <div class="msg-card" style="border-bottom:1px solid #ccc; padding:5px;">
+            <p><strong>${m.nom} :</strong> ${m.message}</p>
             ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente de réponse...</em></p>'}
         </div>
     `).join('');
 }
-// Charger au démarrage
-loadClientMessages();
+
+// Rafraîchissement automatique toutes les 2 secondes
+setInterval(loadClientMessages, 2000);
