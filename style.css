@@ -346,3 +346,20 @@ nav {
     max-height: 400px;
     overflow-y: auto;
 }
+/* Ciblage spécifique du champ Nom */
+#userName {
+    width: 100%;             /* Prend toute la largeur disponible */
+    padding: 12px;           /* Espace interne pour que le texte ne soit pas collé aux bords */
+    margin: 8px 0;           /* Espace extérieur (haut/bas) pour le détacher des autres éléments */
+    border: 1px solid #ccc;  /* Bordure fine et discrète */
+    border-radius: 8px;      /* Coins arrondis modernes */
+    box-sizing: border-box;  /* Crucial : empêche le champ de déborder du panneau */
+    font-size: 14px;         /* Taille de police lisible */
+    transition: border-color 0.3s;
+}
+
+/* Effet visuel au clic (focus) */
+#userName:focus {
+    border-color: #3498db;   /* Change de couleur au clic */
+    outline: none;           /* Supprime la bordure bleue par défaut du navigateur */
+}
