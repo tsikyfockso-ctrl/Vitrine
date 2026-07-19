@@ -70,3 +70,16 @@ function sendComment() {
     document.getElementById("userName").value = "";
     document.getElementById("userMsg").value = "";
 }
+function loadClientMessages() {
+    const container = document.getElementById("client-messages");
+    const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+    
+    container.innerHTML = messages.map(m => `
+        <div class="msg-card">
+            <p><strong>Vous :</strong> ${m.message}</p>
+            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente de réponse...</em></p>'}
+        </div>
+    `).join('');
+}
+// Charger au démarrage
+loadClientMessages();
