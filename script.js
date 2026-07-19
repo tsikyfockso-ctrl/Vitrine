@@ -1,19 +1,22 @@
 // Remplacez votre ancienne injection de produits statiques par ceci :
-function loadProductsFromStock() {
-    const container = document.getElementById('product-container');
-    const stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    
-    container.innerHTML = stock.map(p => `
-        <div class="card">
-            <!-- Utilisation du conteneur pour centrer -->
-            <div class="card-img-container">
-                <img src="${p.img}" alt="${p.nom}">
-            </div>
-            <h3>${p.nom}</h3>
-            <p>Prix : ${p.prix}€</p>
-            <button>Ajouter au panier</button>
-        </div>
-    `).join('');
+async function loadProductsFromStock() {
+const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
+const container = document.getElementById('product-container');
+try {
+const response = await fetch(url);
+const stock = await response.json();
+container.innerHTML = stock.map(p => `
+
+${p.nom}
+
+Prix : ${p.prix}€
+
+Ajouter au panier
+
+`).join('');
+} catch (error) {
+console.error("Erreur de chargement :", error);
+}
 }
 
 // Appeler cette fonction au chargement de index.html
