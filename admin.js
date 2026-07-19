@@ -118,16 +118,18 @@ updateNotificationBadge();
 function addProduct() {
     const name = document.getElementById("prodName").value;
     const price = document.getElementById("prodPrice").value;
+    const imgUrl = document.getElementById("prodImg").value; // Capture l'URL
     
-    if (!name || !price) return alert("Remplissez les champs");
+    if (!name || !price || !imgUrl) return alert("Veuillez remplir tous les champs (Nom, Prix, Image)");
 
     let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    stock.push({ nom: name, prix: price });
+    stock.push({ nom: name, prix: price, img: imgUrl }); // Ajoute img à l'objet
     localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
     
     document.getElementById("prodName").value = "";
     document.getElementById("prodPrice").value = "";
-    loadStock(); // Rafraîchir l'affichage
+    document.getElementById("prodImg").value = "";
+    loadStock();
 }
 
 // Fonction pour charger et afficher le stock
