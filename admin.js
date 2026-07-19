@@ -41,26 +41,29 @@ function checkAdminNotifications() {
         // Remplacez votre boucle forEach actuelle par ceci pour inclure le bouton :
         messages.forEach((note, index) => {
           const div = document.createElement("div");
-          div.style.display = "flex";
-          div.style.alignItems = "center";
+          div.className = "msg-item";
             
             // Point orange si non lu
           const point = note.lu === false ? '<span style="color:orange; font-size:20px; margin-right:10px;">●</span>' : '';
+          div.style.display = "flex";
+          div.style.alignItems = "center"; 
+          div.style.padding = "10px";
+          div.style.borderBottom = "1px solid #eee";
             
-          div.className = "msg-item";
           div.innerHTML = `
           ${point}
             <a href="#" onclick="openMessageAndMarkRead(${index})" style="font-weight:${note.lu ? 'normal' : 'bold'}">
                 ${note.nom}
             </a>
          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
-            <a href="#" onclick="openMessageWindow('${index}')" style="font-weight:bold;">${note.nom}</a>
+            <a href="#" onclick="openMessageWindow('${index}')" style="font-weight:bold;">${note.nom}
+            </a>
             <button class="delete-btn" onclick="deleteMessage(${index})">Effacer</button>
         </div>
     `;
-    inbox.appendChild(div);
-});
-    }
+         inbox.appendChild(div);
+     });
+   }
 }
     
 // Marquer comme lu quand on ouvre
