@@ -62,7 +62,7 @@ function sendComment() {
         nom: name,
         message: msg,
         date: new Date().toLocaleDateString(),
-        reponse: "" 
+        reponse: "",
         lu: false // Nouveau message = non lu
     });
 
