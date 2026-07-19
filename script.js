@@ -45,30 +45,23 @@ function sendNotificationToAdmin(message, type = "info") {
 
 // Charger les messages au démarrage de la page
 window.onload = loadClientMessages;
-// Exemple : appeler cette fonction quand un client fait une action
-// sendNotificationToAdmin("Un nouveau client a passé commande !", "success");
+// Rafraîchissement automatique toutes les 2 secondes
+setInterval(loadClientMessages, 2000);
+
 function sendComment() {
     const name = document.getElementById("userName").value;
     const msg = document.getElementById("userMsg").value;
-
-    if (!name || !msg) {
-        alert("Veuillez remplir votre nom et votre message.");
-        return;
-    }
+    if (!name || !msg) return alert("Remplissez tout");
 
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    
     messages.push({
         nom: name,
         message: msg,
         date: new Date().toLocaleDateString(),
         reponse: "",
-        lu: false // Nouveau message = non lu
+        lu: false
     });
-
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    alert("Message envoyé !");
-    
     document.getElementById("userName").value = "";
     document.getElementById("userMsg").value = "";
     loadClientMessages();
@@ -76,15 +69,12 @@ function sendComment() {
 
 function loadClientMessages() {
     const container = document.getElementById("client-messages");
+    if (!container) return;
     const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    
     container.innerHTML = messages.map(m => `
-        <div class="msg-card" style="border-bottom:1px solid #ccc; padding:5px;">
+        <div class="msg-card">
             <p><strong>${m.nom} :</strong> ${m.message}</p>
-            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente de réponse...</em></p>'}
+            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente...</em></p>'}
         </div>
     `).join('');
 }
-
-// Rafraîchissement automatique toutes les 2 secondes
-setInterval(loadClientMessages, 2000);
