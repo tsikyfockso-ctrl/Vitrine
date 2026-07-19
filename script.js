@@ -43,9 +43,10 @@ function sendNotificationToAdmin(message, type = "info") {
     localStorage.setItem("admin_notification", JSON.stringify(notification));
 }
 
+// Charger les messages au démarrage de la page
+window.onload = loadClientMessages;
 // Exemple : appeler cette fonction quand un client fait une action
 // sendNotificationToAdmin("Un nouveau client a passé commande !", "success");
-
 function sendComment() {
     const name = document.getElementById("userName").value;
     const msg = document.getElementById("userMsg").value;
