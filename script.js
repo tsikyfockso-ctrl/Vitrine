@@ -5,6 +5,8 @@ function loadProductsFromStock() {
     
     container.innerHTML = stock.map(p => `
         <div class="card">
+            <!-- Affichage de l'image -->
+            <img src="${p.img}" alt="${p.nom}" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
             <h3>${p.nom}</h3>
             <p>Prix : ${p.prix}€</p>
             <button>Ajouter au panier</button>
