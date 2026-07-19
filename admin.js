@@ -18,11 +18,46 @@ function closeModal() {
 // Fonction de vérification (inchangée)
 function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
-    const data = localStorage.getItem("admin_notification");
+    // On récupère la liste complète des messages (supposons qu'ils soient stockés dans "admin_messages_list")
+    const data = localStorage.getItem("admin_messages_list");
+    
     if (data) {
-        const note = JSON.parse(data);
-        inbox.innerHTML = `<div class="msg-item">${note.message} <button onclick="clearNotification()">Supprimer</button></div>`;
+        let messages = JSON.parse(data);
+        
+        // 1. Tri par nom alphabétique
+        messages.sort((a, b) => a.nom.localeCompare(b.nom));
+        
+        inbox.innerHTML = ""; // Vider la liste
+        
+        messages.forEach((note, index) => {
+            const div = document.createElement("div");
+            div.className = "msg-item";
+            
+            // 2. Création du lien qui ouvre le message dans une nouvelle fenêtre
+            div.innerHTML = `
+                <a href="#" onclick="openMessageWindow('${index}')" style="font-weight:bold; cursor:pointer;">
+                    ${note.nom}
+                </a> 
+                <small>(${note.date})</small>
+            `;
+            inbox.appendChild(div);
+        });
     } else {
         inbox.innerHTML = '<p>Aucun message.</p>';
     }
+}
+
+// Fonction pour ouvrir une nouvelle fenêtre
+function openMessageWindow(index) {
+    const messages = JSON.parse(localStorage.getItem("admin_messages_list"));
+    const note = messages[index];
+    
+    // Création d'une fenêtre éphémère
+    const win = window.open("", "_blank", "width=400,height=300");
+    win.document.write(`
+        <h3>Message de ${note.nom}</h3>
+        <p>${note.message}</p>
+        <hr>
+        <button onclick="window.close()">Fermer</button>
+    `);
 }
