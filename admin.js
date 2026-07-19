@@ -15,6 +15,19 @@ function closeModal() {
     modal.style.display = "none";
 }
 
+// Affiche le compteur de messages non lus sur le bouton Admin
+function updateNotificationBadge() {
+    const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+    const nonLus = messages.filter(m => m.lu === false).length;
+    const btn = document.getElementById("inboxBtn");
+    
+    if (nonLus > 0) {
+        btn.innerHTML = `Boîte de réception (${nonLus})`;
+        btn.style.borderColor = "orange"; // Indique visuellement qu'il y a du nouveau
+    } else {
+        btn.innerHTML = `Boîte de réception`;
+    }
+    
 // Fonction de vérification (inchangée)
 // Fonction appelée par le bouton "Boîte de réception"
 function checkAdminNotifications() {
@@ -28,8 +41,18 @@ function checkAdminNotifications() {
         // Remplacez votre boucle forEach actuelle par ceci pour inclure le bouton :
         messages.forEach((note, index) => {
           const div = document.createElement("div");
+          div.style.display = "flex";
+          div.style.alignItems = "center";
+            
+            // Point orange si non lu
+          const point = note.lu === false ? '<span style="color:orange; font-size:20px; margin-right:10px;">●</span>' : '';
+            
           div.className = "msg-item";
           div.innerHTML = `
+          ${point}
+            <a href="#" onclick="openMessageAndMarkRead(${index})" style="font-weight:${note.lu ? 'normal' : 'bold'}">
+                ${note.nom}
+            </a>
          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
             <a href="#" onclick="openMessageWindow('${index}')" style="font-weight:bold;">${note.nom}</a>
             <button class="delete-btn" onclick="deleteMessage(${index})">Effacer</button>
@@ -39,7 +62,16 @@ function checkAdminNotifications() {
 });
     }
 }
-
+    
+// Marquer comme lu quand on ouvre
+function openMessageAndMarkRead(index) {
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
+    messages[index].lu = true; // Marquer comme lu
+    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
+    updateNotificationBadge(); // Met à jour le compteur
+    openMessageWindow(index); // Ouvre la fenêtre de réponse
+}
+    
 // Ouvrir la fenêtre de réponse
 function openMessageWindow(index) {
     let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
