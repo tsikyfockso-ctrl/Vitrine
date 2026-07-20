@@ -47,16 +47,15 @@ async function loadProductsFromStock() {
 // Fonction d'affichage sécurisée avec image de secours
 function renderProducts(stock, container) {
     container.innerHTML = stock.map(p => {
-        // Image de secours si p.img est vide ou cassé
-        const imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        console.log("Nom:", p.nom, "| Lien image reçu:", p.img); // <-- Cette ligne va parler dans la console
         
         return `
             <div class="card">
                 <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
+                    <img src="${p.img}" alt="${p.nom}" onerror="this.style.border='2px solid red'; console.error('Erreur chargement image pour:', '${p.nom}');">
                 </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
-                <p>Prix : ${p.prix || '0'}€</p>
+                <h3>${p.nom}</h3>
+                <p>Prix : ${p.prix}€</p>
                 <button>Ajouter au panier</button>
             </div>
         `;
