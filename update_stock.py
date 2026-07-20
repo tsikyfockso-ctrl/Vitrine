@@ -4,10 +4,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 try:
-    scope = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive"
-]
+    scope = ["https://docs.google.com/spreadsheets/d/1jtPRVyTlctnwKIWphULrT2SjcZtsm-BYEILlYOGeai0/edit?usp=sharing"]
     creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
     
     if not creds_json:
