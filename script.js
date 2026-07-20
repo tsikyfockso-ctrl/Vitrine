@@ -11,23 +11,46 @@ async function loadProductsFromStock() {
     const container = document.getElementById('product-container');
     if (!container) return;
 
+    // A. AFFICHAGE INSTANTANÉ DEPUIS LE CACHE (si disponible)
+    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
+    if (cachedStock) {
+        const stock = JSON.parse(cachedStock);
+        renderProducts(stock, container);
+    } else {
+        // Sinon, afficher un message de chargement rapide
+        container.innerHTML = `<p style="text-align:center; width:100%; grid-column: 1/-1;">Chargement des produits en cours...</p>`;
+    }
+
+    // B. CHARGEMENT EN ARRIÈRE-PLAN DEPUIS GOOGLE SHEETS
     try {
         const response = await fetch(url);
         const stock = await response.json();
         
-        container.innerHTML = stock.map(p => `
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="${p.img}" alt="${p.nom}">
-                </div>
-                <h3>${p.nom}</h3>
-                <p>Prix : ${p.prix}€</p>
-                <button>Ajouter au panier</button>
-            </div>
-        `).join('');
+        // Sauvegarde dans le cache du navigateur pour la prochaine fois
+        localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
+        
+        // Rafraîchir l'affichage avec les données fraîches
+        renderProducts(stock, container);
     } catch (error) {
         console.error("Erreur de chargement des produits :", error);
+        if (!cachedStock) {
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits pour le moment.</p>`;
+        }
     }
+}
+
+// Fonction utilitaire pour éviter de répéter le code HTML des cartes
+function renderProducts(stock, container) {
+    container.innerHTML = stock.map(p => `
+        <div class="card">
+            <div class="card-img-container">
+                <img src="${p.img}" alt="${p.nom}">
+            </div>
+            <h3>${p.nom}</h3>
+            <p>Prix : ${p.prix}€</p>
+            <button>Ajouter au panier</button>
+        </div>
+    `).join('');
 }
 
 // --- 3. ÉVÉNEMENTS INTERACTIFS (Correction erreur null) ---
