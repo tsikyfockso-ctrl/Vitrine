@@ -305,26 +305,111 @@ nav {
         text-align: center;
     }
 }
+
+/* Conteneur pour l'image dans la carte */
+.card-img-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
+}
+
+/* Style de l'image elle-même */
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
+    object-position: center;  /* Centre le sujet principal de l'image */
+    transition: transform 0.3s ease;
+}
+
+/* Effet zoom sympa au survol (optionnel) */
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+/* Conteneur pour l'image dans la carte */
+.card-img-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
+}
+
+/* Style de l'image elle-même */
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
+    object-position: center;  /* Centre le sujet principal de l'image */
+    transition: transform 0.3s ease;
+}
+
+/* Effet zoom sympa au survol (optionnel) */
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+/* Bouton bulle de discussion flottante */
+#chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+#chat-bubble:hover {
+    transform: scale(1.05);
+}
+
+/* Panneau de discussion transformé en popup de chat */
 .comment-panel {
     position: fixed;
+    bottom: 90px;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 250px;
+    width: 300px;
+    max-width: 90vw;
+    max-height: 450px;
     background: #ffffff;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+/* Classe pour cacher/montrer le chat */
+.chat-hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .comment-panel textarea {
     width: 100%;
-    height: 100px;
+    height: 80px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
+    box-sizing: border-box;
+    resize: none;
 }
 
 .comment-panel button {
@@ -336,76 +421,27 @@ nav {
     border-radius: 8px;
     cursor: pointer;
 }
+
 .msg-card {
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    font-size: 13px;
 }
-.comment-panel {
-    /* Vos styles existants... */
-    max-height: 400px;
-    overflow-y: auto;
-}
+
 /* Ciblage spécifique du champ Nom */
 #userName {
-    width: 100%;             /* Prend toute la largeur disponible */
-    padding: 12px;           /* Espace interne pour que le texte ne soit pas collé aux bords */
-    margin: 8px 0;           /* Espace extérieur (haut/bas) pour le détacher des autres éléments */
-    border: 1px solid #ccc;  /* Bordure fine et discrète */
-    border-radius: 8px;      /* Coins arrondis modernes */
-    box-sizing: border-box;  /* Crucial : empêche le champ de déborder du panneau */
-    font-size: 14px;         /* Taille de police lisible */
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
     transition: border-color 0.3s;
 }
 
-/* Effet visuel au clic (focus) */
 #userName:focus {
-    border-color: #3498db;   /* Change de couleur au clic */
-    outline: none;           /* Supprime la bordure bleue par défaut du navigateur */
-}
-/* Conteneur pour l'image dans la carte */
-.card-img-container {
-    width: 100%;
-    height: 200px; /* Hauteur fixe pour toutes les cartes */
-    overflow: hidden; /* Cache ce qui dépasse */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
-}
-
-/* Style de l'image elle-même */
-.card-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
-    object-position: center;  /* Centre le sujet principal de l'image */
-    transition: transform 0.3s ease;
-}
-
-/* Effet zoom sympa au survol (optionnel) */
-.card:hover .card-img-container img {
-    transform: scale(1.05);
-}
-/* Conteneur pour l'image dans la carte */
-.card-img-container {
-    width: 100%;
-    height: 200px; /* Hauteur fixe pour toutes les cartes */
-    overflow: hidden; /* Cache ce qui dépasse */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
-}
-
-/* Style de l'image elle-même */
-.card-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
-    object-position: center;  /* Centre le sujet principal de l'image */
-    transition: transform 0.3s ease;
-}
-
-/* Effet zoom sympa au survol (optionnel) */
-.card:hover .card-img-container img {
-    transform: scale(1.05);
+    border-color: #3498db;
+    outline: none;
 }
