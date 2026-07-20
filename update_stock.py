@@ -1,37 +1,19 @@
-import os
+import requests
 import json
-import gspread
-from google.oauth2.service_account import Credentials
+
+# Remplacez cette URL par l'URL de votre application web Google Apps Script (celle de votre déploiement)
+WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
+
+nouveau_produit = {
+    "nom": "Produit Automatisé Mayah",
+    "prix": "29.99",
+    "img": "https://url-image.jpg"
+}
 
 try:
-    # 1. Récupérer le secret JSON depuis GitHub
-    creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-    
-    if not creds_json:
-        raise ValueError("Le secret GOOGLE_CREDENTIALS_JSON est introuvable sur GitHub !")
-
-    # 2. Convertir proprement le texte JSON en dictionnaire Python
-    creds_dict = json.loads(creds_json)
-
-    # 3. Définir les permissions nécessaires (Sheets + Drive)
-    scopes = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive"
-    ]
-
-    # 4. Authentification directe via les credentials du compte de service
-    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
-    client = gspread.authorize(creds)
-
-    # 5. Ouvrir votre Google Sheet "BDD_Mayah_Store"
-    sheet = client.open("BDD_Mayah_Store").sheet1
-
-    # 6. Ajouter une ligne de test automatique
-    nouveau_produit = ["Produit Test AliExpress", "19.99", "https://url-image.jpg"]
-    sheet.append_row(nouveau_produit)
-
-    print("Succès : Le stock a été mis à jour dans BDD_Mayah_Store !")
-
+    response = requests.post(WEB_APP_URL, json=nouveau_produit)
+    print("Réponse de Google :", response.text)
+    print("Stock mis à jour avec succès via Apps Script !")
 except Exception as e:
-    print(f"Erreur critique : {e}")
+    print(f"Erreur : {e}")
     exit(1)
