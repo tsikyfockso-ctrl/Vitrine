@@ -81,5 +81,24 @@ function googleTranslateElementInit() {
     <h3>Vos messages</h3> 
     <div id="client-messages"></div>
 </div>
+    <!-- Bouton bulle de discussion flottante -->
+<div id="chat-bubble" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Fenêtre de chat rétractable -->
+<div id="chat-popup" class="chat-hidden">
+    <div class="chat-header">
+        <span>Support Mayah Store</span>
+        <button onclick="toggleChat()">✖</button>
+    </div>
+    <div class="chat-body">
+        <p>Bonjour ! Comment pouvons-nous vous aider ?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Écrivez votre message...">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
 </body>
 </html>
