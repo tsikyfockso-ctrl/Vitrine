@@ -11,57 +11,47 @@ async function loadProductsFromStock() {
     const container = document.getElementById('product-container');
     if (!container) return;
 
-    // 1. Charger depuis le cache pour l'affichage immédiat
+    // A. AFFICHAGE INSTANTANÉ DEPUIS LE CACHE (si disponible)
     const cachedStock = localStorage.getItem("cached_aliexpress_stock");
     if (cachedStock) {
-        try {
-            const stock = JSON.parse(cachedStock);
-            if (Array.isArray(stock) && stock.length > 0) {
-                renderProducts(stock, container);
-            }
-        } catch (e) {
-            console.error("Cache invalide, suppression...");
-            localStorage.removeItem("cached_aliexpress_stock");
-        }
+        const stock = JSON.parse(cachedStock);
+        renderProducts(stock, container);
+    } else {
+        // Sinon, afficher un message de chargement rapide
+        container.innerHTML = `<p style="text-align:center; width:100%; grid-column: 1/-1;">Chargement des produits en cours...</p>`;
     }
 
-    // 2. Récupérer les données fraîches depuis Google Sheets
+    // B. CHARGEMENT EN ARRIÈRE-PLAN DEPUIS GOOGLE SHEETS
     try {
         const response = await fetch(url);
         const stock = await response.json();
         
-        if (Array.isArray(stock)) {
-            // Mettre à jour le cache proprement
-            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
-            // Afficher les données à jour
-            renderProducts(stock, container);
-        }
+        // Sauvegarde dans le cache du navigateur pour la prochaine fois
+        localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
+        
+        // Rafraîchir l'affichage avec les données fraîches
+        renderProducts(stock, container);
     } catch (error) {
         console.error("Erreur de chargement des produits :", error);
         if (!cachedStock) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de connexion aux produits.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits pour le moment.</p>`;
         }
     }
 }
 
-// Fonction d'affichage sécurisée avec image de secours
+// Fonction utilitaire pour éviter de répéter le code HTML des cartes
 function renderProducts(stock, container) {
-    container.innerHTML = stock.map(p => {
-        console.log("Nom:", p.nom, "| Lien image reçu:", p.img); // <-- Cette ligne va parler dans la console
-        
-        return `
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="${p.img}" alt="${p.nom}" onerror="this.style.border='2px solid red'; console.error('Erreur chargement image pour:', '${p.nom}');">
-                </div>
-                <h3>${p.nom}</h3>
-                <p>Prix : ${p.prix}€</p>
-                <button>Ajouter au panier</button>
+    container.innerHTML = stock.map(p => `
+        <div class="card">
+            <div class="card-img-container">
+                <img src="${p.img}" alt="${p.nom}">
             </div>
-        `;
-    }).join('');
+            <h3>${p.nom}</h3>
+            <p>Prix : ${p.prix}€</p>
+            <button>Ajouter au panier</button>
+        </div>
+    `).join('');
 }
-
 // --- 3. ÉVÉNEMENTS INTERACTIFS (Correction erreur null) ---
 function initEventListeners() {
     const ctaBtn = document.getElementById('cta-btn');
