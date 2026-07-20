@@ -122,3 +122,22 @@ const observer = new MutationObserver(() => {
     }
 });
 observer.observe(document.body, { childList: true, subtree: true });
+
+function toggleChat() {
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup.classList.contains('chat-hidden')) {
+        chatPopup.classList.remove('chat-hidden');
+    } else {
+        chatPopup.classList.add('chat-hidden');
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    if (input.value.trim() !== "") {
+        // Logique d'envoi du message si besoin
+        alert("Message envoyé : " + input.value);
+        input.value = "";
+    }
+}
+
