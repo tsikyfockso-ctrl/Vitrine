@@ -76,6 +76,16 @@ function initEventListeners() {
 }
 
 // --- 4. MESSAGERIE CLIENT ---
+// Fonction pour ouvrir/fermer la bulle de discussion
+function toggleChat() {
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup.classList.contains('chat-hidden')) {
+        chatPopup.classList.remove('chat-hidden');
+    } else {
+        chatPopup.classList.add('chat-hidden');
+    }
+}
+
 function sendComment() {
     const nameInput = document.getElementById("userName");
     const msgInput = document.getElementById("userMsg");
