@@ -70,16 +70,27 @@ function googleTranslateElementInit() {
         document.querySelector('nav').style.backgroundColor = color;
     });
 </script>
-    <div class="comment-panel">
-    <h3>Laissez un message</h3>
+    
+    <!-- Bouton bulle flottante (visible en bas à droite) -->
+<div id="chat-bubble" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Panneau de discussion rétractable (masqué par défaut) -->
+<div id="chat-popup" class="comment-panel chat-hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="margin: 0;">Laissez un message</h3>
+        <button onclick="toggleChat()" style="width: auto; padding: 5px 10px; background: #e74c3c;">✖</button>
+    </div>
+    
     <input type="text" id="userName" placeholder="Votre nom" required>
     
     <textarea id="userMsg" placeholder="Votre message ici..." required></textarea>
     <button onclick="sendComment()">Envoyer</button>
     
     <hr>
-    <h3>Vos messages</h3> 
+    <h3 style="margin: 10px 0;">Vos messages</h3> 
     <div id="client-messages"></div>
-    </div>
+</div>
 </body>
 </html>
