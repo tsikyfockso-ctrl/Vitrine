@@ -19,8 +19,9 @@ jobs:
 
       - name: Installer les dépendances Google Sheets
         run: |
-          pip install gspread google-auth
-
+          pip install --upgrade pip
+          pip install gspread google-auth requests
+          
       - name: Exécuter le script de mise à jour
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
