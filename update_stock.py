@@ -15,7 +15,7 @@ try:
     client = gspread.authorize(creds)
 
     # Remplacez par le nom exact de votre Google Sheet
-    sheet = client.open("BDD Mayah Store").sheet1
+    sheet = client.open("BDD_Mayah_Store").sheet1
 
     # Exemple d'ajout de produit automatisé
     nouveau_produit = ["Nom du produit", "29.99", "https://url-image.jpg"]
