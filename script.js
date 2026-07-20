@@ -11,46 +11,56 @@ async function loadProductsFromStock() {
     const container = document.getElementById('product-container');
     if (!container) return;
 
-    // A. AFFICHAGE INSTANTANÉ DEPUIS LE CACHE (si disponible)
+    // 1. Charger depuis le cache pour l'affichage immédiat
     const cachedStock = localStorage.getItem("cached_aliexpress_stock");
     if (cachedStock) {
-        const stock = JSON.parse(cachedStock);
-        renderProducts(stock, container);
-    } else {
-        // Sinon, afficher un message de chargement rapide
-        container.innerHTML = `<p style="text-align:center; width:100%; grid-column: 1/-1;">Chargement des produits en cours...</p>`;
+        try {
+            const stock = JSON.parse(cachedStock);
+            if (Array.isArray(stock) && stock.length > 0) {
+                renderProducts(stock, container);
+            }
+        } catch (e) {
+            console.error("Cache invalide, suppression...");
+            localStorage.removeItem("cached_aliexpress_stock");
+        }
     }
 
-    // B. CHARGEMENT EN ARRIÈRE-PLAN DEPUIS GOOGLE SHEETS
+    // 2. Récupérer les données fraîches depuis Google Sheets
     try {
         const response = await fetch(url);
         const stock = await response.json();
         
-        // Sauvegarde dans le cache du navigateur pour la prochaine fois
-        localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
-        
-        // Rafraîchir l'affichage avec les données fraîches
-        renderProducts(stock, container);
+        if (Array.isArray(stock)) {
+            // Mettre à jour le cache proprement
+            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
+            // Afficher les données à jour
+            renderProducts(stock, container);
+        }
     } catch (error) {
         console.error("Erreur de chargement des produits :", error);
         if (!cachedStock) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits pour le moment.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de connexion aux produits.</p>`;
         }
     }
 }
 
-// Fonction utilitaire pour éviter de répéter le code HTML des cartes
+// Fonction d'affichage sécurisée avec image de secours
 function renderProducts(stock, container) {
-    container.innerHTML = stock.map(p => `
-        <div class="card">
-            <div class="card-img-container">
-                <img src="${p.img}" alt="${p.nom}">
+    container.innerHTML = stock.map(p => {
+        // Image de secours si p.img est vide ou cassé
+        const imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        
+        return `
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
+                </div>
+                <h3>${p.nom || 'Sans nom'}</h3>
+                <p>Prix : ${p.prix || '0'}€</p>
+                <button>Ajouter au panier</button>
             </div>
-            <h3>${p.nom}</h3>
-            <p>Prix : ${p.prix}€</p>
-            <button>Ajouter au panier</button>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 // --- 3. ÉVÉNEMENTS INTERACTIFS (Correction erreur null) ---
 function initEventListeners() {
