@@ -15,6 +15,12 @@
 <body onload="loadClientMessages()">
     <nav>
         <div class="logo-container"></div>
+
+        <!-- Barre de recherche ajoutée juste à côté du logo -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="filtrerProduits()">
+        </div>
+        
         <ul class="nav-links">
             <li><a href="index.html" class="nav-btn">Accueil</a></li>
             <li><a href="#produits" class="nav-btn">Produits</a></li>
@@ -51,6 +57,7 @@ function googleTranslateElementInit() {
     </section>
 
     <script src="script.js"></script>
+    
     <!-- Fonction de filtrage en direct attachée à la barre de recherche -->
     <script>
     function filtrerProduits() {
