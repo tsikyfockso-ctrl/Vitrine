@@ -2,7 +2,7 @@ name: Automatisation Mayah Store
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
+    - cron: '0 * * * *' # S'exécute automatiquement toutes les 6 heures
   workflow_dispatch: # Permet de lancer le script manuellement depuis GitHub
 
 jobs:
