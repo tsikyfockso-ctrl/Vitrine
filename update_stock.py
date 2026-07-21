@@ -16,34 +16,35 @@ if not APP_KEY or not APP_SECRET:
     exit(1)
 
 try:
-    # Initialisation de l'API (Langue Anglais pour de meilleurs résultats, Devise EUR)
+    # Initialisation de l'API
     aliexpress = AliexpressApi(APP_KEY, APP_SECRET, models.Language.EN, models.Currency.EUR, "")
 
-    # Liste de vos catégories traduites en mots-clés optimisés pour l'API
-    categories_mots_cles = {
-        "Mode Femme": "women fashion clothing",
-        "Mode Homme": "men fashion clothing",
-        "Mode Enfant": "kids clothing baby",
-        "Ordinateur": "laptop accessories computer",
-        "Accessoire Maison": "home gadget kitchen tool",
-        "Déco": "home decoration interior",
-        "Produit Cosmétique": "beauty makeup skincare"
-    }
+    # Liste complète de mots-clés couvrant toutes vos catégories
+    mots_cles = [
+        "women fashion",       # Mode femme
+        "men fashion",         # Mode homme
+        "kids clothing",       # Mode enfant
+        "laptop accessories",  # Ordinateur
+        "home accessories",    # Accessoire maison
+        "home decor",          # Déco
+        "beauty cosmetics",    # Produits cosmétiques
+        "smartphone gadgets"   # Téléphone
+    ]
     
     succes_total = 0
 
-    # Boucle sur chaque catégorie
-    for categorie, mot_cle in categories_mots_cles.items():
-        print(f"\n--- Récupération pour la catégorie : {categorie} ('{mot_cle}') ---")
+    # Boucle sur chaque catégorie / mot-clé
+    for mot_cle in mots_cles:
+        print(f"\nRecherche des produits pour la catégorie : '{mot_cle}'...")
         
         try:
             response = aliexpress.get_hotproducts(keywords=mot_cle, max_sale_price=100)
             produits_trouves = response.products
-            print(f"{len(produits_trouves)} produits trouvés pour {categorie}.")
+            print(f"{len(produits_trouves)} produits trouvés pour '{mot_cle}'.")
 
             for p in produits_trouves:
                 produit_data = {
-                    "nom": f"[{categorie}] {p.product_title}",
+                    "nom": p.product_title,
                     "prix": str(p.target_sale_price),
                     "img": p.product_main_image_url
                 }
@@ -55,10 +56,10 @@ try:
                 else:
                     print(f"Échec d'envoi pour : {p.product_title[:30]}")
 
-        except Exception as err_cat:
-            print(f"Erreur pour la catégorie '{categorie}': {err_cat}")
+        except Exception as err_mot_cle:
+            print(f"Erreur pour la catégorie '{mot_cle}': {err_mot_cle}")
 
-    print(f"\nSynchronisation globale terminée ! Au total, {succes_total} produits ont été ajoutés à votre Google Sheet.")
+    print(f"\nSynchronisation terminée ! Au total, {succes_total} produits de toutes vos catégories ont été ajoutés à votre Google Sheet.")
 
 except Exception as e:
     print(f"Erreur générale : {e}")
