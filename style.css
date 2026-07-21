@@ -452,6 +452,7 @@ nav {
     display: flex;
     align-items: center;
     position: relative;
+    margin-left: 40px;
 }
 
 .search-container input {
