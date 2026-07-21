@@ -1,29 +1,19 @@
-name: Automatisation Mayah Store
-
-on:
-  schedule:
-    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
-  workflow_dispatch: # Permet de lancer le script manuellement depuis GitHub
-
 jobs:
-  run-python-script:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code du projet
-        uses: actions/checkout@v4
-
-      - name: Installer Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
-      - name: Installer les dépendances Google Sheets
-        run: |
-          pip install --upgrade pip
-          pip install gspread google-auth requests
           
-      - name: Exécuter le script de mise à jour
+      - name: Install dependencies
+        run: pip install requests
+        
+      - name: Run python script
+        run: python update_stock.py
         env:
-          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
-        run: |
-          python update_stock.py
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
