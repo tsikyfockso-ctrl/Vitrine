@@ -1,7 +1,6 @@
 import os
 import requests
-import json
-import iop  # SDK officiel d'AliExpress / Taobao pour gérer la signature
+from aliexpress_api import AliexpressApi, models
 
 # Récupération sécurisée des secrets GitHub
 APP_KEY = os.environ.get("ALIEXPRESS_APP_KEY")
@@ -10,53 +9,57 @@ APP_SECRET = os.environ.get("ALIEXPRESS_APP_SECRET")
 # Votre URL d'application web Google Apps Script
 WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
 
-print("Connexion sécurisée à l'API officielle d'AliExpress via IOP Client...")
+print("Connexion à l'API officielle d'AliExpress...")
 
 if not APP_KEY or not APP_SECRET:
     print("Erreur : Les clés secrètes AliExpress ne sont pas configurées dans GitHub !")
     exit(1)
 
 try:
-    # URL de passerelle officielle de l'API AliExpress (Open Platform)
-    gateway_url = "https://api-sg.aliexpress.com/sync" # ou l'endpoint officiel selon votre zone
-    
-    # Initialisation du client officiel qui calcule automatiquement la signature conforme
-    client = iop.IopClient(gateway_url, APP_KEY, APP_SECRET)
+    # Initialisation de l'API (Langue Anglais pour de meilleurs résultats, Devise EUR)
+    aliexpress = AliexpressApi(APP_KEY, APP_SECRET, models.Language.EN, models.Currency.EUR, "")
 
-    # Création de la requête API officielle (Exemple pour récupérer les produits tendance/hot products)
-    request = iop.IopRequest("aliexpress.affiliate.hotproduct.query")
+    # Liste de vos catégories traduites en mots-clés optimisés pour l'API
+    categories_mots_cles = {
+        "Mode Femme": "women fashion clothing",
+        "Mode Homme": "men fashion clothing",
+        "Mode Enfant": "kids clothing baby",
+        "Ordinateur": "laptop accessories computer",
+        "Accessoire Maison": "home gadget kitchen tool",
+        "Déco": "home decoration interior",
+        "Produit Cosmétique": "beauty makeup skincare"
+    }
     
-    # Paramètres de la requête
-    request.add_api_param("app_signature", "1")
-    
-    # Exécution de la requête avec signature intégrée
-    response = client.execute(request)
+    succes_total = 0
 
-    print("Réponse brute d'AliExpress :", response.body)
-
-    # Analyse et envoi vers Google Sheets selon la structure de la réponse officielle
-    # (Le SDK retourne un objet JSON contenant les résultats)
-    data = json.loads(response.body)
-    
-    if "aliexpress_affiliate_hotproduct_query_response" in data:
-        resultat_produits = data["aliexpress_affiliate_hotproduct_query_response"]["resp_result"]["result"]["products"]
+    # Boucle sur chaque catégorie
+    for categorie, mot_cle in categories_mots_cles.items():
+        print(f"\n--- Récupération pour la catégorie : {categorie} ('{mot_cle}') ---")
         
-        succes_count = 0
-        for p in resultat_produits:
-            produit_data = {
-                "nom": p.get("product_title"),
-                "prix": str(p.get("target_sale_price")),
-                "img": p.get("product_main_image_url")
-            }
+        try:
+            response = aliexpress.get_hotproducts(keywords=mot_cle, max_sale_price=100)
+            produits_trouves = response.products
+            print(f"{len(produits_trouves)} produits trouvés pour {categorie}.")
 
-            res = requests.post(WEB_APP_URL, json=produit_data)
-            if res.status_code == 200:
-                succes_count += 1
+            for p in produits_trouves:
+                produit_data = {
+                    "nom": f"[{categorie}] {p.product_title}",
+                    "prix": str(p.target_sale_price),
+                    "img": p.product_main_image_url
+                }
 
-        print(f"Synchronisation réussie ! {succes_count} produits envoyés au Google Sheet.")
-    else:
-        print("Format de réponse inattendu ou restrictions sur l'API.")
+                res = requests.post(WEB_APP_URL, json=produit_data)
+                
+                if res.status_code == 200:
+                    succes_total += 1
+                else:
+                    print(f"Échec d'envoi pour : {p.product_title[:30]}")
+
+        except Exception as err_cat:
+            print(f"Erreur pour la catégorie '{categorie}': {err_cat}")
+
+    print(f"\nSynchronisation globale terminée ! Au total, {succes_total} produits ont été ajoutés à votre Google Sheet.")
 
 except Exception as e:
-    print(f"Erreur technique : {e}")
+    print(f"Erreur générale : {e}")
     exit(1)
