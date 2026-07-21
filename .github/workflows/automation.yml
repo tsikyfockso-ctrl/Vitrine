@@ -17,11 +17,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Installer les dépendances Google Sheets
-        run: |
-          pip install gspread google-auth
-
-      - name: Exécuter le script de mise à jour
+      - name: Install dependencies
+        run: pip install requests
+        
+      - name: Run python script
+        run: python update_stock.py
         env:
           ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
           ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
