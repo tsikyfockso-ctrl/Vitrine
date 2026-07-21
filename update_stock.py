@@ -1,6 +1,7 @@
 import os
 import requests
-from aliexpress_api import AliexpressApi, models
+import json
+import iop  # SDK officiel d'AliExpress / Taobao pour gérer la signature
 
 # Récupération sécurisée des secrets GitHub
 APP_KEY = os.environ.get("ALIEXPRESS_APP_KEY")
@@ -9,42 +10,53 @@ APP_SECRET = os.environ.get("ALIEXPRESS_APP_SECRET")
 # Votre URL d'application web Google Apps Script
 WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
 
-print("Connexion à l'API officielle d'AliExpress...")
+print("Connexion sécurisée à l'API officielle d'AliExpress via IOP Client...")
 
 if not APP_KEY or not APP_SECRET:
     print("Erreur : Les clés secrètes AliExpress ne sont pas configurées dans GitHub !")
     exit(1)
 
 try:
-    # Initialisation de l'API AliExpress
-    aliexpress = AliexpressApi(APP_KEY, APP_SECRET, models.Language.EN, models.Currency.EUR, "")
-
-    print("Récupération des produits tendance globaux...")
-
-    # Récupération d'une large sélection de produits tendance sans restreindre à un mot-clé unique
-    response = aliexpress.get_hotproducts(max_sale_price=1000)
+    # URL de passerelle officielle de l'API AliExpress (Open Platform)
+    gateway_url = "https://api-sg.aliexpress.com/sync" # ou l'endpoint officiel selon votre zone
     
-    produits_trouves = response.products
-    print(f"{len(produits_trouves)} produits récupérés. Envoi vers Google Sheets...")
+    # Initialisation du client officiel qui calcule automatiquement la signature conforme
+    client = iop.IopClient(gateway_url, APP_KEY, APP_SECRET)
 
-    succes_count = 0
+    # Création de la requête API officielle (Exemple pour récupérer les produits tendance/hot products)
+    request = iop.IopRequest("aliexpress.affiliate.hotproduct.query")
+    
+    # Paramètres de la requête
+    request.add_api_param("app_signature", "1")
+    
+    # Exécution de la requête avec signature intégrée
+    response = client.execute(request)
 
-    for p in produits_trouves:
-        produit_data = {
-            "nom": p.product_title,
-            "prix": str(p.target_sale_price),
-            "img": p.product_main_image_url
-        }
+    print("Réponse brute d'AliExpress :", response.body)
 
-        res = requests.post(WEB_APP_URL, json=produit_data)
+    # Analyse et envoi vers Google Sheets selon la structure de la réponse officielle
+    # (Le SDK retourne un objet JSON contenant les résultats)
+    data = json.loads(response.body)
+    
+    if "aliexpress_affiliate_hotproduct_query_response" in data:
+        resultat_produits = data["aliexpress_affiliate_hotproduct_query_response"]["resp_result"]["result"]["products"]
         
-        if res.status_code == 200:
-            succes_count += 1
-        else:
-            print(f"Échec pour : {p.product_title[:30]}")
+        succes_count = 0
+        for p in resultat_produits:
+            produit_data = {
+                "nom": p.get("product_title"),
+                "prix": str(p.get("target_sale_price")),
+                "img": p.get("product_main_image_url")
+            }
 
-    print(f"Synchronisation réussie ! {succes_count} produits ajoutés à votre Google Sheet.")
+            res = requests.post(WEB_APP_URL, json=produit_data)
+            if res.status_code == 200:
+                succes_count += 1
+
+        print(f"Synchronisation réussie ! {succes_count} produits envoyés au Google Sheet.")
+    else:
+        print("Format de réponse inattendu ou restrictions sur l'API.")
 
 except Exception as e:
-    print(f"Erreur lors de la récupération : {e}")
+    print(f"Erreur technique : {e}")
     exit(1)
