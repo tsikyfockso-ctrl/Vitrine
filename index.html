@@ -51,6 +51,23 @@ function googleTranslateElementInit() {
     </section>
 
     <script src="script.js"></script>
+    <!-- Fonction de filtrage en direct attachée à la barre de recherche -->
+    <script>
+    function filtrerProduits() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const cartesProduits = document.querySelectorAll('.product-card'); // Assurez-vous que vos cartes de produits ont cette classe dans script.js
+
+        cartesProduits.forEach(carte => {
+            const titre = carte.querySelector('h3').textContent.toLowerCase();
+            if (titre.includes(input)) {
+                carte.style.display = ""; // Affiche le produit s'il correspond
+            } else {
+                carte.style.display = "none"; // Masque le produit s'il ne correspond pas
+            }
+        });
+    }
+    </script>
+    
     <script>
     // Attend que l'image soit chargée
     const logoImg = document.querySelector('.logo-container');
