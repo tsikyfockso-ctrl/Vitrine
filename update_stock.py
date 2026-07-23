@@ -8,11 +8,13 @@ import requests
 # Récupération des secrets configurés dans GitHub
 APP_KEY = os.getenv("ALIEXPRESS_APP_KEY")
 APP_SECRET = os.getenv("ALIEXPRESS_APP_SECRET")
-GATEWAY_URL = "https://api-sg.aliexpress.com/sync"  # Passerelle officielle AliExpress
 
-# URL de votre Web App Google Apps Script
-# (Assurez-vous d'avoir bien mis votre URL entre guillemets)
+# AJOUTEZ ICI votre access_token (ou stockez-le dans les secrets GitHub sous ALIEXPRESS_ACCESS_TOKEN)
+ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "VOTRE_ACCESS_TOKEN_ICI")
+
+GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
+
 
 def generate_sign(params, secret):
   """Génère la signature HMAC-SHA256 requise par l'API AliExpress."""
@@ -34,7 +36,6 @@ def call_aliexpress_api(api_method, business_params):
   """Exécute une requête sécurisée vers l'API AliExpress."""
   timestamp = str(int(time.time() * 1000))
 
-  # Paramètres communs obligatoires pour toutes les requêtes AliExpress
   common_params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
@@ -42,12 +43,10 @@ def call_aliexpress_api(api_method, business_params):
       "method": api_method,
       "partner_id": "sdk-python-2.0",
       "format": "json",
+      "access_token": ACCESS_TOKEN,  # <-- Ajout du token obligatoire ici
   }
 
-  # Fusion des paramètres communs et spécifiques
   all_params = {**common_params, **business_params}
-
-  # Génération de la signature
   all_params["sign"] = generate_sign(all_params, APP_SECRET)
 
   try:
@@ -55,8 +54,20 @@ def call_aliexpress_api(api_method, business_params):
     result = response.json()
     return result
   except Exception as e:
-    print(f"Erreur de connexion à l'API : {e}")
+    print(f"Erreur de connexion à l'API AliExpress : {e}")
     return None
+
+
+def send_to_google_sheet(data):
+  if not GOOGLE_SCRIPT_URL or GOOGLE_SCRIPT_URL == "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI":
+    print("Avertissement : L'URL Google Apps Script n'est pas configurée.")
+    return
+
+  try:
+    response = requests.post(GOOGLE_SCRIPT_URL, json=data)
+    print(f"Réponse de Google Apps Script : {response.text}")
+  except Exception as e:
+    print(f"Erreur lors de l'envoi vers Google Sheet : {e}")
 
 
 if __name__ == "__main__":
@@ -69,16 +80,17 @@ if __name__ == "__main__":
     )
     exit(1)
 
-  # Paramètres de recherche pour le dropshipping (exemple de mots-clés)
   payload = {
       "keywords": "smartphone accessories",
       "page_no": "1",
       "page_size": "10",
   }
 
-  # Appel de l'API de recherche compatible dropshipping
-  # (Note: Assurez-vous que l'ensemble d'API DS est bien actif sur votre app)
   response_data = call_aliexpress_api("aliexpress.ds.product.get", payload)
 
   print("Réponse reçue d'AliExpress :")
   print(json.dumps(response_data, indent=4))
+
+  if response_data:
+    print("Envoi des données vers le Google Sheet...")
+    send_to_google_sheet(response_data)
