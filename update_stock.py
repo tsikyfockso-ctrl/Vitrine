@@ -59,7 +59,7 @@ def call_aliexpress_api(api_method, business_params):
 
 
 def send_to_google_sheet(data):
-  if not GOOGLE_SCRIPT_URL or GOOGLE_SCRIPT_URL == "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI":
+  if not GOOGLE_SCRIPT_URL or GOOGLE_SCRIPT_URL == "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec":
     print("Avertissement : L'URL Google Apps Script n'est pas configurée.")
     return
 
