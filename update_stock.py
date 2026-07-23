@@ -11,23 +11,27 @@ APP_SECRET = os.getenv("ALIEXPRESS_APP_SECRET")
 ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgApxMpEB4KXeqri0pD9FjygrxweoGMgxftVTZmguw7YY2")
 
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
-GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
+GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
 
 def generate_sign(params, secret):
-  """Génère la signature HMAC-SHA256 officielle d'AliExpress.
+  """Génère la signature HMAC-SHA256 officielle d'AliExpress en triant
 
-  Tous les paramètres (communs et spécifiques) doivent être inclus dans
-  l'ordre alphabétique.
+  strictement tous les paramètres par ordre alphabétique de leurs clés.
   """
-  # Trie les paramètres par ordre alphabétique de leurs clés
-  sorted_params = sorted(params.items())
+  # Exclut le paramètre 'sign' lui-même s'il est présent par erreur
+  filtered_params = {
+      k: str(v) for k, v in params.items() if k != "sign" and v is not None
+  }
 
-  # Concatène le secret, puis tous les couples clé+valeur, puis à nouveau le secret
+  # Tri alphabétique des clés
+  sorted_params = sorted(filtered_params.items())
+
+  # Construction de la chaîne de base : secret + key1val1key2val2... + secret
   query_string = "".join(f"{k}{v}" for k, v in sorted_params)
   base_string = secret + query_string + secret
 
-  # Calcule le HMAC-SHA256 en majuscules
+  # Génération du hachage SHA256 en majuscules
   return (
       hmac.new(
           secret.encode("utf-8"),
@@ -43,7 +47,7 @@ def call_aliexpress_api(api_method, business_params):
   """Exécute une requête sécurisée vers l'API AliExpress."""
   timestamp = str(int(time.time() * 1000))
 
-  # Paramètres communs obligatoires
+  # 1. Paramètres communs obligatoires
   common_params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
@@ -54,10 +58,10 @@ def call_aliexpress_api(api_method, business_params):
       "access_token": ACCESS_TOKEN,
   }
 
-  # Fusion de TOUS les paramètres (obligatoires + métier)
+  # 2. Fusion complète de TOUS les paramètres
   all_params = {**common_params, **business_params}
 
-  # Génération de la signature incluant l'ensemble des paramètres
+  # 3. Génération de la signature sur l'ensemble global
   all_params["sign"] = generate_sign(all_params, APP_SECRET)
 
   try:
@@ -91,7 +95,7 @@ if __name__ == "__main__":
     )
     exit(1)
 
-  # Paramètres de recherche pour le dropshipping
+  # Paramètres de recherche basiques
   payload = {
       "keywords": "smartphone accessories",
       "page_no": "1",
