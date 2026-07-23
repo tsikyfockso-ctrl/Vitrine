@@ -10,7 +10,7 @@ APP_KEY = os.getenv("ALIEXPRESS_APP_KEY")
 APP_SECRET = os.getenv("ALIEXPRESS_APP_SECRET")
 
 # AJOUTEZ ICI votre access_token (ou stockez-le dans les secrets GitHub sous ALIEXPRESS_ACCESS_TOKEN)
-ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "VOTRE_ACCESS_TOKEN_ICI")
+ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgApxMpEB4KXeqri0pD9FjygrxweoGMgxftVTZmguw7YY2")
 
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
