@@ -8,73 +8,60 @@ import requests
 # Récupération des secrets configurés dans GitHub
 APP_KEY = os.getenv("ALIEXPRESS_APP_KEY")
 APP_SECRET = os.getenv("ALIEXPRESS_APP_SECRET")
-ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgApxMpEB4KXeqri0pD9FjygrxweoGMgxftVTZmguw7YY2")
+ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
-GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
-
-
-def generate_sign(params, secret):
-  """Génère la signature HMAC-SHA256 officielle d'AliExpress en triant
-
-  strictement tous les paramètres par ordre alphabétique de leurs clés.
-  """
-  # Exclut le paramètre 'sign' lui-même s'il est présent par erreur
-  filtered_params = {
-      k: str(v) for k, v in params.items() if k != "sign" and v is not None
-  }
-
-  # Tri alphabétique des clés
-  sorted_params = sorted(filtered_params.items())
-
-  # Construction de la chaîne de base : secret + key1val1key2val2... + secret
-  query_string = "".join(f"{k}{v}" for k, v in sorted_params)
-  base_string = secret + query_string + secret
-
-  # Génération du hachage SHA256 en majuscules
-  return (
-      hmac.new(
-          secret.encode("utf-8"),
-          base_string.encode("utf-8"),
-          hashlib.sha256,
-      )
-      .hexdigest()
-      .upper()
-  )
+GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "50000500a01OR1716b4e49AgApxMpEB4KXeqri0pD9FjygrxweoGMgxftVTZmguw7YY2")
 
 
 def call_aliexpress_api(api_method, business_params):
-  """Exécute une requête sécurisée vers l'API AliExpress."""
   timestamp = str(int(time.time() * 1000))
 
-  # 1. Paramètres communs obligatoires
-  common_params = {
+  # Paramètres de base de la requête
+  params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
       "sign_method": "sha256",
       "method": api_method,
       "partner_id": "sdk-python-2.0",
       "format": "json",
-      "access_token": ACCESS_TOKEN,
   }
 
-  # 2. Fusion complète de TOUS les paramètres
-  all_params = {**common_params, **business_params}
+  if ACCESS_TOKEN:
+    params["access_token"] = ACCESS_TOKEN
 
-  # 3. Génération de la signature sur l'ensemble global
-  all_params["sign"] = generate_sign(all_params, APP_SECRET)
+  # Intégration des paramètres métier
+  params.update(business_params)
+
+  # --- Calcul de la signature standard AliExpress ---
+  # Tri des clés par ordre alphabétique
+  sorted_keys = sorted(params.keys())
+  query_string = "".join(f"{k}{params[k]}" for k in sorted_keys)
+  sign_str = APP_SECRET + query_string + APP_SECRET
+
+  sign = (
+      hmac.new(
+          APP_SECRET.encode("utf-8"),
+          sign_str.encode("utf-8"),
+          hashlib.sha256,
+      )
+      .hexdigest()
+      .upper()
+  )
+
+  params["sign"] = sign
 
   try:
-    response = requests.post(GATEWAY_URL, data=all_params)
-    result = response.json()
-    return result
+    # Envoi en tant que formulaire (application/x-www-form-urlencoded)
+    response = requests.post(GATEWAY_URL, data=params)
+    return response.json()
   except Exception as e:
-    print(f"Erreur de connexion à l'API AliExpress : {e}")
+    print(f"Erreur de connexion : {e}")
     return None
 
 
 def send_to_google_sheet(data):
-  if not GOOGLE_SCRIPT_URL or GOOGLE_SCRIPT_URL == "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec":
+  if not GOOGLE_SCRIPT_URL:
     print("Avertissement : L'URL Google Apps Script n'est pas configurée.")
     return
 
@@ -89,13 +76,10 @@ if __name__ == "__main__":
   print("Démarrage de la synchronisation avec l'API Dropshipping AliExpress...")
 
   if not APP_KEY or not APP_SECRET:
-    print(
-        "Erreur : Les clés APP_KEY ou APP_SECRET ne sont pas définies dans les"
-        " secrets GitHub."
-    )
+    print("Erreur : Les clés APP_KEY ou APP_SECRET sont manquantes.")
     exit(1)
 
-  # Paramètres de recherche basiques
+  # Paramètres de recherche
   payload = {
       "keywords": "smartphone accessories",
       "page_no": "1",
