@@ -8,8 +8,6 @@ import requests
 # Récupération des secrets configurés dans GitHub
 APP_KEY = os.getenv("ALIEXPRESS_APP_KEY")
 APP_SECRET = os.getenv("ALIEXPRESS_APP_SECRET")
-
-# AJOUTEZ ICI votre access_token (ou stockez-le dans les secrets GitHub sous ALIEXPRESS_ACCESS_TOKEN)
 ACCESS_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgApxMpEB4KXeqri0pD9FjygrxweoGMgxftVTZmguw7YY2")
 
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
@@ -17,10 +15,19 @@ GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4
 
 
 def generate_sign(params, secret):
-  """Génère la signature HMAC-SHA256 requise par l'API AliExpress."""
+  """Génère la signature HMAC-SHA256 officielle d'AliExpress.
+
+  Tous les paramètres (communs et spécifiques) doivent être inclus dans
+  l'ordre alphabétique.
+  """
+  # Trie les paramètres par ordre alphabétique de leurs clés
   sorted_params = sorted(params.items())
+
+  # Concatène le secret, puis tous les couples clé+valeur, puis à nouveau le secret
   query_string = "".join(f"{k}{v}" for k, v in sorted_params)
   base_string = secret + query_string + secret
+
+  # Calcule le HMAC-SHA256 en majuscules
   return (
       hmac.new(
           secret.encode("utf-8"),
@@ -36,6 +43,7 @@ def call_aliexpress_api(api_method, business_params):
   """Exécute une requête sécurisée vers l'API AliExpress."""
   timestamp = str(int(time.time() * 1000))
 
+  # Paramètres communs obligatoires
   common_params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
@@ -43,10 +51,13 @@ def call_aliexpress_api(api_method, business_params):
       "method": api_method,
       "partner_id": "sdk-python-2.0",
       "format": "json",
-      "access_token": ACCESS_TOKEN,  # <-- Ajout du token obligatoire ici
+      "access_token": ACCESS_TOKEN,
   }
 
+  # Fusion de TOUS les paramètres (obligatoires + métier)
   all_params = {**common_params, **business_params}
+
+  # Génération de la signature incluant l'ensemble des paramètres
   all_params["sign"] = generate_sign(all_params, APP_SECRET)
 
   try:
@@ -80,6 +91,7 @@ if __name__ == "__main__":
     )
     exit(1)
 
+  # Paramètres de recherche pour le dropshipping
   payload = {
       "keywords": "smartphone accessories",
       "page_no": "1",
