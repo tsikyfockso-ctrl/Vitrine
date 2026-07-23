@@ -13,7 +13,6 @@ SESSION_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgAp
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
-
 def generate_sign(params, secret):
   """Génère la signature HMAC-SHA256 officielle validée par l'API."""
   filtered_params = {
