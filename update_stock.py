@@ -13,7 +13,6 @@ SESSION_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgAp
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
-
 def generate_sign(params, secret):
   """Génère la signature HMAC-SHA256 officielle d'AliExpress."""
   # Exclut le champ 'sign' et les valeurs nulles du calcul
@@ -59,7 +58,6 @@ def call_aliexpress_api(api_method, business_params):
   except Exception as e:
     print(f"Erreur de connexion à l'API : {e}")
     return None
-
 
 def send_to_google_sheet(data):
   if not GOOGLE_SCRIPT_URL:
