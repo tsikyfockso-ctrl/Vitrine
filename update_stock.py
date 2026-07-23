@@ -13,11 +13,14 @@ SESSION_TOKEN = os.getenv("ALIEXPRESS_ACCESS_TOKEN", "50000500a01OR1716b4e49AgAp
 GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
+
 def generate_sign(params, secret):
-  """Génère la signature HMAC-SHA256 officielle validée par l'API."""
+  """Génère la signature HMAC-SHA256 officielle d'AliExpress."""
+  # Exclut le champ 'sign' et les valeurs nulles du calcul
   filtered_params = {
       k: str(v) for k, v in params.items() if k != "sign" and v is not None
   }
+  # Tri strict par ordre alphabétique des clés
   sorted_params = sorted(filtered_params.items())
 
   query_string = "".join(f"{k}{v}" for k, v in sorted_params)
@@ -37,7 +40,7 @@ def generate_sign(params, secret):
 def call_aliexpress_api(api_method, business_params):
   timestamp = str(int(time.time() * 1000))
 
-  # Utilisation du paramètre 'session' (identique aux tests réussis de l'API Explorer)
+  # Paramètres communs (utilisation de 'session' comme sur l'API Explorer)
   common_params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
@@ -54,13 +57,16 @@ def call_aliexpress_api(api_method, business_params):
     response = requests.post(GATEWAY_URL, data=all_params)
     return response.json()
   except Exception as e:
-    print(f"Erreur de connexion : {e}")
+    print(f"Erreur de connexion à l'API : {e}")
     return None
 
 
 def send_to_google_sheet(data):
   if not GOOGLE_SCRIPT_URL:
-    print("Avertissement : L'URL Google Apps Script n'est pas configurée.")
+    print(
+        "Avertissement : L'URL Google Apps Script n'est pas configurée dans les"
+        " secrets."
+    )
     return
 
   try:
@@ -77,7 +83,7 @@ if __name__ == "__main__":
     print("Erreur : Les clés APP_KEY ou APP_SECRET sont manquantes.")
     exit(1)
 
-  # Paramètres requis par l'API DS (remplacez l'ID par un produit réel si nécessaire)
+  # Paramètres métier (ajustez le product_id avec un vrai produit de votre catalogue si nécessaire)
   payload = {
       "product_id": "1005001234567890",
       "target_currency": "EUR",
