@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction avec correction rigoureuse des images...")
+    print("Démarrage de l'extraction avec URLs d'images natives AliExpress...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -34,7 +34,7 @@ def scrape_and_send_to_sheet():
             
             page.wait_for_timeout(5000)
             
-            print("Défilement progressif pour charger toutes les images en haute résolution...")
+            print("Défilement progressif pour charger les images...")
             for i in range(6):
                 page.mouse.wheel(0, 900)
                 page.wait_for_timeout(2000)
@@ -46,7 +46,7 @@ def scrape_and_send_to_sheet():
             success_count = 0
             seen_titles = set()
             
-            for i in range(min(count, 45)):
+            for i in range(min(count, 40)):
                 card = product_cards.nth(i)
                 
                 try:
@@ -70,38 +70,25 @@ def scrape_and_send_to_sheet():
                         continue
                     seen_titles.add(title)
                             
-                    # --- EXTRACTION ET NETTOYAGE AVANCÉ DE L'IMAGE ---
+                    # --- EXTRACTION SÉCURISÉE DE L'IMAGE NATIVE ---
                     img_element = card.locator("img").first
                     img_url = ""
                     if img_element.count() > 0:
-                        # On récupère toutes les sources possibles par ordre de préférence
+                        # On récupère l'attribut tel quel sans le tronquer
                         img_url = (
                             img_element.get_attribute("data-src") or 
                             img_element.get_attribute("src") or 
-                            img_element.get_attribute("nitro-lazy-src") or 
                             ""
                         )
                         
-                        # Si le lien utilise un srcset (plusieurs tailles), on extrait la première URL valide
-                        if not img_url or "data:image" in img_url:
-                            srcset = img_element.get_attribute("srcset")
-                            if srcset:
-                                img_url = srcset.split(",")[0].strip().split(" ")[0]
-                                
-                    # Normalisation stricte du lien de l'image
+                    # Normalisation du protocole sans modifier la structure du lien
                     if img_url:
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
                         elif img_url.startswith("/"):
                             img_url = "https://www.aliexpress.com" + img_url
-                            
-                        # Nettoyage des paramètres superflus d'AliExpress qui cassent parfois l'affichage direct
-                        if ".jpg_" in img_url:
-                            img_url = img_url.split(".jpg_")[0] + ".jpg"
-                        elif ".png_" in img_url:
-                            img_url = img_url.split(".png_")[0] + ".png"
                     
-                    # Validation finale : on rejette si pas d'image propre ou image transparente
+                    # Validation : on rejette uniquement si l'image est vide ou transparente
                     if not img_url or "data:image" in img_url or "http" not in img_url:
                         continue
                         
@@ -115,12 +102,12 @@ def scrape_and_send_to_sheet():
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] OK : {title[:25]}... | Image propre validée")
+                            print(f"[{success_count}] OK : {title[:25]}... | Image enregistrée")
                             
                 except Exception as inner_err:
                     continue
                     
-            print(f"Synchronisation terminée ! {success_count} produits avec images corrigées ajoutés dans BDD_Mayah_Store.")
+            print(f"Synchronisation terminée ! {success_count} produits avec images ajoutés dans BDD_Mayah_Store.")
             
         except Exception as e:
             print(f"Erreur critique durant l'exécution : {e}")
