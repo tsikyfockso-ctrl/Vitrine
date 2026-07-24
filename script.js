@@ -44,16 +44,20 @@ async function loadProductsFromStock() {
     }
 }
 
-// Fonction d'affichage sécurisée avec gestion de rechargement d'image
+// Fonction d'affichage avec Proxy anti-blocage pour les images AliExpress
 function renderProducts(stock, container) {
     container.innerHTML = stock.map(p => {
-        // Image de base si p.img est complètement vide
-        const imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        let imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        
+        // CONTOURREMENT DU BLOCAGE ALIEXPRESS : Utilisation d'un proxy d'image sécurisé
+        if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
+            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
+        }
         
         return `
             <div class="card">
                 <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="gererErreurImage(this, '${imgSrc}')">
+                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
                 </div>
                 <h3>${p.nom || 'Sans nom'}</h3>
                 <p>Prix : ${p.prix || '0'}€</p>
@@ -77,13 +81,10 @@ function initEventListeners() {
 }
 
 // --- 4. MESSAGERIE CLIENT ---
-// Fonction pour ouvrir/fermer la bulle de discussion
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
-    if (chatPopup.classList.contains('chat-hidden')) {
-        chatPopup.classList.remove('chat-hidden');
-    } else {
-        chatPopup.classList.add('chat-hidden');
+    if (chatPopup) {
+        chatPopup.classList.toggle('chat-hidden');
     }
 }
 
@@ -133,22 +134,3 @@ const observer = new MutationObserver(() => {
     }
 });
 observer.observe(document.body, { childList: true, subtree: true });
-
-// --- 6. FONCTION DE CORRECTION AUTOMATIQUE DES IMAGES ---
-function gererErreurImage(imgElement, originalSrc) {
-    // Vérifie si on a déjà essayé de recharger l'image pour éviter une boucle infinie
-    if (imgElement.dataset.retried) {
-        // Si ça échoue encore après la tentative, on place l'image d'erreur définitive
-        imgElement.src = "https://via.placeholder.com/300x200?text=Erreur+Image";
-        return; 
-    }
-    
-    // Marque l'image comme ayant été tentée
-    imgElement.dataset.retried = "true";
-    
-    // Petite pause de sécurité (400ms) pour laisser les serveurs AliExpress s'initialiser
-    setTimeout(() => {
-        imgElement.src = ""; 
-        imgElement.src = originalSrc; // Force le navigateur à relancer le téléchargement de l'image
-    }, 400);
-}
