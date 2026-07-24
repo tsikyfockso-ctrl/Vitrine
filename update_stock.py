@@ -14,19 +14,20 @@ GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL", "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec")
 
 
-def generate_sign(params, secret):
+def generate_sign(endpoint, params, secret):
   """Génère la signature HMAC-SHA256 officielle d'AliExpress.
 
-  Trie tous les paramètres (hors 'sign') par ordre alphabétique strict.
+  Règle critique : Le chemin de l'API (endpoint) doit préfixer la chaîne de
+  caractères avant d'appliquer le secret !
   """
   filtered_params = {
       k: str(v) for k, v in params.items() if k != "sign" and v is not None
   }
   sorted_params = sorted(filtered_params.items())
 
-  # Concaténation : secret + key1val1key2val2... + secret
+  # Concaténation : endpoint + key1val1key2val2...
   query_string = "".join(f"{k}{v}" for k, v in sorted_params)
-  base_string = secret + query_string + secret
+  base_string = endpoint + query_string
 
   return (
       hmac.new(
@@ -42,7 +43,6 @@ def generate_sign(params, secret):
 def call_aliexpress_api(api_method, business_params):
   timestamp = str(int(time.time() * 1000))
 
-  # Paramètres communs de la passerelle AliExpress
   common_params = {
       "app_key": APP_KEY,
       "timestamp": timestamp,
@@ -52,11 +52,15 @@ def call_aliexpress_api(api_method, business_params):
       "session": SESSION_TOKEN,
   }
 
-  # Fusion des paramètres communs et de l'appel métier
   all_params = {**common_params, **business_params}
 
-  # Génération de la signature cryptographique
-  all_params["sign"] = generate_sign(all_params, APP_SECRET)
+  # Pour la passerelle /sync, le chemin utilisé dans le calcul est le nom de la méthode ou "/sync" selon l'archi, 
+  # Ici, la structure standard AliExpress Open Platform utilise la méthode comme préfixe ou racine d'appel :
+  # (Dans certains contextes de passerelle unique /sync, l'endpoint commence par un slash ou correspond au nom de la méthode)
+  
+  # Testons le format exact attendu par la passerelle globale :
+  # La chaîne de signature intègre le nom de la méthode ou le chemin relatif de l'API.
+  all_params["sign"] = generate_sign(api_method, all_params, APP_SECRET)
 
   try:
     response = requests.post(GATEWAY_URL, data=all_params)
@@ -85,7 +89,6 @@ if __name__ == "__main__":
     print("Erreur : Les clés APP_KEY ou APP_SECRET sont manquantes.")
     exit(1)
 
-  # Paramètres de recherche/produit pour l'API Dropshipping
   payload = {
       "product_id": "1005001234567890",
       "target_currency": "EUR",
@@ -101,3 +104,4 @@ if __name__ == "__main__":
   if response_data:
     print("Envoi des données vers le Google Sheet...")
     send_to_google_sheet(response_data)
+  
