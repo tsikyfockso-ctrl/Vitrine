@@ -513,6 +513,7 @@ nav {
     padding: 20px 10px;
     width: 100%;
     scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
 }
 
 #product-container::-webkit-scrollbar {
