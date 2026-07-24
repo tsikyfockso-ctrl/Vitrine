@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction multi-sélecteurs AliExpress...")
+    print("Démarrage de l'extraction avec correction rigoureuse des images...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -34,20 +34,19 @@ def scrape_and_send_to_sheet():
             
             page.wait_for_timeout(5000)
             
-            print("Défilement progressif pour charger les images et les blocs...")
-            for i in range(5):
-                page.mouse.wheel(0, 800)
+            print("Défilement progressif pour charger toutes les images en haute résolution...")
+            for i in range(6):
+                page.mouse.wheel(0, 900)
                 page.wait_for_timeout(2000)
                 
-            # Utilisation d'un sélecteur large et flexible qui cible toutes les cartes de produits possibles sur AliExpress
             product_cards = page.locator("div[class*='search-card-item'], div[class*='manhattan--container'], a[href*='item']")
             count = product_cards.count()
-            print(f"Succès : {count} éléments potentiels trouvés.")
+            print(f"Succès : {count} éléments trouvés.")
             
             success_count = 0
             seen_titles = set()
             
-            for i in range(min(count, 40)):
+            for i in range(min(count, 45)):
                 card = product_cards.nth(i)
                 
                 try:
@@ -67,28 +66,43 @@ def scrape_and_send_to_sheet():
                         elif len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line and "€" not in clean_line:
                             title = clean_line
                             
-                    # Éviter les doublons basés sur le titre
                     if title in seen_titles or title == "Titre indisponible":
                         continue
                     seen_titles.add(title)
                             
-                    # Extraction robuste de l'image
+                    # --- EXTRACTION ET NETTOYAGE AVANCÉ DE L'IMAGE ---
                     img_element = card.locator("img").first
                     img_url = ""
                     if img_element.count() > 0:
-                        img_url = img_element.get_attribute("data-src") or img_element.get_attribute("src") or ""
-                        if "data:image" in img_url or not img_url:
-                            img_url = img_element.get_attribute("srcset") or ""
-                            if img_url:
-                                img_url = img_url.split(" ")[0]
+                        # On récupère toutes les sources possibles par ordre de préférence
+                        img_url = (
+                            img_element.get_attribute("data-src") or 
+                            img_element.get_attribute("src") or 
+                            img_element.get_attribute("nitro-lazy-src") or 
+                            ""
+                        )
+                        
+                        # Si le lien utilise un srcset (plusieurs tailles), on extrait la première URL valide
+                        if not img_url or "data:image" in img_url:
+                            srcset = img_element.get_attribute("srcset")
+                            if srcset:
+                                img_url = srcset.split(",")[0].strip().split(" ")[0]
                                 
+                    # Normalisation stricte du lien de l'image
                     if img_url:
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
                         elif img_url.startswith("/"):
                             img_url = "https://www.aliexpress.com" + img_url
+                            
+                        # Nettoyage des paramètres superflus d'AliExpress qui cassent parfois l'affichage direct
+                        if ".jpg_" in img_url:
+                            img_url = img_url.split(".jpg_")[0] + ".jpg"
+                        elif ".png_" in img_url:
+                            img_url = img_url.split(".png_")[0] + ".png"
                     
-                    if not img_url or "data:image" in img_url:
+                    # Validation finale : on rejette si pas d'image propre ou image transparente
+                    if not img_url or "data:image" in img_url or "http" not in img_url:
                         continue
                         
                     payload = {
@@ -101,12 +115,12 @@ def scrape_and_send_to_sheet():
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] Envoyé avec succès : {title[:25]}... | Prix : {price}")
+                            print(f"[{success_count}] OK : {title[:25]}... | Image propre validée")
                             
                 except Exception as inner_err:
                     continue
                     
-            print(f"Synchronisation terminée ! {success_count} produits ajoutés dans BDD_Mayah_Store.")
+            print(f"Synchronisation terminée ! {success_count} produits avec images corrigées ajoutés dans BDD_Mayah_Store.")
             
         except Exception as e:
             print(f"Erreur critique durant l'exécution : {e}")
