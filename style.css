@@ -511,9 +511,17 @@ nav {
     scroll-behavior: smooth;
     gap: 20px;
     padding: 20px 10px;
-    width: 100%;
+    width: 280px;
+    height: 380px;
     scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
     -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
+}
+
+/* Zone réservée à l'image pour qu'elle soit parfaitement carrée */
+#product-container .card img {
+    width: 100%;
+    height: 250px;      /* Hauteur fixe pour l'image */
+    object-fit: cover;  /* L'image se recadre automatiquement en carré sans être déformée */
 }
 
 #product-container::-webkit-scrollbar {
