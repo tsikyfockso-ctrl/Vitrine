@@ -1,5 +1,4 @@
-name: Automatisation Scraper AliExpress vers Google Sheet
-
+name: Automatisation Mayah Store
 on:
   schedule:
     # S'exécute automatiquement tous les jours à minuit (00h00 UTC)
