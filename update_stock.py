@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction sécurisée AliExpress...")
+    print("Démarrage de l'extraction optimisée des produits et images...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -32,10 +32,11 @@ def scrape_and_send_to_sheet():
             print(f"Connexion à l'URL : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
             
-            page.wait_for_timeout(6000)
+            # Temps de pause pour laisser le DOM s'initialiser
+            page.wait_for_timeout(5000)
             
-            print("Défilement intelligent de la page...")
-            for i in range(4):
+            print("Défilement progressif pour forcer le chargement de toutes les images...")
+            for i in range(5):
                 page.mouse.wheel(0, 800)
                 page.wait_for_timeout(2000)
                 
@@ -46,7 +47,7 @@ def scrape_and_send_to_sheet():
             success_count = 0
             seen_urls = set()
             
-            for i in range(min(count, 30)):
+            for i in range(min(count, 35)):
                 card = product_cards.nth(i)
                 
                 try:
@@ -61,27 +62,39 @@ def scrape_and_send_to_sheet():
                     title = "Titre indisponible"
                     price = "Prix indisponible"
                     
-                    # Analyse affinée du texte pour capturer le prix (souvent précédé de symboles monétaires)
                     for line in text_lines:
                         clean_line = line.strip()
                         if not clean_line:
                             continue
                         
-                        # Détection du prix
                         if any(symbol in clean_line for symbol in ["US $", "€", "USD", "$", "US$"]) and price == "Prix indisponible":
                             price = clean_line
                         elif len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line and "€" not in clean_line:
                             title = clean_line
                             
-                    # Extraction sécurisée de l'image
+                    # --- EXTRACTION ET CORRECTION INTELLIGENTE DE L'IMAGE ---
                     img_element = card.locator("img").first
                     img_url = ""
                     if img_element.count() > 0:
-                        img_url = img_element.get_attribute("src") or img_element.get_attribute("data-src") or ""
+                        # Priorité au 'data-src' (image réelle en différé) sinon 'src'
+                        img_url = img_element.get_attribute("data-src") or img_element.get_attribute("src") or ""
+                        
+                        # Ignorer les micro-images transparentes de chargement par défaut
+                        if "data:image" in img_url or not img_url:
+                            # Tentative de récupération alternative via les styles ou attributs parents
+                            img_url = img_element.get_attribute("srcset") or ""
+                            if img_url:
+                                img_url = img_url.split(" ")[0] # Prend la première URL du srcset
+                                
+                    # Normalisation complète du lien de l'image
+                    if img_url:
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
-                            
-                    if title == "Titre indisponible" or not img_url:
+                        elif img_url.startswith("/"):
+                            img_url = "https://www.aliexpress.com" + img_url
+                    
+                    # Validation finale : si pas de titre, pas de prix exploitable ou pas d'image valide, on ignore
+                    if title == "Titre indisponible" or not img_url or "data:image" in img_url:
                         continue
                         
                     payload = {
@@ -94,12 +107,12 @@ def scrape_and_send_to_sheet():
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] Envoyé : {title[:30]}... | Prix : {price}")
+                            print(f"[{success_count}] Envoyé avec succès : {title[:25]}...")
                             
                 except Exception as inner_err:
                     continue
                     
-            print(f"Synchronisation terminée avec succès ! {success_count} produits ajoutés dans BDD_Mayah_Store.")
+            print(f"Synchronisation terminée ! {success_count} produits propres ajoutés dans BDD_Mayah_Store.")
             
         except Exception as e:
             print(f"Erreur critique durant l'exécution : {e}")
