@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction avec URLs d'images natives AliExpress...")
+    print("Démarrage de l'extraction complète (Base + Détails & Stock)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -29,88 +29,100 @@ def scrape_and_send_to_sheet():
         page = context.new_page()
         
         try:
-            print(f"Connexion à l'URL : {TARGET_URL}")
+            print(f"Connexion à la page de recherche : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
-            
             page.wait_for_timeout(5000)
             
-            print("Défilement progressif pour charger les images...")
-            for i in range(6):
-                page.mouse.wheel(0, 900)
+            print("Défilement progressif pour charger les produits...")
+            for _ in range(3):
+                page.mouse.wheel(0, 1000)
                 page.wait_for_timeout(2000)
-                
-            product_cards = page.locator("div[class*='search-card-item'], div[class*='manhattan--container'], a[href*='item']")
-            count = product_cards.count()
-            print(f"Succès : {count} éléments trouvés.")
+            
+            # Récupération des liens uniques des produits sur la page de liste
+            product_links = page.eval_on_selector_all(
+                'a[href*="/item/"]', 
+                "elements => [...new Set(elements.map(e => e.href))] "
+            )
+            
+            # Limiter aux 10 premiers produits pour les tests (vous pourrez augmenter après)
+            product_links = product_links[:10]
+            print(f"📦 {len(product_links)} produits trouvés. Extraction approfondie en cours...")
             
             success_count = 0
-            seen_titles = set()
             
-            for i in range(min(count, 40)):
-                card = product_cards.nth(i)
-                
+            for index, link in enumerate(product_links):
                 try:
-                    full_text = card.inner_text()
-                    text_lines = full_text.split('\n')
+                    # Ouvrir la page spécifique du produit pour avoir les détails et le stock
+                    detail_page = context.new_page()
+                    detail_page.goto(link, timeout=45000, wait_until="domcontentloaded")
+                    detail_page.wait_for_timeout(3000)
                     
-                    title = "Titre indisponible"
-                    price = "Prix indisponible"
+                    # 1. Extraction du Nom
+                    title = "Nom non trouvé"
+                    title_elem = detail_page.query_selector('h1') or detail_page.query_selector('[class*="title"]')
+                    if title_elem:
+                        title = title_elem.inner_text().strip()
                     
-                    for line in text_lines:
-                        clean_line = line.strip()
-                        if not clean_line:
-                            continue
-                        
-                        if any(symbol in clean_line for symbol in ["US $", "€", "USD", "$", "US$"]) and price == "Prix indisponible":
-                            price = clean_line
-                        elif len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line and "€" not in clean_line:
-                            title = clean_line
-                            
-                    if title in seen_titles or title == "Titre indisponible":
-                        continue
-                    seen_titles.add(title)
-                            
-                    # --- EXTRACTION SÉCURISÉE DE L'IMAGE NATIVE ---
-                    img_element = card.locator("img").first
+                    # 2. Extraction du Prix
+                    price = "Prix non trouvé"
+                    price_elem = detail_page.query_selector('[class*="price--current"]') or detail_page.query_selector('[class*="price"]')
+                    if price_elem:
+                        price = price_elem.inner_text().strip()
+                    
+                    # 3. Extraction de l'Image principale
                     img_url = ""
-                    if img_element.count() > 0:
-                        # On récupère l'attribut tel quel sans le tronquer
-                        img_url = (
-                            img_element.get_attribute("data-src") or 
-                            img_element.get_attribute("src") or 
-                            ""
-                        )
+                    img_elem = detail_page.query_selector('img[class*="magnifier"], img[class*="image"], .pdp-info-img img')
+                    if img_elem:
+                        img_url = img_elem.get_attribute("src") or img_elem.get_attribute("nitro-lazy-src")
                         
-                    # Normalisation du protocole sans modifier la structure du lien
                     if img_url:
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
                         elif img_url.startswith("/"):
                             img_url = "https://www.aliexpress.com" + img_url
                     
-                    # Validation : on rejette uniquement si l'image est vide ou transparente
+                    # 4. Extraction du Stock (quantité disponible)
+                    stock_qty = "En stock"
+                    stock_elem = detail_page.query_selector('[class*="quantity"], [class*="inventory"], [class*="stock"]')
+                    if stock_elem:
+                        stock_qty = stock_elem.inner_text().strip()
+                        
+                    # 5. Extraction des Détails / Description
+                    details = ""
+                    desc_elem = detail_page.query_selector('#product-description, [class*="description"]')
+                    if desc_elem:
+                        details = desc_elem.inner_text().strip()[:400] # Limité pour garder une BDD propre
+                        
+                    detail_page.close()
+                    
+                    # Validation basique de l'image
                     if not img_url or "data:image" in img_url or "http" not in img_url:
                         continue
                         
+                    # Construction du Payload complet à envoyer à Google Sheets
                     payload = {
                         "nom": title[:120],
                         "prix": price,
-                        "img": img_url
+                        "img": img_url,
+                        "lien": link,
+                        "stock": stock_qty,
+                        "details": details
                     }
                     
                     if GOOGLE_SCRIPT_URL:
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] OK : {title[:25]}... | Image enregistrée")
+                            print(f"[{success_count}] Synchronisé : {title[:30]}... | Prix: {price} | Stock: {stock_qty}")
                             
                 except Exception as inner_err:
+                    print(f"Erreur sur le produit {index+1} : {inner_err}")
                     continue
                     
-            print(f"Synchronisation terminée ! {success_count} produits avec images ajoutés dans BDD_Mayah_Store.")
+            print(f"✨ Synchronisation terminée avec succès ! {success_count} produits mis à jour dans BDD_Mayah_Store.")
             
         except Exception as e:
-            print(f"Erreur critique durant l'exécution : {e}")
+            print(f"Erreur critique durant l'exécution générale : {e}")
         finally:
             browser.close()
 
