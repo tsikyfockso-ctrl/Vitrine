@@ -492,7 +492,8 @@ nav {
         width: 90%; /* Occupe presque toute la largeur sur petit écran */
     }
 }
-/* --- STYLE DU CARROUSEL DE PRODUITS --- */
+/* --- AJOUT POUR LE DÉFILEMENT HORIZONTAL --- */
+
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -502,28 +503,30 @@ nav {
     margin: 0 auto;
 }
 
-#product-container.products-grid {
-    display: flex;
-    overflow-x: auto;
+/* Force l'alignement horizontal des produits sans saut de ligne */
+#product-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
     scroll-behavior: smooth;
     gap: 20px;
     padding: 20px 10px;
     width: 100%;
-    /* Masquer la barre de défilement tout en gardant le scroll fluide */
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
 }
 
-#product-container.products-grid::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+#product-container::-webkit-scrollbar {
+    display: none; /* Masque la barre de défilement sur Chrome/Safari */
 }
 
-/* Fixer une taille fixe aux cartes pour le défilement horizontal */
+/* Fixe une largeur précise pour chaque carte pour qu'elles gardent leur forme */
 #product-container .card {
-    flex: 0 0 250px; /* Chaque carte fera 250px de largeur fixe */
+    flex: 0 0 250px !important;
+    width: 250px !important;
     box-sizing: border-box;
 }
 
-/* Style des boutons fléchés (Manettes gauche / droite) */
+/* Style des boutons fléchés (manettes gauche/droite) */
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
@@ -533,13 +536,13 @@ nav {
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
 }
 
 .carousel-btn:hover {
