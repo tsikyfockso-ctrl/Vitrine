@@ -133,6 +133,7 @@ const observer = new MutationObserver(() => {
         document.body.style.top = '0px';
     }
 });
+observer.observe(document.body, { childList: true, subtree: true });
 
 // --- FONCTION DE FILTRAGE DES PRODUITS ---
 function filtrerProduits() {
@@ -148,4 +149,3 @@ function filtrerProduits() {
         }
     });
 }
-observer.observe(document.body, { childList: true, subtree: true });
