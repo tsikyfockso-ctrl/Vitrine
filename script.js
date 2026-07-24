@@ -133,4 +133,19 @@ const observer = new MutationObserver(() => {
         document.body.style.top = '0px';
     }
 });
+
+// --- FONCTION DE FILTRAGE DES PRODUITS ---
+function filtrerProduits() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const cartesProduits = document.querySelectorAll('#product-container .card');
+
+    cartesProduits.forEach(carte => {
+        const titre = carte.querySelector('h3').textContent.toLowerCase();
+        if (titre.includes(input)) {
+            carte.style.display = ""; // Affiche le produit s'il correspond
+        } else {
+            carte.style.display = "none"; // Masque le produit
+        }
+    });
+}
 observer.observe(document.body, { childList: true, subtree: true });
