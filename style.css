@@ -492,3 +492,64 @@ nav {
         width: 90%; /* Occupe presque toute la largeur sur petit écran */
     }
 }
+/* --- STYLE DU CARROUSEL DE PRODUITS --- */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#product-container.products-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 10px;
+    width: 100%;
+    /* Masquer la barre de défilement tout en gardant le scroll fluide */
+    scrollbar-width: none; /* Firefox */
+}
+
+#product-container.products-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Fixer une taille fixe aux cartes pour le défilement horizontal */
+#product-container .card {
+    flex: 0 0 250px; /* Chaque carte fera 250px de largeur fixe */
+    box-sizing: border-box;
+}
+
+/* Style des boutons fléchés (Manettes gauche / droite) */
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 15px 12px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.prev-btn {
+    left: -25px;
+}
+
+.next-btn {
+    right: -25px;
+}
