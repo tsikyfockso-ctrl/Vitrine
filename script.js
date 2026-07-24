@@ -135,17 +135,35 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-// --- FONCTION DE FILTRAGE DES PRODUITS ---
-function filtrerProduits() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const cartesProduits = document.querySelectorAll('#product-container .card');
-
-    cartesProduits.forEach(carte => {
-        const titre = carte.querySelector('h3').textContent.toLowerCase();
-        if (titre.includes(input)) {
-            carte.style.display = ""; // Affiche le produit s'il correspond
-        } else {
-            carte.style.display = "none"; // Masque le produit
-        }
-    });
+// --- 3. ÉVÉNEMENTS INTERACTIFS & RECHERCHE ---
+function initEventListeners() {
+    const ctaBtn = document.getElementById('cta-btn');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            const produitsSection = document.querySelector('#produits');
+            if (produitsSection) {
+                produitsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
 }
+
+// Écouteur global ultra-robuste pour la barre de recherche en temps réel
+document.addEventListener("input", (e) => {
+    if (e.target && e.target.id === 'searchInput') {
+        const filtre = e.target.value.toLowerCase().trim();
+        const cartesProduits = document.querySelectorAll('#product-container .card');
+
+        cartesProduits.forEach(carte => {
+            const titreElement = carte.querySelector('h3');
+            if (titreElement) {
+                const titre = titreElement.textContent.toLowerCase();
+                if (titre.includes(filtre)) {
+                    carte.style.display = ""; 
+                } else {
+                    carte.style.display = "none"; 
+                }
+            }
+        });
+    }
+});
