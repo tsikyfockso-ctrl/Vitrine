@@ -167,3 +167,16 @@ document.addEventListener("input", (e) => {
         });
     }
 });
+// --- FONCTION DE DÉFILEMENT HORIZONTAL PAR LES BOUTONS ---
+function defilerProduits(direction) {
+    const container = document.getElementById('product-container');
+    if (!container) return;
+    
+    const largeurCarte = 270; // Largeur d'une carte (250px + 20px de gap)
+    
+    if (direction === 'gauche') {
+        container.scrollBy({ left: -largeurCarte, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: largeurCarte, behavior: 'smooth' });
+    }
+}
