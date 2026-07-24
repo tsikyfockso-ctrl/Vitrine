@@ -2,7 +2,6 @@ import os
 import requests
 from playwright.sync_api import sync_playwright
 
-# On utilise une recherche ciblée par mot-clé au lieu d'une page globale pour éviter les blocages de sécurité
 TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
@@ -10,7 +9,6 @@ def scrape_and_send_to_sheet():
     print("Démarrage de l'extraction sécurisée AliExpress...")
     
     with sync_playwright() as p:
-        # Lancement avec des options pour paraître totalement humain
         browser = p.chromium.launch(
             headless=True,
             args=[
@@ -34,16 +32,13 @@ def scrape_and_send_to_sheet():
             print(f"Connexion à l'URL : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
             
-            # Petite pause humaine pour laisser le contenu s'injecter en JS
             page.wait_for_timeout(6000)
             
-            # Simulation d'un défilement lent et humain
             print("Défilement intelligent de la page...")
             for i in range(4):
                 page.mouse.wheel(0, 800)
                 page.wait_for_timeout(2000)
                 
-            # Recherche élargie des éléments de produits (liens contenant /item/)
             product_cards = page.locator("a[href*='/item/']")
             count = product_cards.count()
             print(f"Succès : {count} éléments produits trouvés.")
@@ -51,8 +46,7 @@ def scrape_and_send_to_sheet():
             success_count = 0
             seen_urls = set()
             
-            # On limite aux 25 premiers produits pour un traitement rapide et propre
-            for i in range(min(count, 25)):
+            for i in range(min(count, 30)):
                 card = product_cards.nth(i)
                 
                 try:
@@ -61,18 +55,25 @@ def scrape_and_send_to_sheet():
                         continue
                     seen_urls.add(href)
                     
-                    text_content = card.inner_text().split('\n')
+                    full_text = card.inner_text()
+                    text_lines = full_text.split('\n')
+                    
                     title = "Titre indisponible"
                     price = "Prix indisponible"
                     
-                    for line in text_content:
+                    # Analyse affinée du texte pour capturer le prix (souvent précédé de symboles monétaires)
+                    for line in text_lines:
                         clean_line = line.strip()
-                        if len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line:
-                            title = clean_line
-                        elif "US $" in clean_line or "€" in clean_line or "USD" in clean_line:
+                        if not clean_line:
+                            continue
+                        
+                        # Détection du prix
+                        if any(symbol in clean_line for symbol in ["US $", "€", "USD", "$", "US$"]) and price == "Prix indisponible":
                             price = clean_line
+                        elif len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line and "€" not in clean_line:
+                            title = clean_line
                             
-                    # Récupération de l'image
+                    # Extraction sécurisée de l'image
                     img_element = card.locator("img").first
                     img_url = ""
                     if img_element.count() > 0:
@@ -80,7 +81,6 @@ def scrape_and_send_to_sheet():
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
                             
-                    # On ignore les éléments vides ou invalides
                     if title == "Titre indisponible" or not img_url:
                         continue
                         
@@ -94,7 +94,7 @@ def scrape_and_send_to_sheet():
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] Envoyé : {title[:35]}... ({price})")
+                            print(f"[{success_count}] Envoyé : {title[:30]}... | Prix : {price}")
                             
                 except Exception as inner_err:
                     continue
