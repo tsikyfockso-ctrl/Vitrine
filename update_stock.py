@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction optimisée des produits et images...")
+    print("Démarrage de l'extraction multi-sélecteurs AliExpress...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -32,30 +32,25 @@ def scrape_and_send_to_sheet():
             print(f"Connexion à l'URL : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
             
-            # Temps de pause pour laisser le DOM s'initialiser
             page.wait_for_timeout(5000)
             
-            print("Défilement progressif pour forcer le chargement de toutes les images...")
+            print("Défilement progressif pour charger les images et les blocs...")
             for i in range(5):
                 page.mouse.wheel(0, 800)
                 page.wait_for_timeout(2000)
                 
-            product_cards = page.locator("a[href*='/item/']")
+            # Utilisation d'un sélecteur large et flexible qui cible toutes les cartes de produits possibles sur AliExpress
+            product_cards = page.locator("div[class*='search-card-item'], div[class*='manhattan--container'], a[href*='item']")
             count = product_cards.count()
-            print(f"Succès : {count} éléments produits trouvés.")
+            print(f"Succès : {count} éléments potentiels trouvés.")
             
             success_count = 0
-            seen_urls = set()
+            seen_titles = set()
             
-            for i in range(min(count, 35)):
+            for i in range(min(count, 40)):
                 card = product_cards.nth(i)
                 
                 try:
-                    href = card.get_attribute("href")
-                    if not href or href in seen_urls:
-                        continue
-                    seen_urls.add(href)
-                    
                     full_text = card.inner_text()
                     text_lines = full_text.split('\n')
                     
@@ -72,29 +67,28 @@ def scrape_and_send_to_sheet():
                         elif len(clean_line) > 12 and title == "Titre indisponible" and "US $" not in clean_line and "€" not in clean_line:
                             title = clean_line
                             
-                    # --- EXTRACTION ET CORRECTION INTELLIGENTE DE L'IMAGE ---
+                    # Éviter les doublons basés sur le titre
+                    if title in seen_titles or title == "Titre indisponible":
+                        continue
+                    seen_titles.add(title)
+                            
+                    # Extraction robuste de l'image
                     img_element = card.locator("img").first
                     img_url = ""
                     if img_element.count() > 0:
-                        # Priorité au 'data-src' (image réelle en différé) sinon 'src'
                         img_url = img_element.get_attribute("data-src") or img_element.get_attribute("src") or ""
-                        
-                        # Ignorer les micro-images transparentes de chargement par défaut
                         if "data:image" in img_url or not img_url:
-                            # Tentative de récupération alternative via les styles ou attributs parents
                             img_url = img_element.get_attribute("srcset") or ""
                             if img_url:
-                                img_url = img_url.split(" ")[0] # Prend la première URL du srcset
+                                img_url = img_url.split(" ")[0]
                                 
-                    # Normalisation complète du lien de l'image
                     if img_url:
                         if img_url.startswith("//"):
                             img_url = "https:" + img_url
                         elif img_url.startswith("/"):
                             img_url = "https://www.aliexpress.com" + img_url
                     
-                    # Validation finale : si pas de titre, pas de prix exploitable ou pas d'image valide, on ignore
-                    if title == "Titre indisponible" or not img_url or "data:image" in img_url:
+                    if not img_url or "data:image" in img_url:
                         continue
                         
                     payload = {
@@ -107,12 +101,12 @@ def scrape_and_send_to_sheet():
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] Envoyé avec succès : {title[:25]}...")
+                            print(f"[{success_count}] Envoyé avec succès : {title[:25]}... | Prix : {price}")
                             
                 except Exception as inner_err:
                     continue
                     
-            print(f"Synchronisation terminée ! {success_count} produits propres ajoutés dans BDD_Mayah_Store.")
+            print(f"Synchronisation terminée ! {success_count} produits ajoutés dans BDD_Mayah_Store.")
             
         except Exception as e:
             print(f"Erreur critique durant l'exécution : {e}")
