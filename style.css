@@ -541,8 +541,8 @@ nav {
     transform: translateY(-50%);
     
     /* On force des dimensions égales pour un cercle parfait */
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     
     display: flex;
     align-items: center;
