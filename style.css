@@ -532,13 +532,13 @@ nav {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
+    z-index: 5;
+    border-radius: 40%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     
     /* On force des dimensions égales pour un cercle parfait */
     width: 50px;
