@@ -535,13 +535,13 @@ nav {
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 10;
-    border-radius: 50%;
+    border-radius: 40px;
     position: absolute;
-    top: 50%;
+    top: 40px;
     transform: translateY(-50%);
     
     /* On force des dimensions égales pour un cercle parfait */
-    width: 40px;
+    width: 30px;
     height: 40px;
     
     display: flex;
