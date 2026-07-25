@@ -526,20 +526,23 @@ nav {
     width: 250px !important;
     box-sizing: border-box;
 }
-
-/* Style des boutons fléchés (manettes gauche/droite) */
+/* --- BOUTONS DU CARROUSEL PARFAITEMENT RONDS --- */
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    font-size: 1.5rem;
-    padding: 15px 12px;
+    font-size: 1.2rem;
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    
+    /* On force des dimensions égales pour un cercle parfait */
+    width: 45px;
+    height: 45px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -551,9 +554,9 @@ nav {
 }
 
 .prev-btn {
-    left: -25px;
+    left: -20px;
 }
 
 .next-btn {
-    right: -25px;
+    right: -20px;
 }
