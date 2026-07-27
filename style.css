@@ -330,24 +330,6 @@ nav {
 .card:hover .card-img-container img {
     transform: scale(1.05);
 }
-/* Conteneur pour l'image dans la carte */
-.card-img-container {
-    width: 100%;
-    height: 200px; /* Hauteur fixe pour toutes les cartes */
-    overflow: hidden; /* Cache ce qui dépasse */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
-}
-
-/* Style de l'image elle-même */
-.card-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
-    object-position: center;  /* Centre le sujet principal de l'image */
-    transition: transform 0.3s ease;
-}
 
 /* Effet zoom sympa au survol (optionnel) */
 .card:hover .card-img-container img {
