@@ -11,16 +11,41 @@ async function loadProductsFromStock() {
     const container = document.getElementById('product-container');
     if (!container) return;
 
+    let hasLoadedFromCache = false;
+
+    // 1. Affichage immédiat via le cache local
+    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
+    if (cachedStock) {
+        try {
+            const stock = JSON.parse(cachedStock);
+            if (Array.isArray(stock) && stock.length > 0) {
+                renderProducts(stock, container);
+                hasLoadedFromCache = true; // On a affiché instantanément
+            }
+        } catch (e) {
+            localStorage.removeItem("cached_aliexpress_stock");
+        }
+    }
+
+    // 2. Si on n'a rien en cache, on affiche un message discret de chargement
+    if (!hasLoadedFromCache) {
+        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits en cours...</p>";
+    }
+
+    // 3. Récupération en arrière-plan des données fraîches
     try {
         const response = await fetch(url);
         const stock = await response.json();
         
-        if (Array.isArray(stock)) {
+        if (Array.isArray(stock) && stock.length > 0) {
+            // Met à jour le cache
+            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
+            
+            // On ré-affiche uniquement si le cache était vide ou obsolète
             renderProducts(stock, container);
         }
-    } catch (error) {
-        console.error("Erreur de chargement des produits :", error);
-        container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de connexion aux produits.</p>`;
+    } catch (e) {
+        console.error("Erreur lors de la mise à jour depuis Google Sheets:", e);
     }
 }
 
