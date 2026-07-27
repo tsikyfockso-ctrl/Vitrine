@@ -44,18 +44,16 @@ async function loadProductsFromStock() {
 
 // Fonction d'affichage 100% sécurisée sans aucun proxy externe
 function renderProducts(stock, container) {
-    container.innerHTML = ""; // Nettoyer proprement le conteneur
+    container.innerHTML = ""; 
 
     stock.forEach(p => {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
-        // Si aucune image n'est renseignée, on met un SVG par défaut
         if (!imgSrc) {
             imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
         }
 
-        // Création des éléments en JavaScript pur (Évite toute erreur de syntaxe HTML)
         const card = document.createElement('div');
         card.className = "card product-card";
 
@@ -67,10 +65,10 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // Gestion propre de l'erreur d'image sans risque de syntaxe
+        // Si l'image d'origine plante, on bascule sur une image de secours propre et lisible
         img.onerror = function() {
-            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23fee'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='red'>Erreur de chargement</text></svg>";
-            this.onerror = null; // Empêche une boucle infinie
+            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien AliExpress protégé)</text></svg>";
+            this.onerror = null; 
         };
 
         const title = document.createElement('h3');
@@ -82,7 +80,6 @@ function renderProducts(stock, container) {
         const button = document.createElement('button');
         button.textContent = "Ajouter au panier";
 
-        // Assemblage des éléments
         imgContainer.appendChild(img);
         card.appendChild(imgContainer);
         card.appendChild(title);
