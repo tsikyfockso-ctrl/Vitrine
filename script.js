@@ -134,3 +134,17 @@ const observer = new MutationObserver(() => {
     }
 });
 observer.observe(document.body, { childList: true, subtree: true });
+
+// --- FONCTION POUR LE DÉFILEMENT HORIZONTAL DES PRODUITS ---
+function defilerProduits(direction) {
+    const container = document.getElementById('product-container');
+    if (!container) return;
+    
+    const largeurCarte = 270; // 250px (largeur de la carte) + 20px (espace 'gap')
+    
+    if (direction === 'gauche') {
+        container.scrollBy({ left: -largeurCarte, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: largeurCarte, behavior: 'smooth' });
+    }
+}
