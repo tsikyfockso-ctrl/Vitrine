@@ -44,20 +44,26 @@ async function loadProductsFromStock() {
     }
 }
 
-// Fonction d'affichage avec Proxy anti-blocage pour les images AliExpress
 function renderProducts(stock, container) {
     container.innerHTML = stock.map(p => {
-        let imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        let rawImg = p.img || p.image || ""; 
+        let imgSrc = rawImg.trim() !== "" ? rawImg : "";
         
-        // CONTOURNEMENT DU BLOCAGE ALIEXPRESS : Utilisation du proxy sécurisé wsrv.nl
+        // Contournement du blocage AliExpress via le proxy wsrv.nl
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
         
+        // Si aucune image n'est renseignée, on utilise un SVG intégré (qui ne plantera jamais)
+        if (!imgSrc) {
+            imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+        }
+
         return `
             <div class="card product-card">
                 <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
+                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" 
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23fee\f\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'14\' fill=\'red\'>Erreur de chargement</text></svg>';">
                 </div>
                 <h3>${p.nom || 'Sans nom'}</h3>
                 <p>Prix : ${p.prix || '0'}€</p>
