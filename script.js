@@ -49,7 +49,7 @@ function renderProducts(stock, container) {
     container.innerHTML = stock.map(p => {
         let imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
         
-        // CONTOURREMENT DU BLOCAGE ALIEXPRESS : Utilisation d'un proxy d'image sécurisé
+        // CONTOURNEMENT DU BLOCAGE ALIEXPRESS : Utilisation du proxy sécurisé wsrv.nl
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
