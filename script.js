@@ -181,3 +181,62 @@ if (slider) {
         slider.scrollLeft = scrollLeft - walk;
     });
 }
+
+// --- GESTION DE L'AFFICHAGE ET DU CLIC SUR LES PRODUITS ---
+function renderProducts(products, container) {
+    container.innerHTML = "";
+    
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        
+        card.innerHTML = `
+            <img src="${product.img || ''}" alt="${product.nom || 'Produit'}">
+            <h3>${product.nom || 'Sans nom'}</h3>
+            <p class="price">${product.prix || 'Prix non disponible'}</p>
+        `;
+        
+        // Rendre la carte cliquable pour ouvrir le cadre des détails
+        card.addEventListener('click', () => {
+            openModal(product);
+        });
+        
+        container.appendChild(card);
+    });
+}
+
+// Ouvrir le cadre modal avec les données du produit cliqué
+function openModal(product) {
+    document.getElementById('modalImg').src = product.img || '';
+    document.getElementById('modalTitle').textContent = product.nom || 'Détails du produit';
+    document.getElementById('modalPrice').textContent = product.prix || '';
+    
+    // Affichage du stock (gère le cas si la donnée est absente)
+    const stockElem = document.getElementById('modalStock');
+    if (product.stock && product.stock !== "Stock non spécifié") {
+        stockElem.textContent = `📦 Stock disponible : ${product.stock}`;
+        stockElem.style.display = 'inline-block';
+    } else {
+        stockElem.textContent = '📦 Stock : Disponible';
+        stockElem.style.display = 'inline-block';
+    }
+    
+    // Affichage des détails complets
+    document.getElementById('modalDetails').textContent = product.details || 'Aucune description détaillée disponible pour le moment.';
+    
+    // Afficher la modale
+    document.getElementById('productModal').style.display = 'flex';
+}
+
+// Fermer le cadre modal
+function closeModal() {
+    document.getElementById('productModal').style.display = 'none';
+}
+
+// Fermer également si l'utilisateur clique en dehors de la boîte blanche
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('productModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
