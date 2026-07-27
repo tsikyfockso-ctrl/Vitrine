@@ -45,32 +45,53 @@ async function loadProductsFromStock() {
 }
 
 function renderProducts(stock, container) {
-    container.innerHTML = stock.map(p => {
+    container.innerHTML = ""; // Nettoyer le conteneur proprement
+
+    stock.forEach(p => {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim() !== "" ? rawImg : "";
         
-        // Contournement du blocage AliExpress via le proxy wsrv.nl
-        if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
-            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
-        }
-        
-        // Si aucune image n'est renseignée, on utilise un SVG intégré (qui ne plantera jamais)
+        // Si aucune image n'est renseignée, on met un SVG par défaut
         if (!imgSrc) {
             imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
         }
 
-        return `
-            <div class="card product-card">
-                <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" 
-                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23fee\f\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'14\' fill=\'red\'>Erreur de chargement</text></svg>';">
-                </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
-                <p>Prix : ${p.prix || '0'}€</p>
-                <button>Ajouter au panier</button>
-            </div>
-        `;
-    }).join('');
+        // Création sécurisée des éléments du DOM (Évite les erreurs de syntaxe HTML/JS)
+        const card = document.createElement('div');
+        card.className = "card product-card";
+
+        const imgContainer = document.createElement('div');
+        imgContainer.className = "card-img-container";
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = p.nom || 'Produit';
+        img.loading = "lazy";
+
+        // Gestion propre de l'erreur d'image sans risque de syntaxe
+        img.onerror = function() {
+            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23fee'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='red'>Erreur de chargement</text></svg>";
+            this.onerror = null; // Empêche une boucle infinie
+        };
+
+        const title = document.createElement('h3');
+        title.textContent = p.nom || 'Sans nom';
+
+        const price = document.createElement('p');
+        price.textContent = `Prix : ${p.prix || '0'}€`;
+
+        const button = document.createElement('button');
+        button.textContent = "Ajouter au panier";
+
+        // Assemblage de la carte
+        imgContainer.appendChild(img);
+        card.appendChild(imgContainer);
+        card.appendChild(title);
+        card.appendChild(price);
+        card.appendChild(button);
+
+        container.appendChild(card);
+    });
 }
 
 // --- 3. ÉVÉNEMENTS INTERACTIFS ---
