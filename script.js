@@ -59,6 +59,13 @@ function renderProducts(stock, container) {
         
         const card = document.createElement('div');
         card.className = "card product-card";
+        // Ajout d'un style curseur pointeur pour indiquer que c'est cliquable
+        card.style.cursor = "pointer";
+
+        // Événement au clic sur la carte entière pour ouvrir la modale
+        card.addEventListener('click', () => {
+            openModal(p, imgSrc);
+        });
 
         const imgContainer = document.createElement('div');
         imgContainer.className = "card-img-container";
@@ -66,7 +73,6 @@ function renderProducts(stock, container) {
         const img = document.createElement('img');
         
         if (imgSrc) {
-            // Utilisation d'un proxy d'image pour contourner le blocage du navigateur
             let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
             img.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
         } else {
@@ -76,7 +82,6 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // Sécurité de secours : si le proxy échoue, on tente le lien direct d'origine
         img.onerror = function() {
             this.src = imgSrc;
             this.onerror = null; 
@@ -90,6 +95,11 @@ function renderProducts(stock, container) {
 
         const button = document.createElement('button');
         button.textContent = "Ajouter au panier";
+        // Empêche le clic sur le bouton d'ouvrir la modale de détails en même temps
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            alert(`Produit ajouté au panier : ${p.nom || 'Produit'}`);
+        });
 
         imgContainer.appendChild(img);
         card.appendChild(imgContainer);
@@ -99,6 +109,40 @@ function renderProducts(stock, container) {
 
         container.appendChild(card);
     });
+}
+
+// --- FONCTIONS POUR LA MODALE DE DÉTAILS ---
+function openModal(product, imgSrc) {
+    const modal = document.getElementById('productModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalStock = document.getElementById('modalStock');
+    const modalDetails = document.getElementById('modalDetails');
+
+    if (!modal) return;
+
+    // Gestion de l'image de la modale via le proxy
+    if (imgSrc) {
+        let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
+        modalImg.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
+    } else {
+        modalImg.src = "";
+    }
+
+    modalTitle.textContent = product.nom || 'Sans nom';
+    modalPrice.textContent = `Prix : ${product.prix || '0'}€`;
+    modalStock.textContent = product.stock ? `Stock disponible : ${product.stock}` : '';
+    modalDetails.textContent = product.description || 'Aucune description supplémentaire disponible pour ce produit.';
+
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // --- 3. ÉVÉNEMENTS INTERACTIFS ---
