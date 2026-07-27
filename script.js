@@ -55,7 +55,7 @@ function renderProducts(stock, container) {
         }
         
         return `
-            <div class="card">
+            <div class="card product-card">
                 <div class="card-img-container">
                     <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
                 </div>
