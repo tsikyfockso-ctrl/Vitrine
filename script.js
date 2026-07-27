@@ -50,8 +50,16 @@ function renderProducts(stock, container) {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
+        // Si aucune image n'est renseignée, on met un SVG par défaut
         if (!imgSrc) {
             imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+        } else {
+            // CONTOURNEMENT UNIVERSEL : On passe par un proxy d'image pour forcer AliExpress à accepter l'affichage
+            if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
+                // Nettoyage de l'URL pour l'encoder proprement sans briser le code
+                let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
+                imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}&w=400&fit=cover`;
+            }
         }
 
         const card = document.createElement('div');
@@ -65,7 +73,7 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // Si l'image d'origine plante, on bascule sur une image de secours propre et lisible
+        // En cas d'échec ultime du proxy, on affiche un message propre
         img.onerror = function() {
             this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien AliExpress protégé)</text></svg>";
             this.onerror = null; 
