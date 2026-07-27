@@ -31,9 +31,7 @@ async function loadProductsFromStock() {
         const stock = await response.json();
         
         if (Array.isArray(stock)) {
-            // Mettre à jour le cache proprement
             localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
-            // Afficher les données à jour
             renderProducts(stock, container);
         }
     } catch (error) {
@@ -44,33 +42,55 @@ async function loadProductsFromStock() {
     }
 }
 
-// Fonction d'affichage avec Proxy anti-blocage sécurisé pour les images AliExpress
+// Fonction d'affichage 100% sécurisée sans aucun proxy externe
 function renderProducts(stock, container) {
-    container.innerHTML = stock.map(p => {
+    container.innerHTML = ""; // Nettoyer proprement le conteneur
+
+    stock.forEach(p => {
         let rawImg = p.img || p.image || ""; 
-        let imgSrc = rawImg.trim() !== "" ? rawImg : "";
+        let imgSrc = rawImg.trim();
         
-        // CONTOURNEMENT DU BLOCAGE ALIEXPRESS : Utilisation du proxy stable images.weserv.nl
-        if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
-            imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(imgSrc.replace(/^https?:\/\//, ''))}&w=400&fit=cover`;
-        }
-        
-        // Si aucune image n'est renseignée, on utilise un SVG intégré par défaut
+        // Si aucune image n'est renseignée, on met un SVG par défaut
         if (!imgSrc) {
             imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
         }
-        
-        return `
-            <div class="card product-card">
-                <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23fee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'14\' fill=\'red\'>Erreur de chargement</text></svg>';">
-                </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
-                <p>Prix : ${p.prix || '0'}€</p>
-                <button>Ajouter au panier</button>
-            </div>
-        `;
-    }).join('');
+
+        // Création des éléments en JavaScript pur (Évite toute erreur de syntaxe HTML)
+        const card = document.createElement('div');
+        card.className = "card product-card";
+
+        const imgContainer = document.createElement('div');
+        imgContainer.className = "card-img-container";
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = p.nom || 'Produit';
+        img.loading = "lazy";
+
+        // Gestion propre de l'erreur d'image sans risque de syntaxe
+        img.onerror = function() {
+            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23fee'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='red'>Erreur de chargement</text></svg>";
+            this.onerror = null; // Empêche une boucle infinie
+        };
+
+        const title = document.createElement('h3');
+        title.textContent = p.nom || 'Sans nom';
+
+        const price = document.createElement('p');
+        price.textContent = `Prix : ${p.prix || '0'}€`;
+
+        const button = document.createElement('button');
+        button.textContent = "Ajouter au panier";
+
+        // Assemblage des éléments
+        imgContainer.appendChild(img);
+        card.appendChild(imgContainer);
+        card.appendChild(title);
+        card.appendChild(price);
+        card.appendChild(button);
+
+        container.appendChild(card);
+    });
 }
 
 // --- 3. ÉVÉNEMENTS INTERACTIFS ---
@@ -128,7 +148,6 @@ function loadClientMessages() {
     `).join('');
 }
 
-// Rafraîchissement automatique des messages
 setInterval(loadClientMessages, 2000);
 
 // --- 5. DIVERS (Bandeau Google) ---
@@ -146,7 +165,7 @@ function defilerProduits(direction) {
     const container = document.getElementById('product-container');
     if (!container) return;
     
-    const largeurCarte = 270; // 250px (largeur de la carte) + 20px (espace 'gap')
+    const largeurCarte = 270; 
     
     if (direction === 'gauche') {
         container.scrollBy({ left: -largeurCarte, behavior: 'smooth' });
@@ -183,7 +202,7 @@ if (slider) {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; // Vitesse de défilement
+        const walk = (x - startX) * 2; 
         slider.scrollLeft = scrollLeft - walk;
     });
 }
