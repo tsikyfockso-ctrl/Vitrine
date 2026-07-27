@@ -32,14 +32,6 @@ function renderProducts(stock, container) {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
-        if (!imgSrc) {
-            imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
-        } else {
-            // PROXY UNIVERSEL : Contourne les restrictions AliExpress comme au premier jour
-            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
-            imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
-        }
-
         const card = document.createElement('div');
         card.className = "card product-card";
 
@@ -47,18 +39,22 @@ function renderProducts(stock, container) {
         imgContainer.className = "card-img-container";
 
         const img = document.createElement('img');
-        img.src = imgSrc;
+        
+        if (imgSrc) {
+            // Utilisation d'un proxy d'image pour contourner le blocage du navigateur
+            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
+            img.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
+        } else {
+            img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+        }
+
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // En cas d'erreur de chargement, on bascule sur l'image brute ou un message propre
+        // Sécurité de secours : si le proxy échoue, on tente le lien direct d'origine
         img.onerror = function() {
-            if (this.src.includes("images.weserv.nl")) {
-                this.src = p.img || p.image; 
-            } else {
-                this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text></svg>";
-                this.onerror = null; 
-            }
+            this.src = imgSrc;
+            this.onerror = null; 
         };
 
         const title = document.createElement('h3');
