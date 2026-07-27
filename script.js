@@ -11,38 +11,20 @@ async function loadProductsFromStock() {
     const container = document.getElementById('product-container');
     if (!container) return;
 
-    // 1. Charger depuis le cache pour l'affichage immédiat
-    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
-    if (cachedStock) {
-        try {
-            const stock = JSON.parse(cachedStock);
-            if (Array.isArray(stock) && stock.length > 0) {
-                renderProducts(stock, container);
-            }
-        } catch (e) {
-            console.error("Cache invalide, suppression...");
-            localStorage.removeItem("cached_aliexpress_stock");
-        }
-    }
-
-    // 2. Récupérer les données fraîches depuis Google Sheets
     try {
         const response = await fetch(url);
         const stock = await response.json();
         
         if (Array.isArray(stock)) {
-            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
             renderProducts(stock, container);
         }
     } catch (error) {
         console.error("Erreur de chargement des produits :", error);
-        if (!cachedStock) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de connexion aux produits.</p>`;
-        }
+        container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de connexion aux produits.</p>`;
     }
 }
 
-// Fonction d'affichage avec double système de secours anti-blocage
+// Fonction d'affichage directe et sécurisée
 function renderProducts(stock, container) {
     container.innerHTML = ""; 
 
@@ -50,15 +32,6 @@ function renderProducts(stock, container) {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
-        if (!imgSrc) {
-            imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
-        } else {
-            // Nettoyage de l'URL AliExpress pour retirer les dimensions parasites (ex: _480x480q75.jpg) si besoin, 
-            // et passage par un proxy de rediffusion d'image
-            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
-            imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
-        }
-
         const card = document.createElement('div');
         card.className = "card product-card";
 
@@ -66,20 +39,21 @@ function renderProducts(stock, container) {
         imgContainer.className = "card-img-container";
 
         const img = document.createElement('img');
-        img.src = imgSrc;
+        
+        // Si l'image est présente, on l'utilise directement
+        if (imgSrc) {
+            img.src = imgSrc;
+        } else {
+            img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+        }
+
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // Stratégie à 2 niveaux en cas d'erreur de chargement de l'image proxy
+        // Gestion propre de l'erreur d'image si le lien direct est bloqué par la source
         img.onerror = function() {
-            // Tentative de secours N°1 : On essaie l'URL brute d'origine sans proxy
-            if (this.src.includes("images.weserv.nl")) {
-                this.src = p.img || p.image; 
-            } else {
-                // Si l'URL brute échoue aussi, on affiche le message propre de secours
-                this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien AliExpress protégé)</text></svg>";
-                this.onerror = null; 
-            }
+            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien protégé)</text></svg>";
+            this.onerror = null; 
         };
 
         const title = document.createElement('h3');
