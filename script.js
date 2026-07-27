@@ -32,6 +32,14 @@ function renderProducts(stock, container) {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
+        if (!imgSrc) {
+            imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+        } else {
+            // PROXY UNIVERSEL : Contourne les restrictions AliExpress comme au premier jour
+            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
+            imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
+        }
+
         const card = document.createElement('div');
         card.className = "card product-card";
 
@@ -39,21 +47,18 @@ function renderProducts(stock, container) {
         imgContainer.className = "card-img-container";
 
         const img = document.createElement('img');
-        
-        // Si l'image est présente, on l'utilise directement
-        if (imgSrc) {
-            img.src = imgSrc;
-        } else {
-            img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
-        }
-
+        img.src = imgSrc;
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // Gestion propre de l'erreur d'image si le lien direct est bloqué par la source
+        // En cas d'erreur de chargement, on bascule sur l'image brute ou un message propre
         img.onerror = function() {
-            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien protégé)</text></svg>";
-            this.onerror = null; 
+            if (this.src.includes("images.weserv.nl")) {
+                this.src = p.img || p.image; 
+            } else {
+                this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text></svg>";
+                this.onerror = null; 
+            }
         };
 
         const title = document.createElement('h3');
