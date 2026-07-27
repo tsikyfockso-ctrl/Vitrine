@@ -1,3 +1,4 @@
+
 body { 
   font-family: 'Segoe UI', sans-serif; 
   margin: 0; 
@@ -6,12 +7,22 @@ body {
   margin: 0 auto;       /* Centre la page */
   max-width: 1200px;    /* Le site ne dépassera jamais 1200px sur PC */
   width: 100%;          /* Mais prend 100% sur mobile */
+    /* 1.75 correspond à 175% */
+  /*transform: scale(1.75); */
+    
+    /* Cela permet de garder le site centré malgré l'agrandissement */
+   /* transform-origin: top center; */
+    
+    /* Important : ajuste la largeur pour éviter que le site ne déborde */
+    /*width: 57.14%;*/ /* (100 / 1.75 = 57.14) */
+    /*margin: 0 auto;*/
 }
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
+    /* Utilisation d'une couleur de fond fixe basée sur votre logo */
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
     background-color: var(--couleur-principale);
@@ -28,15 +39,15 @@ header {
     justify-content: center;
     color: white; 
     background-color: transparent;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
     position: relative;
 }
 .fixed-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    position: absolute; /* Reste à la même place */
+    top: 50%;           /* Centre vertical */
+    left: 50%;          /* Centre horizontal */
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    z-index: 10;        /* Assure que c'est au-dessus des images */
     text-align: center;
     color: white;
     width: 100%;
@@ -45,9 +56,10 @@ header {
 .fixed-overlay h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ombre pour bien voir le texte */
 }
 
+/* Bouton */
 .fixed-overlay button {
     padding: 15px 30px;
     background: #e74c3c;
@@ -83,17 +95,21 @@ button {
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    background-image: url('logo_vitrine/Mayah.png');
-    background-size: cover;
-    background-position: center;
+    
+    /* C'est ici l'astuce pour un cercle parfait */
+    background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
+    background-size: 150px;
+    background-size: cover;      /* L'image remplit le cercle sans déformation */
+    background-position: center; /* Centre le logo dans le cercle */
     background-repeat: no-repeat;
+    
     border: 3px solid white;
 }
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
-    margin-right: 20px;
+    gap: 15px; /* Espace entre les boutons */
+    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
     margin-left: auto;
 }
 
@@ -102,15 +118,16 @@ button {
     color: #333;
     background: #f0f0f0;
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 25px; /* Forme arrondie moderne */
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Animation fluide */
 }
 
+/* Effet au survol de la souris */
 .nav-btn:hover {
     background: #333;
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Léger effet de soulèvement */
 }
 .slideshow-container {
     width: 100%;
@@ -122,20 +139,21 @@ button {
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: slide-animation 24s infinite;
+    animation: slide-animation 24s infinite; /* Temps total du cycle */
     opacity: 0;
 }
-.slide:after {
+.slide::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.6); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
+    pointer-events: none; /* Permet aux clics de traverser cette couche */
 }
 
+/* Calcul du délai pour chaque image (7 images = 4s chacune) */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
@@ -152,10 +170,10 @@ button {
     100% { opacity: 0; }
 }
 .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
+    width: 100%;       /* L'image prend toute la largeur du conteneur */
+    height: 100%;      /* L'image prend toute la hauteur du conteneur */
+    object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
+    object-position: bottom; /* Centre l'image pour garder les éléments importants visibles */
     display: block;
 }
 * {
@@ -163,31 +181,31 @@ button {
     padding: 0;
     box-sizing: border-box;
 }
+/* Cache le bandeau intrusif de Google en haut de page */
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 .skiptranslate iframe {
     display: none !important;
 }
 
+/* Force le corps de la page à ne pas être décalé par le bandeau */
 body {
     top: 0px !important;
     position: static !important;
     margin-top: 0px !important;
 }
 
+/* Style moderne pour le conteneur du widget */
 #google_translate_element {
     display: flex;
     align-items: center;
     background: transparent;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
 }
 
+/* Modifie la "boîte" de sélection de langue */
 .goog-te-combo {
     padding: 8px 12px;
-    border-radius: 25px;
+    border-radius: 25px; /* Arrondi moderne */
     border: 1px solid #ddd;
     background-color: #ffffff;
     color: #333;
@@ -197,33 +215,57 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Effet au survol pour rester cohérent avec vos autres boutons */
 .goog-te-combo:hover {
-    border-color: #e74c3c;
+    border-color: #e74c3c; /* Couleur de votre bouton principal */
 }
 
+/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
 .goog-logo-link {
     display: none !important;
 }
+/* Assurez-vous que votre nav est bien un conteneur flexible centré */
+nav {
+    display: flex;
+    justify-content: space-between; /* Garde les éléments aux extrémités */
+    align-items: center;
+    padding: 10px 5%;
+    position: relative; /* Indispensable */
+}
 
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
+}
+
+/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
 .nav-links {
-    margin-right: auto;
+    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
 }
-
 #produits h2 {
-    margin-top: 50px;
-    margin-left: 20px;
-    text-align: left;  
+    margin-top: 50px; /* Espace au-dessus du titre */
+    margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
+    text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
 }
+/* --- COMPATIBILITÉ SMARTPHONE --- */
 
 @media (max-width: 768px) {
+    /* 1. Annulation de l'échelle qui rend le site trop petit sur mobile */
     body {
-        transform: none !important;
-        width: 100% !important;
-        overflow-x: hidden;
+        transform: none !important; /* Désactive le scale sur mobile */
+        width: 100% !important;      /* Occupe toute la largeur */
+        overflow-x: hidden;          /* Empêche le débordement horizontal */
     }
 
+    /* 2. Adaptation de la navigation */
     nav {
-        flex-direction: column;
+        flex-direction: column;      /* Empile les éléments */
         gap: 15px;
         padding: 15px;
     }
@@ -232,56 +274,87 @@ body {
         margin-right: 0;
         margin-left: 0;
         gap: 10px;
-        flex-wrap: wrap;
+        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
         justify-content: center;
     }
 
+    /* 3. Déplacement du widget traducteur pour éviter les chevauchements */
     #google_translate_element {
-        position: static;
+        position: static;            /* Annule le positionnement absolu */
         transform: none;
-        order: 1;
+        order: 1;                    /* Change l'ordre d'affichage si nécessaire */
     }
 
+    /* 4. Adaptation du Header et du Slideshow */
     header, .slideshow-container {
-        height: 300px;
+        height: 300px;               /* Réduit la hauteur sur mobile */
     }
 
     .fixed-overlay h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem;           /* Titre plus petit */
     }
 
+    /* 5. Grille des produits */
     .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* Une seule colonne sur mobile */
         padding: 20px 10px;
     }
 
+    /* 6. Ajustement des marges spécifiques */
     #produits h2 {
         margin-left: 10px;
         text-align: center;
     }
 }
 
+/* Conteneur pour l'image dans la carte */
 .card-img-container {
     width: 100%;
-    height: 200px;
-    overflow: hidden;
+    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Cache ce qui dépasse */
     border-radius: 8px;
     margin-bottom: 15px;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
 }
 
+/* Style de l'image elle-même */
 .card-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
+    object-position: center;  /* Centre le sujet principal de l'image */
     transition: transform 0.3s ease;
 }
 
+/* Effet zoom sympa au survol (optionnel) */
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+/* Conteneur pour l'image dans la carte */
+.card-img-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
+}
+
+/* Style de l'image elle-même */
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
+    object-position: center;  /* Centre le sujet principal de l'image */
+    transition: transform 0.3s ease;
+}
+
+/* Effet zoom sympa au survol (optionnel) */
 .card:hover .card-img-container img {
     transform: scale(1.05);
 }
 
+/* Bouton bulle de discussion flottante */
 #chat-bubble {
     position: fixed;
     bottom: 20px;
@@ -305,6 +378,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Panneau de discussion transformé en popup de chat */
 .comment-panel {
     position: fixed;
     bottom: 90px;
@@ -321,6 +395,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Classe pour cacher/montrer le chat */
 .chat-hidden {
     display: none;
     opacity: 0;
@@ -355,6 +430,7 @@ body {
     font-size: 13px;
 }
 
+/* Ciblage spécifique du champ Nom */
 #userName {
     width: 100%;
     padding: 10px;
@@ -371,6 +447,8 @@ body {
     outline: none;
 }
 
+/* --- BARRE DE RECHERCHE DANS LA NAVIGATION --- */
+
 .search-container {
     display: flex;
     align-items: center;
@@ -380,7 +458,7 @@ body {
 
 .search-container input {
     padding: 8px 16px;
-    border-radius: 25px;
+    border-radius: 25px; /* Forme arrondie pour s'harmoniser avec vos boutons */
     border: 1px solid #ddd;
     background-color: #ffffff;
     color: #333;
@@ -392,16 +470,18 @@ body {
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
+/* Effet au survol et au focus */
 .search-container input:hover {
     border-color: #bbb;
 }
 
 .search-container input:focus {
-    width: 280px;
-    border-color: #e74c3c;
+    width: 280px; /* S'élargit légèrement quand on clique dedans */
+    border-color: #e74c3c; /* Rappel de la couleur de vos boutons principaux */
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
 }
 
+/* --- ADAPTATION MOBILE POUR LA RECHERCHE --- */
 @media (max-width: 768px) {
     .search-container {
         width: 100%;
@@ -410,9 +490,11 @@ body {
     }
 
     .search-container input {
-        width: 90%;
+        width: 90%; /* Occupe presque toute la largeur sur petit écran */
     }
 }
+
+/* --- AJOUT POUR LE DÉFILEMENT HORIZONTAL --- */
 
 .carousel-wrapper {
     position: relative;
@@ -423,6 +505,7 @@ body {
     margin: 0 auto;
 }
 
+/* Force l'alignement horizontal des produits sans saut de ligne */
 #product-container {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -431,20 +514,21 @@ body {
     gap: 20px;
     padding: 10px 10px;
     width: 100%;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
 }
 
 #product-container::-webkit-scrollbar {
-    display: none;
+    display: none; /* Masque la barre de défilement sur Chrome/Safari */
 }
 
+/* Fixe une largeur précise pour chaque carte pour qu'elles gardent leur forme */
 #product-container .card {
     flex: 0 0 250px !important;
     width: 250px !important;
     box-sizing: border-box;
 }
-
+/* --- BOUTONS DU CARROUSEL PARFAITEMENT RONDS --- */
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
@@ -456,8 +540,11 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-40%);
+    
+    /* On force des dimensions égales pour un cercle parfait */
     width: 20px;
     height: 20px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
