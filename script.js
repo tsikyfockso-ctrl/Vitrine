@@ -42,7 +42,7 @@ async function loadProductsFromStock() {
     }
 }
 
-// Fonction d'affichage 100% sécurisée sans aucun proxy externe
+// Fonction d'affichage avec double système de secours anti-blocage
 function renderProducts(stock, container) {
     container.innerHTML = ""; 
 
@@ -50,16 +50,13 @@ function renderProducts(stock, container) {
         let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
-        // Si aucune image n'est renseignée, on met un SVG par défaut
         if (!imgSrc) {
             imgSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
         } else {
-            // CONTOURNEMENT UNIVERSEL : On passe par un proxy d'image pour forcer AliExpress à accepter l'affichage
-            if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
-                // Nettoyage de l'URL pour l'encoder proprement sans briser le code
-                let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
-                imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}&w=400&fit=cover`;
-            }
+            // Nettoyage de l'URL AliExpress pour retirer les dimensions parasites (ex: _480x480q75.jpg) si besoin, 
+            // et passage par un proxy de rediffusion d'image
+            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
+            imgSrc = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
         }
 
         const card = document.createElement('div');
@@ -73,10 +70,16 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        // En cas d'échec ultime du proxy, on affiche un message propre
+        // Stratégie à 2 niveaux en cas d'erreur de chargement de l'image proxy
         img.onerror = function() {
-            this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien AliExpress protégé)</text></svg>";
-            this.onerror = null; 
+            // Tentative de secours N°1 : On essaie l'URL brute d'origine sans proxy
+            if (this.src.includes("images.weserv.nl")) {
+                this.src = p.img || p.image; 
+            } else {
+                // Si l'URL brute échoue aussi, on affiche le message propre de secours
+                this.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23f8f9fa'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'>Visuel non disponible</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' fill='%23bbb'>(Lien AliExpress protégé)</text></svg>";
+                this.onerror = null; 
+            }
         };
 
         const title = document.createElement('h3');
