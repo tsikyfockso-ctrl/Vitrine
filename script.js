@@ -49,7 +49,7 @@ function renderProducts(stock, container) {
     container.innerHTML = stock.map(p => {
         let imgSrc = p.img && p.img.trim() !== "" ? p.img : "https://via.placeholder.com/300x200?text=Image+Indisponible";
         
-        // CONTOURNEMENT DU BLOCAGE ALIEXPRESS : Utilisation du proxy sécurisé wsrv.nl
+        // CONTOURREMENT DU BLOCAGE ALIEXPRESS : Utilisation d'un proxy d'image sécurisé
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
@@ -122,6 +122,7 @@ function loadClientMessages() {
     `).join('');
 }
 
+// Rafraîchissement automatique des messages
 setInterval(loadClientMessages, 2000);
 
 // --- 5. DIVERS (Bandeau Google) ---
@@ -134,11 +135,13 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-// --- DÉFILEMENT HORIZONTAL ---
+// --- FONCTION POUR LE DÉFILEMENT HORIZONTAL DES PRODUITS ---
 function defilerProduits(direction) {
     const container = document.getElementById('product-container');
     if (!container) return;
-    const largeurCarte = 270;
+    
+    const largeurCarte = 270; // 250px (largeur de la carte) + 20px (espace 'gap')
+    
     if (direction === 'gauche') {
         container.scrollBy({ left: -largeurCarte, behavior: 'smooth' });
     } else {
@@ -146,7 +149,7 @@ function defilerProduits(direction) {
     }
 }
 
-// --- DRAG TO SCROLL ---
+// --- GLISSER-DÉPOSER (DRAG TO SCROLL) AVEC LA SOURIS ---
 const slider = document.getElementById('product-container');
 let isDown = false;
 let startX;
@@ -159,19 +162,22 @@ if (slider) {
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
     });
+
     slider.addEventListener('mouseleave', () => {
         isDown = false;
         slider.classList.remove('active');
     });
+
     slider.addEventListener('mouseup', () => {
         isDown = false;
         slider.classList.remove('active');
     });
+
     slider.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
+        const walk = (x - startX) * 2; // Vitesse de défilement
         slider.scrollLeft = scrollLeft - walk;
     });
 }
