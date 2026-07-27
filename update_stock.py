@@ -2,7 +2,7 @@ import os
 import requests
 from playwright.sync_api import sync_playwright
 
-TARGET_URL = "https://www.aliexpress.com/w/woman-fashion-accessories.html"
+TARGET_URL = "https://www.aliexpress.com/w/wholesale-woman-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
