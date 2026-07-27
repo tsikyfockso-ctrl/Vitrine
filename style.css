@@ -125,7 +125,7 @@ button {
     animation: slide-animation 24s infinite;
     opacity: 0;
 }
-.slide::after {
+.slide: after {
     content: "";
     position: absolute;
     top: 0;
