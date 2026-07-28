@@ -53,7 +53,8 @@ def scrape_and_sync_all():
                     detail_page.goto(link, timeout=45000, wait_until="domcontentloaded")
                     detail_page.wait_for_timeout(3000)
                     
-                    page_text = detail_page.inner_text()
+                    # Correction : Utilisation de locator("body").inner_text()
+                    page_text = detail_page.locator("body").inner_text()
                     
                     # 1. Nom du produit
                     title_elem = detail_page.locator('h1, [class*="product-title"], [class*="title--wrap"]').first
@@ -98,7 +99,7 @@ def scrape_and_sync_all():
                     }
                     
                     if GOOGLE_SCRIPT_URL:
-                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
+                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=60)
                         if response.status_code == 200:
                             success_count += 1
                             print(f" -> [Succès] Données synchronisées pour : {title[:30]}...")
