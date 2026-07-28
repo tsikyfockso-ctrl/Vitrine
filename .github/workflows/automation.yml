@@ -27,9 +27,4 @@ jobs:
       - name: Lancement du script de scraping des stocks et détails
         env:
           GOOGLE_SCRIPT_URL: ${{ secrets.GOOGLE_SCRIPT_URL }}
-        run: |
-          # Exécute d'abord le scraper principal des produits
-          python update_stock.py
-          
-          # Exécute ensuite le scraper des détails (si vous avez nommé votre second fichier update_product_details.py)
-          python update_product_details.py
+        run: python update_stock.py
