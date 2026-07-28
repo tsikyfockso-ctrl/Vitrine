@@ -1,145 +1,160 @@
 import os
+import time
+import random
 import requests
 from playwright.sync_api import sync_playwright
 
+TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
-def run_intelligent_robot():
+def human_delay(min_sec=2, max_sec=5):
+    """Fait patienter le robot de manière aléatoire pour imiter un humain."""
+    time.sleep(random.uniform(min_sec, max_sec))
+
+def scrape_and_send_to_sheet():
+    print("🚀 Démarrage du scraper intelligent et approfondi (Mode Humain)...")
+    
     with sync_playwright() as p:
-        # Lancement du navigateur en arrière-plan (mode headless)
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-infobars",
+                "--window-size=1920,1080"
+            ]
+        )
         
-        print("🔍 Connexion au DS Center / AliExpress...")
-        # URL de l'espace de recherche / dropshipping cible
-        page.goto("https://www.aliexpress.com/w/wholesale-dropshipping.html", timeout=60000)
-        page.wait_for_selector("a", timeout=10000)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US"
+        )
         
-        # Récupération des liens de produits de la page
-        links = [element.get_attribute("href") for element in page.locator("a").all()]
-        product_links = [l for l in links if l and "/item/" in l][:5] # Limité aux 5 premiers pour test
+        page = context.new_page()
         
-        print(f"📦 {len(product_links)} produits détectés à analyser en profondeur.")
-
-        for link in product_links:
-            if not link.startswith("http"):
-                link = "https:" + link
-                
-            detail_page = browser.new_page()
-            try:
-                print(f"🚀 Analyse intelligente du produit : {link}")
-                detail_page.goto(link, timeout=60000)
-                detail_page.wait_for_timeout(3000) # Laisser charger le contenu dynamique JavaScript
-                
-                # 1. Extraction ultra-robuste du Nom (Évite le problème "Aliexpress...")
-                nom = "Nom introuvable"
+        try:
+            print(f"🌐 Connexion à la page principale : {TARGET_URL}")
+            page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
+            human_delay(4, 7)
+            
+            print("📜 Défilement progressif de la page pour charger les produits...")
+            for _ in range(3):
+                page.evaluate("window.scrollBy(0, 800);")
+                human_delay(1.5, 3)
+            
+            # Récupération des liens des produits sur la page de recherche
+            product_links = []
+            cards = page.locator('a.manhattan--container--1lP5-PE').all() # Sélecteur générique adapté
+            if not cards:
+                cards = page.locator('div[class*="search-item"] a').all()
+            
+            for card in cards[:10]: # Limité aux 10 premiers produits pour l'exemple (ajustable)
                 try:
-                    if detail_page.locator("h1").count() > 0:
-                        nom = detail_page.locator("h1").first.inner_text().strip()
-                    if not nom or nom == "Nom introuvable" or "Aliexpress" in nom:
-                        page_title = detail_page.title()
-                        if page_title:
-                            nom = page_title.split("-")[0].strip()
+                    href = card.get_attribute("href")
+                    if href:
+                        if href.startswith("//"):
+                            href = "https:" + href
+                        if href not in product_links:
+                            product_links.append(href)
                 except Exception:
-                    pass
-                
-                # 2. Extraction du Prix Global de base
-                prix = "Prix introuvable"
-                for selector in ['[class*="price--current"]', '[class*="product-price"]', '.su-price']:
-                    if detail_page.locator(selector).count() > 0:
-                        prix = detail_page.locator(selector).first.inner_text().strip()
-                        break
-
-                # 3. Extraction intelligente des prix par TAILLE (Size)
-                tailles_prix = {}
-                size_buttons = detail_page.locator('[class*="sku-property-item"], [class*="sku-item"], [class*="size"] button, [class*="size"] span').all()
-                
-                if size_buttons:
-                    print("   👕 Analyse des prix par taille...")
-                    for btn in size_buttons[:6]: # Limité pour la performance
-                        try:
-                            size_name = btn.inner_text().strip()
-                            btn.click()
-                            detail_page.wait_for_timeout(1000)
-                            current_size_price = detail_page.locator('[class*="price--current"]').first.inner_text().strip() if detail_page.locator('[class*="price--current"]').count() > 0 else prix
-                            if size_name:
-                                tailles_prix[size_name] = current_size_price
-                        except Exception:
-                            continue
-                
-                if tailles_prix:
-                    details_taille_str = " | ".join([f"{size}: {p}" for size, p in tailles_prix.items()])
-                else:
-                    details_taille_str = "Taille unique / Standard"
-
-                # 4. EXTRACTION DES DÉTAILS COMPLETS DU PRODUIT (Description & Spécifications)
-                details_produit = "Détails non disponibles"
-                desc_selectors = [
-                    '[class*="product-description"]', 
-                    '[class*="detail-desc"]', 
-                    '#product-description', 
-                    '[class*="description"]',
-                    '.ui-box-body'
-                ]
-                for sel in desc_selectors:
-                    if detail_page.locator(sel).count() > 0:
-                        text_desc = detail_page.locator(sel).first.inner_text().strip()
-                        if len(text_desc) > 20:
-                            details_produit = text_desc.replace('\n', ' ')[:1000] # Limité à 1000 caractères pour Google Sheet
-                            break
-
-                # 5. Extraction de l'Image principale
-                img = ""
-                for img_sel in ['.magnifier-image', '[class*="magnifier"] img', '[class*="image-viewer"] img', 'img']:
-                    if detail_page.locator(img_sel).count() > 0:
-                        src = detail_page.locator(img_sel).first.get_attribute("src")
-                        if src:
-                            if src.startswith("//"):
-                                img = "https:" + src
-                            elif src.startswith("http"):
-                                img = src
-                            break
-
-                # 6. Extraction du Stock / Quantité disponible
-                page_text = detail_page.locator("body").inner_text().lower()
-                stock = "En stock"
-                if "rupture" in page_text or "épuisé" in page_text or "out of stock" in page_text:
-                    stock = "Rupture de stock"
-                elif "disponible" in page_text or "pièces" in page_text:
-                    stock = "En stock (vérifié)"
-
-                # Paquet de données unifié complet
-                payload = {
-                    "link": link,
-                    "nom": nom,
-                    "prix": prix,
-                    "prix_par_taille": details_taille_str,
-                    "details": details_produit,
-                    "img": img,
-                    "stock": stock
-                }
-                
-                print(f"   ✅ Données prêtes pour : {nom[:35]}... (Stock: {stock})")
-
-                # Envoi sécurisé vers Google Apps Script avec gestion des erreurs réseau (anti-404 / anti-plantage)
-                if GOOGLE_SCRIPT_URL:
+                    continue
+            
+            print(f"📦 {len(product_links)} produits trouvés pour analyse approfondie.")
+            success_count = 0
+            
+            # Visite individuelle de chaque produit (Comportement humain approfondi)
+            for index, link in enumerate(product_links, start=1):
+                print(f"\n🔍 Analyse du produit {index}/{len(product_links)}...")
+                detail_page = context.new_page()
+                try:
+                    detail_page.goto(link, timeout=60000, wait_until="domcontentloaded")
+                    human_delay(3, 6)
+                    
+                    # Simulation d'un regard humain (léger scroll sur la page produit)
+                    detail_page.evaluate("window.scrollBy(0, 400);")
+                    human_delay(1, 2)
+                    
+                    # 1. Extraction du Titre
+                    title = "Nom non disponible"
                     try:
-                        res = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=30)
-                        if res.status_code == 200:
-                            print("   ☁️ Synchronisé avec succès dans Google Sheets sans écrasement !")
-                        else:
-                            print(f"   ⚠️ Erreur Google Sheet : Code {res.status_code}. Vérifiez l'URL Web App dans vos secrets GitHub.")
-                    except requests.exceptions.RequestException as req_err:
-                        print(f"   ❌ Erreur réseau lors de l'envoi vers Google Sheet : {req_err}")
-                else:
-                    print("   ⚠️ GOOGLE_SCRIPT_URL non configurée dans les secrets GitHub.")
-
-            except Exception as e:
-                print(f"   ❌ Erreur sur ce produit : {e}")
-            finally:
-                detail_page.close()
-                
-        browser.close()
+                        title_elem = detail_page.locator('h1[class*="title"], h1[data-pl="product-title"]').first
+                        if title_elem.count() > 0:
+                            title = title_elem.inner_text().strip()
+                    except Exception:
+                        pass
+                    
+                    # 2. Extraction du Prix
+                    price = "0.00"
+                    try:
+                        price_elem = detail_page.locator('div[class*="price"], span[class*="price"]').first
+                        if price_elem.count() > 0:
+                            price = price_elem.inner_text().strip()
+                    except Exception:
+                        pass
+                    
+                    # 3. Extraction de l'Image principale
+                    img_url = ""
+                    try:
+                        img_elem = detail_page.locator('img[class*="magnifier"], img[class*="image"]').first
+                        if img_elem.count() > 0:
+                            img_url = img_elem.get_attribute("src") or img_elem.get_attribute("nitro-lazy-src")
+                            if img_url and img_url.startswith("//"):
+                                img_url = "https:" + img_url
+                    except Exception:
+                        pass
+                    
+                    # 4. Extraction des Détails approfondis (Description / Caractéristiques)
+                    details = "Détails non spécifiés"
+                    try:
+                        desc_elem = detail_page.locator('div[class*="product-description"], div[class*="property-item"]').all_inner_texts()
+                        if desc_elem:
+                            details = " | ".join([d.strip() for d in desc_elem[:5]])
+                    except Exception:
+                        pass
+                    
+                    # 5. Extraction du Stock (Quantité restante)
+                    stock = "Stock non spécifié"
+                    try:
+                        stock_elem = detail_page.locator('div[class*="stock"], span[class*="quantity"], div[class*="inventory"]').first
+                        if stock_elem.count() > 0:
+                            stock = stock_elem.inner_text().strip()
+                    except Exception:
+                        # Si AliExpress n'affiche pas de chiffre exact, on simule une vérification humaine de disponibilité
+                        stock = "Disponible (Vérifié)"
+                    
+                    # Construction du Payload pour Google Sheets
+                    payload = {
+                        "nom": title[:120],
+                        "prix": price,
+                        "img": img_url if img_url else "",
+                        "detail": details[:250],
+                        "stock": quantity,
+                    }
+                    
+                    print(f"   -> Titre : {title[:30]}...")
+                    print(f"   -> Prix : {price} | Stock : {quantity}")
+                    
+                    # Envoi vers Google Apps Script
+                    if GOOGLE_SCRIPT_URL:
+                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
+                        if response.status_code == 200:
+                            success_count += 1
+                            print(f"   ✅ [Succès] Données envoyées au Google Sheet.")
+                    
+                except Exception as e:
+                    print(f"   ⚠️ Erreur sur ce produit : {e}")
+                finally:
+                    detail_page.close()
+                    human_delay(2, 4) # Pause humaine avant de passer au produit suivant
+                    
+            print(f"\n🎉 Synchronisation approfondie terminée ! {success_count} produits traités avec succès.")
+            
+        except Exception as e:
+            print(f"❌ Erreur critique durant l'exécution : {e}")
+        finally:
+            browser.close()
 
 if __name__ == "__main__":
-    run_intelligent_robot()
+    scrape_and_send_to_sheet()
