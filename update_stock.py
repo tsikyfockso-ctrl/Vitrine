@@ -11,7 +11,7 @@ def run_intelligent_robot():
         page = browser.new_page()
         
         print("🔍 Connexion au DS Center / AliExpress...")
-        # URL de recherche ou de votre espace DS Center cible
+        # URL de l'espace de recherche / dropshipping cible
         page.goto("https://www.aliexpress.com/w/wholesale-dropshipping.html", timeout=60000)
         page.wait_for_selector("a", timeout=10000)
         
@@ -31,12 +31,17 @@ def run_intelligent_robot():
                 detail_page.goto(link, timeout=60000)
                 detail_page.wait_for_timeout(3000) # Laisser charger le contenu dynamique JavaScript
                 
-                # 1. Extraction intelligente du Nom
+                # 1. Extraction ultra-robuste du Nom (Évite le problème "Aliexpress...")
                 nom = "Nom introuvable"
-                for selector in ["h1", '[class*="title--wrap"]', '[class*="product-title"]']:
-                    if detail_page.locator(selector).count() > 0:
-                        nom = detail_page.locator(selector).first.inner_text().strip()
-                        break
+                try:
+                    if detail_page.locator("h1").count() > 0:
+                        nom = detail_page.locator("h1").first.inner_text().strip()
+                    if not nom or nom == "Nom introuvable" or "Aliexpress" in nom:
+                        page_title = detail_page.title()
+                        if page_title:
+                            nom = page_title.split("-")[0].strip()
+                except Exception:
+                    pass
                 
                 # 2. Extraction du Prix Global de base
                 prix = "Prix introuvable"
@@ -78,9 +83,8 @@ def run_intelligent_robot():
                 ]
                 for sel in desc_selectors:
                     if detail_page.locator(sel).count() > 0:
-                        # On récupère le texte propre de la description
                         text_desc = detail_page.locator(sel).first.inner_text().strip()
-                        if len(text_desc) > 20: # S'assurer qu'on a bien récupéré du contenu significatif
+                        if len(text_desc) > 20:
                             details_produit = text_desc.replace('\n', ' ')[:1000] # Limité à 1000 caractères pour Google Sheet
                             break
 
@@ -110,22 +114,25 @@ def run_intelligent_robot():
                     "nom": nom,
                     "prix": prix,
                     "prix_par_taille": details_taille_str,
-                    "details": details_produit,  # <--- Les détails complets du produit
+                    "details": details_produit,
                     "img": img,
                     "stock": stock
                 }
                 
-                print(f"   ✅ Données prêtes pour : {nom[:30]}... (Stock: {stock})")
+                print(f"   ✅ Données prêtes pour : {nom[:35]}... (Stock: {stock})")
 
-                # Envoi sécurisé vers Google Apps Script
+                # Envoi sécurisé vers Google Apps Script avec gestion des erreurs réseau (anti-404 / anti-plantage)
                 if GOOGLE_SCRIPT_URL:
-                    res = requests.post(GOOGLE_SCRIPT_URL, json=payload)
-                    if res.status_code == 200:
-                        print("   ☁️ Synchronisé avec succès dans Google Sheets sans écrasement !")
-                    else:
-                        print(f"   ⚠️ Erreur Google Sheet : {res.status_code}")
+                    try:
+                        res = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=30)
+                        if res.status_code == 200:
+                            print("   ☁️ Synchronisé avec succès dans Google Sheets sans écrasement !")
+                        else:
+                            print(f"   ⚠️ Erreur Google Sheet : Code {res.status_code}. Vérifiez l'URL Web App dans vos secrets GitHub.")
+                    except requests.exceptions.RequestException as req_err:
+                        print(f"   ❌ Erreur réseau lors de l'envoi vers Google Sheet : {req_err}")
                 else:
-                    print("   ⚠️ GOOGLE_SCRIPT_URL non configurée.")
+                    print("   ⚠️ GOOGLE_SCRIPT_URL non configurée dans les secrets GitHub.")
 
             except Exception as e:
                 print(f"   ❌ Erreur sur ce produit : {e}")
