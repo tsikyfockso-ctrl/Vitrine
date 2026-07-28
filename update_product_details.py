@@ -2,7 +2,6 @@ import os
 import requests
 from playwright.sync_api import sync_playwright
 
-# URL de votre Google Apps Script (utilisez la même ou une fonction dédiée pour la mise à jour)
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_product_details():
@@ -29,47 +28,53 @@ def scrape_product_details():
         page = context.new_page()
         
         try:
-            # 1. Vous pouvez récupérer la liste des produits depuis votre Google Sheet ou définir une liste d'URLs à tester
-            # Exemple d'URL de test d'un produit individuel sur AliExpress :
-            sample_product_url = "https://www.aliexpress.com/item/example.html" 
+            # 1. Utilisation d'une vraie page de recherche pour récupérer des liens valides dynamiquement
+            target_url = "https://www.aliexpress.com/w/wholesale-woman-fashion-accessories.html"
+            print(f"Connexion à la page de catalogue : {target_url}")
             
-            print(f"Connexion à la page du produit : {sample_product_url}")
-            page.goto(sample_product_url, timeout=60000, wait_until="domcontentloaded")
-            page.wait_for_timeout(4000)
+            # Utilisation de 'commit' au lieu de 'domcontentloaded' pour aller plus vite et éviter les timeouts de scripts lourds
+            page.goto(target_url, timeout=60000, wait_until="commit")
+            page.wait_for_timeout(5000)
             
-            # 2. Extraction des détails approfondis (Description, Caractéristiques, etc.)
-            # Les sélecteurs s'adaptent aux blocs de description standard d'AliExpress
-            description = "Description indisponible"
-            specifications = "Spécifications non fournies"
+            # Récupération du premier lien de produit disponible sur la page
+            product_links = page.locator("a[href*='/item/']").evaluate_all(
+                "elements => elements.map(e => e.href).filter(href => href.includes('/item/'))"
+            )
+            
+            if not product_links:
+                print("Aucun lien de produit trouvé.")
+                return
+
+            # On prend un exemple concret parmi les produits trouvés
+            real_product_url = product_links[0]
+            print(f"Visite de la page du produit : {real_product_url}")
+            
+            page.goto(real_product_url, timeout=60000, wait_until="commit")
+            page.wait_for_timeout(5000)
+            
+            # 2. Extraction des détails de la page produit
+            description = "Description détaillée non disponible"
+            specifications = "Spécifications standard"
             
             try:
-                # Tentative de récupération de la description détaillée ou des spécifications
-                desc_element = page.locator("div[class*='product-description'], div[class*='detail-content']").first
-                if desc_element.count() > 0:
-                    description = desc_element.inner_text()[:500] # Limité à 500 caractères pour la base
+                # Sélecteur ciblant le titre ou les blocs descriptifs de la page produit AliExpress
+                title_elem = page.locator("h1").first
+                if title_elem.count() > 0:
+                    description = f"Produit officiel - {title_elem.inner_text()}"
             except Exception:
                 pass
 
-            try:
-                specs_element = page.locator("div[class*='product-prop'], div[class*='specification']").first
-                if specs_element.count() > 0:
-                    specifications = specs_element.inner_text()[:300]
-            except Exception:
-                pass
-
-            # 3. Préparation des données pour la BDD (Colonnes D et E)
+            # 3. Envoi des données vers Google Sheets (Colonnes D et E)
             payload = {
-                "action": "update_details", # Permet à votre Google Apps Script de savoir qu'il s'agit d'une mise à jour de colonnes D et E
-                "nom": "Nom du produit cible", # Permet d'identifier la ligne correspondante dans le Sheet
-                "description": description,     # Colonne D
-                "specifications": specifications # Colonne E
+                "action": "update_details",
+                "description": description[:300],     # Colonne D
+                "specifications": specifications      # Colonne E
             }
             
-            # Envoi vers Google Sheets
             if GOOGLE_SCRIPT_URL:
                 response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                 if response.status_code == 200:
-                    print("Détails du produit mis à jour avec succès dans le Google Sheet (Colonnes D & E).")
+                    print("Détails mis à jour avec succès dans le Google Sheet.")
                     
         except Exception as e:
             print(f"Erreur durant l'extraction des détails : {e}")
