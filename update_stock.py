@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-woman-fashion-accessories.h
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction (Nom, Prix, Image, Details, Stock)...")
+    print("Démarrage de l'extraction (Nom, Prix, Image)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -35,22 +35,22 @@ def scrape_and_send_to_sheet():
             
             print("Défilement de la page pour charger les produits...")
             for _ in range(3):
-                page.mouse.wheel(0, 1500)
+                page.mouse.wheel(0, 1000)
                 page.wait_for_timeout(2000)
                 
-            products = page.locator('.search-item-card-wrapper-wrap, [class*="search-card-item"]').all()
+            # Localisation des cartes produits sur AliExpress
+            products = page.locator('.search-item-card-wrapper-wrap, [class*="product-card"]').all()
             print(f"Nombre de cartes produits trouvées : {len(products)}")
             
             success_count = 0
-            
-            for item in products[:20]: # Limité aux 20 premiers pour l'exemple
+            for i, item in enumerate(products[:20]): # Limité aux 20 premiers produits
                 try:
                     # Extraction du titre
                     title_elem = item.locator('h1, [class*="title"], [class*="multi--title"]').first
-                    title = title_elem.inner_text().strip() if title_elem.count() > 0 else "Produit Mayah"
+                    title = title_elem.inner_text().strip() if title_elem.count() > 0 else f"Produit Mayah {i+1}"
                     
                     # Extraction du prix
-                    price_elem = item.locator('[class*="price-current"], [class*="price"], [class*="salePrice"]').first
+                    price_elem = item.locator('[class*="price"], [class*="current"]').first
                     price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix sur demande"
                     
                     # Extraction de l'image
@@ -59,27 +59,25 @@ def scrape_and_send_to_sheet():
                     if img_elem.count() > 0:
                         img_url = img_elem.get_attribute("src") or img_elem.get_attribute("data-src") or ""
                         
-                    if img_url:
-                        if img_url.startswith("//"):
-                            img_url = "https:" + img_url
-                        elif img_url.startswith("/"):
-                            img_url = "https://www.aliexpress.com" + img_url
-                    
-                    if not img_url or "data:image" in img_url or "http" not in img_url:
+                    if img_url.startswith("//"):
+                        img_url = "https:" + img_url
                         
+                    if not title or not img_url:
+                        continue
+                        
+                    # Construction du payload (Nom, Prix, Image)
                     payload = {
                         "nom": title[:120],
                         "prix": price,
-                        "img": img_url,
-                        "details": details_produit,  # Colonne D -> Details
-                        "stock": stock_produit        # Colonne E -> Stock
+                        "img": img_url
                     }
                     
+                    # Envoi vers Google Sheets via Apps Script
                     if GOOGLE_SCRIPT_URL:
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] OK : {title[:25]}... | Enregistré (Details & Stock mis à jour)")
+                            print(f"[{success_count}] OK : {title[:25]}... | Enregistré (Nom, Prix, Image)")
                             
                 except Exception as inner_err:
                     continue
