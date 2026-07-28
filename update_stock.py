@@ -51,45 +51,56 @@ def scrape_and_sync_all():
                 try:
                     print(f"[{i+1}/10] Analyse complète : {link}")
                     detail_page.goto(link, timeout=45000, wait_until="domcontentloaded")
-                    detail_page.wait_for_timeout(3000)
+                    detail_page.wait_for_timeout(4000) # Attente un peu plus longue pour charger le rendu dynamique
                     
-                    # Correction : Utilisation de locator("body").inner_text()
                     page_text = detail_page.locator("body").inner_text()
                     
-                    # 1. Nom du produit
-                    title_elem = detail_page.locator('h1, [class*="product-title"], [class*="title--wrap"]').first
+                    # 1. Nom précis du produit (Ciblage strict du H1 AliExpress)
+                    title_elem = detail_page.locator('h1[data-pl="product-title"], h1.title--wrap--1Z_BhZm, h1').first
                     title = title_elem.inner_text().strip() if title_elem.count() > 0 else f"Produit AliExpress {i+1}"
                     
-                    # 2. Prix
-                    price_elem = detail_page.locator('[class*="product-price-value"], [class*="price--current"], span[class*="price"]').first
+                    # Nettoyage si le titre récupère des artefacts parasites
+                    title = re.sub(r'\s+', ' ', title)
+                    
+                    # 2. Prix précis
+                    price_elem = detail_page.locator('[class*="price--current"], [class*="product-price-value"]').first
                     price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix indisponible"
                     
-                    # 3. Image
-                    img_elem = detail_page.locator('img[class*="magnifier"], img[class*="image"], [class*="gallery"] img').first
+                    # 3. Image principale
+                    img_elem = detail_page.locator('.magnifier-image, img[class*="magnifier"], [class*="gallery"] img, .images-view-item img').first
                     img_url = ""
                     if img_elem.count() > 0:
                         img_url = img_elem.get_attribute("src") or img_elem.get_attribute("data-src") or ""
                     if img_url.startswith("//"):
                         img_url = "https:" + img_url
                         
-                    # 4. Détails
+                    # 4. Détails / Caractéristiques
                     specs_container = detail_page.locator('[class*="product-property"], [class*="specification"], [class*="property-item"]').all_inner_texts()
                     if specs_container:
                         nouveaux_details = " | ".join([spec.replace("\n", " ") for spec in specs_container[:5]])
                     else:
-                        nouveaux_details = f"Détails officiels pour : {title}"
+                        nouveaux_details = f"Caractéristiques officielles : {title[:50]}"
                         
-                    # 5. Stock
+                    # 5. Stock (Recherche ciblée dans les blocs d'inventaire ou le texte global)
                     nouveau_stock = "En stock"
-                    stock_match = re.search(r'(\d+)\s*(?:pieces available|pièces disponibles|items left|restants)', page_text, re.IGNORECASE)
-                    if stock_match:
-                        nouveau_stock = f"⚠️ {stock_match.group(0)}"
-                    elif "out of stock" in page_text.lower() or "épuisé" in page_text.lower():
-                        nouveau_stock = "Rupture de stock"
-                    else:
-                        nouveau_stock = "En stock (Disponible)"
+                    stock_elem = detail_page.locator('[class*="sku-stock"], [class*="inventory"], [class*="quantity"]').first
+                    
+                    if stock_elem.count() > 0:
+                        stock_text = stock_elem.inner_text().strip()
+                        if stock_text:
+                            nouveau_stock = stock_text
+                    
+                    # Fallback par regex si l'élément spécifique n'est pas trouvé
+                    if "En stock" in nouveau_stock or not nouveau_stock:
+                        stock_match = re.search(r'(\d+)\s*(?:pieces available|pièces disponibles|items left|restants|disponibles)', page_text, re.IGNORECASE)
+                        if stock_match:
+                            nouveau_stock = f"{stock_match.group(1)} pièces disponibles"
+                        elif "out of stock" in page_text.lower() or "épuisé" in page_text.lower():
+                            nouveau_stock = "Rupture de stock"
+                        else:
+                            nouveau_stock = "En stock (Disponible)"
 
-                    # Payload unique contenant TOUTES les informations
+                    # Payload unique prêt pour Google Sheets
                     payload = {
                         "nom": title[:120],
                         "prix": price,
@@ -98,18 +109,20 @@ def scrape_and_sync_all():
                         "stock": nouveau_stock
                     }
                     
+                    print(f" -> Données extraites : Nom={title[:30]}... | Prix={price} | Stock={nouveau_stock}")
+                    
                     if GOOGLE_SCRIPT_URL:
-                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=60)
+                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f" -> [Succès] Données synchronisées pour : {title[:30]}...")
+                            print(f" -> [Succès] Synchronisé avec Google Sheets.")
                             
                 except Exception as inner_err:
                     print(f"Erreur sur ce produit : {inner_err}")
                 finally:
                     detail_page.close()
                     
-            print(f"Synchronisation globale terminée ! {success_count} produits mis à jour en une seule passe.")
+            print(f"Synchronisation globale terminée ! {success_count} produits mis à jour correctement.")
             
         except Exception as e:
             print(f"Erreur critique : {e}")
