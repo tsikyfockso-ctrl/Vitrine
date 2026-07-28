@@ -11,7 +11,7 @@ def update_all_products_details_from_sheet():
     try:
         print("Récupération de la liste des produits depuis Google Sheets...")
         # Augmentation du timeout à 30 secondes pour laisser le temps à Google Apps Script de répondre
-        response = requests.get(GOOGLE_SCRIPT_URL, timeout=30)
+        response = requests.get(GOOGLE_SCRIPT_URL, timeout=60)
         
         if response.status_code != 200:
             print(f"Erreur lors de la lecture du Sheet : Statut {response.status_code}")
