@@ -32,15 +32,24 @@ def scrape_and_sync_all():
         try:
             print(f"Connexion à la page de recherche : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
-            page.wait_for_timeout(5000)
+            
+            # Attente active que les éléments de produits apparaissent réellement sur la page
+            print("Attente du chargement des éléments produits...")
+            try:
+                page.wait_for_selector('a[href*="item"], div[class*="manhattan--container"]', timeout=15000)
+            except Exception:
+                print("⚠️ Attention : Délai d'attente dépassé pour les sélecteurs de produits. Continuation...")
+
+            page.wait_for_timeout(3000)
             
             print("Défilement de la page pour charger les liens...")
-            for _ in range(3):
+            for _ in range(4):
                 page.mouse.wheel(0, 1000)
                 page.wait_for_timeout(2000)
                 
-            product_links = page.locator('a[href*="item"]').evaluate_all(
-                'elements => Array.from(new Set(elements.map(e => e.href))).filter(href => href.includes("/item/"))'
+            # Extraction élargie de tous les liens de type produit
+            product_links = page.locator('a').evaluate_all(
+                'elements => Array.from(new Set(elements.map(e => e.href))).filter(href => href && (href.includes("/item/") || href.includes("aliexpress.us/item/") || href.includes("aliexpress.com/item/")))'
             )
             
             print(f"Nombre de liens produits trouvés : {len(product_links)}")
@@ -51,56 +60,45 @@ def scrape_and_sync_all():
                 try:
                     print(f"[{i+1}/10] Analyse complète : {link}")
                     detail_page.goto(link, timeout=45000, wait_until="domcontentloaded")
-                    detail_page.wait_for_timeout(4000) # Attente un peu plus longue pour charger le rendu dynamique
+                    detail_page.wait_for_timeout(4000)
                     
                     page_text = detail_page.locator("body").inner_text()
                     
-                    # 1. Nom précis du produit (Ciblage strict du H1 AliExpress)
-                    title_elem = detail_page.locator('h1[data-pl="product-title"], h1.title--wrap--1Z_BhZm, h1').first
+                    # 1. Nom du produit
+                    title_elem = detail_page.locator('h1, [class*="product-title"], [class*="title--wrap"]').first
                     title = title_elem.inner_text().strip() if title_elem.count() > 0 else f"Produit AliExpress {i+1}"
-                    
-                    # Nettoyage si le titre récupère des artefacts parasites
                     title = re.sub(r'\s+', ' ', title)
                     
-                    # 2. Prix précis
-                    price_elem = detail_page.locator('[class*="price--current"], [class*="product-price-value"]').first
+                    # 2. Prix
+                    price_elem = detail_page.locator('[class*="price--current"], [class*="product-price-value"], span[class*="price"]').first
                     price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix indisponible"
                     
-                    # 3. Image principale
-                    img_elem = detail_page.locator('.magnifier-image, img[class*="magnifier"], [class*="gallery"] img, .images-view-item img').first
+                    # 3. Image
+                    img_elem = detail_page.locator('.magnifier-image, img[class*="magnifier"], [class*="gallery"] img, img').first
                     img_url = ""
                     if img_elem.count() > 0:
                         img_url = img_elem.get_attribute("src") or img_elem.get_attribute("data-src") or ""
                     if img_url.startswith("//"):
                         img_url = "https:" + img_url
                         
-                    # 4. Détails / Caractéristiques
+                    # 4. Détails
                     specs_container = detail_page.locator('[class*="product-property"], [class*="specification"], [class*="property-item"]').all_inner_texts()
                     if specs_container:
                         nouveaux_details = " | ".join([spec.replace("\n", " ") for spec in specs_container[:5]])
                     else:
                         nouveaux_details = f"Caractéristiques officielles : {title[:50]}"
                         
-                    # 5. Stock (Recherche ciblée dans les blocs d'inventaire ou le texte global)
+                    # 5. Stock
                     nouveau_stock = "En stock"
-                    stock_elem = detail_page.locator('[class*="sku-stock"], [class*="inventory"], [class*="quantity"]').first
-                    
-                    if stock_elem.count() > 0:
-                        stock_text = stock_elem.inner_text().strip()
-                        if stock_text:
-                            nouveau_stock = stock_text
-                    
-                    # Fallback par regex si l'élément spécifique n'est pas trouvé
-                    if "En stock" in nouveau_stock or not nouveau_stock:
-                        stock_match = re.search(r'(\d+)\s*(?:pieces available|pièces disponibles|items left|restants|disponibles)', page_text, re.IGNORECASE)
-                        if stock_match:
-                            nouveau_stock = f"{stock_match.group(1)} pièces disponibles"
-                        elif "out of stock" in page_text.lower() or "épuisé" in page_text.lower():
-                            nouveau_stock = "Rupture de stock"
-                        else:
-                            nouveau_stock = "En stock (Disponible)"
+                    stock_match = re.search(r'(\d+)\s*(?:pieces available|pièces disponibles|items left|restants|disponibles)', page_text, re.IGNORECASE)
+                    if stock_match:
+                        nouveau_stock = f"{stock_match.group(1)} pièces disponibles"
+                    elif "out of stock" in page_text.lower() or "épuisé" in page_text.lower():
+                        nouveau_stock = "Rupture de stock"
+                    else:
+                        nouveau_stock = "En stock (Disponible)"
 
-                    # Payload unique prêt pour Google Sheets
+                    # Payload unique
                     payload = {
                         "nom": title[:120],
                         "prix": price,
@@ -109,7 +107,7 @@ def scrape_and_sync_all():
                         "stock": nouveau_stock
                     }
                     
-                    print(f" -> Données extraites : Nom={title[:30]}... | Prix={price} | Stock={nouveau_stock}")
+                    print(f" -> Données extraites : Nom={title[:30]}... | Prix={price}")
                     
                     if GOOGLE_SCRIPT_URL:
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
