@@ -66,11 +66,6 @@ def scrape_and_send_to_sheet():
                             img_url = "https://www.aliexpress.com" + img_url
                     
                     if not img_url or "data:image" in img_url or "http" not in img_url:
-                        continue
-                        
-                    # Génération des détails et du stock par défaut ou simulés depuis le scraping
-                    details_produit = f"Article tendance de qualité supérieure. {title} - Idéal pour compléter votre style."
-                    stock_produit = "En stock (15 unités)"
                         
                     payload = {
                         "nom": title[:120],
