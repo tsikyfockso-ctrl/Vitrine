@@ -8,11 +8,11 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def human_delay(min_sec=3, max_sec=6):
-    """Simule le temps de réflexion et le comportement naturel d'un humain."""
+    """Simule la réflexion et les pauses naturelles d'un utilisateur humain."""
     time.sleep(random.uniform(min_sec, max_sec))
 
 def scrape_and_send_to_sheet():
-    print("🤖 Démarrage du scraper intelligent et approfondi (Mode Humain - Anti-Erreur)...")
+    print("🤖 Démarrage du scraper ultra-précis (Prix, Détails & Stock réels capturés)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -39,12 +39,12 @@ def scrape_and_send_to_sheet():
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
             human_delay(4, 7)
             
-            print("📜 Défilement naturel pour charger les produits...")
+            print("📜 Défilement progressif pour charger les fiches produits...")
             for _ in range(3):
                 page.mouse.wheel(0, random.randint(600, 1000))
                 human_delay(1.5, 3)
             
-            # Récupération sécurisée des liens uniques des produits
+            # Récupération sécurisée des liens uniques de produits
             links = []
             anchors = page.locator("a[href*='item/']").all()
             for anchor in anchors:
@@ -62,7 +62,7 @@ def scrape_and_send_to_sheet():
                 except Exception:
                     continue
             
-            print(f"📦 {len(links)} produits détectés. Analyse approfondie en cours...")
+            print(f"📦 {len(links)} produits détectés. Analyse chirurgicale en cours...")
             success_count = 0
             
             # Visite individuelle et humaine de chaque fiche produit
@@ -72,18 +72,19 @@ def scrape_and_send_to_sheet():
                 
                 try:
                     detail_page.goto(product_url, timeout=60000, wait_until="domcontentloaded")
-                    human_delay(3, 5)
+                    human_delay(4, 6) # Laisse le temps au rendu dynamique d'afficher prix, détails et stock
                     
-                    # Simulation d'un regard humain (léger scroll sur la page)
-                    detail_page.mouse.wheel(0, 400)
+                    # Scroll humain progressif pour forcer le chargement de toutes les sections de la page
+                    detail_page.mouse.wheel(0, 500)
+                    human_delay(2, 3)
+                    detail_page.mouse.wheel(0, 700)
                     human_delay(1, 2)
                     
-                    # 1. Extraction ultra-robuste du NOM (Titre) via OpenGraph (comme dans votre HTML)
+                    # 1. Extraction du NOM (Titre)
                     title = "Nom non disponible"
                     try:
                         og_title = detail_page.locator("meta[property='og:title']").get_attribute("content")
                         if og_title:
-                            # Nettoyage pour retirer la mention "- AliExpress..." souvent ajoutée à la fin
                             title = og_title.split(" - AliExpress")[0].strip()
                         else:
                             h1_text = detail_page.locator("h1").first.inner_text().strip()
@@ -92,20 +93,25 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 2. Extraction du PRIX
+                    # 2. Extraction du VRAI PRIX (Basé sur la classe price-default--current)
                     price = "0.00"
                     try:
-                        og_price = detail_page.locator("meta[property='product:price:amount']").get_attribute("content")
-                        if og_price:
-                            price = og_price.strip()
-                        else:
-                            price_elem = detail_page.locator("div[class*='price'], span[class*='price']").first
-                            if price_elem.count() > 0:
-                                price = price_elem.inner_text().strip()
+                        extracted_price = detail_page.evaluate("""() => {
+                            const currentPrice = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"], [class*="price--current"]');
+                            if (currentPrice && currentPrice.innerText.trim()) {
+                                return currentPrice.innerText.trim();
+                            }
+                            const metaPrice = document.querySelector('meta[property="product:price:amount"]');
+                            if (metaPrice) return metaPrice.content;
+                            return null;
+                        }""")
+                        
+                        if extracted_price:
+                            price = extracted_price
                     except Exception:
                         pass
                     
-                    # 3. Extraction de l'IMAGE principale (via OpenGraph ou sélecteur natif)
+                    # 3. Extraction de l'IMAGE principale
                     img_url = ""
                     try:
                         og_img = detail_page.locator("meta[property='og:image']").get_attribute("content")
@@ -121,31 +127,57 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 4. Extraction des DÉTAILS approfondis (Caractéristiques / Description)
+                    # 4. Extraction LARGE des DÉTAILS (Basé sur la structure specification--line / specification--prop)
                     details = "Caractéristiques standard"
                     try:
-                        props = detail_page.locator("div[class*='property-item'], div[class*='specification'], ul[class*='specs']").all_inner_texts()
-                        if props:
-                            details = " | ".join([p.replace("\n", " ").strip() for p in props[:5]])[:250]
-                        else:
-                            desc = detail_page.locator("div[class*='product-description']").first.inner_text().strip()
-                            if desc:
-                                details = desc[:250].replace("\n", " ")
+                        extracted_details = detail_page.evaluate("""() => {
+                            const specLines = document.querySelectorAll('.specification--line--IXeRJI7, [class*="specification--prop"]');
+                            if (specLines.length > 0) {
+                                let detailsList = [];
+                                specLines.forEach(line => {
+                                    const text = line.innerText.replace(/\\n/g, ' : ').trim();
+                                    if (text) detailsList.push(text);
+                                });
+                                return detailsList.join(' | ');
+                            }
+                            
+                            const props = Array.from(document.querySelectorAll('[class*="property-item"], [class*="specification"]'))
+                                .map(el => el.innerText.trim())
+                                .filter(text => text.length > 0);
+                            if (props.length > 0) return props.join(' | ');
+                            
+                            return null;
+                        }""")
+                        
+                        if extracted_details:
+                            details = extracted_details[:400]
                     except Exception:
                         pass
                     
-                    # 5. Extraction du STOCK (Quantité restante)
+                    # 5. Extraction exacte du STOCK (Basé sur la classe quantity--info--jnoo_pD que vous avez envoyée)
                     stock = "En stock"
                     try:
-                        stock_elem = detail_page.locator("div[class*='stock'], span[class*='inventory'], div[class*='quantity']").first
-                        if stock_elem.count() > 0:
-                            stock_text = stock_elem.inner_text().strip()
-                            if stock_text:
-                                stock = stock_text
+                        extracted_stock = detail_page.evaluate("""() => {
+                            // Cible précise du bloc de quantité que vous venez de fournir (ex: "60 disponibles")
+                            const quantityInfo = document.querySelector('[class*="quantity--info"], [class*="stock"], [class*="inventory"]');
+                            if (quantityInfo && quantityInfo.innerText.trim()) {
+                                return quantityInfo.innerText.trim().replace(/\\n/g, ' ');
+                            }
+                            
+                            // Recherche de secours par expression régulière dans le texte global de la page
+                            const bodyText = document.body.innerText;
+                            const match = bodyText.match(/(\\d+)\\s+(disponibles|pieces available|articles disponibles)/i);
+                            if (match) return match[0];
+                            
+                            return null;
+                        }""")
+                        
+                        if extracted_stock:
+                            stock = extracted_stock
                     except Exception:
-                        stock = "Disponible (Vérifié)"
+                        pass
                     
-                    # Construction du Payload final pour Google Sheets
+                    # Construction du Payload final pour votre Google Sheet
                     payload = {
                         "nom": title[:120],
                         "prix": price,
@@ -154,16 +186,16 @@ def scrape_and_send_to_sheet():
                         "stock": stock
                     }
                     
-                    print(f"   ✔️ Nom : {title[:45]}...")
+                    print(f"   ✔️ Nom : {title[:40]}...")
                     print(f"   ✔️ Prix : {price} | Stock : {stock}")
-                    print(f"   ✔️ Image : {'OK' if img_url else 'Manquante'}")
+                    print(f"   ✔️ Détails : {details[:80]}...")
                     
                     # Envoi vers Google Sheet via votre Google Apps Script
                     if GOOGLE_SCRIPT_URL:
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"   🚀 Données envoyées avec succès au Google Sheet !")
+                            print(f"   🚀 Envoyé avec succès au Google Sheet !")
                     
                 except Exception as product_err:
                     print(f"   ⚠️ Erreur sur ce produit : {product_err}")
@@ -171,7 +203,7 @@ def scrape_and_send_to_sheet():
                     detail_page.close()
                     human_delay(2, 4) # Pause humaine avant de passer au produit suivant
                     
-            print(f"\n🎉 Processus terminé avec succès ! {success_count} produits approfondis enregistrés.")
+            print(f"\n🎉 Terminé ! {success_count} produits extraits avec succès (Prix, Stock et Détails complets).")
             
         except Exception as e:
             print(f"❌ Erreur critique globale : {e}")
