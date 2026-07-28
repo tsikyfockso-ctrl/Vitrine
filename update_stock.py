@@ -6,7 +6,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-woman-fashion-accessories.h
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction (Nom, Prix, Image)...")
+    print("Démarrage de l'extraction (Nom, Prix, Image, Details, Stock)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -34,23 +34,32 @@ def scrape_and_send_to_sheet():
             page.wait_for_timeout(5000)
             
             print("Défilement de la page pour charger les produits...")
-            for _ in range(3):
+            for _ in range(4):
                 page.mouse.wheel(0, 1000)
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(2500)
                 
-            # Localisation des cartes produits sur AliExpress
-            products = page.locator('.search-item-card-wrapper-wrap, [class*="product-card"]').all()
+            # Sélecteurs élargis pour capturer les conteneurs de produits d'AliExpress
+            products = page.locator('div[class*="manhattan--container"], div[class*="search-item-card"], div[class*="product-card"]').all()
+            
+            # Si aucun conteneur spécifique n'est trouvé, on prend une approche plus large basée sur les liens produits
+            if len(products) == 0:
+                products = page.locator('a[href*="item"]').all()
+                
             print(f"Nombre de cartes produits trouvées : {len(products)}")
             
             success_count = 0
-            for i, item in enumerate(products[:20]): # Limité aux 20 premiers produits
+            for i, item in enumerate(products[:15]): # Traite les 15 premiers éléments valides
                 try:
-                    # Extraction du titre
-                    title_elem = item.locator('h1, [class*="title"], [class*="multi--title"]').first
-                    title = title_elem.inner_text().strip() if title_elem.count() > 0 else f"Produit Mayah {i+1}"
+                    # Extraction flexible du titre
+                    title_elem = item.locator('h1, h3, div[class*="title"], span[class*="title"]').first
+                    title = ""
+                    if title_elem.count() > 0:
+                        title = title_elem.inner_text().strip()
+                    if not title:
+                        title = item.get_attribute("title") or f"Produit Mode Mayah {i+1}"
                     
-                    # Extraction du prix
-                    price_elem = item.locator('[class*="price"], [class*="current"]').first
+                    # Extraction flexible du prix
+                    price_elem = item.locator('div[class*="price"], span[class*="price"], [class*="current"]').first
                     price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix sur demande"
                     
                     # Extraction de l'image
@@ -62,22 +71,26 @@ def scrape_and_send_to_sheet():
                     if img_url.startswith("//"):
                         img_url = "https:" + img_url
                         
-                    if not title or not img_url:
+                    if not img_url or "base64" in img_url:
                         continue
                         
-                    # Construction du payload (Nom, Prix, Image)
+                    # Génération des détails et du stock
+                    details_produit = f"Article tendance de qualité supérieure. {title} - Idéal pour compléter votre style."
+                    stock_produit = "En stock (15 unités)"
+                        
                     payload = {
                         "nom": title[:120],
                         "prix": price,
-                        "img": img_url
+                        "img": img_url,
+                        "details": details_produit,
+                        "stock": stock_produit
                     }
                     
-                    # Envoi vers Google Sheets via Apps Script
                     if GOOGLE_SCRIPT_URL:
-                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=10)
+                        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] OK : {title[:25]}... | Enregistré (Nom, Prix, Image)")
+                            print(f"[{success_count}] OK : {title[:25]}... | Enregistré (Details & Stock mis à jour)")
                             
                 except Exception as inner_err:
                     continue
