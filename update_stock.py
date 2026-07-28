@@ -130,11 +130,11 @@ def scrape_and_send_to_sheet():
                         "prix": price,
                         "img": img_url if img_url else "",
                         "detail": details[:250],
-                        "stock": quantity,
+                        "stock": stock,
                     }
                     
                     print(f"   -> Titre : {title[:30]}...")
-                    print(f"   -> Prix : {price} | Stock : {quantity}")
+                    print(f"   -> Prix : {price} | Stock : {stock}")
                     
                     # Envoi vers Google Apps Script
                     if GOOGLE_SCRIPT_URL:
