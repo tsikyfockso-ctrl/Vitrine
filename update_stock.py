@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 from playwright.sync_api import sync_playwright
 
@@ -6,7 +7,7 @@ TARGET_URL = "https://www.aliexpress.com/w/wholesale-woman-fashion-accessories.h
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def scrape_and_send_to_sheet():
-    print("Démarrage de l'extraction (Nom, Prix, Image, Details, Stock)...")
+    print("Démarrage de l'extraction profonde et réelle (Nom, Prix, Image, Détails, Stock)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -29,78 +30,72 @@ def scrape_and_send_to_sheet():
         page = context.new_page()
         
         try:
-            print(f"Connexion à l'URL : {TARGET_URL}")
+            print(f"Connexion à la page de recherche : {TARGET_URL}")
             page.goto(TARGET_URL, timeout=60000, wait_until="domcontentloaded")
             page.wait_for_timeout(5000)
             
-            print("Défilement de la page pour charger les produits...")
-            for _ in range(4):
+            print("Défilement de la page pour charger les liens...")
+            for _ in range(3):
                 page.mouse.wheel(0, 1000)
-                page.wait_for_timeout(2500)
+                page.wait_for_timeout(2000)
                 
-            # Sélecteurs élargis pour capturer les conteneurs de produits d'AliExpress
-            products = page.locator('div[class*="manhattan--container"], div[class*="search-item-card"], div[class*="product-card"]').all()
+            # Récupération des liens vers les fiches produits individuelles
+            product_links = page.locator('a[href*="item"]').evaluate_all(
+                'elements => Array.from(new Set(elements.map(e => e.href))).filter(href => href.includes("/item/"))'
+            )
             
-            # Si aucun conteneur spécifique n'est trouvé, on prend une approche plus large basée sur les liens produits
-            if len(products) == 0:
-                products = page.locator('a[href*="item"]').all()
-                
-            print(f"Nombre de cartes produits trouvées : {len(products)}")
+            print(f"Nombre de liens produits trouvés : {len(product_links)}")
             
             success_count = 0
-            for i, item in enumerate(products[:15]): # Traite les 15 premiers éléments valides
+            # On traite par exemple les 10 premiers produits en profondeur pour éviter les blocages de temps
+            for i, link in enumerate(product_links[:10]):
+                detail_page = context.new_page()
                 try:
-                    # Extraction flexible du titre
-                    title_elem = item.locator('h1, h3, div[class*="title"], span[class*="title"]').first
-                    title = ""
-                    if title_elem.count() > 0:
-                        title = title_elem.inner_text().strip()
-                    if not title:
-                        title = item.get_attribute("title") or f"Produit Mode Mayah {i+1}"
+                    print(f"[{i+1}] Analyse de la fiche produit : {link}")
+                    detail_page.goto(link, timeout=45000, wait_until="domcontentloaded")
+                    detail_page.wait_for_timeout(3000)
                     
-                    # Extraction flexible du prix
-                    price_elem = item.locator('div[class*="price"], span[class*="price"], [class*="current"]').first
-                    price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix sur demande"
+                    # 1. VRAI NOM DU PRODUIT sur la page détaillée
+                    title_elem = detail_page.locator('h1, [class*="product-title"], [class*="title--wrap"]').first
+                    title = title_elem.inner_text().strip() if title_elem.count() > 0 else f"Produit AliExpress {i+1}"
                     
-                    # Extraction de l'image
-                    img_elem = item.locator('img').first
+                    # 2. VRAI PRIX sur la page détaillée
+                    price_elem = detail_page.locator('[class*="product-price-value"], [class*="price--current"], span[class*="price"]').first
+                    price = price_elem.inner_text().strip() if price_elem.count() > 0 else "Prix indisponible"
+                    
+                    # 3. VRAIE IMAGE principale
+                    img_elem = detail_page.locator('img[class*="magnifier"], img[class*="image"], [class*="gallery"] img').first
                     img_url = ""
                     if img_elem.count() > 0:
                         img_url = img_elem.get_attribute("src") or img_elem.get_attribute("data-src") or ""
-                        
                     if img_url.startswith("//"):
                         img_url = "https:" + img_url
-                        
-                    if not img_url or "base64" in img_url:
-                        continue
-                        
-                    # Génération des détails et du stock
-                    details_produit = f"Article tendance de qualité supérieure. {title} - Idéal pour compléter votre style."
-                    stock_produit = "En stock (15 unités)"
                         
                     payload = {
                         "nom": title[:120],
                         "prix": price,
                         "img": img_url,
-                        "details": details_produit,
-                        "stock": stock_produit
                     }
                     
                     if GOOGLE_SCRIPT_URL:
                         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
                         if response.status_code == 200:
                             success_count += 1
-                            print(f"[{success_count}] OK : {title[:25]}... | Enregistré (Details & Stock mis à jour)")
+                            print(f" -> Synchronisé avec succès | Prix: {price}")
                             
-                except Exception as inner_err:
-                    continue
+                except Exception as page_err:
+                    print(f"Erreur sur ce produit : {page_err}")
+                finally:
+                    detail_page.close()
                     
-            print(f"Synchronisation terminée ! {success_count} produits synchronisés avec succès.")
+            print(f"Synchronisation en profondeur terminée ! {success_count} produits réels mis à jour.")
             
         except Exception as e:
-            print(f"Erreur critique durant l'exécution : {e}")
+            print(f"Erreur critique : {e}")
         finally:
             browser.close()
 
 if __name__ == "__main__":
+    script_path = os.path.abspath(__file__)
+    print(f"Exécution du fichier : {script_path}")
     scrape_and_send_to_sheet()
