@@ -7,12 +7,12 @@ from playwright.sync_api import sync_playwright
 TARGET_URL = "https://www.aliexpress.com/w/wholesale-fashion-accessories.html"
 GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
-def human_delay(min_sec=3, max_sec=6):
+def human_delay(min_sec=2, max_sec=4):
     """Simule la réflexion et les pauses naturelles d'un utilisateur humain."""
     time.sleep(random.uniform(min_sec, max_sec))
 
 def scrape_and_send_to_sheet():
-    print("🤖 Démarrage du scraper ultra-précis (Prix, Détails & Stock réels capturés)...")
+    print("🤖 Démarrage du scraper multi-tailles & approfondi (Prix, Stock par taille & Détails)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -62,23 +62,21 @@ def scrape_and_send_to_sheet():
                 except Exception:
                     continue
             
-            print(f"📦 {len(links)} produits détectés. Analyse chirurgicale en cours...")
+            print(f"📦 {len(links)} produits détectés. Analyse des variantes en cours...")
             success_count = 0
             
-            # Visite individuelle et humaine de chaque fiche produit
-            for index, product_url in enumerate(links[:10], start=1):
+            # Visite individuelle de chaque fiche produit
+            for index, product_url in enumerate(links[:5], start=1): # Limité à 5 pour les tests, modifiable selon besoin
                 print(f"\n🔍 [Produit {index}] Visite de la fiche : {product_url}")
                 detail_page = context.new_page()
                 
                 try:
                     detail_page.goto(product_url, timeout=60000, wait_until="domcontentloaded")
-                    human_delay(4, 6) # Laisse le temps au rendu dynamique d'afficher prix, détails et stock
+                    human_delay(4, 6)
                     
-                    # Scroll humain progressif pour forcer le chargement de toutes les sections de la page
+                    # Scroll humain pour charger toutes les sections
                     detail_page.mouse.wheel(0, 500)
                     human_delay(2, 3)
-                    detail_page.mouse.wheel(0, 700)
-                    human_delay(1, 2)
                     
                     # 1. Extraction du NOM (Titre)
                     title = "Nom non disponible"
@@ -93,25 +91,7 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 2. Extraction du VRAI PRIX (Basé sur la classe price-default--current)
-                    price = "0.00"
-                    try:
-                        extracted_price = detail_page.evaluate("""() => {
-                            const currentPrice = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"], [class*="price--current"]');
-                            if (currentPrice && currentPrice.innerText.trim()) {
-                                return currentPrice.innerText.trim();
-                            }
-                            const metaPrice = document.querySelector('meta[property="product:price:amount"]');
-                            if (metaPrice) return metaPrice.content;
-                            return null;
-                        }""")
-                        
-                        if extracted_price:
-                            price = extracted_price
-                    except Exception:
-                        pass
-                    
-                    # 3. Extraction de l'IMAGE principale
+                    # 2. Extraction de l'IMAGE principale
                     img_url = ""
                     try:
                         og_img = detail_page.locator("meta[property='og:image']").get_attribute("content")
@@ -127,7 +107,7 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 4. Extraction LARGE des DÉTAILS (Basé sur la structure specification--line / specification--prop)
+                    # 3. Extraction LARGE des DÉTAILS
                     details = "Caractéristiques standard"
                     try:
                         extracted_details = detail_page.evaluate("""() => {
@@ -140,55 +120,84 @@ def scrape_and_send_to_sheet():
                                 });
                                 return detailsList.join(' | ');
                             }
-                            
-                            const props = Array.from(document.querySelectorAll('[class*="property-item"], [class*="specification"]'))
-                                .map(el => el.innerText.trim())
-                                .filter(text => text.length > 0);
-                            if (props.length > 0) return props.join(' | ');
-                            
                             return null;
                         }""")
-                        
                         if extracted_details:
                             details = extracted_details[:400]
                     except Exception:
                         pass
                     
-                    # 5. Extraction exacte du STOCK (Basé sur la classe quantity--info--jnoo_pD que vous avez envoyée)
-                    stock = "En stock"
+                    # 4. GESTION DES VARIANTES DE TAILLES (Basée sur votre structure sku-item--text--hYfAukP)
+                    variants_data = []
+                    
                     try:
-                        extracted_stock = detail_page.evaluate("""() => {
-                            // Cible précise du bloc de quantité que vous venez de fournir (ex: "60 disponibles")
-                            const quantityInfo = document.querySelector('[class*="quantity--info"], [class*="stock"], [class*="inventory"]');
-                            if (quantityInfo && quantityInfo.innerText.trim()) {
-                                return quantityInfo.innerText.trim().replace(/\\n/g, ' ');
-                            }
-                            
-                            // Recherche de secours par expression régulière dans le texte global de la page
-                            const bodyText = document.body.innerText;
-                            const match = bodyText.match(/(\\d+)\\s+(disponibles|pieces available|articles disponibles)/i);
-                            if (match) return match[0];
-                            
-                            return null;
-                        }""")
+                        # Recherche des boutons de tailles/SKU avec la structure exacte fournie
+                        size_elements = detail_page.locator(".sku-item--text--hYfAukP").all()
                         
-                        if extracted_stock:
-                            stock = extracted_stock
-                    except Exception:
-                        pass
+                        if len(size_elements) > 0:
+                            print(f"   📏 {len(size_elements)} options de tailles détectées. Analyse variante par variante...")
+                            
+                            for s_elem in size_elements:
+                                try:
+                                    # Récupérer le nom de la taille (ex: XXL(US 14), M(US 6), etc.)
+                                    size_name = s_elem.inner_text().strip()
+                                    if not size_name:
+                                        size_name = s_elem.get_attribute("title") or "Taille"
+                                    
+                                    # Cliquer de façon humaine sur l'option de taille pour actualiser la page
+                                    s_elem.click()
+                                    human_delay(1.5, 2.5) # Attente indispensable pour que le prix/stock s'actualisent
+                                    
+                                    # Extraire le prix mis à jour pour cette taille spécifique
+                                    current_price = detail_page.evaluate("""() => {
+                                        const pEl = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"], [class*="price--current"]');
+                                        return pEl ? pEl.innerText.trim() : "0.00";
+                                    }""")
+                                    
+                                    # Extraire le stock mis à jour pour cette taille spécifique
+                                    current_stock = detail_page.evaluate("""() => {
+                                        const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"]');
+                                        if (stockEl && stockEl.innerText.trim()) {
+                                            return stockEl.innerText.trim().replace(/\\n/g, ' ');
+                                        }
+                                        return "En stock";
+                                    }""")
+                                    
+                                    variants_data.append(f"[{size_name} -> Prix: {current_price} | Stock: {current_stock}]")
+                                    print(f"      🔹 Taille : {size_name} | Prix : {current_price} | Stock : {current_stock}")
+                                    
+                                except Exception as var_err:
+                                    continue
+                        else:
+                            # S'il n'y a pas de variantes de tailles multiples, on récupère le prix et stock uniques globaux
+                            single_price = detail_page.evaluate("""() => {
+                                const pEl = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"]');
+                                return pEl ? pEl.innerText.trim() : "0.00";
+                            }""")
+                            single_stock = detail_page.evaluate("""() => {
+                                const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"]');
+                                return stockEl ? stockEl.innerText.trim().replace(/\\n/g, ' ') : "En stock";
+                            }""")
+                            variants_data.append(f"[Taille unique -> Prix: {single_price} | Stock: {single_stock}]")
+                            
+                    except Exception as e:
+                        print(f"   ⚠️ Erreur lors de l'analyse des tailles : {e}")
+                        variants_data.append("[Variantes non disponibles]")
+                    
+                    # Concaténation de toutes les variantes de prix/stocks pour les envoyer proprement
+                    final_pricing_details = " // ".join(variants_data)
                     
                     # Construction du Payload final pour votre Google Sheet
                     payload = {
                         "nom": title[:120],
-                        "prix": price,
+                        "prix": final_pricing_details[:300], # Contient l'ensemble des prix par taille
                         "img": img_url,
                         "details": details,
-                        "stock": stock
+                        "stock": "Voir détails des tailles"
                     }
                     
                     print(f"   ✔️ Nom : {title[:40]}...")
-                    print(f"   ✔️ Prix : {price} | Stock : {stock}")
-                    print(f"   ✔️ Détails : {details[:80]}...")
+                    print(f"   ✔️ Envoi groupé des prix par taille vers Google Sheet...")
                     
                     # Envoi vers Google Sheet via votre Google Apps Script
                     if GOOGLE_SCRIPT_URL:
@@ -201,9 +210,9 @@ def scrape_and_send_to_sheet():
                     print(f"   ⚠️ Erreur sur ce produit : {product_err}")
                 finally:
                     detail_page.close()
-                    human_delay(2, 4) # Pause humaine avant de passer au produit suivant
+                    human_delay(2, 4)
                     
-            print(f"\n🎉 Terminé ! {success_count} produits extraits avec succès (Prix, Stock et Détails complets).")
+            print(f"\n🎉 Terminé ! {success_count} produits avec toutes leurs variantes de prix par taille enregistrés.")
             
         except Exception as e:
             print(f"❌ Erreur critique globale : {e}")
