@@ -2,29 +2,28 @@ name: Automatisation Mayah Store
 
 on:
   schedule:
-    # S'exécute automatiquement tous les jours à minuit (00h00 UTC)
-    - cron: '0 0 * * *'
-  workflow_dispatch: # Permet de lancer l'action manuellement depuis l'onglet "Actions" de GitHub
+    - cron: '0 */6 * * *' # S'exécute toutes les 6 heures
+  workflow_dispatch: # Permet aussi de le lancer manuellement depuis l'onglet Actions de GitHub
 
 jobs:
-  run-scraper:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupération du dépôt
+      - name: Récupérer le code du dépôt
         uses: actions/checkout@v4
 
-      - name: Configuration de Python
+      - name: Configurer Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Installation des dépendances et de Playwright
+      - name: Installer les dépendances
         run: |
-          python -m pip install --upgrade pip
-          pip install requests playwright
-          playwright install --with-deps chromium
+          pip install requests
 
-      - name: Lancement du script de scraping des stocks et détails
+      - name: Lancer le script de synchronisation
         env:
+          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
           GOOGLE_SCRIPT_URL: ${{ secrets.GOOGLE_SCRIPT_URL }}
-        run: python update_stock.py
+        run: |
+          python update_stock.py
