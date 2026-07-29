@@ -193,10 +193,8 @@ def scrape_and_send_to_sheet():
                             "prix": price,                 # Va dans la Colonne B
                             "img": img_url,                # Va dans la Colonne C
                             "details": details_text,       # Va dans la Colonne D (Ex: "10pcs / $5.83")
-                            "stock": stock_quantity        # Va dans la Colonne E (Ex: "Max. 3 pcs/shopper")
-                            }
-
-            response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+                            "stock": stock_quantity,        # Va dans la Colonne E (Ex: "Max. 3 pcs/shopper")
+                    }
                     
                     print(f"   ✔️ Nom : {title[:40]}...")
                     print(f"   ✔️ Envoi groupé des prix par taille vers Google Sheet...")
