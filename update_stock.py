@@ -66,9 +66,15 @@ def scrape_and_send_to_sheet():
             success_count = 0
             
             # Visite individuelle de chaque fiche produit
-            for index, product_url in enumerate(links[:5], start=1): # Limité à 5 pour les tests, modifiable selon besoin
+            for index, product_url in enumerate(links[:15], start=1):
                 print(f"\n🔍 [Produit {index}] Visite de la fiche : {product_url}")
                 detail_page = context.new_page()
+                
+                # INITIALISATION SÉCURISÉE DES VARIABLES (Empêche l'erreur 'not defined')
+                title = "Nom non disponible"
+                img_url = ""
+                details = "Caractéristiques standard"
+                final_pricing_details = "Prix et stock indisponibles"
                 
                 try:
                     detail_page.goto(product_url, timeout=60000, wait_until="domcontentloaded")
@@ -79,7 +85,6 @@ def scrape_and_send_to_sheet():
                     human_delay(2, 3)
                     
                     # 1. Extraction du NOM (Titre)
-                    title = "Nom non disponible"
                     try:
                         og_title = detail_page.locator("meta[property='og:title']").get_attribute("content")
                         if og_title:
@@ -92,7 +97,6 @@ def scrape_and_send_to_sheet():
                         pass
                     
                     # 2. Extraction de l'IMAGE principale
-                    img_url = ""
                     try:
                         og_img = detail_page.locator("meta[property='og:image']").get_attribute("content")
                         if og_img:
@@ -108,7 +112,6 @@ def scrape_and_send_to_sheet():
                         pass
                     
                     # 3. Extraction LARGE des DÉTAILS
-                    details = "Caractéristiques standard"
                     try:
                         extracted_details = detail_page.evaluate("""() => {
                             const specLines = document.querySelectorAll('.specification--line--IXeRJI7, [class*="specification--prop"]');
@@ -127,36 +130,30 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 4. GESTION DES VARIANTES DE TAILLES (Basée sur votre structure sku-item--text--hYfAukP)
+                    # 4. GESTION DES VARIANTES DE TAILLES
                     variants_data = []
-                    
                     try:
-                        # Recherche des boutons de tailles/SKU avec la structure exacte fournie
                         size_elements = detail_page.locator(".sku-item--text--hYfAukP").all()
                         
                         if len(size_elements) > 0:
                             print(f"   📏 {len(size_elements)} options de tailles détectées. Analyse variante par variante...")
-                            
                             for s_elem in size_elements:
                                 try:
-                                    # Récupérer le nom de la taille (ex: XXL(US 14), M(US 6), etc.)
                                     size_name = s_elem.inner_text().strip()
                                     if not size_name:
                                         size_name = s_elem.get_attribute("title") or "Taille"
                                     
-                                    # Cliquer de façon humaine sur l'option de taille pour actualiser la page
+                                    # Clic sur la taille
                                     s_elem.click()
-                                    human_delay(1.5, 2.5) # Attente indispensable pour que le prix/stock s'actualisent
+                                    human_delay(1.5, 2.5) 
                                     
-                                    # Extraire le prix mis à jour pour cette taille spécifique
                                     current_price = detail_page.evaluate("""() => {
                                         const pEl = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"], [class*="price--current"]');
                                         return pEl ? pEl.innerText.trim() : "0.00";
                                     }""")
                                     
-                                    # Extraire le stock mis à jour pour cette taille spécifique
                                     current_stock = detail_page.evaluate("""() => {
-                                        const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"]');
+                                        const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"], [class*="inventory"]');
                                         if (stockEl && stockEl.innerText.trim()) {
                                             return stockEl.innerText.trim().replace(/\\n/g, ' ');
                                         }
@@ -164,40 +161,40 @@ def scrape_and_send_to_sheet():
                                     }""")
                                     
                                     variants_data.append(f"[{size_name} -> Prix: {current_price} | Stock: {current_stock}]")
-                                    print(f"🔹 Taille : {size_name} | Prix : {current_price} | Stock : {current_stock}")
-                                    
-                                except Exception as var_err:
+                                    print(f"      🔹 Taille : {size_name} | Prix : {current_price} | Stock : {current_stock}")
+                                except Exception:
                                     continue
                         else:
-                            # S'il n'y a pas de variantes de tailles multiples, on récupère le prix et stock uniques globaux
+                            # Taille unique
                             single_price = detail_page.evaluate("""() => {
-                                const pEl = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"]');
+                                const pEl = document.querySelector('[class*="price-default--current"], [class*="current--F8OlYIo"], [class*="price--current"]');
                                 return pEl ? pEl.innerText.trim() : "0.00";
                             }""")
                             single_stock = detail_page.evaluate("""() => {
-                                const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"]');
+                                const stockEl = document.querySelector('[class*="quantity--info"], [class*="stock"], [class*="inventory"]');
                                 return stockEl ? stockEl.innerText.trim().replace(/\\n/g, ' ') : "En stock";
                             }""")
                             variants_data.append(f"[Taille unique -> Prix: {single_price} | Stock: {single_stock}]")
                             
                     except Exception as e:
-                        print(f" ⚠️ Erreur lors de l'analyse des tailles : {e}")
+                        print(f"   ⚠️ Erreur lors de l'analyse des tailles : {e}")
                         variants_data.append("[Variantes non disponibles]")
                     
-                    # Concaténation de toutes les variantes de prix/stocks pour les envoyer proprement
+                    # Concaténation finale
                     final_pricing_details = " // ".join(variants_data)
                     
-                    # Construction du Payload final pour votre Google Sheet
+                    # 5. CONSTRUCTION DU PAYLOAD (Sécurisé)
                     payload = {
-                            "nom": title[:120],            # Va dans la Colonne A
-                            "prix": price,                 # Va dans la Colonne B
-                            "img": img_url,                # Va dans la Colonne C
-                            "details": details_text,       # Va dans la Colonne D (Ex: "10pcs / $5.83")
-                            "stock": stock_quantity        # Va dans la Colonne E (Ex: "Max. 3 pcs/shopper")
+                        "nom": title[:120],
+                        "prix": final_pricing_details[:500], # Les prix et stocks vont ensemble dans cette colonne
+                        "img": img_url,
+                        "details": details[:350],
+                        "stock": "Voir colonne Prix" # Le stock est désormais combiné avec chaque taille
                     }
                     
+                    # LIGNE CORRIGÉE : Utilise final_pricing_details au lieu de l'ancien 'price'
                     print(f"   ✔️ Nom : {title[:40]}...")
-                    print(f"   ✔️ Envoi groupé des prix par taille vers Google Sheet...")
+                    print(f"   ✔️ Variantes (Prix/Stock) : {final_pricing_details[:60]}...")
                     
                     # Envoi vers Google Sheet via votre Google Apps Script
                     if GOOGLE_SCRIPT_URL:
@@ -207,12 +204,12 @@ def scrape_and_send_to_sheet():
                             print(f"   🚀 Envoyé avec succès au Google Sheet !")
                     
                 except Exception as product_err:
-                    print(f" ⚠️ Erreur sur ce produit : {product_err}")
+                    print(f"   ⚠️ Erreur inattendue sur ce produit : {product_err}")
                 finally:
                     detail_page.close()
                     human_delay(2, 4)
                     
-            print(f"\n🎉 Terminé ! {success_count} produits avec toutes leurs variantes de prix par taille enregistrés.")
+            print(f"\n🎉 Terminé ! {success_count} produits enregistrés avec succès dans Google Sheet.")
             
         except Exception as e:
             print(f"❌ Erreur critique globale : {e}")
