@@ -91,12 +91,11 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                     
-                    # 3. Initialisation sécurisée des variables de prix, détails et stock
+                    # 3. Initialisation sécurisée des variables
                     price = "N/A"
                     details_text = "Standard"
                     stock_quantity = "En stock"
                     
-                    # Tentative de récupération du prix sur la page
                     try:
                         price_elem = detail_page.query_selector(".product-price-value, .price-current, [class*='price']")
                         if price_elem:
@@ -104,7 +103,6 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
 
-                    # Tentative de récupération des options / stock si disponibles
                     try:
                         stock_elem = detail_page.query_selector("[class*='stock'], [class*='quantity']")
                         if stock_elem:
@@ -112,7 +110,7 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
 
-                    # Construction sécurisée du payload pour Google Sheets
+                    # Construction du payload pour Google Sheets
                     payload = {
                         "nom": title[:120],            # Colonne A
                         "prix": price,                 # Colonne B
@@ -144,7 +142,7 @@ def scrape_and_send_to_sheet():
             print(f"🎉 Terminé ! {success_count} produits avec toutes leurs variantes de prix par taille enregistrés.")
             
         except Exception as e:
-        print(f"❌ Erreur critique globale : {e}")
+            print(f"❌ Erreur critique globale : {e}")
         finally:
             browser.close()
 
