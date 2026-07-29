@@ -46,7 +46,7 @@ def get_cj_token():
         return None
 
 def fetch_cj_products(keyword="fashion accessories", limit=3):
-    """Recherche des produits sur CJ Dropshipping"""
+    """Recherche des produits sur CJ Dropshipping via GET"""
     token = get_cj_token()
     if not token:
         return []
@@ -57,6 +57,7 @@ def fetch_cj_products(keyword="fashion accessories", limit=3):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
     
+    # Paramètres passés en GET (query params)
     params = {
         "keyWord": keyword,
         "page": 1,
@@ -66,7 +67,8 @@ def fetch_cj_products(keyword="fashion accessories", limit=3):
     print(f"🌐 Recherche en cours sur CJ Dropshipping pour : '{keyword}'...")
     
     try:
-        response = requests.post(CJ_SEARCH_URL, headers=headers, json=params, timeout=20)
+        # Modification ici : utilisation de requests.get au lieu de requests.post
+        response = requests.get(CJ_SEARCH_URL, headers=headers, params=params, timeout=20)
         
         if not response.text or not response.text.strip():
             print("⚠️ Réponse de recherche vide.")
