@@ -7,13 +7,12 @@ import time
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
-# URLs officielles de l'API CJ Dropshipping V2
-CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2/v2/authentication/getToken"
+# URLs officielles corrigées de l'API CJ Dropshipping V2
+CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2/v2/authentication/getAccessToken"
 CJ_SEARCH_URL = "https://developers.cjdropshipping.com/api2/v2/product/list"
 
 def get_cj_token():
     """Génère ou récupère le jeton d'accès (Token) auprès de l'API CJ Dropshipping"""
-    # Ajout d'un User-Agent pour simuler un navigateur et éviter les blocages
     headers = {
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -24,12 +23,10 @@ def get_cj_token():
         response = requests.post(CJ_AUTH_URL, headers=headers, json=payload, timeout=15)
         print(f"📊 Code HTTP reçu de CJ : {response.status_code}")
         
-        # Vérifier si la réponse est vide
         if not response.text or not response.text.strip():
             print("❌ Erreur : L'API CJ a renvoyé une réponse vide.")
             return None
             
-        # Essayer de convertir en JSON proprement
         try:
             data = response.json()
         except json.JSONDecodeError:
@@ -48,7 +45,7 @@ def get_cj_token():
         print(f"❌ Exception lors de la connexion à l'API CJ : {e}")
         return None
 
-def fetch_cj_products(keyword="fashion accessories", limit=5):
+def fetch_cj_products(keyword="fashion accessories", limit=3):
     """Recherche des produits sur CJ Dropshipping"""
     token = get_cj_token()
     if not token:
@@ -116,13 +113,12 @@ def send_to_google_sheet(product):
 if __name__ == "__main__":
     print("🤖 Démarrage du script de synchronisation CJ Dropshipping -> Google Sheet...")
     
-    # Test avec un mot-clé
     mots_cles = ["fashion accessories"]
     
     for kw in mots_cles:
         products = fetch_cj_products(keyword=kw, limit=3)
         for prod in products:
-            send_to_google_speech = send_to_google_sheet(prod)
+            send_to_google_sheet(prod)
             time.sleep(1)
             
     print("✨ Synchronisation terminée avec succès !")
