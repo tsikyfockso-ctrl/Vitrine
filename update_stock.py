@@ -1,126 +1,87 @@
 import os
 import requests
-import json
-import time
 
-# Récupération des secrets
+# Configuration des URLs de l'API CJ Dropshipping V2
+BASE_URL = "https://developers.cjdropshipping.com/api2.0/v1"
+TOKEN_URL = f"{BASE_URL}/authentication/getAccessToken"
+SEARCH_URL = f"{BASE_URL}/product/queryProduct"
+
+# Récupération de la clé API depuis les variables d'environnement (ou GitHub Secrets)
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
-# URLs officielles basées sur votre documentation (api2.0/v1)
-CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-CJ_SEARCH_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
-
-def get_cj_token():
-    """Génère ou récupère le jeton d'accès auprès de l'API CJ Dropshipping"""
-    headers = {
-        "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
+def get_access_token():
+    print("🔑 Génération du jeton d'accès CJ Dropshipping...")
+    headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
     
-    try:
-        response = requests.post(CJ_AUTH_URL, headers=headers, json=payload, timeout=15)
-        print(f"📊 Code HTTP reçu de CJ : {response.status_code}")
-        
-        if not response.text or not response.text.strip():
-            print("❌ Erreur : L'API CJ a renvoyé une réponse vide.")
-            return None
-            
-        try:
-            data = response.json()
-        except json.JSONDecodeError:
-            print(f"❌ Erreur : La réponse n'est pas du JSON. Texte brut reçu : {response.text[:300]}")
-            return None
-
-        if data.get("result"):
-            token = data.get("data", {}).get("accessToken")
-            print("🔑 Jeton d'accès CJ Dropshipping généré avec succès !")
-            return token
-        else:
-            print(f"❌ Erreur d'authentification CJ : {data.get('message')}")
-            return None
-            
-    except Exception as e:
-        print(f"❌ Exception lors de la connexion à l'API CJ : {e}")
+    response = requests.post(TOKEN_URL, json=payload)
+    print(f"📊 Code HTTP reçu pour le token : {response.status_code}")
+    
+    data = response.json()
+    if data.get("result"):
+        token = data.get("data", {}).get("accessToken")
+        print("🔑 Jeton d'accès CJ Dropshipping généré avec succès !")
+        return token
+    else:
+        print(f"❌ Erreur lors de la génération du token : {data}")
         return None
 
-def fetch_cj_products(keyword="fashion accessories", limit=3):
-    """Recherche des produits sur CJ Dropshipping via GET"""
-    token = get_cj_token()
-    if not token:
-        return []
-
-    headers = {
-        "Content-Type": "application/json",
-        "CJ-Access-Token": token,
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
-    
-    # Paramètres passés en GET (query params)
-    params = {
-        "keyWord": keyword,
-        "page": 1,
-        "size": limit
-    }
-    
+def search_products(token, keyword="fashion accessories"):
     print(f"🌐 Recherche en cours sur CJ Dropshipping pour : '{keyword}'...")
     
-    try:
-        # Modification ici : utilisation de requests.get au lieu de requests.post
-        response = requests.get(CJ_SEARCH_URL, headers=headers, params=params, timeout=20)
-        
-        if not response.text or not response.text.strip():
-            print("⚠️ Réponse de recherche vide.")
-            return []
-            
-        result = response.json()
-        
-        if result.get("result"):
-            product_list = result.get("data", {}).get("productList", [])
-            print(f"📦 {len(product_list)} produits trouvés sur CJ !")
-            return product_list
-        else:
-            print(f"⚠️ Aucun produit récupéré : {result.get('message')}")
-            return []
-    except Exception as e:
-        print(f"❌ Erreur lors de la récupération des produits : {e}")
-        return []
+    headers = {
+        "Content-Type": "application/json",
+        "CJ-Access-Token": token
+    }
+    
+    # Paramètres de recherche adaptés pour queryProduct (essayez productName ou keyword selon le retour)
+    payload = {
+        "productName": keyword,
+        "pageNum": 1,
+        "pageSize": 10
+    }
+    
+    response = requests.post(SEARCH_URL, headers=headers, json=payload)
+    print(f"📊 Code HTTP reçu pour la recherche : {response.status_code}")
+    
+    data = response.json()
+    
+    # Extraction sécurisée des produits selon la structure de l'API
+    products = data.get("data", {}).get("list", [])
+    print(f"📦 {len(products)} produits trouvés sur CJ !")
+    
+    return products
 
-def send_to_google_sheet(product):
-    """Envoie un produit formaté vers le Google Sheet"""
-    if not GOOGLE_SCRIPT_URL:
-        print("⚠️ URL Google Sheet non définie.")
+def send_to_google_sheet(products):
+    if not products:
+        print("⚠️ Aucun produit à envoyer vers Google Sheet.")
         return
 
-    payload = {
-        "nom": product.get("nameEn", "Nom indisponible")[:120],
-        "prix": str(product.get("sellPrice", "0.00")),
-        "img": product.get("bigImage", ""),
-        "details": f"SPU: {product.get('spu', 'N/A')} - Fournisseur: {product.get('supplierName', 'CJ')}",
-        "stock": str(product.get("warehouseInventoryNum", 0))
-    }
-
-    headers = {"Content-Type": "application/json"}
-    
-    try:
-        response = requests.post(GOOGLE_SCRIPT_URL, headers=headers, json=payload, timeout=10)
-        if response.status_code == 200:
-            print(f"   🚀 Envoyé avec succès au Google Sheet : {payload['nom'][:40]}...")
-        else:
-            print(f"   ⚠️ Erreur d'envoi Google Sheet (Code {response.status_code})")
-    except Exception as e:
-        print(f"   ❌ Exception lors de l'envoi vers Google Sheet : {e}")
+    print("📤 Envoi des produits vers Google Sheet...")
+    for product in products:
+        # Adaptation des champs selon la structure renvoyée par CJ
+        payload = {
+            "nom": product.get("productName", "Nom indisponible"),
+            "prix": product.get("sellPrice", "0"),
+            "img": product.get("productImage", ""),
+            "details": product.get("productSku", ""),
+            "stock": product.get("totalStock", 0)
+        }
+        
+        try:
+            res = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+            if res.status_code == 200:
+                print(f"✅ Produit ajouté : {payload['nom']}")
+            else:
+                print(f"⚠️ Erreur Google Sheet pour {payload['nom']} : {res.status_code}")
+        except Exception as e:
+            print(f"❌ Exception lors de l'envoi : {e}")
 
 if __name__ == "__main__":
     print("🤖 Démarrage du script de synchronisation CJ Dropshipping -> Google Sheet...")
-    
-    mots_cles = ["fashion accessories"]
-    
-    for kw in mots_cles:
-        products = fetch_cj_products(keyword=kw, limit=3)
-        for prod in products:
-            send_to_google_sheet(prod)
-            time.sleep(1)
-            
+    token = get_access_token()
+    if token:
+        products = search_products(token, keyword="fashion accessories")
+        send_to_google_sheet(products)
     print("✨ Synchronisation terminée avec succès !")
