@@ -4,7 +4,7 @@ import requests
 # Configuration des URLs de l'API CJ Dropshipping V2
 BASE_URL = "https://developers.cjdropshipping.com/api2.0/v1"
 TOKEN_URL = f"{BASE_URL}/authentication/getAccessToken"
-SEARCH_URL = f"{BASE_URL}/product/queryProduct"
+SEARCH_URL = f"{BASE_URL}/product/list"  # Endpoint correct pour lister/rechercher
 
 # Récupération de la clé API depuis les variables d'environnement (ou GitHub Secrets)
 CJ_API_KEY = os.getenv("CJ_API_KEY")
@@ -22,7 +22,6 @@ def get_access_token():
         data = response.json()
     except Exception as e:
         print(f"❌ Erreur de décodage JSON pour le token : {e}")
-        print(f"Texte brut : {response.text}")
         return None
 
     if isinstance(data, dict) and data.get("result"):
@@ -41,13 +40,14 @@ def search_products(token, keyword="fashion accessories"):
         "CJ-Access-Token": token
     }
     
-    payload = {
+    # Pour l'endpoint GET /product/list, les paramètres passent en query parameters (params)
+    params = {
         "productName": keyword,
         "pageNum": 1,
         "pageSize": 10
     }
     
-    response = requests.post(SEARCH_URL, headers=headers, json=payload)
+    response = requests.get(SEARCH_URL, headers=headers, params=params)
     print(f"📊 Code HTTP reçu pour la recherche : {response.status_code}")
     
     try:
@@ -57,7 +57,6 @@ def search_products(token, keyword="fashion accessories"):
         print(f"Texte brut : {response.text}")
         return []
     
-    # Sécurité : vérifier si data est bien un dictionnaire
     if not isinstance(data, dict):
         print(f"❌ La réponse de recherche n'est pas un dictionnaire valide : {data}")
         return []
