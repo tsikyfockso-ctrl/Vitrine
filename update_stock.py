@@ -164,7 +164,7 @@ def scrape_and_send_to_sheet():
                                     }""")
                                     
                                     variants_data.append(f"[{size_name} -> Prix: {current_price} | Stock: {current_stock}]")
-                                    print(f"      🔹 Taille : {size_name} | Prix : {current_price} | Stock : {current_stock}")
+                                    print(f"🔹 Taille : {size_name} | Prix : {current_price} | Stock : {current_stock}")
                                     
                                 except Exception as var_err:
                                     continue
@@ -181,7 +181,7 @@ def scrape_and_send_to_sheet():
                             variants_data.append(f"[Taille unique -> Prix: {single_price} | Stock: {single_stock}]")
                             
                     except Exception as e:
-                        print(f"   ⚠️ Erreur lors de l'analyse des tailles : {e}")
+                        print(f" ⚠️ Erreur lors de l'analyse des tailles : {e}")
                         variants_data.append("[Variantes non disponibles]")
                     
                     # Concaténation de toutes les variantes de prix/stocks pour les envoyer proprement
@@ -207,7 +207,7 @@ def scrape_and_send_to_sheet():
                             print(f"   🚀 Envoyé avec succès au Google Sheet !")
                     
                 except Exception as product_err:
-                    print(f"   ⚠️ Erreur sur ce produit : {product_err}")
+                    print(f" ⚠️ Erreur sur ce produit : {product_err}")
                 finally:
                     detail_page.close()
                     human_delay(2, 4)
