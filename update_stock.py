@@ -12,7 +12,7 @@ def human_delay(min_sec=2, max_sec=4):
     time.sleep(random.uniform(min_sec, max_sec))
 
 def scrape_and_send_to_sheet():
-    print("🤖 Démarrage du scraper (Mode : 1 Ligne par Taille)...")
+    print("🤖 Démarrage du scraper (Mode : 1 Ligne par Taille avec Détails)...")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -63,16 +63,14 @@ def scrape_and_send_to_sheet():
             
             print(f"📦 {len(links)} produits détectés. Analyse des variantes en cours...")
             success_count = 0
-            # Visite individuelle de chaque fiche produit
+            
             for index, product_url in enumerate(links[:15], start=1):
                 print(f"\n🔍 [Produit {index}] Visite de la fiche : {product_url}")
                 detail_page = context.new_page()
                 
-                # INITIALISATION SÉCURISÉE DES VARIABLES (Empêche l'erreur 'not defined')
                 title = "Nom non disponible"
                 img_url = ""
                 details = "Caractéristiques standard"
-                final_pricing_details = "Prix et stock indisponibles"
                 
                 try:
                     detail_page.goto(product_url, timeout=60000, wait_until="domcontentloaded")
@@ -108,7 +106,7 @@ def scrape_and_send_to_sheet():
                     except Exception:
                         pass
                         
-                        # 3. Extraction LARGE des DÉTAILS
+                    # 3. Extraction des DÉTAILS
                     try:
                         extracted_details = detail_page.evaluate("""() => {
                             const specLines = document.querySelectorAll('.specification--line--IXeRJI7, [class*="specification--prop"]');
@@ -120,14 +118,21 @@ def scrape_and_send_to_sheet():
                                 });
                                 return detailsList.join(' | ');
                             }
+                            
+                            const props = Array.from(document.querySelectorAll('[class*="property-item"], [class*="specification"]'))
+                                .map(el => el.innerText.trim())
+                                .filter(text => text.length > 0);
+                            if (props.length > 0) return props.join(' | ');
+                            
                             return null;
                         }""")
+                        
                         if extracted_details:
                             details = extracted_details[:400]
                     except Exception:
                         pass
                     
-                    # 3. GESTION DES TAILLES (1 Envoi par taille détectée)
+                    # 4. GESTION DES TAILLES (1 Envoi par taille détectée)
                     size_elements = detail_page.locator(".sku-item--text--hYfAukP").all()
                     
                     if len(size_elements) > 0:
@@ -160,7 +165,7 @@ def scrape_and_send_to_sheet():
                                     "taille": size_name,
                                     "prix": current_price,
                                     "img": img_url,
-                                    "details": details[:350],
+                                    "details": details, # <-- Ajout de la colonne E
                                     "stock": current_stock
                                 }
                                 
@@ -189,7 +194,7 @@ def scrape_and_send_to_sheet():
                             "taille": "Taille unique",
                             "prix": single_price,
                             "img": img_url,
-                            "details": details[:350],
+                            "details": details, # <-- Ajout de la colonne E
                             "stock": single_stock
                         }
                         
