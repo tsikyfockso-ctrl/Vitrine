@@ -189,12 +189,14 @@ def scrape_and_send_to_sheet():
                     
                     # Construction du Payload final pour votre Google Sheet
                     payload = {
-                        "nom": title[:120],
-                        "prix": final_pricing_details[:300], # Contient l'ensemble des prix par taille
-                        "img": img_url,
-                        "details": details,
-                        "stock": "Voir détails des tailles"
-                    }
+                            "nom": title[:120],            # Va dans la Colonne A
+                            "prix": price,                 # Va dans la Colonne B
+                            "img": img_url,                # Va dans la Colonne C
+                            "details": details_text,       # Va dans la Colonne D (Ex: "10pcs / $5.83")
+                            "stock": stock_quantity        # Va dans la Colonne E (Ex: "Max. 3 pcs/shopper")
+                            }
+
+            response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
                     
                     print(f"   ✔️ Nom : {title[:40]}...")
                     print(f"   ✔️ Envoi groupé des prix par taille vers Google Sheet...")
