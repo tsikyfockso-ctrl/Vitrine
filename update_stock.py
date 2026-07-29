@@ -18,8 +18,14 @@ def get_access_token():
     response = requests.post(TOKEN_URL, json=payload)
     print(f"📊 Code HTTP reçu pour le token : {response.status_code}")
     
-    data = response.json()
-    if data.get("result"):
+    try:
+        data = response.json()
+    except Exception as e:
+        print(f"❌ Erreur de décodage JSON pour le token : {e}")
+        print(f"Texte brut : {response.text}")
+        return None
+
+    if isinstance(data, dict) and data.get("result"):
         token = data.get("data", {}).get("accessToken")
         print("🔑 Jeton d'accès CJ Dropshipping généré avec succès !")
         return token
@@ -35,7 +41,6 @@ def search_products(token, keyword="fashion accessories"):
         "CJ-Access-Token": token
     }
     
-    # Paramètres de recherche adaptés pour queryProduct (essayez productName ou keyword selon le retour)
     payload = {
         "productName": keyword,
         "pageNum": 1,
@@ -45,12 +50,29 @@ def search_products(token, keyword="fashion accessories"):
     response = requests.post(SEARCH_URL, headers=headers, json=payload)
     print(f"📊 Code HTTP reçu pour la recherche : {response.status_code}")
     
-    data = response.json()
+    try:
+        data = response.json()
+    except Exception as e:
+        print(f"❌ Erreur de décodage JSON pour la recherche : {e}")
+        print(f"Texte brut : {response.text}")
+        return []
     
-    # Extraction sécurisée des produits selon la structure de l'API
-    products = data.get("data", {}).get("list", [])
+    # Sécurité : vérifier si data est bien un dictionnaire
+    if not isinstance(data, dict):
+        print(f"❌ La réponse de recherche n'est pas un dictionnaire valide : {data}")
+        return []
+    
+    # Extraction sécurisée des produits
+    inner_data = data.get("data")
+    if not isinstance(inner_data, dict):
+        print(f"⚠️ Le champ 'data' est absent ou vide dans la réponse : {data}")
+        return []
+        
+    products = inner_data.get("list", [])
+    if not products:
+        products = []
+        
     print(f"📦 {len(products)} produits trouvés sur CJ !")
-    
     return products
 
 def send_to_google_sheet(products):
@@ -60,7 +82,6 @@ def send_to_google_sheet(products):
 
     print("📤 Envoi des produits vers Google Sheet...")
     for product in products:
-        # Adaptation des champs selon la structure renvoyée par CJ
         payload = {
             "nom": product.get("productName", "Nom indisponible"),
             "prix": product.get("sellPrice", "0"),
