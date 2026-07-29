@@ -7,12 +7,12 @@ import time
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
-# URLs officielles corrigées de l'API CJ Dropshipping V2
-CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2/v2/authentication/getAccessToken"
-CJ_SEARCH_URL = "https://developers.cjdropshipping.com/api2/v2/product/list"
+# URLs officielles basées sur votre documentation (api2.0/v1)
+CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
+CJ_SEARCH_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 
 def get_cj_token():
-    """Génère ou récupère le jeton d'accès (Token) auprès de l'API CJ Dropshipping"""
+    """Génère ou récupère le jeton d'accès auprès de l'API CJ Dropshipping"""
     headers = {
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
