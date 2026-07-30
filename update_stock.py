@@ -2,9 +2,11 @@ import os
 import json
 import requests
 
+# Récupération de la clé API CJ depuis les secrets GitHub
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 def get_cj_access_token():
+    """Génère le jeton d'accès valide pour l'API CJ via l'API Key."""
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
@@ -21,6 +23,7 @@ def get_cj_access_token():
     return None
 
 def fetch_cj_products_deep(token):
+    """Recherche des produits et de leurs variantes sur CJ Dropshipping."""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -30,21 +33,28 @@ def fetch_cj_products_deep(token):
     
     try:
         response = requests.get(url, headers=headers, params=params)
+        print(f"📊 Code HTTP reçu de CJ : {response.status_code}")
         if response.status_code == 200:
-            return response.json().get("data", {}).get("list", [])
-        return []
+            data = response.json()
+            return data.get("data", {}).get("list", [])
+        else:
+            print(f"Erreur API CJ : {response.status_code} - {response.text}")
+            return []
     except Exception as e:
-        print(f"Erreur connexion CJ : {e}")
+        print(f"Erreur de connexion à l'API CJ : {e}")
         return []
 
 def generate_update_stock_json():
-    print("🤖 Génération de update_stock.json depuis CJ Dropshipping...")
+    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> update_stock.json...")
+    
     token = get_cj_access_token()
     if not token:
-        print("❌ Arrêt : Jeton CJ introuvable.")
+        print("❌ Arrêt du script : Impossible d'obtenir le jeton d'accès CJ.")
         return
     
     products_raw = fetch_cj_products_deep(token)
+    print(f"📦 {len(products_raw)} produits principaux trouvés sur CJ.")
+    
     formatted_products = []
     
     for product in products_raw:
@@ -95,13 +105,15 @@ def generate_update_stock_json():
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock
         }
+        
         formatted_products.append(product_obj)
 
-    # Sauvegarde directe dans update_stock.json
-    with open("update_stock.json", "w", encoding="utf-8") as f:
+    # Sauvegarde directe dans update_stock.json à la racine
+    output_filename = "update_stock.json"
+    with open(output_filename, "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
         
-    print("✨ Fichier update_stock.json généré avec succès !")
+    print(f"✨ Fichier {output_filename} généré avec succès !")
 
 if __name__ == "__main__":
     generate_update_stock_json()
