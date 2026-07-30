@@ -29,7 +29,6 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # Vous pouvez élargir ou boucler sur plusieurs mots-clés si nécessaire
     params = {"keyword": "fashion accessories"}
     
     try:
@@ -50,9 +49,9 @@ def send_to_google_sheet(payload):
     try:
         response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
         if response.status_code == 200:
-            print(f"   🚀 Envoyé : {payload['nom']} | Taille: {payload['taille']} | Prix: {payload['prix']} | Stock: {payload['stock']}")
+            print(f"   🚀 Envoyé : {payload['name']} | Size: {payload['size']} | Price: {payload['price']} | Stock: {payload['stock']}")
         else:
-            print(f"   ⚠️ Erreur Google Sheet ({response.status_code})")
+            print(f"   ⚠️ Erreur Google Sheet ({response.status_code}) - {response.text}")
     except Exception as e:
         print(f"   Erreur réseau Google Sheet : {e}")
 
@@ -68,17 +67,20 @@ def update_stock():
     print(f"📦 {len(products)} produits principaux trouvés sur CJ.")
     
     for product in products:
-        nom = product.get("productName", "Nom indisponible")
+        # Récupération du nom en anglais (par défaut sur l'API CJ)
+        # Vous pouvez utiliser 'productNameEn' s'il est disponible dans votre version d'API, 
+        # sinon 'productName' renvoie généralement l'anglais.
+        nom = product.get("productNameEn") or product.get("productName", "Unavailable Name")
         variants = product.get("variants", [])
         
         # Si le produit possède des variantes (tailles/couleurs multiples)
         if variants:
             for variant in variants:
                 payload = {
-                    "nom": nom,
-                    "taille": variant.get("variantSize", "Standard"),
-                    "prix": str(variant.get("variantPrice", product.get("sellPrice", "0"))),
-                    "img": variant.get("variantImage", product.get("productImage", "")),
+                    "name": nom,
+                    "size": variant.get("variantSize", "Standard"),
+                    "price": str(variant.get("variantPrice", product.get("sellPrice", "0"))),
+                    "image": variant.get("variantImage", product.get("productImage", "")),
                     "details": variant.get("variantKey", product.get("productSku", "")),
                     "stock": str(variant.get("variantStock", 0))
                 }
@@ -86,10 +88,10 @@ def update_stock():
         else:
             # Fallback si le produit n'a qu'une seule déclinaison globale
             payload = {
-                "nom": nom,
-                "taille": "Standard",
-                "prix": str(product.get("sellPrice", "0")),
-                "img": product.get("productImage", ""),
+                "name": nom,
+                "size": "Standard",
+                "price": str(product.get("sellPrice", "0")),
+                "image": product.get("productImage", ""),
                 "details": product.get("productSku", ""),
                 "stock": str(product.get("sellStock", 0))
             }
