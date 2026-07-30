@@ -5,64 +5,62 @@ window.onload = () => {
     initEventListeners();
 };
 
-// --- 2. GESTION DES PRODUITS (GOOGLE SHEETS) ---
+// --- 2. GESTION DES PRODUITS (DEPUIS UPDATE_STOCK.JSON) ---
 async function loadProductsFromStock() {
-    const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
+    const jsonUrl = "update_stock.json"; // Fichier local sur GitHub Pages
     const container = document.getElementById('product-container');
     if (!container) return;
 
     let hasLoadedFromCache = false;
 
-    // 1. Affichage immédiat via le cache local
-    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
+    // 1. Cache local
+    const cachedStock = localStorage.getItem("cached_mayah_stock");
     if (cachedStock) {
         try {
             const stock = JSON.parse(cachedStock);
             if (Array.isArray(stock) && stock.length > 0) {
                 renderProducts(stock, container);
-                hasLoadedFromCache = true; // On a affiché instantanément
+                hasLoadedFromCache = true;
             }
         } catch (e) {
-            localStorage.removeItem("cached_aliexpress_stock");
+            localStorage.removeItem("cached_mayah_stock");
         }
     }
 
-    // 2. Si on n'a rien en cache, on affiche un message discret de chargement
     if (!hasLoadedFromCache) {
-        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits en cours...</p>";
+        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits de Mayah Store...</p>";
     }
 
-    // 3. Récupération en arrière-plan des données fraîches
+    // 2. Chargement de update_stock.json
     try {
-        const response = await fetch(url);
+        const response = await fetch(jsonUrl);
         const stock = await response.json();
         
         if (Array.isArray(stock) && stock.length > 0) {
-            // Met à jour le cache
-            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
-            
-            // On ré-affiche uniquement si le cache était vide ou obsolète
+            localStorage.setItem("cached_mayah_stock", JSON.stringify(stock));
             renderProducts(stock, container);
         }
     } catch (e) {
-        console.error("Erreur lors de la mise à jour depuis Google Sheets:", e);
+        console.error("Erreur lors du chargement de update_stock.json:", e);
     }
 }
 
-// Fonction d'affichage directe et sécurisée
-function renderProducts(stock, container) {
+// Fonction d'affichage des cartes produits
+function renderProducts(products, container) {
     container.innerHTML = ""; 
 
-    stock.forEach(p => {
-        let rawImg = p.img || p.image || ""; 
-        let imgSrc = rawImg.trim();
+    products.forEach(p => {
+        // Récupère la première image du tableau, ou une image par défaut
+        let imgSrc = "";
+        if (Array.isArray(p.images) && p.images.length > 0) {
+            imgSrc = p.images[0].trim();
+        }
         
         const card = document.createElement('div');
         card.className = "card product-card";
-        // Ajout d'un style curseur pointeur pour indiquer que c'est cliquable
         card.style.cursor = "pointer";
 
-        // Événement au clic sur la carte entière pour ouvrir la modale
+        // Clic sur la carte entière pour ouvrir la modale de détails/variantes
         card.addEventListener('click', () => {
             openModal(p, imgSrc);
         });
@@ -71,7 +69,6 @@ function renderProducts(stock, container) {
         imgContainer.className = "card-img-container";
 
         const img = document.createElement('img');
-        
         if (imgSrc) {
             let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
             img.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
@@ -82,23 +79,18 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
-        img.onerror = function() {
-            this.src = imgSrc;
-            this.onerror = null; 
-        };
-
         const title = document.createElement('h3');
         title.textContent = p.nom || 'Sans nom';
 
         const price = document.createElement('p');
-        price.textContent = `Prix : ${p.prix || '0'}€`;
+        let displayPrice = (Array.isArray(p.prix) && p.prix.length > 0) ? p.prix[0] : '0';
+        price.textContent = `Prix : ${displayPrice}€`;
 
         const button = document.createElement('button');
-        button.textContent = "Ajouter au panier";
-        // Empêche le clic sur le bouton d'ouvrir la modale de détails en même temps
+        button.textContent = "Voir les options";
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            alert(`Produit ajouté au panier : ${p.nom || 'Produit'}`);
+            openModal(p, imgSrc);
         });
 
         imgContainer.appendChild(img);
@@ -122,7 +114,6 @@ function openModal(product, imgSrc) {
 
     if (!modal) return;
 
-    // Gestion de l'image de la modale via le proxy
     if (imgSrc) {
         let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
         modalImg.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
@@ -131,9 +122,14 @@ function openModal(product, imgSrc) {
     }
 
     modalTitle.textContent = product.nom || 'Sans nom';
-    modalPrice.textContent = `Prix : ${product.prix || '0'}€`;
-    modalStock.textContent = product.stock ? `Stock disponible : ${product.stock}` : '';
-    modalDetails.textContent = product.description || 'Aucune description supplémentaire disponible pour ce produit.';
+    
+    // Affichage des prix et tailles multiples
+    let priceText = Array.isArray(product.prix) ? product.prix.join('€ / ') + '€' : '0€';
+    let sizeText = Array.isArray(product.tailles) ? product.tailles.join(', ') : 'Taille unique';
+
+    modalPrice.innerHTML = `<strong>Prix :</strong> ${priceText}<br><strong>Tailles :</strong> ${sizeText}`;
+    modalStock.textContent = `Stock disponible : ${product.stock_disponible || 0}`;
+    modalDetails.textContent = product.details || 'Aucune description supplémentaire disponible.';
 
     modal.style.display = 'flex';
 }
