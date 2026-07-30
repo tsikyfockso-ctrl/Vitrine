@@ -73,14 +73,9 @@ def update_stock():
         nom = product.get("productNameEn") or product.get("productName", "")
         variants = product.get("variants", [])
         
-        # Initialisation des listes pour correspondre aux plages de colonnes exactes
-        # Col B à G (Tailles / Stock par taille) -> 6 emplacements
         tailles_values = [""] * 6
-        # Col H à M (Prix par taille) -> 6 emplacements
         prix_values = [""] * 6
-        # Col N à T (Images par couleur) -> 7 emplacements
         images_values = [""] * 7
-        
         details_list = []
         total_stock = 0
 
@@ -97,10 +92,7 @@ def update_stock():
                 except ValueError:
                     pass
 
-                # Placer intelligemment selon la position ou la correspondance de taille
-                pos = idx if idx < 6 else 5  # Limité aux 6 colonnes disponibles (B-G)
-                
-                # Si la taille correspond à un standard de la BDD, on l'aligne
+                pos = idx if idx < 6 else 5
                 if v_size in standard_tailles:
                     pos = standard_tailles.index(v_size)
 
@@ -109,11 +101,9 @@ def update_stock():
                 
                 if idx < 7:
                     images_values[idx] = v_image
-                
                 if v_key:
                     details_list.append(v_key)
         else:
-            # Produit simple sans variantes multiples
             tailles_values[0] = str(product.get("productSize", ""))
             prix_values[0] = str(product.get("sellPrice", ""))
             images_values[0] = product.get("productImage", "")
@@ -123,30 +113,33 @@ def update_stock():
                 total_stock = 0
             details_list.append(product.get("productSku", ""))
 
-        # Construction du payload final mappé exactement sur votre structure de colonnes (A à V)
+        # Payload mappé strictement sur les colonnes de votre BDD (A à V)
         payload = {
-            "nom": nom,                          # Colonne A
-            "col_B": tailles_values[0],          # Colonne B
-            "col_C": tailles_values[1],          # Colonne C
-            "col_D": tailles_values[2],          # Colonne D
-            "col_E": tailles_values[3],          # Colonne E
-            "col_F": tailles_values[4],          # Colonne F
-            "col_G": tailles_values[5],          # Colonne G
-            "col_H": prix_values[0],             # Colonne H
-            "col_I": prix_values[1],             # Colonne I
-            "col_J": prix_values[2],             # Colonne J
-            "col_K": prix_values[3],             # Colonne K
-            "col_L": prix_values[4],             # Colonne L
-            "col_M": prix_values[5],             # Colonne M
-            "col_N": images_values[0],           # Colonne N
-            "col_O": images_values[1],           # Colonne O
-            "col_P": images_values[2],           # Colonne P
-            "col_Q": images_values[3],           # Colonne Q
-            "col_R": images_values[4],           # Colonne R
-            "col_S": images_values[5],           # Colonne S
-            "col_T": images_values[6],           # Colonne T
-            "details": " | ".join(filter(None, details_list)), # Colonne U
-            "nombre_de_stock_disponible": str(total_stock)     # Colonne V
+            "nom": nom,                               # Col A
+            "taille": tailles_values[0],              # Col B
+            "Unnamed: 2": tailles_values[1],          # Col C
+            "Unnamed: 3": tailles_values[2],          # Col D
+            "Unnamed: 4": tailles_values[3],          # Col E
+            "Unnamed: 5": tailles_values[4],          # Col F
+            "Unnamed: 6": tailles_values[5],          # Col G
+            
+            "prix par tailles": prix_values[0],       # Col H
+            "Unnamed: 8": prix_values[1],             # Col I
+            "Unnamed: 9": prix_values[2],             # Col J
+            "Unnamed: 10": prix_values[3],            # Col K
+            "Unnamed: 11": prix_values[4],            # Col L
+            "Unnamed: 12": prix_values[5],            # Col M
+            
+            "img par couleur": images_values[0],      # Col N
+            "Unnamed: 14": images_values[1],          # Col O
+            "Unnamed: 15": images_values[2],          # Col P
+            "Unnamed: 16": images_values[3],          # Col Q
+            "Unnamed: 17": images_values[4],          # Col R
+            "Unnamed: 18": images_values[5],          # Col S
+            "Unnamed: 19": images_values[6],          # Col T
+            
+            "details": " | ".join(filter(None, details_list)), # Col U
+            "nombre de stock disponible": str(total_stock)     # Col V
         }
         
         send_to_google_sheet(payload)
