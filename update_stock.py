@@ -45,11 +45,11 @@ def fetch_cj_products_deep(token):
         return []
 
 def send_to_google_sheet(payload):
-    """Envoie les données structurées vers Google Apps Script en respectant la matrice de la BDD."""
+    """Envoie les données structurées vers Google Apps Script en respectant la BDD."""
     try:
         response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
         if response.status_code == 200:
-            print(f"   🚀 Envoyé : {payload['nom']} | Tailles/Matrice remplie | Stock: {payload['nombre_de_stock_disponible']}")
+            print(f"   🚀 Ligne insérée avec succès pour : {payload['nom']}")
         else:
             print(f"   ⚠️ Erreur Google Sheet ({response.status_code}) - {response.text}")
     except Exception as e:
@@ -66,49 +66,87 @@ def update_stock():
     products = fetch_cj_products_deep(token)
     print(f"📦 {len(products)} produits principaux trouvés sur CJ.")
     
+    # Référentiel des tailles standard présentes dans votre BDD (Colonnes B à G)
+    standard_tailles = ["36", "37", "38", "39", "41", "42"]
+    
     for product in products:
         nom = product.get("productNameEn") or product.get("productName", "")
         variants = product.get("variants", [])
         
-        # Mapping pour faire correspondre les tailles aux colonnes horizontales de votre BDD
-        # Colonnes de base de votre fichier : 'taille', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6'
-        tailles_list = ["36", "37", "38", "39", "41", "42"] # ou ["XS", "S", "M", "L", "XL", "XXL"]
+        # Initialisation des listes pour correspondre aux plages de colonnes exactes
+        # Col B à G (Tailles / Stock par taille) -> 6 emplacements
+        tailles_values = [""] * 6
+        # Col H à M (Prix par taille) -> 6 emplacements
+        prix_values = [""] * 6
+        # Col N à T (Images par couleur) -> 7 emplacements
+        images_values = [""] * 7
         
-        stock_par_taille = {}
-        prix_par_taille = {}
-        img_par_couleur = ""
-        details_sku = ""
+        details_list = []
+        total_stock = 0
 
         if variants:
-            for variant in variants:
+            for idx, variant in enumerate(variants):
                 v_size = str(variant.get("variantSize", "")).strip()
-                stock_par_taille[v_size] = str(variant.get("variantStock", ""))
-                prix_par_taille[v_size] = str(variant.get("variantPrice", ""))
-                if not img_par_couleur:
-                    img_par_couleur = variant.get("variantImage", "")
-                details_sku = variant.get("variantKey", "")
-        else:
-            v_size = str(product.get("productSize", "")).strip()
-            stock_par_taille[v_size] = str(product.get("sellStock", ""))
-            prix_par_taille[v_size] = str(product.get("sellPrice", ""))
-            img_par_couleur = product.get("productImage", "")
-            details_sku = product.get("productSku", "")
+                v_price = str(variant.get("variantPrice", ""))
+                v_image = variant.get("variantImage", "")
+                v_stock = variant.get("variantStock", 0)
+                v_key = variant.get("variantKey", "")
+                
+                try:
+                    total_stock += int(v_stock)
+                except ValueError:
+                    pass
 
-        # Construction du payload adapté à votre structure horizontale
+                # Placer intelligemment selon la position ou la correspondance de taille
+                pos = idx if idx < 6 else 5  # Limité aux 6 colonnes disponibles (B-G)
+                
+                # Si la taille correspond à un standard de la BDD, on l'aligne
+                if v_size in standard_tailles:
+                    pos = standard_tailles.index(v_size)
+
+                tailles_values[pos] = v_size
+                prix_values[pos] = v_price
+                
+                if idx < 7:
+                    images_values[idx] = v_image
+                
+                if v_key:
+                    details_list.append(v_key)
+        else:
+            # Produit simple sans variantes multiples
+            tailles_values[0] = str(product.get("productSize", ""))
+            prix_values[0] = str(product.get("sellPrice", ""))
+            images_values[0] = product.get("productImage", "")
+            try:
+                total_stock = int(product.get("sellStock", 0))
+            except ValueError:
+                total_stock = 0
+            details_list.append(product.get("productSku", ""))
+
+        # Construction du payload final mappé exactement sur votre structure de colonnes (A à V)
         payload = {
-            "nom": nom,
-            # Distribution des tailles sur les colonnes correspondantes de votre BDD
-            "taille": stock_par_taille.get(tailles_list[0], ""),
-            "col_taille_2": stock_par_taille.get(tailles_list[1], ""),
-            "col_taille_3": stock_par_taille.get(tailles_list[2], ""),
-            "col_taille_4": stock_par_taille.get(tailles_list[3], ""),
-            "col_taille_5": stock_par_taille.get(tailles_list[4], ""),
-            "col_taille_6": stock_par_taille.get(tailles_list[5], ""),
-            
-            "prix_par_tailles": str(list(prix_par_taille.values())[0]) if prix_par_taille else "",
-            "img_par_couleur": img_par_couleur,
-            "details": details_sku,
-            "nombre_de_stock_disponible": sum(int(s) for s in stock_par_taille.values() if s.isdigit())
+            "nom": nom,                          # Colonne A
+            "col_B": tailles_values[0],          # Colonne B
+            "col_C": tailles_values[1],          # Colonne C
+            "col_D": tailles_values[2],          # Colonne D
+            "col_E": tailles_values[3],          # Colonne E
+            "col_F": tailles_values[4],          # Colonne F
+            "col_G": tailles_values[5],          # Colonne G
+            "col_H": prix_values[0],             # Colonne H
+            "col_I": prix_values[1],             # Colonne I
+            "col_J": prix_values[2],             # Colonne J
+            "col_K": prix_values[3],             # Colonne K
+            "col_L": prix_values[4],             # Colonne L
+            "col_M": prix_values[5],             # Colonne M
+            "col_N": images_values[0],           # Colonne N
+            "col_O": images_values[1],           # Colonne O
+            "col_P": images_values[2],           # Colonne P
+            "col_Q": images_values[3],           # Colonne Q
+            "col_R": images_values[4],           # Colonne R
+            "col_S": images_values[5],           # Colonne S
+            "col_T": images_values[6],           # Colonne T
+            "details": " | ".join(filter(None, details_list)), # Colonne U
+            "nombre_de_stock_disponible": str(total_stock)     # Colonne V
         }
         
         send_to_google_sheet(payload)
