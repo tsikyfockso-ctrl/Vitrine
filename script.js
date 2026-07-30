@@ -7,13 +7,13 @@ window.onload = () => {
 
 // --- 2. GESTION DES PRODUITS (DEPUIS UPDATE_STOCK.JSON) ---
 async function loadProductsFromStock() {
-    const jsonUrl = "update_stock.json"; // Fichier local sur GitHub Pages
+    const jsonUrl = "update_stock.json"; // Fichier JSON local mis à jour par GitHub Actions
     const container = document.getElementById('product-container');
     if (!container) return;
 
     let hasLoadedFromCache = false;
 
-    // 1. Cache local
+    // 1. Affichage immédiat via le cache local si disponible
     const cachedStock = localStorage.getItem("cached_mayah_stock");
     if (cachedStock) {
         try {
@@ -31,7 +31,7 @@ async function loadProductsFromStock() {
         container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits de Mayah Store...</p>";
     }
 
-    // 2. Chargement de update_stock.json
+    // 2. Récupération en arrière-plan du fichier update_stock.json mis à jour
     try {
         const response = await fetch(jsonUrl);
         const stock = await response.json();
@@ -46,21 +46,18 @@ async function loadProductsFromStock() {
 }
 
 // Fonction d'affichage des cartes produits
-function renderProducts(products, container) {
+function renderProducts(stock, container) {
     container.innerHTML = ""; 
 
-    products.forEach(p => {
-        // Récupère la première image du tableau, ou une image par défaut
-        let imgSrc = "";
-        if (Array.isArray(p.images) && p.images.length > 0) {
-            imgSrc = p.images[0].trim();
-        }
+    stock.forEach(p => {
+        // Récupération de la première image du tableau, ou fallback
+        let rawImg = (Array.isArray(p.images) && p.images.length > 0) ? p.images[0] : ""; 
+        let imgSrc = rawImg.trim();
         
         const card = document.createElement('div');
         card.className = "card product-card";
         card.style.cursor = "pointer";
 
-        // Clic sur la carte entière pour ouvrir la modale de détails/variantes
         card.addEventListener('click', () => {
             openModal(p, imgSrc);
         });
@@ -83,14 +80,14 @@ function renderProducts(products, container) {
         title.textContent = p.nom || 'Sans nom';
 
         const price = document.createElement('p');
-        let displayPrice = (Array.isArray(p.prix) && p.prix.length > 0) ? p.prix[0] : '0';
+        let displayPrice = (Array.isArray(p.prix) && p.prix.length > 0 && p.prix[0]) ? p.prix[0] : '0';
         price.textContent = `Prix : ${displayPrice}€`;
 
         const button = document.createElement('button');
-        button.textContent = "Voir les options";
+        button.textContent = "Ajouter au panier";
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            openModal(p, imgSrc);
+            alert(`Produit ajouté au panier : ${p.nom || 'Produit'}`);
         });
 
         imgContainer.appendChild(img);
@@ -123,12 +120,11 @@ function openModal(product, imgSrc) {
 
     modalTitle.textContent = product.nom || 'Sans nom';
     
-    // Affichage des prix et tailles multiples
-    let priceText = Array.isArray(product.prix) ? product.prix.join('€ / ') + '€' : '0€';
-    let sizeText = Array.isArray(product.tailles) ? product.tailles.join(', ') : 'Taille unique';
+    let priceText = Array.isArray(product.prix) ? product.prix.filter(Boolean).join('€ / ') + '€' : '0€';
+    let sizeText = Array.isArray(product.tailles) ? product.tailles.filter(Boolean).join(', ') : '';
 
     modalPrice.innerHTML = `<strong>Prix :</strong> ${priceText}<br><strong>Tailles :</strong> ${sizeText}`;
-    modalStock.textContent = `Stock disponible : ${product.stock_disponible || 0}`;
+    modalStock.textContent = product.stock !== undefined ? `Stock global disponible : ${product.stock}` : '';
     modalDetails.textContent = product.details || 'Aucune description supplémentaire disponible.';
 
     modal.style.display = 'flex';
@@ -198,21 +194,10 @@ function loadClientMessages() {
 
 setInterval(loadClientMessages, 2000);
 
-// --- 5. DIVERS (Bandeau Google) ---
-const observer = new MutationObserver(() => {
-    const banner = document.querySelector('.goog-te-banner-frame');
-    if (banner) {
-        banner.style.display = 'none';
-        document.body.style.top = '0px';
-    }
-});
-observer.observe(document.body, { childList: true, subtree: true });
-
-// --- FONCTION POUR LE DÉFILEMENT HORIZONTAL DES PRODUITS ---
+// --- 5. DIVERS & DÉFILEMENT ---
 function defilerProduits(direction) {
     const container = document.getElementById('product-container');
     if (!container) return;
-    
     const largeurCarte = 270; 
     
     if (direction === 'gauche') {
@@ -222,7 +207,6 @@ function defilerProduits(direction) {
     }
 }
 
-// --- GLISSER-DÉPOSER (DRAG TO SCROLL) AVEC LA SOURIS ---
 const slider = document.getElementById('product-container');
 let isDown = false;
 let startX;
