@@ -3,7 +3,7 @@ import requests
 
 # Récupération des secrets configurés dans GitHub Actions
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SHEET_URL")
+GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
 
 def get_cj_access_token():
     """Génère ou récupère le jeton d'accès valide pour l'API CJ."""
