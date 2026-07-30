@@ -1,98 +1,110 @@
-import os
 import requests
+import json
 
-# Récupération des secrets ou variables d'environnement
-CJ_API_KEY = os.getenv("CJ_API_KEY")
-GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
+# --- CONFIGURATION CJ DROPSHIPPING & GOOGLE SHEET ---
+CJ_EMAIL = "tsikyfockso@gmail.com"
+CJ_PASSWORD = "Adminserver12.."  # Ou clé API développeur CJ
+GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
+KEYWORD = "fashion accessories"
 
-def get_access_token():
+def get_cj_access_token():
     print("🔑 Génération du jeton d'accès CJ Dropshipping...")
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-    headers = {"Content-Type": "application/json"}
-    payload = {"apiKey": CJ_API_KEY}
-    
-    response = requests.post(url, json=payload, headers=headers)
+    payload = {
+        "email": CJ_EMAIL,
+        "password": CJ_PASSWORD
+    }
     try:
+        response = requests.post(url, json=payload)
         data = response.json()
-        if data.get("success"):
+        if data.get("result"):
+            token = data["data"].get("accessToken")
             print("🔑 Jeton d'accès généré avec succès !")
-            return data.get("data", {}).get("accessToken")
+            return token
         else:
-            print(f"❌ Erreur token : {data.get('message')}")
+            print(f"⚠️ Erreur d'authentification CJ : {data.get('message')}")
             return None
     except Exception as e:
-        print(f"❌ Exception token : {e}")
+        print(f"❌ Exception lors de la génération du token : {e}")
         return None
 
-def search_products(token, keyword="fashion accessories"):
-    print(f"🌐 Recherche sur CJ Dropshipping pour : '{keyword}'...")
-    # Utilisation de l'endpoint officiel /product/list en méthode GET
-    url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
-    headers = {
-        "Access-Token": token
-    }
-    params = {"productName": keyword}
+def sync_cj_to_googlesheet():
+    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> Google Sheet...")
     
-    response = requests.get(url, params=params, headers=headers)
-    try:
-        data = response.json()
-        print(f"📊 Code HTTP reçu de CJ : {response.status_code}")
-        if data.get("success"):
-            return data.get("data", {}).get("list", [])
-        else:
-            print(f"⚠️ Message API CJ : {data.get('message')}")
-            return []
-    except Exception as e:
-        print(f"❌ Erreur recherche produits : {e}")
-        return []
+    token = get_cj_access_token()
+    if not token:
+        print("❌ Arrêt du script : Jeton d'accès vide ou invalide.")
+        return
 
-def send_to_google_sheet(product):
-    nom = product.get("productName", "Nom inconnu")
-    details = product.get("productDetail", "Pas de détails")
-    variants = product.get("variants", [])
+    headers = {
+        "CJ-Access-Token": token,
+        "Content-Type": "application/json"
+    }
     
-    if variants:
-        for variant in variants:
-            taille = variant.get("variantName", "Standard")
-            prix = variant.get("sellPrice", product.get("sellPrice", "0"))
-            img = variant.get("variantImage", product.get("productImage", ""))
-            stock = variant.get("inventory", product.get("totalStock", "0"))
+    # Endpoint de recherche de produits CJ
+    search_url = "https://developers.cjdropshipping.com/api2.0/v1/product/queryProduct"
+    params = {
+        "keyword": KEYWORD,
+        "pageSize": 10
+    }
+    
+    print(f"🌐 Recherche sur CJ Dropshipping pour : '{KEYWORD}'...")
+    try:
+        response = requests.post(search_url, headers=headers, json=params)
+        result = response.json()
+        
+        if not result.get("result"):
+            print(f"⚠️ Message API CJ : {result.get('message', 'Aucun produit')}")
+            return
             
-            payload = {
-                "nom": nom,
-                "taille": taille,
-                "prix": str(prix),
-                "img": img,
-                "details": details,
-                "stock": str(stock)
-            }
+        products = result.get("data", {}).get("list", [])
+        print(f"📦 {len(products)} produits trouvés sur CJ.")
+        
+        count_sent = 0
+        for product in products:
+            p_name = product.get("productName", "Produit sans nom")
+            p_variants = product.get("variants", [])
             
-            response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
-            if response.status_code == 200:
-                print(f"✅ Variante '{taille}' envoyée pour : {nom}")
+            # Si le produit possède des variantes (tailles/couleurs)
+            if p_variants:
+                for variant in p_variants:
+                    v_size = variant.get("variantSize", "Standard")
+                    v_price = variant.get("variantPrice", "0.00")
+                    v_img = variant.get("variantImage", product.get("productImage", ""))
+                    v_sku = variant.get("variantSku", "")
+                    v_stock = variant.get("inventory", 0)
+                    
+                    payload = {
+                        "nom": p_name[:150],
+                        "taille": v_size,
+                        "prix": str(v_price),
+                        "img": v_img,
+                        "details": f"SKU: {v_sku}",
+                        "stock": str(v_stock)
+                    }
+                    
+                    # Envoi vers Google Sheet
+                    res = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+                    if res.status_code == 200:
+                        count_sent += 1
             else:
-                print(f"⚠️ Erreur d'envoi Google Sheet pour {nom}")
-    else:
-        # Produit simple sans variante multiple
-        payload = {
-            "nom": nom,
-            "taille": "Unique",
-            "prix": str(product.get("sellPrice", "0")),
-            "img": product.get("productImage", ""),
-            "details": details,
-            "stock": str(product.get("totalStock", "0"))
-        }
-        response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
-        if response.status_code == 200:
-            print(f"✅ Produit envoyé : {nom}")
+                # Produit simple sans variante
+                payload = {
+                    "nom": p_name[:150],
+                    "taille": "Unique",
+                    "prix": str(product.get("sellPrice", "0.00")),
+                    "img": product.get("productImage", ""),
+                    "details": f"SKU: {product.get('productSku', '')}",
+                    "stock": str(product.get("inventory", 0))
+                }
+                res = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+                if res.status_code == 200:
+                    count_sent += 1
+                    
+        print(f"✨ Synchronisation terminée avec succès ! {count_sent} lignes ajoutées/mises à jour dans Google Sheet.")
+        
+    except Exception as e:
+        print(f"❌ Erreur durant la synchronisation : {e}")
 
 if __name__ == "__main__":
-    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> Google Sheet...")
-    token = get_access_token()
-    if token:
-        products = search_products(token, keyword="fashion accessories")
-        print(f"📦 {len(products)} produits trouvés sur CJ.")
-        for product in products:
-            send_to_google_sheet(product)
-            
-    print("✨ Synchronisation terminée avec succès !")
+    sync_cj_to_googlesheet()
