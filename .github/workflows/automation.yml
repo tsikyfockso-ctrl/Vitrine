@@ -1,4 +1,4 @@
-name: Automatisation Mayah Store
+name: Synchronisation CJ Dropshipping
 
 on:
   schedule:
@@ -6,25 +6,29 @@ on:
   workflow_dispatch: # Permet aussi de le lancer manuellement depuis l'onglet Actions de GitHub
 
 jobs:
-  run-script:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le code du dépôt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Configurer Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
+      - name: Installer les dépendances
+        run: pip install requests
 
       - name: Lancer le script de synchronisation
         env:
-          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
-          GOOGLE_SCRIPT_URL: ${{ secrets.GOOGLE_SCRIPT_URL }}
+          CJ_API_KEY: ${{ secrets.CJ_API_KEY }} 
+       python update_stock.json
+
+      - name: Sauvegarder et publier le nouveau products.json sur GitHub
         run: |
-          python update_stock.py
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "action@github.com"
+          git add products.json
+          git commit -m "Mise automatique du catalogue et des stocks CJ Dropshipping [skip ci]" || echo "Aucun changement détecté"
+          git push
