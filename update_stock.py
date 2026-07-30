@@ -4,7 +4,7 @@ import json
 # --- CONFIGURATION CJ DROPSHIPPING & GOOGLE SHEET ---
 CJ_EMAIL = "tsikyfockso@gmail.com"
 CJ_PASSWORD = "Adminserver12.."  # Ou clé API développeur CJ
-GOOGLE_SCRIPT_URL = os.environ.get("GOOGLE_SCRIPT_URL")
+GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec"
 KEYWORD = "fashion accessories"
 
 def get_cj_access_token():
