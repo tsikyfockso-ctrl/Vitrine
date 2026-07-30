@@ -22,7 +22,7 @@ jobs:
       - name: Exécuter le script de mise à jour
         env:
           CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
-        run: python update_stock.py
+        run: python update_stock.json
 
       - name: Commit et Push de update_stock.json sur GitHub
         run: |
