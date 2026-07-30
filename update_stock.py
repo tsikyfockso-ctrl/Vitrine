@@ -2,24 +2,50 @@ import os
 import re
 import json
 import requests
-from bs4 import BeautifulSoup
+from html.parser import HTMLParser
 
 # ---------------------------------------------------------------------------
-# 1. Configuration des variables d'environnement (Secrets & Variables)
+# 1. Configuration des variables d'environnement (Secrets)
 # ---------------------------------------------------------------------------
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
-
-# Mode démo / fallback si la clé API n'est pas encore définie
 LOCAL_HTML_FILE = "CJ dropshipping.html"
 
 # ---------------------------------------------------------------------------
-# 2. Fonction d'authentification API CJ Dropshipping
+# 2. Parser HTML natif (sans dépendance externe bs4)
+# ---------------------------------------------------------------------------
+class SimpleCJHTMLParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.title = ""
+        self.description = ""
+        self.og_image = ""
+        self.in_title = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs_dict = dict(attrs)
+        if tag == "title":
+            self.in_title = True
+        elif tag == "meta":
+            if attrs_dict.get("name") == "description":
+                self.description = attrs_dict.get("content", "")
+            elif attrs_dict.get("property") == "og:image":
+                self.og_image = attrs_dict.get("content", "")
+
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self.in_title = False
+
+    def handle_data(self, data):
+        if self.in_title and not self.title:
+            self.title = data.strip()
+
+# ---------------------------------------------------------------------------
+# 3. Fonction d'authentification API CJ Dropshipping
 # ---------------------------------------------------------------------------
 def get_cj_access_token():
-    """Génère un jeton d'accès auprès de CJ Dropshipping via la Clé API."""
     if not CJ_API_KEY:
-        print("⚠️ Aucune clé CJ_API_KEY trouvée dans les variables d'environnement.")
+        print("⚠️ Aucune clé CJ_API_KEY trouvée dans les secrets.")
         return None
 
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
@@ -34,36 +60,30 @@ def get_cj_access_token():
             print("🔑 Jeton d'accès CJ généré avec succès !")
             return token
         else:
-            print(f"⚠️ Erreur lors de l'obtention du token CJ : {res_data.get('message')}")
+            print(f"⚠️ Erreur token CJ : {res_data.get('message')}")
             return None
     except Exception as e:
-        print(f"❌ Erreur de connexion API CJ : {e}")
+        print(f"❌ Erreur connexion API CJ : {e}")
         return None
 
 # ---------------------------------------------------------------------------
-# 3. Parsing du fichier HTML local (CJ dropshipping.html)
+# 4. Lecture et extraction du HTML local
 # ---------------------------------------------------------------------------
 def parse_cj_html_file(file_path):
-    """Extrait les informations détaillées depuis le fichier HTML local."""
     if not os.path.exists(file_path):
         print(f"⚠️ Fichier local {file_path} introuvable.")
         return None
 
     print(f"📄 Analyse du fichier local : {file_path}...")
     with open(file_path, "r", encoding="utf-8") as f:
-        soup = BeautifulSoup(f.read(), "html.parser")
+        html_content = f.read()
 
-    # Nom du produit
-    title_tag = soup.find("title")
-    title = title_tag.text.split("- CJdropshipping")[0].strip() if title_tag else "Produit Sans Nom"
+    parser = SimpleCJHTMLParser()
+    parser.feed(html_content)
 
-    # Extraction description, couleurs et tailles depuis les balises meta
-    desc_tag = soup.find("meta", {"name": "description"})
-    desc_text = desc_tag.get("content", "") if desc_tag else ""
-
-    # Image principale
-    img_tag = soup.find("meta", {"property": "og:image"})
-    main_img = img_tag.get("content", "") if img_tag else ""
+    title = parser.title.split("- CJdropshipping")[0].strip() if parser.title else "Produit Sans Nom"
+    desc_text = parser.description
+    main_img = parser.og_image
 
     # Extraction des couleurs
     colors = []
@@ -84,92 +104,70 @@ def parse_cj_html_file(file_path):
         "main_img": main_img,
         "colors": colors,
         "sizes": sizes,
-        "stock": 100 # Stock par défaut si non spécifié
+        "stock": 100
     }
 
 # ---------------------------------------------------------------------------
-# 4. Construction de la ligne au format exact BDD_Mayah_Store (22 Colonnes)
+# 5. Formattage 22 Colonnes (BDD_Mayah_Store)
 # ---------------------------------------------------------------------------
 def build_bdd_row(product_data, default_price="15.00"):
-    """
-    Construit un tableau de 22 éléments correspondant exactement aux colonnes A à V :
-    [0] Nom
-    [1..6] Tailles (Pointures 36, 37, 38, 39, 41, 42 ou XS, S, M, L, XL, XXL)
-    [7..12] Prix par tailles
-    [13..19] Images par couleur (jusqu'à 7 images)
-    [20] Détails
-    [21] Nombre de stock disponible
-    """
     row = [""] * 22
-
-    # Colonne A : Nom
     row[0] = product_data.get("nom", "")
 
-    # Colonnes B à G : Tailles (max 6)
+    # Tailles (Cols B-G)
     sizes = product_data.get("sizes", [])
     for i in range(min(len(sizes), 6)):
         row[1 + i] = sizes[i]
 
-    # Colonnes H à M : Prix par tailles (max 6)
+    # Prix par taille (Cols H-M)
     for i in range(min(len(sizes), 6)):
         row[7 + i] = default_price
 
-    # Colonnes N à T : Images par couleur (max 7)
+    # Images par couleur (Cols N-T)
     colors = product_data.get("colors", [])
     main_img = product_data.get("main_img", "")
     for i in range(min(max(len(colors), 1), 7)):
         row[13 + i] = main_img
 
-    # Colonne U : Détails
+    # Détails (Col U) & Stock (Col V)
     row[20] = product_data.get("details", "")
-
-    # Colonne V : Nombre de stock disponible
     row[21] = str(product_data.get("stock", 0))
 
     return row
 
 # ---------------------------------------------------------------------------
-# 5. Envoi vers Google Sheet (Google Apps Script Web App)
+# 6. Envoi vers Google Sheet
 # ---------------------------------------------------------------------------
 def send_to_google_sheet(row_data):
-    """Envoie la ligne structurée vers Google Apps Script."""
     if not GOOGLE_SCRIPT_URL:
-        print("❌ GOOGLE_SCRIPT_URL non configuré dans les secrets.")
+        print("❌ GOOGLE_SCRIPT_URL non configuré.")
         return False
 
-    print("🚀 Envoi des données vers Google Sheet...")
+    print("🚀 Envoi vers Google Sheet...")
     payload = {"row": row_data}
-    
     try:
         response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
         res_json = response.json()
         if res_json.get("status") == "success":
-            print("✨ Données ajoutées avec succès dans votre BDD Google Sheet !")
+            print("✨ Données ajoutées avec succès à votre BDD Google Sheet !")
             return True
         else:
             print(f"⚠️ Erreur Google Script : {res_json.get('message')}")
             return False
     except Exception as e:
-        print(f"❌ Erreur lors de l'envoi HTTP : {e}")
+        print(f"❌ Erreur envoi HTTP : {e}")
         return False
 
 # ---------------------------------------------------------------------------
-# Execution Principale
+# Exécution
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("🤖 Démarrage du script de synchronisation CJ Dropshipping -> Google Sheet...")
-
-    # 1. Tentative d'authentification à l'API CJ
+    print("🤖 Démarrage de la synchronisation...")
     token = get_cj_access_token()
-
-    # 2. Récupération des données depuis le fichier HTML local
     product_info = parse_cj_html_file(LOCAL_HTML_FILE)
 
     if product_info:
-        # 3. Formatage selon la structure BDD (22 colonnes)
         formatted_row = build_bdd_row(product_info)
-
-        # 4. Transfert des données dans le Google Sheet
         send_to_google_sheet(formatted_row)
     else:
-        print("❌ Impossible d'extraire des produits à synchroniser.")
+        print("❌ Aucun produit trouvé à synchroniser.")
