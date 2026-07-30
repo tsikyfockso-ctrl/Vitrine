@@ -2,8 +2,6 @@ import os
 import re
 import json
 import requests
-from html.parser import HTMLParser
-
 # ---------------------------------------------------------------------------
 # 1. Configuration des variables d'environnement (Secrets)
 # ---------------------------------------------------------------------------
