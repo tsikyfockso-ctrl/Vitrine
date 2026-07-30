@@ -1,7 +1,7 @@
 import os
 import requests
 
-# Récupération des clés depuis l'environnement
+# Récupération des secrets ou variables d'environnement
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
@@ -26,16 +26,17 @@ def get_access_token():
 
 def search_products(token, keyword="fashion accessories"):
     print(f"🌐 Recherche sur CJ Dropshipping pour : '{keyword}'...")
-    url = "https://developers.cjdropshipping.com/api2.0/v1/product/queryProduct"
+    # Utilisation de l'endpoint officiel /product/list en méthode GET
+    url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
-        "Content-Type": "application/json",
         "Access-Token": token
     }
-    payload = {"productName": keyword}
+    params = {"productName": keyword}
     
-    response = requests.post(url, json=payload, headers=headers)
+    response = requests.get(url, params=params, headers=headers)
     try:
         data = response.json()
+        print(f"📊 Code HTTP reçu de CJ : {response.status_code}")
         if data.get("success"):
             return data.get("data", {}).get("list", [])
         else:
