@@ -1,107 +1,97 @@
 import os
 import requests
 
-# Configuration des URLs de l'API CJ Dropshipping V2
-BASE_URL = "https://developers.cjdropshipping.com/api2.0/v1"
-TOKEN_URL = f"{BASE_URL}/authentication/getAccessToken"
-SEARCH_URL = f"{BASE_URL}/product/list"  # Endpoint correct pour lister/rechercher
-
-# Récupération de la clé API depuis les variables d'environnement (ou GitHub Secrets)
+# Récupération des clés depuis l'environnement
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
 def get_access_token():
     print("🔑 Génération du jeton d'accès CJ Dropshipping...")
+    url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
     
-    response = requests.post(TOKEN_URL, json=payload)
-    print(f"📊 Code HTTP reçu pour le token : {response.status_code}")
-    
+    response = requests.post(url, json=payload, headers=headers)
     try:
         data = response.json()
+        if data.get("success"):
+            print("🔑 Jeton d'accès généré avec succès !")
+            return data.get("data", {}).get("accessToken")
+        else:
+            print(f"❌ Erreur token : {data.get('message')}")
+            return None
     except Exception as e:
-        print(f"❌ Erreur de décodage JSON pour le token : {e}")
-        return None
-
-    if isinstance(data, dict) and data.get("result"):
-        token = data.get("data", {}).get("accessToken")
-        print("🔑 Jeton d'accès CJ Dropshipping généré avec succès !")
-        return token
-    else:
-        print(f"❌ Erreur lors de la génération du token : {data}")
+        print(f"❌ Exception token : {e}")
         return None
 
 def search_products(token, keyword="fashion accessories"):
-    print(f"🌐 Recherche en cours sur CJ Dropshipping pour : '{keyword}'...")
-    
+    print(f"🌐 Recherche sur CJ Dropshipping pour : '{keyword}'...")
+    url = "https://developers.cjdropshipping.com/api2.0/v1/product/queryProduct"
     headers = {
         "Content-Type": "application/json",
-        "CJ-Access-Token": token
+        "Access-Token": token
     }
+    payload = {"productName": keyword}
     
-    # Pour l'endpoint GET /product/list, les paramètres passent en query parameters (params)
-    params = {
-        "productName": keyword,
-        "pageNum": 1,
-        "pageSize": 10
-    }
-    
-    response = requests.get(SEARCH_URL, headers=headers, params=params)
-    print(f"📊 Code HTTP reçu pour la recherche : {response.status_code}")
-    
+    response = requests.post(url, json=payload, headers=headers)
     try:
         data = response.json()
+        if data.get("success"):
+            return data.get("data", {}).get("list", [])
+        else:
+            print(f"⚠️ Message API CJ : {data.get('message')}")
+            return []
     except Exception as e:
-        print(f"❌ Erreur de décodage JSON pour la recherche : {e}")
-        print(f"Texte brut : {response.text}")
+        print(f"❌ Erreur recherche produits : {e}")
         return []
-    
-    if not isinstance(data, dict):
-        print(f"❌ La réponse de recherche n'est pas un dictionnaire valide : {data}")
-        return []
-    
-    # Extraction sécurisée des produits
-    inner_data = data.get("data")
-    if not isinstance(inner_data, dict):
-        print(f"⚠️ Le champ 'data' est absent ou vide dans la réponse : {data}")
-        return []
-        
-    products = inner_data.get("list", [])
-    if not products:
-        products = []
-        
-    print(f"📦 {len(products)} produits trouvés sur CJ !")
-    return products
 
-def send_to_google_sheet(products):
-    if not products:
-        print("⚠️ Aucun produit à envoyer vers Google Sheet.")
-        return
-
-    print("📤 Envoi des produits vers Google Sheet...")
-    for product in products:
-        payload = {
-            "nom": product.get("productName", "Nom indisponible"),
-            "prix": product.get("sellPrice", "0"),
-            "img": product.get("productImage", ""),
-            "details": product.get("productSku", ""),
-            "stock": product.get("totalStock", 0)
-        }
-        
-        try:
-            res = requests.post(GOOGLE_SCRIPT_URL, json=payload)
-            if res.status_code == 200:
-                print(f"✅ Produit ajouté : {payload['nom']}")
+def send_to_google_sheet(product):
+    nom = product.get("productName", "Nom inconnu")
+    details = product.get("productDetail", "Pas de détails")
+    variants = product.get("variants", [])
+    
+    if variants:
+        for variant in variants:
+            taille = variant.get("variantName", "Standard")
+            prix = variant.get("sellPrice", product.get("sellPrice", "0"))
+            img = variant.get("variantImage", product.get("productImage", ""))
+            stock = variant.get("inventory", product.get("totalStock", "0"))
+            
+            payload = {
+                "nom": nom,
+                "taille": taille,
+                "prix": str(prix),
+                "img": img,
+                "details": details,
+                "stock": str(stock)
+            }
+            
+            response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+            if response.status_code == 200:
+                print(f"✅ Variante '{taille}' envoyée pour : {nom}")
             else:
-                print(f"⚠️ Erreur Google Sheet pour {payload['nom']} : {res.status_code}")
-        except Exception as e:
-            print(f"❌ Exception lors de l'envoi : {e}")
+                print(f"⚠️ Erreur d'envoi Google Sheet pour {nom}")
+    else:
+        # Produit simple sans variante multiple
+        payload = {
+            "nom": nom,
+            "taille": "Unique",
+            "prix": str(product.get("sellPrice", "0")),
+            "img": product.get("productImage", ""),
+            "details": details,
+            "stock": str(product.get("totalStock", "0"))
+        }
+        response = requests.post(GOOGLE_SCRIPT_URL, json=payload)
+        if response.status_code == 200:
+            print(f"✅ Produit envoyé : {nom}")
 
 if __name__ == "__main__":
-    print("🤖 Démarrage du script de synchronisation CJ Dropshipping -> Google Sheet...")
+    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> Google Sheet...")
     token = get_access_token()
     if token:
         products = search_products(token, keyword="fashion accessories")
-        send_to_google_sheet(products)
+        print(f"📦 {len(products)} produits trouvés sur CJ.")
+        for product in products:
+            send_to_google_sheet(product)
+            
     print("✨ Synchronisation terminée avec succès !")
