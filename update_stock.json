@@ -5,7 +5,6 @@ import requests
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 def get_cj_access_token():
-    """Génère le jeton d'accès valide pour l'API CJ via l'API Key."""
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
@@ -22,7 +21,6 @@ def get_cj_access_token():
     return None
 
 def fetch_cj_products_deep(token):
-    """Recherche des produits et de leurs variantes sur CJ Dropshipping."""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -33,40 +31,34 @@ def fetch_cj_products_deep(token):
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
-            data = response.json()
-            return data.get("data", {}).get("list", [])
-        else:
-            print(f"Erreur API CJ : {response.status_code} - {response.text}")
-            return []
+            return response.json().get("data", {}).get("list", [])
+        return []
     except Exception as e:
-        print(f"Erreur de connexion à l'API CJ : {e}")
+        print(f"Erreur connexion CJ : {e}")
         return []
 
-def generate_products_json():
-    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> products.json...")
-    
+def generate_update_stock_json():
+    print("🤖 Génération de update_stock.json depuis CJ Dropshipping...")
     token = get_cj_access_token()
     if not token:
-        print("❌ Arrêt du script : Impossible d'obtenir le jeton d'accès CJ.")
+        print("❌ Arrêt : Jeton CJ introuvable.")
         return
     
     products_raw = fetch_cj_products_deep(token)
-    print(f"📦 {len(products_raw)} produits principaux trouvés sur CJ.")
-    
     formatted_products = []
     
     for product in products_raw:
         nom = product.get("productNameEn") or product.get("productName", "")
         variants = product.get("variants", [])
         
-        tailles_list = []
-        prix_list = []
-        images_list = []
+        tailles_values = [""] * 6
+        prix_values = [""] * 6
+        images_values = [""] * 7
         details_list = []
         total_stock = 0
 
         if variants:
-            for variant in variants:
+            for idx, variant in enumerate(variants):
                 v_size = str(variant.get("variantSize", "")).strip()
                 v_price = str(variant.get("variantPrice", ""))
                 v_image = variant.get("variantImage", "")
@@ -78,38 +70,38 @@ def generate_products_json():
                 except ValueError:
                     pass
 
-                if v_size: tailles_list.append(v_size)
-                if v_price: prix_list.append(v_price)
-                if v_image: images_list.append(v_image)
-                if v_key: details_list.append(v_key)
+                pos = idx if idx < 6 else 5
+                tailles_values[pos] = v_size
+                prix_values[pos] = v_price
+                if idx < 7:
+                    images_values[idx] = v_image
+                if v_key:
+                    details_list.append(v_key)
         else:
-            tailles_list.append(str(product.get("productSize", "")))
-            prix_list.append(str(product.get("sellPrice", "")))
-            images_list.append(product.get("productImage", ""))
+            tailles_values[0] = str(product.get("productSize", ""))
+            prix_values[0] = str(product.get("sellPrice", ""))
+            images_values[0] = product.get("productImage", "")
             try:
                 total_stock = int(product.get("sellStock", 0))
             except ValueError:
                 total_stock = 0
             details_list.append(product.get("productSku", ""))
 
-        # Objet propre pour chaque produit
         product_obj = {
             "nom": nom,
-            "tailles": tailles_list,
-            "prix": prix_list,
-            "images": images_list,
+            "tailles": tailles_values,
+            "prix": prix_values,
+            "images": images_values,
             "details": " | ".join(filter(None, details_list)),
-            "stock_disponible": total_stock
+            "stock": total_stock
         }
-        
         formatted_products.append(product_obj)
 
-    # Enregistrement dans le fichier products.json à la racine
-    output_filename = "products.json"
-    with open(output_filename, "w", encoding="utf-8") as f:
+    # Sauvegarde directe dans update_stock.json
+    with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
         
-    print(f"✨ Fichier {output_filename} généré avec succès !")
+    print("✨ Fichier update_stock.json généré avec succès !")
 
 if __name__ == "__main__":
-    generate_products_json()
+    generate_update_stock_json()
