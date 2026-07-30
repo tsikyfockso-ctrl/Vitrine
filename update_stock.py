@@ -1,48 +1,20 @@
 import os
-import re
 import json
 import requests
+
 # ---------------------------------------------------------------------------
-# 1. Configuration des variables d'environnement (Secrets)
+# 1. Variables d'environnement (GitHub Secrets)
 # ---------------------------------------------------------------------------
 CJ_API_KEY = os.getenv("CJ_API_KEY")
 GOOGLE_SCRIPT_URL = os.getenv("GOOGLE_SCRIPT_URL")
 
 # ---------------------------------------------------------------------------
-# 2. Parser HTML natif (sans dépendance externe bs4)
-# ---------------------------------------------------------------------------
-class SimpleCJHTMLParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.title = ""
-        self.description = ""
-        self.og_image = ""
-        self.in_title = False
-
-    def handle_starttag(self, tag, attrs):
-        attrs_dict = dict(attrs)
-        if tag == "title":
-            self.in_title = True
-        elif tag == "meta":
-            if attrs_dict.get("name") == "description":
-                self.description = attrs_dict.get("content", "")
-            elif attrs_dict.get("property") == "og:image":
-                self.og_image = attrs_dict.get("content", "")
-
-    def handle_endtag(self, tag):
-        if tag == "title":
-            self.in_title = False
-
-    def handle_data(self, data):
-        if self.in_title and not self.title:
-            self.title = data.strip()
-
-# ---------------------------------------------------------------------------
-# 3. Fonction d'authentification API CJ Dropshipping
+# 2. Authentification API CJ Dropshipping
 # ---------------------------------------------------------------------------
 def get_cj_access_token():
+    """Obtient le jeton d'accès via la Clé API CJ Dropshipping."""
     if not CJ_API_KEY:
-        print("⚠️ Aucune clé CJ_API_KEY trouvée dans les secrets.")
+        print("❌ Clé CJ_API_KEY manquante dans les Secrets.")
         return None
 
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
@@ -50,121 +22,149 @@ def get_cj_access_token():
     payload = {"apiKey": CJ_API_KEY}
 
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=10)
+        response = requests.post(url, headers=headers, json=payload, timeout=15)
         res_data = response.json()
         if res_data.get("code") == 200 and res_data.get("result"):
             token = res_data["result"].get("accessToken")
             print("🔑 Jeton d'accès CJ généré avec succès !")
             return token
         else:
-            print(f"⚠️ Erreur token CJ : {res_data.get('message')}")
+            print(f"⚠️ Erreur Authentification CJ : {res_data.get('message')}")
             return None
     except Exception as e:
         print(f"❌ Erreur connexion API CJ : {e}")
         return None
 
 # ---------------------------------------------------------------------------
-# 4. Lecture et extraction du HTML local
+# 3. Récupération des produits via l'API CJ Dropshipping
 # ---------------------------------------------------------------------------
-def parse_cj_html_file(file_path):
-    if not os.path.exists(file_path):
-        print(f"⚠️ Fichier local {file_path} introuvable.")
-        return None
-
-    print(f"📄 Analyse du fichier local : {file_path}...")
-    with open(file_path, "r", encoding="utf-8") as f:
-        html_content = f.read()
-
-    parser = SimpleCJHTMLParser()
-    parser.feed(html_content)
-
-    title = parser.title.split("- CJdropshipping")[0].strip() if parser.title else "Produit Sans Nom"
-    desc_text = parser.description
-    main_img = parser.og_image
-
-    # Extraction des couleurs
-    colors = []
-    color_match = re.search(r"Color:\s*([^,]+(?:,\s*[^,]+)*)", desc_text, re.IGNORECASE)
-    if color_match:
-        colors_str = color_match.group(1).split("Size:")[0].strip()
-        colors = [c.strip() for c in colors_str.split(",") if c.strip()]
-
-    # Extraction des tailles
-    sizes = []
-    size_match = re.search(r"Size:\s*([\d\s,XSLM]+)", desc_text, re.IGNORECASE)
-    if size_match:
-        sizes = [s.strip() for s in size_match.group(1).split(",") if s.strip()]
-
-    return {
-        "nom": title,
-        "details": desc_text,
-        "main_img": main_img,
-        "colors": colors,
-        "sizes": sizes,
-        "stock": 100
+def get_cj_products(access_token, page_num=1, page_size=10):
+    """Récupère la liste des produits depuis l'API CJ."""
+    url = f"https://developers.cjdropshipping.com/api2.0/v1/product/list?pageNum={page_num}&pageSize={page_size}"
+    headers = {
+        "CJ-Access-Token": access_token,
+        "Content-Type": "application/json"
     }
 
-# ---------------------------------------------------------------------------
-# 5. Formattage 22 Colonnes (BDD_Mayah_Store)
-# ---------------------------------------------------------------------------
-def build_bdd_row(product_data, default_price="15.00"):
-    row = [""] * 22
-    row[0] = product_data.get("nom", "")
+    try:
+        response = requests.get(url, headers=headers, timeout=15)
+        res_data = response.json()
+        if res_data.get("code") == 200 and res_data.get("result"):
+            return res_data["result"].get("list", [])
+        else:
+            print(f"⚠️ Erreur récupération produits CJ : {res_data.get('message')}")
+            return []
+    except Exception as e:
+        print(f"❌ Erreur lors de la requête produits : {e}")
+        return []
 
-    # Tailles (Cols B-G)
-    sizes = product_data.get("sizes", [])
+# ---------------------------------------------------------------------------
+# 4. Formatage de la ligne selon la BDD Mayah Store (22 colonnes A à V)
+# ---------------------------------------------------------------------------
+def build_bdd_row(product):
+    """
+    Structure les données sur 22 colonnes :
+    - Col A (0) : nom
+    - Col B..G (1..6) : tailles (ex: 36, 37, 38...)
+    - Col H..M (7..12) : prix par tailles
+    - Col N..T (13..19) : img par couleur
+    - Col U (20) : details
+    - Col V (21) : nombre de stock disponible
+    """
+    row = [""] * 22
+
+    # Nom du produit (Colonne A)
+    row[0] = product.get("productNameEn", product.get("productName", ""))
+
+    # Extraction des variantes (Tailles, Prix, Stock)
+    variants = product.get("variants", [])
+    sizes = []
+    prices = []
+    images = []
+    total_stock = []
+
+    # Image principale
+    main_img = product.get("productImage", "")
+    if main_img:
+        images.append(main_img)
+
+    if variants:
+        for v in variants:
+            size_val = v.get("variantKey", "") or v.get("variantNameEn", "")
+            price_val = str(v.get("variantSellPrice", "0.00"))
+            stock_val = v.get("variantStandardQuantity", 0)
+
+            if size_val and size_val not in sizes:
+                sizes.append(size_val)
+                prices.append(price_val)
+
+            variant_img = v.get("variantImage", "")
+            if variant_img and variant_img not in images:
+                images.append(variant_img)
+
+            total_stock += int(stock_val) if isinstance(stock_val, (int, str)) and str(stock_val).isdigit() else 0
+    else:
+        # Si pas de variantes explicites dans la liste
+        default_price = str(product.get("sellPrice", "0.00"))
+        prices.append(default_price)
+
+    # Colonnes B à G : Tailles (Max 6)
     for i in range(min(len(sizes), 6)):
         row[1 + i] = sizes[i]
 
-    # Prix par taille (Cols H-M)
-    for i in range(min(len(sizes), 6)):
-        row[7 + i] = default_price
+    # Colonnes H à M : Prix par tailles (Max 6)
+    for i in range(min(len(prices), 6)):
+        row[7 + i] = prices[i]
 
-    # Images par couleur (Cols N-T)
-    colors = product_data.get("colors", [])
-    main_img = product_data.get("main_img", "")
-    for i in range(min(max(len(colors), 1), 7)):
-        row[13 + i] = main_img
+    # Colonnes N à T : Images par couleur (Max 7)
+    for i in range(min(len(images), 7)):
+        row[13 + i] = images[i]
 
-    # Détails (Col U) & Stock (Col V)
-    row[20] = product_data.get("details", "")
-    row[21] = str(product_data.get("stock", 0))
+    # Colonne U : Details
+    row[20] = f"SKU: {product.get('productSku', '')} | Catégorie: {product.get('categoryName', '')}"
+
+    # Colonne V : Stock disponible
+    row[21] = str(total_stock if total_stock > 0 else 100)
 
     return row
 
 # ---------------------------------------------------------------------------
-# 6. Envoi vers Google Sheet
+# 5. Envoi vers Google Sheet via Google Apps Script
 # ---------------------------------------------------------------------------
 def send_to_google_sheet(row_data):
+    """Envoie une ligne de 22 colonnes vers le WebApp Google Sheet."""
     if not GOOGLE_SCRIPT_URL:
         print("❌ GOOGLE_SCRIPT_URL non configuré.")
         return False
 
-    print("🚀 Envoi vers Google Sheet...")
-    payload = {"row": row_data}
     try:
-        response = requests.post(GOOGLE_SCRIPT_URL, json=payload, timeout=15)
+        response = requests.post(GOOGLE_SCRIPT_URL, json={"row": row_data}, timeout=15)
         res_json = response.json()
         if res_json.get("status") == "success":
-            print("✨ Données ajoutées avec succès à votre BDD Google Sheet !")
+            print(f"✅ Enregistré : {row_data[0][:30]}...")
             return True
         else:
-            print(f"⚠️ Erreur Google Script : {res_json.get('message')}")
+            print(f"⚠️ Erreur Apps Script : {res_json.get('message')}")
             return False
     except Exception as e:
         print(f"❌ Erreur envoi HTTP : {e}")
         return False
 
 # ---------------------------------------------------------------------------
-# Exécution
+# Exécution Principale
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("🤖 Démarrage de la synchronisation...")
-    token = get_cj_access_token()
-    product_info = parse_cj_html_file(LOCAL_HTML_FILE)
+    print("🤖 Démarrage de la synchronisation CJ Dropshipping -> Google Sheet...")
 
-    if product_info:
-        formatted_row = build_bdd_row(product_info)
-        send_to_google_sheet(formatted_row)
+    token = get_cj_access_token()
+    if token:
+        products = get_cj_products(token, page_num=1, page_size=10)
+        print(f"📦 {len(products)} produits récupérés depuis l'API CJ.")
+
+        for prod in products:
+            formatted_row = build_bdd_row(prod)
+            send_to_google_sheet(formatted_row)
+
+        print("✨ Synchronisation terminée avec succès !")
     else:
-        print("❌ Aucun produit trouvé à synchroniser.")
+        print("❌ Impossible de démarrer la synchronisation sans jeton valide.")
