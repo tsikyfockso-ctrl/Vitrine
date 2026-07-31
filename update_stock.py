@@ -8,7 +8,6 @@ def get_cj_access_token():
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
-    
     try:
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code == 200:
@@ -25,23 +24,21 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # Vous pouvez modifier les mots-clés de recherche ici
     params = {"keyword": "fashion accessories"}
-    
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
             return data.get("data", {}).get("list", [])
     except Exception as e:
-        print(f"Erreur de connexion à l'API CJ : {e}")
+        print(f"Erreur de connexion CJ : {e}")
     return []
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation des produits et des IDs CJ...")
+    print("🤖 Récupération des produits et des IDs CJ...")
     token = get_cj_access_token()
     if not token:
-        print("❌ Impossible d'obtenir le jeton d'accès CJ.")
+        print("❌ Token CJ introuvable.")
         return
     
     products_raw = fetch_cj_products_deep(token)
@@ -54,7 +51,7 @@ def generate_update_stock_json():
         tailles_values = [""] * 6
         prix_values = [""] * 6
         images_values = [""] * 7
-        vid_values = [""] * 6  # Stockage des vids indispensables
+        vid_values = [""] * 6  # Indispensable pour l'API de fret CJ
         details_list = []
         total_stock = 0
 
@@ -65,7 +62,7 @@ def generate_update_stock_json():
                 v_image = variant.get("variantImage", "")
                 v_stock = variant.get("variantStock", 0)
                 v_key = variant.get("variantKey", "")
-                v_vid = variant.get("vid", "")  # ID unique CJ de la variante
+                v_vid = variant.get("vid", "")  # <-- Vrai ID de variante CJ
                 
                 try:
                     total_stock += int(v_stock)
@@ -91,7 +88,7 @@ def generate_update_stock_json():
             "tailles": tailles_values,
             "prix": prix_values,
             "images": images_values,
-            "vids": vid_values,  # Transmis au site web
+            "vids": vid_values,  # Transmis au Front-End
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock
         }
@@ -99,7 +96,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print("✨ Fichier update_stock.json généré avec succès avec les IDs CJ !")
+    print("✨ Fichier update_stock.json mis à jour avec succès !")
 
 if __name__ == "__main__":
     generate_update_stock_json()
