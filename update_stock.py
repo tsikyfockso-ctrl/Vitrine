@@ -25,6 +25,7 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
+    # Vous pouvez modifier les mots-clés de recherche ici
     params = {"keyword": "fashion accessories"}
     
     try:
@@ -37,7 +38,7 @@ def fetch_cj_products_deep(token):
     return []
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation CJ Dropshipping -> update_stock.json...")
+    print("🤖 Synchronisation des produits et des IDs CJ...")
     token = get_cj_access_token()
     if not token:
         print("❌ Impossible d'obtenir le jeton d'accès CJ.")
@@ -53,7 +54,7 @@ def generate_update_stock_json():
         tailles_values = [""] * 6
         prix_values = [""] * 6
         images_values = [""] * 7
-        vid_values = [""] * 6  # <-- Sauvegarde indispensable du Variant ID CJ
+        vid_values = [""] * 6  # Stockage des vids indispensables
         details_list = []
         total_stock = 0
 
@@ -64,7 +65,7 @@ def generate_update_stock_json():
                 v_image = variant.get("variantImage", "")
                 v_stock = variant.get("variantStock", 0)
                 v_key = variant.get("variantKey", "")
-                v_vid = variant.get("vid", "")  # <-- Récupération du vid CJ
+                v_vid = variant.get("vid", "")  # ID unique CJ de la variante
                 
                 try:
                     total_stock += int(v_stock)
@@ -90,7 +91,7 @@ def generate_update_stock_json():
             "tailles": tailles_values,
             "prix": prix_values,
             "images": images_values,
-            "vids": vid_values,  # <-- Transmis au front pour le calcul temps réel
+            "vids": vid_values,  # Transmis au site web
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock
         }
@@ -98,7 +99,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print("✨ Fichier update_stock.json généré avec succès !")
+    print("✨ Fichier update_stock.json généré avec succès avec les IDs CJ !")
 
 if __name__ == "__main__":
     generate_update_stock_json()
