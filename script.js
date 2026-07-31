@@ -132,7 +132,7 @@ async function calculateShipping() {
     const modalShippingCost = document.getElementById('modalShippingCost');
     modalShippingCost.innerText = "Calcul...";
 
-    let shippingCostFinal = 5.00;
+    let shippingCostFinal = "";
 
     if (currentVid) {
         try {
