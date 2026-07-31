@@ -91,11 +91,14 @@ def generate_update_stock_json():
             tailles_values[0] = str(product.get("productSize", ""))
             prix_values[0] = str(product.get("sellPrice", ""))
             images_values[0] = product.get("productImage", "")
-            try:
-                total_stock = int(product.get("sellStock", 0))
-            except ValueError:
-                total_stock = 0
-            details_list.append(product.get("productSku", ""))
+            # Récupération ou estimation du poids en grammes (par défaut 200g)
+        try:
+            poids_grammes = float(product.get("productWeight", 200))
+        except ValueError:
+            poids_grammes = 200.0
+
+        # Base de frais de port calculée automatiquement selon le poids du produit
+        frais_port_base = round(3.00 + (poids_grammes * 0.0025), 2)
 
         product_obj = {
             "nom": nom,
@@ -103,7 +106,8 @@ def generate_update_stock_json():
             "prix": prix_values,
             "images": images_values,
             "details": " | ".join(filter(None, details_list)),
-            "stock": total_stock
+            "stock": total_stock,
+            "shippingBase": frais_port_base  # <-- Stocké dynamiquement pour chaque produit
         }
     
         formatted_products.append(product_obj)
