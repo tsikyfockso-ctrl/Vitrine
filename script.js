@@ -9,7 +9,7 @@ async function loadProductsFromCJ() {
     if (!container) return;
 
     container.innerHTML = `<p style="text-align:center; width:100%; padding:20px;">Chargement des produits...</p>`;
-    
+
     try {
         const response = await fetch(jsonUrl);
         const stock = await response.json();
@@ -116,7 +116,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-
+// --- APPEL DE L'API TEMPS RÉEL POUR LE PAYS SÉLECTIONNÉ ---
 async function calculateShipping() {
     if (!currentSelectedProduct) return;
     
@@ -132,18 +132,17 @@ async function calculateShipping() {
     const modalShippingCost = document.getElementById('modalShippingCost');
     modalShippingCost.innerText = "Calcul...";
 
-    let shippingCostFinal = "";
+    let shippingCostFinal = 0.00;
 
     if (currentVid) {
         try {
-            // Requête vers votre backend Python local qui interroge CJ en toute sécurité
             const response = await fetch(`/api/calculer-livraison?vid=${currentVid}&country=${countryCode}`);
             const result = await response.json();
             if (result.success && result.logisticPrice !== undefined) {
                 shippingCostFinal = parseFloat(result.logisticPrice);
             }
         } catch (e) {
-            console.error("Erreur de calcul dynamique du transport :", e);
+            console.error("Erreur lors de la récupération des frais en temps réel :", e);
         }
     }
 
