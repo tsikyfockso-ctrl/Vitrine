@@ -9,7 +9,7 @@ async function loadProductsFromCJ() {
     if (!container) return;
 
     container.innerHTML = `<p style="text-align:center; width:100%; padding:20px;">Chargement des produits...</p>`;
-
+    
     try {
         const response = await fetch(jsonUrl);
         const stock = await response.json();
@@ -116,7 +116,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- CALCUL TEMPS RÉEL VIA L'API DE VOTRE SERVEUR ---
+
 async function calculateShipping() {
     if (!currentSelectedProduct) return;
     
