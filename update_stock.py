@@ -105,7 +105,7 @@ def generate_update_stock_json():
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock
         }
-        
+    
         formatted_products.append(product_obj)
 
     # Sauvegarde directe dans update_stock.json à la racine
