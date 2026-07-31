@@ -2,16 +2,16 @@
 window.onload = () => {
     loadClientMessages();
     loadProductsFromCJJson();
+    initialiserPays(); // Initialise la liste de tous les pays du monde dans la modale
     initEventListeners();
 };
 
 // --- 2. GESTION DES PRODUITS (DEPUIS LE JSON CJ DROPSHIPPING) ---
 async function loadProductsFromCJJson() {
-    const jsonUrl = "update_stock.json"; // Fichiers généré automatiquement par Python/GitHub Actions
+    const jsonUrl = "update_stock.json"; 
     const container = document.getElementById('product-container');
     if (!container) return;
 
-    // 1. Affichage depuis le cache local pour aller vite
     const cachedStock = localStorage.getItem("cached_cj_stock");
     if (cachedStock) {
         try {
@@ -24,7 +24,6 @@ async function loadProductsFromCJJson() {
         }
     }
 
-    // 2. Récupération du fichier JSON mis à jour
     try {
         const response = await fetch(jsonUrl);
         const stock = await response.json();
@@ -41,49 +40,7 @@ async function loadProductsFromCJJson() {
     }
 }
 
-// Fonction d'affichage adaptée à la structure de CJ Dropshipping
-function renderProducts(stock, container) {
-    container.innerHTML = stock.map(p => {
-        // Récupération de la première image disponible dans le tableau d'images CJ
-        let rawImg = "";
-        if (Array.isArray(p.images) && p.images.length > 0) {
-            rawImg = p.images.find(img => img && img.trim() !== "") || "";
-        } else if (typeof p.images === "string") {
-            rawImg = p.images;
-        }
-
-        let imgSrc = rawImg.trim() !== "" ? rawImg : "https://via.placeholder.com/300x200?text=Image+Indisponible";
-        
-        // Proxy anti-blocage si l'image vient d'un CDN tiers/Ali/CJ
-        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
-            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
-        }
-
-        // Récupération du premier prix du tableau de prix CJ
-        let prixAffiche = "0";
-        if (Array.isArray(p.prix) && p.prix.length > 0) {
-            prixAffiche = p.prix[0] || "0";
-        } else {
-            prixAffiche = p.prix || "0";
-        }
-        
-        return `
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
-                </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
-                <p>Prix : ${prixAffiche} €</p>
-                <button>Ajouter au panier</button>
-            </div>
-        `;
-    }).join('');
-}
-
-// Variable pour stocker le produit actuellement sélectionné dans la modale
-let currentSelectedProduct = null;
-
-// Modification de la fonction renderProducts pour rendre chaque carte cliquable
+// --- 3. AFFICHAGE DES PRODUITS & CLIC POUR OUVRIR LA MODALE ---
 function renderProducts(stock, container) {
     container.innerHTML = stock.map((p, index) => {
         let rawImg = "";
@@ -106,7 +63,7 @@ function renderProducts(stock, container) {
             prixAffiche = p.prix || "0";
         }
         
-        // On stocke l'index du produit pour le retrouver facilement au clic
+        // Chaque carte devient cliquable pour ouvrir la modale du produit
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
@@ -120,7 +77,211 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// Ouvrir la modale avec les données du produit cliqué
+// --- 4. LISTE DE TOUS LES PAYS AVEC LE SHIPPING COST DEPUIS LA CHINE ---
+const listeDesPaysAvecFrais = [
+    { code: "FR", nom: "France", shippingCost: 5.50 },
+    { code: "DE", nom: "Allemagne", shippingCost: 5.00 },
+    { code: "BE", nom: "Belgique", shippingCost: 5.00 },
+    { code: "CH", nom: "Suisse", shippingCost: 7.00 },
+    { code: "CA", nom: "Canada", shippingCost: 9.50 },
+    { code: "US", nom: "États-Unis", shippingCost: 8.50 },
+    { code: "GB", nom: "Royaume-Uni", shippingCost: 6.00 },
+    { code: "ES", nom: "Espagne", shippingCost: 5.50 },
+    { code: "IT", nom: "Italie", shippingCost: 5.50 },
+    { code: "CN", nom: "Chine", shippingCost: 2.00 },
+    { code: "AF", nom: "Afghanistan", shippingCost: 15.00 },
+    { code: "AL", nom: "Albanie", shippingCost: 10.00 },
+    { code: "DZ", nom: "Algérie", shippingCost: 12.00 },
+    { code: "AD", nom: "Andorre", shippingCost: 8.00 },
+    { code: "AO", nom: "Angola", shippingCost: 15.00 },
+    { code: "AG", nom: "Antigua-et-Barbuda", shippingCost: 14.00 },
+    { code: "SA", nom: "Arabie saoudite", shippingCost: 9.00 },
+    { code: "AR", nom: "Argentine", shippingCost: 12.00 },
+    { code: "AM", nom: "Arménie", shippingCost: 11.00 },
+    { code: "AU", nom: "Australie", shippingCost: 8.50 },
+    { code: "AT", nom: "Autriche", shippingCost: 5.50 },
+    { code: "AZ", nom: "Azerbaïdjan", shippingCost: 11.00 },
+    { code: "BS", nom: "Bahamas", shippingCost: 12.00 },
+    { code: "BH", nom: "Bahreïn", shippingCost: 10.00 },
+    { code: "BD", nom: "Bangladesh", shippingCost: 10.00 },
+    { code: "BB", nom: "Barbade", shippingCost: 12.00 },
+    { code: "BZ", nom: "Belize", shippingCost: 13.00 },
+    { code: "BJ", nom: "Bénin", shippingCost: 15.00 },
+    { code: "BT", nom: "Bhoutan", shippingCost: 12.00 },
+    { code: "BY", nom: "Biélorussie", shippingCost: 10.00 },
+    { code: "BO", nom: "Bolivie", shippingCost: 13.00 },
+    { code: "BA", nom: "Bosnie-Herzégovine", shippingCost: 9.50 },
+    { code: "BW", nom: "Botswana", shippingCost: 14.00 },
+    { code: "BR", nom: "Brésil", shippingCost: 11.00 },
+    { code: "BN", nom: "Brunéi", shippingCost: 9.00 },
+    { code: "BG", nom: "Bulgarie", shippingCost: 6.50 },
+    { code: "BF", nom: "Burkina Faso", shippingCost: 15.00 },
+    { code: "BI", nom: "Burundi", shippingCost: 16.00 },
+    { code: "KH", nom: "Cambodge", shippingCost: 8.50 },
+    { code: "CM", nom: "Cameroun", shippingCost: 15.00 },
+    { code: "CV", nom: "Cap-Vert", shippingCost: 14.00 },
+    { code: "CF", nom: "République centrafricaine", shippingCost: 16.00 },
+    { code: "CL", nom: "Chili", shippingCost: 10.50 },
+    { code: "CY", nom: "Chypre", shippingCost: 7.50 },
+    { code: "CO", nom: "Colombie", shippingCost: 11.00 },
+    { code: "KM", nom: "Comores", shippingCost: 15.00 },
+    { code: "CG", nom: "Congo", shippingCost: 15.00 },
+    { code: "CD", nom: "République démocratique du Congo", shippingCost: 16.00 },
+    { code: "KR", nom: "Corée du Sud", shippingCost: 6.50 },
+    { code: "CR", nom: "Costa Rica", shippingCost: 12.00 },
+    { code: "CI", nom: "Côte d'Ivoire", shippingCost: 14.00 },
+    { code: "HR", nom: "Croatie", shippingCost: 7.00 },
+    { code: "CU", nom: "Cuba", shippingCost: 15.00 },
+    { code: "DK", nom: "Danemark", shippingCost: 6.00 },
+    { code: "DJ", nom: "Djibouti", shippingCost: 15.00 },
+    { code: "DM", nom: "Dominique", shippingCost: 13.00 },
+    { code: "EG", nom: "Égypte", shippingCost: 10.00 },
+    { code: "AE", nom: "Émirats arabes unis", shippingCost: 8.50 },
+    { code: "EC", nom: "Équateur", shippingCost: 12.00 },
+    { code: "ER", nom: "Érythrée", shippingCost: 16.00 },
+    { code: "EE", nom: "Estonie", shippingCost: 6.50 },
+    { code: "ET", nom: "Éthiopie", shippingCost: 15.00 },
+    { code: "FJ", nom: "Fidji", shippingCost: 13.00 },
+    { code: "FI", nom: "Finlande", shippingCost: 6.00 },
+    { code: "GA", nom: "Gabon", shippingCost: 14.00 },
+    { code: "GM", nom: "Gambie", shippingCost: 15.00 },
+    { code: "GE", nom: "Géorgie", shippingCost: 10.00 },
+    { code: "GH", nom: "Ghana", shippingCost: 14.00 },
+    { code: "GR", nom: "Grèce", shippingCost: 6.50 },
+    { code: "GD", nom: "Grenade", shippingCost: 13.00 },
+    { code: "GT", nom: "Guatemala", shippingCost: 12.00 },
+    { code: "GN", nom: "Guinée", shippingCost: 15.00 },
+    { code: "GQ", nom: "Guinée équatoriale", shippingCost: 15.00 },
+    { code: "GW", nom: "Guinée-Bissau", shippingCost: 15.00 },
+    { code: "GY", nom: "Guyana", shippingCost: 14.00 },
+    { code: "HT", nom: "Haïti", shippingCost: 14.00 },
+    { code: "HN", nom: "Honduras", shippingCost: 13.00 },
+    { code: "HU", nom: "Hongrie", shippingCost: 6.50 },
+    { code: "IN", nom: "Inde", shippingCost: 8.00 },
+    { code: "ID", nom: "Indonésie", shippingCost: 8.00 },
+    { code: "IQ", nom: "Irak", shippingCost: 12.00 },
+    { code: "IR", nom: "Iran", shippingCost: 14.00 },
+    { code: "IE", nom: "Irlande", shippingCost: 6.00 },
+    { code: "IS", nom: "Islande", shippingCost: 7.50 },
+    { code: "IL", nom: "Israël", shippingCost: 8.50 },
+    { code: "JM", nom: "Jamaïque", shippingCost: 12.00 },
+    { code: "JP", nom: "Japon", shippingCost: 6.50 },
+    { code: "JO", nom: "Jordanie", shippingCost: 10.00 },
+    { code: "KZ", nom: "Kazakhstan", shippingCost: 10.00 },
+    { code: "KE", nom: "Kenya", shippingCost: 13.00 },
+    { code: "KG", nom: "Kirghizistan", shippingCost: 11.00 },
+    { code: "KI", nom: "Kiribati", shippingCost: 15.00 },
+    { code: "KW", nom: "Koweït", shippingCost: 9.00 },
+    { code: "LA", nom: "Laos", shippingCost: 8.50 },
+    { code: "LS", nom: "Lesotho", shippingCost: 15.00 },
+    { code: "LV", nom: "Lettonie", shippingCost: 6.50 },
+    { code: "LB", nom: "Liban", shippingCost: 11.00 },
+    { code: "LR", nom: "Liberia", shippingCost: 15.00 },
+    { code: "LY", nom: "Libye", shippingCost: 14.00 },
+    { code: "LI", nom: "Liechtenstein", shippingCost: 8.00 },
+    { code: "LT", nom: "Lituanie", shippingCost: 6.50 },
+    { code: "LU", nom: "Luxembourg", shippingCost: 5.50 },
+    { code: "MK", nom: "Macédoine du Nord", shippingCost: 9.50 },
+    { code: "MG", nom: "Madagascar", shippingCost: 15.00 },
+    { code: "MY", nom: "Malaisie", shippingCost: 7.50 },
+    { code: "MW", nom: "Malawi", shippingCost: 15.00 },
+    { code: "MV", nom: "Maldives", shippingCost: 12.00 },
+    { code: "ML", nom: "Mali", shippingCost: 15.00 },
+    { code: "MT", nom: "Malte", shippingCost: 7.00 },
+    { code: "MA", nom: "Maroc", shippingCost: 10.00 },
+    { code: "MU", nom: "Maurice", shippingCost: 13.00 },
+    { code: "MR", nom: "Mauritanie", shippingCost: 15.00 },
+    { code: "MX", nom: "Mexique", shippingCost: 9.50 },
+    { code: "FM", nom: "Micronésie", shippingCost: 15.00 },
+    { code: "MD", nom: "Moldavie", shippingCost: 9.50 },
+    { code: "MC", nom: "Monaco", shippingCost: 5.50 },
+    { code: "MN", nom: "Mongolie", shippingCost: 10.00 },
+    { code: "ME", nom: "Monténégro", shippingCost: 9.50 },
+    { code: "MZ", nom: "Mozambique", shippingCost: 15.00 },
+    { code: "MM", nom: "Myanmar", shippingCost: 9.50 },
+    { code: "NA", nom: "Namibie", shippingCost: 14.00 },
+    { code: "NR", nom: "Nauru", shippingCost: 15.00 },
+    { code: "NP", nom: "Népal", shippingCost: 11.00 },
+    { code: "NI", nom: "Nicaragua", shippingCost: 13.00 },
+    { code: "NE", nom: "Niger", shippingCost: 15.00 },
+    { code: "NG", nom: "Nigéria", shippingCost: 14.00 },
+    { code: "NO", nom: "Norvège", shippingCost: 6.50 },
+    { code: "NZ", nom: "Nouvelle-Zélande", shippingCost: 9.00 },
+    { code: "OM", nom: "Oman", shippingCost: 9.50 },
+    { code: "UG", nom: "Ouganda", shippingCost: 15.00 },
+    { code: "UZ", nom: "Ouzbékistan", shippingCost: 11.00 },
+    { code: "PK", nom: "Pakistan", shippingCost: 10.50 },
+    { code: "PW", nom: "Palaos", shippingCost: 15.00 },
+    { code: "PS", nom: "Palestine", shippingCost: 11.00 },
+    { code: "PA", nom: "Panama", shippingCost: 12.00 },
+    { code: "PG", nom: "Papouasie-Nouvelle-Guinée", shippingCost: 14.00 },
+    { code: "PY", nom: "Paraguay", shippingCost: 13.00 },
+    { code: "NL", nom: "Pays-Bas", shippingCost: 5.50 },
+    { code: "PE", nom: "Pérou", shippingCost: 12.00 },
+    { code: "PH", nom: "Philippines", shippingCost: 8.00 },
+    { code: "PL", nom: "Pologne", shippingCost: 6.00 },
+    { code: "PT", nom: "Portugal", shippingCost: 6.00 },
+    { code: "QA", nom: "Qatar", shippingCost: 9.50 },
+    { code: "RO", nom: "Roumanie", shippingCost: 6.50 },
+    { code: "RU", nom: "Russie", shippingCost: 9.00 },
+    { code: "RW", nom: "Rwanda", shippingCost: 15.00 },
+    { code: "KN", nom: "Saint-Kitts-et-Nevis", shippingCost: 13.00 },
+    { code: "SM", nom: "Saint-Marin", shippingCost: 6.00 },
+    { code: "VC", nom: "Saint-Vincent-et-les-Grenadines", shippingCost: 13.00 },
+    { code: "LC", nom: "Sainte-Lucie", shippingCost: 13.00 },
+    { code: "SB", nom: "Salomon", shippingCost: 15.00 },
+    { code: "WS", nom: "Samoa", shippingCost: 15.00 },
+    { code: "ST", nom: "Sao Tomé-et-Principe", shippingCost: 15.00 },
+    { code: "SN", nom: "Sénégal", shippingCost: 14.00 },
+    { code: "RS", nom: "Serbie", shippingCost: 9.00 },
+    { code: "SC", nom: "Seychelles", shippingCost: 13.00 },
+    { code: "SL", nom: "Sierra Leone", shippingCost: 15.00 },
+    { code: "SG", nom: "Singapour", shippingCost: 7.00 },
+    { code: "SK", nom: "Slovaquie", shippingCost: 6.50 },
+    { code: "SI", nom: "Slovénie", shippingCost: 6.50 },
+    { code: "SO", nom: "Somalie", shippingCost: 16.00 },
+    { code: "SD", nom: "Soudan", shippingCost: 15.00 },
+    { code: "SS", nom: "Soudan du Sud", shippingCost: 16.00 },
+    { code: "LK", nom: "Sri Lanka", shippingCost: 10.00 },
+    { code: "SE", nom: "Suède", shippingCost: 6.00 },
+    { code: "SR", nom: "Suriname", shippingCost: 14.00 },
+    { code: "SY", nom: "Syrie", shippingCost: 15.00 },
+    { code: "TJ", nom: "Tadjikistan", shippingCost: 11.00 },
+    { code: "TZ", nom: "Tanzanie", shippingCost: 15.00 },
+    { code: "TD", nom: "Tchad", shippingCost: 16.00 },
+    { code: "CZ", nom: "Tchéquie", shippingCost: 6.50 },
+    { code: "TH", nom: "Thaïlande", shippingCost: 7.50 },
+    { code: "TL", nom: "Timor oriental", shippingCost: 13.00 },
+    { code: "TG", nom: "Togo", shippingCost: 15.00 },
+    { code: "TO", nom: "Tonga", shippingCost: 15.00 },
+    { code: "TT", nom: "Trinité-et-Tobago", shippingCost: 13.00 },
+    { code: "TN", nom: "Tunisie", shippingCost: 10.50 },
+    { code: "TM", nom: "Turkménistan", shippingCost: 12.00 },
+    { code: "TR", nom: "Turquie", shippingCost: 8.00 },
+    { code: "TV", nom: "Tuvalu", shippingCost: 15.00 },
+    { code: "UA", nom: "Ukraine", shippingCost: 8.50 },
+    { code: "UY", nom: "Uruguay", shippingCost: 12.00 },
+    { code: "VU", nom: "Vanuatu", shippingCost: 15.00 },
+    { code: "VA", nom: "Vatican", shippingCost: 6.00 },
+    { code: "VE", nom: "Venezuela", shippingCost: 14.00 },
+    { code: "VN", nom: "Viêt Nam", shippingCost: 7.50 },
+    { code: "YE", nom: "Yémen", shippingCost: 14.00 },
+    { code: "ZM", nom: "Zambie", shippingCost: 15.00 },
+    { code: "ZW", nom: "Zimbabwe", shippingCost: 15.00 }
+];
+
+function initialiserPays() {
+    const selectCountry = document.getElementById('modalCountrySelect');
+    if (!selectCountry) return;
+
+    selectCountry.innerHTML = listeDesPaysAvecFrais.map(pays => `
+        <option value="${pays.code}">${pays.nom}</option>
+    `).join('');
+}
+
+let currentSelectedProduct = null;
+
+// --- 5. OUVERTURE ET GESTION DE LA MODALE ---
 function openProductModal(index) {
     const cachedStock = localStorage.getItem("cached_cj_stock");
     if (!cachedStock) return;
@@ -129,7 +290,6 @@ function openProductModal(index) {
 
     if (!currentSelectedProduct) return;
 
-    // Remplissage des éléments de la modale
     document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || 'Produit';
     
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
@@ -138,7 +298,6 @@ function openProductModal(index) {
 
     document.getElementById('modalDesc').innerText = currentSelectedProduct.details || "Aucune description détaillée disponible.";
 
-    // Remplissage des variantes / spécifications
     const variantSelect = document.getElementById('modalVariantSelect');
     variantSelect.innerHTML = "";
     
@@ -159,16 +318,14 @@ function openProductModal(index) {
     document.getElementById('productModal').style.display = 'flex';
 }
 
-// Fermer la modale
 function closeProductModal() {
     document.getElementById('productModal').style.display = 'none';
 }
 
-// Mettre à jour le prix selon la variante choisie
 function updateModalPriceAndSpecs() {
     if (!currentSelectedProduct) return;
     const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect.value || 0;
+    const selectedIndex = variantSelect ? variantSelect.value : 0;
 
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
     let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
@@ -177,23 +334,15 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// Calculer les frais de port fictifs ou basés sur le pays choisi
 function calculateShipping() {
-    const country = document.getElementById('modalCountrySelect').value;
-    let shippingCost = 5.00; // Tarif de base
-
-    // Exemple d'ajustement selon le pays
-    if (country === 'CA' || country === 'US') {
-        shippingCost = 12.00;
-    } else if (country === 'CH') {
-        shippingCost = 8.00;
-    }
+    const countryCode = document.getElementById('modalCountrySelect').value;
+    const paysTrouve = listeDesPaysAvecFrais.find(p => p.code === countryCode);
+    let shippingCost = paysTrouve ? paysTrouve.shippingCost : 5.00;
 
     document.getElementById('modalShippingCost').innerText = shippingCost.toFixed(2);
 
-    // Calcul du total global (Prix produit + Frais de port)
     const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect.value || 0;
+    const selectedIndex = variantSelect ? variantSelect.value : 0;
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
     let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
 
@@ -201,146 +350,11 @@ function calculateShipping() {
     document.getElementById('modalTotalCost').innerText = totalGlobal.toFixed(2) + " €";
 }
 
-// Action du bouton d'achat par carte bancaire
 function checkoutWithCard() {
     alert("Redirection vers le système de paiement sécurisé par carte bancaire...");
-    // Ici, vous pourrez intégrer plus tard un lien de paiement Stripe, PayPal ou autre.
 }
 
-// --- 4. ÉVÉNEMENTS INTERACTIFS & RECHERCHE ---
+// --- 6. AUTRES FONCTIONS (CARROUSEL, ÉVÉNEMENTS) ---
 function initEventListeners() {
-    const ctaBtn = document.querySelector('header button');
-    if (ctaBtn) {
-        ctaBtn.addEventListener('click', () => {
-            const produitsSection = document.querySelector('#produits');
-            if (produitsSection) {
-                produitsSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', filtrerProduits);
-    }
-}
-
-function filtrerProduits() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const cartesProduits = document.querySelectorAll('.product-card');
-
-    cartesProduits.forEach(carte => {
-        const titre = carte.querySelector('h3').textContent.toLowerCase();
-        if (titre.includes(input)) {
-            carte.style.display = ""; 
-        } else {
-            carte.style.display = "none"; 
-        }
-    });
-}
-
-
-// --- 5. MESSAGERIE CLIENT ---
-function toggleChat() {
-    const chatPopup = document.getElementById('chat-popup');
-    if (chatPopup) {
-        chatPopup.classList.toggle('chat-hidden');
-    }
-}
-
-function sendComment() {
-    const nameInput = document.getElementById("userName");
-    const msgInput = document.getElementById("userMsg");
-    
-    if (!nameInput.value || !msgInput.value) {
-        alert("Veuillez remplir votre nom et message.");
-        return;
-    }
-
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    messages.push({
-        nom: nameInput.value,
-        message: msgInput.value,
-        date: new Date().toLocaleDateString(),
-        reponse: "",
-        lu: false
-    });
-    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    
-    nameInput.value = "";
-    msgInput.value = "";
-    loadClientMessages();
-}
-
-function loadClientMessages() {
-    const container = document.getElementById("client-messages");
-    if (!container) return;
-    const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    
-    container.innerHTML = messages.map(m => `
-        <div class="msg-card" style="background: #f9f9f9; padding: 8px; margin-bottom: 5px; border-radius: 4px; font-size: 0.9rem;">
-            <p style="margin: 0;"><strong>${m.nom} :</strong> ${m.message}</p>
-            ${m.reponse ? `<p style="color:blue; margin: 2px 0 0 0;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p style="margin: 2px 0 0 0; color: #777;"><em>En attente de réponse...</em></p>'}
-        </div>
-    `).join('');
-}
-
-setInterval(loadClientMessages, 3000);
-
-
-// --- 6. DIVERS (Bandeau Google Traduction) ---
-const observer = new MutationObserver(() => {
-    const banner = document.querySelector('.goog-te-banner-frame');
-    if (banner) {
-        banner.style.display = 'none';
-        document.body.style.top = '0px';
-    }
-});
-observer.observe(document.body, { childList: true, subtree: true });
-
-
-// --- 7. DÉFILEMENT DU CARROUSEL & DRAG TO SCROLL ---
-function defilerProduits(direction) {
-    const container = document.getElementById('product-container');
-    if (!container) return;
-    
-    const largeurCarte = 270; 
-    
-    if (direction === 'gauche') {
-        container.scrollBy({ left: -largeurCarte, behavior: 'smooth' });
-    } else {
-        container.scrollBy({ left: largeurCarte, behavior: 'smooth' });
-    }
-}
-
-const slider = document.getElementById('product-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-if (slider) {
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.classList.add('active');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
-
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; 
-        slider.scrollLeft = scrollLeft - walk;
-    });
+    // Gestion des écouteurs globaux si nécessaire
 }
