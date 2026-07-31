@@ -1,44 +1,54 @@
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
-    loadClientMessages();
-    loadProductsFromCJ(); // Nom de fonction corrigé pour relancer l'affichage
-    initialiserPays(); // Initialise la liste mondiale des pays dans la modale
+    loadProductsFromCJ();
+    initialiserPays();
     initEventListeners();
 };
 
 // --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
 async function loadProductsFromCJ() {
-    const jsonUrl = "update_stock.json"; 
+    const jsonUrl = "update_stock.json?v=" + new Date().getTime(); // Anti-cache radical
     const container = document.getElementById('product-container');
-    if (!container) return;
-
-    // Affichage rapide via le cache local du navigateur
-    const cachedStock = localStorage.getItem("cached_cj_stock");
-    if (cachedStock) {
-        try {
-            const stock = JSON.parse(cachedStock);
-            if (Array.isArray(stock) && stock.length > 0) {
-                renderProducts(stock, container);
-            }
-        } catch (e) {
-            localStorage.removeItem("cached_cj_stock");
-        }
+    
+    if (!container) {
+        console.error("Erreur : L'élément HTML avec l'id 'product-container' est introuvable !");
+        return;
     }
 
-    // Chargement du fichier JSON mis à jour
+    container.innerHTML = `<p style="text-align:center; width:100%; padding:20px;">Chargement des produits...</p>`;
+
     try {
         const response = await fetch(jsonUrl);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP : ${response.status} (Le fichier update_stock.json est introuvable)`);
+        }
+        
         const stock = await response.json();
         
-        if (Array.isArray(stock)) {
+        if (Array.isArray(stock) && stock.length > 0) {
             localStorage.setItem("cached_cj_stock", JSON.stringify(stock));
             renderProducts(stock, container);
+        } else {
+            container.innerHTML = `<p style="text-align:center; width:100%; color:orange;">Le fichier update_stock.json est vide.</p>`;
         }
     } catch (error) {
-        console.error("Erreur de chargement du catalogue :", error);
-        if (!cachedStock) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits. Vérifiez que update_stock.json est bien présent.</p>`;
+        console.error("Erreur de chargement :", error);
+        
+        // Secours : si le fetch échoue, on essaie le cache local
+        const cachedStock = localStorage.getItem("cached_cj_stock");
+        if (cachedStock) {
+            try {
+                const stock = JSON.parse(cachedStock);
+                renderProducts(stock, container);
+                return;
+            } catch (e) {}
         }
+        
+        container.innerHTML = `
+            <div style="text-align:center; width:100%; padding:20px; color:red;">
+                <p><strong>Impossible de charger le catalogue.</strong></p>
+                <p>Vérifiez que le fichier <code>update_stock.json</code> est bien placé à la racine du projet.</p>
+            </div>`;
     }
 }
 
@@ -54,7 +64,6 @@ function renderProducts(stock, container) {
 
         let imgSrc = rawImg.trim() !== "" ? rawImg : "https://via.placeholder.com/300x200?text=Image+Indisponible";
         
-        // Sécurisation et contournement des blocages d'images via le proxy
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
@@ -66,7 +75,6 @@ function renderProducts(stock, container) {
             prixAffiche = p.prix || "0";
         }
         
-        // Rendu de la carte cliquable ouvrant la modale
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
@@ -80,7 +88,7 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// --- 4. LISTE MONDIALE DES PAYS AVEC FRAIS DE PORT DEPUIS LA CHINE ---
+// --- 4. LISTE MONDIALE DES PAYS AVEC FRAIS DE PORT ---
 const listeDesPaysAvecFrais = [
     { code: "FR", nom: "France", shippingCost: 5.50 },
     { code: "DE", nom: "Allemagne", shippingCost: 5.00 },
@@ -361,7 +369,7 @@ function calculateShipping() {
 }
 
 function checkoutWithCard() {
-    alert("Redirection vers le système de paiement sécurisé par carte bancaire...");
+    alert("Redirection vers le système de paiement sécurisé...");
 }
 
 // --- 6. ÉVÉNEMENTS GLOBAUX ---
