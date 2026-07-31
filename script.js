@@ -1,20 +1,21 @@
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
     loadClientMessages();
-    loadProductsFromStock();
+    loadProductsFromCJ();
     initEventListeners();
 };
 
-// --- 2. GESTION DES PRODUITS (GOOGLE SHEETS) ---
-async function loadProductsFromStock() {
-    const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
+// --- 2. GESTION DES PRODUITS (API CJ DROPSHIPPING) ---
+async function loadProductsFromCJ() {
+    // Remplacez cette URL par votre endpoint d'API ou votre serveur intermédiaire qui communique avec CJ Dropshipping
+    const url = "VOTRE_ENDPOINT_API_CJ_DROPSHIPPING"; 
     const container = document.getElementById('product-container');
     if (!container) return;
 
     let hasLoadedFromCache = false;
 
-    // 1. Affichage immédiat via le cache local
-    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
+    // 1. Affichage immédiat via le cache local (pour éviter les temps de chargement)
+    const cachedStock = localStorage.getItem("cached_cj_stock");
     if (cachedStock) {
         try {
             const stock = JSON.parse(cachedStock);
@@ -23,42 +24,48 @@ async function loadProductsFromStock() {
                 hasLoadedFromCache = true;
             }
         } catch (e) {
-            localStorage.removeItem("cached_aliexpress_stock");
+            localStorage.removeItem("cached_cj_stock");
         }
     }
 
-    // 2. Si on n'a rien en cache, affichage d'un message de chargement
+    // 2. Si rien en cache, affichage d'un message de chargement
     if (!hasLoadedFromCache) {
-        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits en cours...</p>";
+        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits depuis CJ Dropshipping...</p>";
     }
 
-    // 3. Récupération en arrière-plan des données fraîches
+    // 3. Récupération en arrière-plan des données de l'API CJ
     try {
         const response = await fetch(url);
-        const stock = await response.json();
+        const data = await response.json();
         
-        if (Array.isArray(stock) && stock.length > 0) {
-            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
+        // Adaptez selon la structure de retour de votre API (ex: data.products ou data directement)
+        const stock = Array.isArray(data) ? data : (data.products || []);
+        
+        if (stock.length > 0) {
+            localStorage.setItem("cached_cj_stock", JSON.stringify(stock));
             renderProducts(stock, container);
         }
     } catch (e) {
-        console.error("Erreur lors de la mise à jour depuis Google Sheets:", e);
+        console.error("Erreur lors de la récupération depuis l'API CJ Dropshipping:", e);
+        if (!hasLoadedFromCache) {
+            container.innerHTML = "<p style='text-align:center; width:100%; padding:20px; color:red;'>Impossible de charger les produits pour le moment.</p>";
+        }
     }
 }
 
-// Fonction d'affichage directe et sécurisée des produits
+// Fonction d'affichage sécurisée des produits
 function renderProducts(stock, container) {
     container.innerHTML = ""; 
 
     stock.forEach(p => {
-        let rawImg = p.img || p.image || ""; 
+        // Adaptez les propriétés (p.img, p.nom, p.prix) selon le format de retour de l'API CJ
+        let rawImg = p.img || p.image || p.imageUrl || ""; 
         let imgSrc = rawImg.trim();
         
         const card = document.createElement('div');
-        card.className = "card product-card"; // Important pour le filtre de recherche HTML
+        card.className = "card product-card"; // Nécessaire pour le filtre de recherche de votre HTML
         card.style.cursor = "pointer";
 
-        // Événement au clic sur la carte entière pour ouvrir la modale
         card.addEventListener('click', () => {
             openModal(p, imgSrc);
         });
@@ -75,7 +82,7 @@ function renderProducts(stock, container) {
             img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
         }
 
-        img.alt = p.nom || 'Produit';
+        img.alt = p.nom || p.productName || 'Produit';
         img.loading = "lazy";
 
         img.onerror = function() {
@@ -84,11 +91,11 @@ function renderProducts(stock, container) {
         };
 
         const title = document.createElement('h3');
-        title.textContent = p.nom || 'Sans nom';
+        title.textContent = p.nom || p.productName || 'Sans nom';
 
         const price = document.createElement('p');
         price.className = "price";
-        price.textContent = `${p.prix || '0'} €`;
+        price.textContent = `${p.prix || p.sellPrice || '0'} €`;
 
         const button = document.createElement('button');
         button.textContent = "Voir les détails";
@@ -126,8 +133,8 @@ function openModal(product, imgSrc) {
         modalImg.src = "";
     }
 
-    modalTitle.textContent = product.nom || 'Sans nom';
-    modalPrice.textContent = `Prix : ${product.prix || '0'} €`;
+    modalTitle.textContent = product.nom || product.productName || 'Sans nom';
+    modalPrice.textContent = `Prix : ${product.prix || product.sellPrice || '0'} €`;
     modalStock.textContent = product.stock ? `Stock disponible : ${product.stock}` : '';
     modalDetails.textContent = product.description || 'Aucune description supplémentaire disponible pour ce produit.';
 
@@ -144,7 +151,6 @@ function closeModal() {
 
 // --- 4. ÉVÉNEMENTS INTERACTIFS & RECHERCHE ---
 function initEventListeners() {
-    // Bouton du header pour scroller vers les produits
     const ctaBtn = document.querySelector('header button');
     if (ctaBtn) {
         ctaBtn.addEventListener('click', () => {
@@ -155,14 +161,12 @@ function initEventListeners() {
         });
     }
 
-    // Recherche en direct (liée à l'input de votre HTML)
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', filtrerProduits);
     }
 }
 
-// Fonction de filtrage par nom de produit
 function filtrerProduits() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const cartesProduits = document.querySelectorAll('.product-card');
@@ -251,7 +255,6 @@ function defilerProduits(direction) {
     }
 }
 
-// Gestion du glisser-déposer (Drag to scroll) à la souris sur le carrousel
 const slider = document.getElementById('product-container');
 let isDown = false;
 let startX;
