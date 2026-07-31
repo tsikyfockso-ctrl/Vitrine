@@ -5,16 +5,16 @@ window.onload = () => {
     initEventListeners();
 };
 
-// --- 2. GESTION DES PRODUITS (DEPUIS UPDATE_STOCK.JSON) ---
+// --- 2. GESTION DES PRODUITS (GOOGLE SHEETS) ---
 async function loadProductsFromStock() {
-    const jsonUrl = "update_stock.json"; // Fichier JSON local mis à jour par GitHub Actions
+    const url = "https://script.google.com/macros/s/AKfycbyOxZJjlRvmrw2U-al4CZa8ZsW4FsWwRkH9cMvRig84qqpwr0rp3lsnfpnjGjOAl8Xm/exec";
     const container = document.getElementById('product-container');
     if (!container) return;
 
     let hasLoadedFromCache = false;
 
-    // 1. Affichage immédiat via le cache local si disponible
-    const cachedStock = localStorage.getItem("cached_mayah_stock");
+    // 1. Affichage immédiat via le cache local
+    const cachedStock = localStorage.getItem("cached_aliexpress_stock");
     if (cachedStock) {
         try {
             const stock = JSON.parse(cachedStock);
@@ -23,41 +23,42 @@ async function loadProductsFromStock() {
                 hasLoadedFromCache = true;
             }
         } catch (e) {
-            localStorage.removeItem("cached_mayah_stock");
+            localStorage.removeItem("cached_aliexpress_stock");
         }
     }
 
+    // 2. Si on n'a rien en cache, affichage d'un message de chargement
     if (!hasLoadedFromCache) {
-        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits de Mayah Store...</p>";
+        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits en cours...</p>";
     }
 
-    // 2. Récupération en arrière-plan du fichier update_stock.json mis à jour
+    // 3. Récupération en arrière-plan des données fraîches
     try {
-        const response = await fetch(jsonUrl);
+        const response = await fetch(url);
         const stock = await response.json();
         
         if (Array.isArray(stock) && stock.length > 0) {
-            localStorage.setItem("cached_mayah_stock", JSON.stringify(stock));
+            localStorage.setItem("cached_aliexpress_stock", JSON.stringify(stock));
             renderProducts(stock, container);
         }
     } catch (e) {
-        console.error("Erreur lors du chargement de update_stock.json:", e);
+        console.error("Erreur lors de la mise à jour depuis Google Sheets:", e);
     }
 }
 
-// Fonction d'affichage des cartes produits
+// Fonction d'affichage directe et sécurisée des produits
 function renderProducts(stock, container) {
     container.innerHTML = ""; 
 
     stock.forEach(p => {
-        // Récupération de la première image du tableau, ou fallback
-        let rawImg = (Array.isArray(p.images) && p.images.length > 0) ? p.images[0] : ""; 
+        let rawImg = p.img || p.image || ""; 
         let imgSrc = rawImg.trim();
         
         const card = document.createElement('div');
-        card.className = "card product-card";
+        card.className = "card product-card"; // Important pour le filtre de recherche HTML
         card.style.cursor = "pointer";
 
+        // Événement au clic sur la carte entière pour ouvrir la modale
         card.addEventListener('click', () => {
             openModal(p, imgSrc);
         });
@@ -66,6 +67,7 @@ function renderProducts(stock, container) {
         imgContainer.className = "card-img-container";
 
         const img = document.createElement('img');
+        
         if (imgSrc) {
             let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
             img.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
@@ -76,18 +78,23 @@ function renderProducts(stock, container) {
         img.alt = p.nom || 'Produit';
         img.loading = "lazy";
 
+        img.onerror = function() {
+            this.src = imgSrc;
+            this.onerror = null; 
+        };
+
         const title = document.createElement('h3');
         title.textContent = p.nom || 'Sans nom';
 
         const price = document.createElement('p');
-        let displayPrice = (Array.isArray(p.prix) && p.prix.length > 0 && p.prix[0]) ? p.prix[0] : '0';
-        price.textContent = `Prix : ${displayPrice}€`;
+        price.className = "price";
+        price.textContent = `${p.prix || '0'} €`;
 
         const button = document.createElement('button');
-        button.textContent = "Ajouter au panier";
+        button.textContent = "Voir les détails";
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            alert(`Produit ajouté au panier : ${p.nom || 'Produit'}`);
+            openModal(p, imgSrc);
         });
 
         imgContainer.appendChild(img);
@@ -100,7 +107,8 @@ function renderProducts(stock, container) {
     });
 }
 
-// --- FONCTIONS POUR LA MODALE DE DÉTAILS ---
+
+// --- 3. GESTION DE LA MODALE DE DÉTAILS ---
 function openModal(product, imgSrc) {
     const modal = document.getElementById('productModal');
     const modalImg = document.getElementById('modalImg');
@@ -119,13 +127,9 @@ function openModal(product, imgSrc) {
     }
 
     modalTitle.textContent = product.nom || 'Sans nom';
-    
-    let priceText = Array.isArray(product.prix) ? product.prix.filter(Boolean).join('€ / ') + '€' : '0€';
-    let sizeText = Array.isArray(product.tailles) ? product.tailles.filter(Boolean).join(', ') : '';
-
-    modalPrice.innerHTML = `<strong>Prix :</strong> ${priceText}<br><strong>Tailles :</strong> ${sizeText}`;
-    modalStock.textContent = product.stock !== undefined ? `Stock global disponible : ${product.stock}` : '';
-    modalDetails.textContent = product.details || 'Aucune description supplémentaire disponible.';
+    modalPrice.textContent = `Prix : ${product.prix || '0'} €`;
+    modalStock.textContent = product.stock ? `Stock disponible : ${product.stock}` : '';
+    modalDetails.textContent = product.description || 'Aucune description supplémentaire disponible pour ce produit.';
 
     modal.style.display = 'flex';
 }
@@ -137,9 +141,11 @@ function closeModal() {
     }
 }
 
-// --- 3. ÉVÉNEMENTS INTERACTIFS ---
+
+// --- 4. ÉVÉNEMENTS INTERACTIFS & RECHERCHE ---
 function initEventListeners() {
-    const ctaBtn = document.getElementById('cta-btn');
+    // Bouton du header pour scroller vers les produits
+    const ctaBtn = document.querySelector('header button');
     if (ctaBtn) {
         ctaBtn.addEventListener('click', () => {
             const produitsSection = document.querySelector('#produits');
@@ -148,9 +154,31 @@ function initEventListeners() {
             }
         });
     }
+
+    // Recherche en direct (liée à l'input de votre HTML)
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', filtrerProduits);
+    }
 }
 
-// --- 4. MESSAGERIE CLIENT ---
+// Fonction de filtrage par nom de produit
+function filtrerProduits() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const cartesProduits = document.querySelectorAll('.product-card');
+
+    cartesProduits.forEach(carte => {
+        const titre = carte.querySelector('h3').textContent.toLowerCase();
+        if (titre.includes(input)) {
+            carte.style.display = ""; 
+        } else {
+            carte.style.display = "none"; 
+        }
+    });
+}
+
+
+// --- 5. MESSAGERIE CLIENT ---
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
@@ -162,7 +190,10 @@ function sendComment() {
     const nameInput = document.getElementById("userName");
     const msgInput = document.getElementById("userMsg");
     
-    if (!nameInput.value || !msgInput.value) return alert("Veuillez remplir votre nom et message.");
+    if (!nameInput.value || !msgInput.value) {
+        alert("Veuillez remplir votre nom et message.");
+        return;
+    }
 
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     messages.push({
@@ -185,19 +216,32 @@ function loadClientMessages() {
     const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
     container.innerHTML = messages.map(m => `
-        <div class="msg-card">
-            <p><strong>${m.nom} :</strong> ${m.message}</p>
-            ${m.reponse ? `<p style="color:blue;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p><em>En attente de réponse...</em></p>'}
+        <div class="msg-card" style="background: #f9f9f9; padding: 8px; margin-bottom: 5px; border-radius: 4px; font-size: 0.9rem;">
+            <p style="margin: 0;"><strong>${m.nom} :</strong> ${m.message}</p>
+            ${m.reponse ? `<p style="color:blue; margin: 2px 0 0 0;"><strong>Mayah Store :</strong> ${m.reponse}</p>` : '<p style="margin: 2px 0 0 0; color: #777;"><em>En attente de réponse...</em></p>'}
         </div>
     `).join('');
 }
 
-setInterval(loadClientMessages, 2000);
+setInterval(loadClientMessages, 3000);
 
-// --- 5. DIVERS & DÉFILEMENT ---
+
+// --- 6. DIVERS (Bandeau Google Traduction) ---
+const observer = new MutationObserver(() => {
+    const banner = document.querySelector('.goog-te-banner-frame');
+    if (banner) {
+        banner.style.display = 'none';
+        document.body.style.top = '0px';
+    }
+});
+observer.observe(document.body, { childList: true, subtree: true });
+
+
+// --- 7. DÉFILEMENT DU CARROUSEL & DRAG TO SCROLL ---
 function defilerProduits(direction) {
     const container = document.getElementById('product-container');
     if (!container) return;
+    
     const largeurCarte = 270; 
     
     if (direction === 'gauche') {
@@ -207,6 +251,7 @@ function defilerProduits(direction) {
     }
 }
 
+// Gestion du glisser-déposer (Drag to scroll) à la souris sur le carrousel
 const slider = document.getElementById('product-container');
 let isDown = false;
 let startX;
