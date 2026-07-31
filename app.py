@@ -51,13 +51,13 @@ def api_calculer_livraison():
         response = requests.post(url, json=payload, headers=headers)
         data = response.json()
         if data.get("success") and data.get("data") and len(data["data"]) > 0:
-            # Récupération dynamique du véritable prix de transport CJ
+            # Récupération directe du vrai tarif d'expédition CJ
             price = data["data"][0].get("logisticPrice", 0)
             return jsonify({"success": True, "logisticPrice": float(price)})
     except Exception:
         pass
 
-    return jsonify({"success": False, "logisticPrice": 5.00})
+    return jsonify({"success": False, "logisticPrice": 0.00})
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
