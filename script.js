@@ -7,7 +7,7 @@ window.onload = () => {
 
 // --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
 async function loadProductsFromCJ() {
-    const jsonUrl = "update_stock.json?v=" + new Date().getTime(); // Anti-cache radical
+    const jsonUrl = "update_stock.json?v=" + new Date().getTime(); // Anti-cache
     const container = document.getElementById('product-container');
     
     if (!container) {
@@ -20,7 +20,7 @@ async function loadProductsFromCJ() {
     try {
         const response = await fetch(jsonUrl);
         if (!response.ok) {
-            throw new Error(`Erreur HTTP : ${response.status} (Le fichier update_stock.json est introuvable)`);
+            throw new Error(`Erreur HTTP : ${response.status}`);
         }
         
         const stock = await response.json();
@@ -34,7 +34,6 @@ async function loadProductsFromCJ() {
     } catch (error) {
         console.error("Erreur de chargement :", error);
         
-        // Secours : si le fetch échoue, on essaie le cache local
         const cachedStock = localStorage.getItem("cached_cj_stock");
         if (cachedStock) {
             try {
@@ -47,12 +46,12 @@ async function loadProductsFromCJ() {
         container.innerHTML = `
             <div style="text-align:center; width:100%; padding:20px; color:red;">
                 <p><strong>Impossible de charger le catalogue.</strong></p>
-                <p>Vérifiez que le fichier <code>update_stock.json</code> est bien placé à la racine du projet.</p>
+                <p>Vérifiez que le fichier <code>update_stock.json</code> est bien à la racine.</p>
             </div>`;
     }
 }
 
-// --- 3. AFFICHAGE DES PRODUITS SUR LA VITRINE ---
+// --- 3. AFFICHAGE DES PRODUITS ---
 function renderProducts(stock, container) {
     container.innerHTML = stock.map((p, index) => {
         let rawImg = "";
@@ -88,197 +87,71 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// --- 4. LISTE MONDIALE DES PAYS AVEC FRAIS DE PORT ---
+// --- 4. LISTE MONDIALE DE TOUS LES PAYS ---
 const listeDesPaysAvecFrais = [
-    { code: "FR", nom: "France", shippingCost: 5.50 },
-    { code: "DE", nom: "Allemagne", shippingCost: 5.00 },
-    { code: "BE", nom: "Belgique", shippingCost: 5.00 },
-    { code: "CH", nom: "Suisse", shippingCost: 7.00 },
-    { code: "CA", nom: "Canada", shippingCost: 9.50 },
-    { code: "US", nom: "États-Unis", shippingCost: 8.50 },
-    { code: "GB", nom: "Royaume-Uni", shippingCost: 6.00 },
-    { code: "ES", nom: "Espagne", shippingCost: 5.50 },
-    { code: "IT", nom: "Italie", shippingCost: 5.50 },
-    { code: "CN", nom: "Chine", shippingCost: 2.00 },
-    { code: "AF", nom: "Afghanistan", shippingCost: 15.00 },
-    { code: "AL", nom: "Albanie", shippingCost: 10.00 },
-    { code: "DZ", nom: "Algérie", shippingCost: 12.00 },
-    { code: "AD", nom: "Andorre", shippingCost: 8.00 },
-    { code: "AO", nom: "Angola", shippingCost: 15.00 },
-    { code: "AG", nom: "Antigua-et-Barbuda", shippingCost: 14.00 },
-    { code: "SA", nom: "Arabie saoudite", shippingCost: 9.00 },
-    { code: "AR", nom: "Argentine", shippingCost: 12.00 },
-    { code: "AM", nom: "Arménie", shippingCost: 11.00 },
-    { code: "AU", nom: "Australie", shippingCost: 8.50 },
-    { code: "AT", nom: "Autriche", shippingCost: 5.50 },
-    { code: "AZ", nom: "Azerbaïdjan", shippingCost: 11.00 },
-    { code: "BS", nom: "Bahamas", shippingCost: 12.00 },
-    { code: "BH", nom: "Bahreïn", shippingCost: 10.00 },
-    { code: "BD", nom: "Bangladesh", shippingCost: 10.00 },
-    { code: "BB", nom: "Barbade", shippingCost: 12.00 },
-    { code: "BZ", nom: "Belize", shippingCost: 13.00 },
-    { code: "BJ", nom: "Bénin", shippingCost: 15.00 },
-    { code: "BT", nom: "Bhoutan", shippingCost: 12.00 },
-    { code: "BY", nom: "Biélorussie", shippingCost: 10.00 },
-    { code: "BO", nom: "Bolivie", shippingCost: 13.00 },
-    { code: "BA", nom: "Bosnie-Herzégovine", shippingCost: 9.50 },
-    { code: "BW", nom: "Botswana", shippingCost: 14.00 },
-    { code: "BR", nom: "Brésil", shippingCost: 11.00 },
-    { code: "BN", nom: "Brunéi", shippingCost: 9.00 },
-    { code: "BG", nom: "Bulgarie", shippingCost: 6.50 },
-    { code: "BF", nom: "Burkina Faso", shippingCost: 15.00 },
-    { code: "BI", nom: "Burundi", shippingCost: 16.00 },
-    { code: "KH", nom: "Cambodge", shippingCost: 8.50 },
-    { code: "CM", nom: "Cameroun", shippingCost: 15.00 },
-    { code: "CV", nom: "Cap-Vert", shippingCost: 14.00 },
-    { code: "CF", nom: "République centrafricaine", shippingCost: 16.00 },
-    { code: "CL", nom: "Chili", shippingCost: 10.50 },
-    { code: "CY", nom: "Chypre", shippingCost: 7.50 },
-    { code: "CO", nom: "Colombie", shippingCost: 11.00 },
-    { code: "KM", nom: "Comores", shippingCost: 15.00 },
-    { code: "CG", nom: "Congo", shippingCost: 15.00 },
-    { code: "CD", nom: "République démocratique du Congo", shippingCost: 16.00 },
-    { code: "KR", nom: "Corée du Sud", shippingCost: 6.50 },
-    { code: "CR", nom: "Costa Rica", shippingCost: 12.00 },
-    { code: "CI", nom: "Côte d'Ivoire", shippingCost: 14.00 },
-    { code: "HR", nom: "Croatie", shippingCost: 7.00 },
-    { code: "CU", nom: "Cuba", shippingCost: 15.00 },
-    { code: "DK", nom: "Danemark", shippingCost: 6.00 },
-    { code: "DJ", nom: "Djibouti", shippingCost: 15.00 },
-    { code: "DM", nom: "Dominique", shippingCost: 13.00 },
-    { code: "EG", nom: "Égypte", shippingCost: 10.00 },
-    { code: "AE", nom: "Émirats arabes unis", shippingCost: 8.50 },
-    { code: "EC", nom: "Équateur", shippingCost: 12.00 },
-    { code: "ER", nom: "Érythrée", shippingCost: 16.00 },
-    { code: "EE", nom: "Estonie", shippingCost: 6.50 },
-    { code: "ET", nom: "Éthiopie", shippingCost: 15.00 },
-    { code: "FJ", nom: "Fidji", shippingCost: 13.00 },
-    { code: "FI", nom: "Finlande", shippingCost: 6.00 },
-    { code: "GA", nom: "Gabon", shippingCost: 14.00 },
-    { code: "GM", nom: "Gambie", shippingCost: 15.00 },
-    { code: "GE", nom: "Géorgie", shippingCost: 10.00 },
-    { code: "GH", nom: "Ghana", shippingCost: 14.00 },
-    { code: "GR", nom: "Grèce", shippingCost: 6.50 },
-    { code: "GD", nom: "Grenade", shippingCost: 13.00 },
-    { code: "GT", nom: "Guatemala", shippingCost: 12.00 },
-    { code: "GN", nom: "Guinée", shippingCost: 15.00 },
-    { code: "GQ", nom: "Guinée équatoriale", shippingCost: 15.00 },
-    { code: "GW", nom: "Guinée-Bissau", shippingCost: 15.00 },
-    { code: "GY", nom: "Guyana", shippingCost: 14.00 },
-    { code: "HT", nom: "Haïti", shippingCost: 14.00 },
-    { code: "HN", nom: "Honduras", shippingCost: 13.00 },
-    { code: "HU", nom: "Hongrie", shippingCost: 6.50 },
-    { code: "IN", nom: "Inde", shippingCost: 8.00 },
-    { code: "ID", nom: "Indonésie", shippingCost: 8.00 },
-    { code: "IQ", nom: "Irak", shippingCost: 12.00 },
-    { code: "IR", nom: "Iran", shippingCost: 14.00 },
-    { code: "IE", nom: "Irlande", shippingCost: 6.00 },
-    { code: "IS", nom: "Islande", shippingCost: 7.50 },
-    { code: "IL", nom: "Israël", shippingCost: 8.50 },
-    { code: "JM", nom: "Jamaïque", shippingCost: 12.00 },
-    { code: "JP", nom: "Japon", shippingCost: 6.50 },
-    { code: "JO", nom: "Jordanie", shippingCost: 10.00 },
-    { code: "KZ", nom: "Kazakhstan", shippingCost: 10.00 },
-    { code: "KE", nom: "Kenya", shippingCost: 13.00 },
-    { code: "KG", nom: "Kirghizistan", shippingCost: 11.00 },
-    { code: "KI", nom: "Kiribati", shippingCost: 15.00 },
-    { code: "KW", nom: "Koweït", shippingCost: 9.00 },
-    { code: "LA", nom: "Laos", shippingCost: 8.50 },
-    { code: "LS", nom: "Lesotho", shippingCost: 15.00 },
-    { code: "LV", nom: "Lettonie", shippingCost: 6.50 },
-    { code: "LB", nom: "Liban", shippingCost: 11.00 },
-    { code: "LR", nom: "Liberia", shippingCost: 15.00 },
-    { code: "LY", nom: "Libye", shippingCost: 14.00 },
-    { code: "LI", nom: "Liechtenstein", shippingCost: 8.00 },
-    { code: "LT", nom: "Lituanie", shippingCost: 6.50 },
-    { code: "LU", nom: "Luxembourg", shippingCost: 5.50 },
-    { code: "MK", nom: "Macédoine du Nord", shippingCost: 9.50 },
-    { code: "MG", nom: "Madagascar", shippingCost: 15.00 },
-    { code: "MY", nom: "Malaisie", shippingCost: 7.50 },
-    { code: "MW", nom: "Malawi", shippingCost: 15.00 },
-    { code: "MV", nom: "Maldives", shippingCost: 12.00 },
-    { code: "ML", nom: "Mali", shippingCost: 15.00 },
-    { code: "MT", nom: "Malte", shippingCost: 7.00 },
-    { code: "MA", nom: "Maroc", shippingCost: 10.00 },
-    { code: "MU", nom: "Maurice", shippingCost: 13.00 },
-    { code: "MR", nom: "Mauritanie", shippingCost: 15.00 },
-    { code: "MX", nom: "Mexique", shippingCost: 9.50 },
-    { code: "FM", nom: "Micronésie", shippingCost: 15.00 },
-    { code: "MD", nom: "Moldavie", shippingCost: 9.50 },
-    { code: "MC", nom: "Monaco", shippingCost: 5.50 },
-    { code: "MN", nom: "Mongolie", shippingCost: 10.00 },
-    { code: "ME", nom: "Monténégro", shippingCost: 9.50 },
-    { code: "MZ", nom: "Mozambique", shippingCost: 15.00 },
-    { code: "MM", nom: "Myanmar", shippingCost: 9.50 },
-    { code: "NA", nom: "Namibie", shippingCost: 14.00 },
-    { code: "NR", nom: "Nauru", shippingCost: 15.00 },
-    { code: "NP", nom: "Népal", shippingCost: 11.00 },
-    { code: "NI", nom: "Nicaragua", shippingCost: 13.00 },
-    { code: "NE", nom: "Niger", shippingCost: 15.00 },
-    { code: "NG", nom: "Nigéria", shippingCost: 14.00 },
-    { code: "NO", nom: "Norvège", shippingCost: 6.50 },
-    { code: "NZ", nom: "Nouvelle-Zélande", shippingCost: 9.00 },
-    { code: "OM", nom: "Oman", shippingCost: 9.50 },
-    { code: "UG", nom: "Ouganda", shippingCost: 15.00 },
-    { code: "UZ", nom: "Ouzbékistan", shippingCost: 11.00 },
-    { code: "PK", nom: "Pakistan", shippingCost: 10.50 },
-    { code: "PW", nom: "Palaos", shippingCost: 15.00 },
-    { code: "PS", nom: "Palestine", shippingCost: 11.00 },
-    { code: "PA", nom: "Panama", shippingCost: 12.00 },
-    { code: "PG", nom: "Papouasie-Nouvelle-Guinée", shippingCost: 14.00 },
-    { code: "PY", nom: "Paraguay", shippingCost: 13.00 },
-    { code: "NL", nom: "Pays-Bas", shippingCost: 5.50 },
-    { code: "PE", nom: "Pérou", shippingCost: 12.00 },
-    { code: "PH", nom: "Philippines", shippingCost: 8.00 },
-    { code: "PL", nom: "Pologne", shippingCost: 6.00 },
-    { code: "PT", nom: "Portugal", shippingCost: 6.00 },
-    { code: "QA", nom: "Qatar", shippingCost: 9.50 },
-    { code: "RO", nom: "Roumanie", shippingCost: 6.50 },
-    { code: "RU", nom: "Russie", shippingCost: 9.00 },
-    { code: "RW", nom: "Rwanda", shippingCost: 15.00 },
-    { code: "KN", nom: "Saint-Kitts-et-Nevis", shippingCost: 13.00 },
-    { code: "SM", nom: "Saint-Marin", shippingCost: 6.00 },
-    { code: "VC", nom: "Saint-Vincent-et-les-Grenadines", shippingCost: 13.00 },
-    { code: "LC", nom: "Sainte-Lucie", shippingCost: 13.00 },
-    { code: "SB", nom: "Salomon", shippingCost: 15.00 },
-    { code: "WS", nom: "Samoa", shippingCost: 15.00 },
-    { code: "ST", nom: "Sao Tomé-et-Principe", shippingCost: 15.00 },
-    { code: "SN", nom: "Sénégal", shippingCost: 14.00 },
-    { code: "RS", nom: "Serbie", shippingCost: 9.00 },
-    { code: "SC", nom: "Seychelles", shippingCost: 13.00 },
-    { code: "SL", nom: "Sierra Leone", shippingCost: 15.00 },
-    { code: "SG", nom: "Singapour", shippingCost: 7.00 },
-    { code: "SK", nom: "Slovaquie", shippingCost: 6.50 },
-    { code: "SI", nom: "Slovénie", shippingCost: 6.50 },
-    { code: "SO", nom: "Somalie", shippingCost: 16.00 },
-    { code: "SD", nom: "Soudan", shippingCost: 15.00 },
-    { code: "SS", nom: "Soudan du Sud", shippingCost: 16.00 },
-    { code: "LK", nom: "Sri Lanka", shippingCost: 10.00 },
-    { code: "SE", nom: "Suède", shippingCost: 6.00 },
-    { code: "SR", nom: "Suriname", shippingCost: 14.00 },
-    { code: "SY", nom: "Syrie", shippingCost: 15.00 },
-    { code: "TJ", nom: "Tadjikistan", shippingCost: 11.00 },
-    { code: "TZ", nom: "Tanzanie", shippingCost: 15.00 },
-    { code: "TD", nom: "Tchad", shippingCost: 16.00 },
-    { code: "CZ", nom: "Tchéquie", shippingCost: 6.50 },
-    { code: "TH", nom: "Thaïlande", shippingCost: 7.50 },
-    { code: "TL", nom: "Timor oriental", shippingCost: 13.00 },
-    { code: "TG", nom: "Togo", shippingCost: 15.00 },
-    { code: "TO", nom: "Tonga", shippingCost: 15.00 },
-    { code: "TT", nom: "Trinité-et-Tobago", shippingCost: 13.00 },
-    { code: "TN", nom: "Tunisie", shippingCost: 10.50 },
-    { code: "TM", nom: "Turkménistan", shippingCost: 12.00 },
-    { code: "TR", nom: "Turquie", shippingCost: 8.00 },
-    { code: "TV", nom: "Tuvalu", shippingCost: 15.00 },
-    { code: "UA", nom: "Ukraine", shippingCost: 8.50 },
-    { code: "UY", nom: "Uruguay", shippingCost: 12.00 },
-    { code: "VU", nom: "Vanuatu", shippingCost: 15.00 },
-    { code: "VA", nom: "Vatican", shippingCost: 6.00 },
-    { code: "VE", nom: "Venezuela", shippingCost: 14.00 },
-    { code: "VN", nom: "Viêt Nam", shippingCost: 7.50 },
-    { code: "YE", nom: "Yémen", shippingCost: 14.00 },
-    { code: "ZM", nom: "Zambie", shippingCost: 15.00 },
-    { code: "ZW", nom: "Zimbabwe", shippingCost: 15.00 }
+    { code: "FR", nom: "France" }, { code: "DE", nom: "Allemagne" }, { code: "BE", nom: "Belgique" },
+    { code: "CH", nom: "Suisse" }, { code: "CA", nom: "Canada" }, { code: "US", nom: "États-Unis" },
+    { code: "GB", nom: "Royaume-Uni" }, { code: "ES", nom: "Espagne" }, { code: "IT", nom: "Italie" },
+    { code: "CN", nom: "Chine" }, { code: "AF", nom: "Afghanistan" }, { code: "AL", nom: "Albanie" },
+    { code: "DZ", nom: "Algérie" }, { code: "AD", nom: "Andorre" }, { code: "AO", nom: "Angola" },
+    { code: "AG", nom: "Antigua-et-Barbuda" }, { code: "SA", nom: "Arabie saoudite" }, { code: "AR", nom: "Argentine" },
+    { code: "AM", nom: "Arménie" }, { code: "AU", nom: "Australie" }, { code: "AT", nom: "Autriche" },
+    { code: "AZ", nom: "Azerbaïdjan" }, { code: "BS", nom: "Bahamas" }, { code: "BH", nom: "Bahreïn" },
+    { code: "BD", nom: "Bangladesh" }, { code: "BB", nom: "Barbade" }, { code: "BZ", nom: "Belize" },
+    { code: "BJ", nom: "Bénin" }, { code: "BT", nom: "Bhoutan" }, { code: "BY", nom: "Biélorussie" },
+    { code: "BO", nom: "Bolivie" }, { code: "BA", nom: "Bosnie-Herzégovine" }, { code: "BW", nom: "Botswana" },
+    { code: "BR", nom: "Brésil" }, { code: "BN", nom: "Brunéi" }, { code: "BG", nom: "Bulgarie" },
+    { code: "BF", nom: "Burkina Faso" }, { code: "BI", nom: "Burundi" }, { code: "KH", nom: "Cambodge" },
+    { code: "CM", nom: "Cameroun" }, { code: "CV", nom: "Cap-Vert" }, { code: "CF", nom: "République centrafricaine" },
+    { code: "CL", nom: "Chili" }, { code: "CY", nom: "Chypre" }, { code: "CO", nom: "Colombie" },
+    { code: "KM", nom: "Comores" }, { code: "CG", nom: "Congo" }, { code: "CD", nom: "République démocratique du Congo" },
+    { code: "KR", nom: "Corée du Sud" }, { code: "CR", nom: "Costa Rica" }, { code: "CI", nom: "Côte d'Ivoire" },
+    { code: "HR", nom: "Croatie" }, { code: "CU", nom: "Cuba" }, { code: "DK", nom: "Danemark" },
+    { code: "DJ", nom: "Djibouti" }, { code: "DM", nom: "Dominique" }, { code: "EG", nom: "Égypte" },
+    { code: "AE", nom: "Émirats arabes unis" }, { code: "EC", nom: "Équateur" }, { code: "ER", nom: "Érythrée" },
+    { code: "EE", nom: "Estonie" }, { code: "ET", nom: "Éthiopie" }, { code: "FJ", nom: "Fidji" },
+    { code: "FI", nom: "Finlande" }, { code: "GA", nom: "Gabon" }, { code: "GM", nom: "Gambie" },
+    { code: "GE", nom: "Géorgie" }, { code: "GH", nom: "Ghana" }, { code: "GR", nom: "Grèce" },
+    { code: "GD", nom: "Grenade" }, { code: "GT", nom: "Guatemala" }, { code: "GN", nom: "Guinée" },
+    { code: "GQ", nom: "Guinée équatoriale" }, { code: "GW", nom: "Guinée-Bissau" }, { code: "GY", nom: "Guyana" },
+    { code: "HT", nom: "Haïti" }, { code: "HN", nom: "Honduras" }, { code: "HU", nom: "Hongrie" },
+    { code: "IN", nom: "Inde" }, { code: "ID", nom: "Indonésie" }, { code: "IQ", nom: "Irak" },
+    { code: "IR", nom: "Iran" }, { code: "IE", nom: "Irlande" }, { code: "IS", nom: "Islande" },
+    { code: "IL", nom: "Israël" }, { code: "JM", nom: "Jamaïque" }, { code: "JP", nom: "Japon" },
+    { code: "JO", nom: "Jordanie" }, { code: "KZ", nom: "Kazakhstan" }, { code: "KE", nom: "Kenya" },
+    { code: "KG", nom: "Kirghizistan" }, { code: "KI", nom: "Kiribati" }, { code: "KW", nom: "Koweït" },
+    { code: "LA", nom: "Laos" }, { code: "LS", nom: "Lesotho" }, { code: "LV", nom: "Lettonie" },
+    { code: "LB", nom: "Liban" }, { code: "LR", nom: "Liberia" }, { code: "LY", nom: "Libye" },
+    { code: "LI", nom: "Liechtenstein" }, { code: "LT", nom: "Lituanie" }, { code: "LU", nom: "Luxembourg" },
+    { code: "MK", nom: "Macédoine du Nord" }, { code: "MG", nom: "Madagascar" }, { code: "MY", nom: "Malaisie" },
+    { code: "MW", nom: "Malawi" }, { code: "MV", nom: "Maldives" }, { code: "ML", nom: "Mali" },
+    { code: "MT", nom: "Malte" }, { code: "MA", nom: "Maroc" }, { code: "MU", nom: "Maurice" },
+    { code: "MR", nom: "Mauritanie" }, { code: "MX", nom: "Mexique" }, { code: "FM", nom: "Micronésie" },
+    { code: "MD", nom: "Moldavie" }, { code: "MC", nom: "Monaco" }, { code: "MN", nom: "Mongolie" },
+    { code: "ME", nom: "Monténégro" }, { code: "MZ", nom: "Mozambique" }, { code: "MM", nom: "Myanmar" },
+    { code: "NA", nom: "Namibie" }, { code: "NR", nom: "Nauru" }, { code: "NP", nom: "Népal" },
+    { code: "NI", nom: "Nicaragua" }, { code: "NE", nom: "Niger" }, { code: "NG", nom: "Nigéria" },
+    { code: "NO", nom: "Norvège" }, { code: "NZ", nom: "Nouvelle-Zélande" }, { code: "OM", nom: "Oman" },
+    { code: "UG", nom: "Ouganda" }, { code: "UZ", nom: "Ouzbékistan" }, { code: "PK", nom: "Pakistan" },
+    { code: "PW", nom: "Palaos" }, { code: "PS", nom: "Palestine" }, { code: "PA", nom: "Panama" },
+    { code: "PG", nom: "Papouasie-Nouvelle-Guinée" }, { code: "PY", nom: "Paraguay" }, { code: "NL", nom: "Pays-Bas" },
+    { code: "PE", nom: "Pérou" }, { code: "PH", nom: "Philippines" }, { code: "PL", nom: "Pologne" },
+    { code: "PT", nom: "Portugal" }, { code: "QA", nom: "Qatar" }, { code: "RO", nom: "Roumanie" },
+    { code: "RU", nom: "Russie" }, { code: "RW", nom: "Rwanda" }, { code: "KN", nom: "Saint-Kitts-et-Nevis" },
+    { code: "SM", nom: "Saint-Marin" }, { code: "VC", nom: "Saint-Vincent-et-les-Grenadines" }, { code: "LC", nom: "Sainte-Lucie" },
+    { code: "SB", nom: "Salomon" }, { code: "WS", nom: "Samoa" }, { code: "ST", nom: "Sao Tomé-et-Principe" },
+    { code: "SN", nom: "Sénégal" }, { code: "RS", nom: "Serbie" }, { code: "SC", nom: "Seychelles" },
+    { code: "SL", nom: "Sierra Leone" }, { code: "SG", nom: "Singapour" }, { code: "SK", nom: "Slovaquie" },
+    { code: "SI", nom: "Slovénie" }, { code: "SO", nom: "Somalie" }, { code: "SD", nom: "Soudan" },
+    { code: "SS", nom: "Soudan du Sud" }, { code: "LK", nom: "Sri Lanka" }, { code: "SE", nom: "Suède" },
+    { code: "SR", nom: "Suriname" }, { code: "SY", nom: "Syrie" }, { code: "TJ", nom: "Tadjikistan" },
+    { code: "TZ", nom: "Tanzanie" }, { code: "TD", nom: "Tchad" }, { code: "CZ", nom: "Tchéquie" },
+    { code: "TH", nom: "Thaïlande" }, { code: "TL", nom: "Timor oriental" }, { code: "TG", nom: "Togo" },
+    { code: "TO", nom: "Tonga" }, { code: "TT", nom: "Trinité-et-Tobago" }, { code: "TN", nom: "Tunisie" },
+    { code: "TM", nom: "Turkménistan" }, { code: "TR", nom: "Turquie" }, { code: "TV", nom: "Tuvalu" },
+    { code: "UA", nom: "Ukraine" }, { code: "UY", nom: "Uruguay" }, { code: "VU", nom: "Vanuatu" },
+    { code: "VA", nom: "Vatican" }, { code: "VE", nom: "Venezuela" }, { code: "VN", nom: "Viêt Nam" },
+    { code: "YE", nom: "Yémen" }, { code: "ZM", nom: "Zambie" }, { code: "ZW", nom: "Zimbabwe" }
 ];
 
 function initialiserPays() {
@@ -349,21 +222,39 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
+// --- 6. CALCUL AUTOMATIQUE DU PORT PAR PRODUIT & PAR PAYS MONDIAL ---
 function calculateShipping() {
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
-    const paysTrouve = listeDesPaysAvecFrais.find(p => p.code === countryCode);
-    let shippingCost = paysTrouve ? paysTrouve.shippingCost : 5.50;
+    
+    // Attribution automatique d'un coefficient selon la zone géographique mondiale
+    let multiplicateurPays = 1.0; 
+    const zonesLoin = ["US", "CA", "AR", "BR", "MX", "AU", "NZ", "JP", "KR", "CN", "ZA", "AE"];
+    const zonesTresLoin = ["RE", "MG", "NC", "PF", "VU", "FJ", "MU"];
+
+    if (zonesTresLoin.includes(countryCode)) {
+        multiplicateurPays = 2.2;
+    } else if (zonesLoin.includes(countryCode)) {
+        multiplicateurPays = 1.5;
+    }
+
+    // Récupération de la base de port propre au produit (générée par Python) ou 4.00€ par défaut
+    let shippingBaseProduit = currentSelectedProduct && currentSelectedProduct.shippingBase !== undefined 
+        ? parseFloat(currentSelectedProduct.shippingBase) 
+        : 4.00;
+
+    // Calcul final : Base du produit x Coefficient du pays
+    let shippingCostFinal = shippingBaseProduit * multiplicateurPays;
 
     const modalShippingCost = document.getElementById('modalShippingCost');
-    if (modalShippingCost) modalShippingCost.innerText = shippingCost.toFixed(2);
+    if (modalShippingCost) modalShippingCost.innerText = shippingCostFinal.toFixed(2);
 
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? variantSelect.value : 0;
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
     let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
 
-    let totalGlobal = currentPrice + shippingCost;
+    let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
 }
@@ -372,7 +263,6 @@ function checkoutWithCard() {
     alert("Redirection vers le système de paiement sécurisé...");
 }
 
-// --- 6. ÉVÉNEMENTS GLOBAUX ---
 function initEventListeners() {
-    // Écouteurs additionnels si nécessaire
+    // Écouteurs globaux supplémentaires si besoin
 }
