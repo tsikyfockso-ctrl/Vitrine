@@ -1,7 +1,6 @@
 window.onload = () => {
     loadProductsFromCJ();
     initialiserPays();
-    initEventListeners();
 };
 
 async function loadProductsFromCJ() {
@@ -50,18 +49,18 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-const listeDesPaysAvecFrais = [
-    { code: "FR", nom: "France" }, { code: "DE", nom: "Allemagne" }, { code: "BE", nom: "Belgique" },
-    { code: "CH", nom: "Suisse" }, { code: "CA", nom: "Canada" }, { code: "US", nom: "États-Unis" },
-    { code: "GB", nom: "Royaume-Uni" }, { code: "ES", nom: "Espagne" }, { code: "IT", nom: "Italie" },
-    { code: "CN", nom: "Chine" }, { code: "SN", nom: "Sénégal" }, { code: "CI", nom: "Côte d'Ivoire" },
-    { code: "MA", nom: "Maroc" }, { code: "TN", nom: "Tunisie" }, { code: "DZ", nom: "Algérie" }
+const listeDesPaysMondiaux = [
+    { code: "FR", nom: "France" }, { code: "US", nom: "États-Unis" }, { code: "CA", nom: "Canada" },
+    { code: "GB", nom: "Royaume-Uni" }, { code: "DE", nom: "Allemagne" }, { code: "BE", nom: "Belgique" },
+    { code: "CH", nom: "Suisse" }, { code: "ES", nom: "Espagne" }, { code: "IT", nom: "Italie" },
+    { code: "SN", nom: "Sénégal" }, { code: "CI", nom: "Côte d'Ivoire" }, { code: "MA", nom: "Maroc" },
+    { code: "TN", nom: "Tunisie" }, { code: "DZ", nom: "Algérie" }, { code: "CN", nom: "Chine" }
 ];
 
 function initialiserPays() {
     const selectCountry = document.getElementById('modalCountrySelect');
     if (!selectCountry) return;
-    selectCountry.innerHTML = listeDesPaysAvecFrais.map(pays => `
+    selectCountry.innerHTML = listeDesPaysMondiaux.map(pays => `
         <option value="${pays.code}">${pays.nom}</option>
     `).join('');
 }
@@ -117,7 +116,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- CALCUL TEMPS RÉEL VIA L'API CJ DROPSHIPPING ---
+// --- CALCUL TEMPS RÉEL VIA L'API DE VOTRE SERVEUR ---
 async function calculateShipping() {
     if (!currentSelectedProduct) return;
     
@@ -127,37 +126,24 @@ async function calculateShipping() {
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? variantSelect.value : 0;
 
-    // Récupération du bon Variant ID (vid) de ce produit précis
     let vidsTab = Array.isArray(currentSelectedProduct.vids) ? currentSelectedProduct.vids : [];
     let currentVid = vidsTab[selectedIndex] || vidsTab[0] || "";
 
     const modalShippingCost = document.getElementById('modalShippingCost');
     modalShippingCost.innerText = "Calcul...";
 
-    let shippingCostFinal = 5.00; // Valeur de secours par défaut
+    let shippingCostFinal = 5.00;
 
     if (currentVid) {
         try {
-            // Appel vers l'API de calcul de fret de CJ
-            const response = await fetch(`https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                    // Note : Si vous exécutez ceci côté Front, assurez-vous de passer par un petit backend 
-                    // pour cacher votre clé d'accès CJ, ou effectuez l'appel via votre serveur.
-                },
-                body: JSON.stringify({
-                    startCountryCode: "CN",
-                    endCountryCode: countryCode,
-                    products: [{ quantity: 1, vid: currentVid }]
-                })
-            });
+            // Requête vers votre backend Python local qui interroge CJ en toute sécurité
+            const response = await fetch(`/api/calculer-livraison?vid=${currentVid}&country=${countryCode}`);
             const result = await response.json();
-            if (result.success && result.data && result.data.length > 0) {
-                shippingCostFinal = parseFloat(result.data[0].logisticPrice || 5.00);
+            if (result.success && result.logisticPrice !== undefined) {
+                shippingCostFinal = parseFloat(result.logisticPrice);
             }
         } catch (e) {
-            console.error("Erreur lors de la récupération des frais CJ en temps réel :", e);
+            console.error("Erreur de calcul dynamique du transport :", e);
         }
     }
 
@@ -173,5 +159,3 @@ async function calculateShipping() {
 function checkoutWithCard() {
     alert("Redirection vers le système de paiement sécurisé...");
 }
-
-function initEventListeners() {}
