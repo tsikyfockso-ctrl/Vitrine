@@ -80,40 +80,132 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
+// Variable pour stocker le produit actuellement sélectionné dans la modale
+let currentSelectedProduct = null;
 
-// --- 3. GESTION DE LA MODALE DE DÉTAILS ---
-function openModal(product, imgSrc) {
-    const modal = document.getElementById('productModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalPrice = document.getElementById('modalPrice');
-    const modalStock = document.getElementById('modalStock');
-    const modalDetails = document.getElementById('modalDetails');
+// Modification de la fonction renderProducts pour rendre chaque carte cliquable
+function renderProducts(stock, container) {
+    container.innerHTML = stock.map((p, index) => {
+        let rawImg = "";
+        if (Array.isArray(p.images) && p.images.length > 0) {
+            rawImg = p.images.find(img => img && img.trim() !== "") || "";
+        } else if (typeof p.images === "string") {
+            rawImg = p.images;
+        }
 
-    if (!modal) return;
+        let imgSrc = rawImg.trim() !== "" ? rawImg : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        
+        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
+            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
+        }
 
-    if (imgSrc) {
-        let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
-        modalImg.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
-    } else {
-        modalImg.src = "";
-    }
-
-    modalTitle.textContent = product.nom || product.productName || 'Sans nom';
-    modalPrice.textContent = `Prix : ${product.prix || product.sellPrice || '0'} €`;
-    modalStock.textContent = product.stock ? `Stock disponible : ${product.stock}` : '';
-    modalDetails.textContent = product.description || 'Aucune description supplémentaire disponible pour ce produit.';
-
-    modal.style.display = 'flex';
+        let prixAffiche = "0";
+        if (Array.isArray(p.prix) && p.prix.length > 0) {
+            prixAffiche = p.prix[0] || "0";
+        } else {
+            prixAffiche = p.prix || "0";
+        }
+        
+        // On stocke l'index du produit pour le retrouver facilement au clic
+        return `
+            <div class="card" onclick="openProductModal(${index})">
+                <div class="card-img-container">
+                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy">
+                </div>
+                <h3>${p.nom || 'Sans nom'}</h3>
+                <p>Prix : ${prixAffiche} €</p>
+                <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
+            </div>
+        `;
+    }).join('');
 }
 
-function closeModal() {
-    const modal = document.getElementById('productModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
+// Ouvrir la modale avec les données du produit cliqué
+function openProductModal(index) {
+    const cachedStock = localStorage.getItem("cached_cj_stock");
+    if (!cachedStock) return;
+    const stock = JSON.parse(cachedStock);
+    currentSelectedProduct = stock[index];
+
+    if (!currentSelectedProduct) return;
+
+    // Remplissage des éléments de la modale
+    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || 'Produit';
+    
+    let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
+    let imgSrc = rawImg ? `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover` : '';
+    document.getElementById('modalImg').src = imgSrc;
+
+    document.getElementById('modalDesc').innerText = currentSelectedProduct.details || "Aucune description détaillée disponible.";
+
+    // Remplissage des variantes / spécifications
+    const variantSelect = document.getElementById('modalVariantSelect');
+    variantSelect.innerHTML = "";
+    
+    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+    let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
+
+    taillesTab.forEach((taille, i) => {
+        if (taille && taille.trim() !== "") {
+            let pVal = prixTab[i] || prixTab[0] || "0";
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.text = `${taille} - ${pVal} €`;
+            variantSelect.appendChild(opt);
+        }
+    });
+
+    updateModalPriceAndSpecs();
+    document.getElementById('productModal').style.display = 'flex';
 }
 
+// Fermer la modale
+function closeProductModal() {
+    document.getElementById('productModal').style.display = 'none';
+}
+
+// Mettre à jour le prix selon la variante choisie
+function updateModalPriceAndSpecs() {
+    if (!currentSelectedProduct) return;
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect.value || 0;
+
+    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+    let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
+
+    document.getElementById('modalPrice').innerText = currentPrice.toFixed(2) + " €";
+    calculateShipping();
+}
+
+// Calculer les frais de port fictifs ou basés sur le pays choisi
+function calculateShipping() {
+    const country = document.getElementById('modalCountrySelect').value;
+    let shippingCost = 5.00; // Tarif de base
+
+    // Exemple d'ajustement selon le pays
+    if (country === 'CA' || country === 'US') {
+        shippingCost = 12.00;
+    } else if (country === 'CH') {
+        shippingCost = 8.00;
+    }
+
+    document.getElementById('modalShippingCost').innerText = shippingCost.toFixed(2);
+
+    // Calcul du total global (Prix produit + Frais de port)
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect.value || 0;
+    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+    let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
+
+    let totalGlobal = currentPrice + shippingCost;
+    document.getElementById('modalTotalCost').innerText = totalGlobal.toFixed(2) + " €";
+}
+
+// Action du bouton d'achat par carte bancaire
+function checkoutWithCard() {
+    alert("Redirection vers le système de paiement sécurisé par carte bancaire...");
+    // Ici, vous pourrez intégrer plus tard un lien de paiement Stripe, PayPal ou autre.
+}
 
 // --- 4. ÉVÉNEMENTS INTERACTIFS & RECHERCHE ---
 function initEventListeners() {
