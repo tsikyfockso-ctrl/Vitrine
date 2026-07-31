@@ -1,17 +1,18 @@
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
     loadClientMessages();
-    loadProductsFromCJJson();
-    initialiserPays(); // Initialise la liste de tous les pays du monde dans la modale
+    loadProductsFromCJ(); // Nom de fonction corrigé pour relancer l'affichage
+    initialiserPays(); // Initialise la liste mondiale des pays dans la modale
     initEventListeners();
 };
 
-// --- 2. GESTION DES PRODUITS (DEPUIS LE JSON CJ DROPSHIPPING) ---
-async function loadProductsFromCJJson() {
+// --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
+async function loadProductsFromCJ() {
     const jsonUrl = "update_stock.json"; 
     const container = document.getElementById('product-container');
     if (!container) return;
 
+    // Affichage rapide via le cache local du navigateur
     const cachedStock = localStorage.getItem("cached_cj_stock");
     if (cachedStock) {
         try {
@@ -24,6 +25,7 @@ async function loadProductsFromCJJson() {
         }
     }
 
+    // Chargement du fichier JSON mis à jour
     try {
         const response = await fetch(jsonUrl);
         const stock = await response.json();
@@ -33,14 +35,14 @@ async function loadProductsFromCJJson() {
             renderProducts(stock, container);
         }
     } catch (error) {
-        console.error("Erreur de chargement du catalogue CJ :", error);
+        console.error("Erreur de chargement du catalogue :", error);
         if (!cachedStock) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits. Vérifiez que update_stock.json est bien présent.</p>`;
         }
     }
 }
 
-// --- 3. AFFICHAGE DES PRODUITS & CLIC POUR OUVRIR LA MODALE ---
+// --- 3. AFFICHAGE DES PRODUITS SUR LA VITRINE ---
 function renderProducts(stock, container) {
     container.innerHTML = stock.map((p, index) => {
         let rawImg = "";
@@ -52,6 +54,7 @@ function renderProducts(stock, container) {
 
         let imgSrc = rawImg.trim() !== "" ? rawImg : "https://via.placeholder.com/300x200?text=Image+Indisponible";
         
+        // Sécurisation et contournement des blocages d'images via le proxy
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
@@ -63,7 +66,7 @@ function renderProducts(stock, container) {
             prixAffiche = p.prix || "0";
         }
         
-        // Chaque carte devient cliquable pour ouvrir la modale du produit
+        // Rendu de la carte cliquable ouvrant la modale
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
@@ -77,7 +80,7 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// --- 4. LISTE DE TOUS LES PAYS AVEC LE SHIPPING COST DEPUIS LA CHINE ---
+// --- 4. LISTE MONDIALE DES PAYS AVEC FRAIS DE PORT DEPUIS LA CHINE ---
 const listeDesPaysAvecFrais = [
     { code: "FR", nom: "France", shippingCost: 5.50 },
     { code: "DE", nom: "Allemagne", shippingCost: 5.00 },
@@ -281,7 +284,7 @@ function initialiserPays() {
 
 let currentSelectedProduct = null;
 
-// --- 5. OUVERTURE ET GESTION DE LA MODALE ---
+// --- 5. GESTION DE LA MODALE ---
 function openProductModal(index) {
     const cachedStock = localStorage.getItem("cached_cj_stock");
     if (!cachedStock) return;
@@ -299,27 +302,30 @@ function openProductModal(index) {
     document.getElementById('modalDesc').innerText = currentSelectedProduct.details || "Aucune description détaillée disponible.";
 
     const variantSelect = document.getElementById('modalVariantSelect');
-    variantSelect.innerHTML = "";
-    
-    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
-    let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
+    if (variantSelect) {
+        variantSelect.innerHTML = "";
+        let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+        let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
 
-    taillesTab.forEach((taille, i) => {
-        if (taille && taille.trim() !== "") {
-            let pVal = prixTab[i] || prixTab[0] || "0";
-            let opt = document.createElement('option');
-            opt.value = i;
-            opt.text = `${taille} - ${pVal} €`;
-            variantSelect.appendChild(opt);
-        }
-    });
+        taillesTab.forEach((taille, i) => {
+            if (taille && taille.trim() !== "") {
+                let pVal = prixTab[i] || prixTab[0] || "0";
+                let opt = document.createElement('option');
+                opt.value = i;
+                opt.text = `${taille} - ${pVal} €`;
+                variantSelect.appendChild(opt);
+            }
+        });
+    }
 
     updateModalPriceAndSpecs();
-    document.getElementById('productModal').style.display = 'flex';
+    const modal = document.getElementById('productModal');
+    if (modal) modal.style.display = 'flex';
 }
 
 function closeProductModal() {
-    document.getElementById('productModal').style.display = 'none';
+    const modal = document.getElementById('productModal');
+    if (modal) modal.style.display = 'none';
 }
 
 function updateModalPriceAndSpecs() {
@@ -330,16 +336,19 @@ function updateModalPriceAndSpecs() {
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
     let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
 
-    document.getElementById('modalPrice').innerText = currentPrice.toFixed(2) + " €";
+    const modalPrice = document.getElementById('modalPrice');
+    if (modalPrice) modalPrice.innerText = currentPrice.toFixed(2) + " €";
     calculateShipping();
 }
 
 function calculateShipping() {
-    const countryCode = document.getElementById('modalCountrySelect').value;
+    const selectCountry = document.getElementById('modalCountrySelect');
+    const countryCode = selectCountry ? selectCountry.value : "FR";
     const paysTrouve = listeDesPaysAvecFrais.find(p => p.code === countryCode);
-    let shippingCost = paysTrouve ? paysTrouve.shippingCost : 5.00;
+    let shippingCost = paysTrouve ? paysTrouve.shippingCost : 5.50;
 
-    document.getElementById('modalShippingCost').innerText = shippingCost.toFixed(2);
+    const modalShippingCost = document.getElementById('modalShippingCost');
+    if (modalShippingCost) modalShippingCost.innerText = shippingCost.toFixed(2);
 
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? variantSelect.value : 0;
@@ -347,14 +356,15 @@ function calculateShipping() {
     let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
 
     let totalGlobal = currentPrice + shippingCost;
-    document.getElementById('modalTotalCost').innerText = totalGlobal.toFixed(2) + " €";
+    const modalTotalCost = document.getElementById('modalTotalCost');
+    if (modalTotalCost) modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
 }
 
 function checkoutWithCard() {
     alert("Redirection vers le système de paiement sécurisé par carte bancaire...");
 }
 
-// --- 6. AUTRES FONCTIONS (CARROUSEL, ÉVÉNEMENTS) ---
+// --- 6. ÉVÉNEMENTS GLOBAUX ---
 function initEventListeners() {
-    // Gestion des écouteurs globaux si nécessaire
+    // Écouteurs additionnels si nécessaire
 }
