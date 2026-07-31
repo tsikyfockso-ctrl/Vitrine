@@ -1,117 +1,83 @@
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
     loadClientMessages();
-    loadProductsFromCJ();
+    loadProductsFromCJJson();
     initEventListeners();
 };
 
-// --- 2. GESTION DES PRODUITS (API CJ DROPSHIPPING) ---
-async function loadProductsFromCJ() {
-    // Remplacez cette URL par votre endpoint d'API ou votre serveur intermédiaire qui communique avec CJ Dropshipping
-    const url = "VOTRE_ENDPOINT_API_CJ_DROPSHIPPING"; 
+// --- 2. GESTION DES PRODUITS (DEPUIS LE JSON CJ DROPSHIPPING) ---
+async function loadProductsFromCJJson() {
+    const jsonUrl = "update_stock.json"; // Fichiers généré automatiquement par Python/GitHub Actions
     const container = document.getElementById('product-container');
     if (!container) return;
 
-    let hasLoadedFromCache = false;
-
-    // 1. Affichage immédiat via le cache local (pour éviter les temps de chargement)
+    // 1. Affichage depuis le cache local pour aller vite
     const cachedStock = localStorage.getItem("cached_cj_stock");
     if (cachedStock) {
         try {
             const stock = JSON.parse(cachedStock);
             if (Array.isArray(stock) && stock.length > 0) {
                 renderProducts(stock, container);
-                hasLoadedFromCache = true;
             }
         } catch (e) {
             localStorage.removeItem("cached_cj_stock");
         }
     }
 
-    // 2. Si rien en cache, affichage d'un message de chargement
-    if (!hasLoadedFromCache) {
-        container.innerHTML = "<p style='text-align:center; width:100%; padding:20px;'>Chargement des produits depuis CJ Dropshipping...</p>";
-    }
-
-    // 3. Récupération en arrière-plan des données de l'API CJ
+    // 2. Récupération du fichier JSON mis à jour
     try {
-        const response = await fetch(url);
-        const data = await response.json();
+        const response = await fetch(jsonUrl);
+        const stock = await response.json();
         
-        // Adaptez selon la structure de retour de votre API (ex: data.products ou data directement)
-        const stock = Array.isArray(data) ? data : (data.products || []);
-        
-        if (stock.length > 0) {
+        if (Array.isArray(stock)) {
             localStorage.setItem("cached_cj_stock", JSON.stringify(stock));
             renderProducts(stock, container);
         }
-    } catch (e) {
-        console.error("Erreur lors de la récupération depuis l'API CJ Dropshipping:", e);
-        if (!hasLoadedFromCache) {
-            container.innerHTML = "<p style='text-align:center; width:100%; padding:20px; color:red;'>Impossible de charger les produits pour le moment.</p>";
+    } catch (error) {
+        console.error("Erreur de chargement du catalogue CJ :", error);
+        if (!cachedStock) {
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits.</p>`;
         }
     }
 }
 
-// Fonction d'affichage sécurisée des produits
+// Fonction d'affichage adaptée à la structure de CJ Dropshipping
 function renderProducts(stock, container) {
-    container.innerHTML = ""; 
-
-    stock.forEach(p => {
-        // Adaptez les propriétés (p.img, p.nom, p.prix) selon le format de retour de l'API CJ
-        let rawImg = p.img || p.image || p.imageUrl || ""; 
-        let imgSrc = rawImg.trim();
-        
-        const card = document.createElement('div');
-        card.className = "card product-card"; // Nécessaire pour le filtre de recherche de votre HTML
-        card.style.cursor = "pointer";
-
-        card.addEventListener('click', () => {
-            openModal(p, imgSrc);
-        });
-
-        const imgContainer = document.createElement('div');
-        imgContainer.className = "card-img-container";
-
-        const img = document.createElement('img');
-        
-        if (imgSrc) {
-            let cleanUrl = imgSrc.replace(/^https?:\/\//, '');
-            img.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}`;
-        } else {
-            img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%23e0e0e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23666'>Image Indisponible</text></svg>";
+    container.innerHTML = stock.map(p => {
+        // Récupération de la première image disponible dans le tableau d'images CJ
+        let rawImg = "";
+        if (Array.isArray(p.images) && p.images.length > 0) {
+            rawImg = p.images.find(img => img && img.trim() !== "") || "";
+        } else if (typeof p.images === "string") {
+            rawImg = p.images;
         }
 
-        img.alt = p.nom || p.productName || 'Produit';
-        img.loading = "lazy";
+        let imgSrc = rawImg.trim() !== "" ? rawImg : "https://via.placeholder.com/300x200?text=Image+Indisponible";
+        
+        // Proxy anti-blocage si l'image vient d'un CDN tiers/Ali/CJ
+        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
+            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
+        }
 
-        img.onerror = function() {
-            this.src = imgSrc;
-            this.onerror = null; 
-        };
-
-        const title = document.createElement('h3');
-        title.textContent = p.nom || p.productName || 'Sans nom';
-
-        const price = document.createElement('p');
-        price.className = "price";
-        price.textContent = `${p.prix || p.sellPrice || '0'} €`;
-
-        const button = document.createElement('button');
-        button.textContent = "Voir les détails";
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openModal(p, imgSrc);
-        });
-
-        imgContainer.appendChild(img);
-        card.appendChild(imgContainer);
-        card.appendChild(title);
-        card.appendChild(price);
-        card.appendChild(button);
-
-        container.appendChild(card);
-    });
+        // Récupération du premier prix du tableau de prix CJ
+        let prixAffiche = "0";
+        if (Array.isArray(p.prix) && p.prix.length > 0) {
+            prixAffiche = p.prix[0] || "0";
+        } else {
+            prixAffiche = p.prix || "0";
+        }
+        
+        return `
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="${imgSrc}" alt="${p.nom || 'Produit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Erreur+Image'">
+                </div>
+                <h3>${p.nom || 'Sans nom'}</h3>
+                <p>Prix : ${prixAffiche} €</p>
+                <button>Ajouter au panier</button>
+            </div>
+        `;
+    }).join('');
 }
 
 
