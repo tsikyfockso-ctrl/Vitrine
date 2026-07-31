@@ -124,19 +124,36 @@ function googleTranslateElementInit() {
     <div id="client-messages"></div>
 </div>
     
-    <div id="productModal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">✖</button>
-            <div class="modal-body">
-                <img id="modalImg" src="" alt="Produit">
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <p class="modal-price" id="modalPrice"></p>
-                    <p class="modal-stock" id="modalStock"></p>
-                    <div class="modal-description" id="modalDetails"></div>
-                </div>
-            </div>
-        </div>
+    <div id="product-modal" class="modal-hidden">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        
+        <h2 id="modal-title">Titre du produit</h2>
+        <div id="modal-images-container"></div>
+        
+        <label for="country-select">Pays de livraison :</label>
+        <select id="country-select" onchange="calculerFraisDePort()">
+            <option value="FR">France</option>
+            <option value="BE">Belgique</option>
+            <option value="CA">Canada</option>
+        </select>
+
+        <label for="shipping-select">Méthode d'expédition :</label>
+        <select id="shipping-select">
+            <option value="CJ-Packet">CJ Packet (Suivi & Sécurisé)</option>
+        </select>
+
+        <div id="modal-variants-container"></div>
+
+        <p>Prix du produit : <span id="modal-price">0.00</span> €</p>
+        <p>Frais d'expédition : <span id="modal-shipping-cost">0.00</span> €</p>
+        <h3>Total : <span id="modal-total-cost">0.00</span> €</h3>
+
+        <div id="modal-specs"></div>
+        <div id="modal-desc"></div>
+
+        <button id="buy-btn" onclick="procederAuPaiement()">Acheter maintenant (Carte bancaire)</button>
     </div>
+</div> 
 </body>
 </html>
