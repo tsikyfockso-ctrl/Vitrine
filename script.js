@@ -1,12 +1,10 @@
+
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = () => {
     loadProductsFromCJ();
     initialiserPays();
     initEventListeners();
 };
-
-let allProducts = [];
-let currentSelectedProduct = null;
 
 // --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
 async function loadProductsFromCJ() {
@@ -39,180 +37,121 @@ async function loadProductsFromCJ() {
         
         const cachedStock = localStorage.getItem("cached_cj_stock");
         if (cachedStock) {
-            const stock = JSON.parse(cachedStock);
-            renderProducts(stock, container);
+            renderProducts(JSON.parse(cachedStock), container);
         } else {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Erreur de chargement des produits. Vérifiez que update_stock.json est bien généré sur GitHub.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits.</p>`;
         }
     }
 }
 
-// --- 3. AFFICHAGE DES PRODUITS SUR LA PAGE ---
-function renderProducts(products, container) {
-    allProducts = products;
-    container.innerHTML = "";
-
-    products.forEach((product, index) => {
-        let prixTab = Array.isArray(product.prix) ? product.prix : [product.prix];
-        let prixAffichage = prixTab[0] !== "" ? prixTab[0] : "0.00";
-
-        let imagesTab = Array.isArray(product.images) ? product.images : [product.images];
-        let rawImg = imagesTab[0] || "";
-        // Proxy d'images pour contourner les blocages stricts (AliExpress / CJ)
-        let imageAffichage = rawImg ? `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=400&h=400&fit=cover` : "https://via.placeholder.com/300";
-
-        let card = document.createElement('div');
-        card.className = 'product-card';
-        card.style.cssText = "background: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; text-align: center;";
+// --- 3. AFFICHAGE DES PRODUITS AVEC PROXY D'IMAGES ---
+function renderProducts(stock, container) {
+    container.innerHTML = stock.map((p, index) => {
+        let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
+        let imgSrc = rawImg ? rawImg.trim() : "";
         
-        card.innerHTML = `
-            <img src="${imageAffichage}" alt="${product.nom}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;">
-            <h3 style="font-size: 15px; margin: 10px 0; color: #333; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.nom}</h3>
-            <p style="font-size: 16px; font-weight: bold; color: #e11d48; margin-bottom: 10px;">${prixAffichage} €</p>
-            <button style="width: 100%; background-color: #0f172a; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">Voir le produit</button>
-        `;
-
-        card.addEventListener('click', () => openProductModal(index));
-        container.appendChild(card);
-    });
-}
-
-// --- 4. GESTION DE LA MODALE PRODUIT ---
-function openProductModal(productIndex) {
-    const product = allProducts[productIndex];
-    currentSelectedProduct = product;
-
-    const modal = document.getElementById('productModal');
-    if (!modal) {
-        console.error("Erreur : La modale HTML est introuvable sur la page.");
-        return;
-    }
-    modal.style.display = 'block';
-
-    // Remplissage des informations de base
-    document.getElementById('modalTitle').innerText = product.nom;
-    document.getElementById('modalDetails').innerText = product.details || "";
-    document.getElementById('modalStock').innerText = "Stock disponible : " + (product.stock || 0);
-
-    // Gestion de l'image principale dans la modale
-    let imagesTab = Array.isArray(product.images) ? product.images : [product.images];
-    let mainImgUrl = imagesTab[0] ? `https://wsrv.nl/?url=${encodeURIComponent(imagesTab[0])}&w=600&h=600&fit=cover` : "";
-    const modalMainImage = document.getElementById('modalMainImage');
-    if (modalMainImage) modalMainImage.src = mainImgUrl;
-
-    // Gestion des tailles / variantes
-    let variantSelect = document.getElementById('modalVariantSelect');
-    if (variantSelect) {
-        variantSelect.innerHTML = "";
-        let taillesTab = Array.isArray(product.tailles) ? product.tailles : [product.tailles];
-        let prixTab = Array.isArray(product.prix) ? product.prix : [product.prix];
-
-        taillesTab.forEach((taille, i) => {
-            if (taille !== "" || prixTab[i] !== "") {
-                let option = document.createElement('option');
-                option.value = i;
-                option.text = (taille ? taille : "Taille unique") + " - " + (prixTab[i] || "0.00") + " €";
-                variantSelect.appendChild(option);
-            }
-        });
-        variantSelect.onchange = calculateShipping;
-    }
-
-    // --- INTEGRATION DU BLOC DELAI DE LIVRAISON AVEC INFO-BULLE ET POINT D'INTERROGATION ---
-    let deliveryContainer = document.getElementById('modalDeliverySection');
-    if (!deliveryContainer) {
-        // S'il n'existe pas dans le HTML d'origine, on le crée dynamiquement sous les détails
-        deliveryContainer = document.createElement('div');
-        deliveryContainer.id = 'modalDeliverySection';
-        const detailsElem = document.getElementById('modalDetails');
-        if (detailsElem && detailsElem.parentNode) {
-            detailsElem.parentNode.insertBefore(deliveryContainer, detailsElem.nextSibling);
+        // Proxy wsrv.nl pour forcer l'affichage des images en provenance de CJ/Aliexpress
+        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
+            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
-    }
 
-    deliveryContainer.innerHTML = `
-        <div style="margin-top: 15px; padding: 12px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #eaeaea;">
-            <div style="display: flex; align-items: center; justify-content: space-between; position: relative;">
-                <span style="font-weight: bold; font-size: 13px; color: #333; letter-spacing: 0.5px;">
-                    🚚 DÉLAI DE LIVRAISON
-                </span>
-                
-                <div class="tooltip-container" style="position: relative; display: inline-block; cursor: pointer;">
-                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background-color: #f97316; color: white; border-radius: 50%; font-size: 12px; font-weight: bold;">?</span>
-                    
-                    <span class="tooltip-text" style="visibility: hidden; width: 280px; background-color: #1f2937; color: #fff; text-align: left; border-radius: 6px; padding: 10px; position: absolute; z-index: 100; bottom: 125%; right: 0; opacity: 0; transition: opacity 0.3s; font-size: 11px; line-height: 1.4; box-shadow: 0px 4px 10px rgba(0,0,0,0.2);">
-                        Ces chiffres représentent la probabilité que votre colis soit livré dans les délais indiqués, basés sur les données historiques de CJ pour le canal logistique sélectionné :<br><br>
-                        • <strong>7-11 jours (51%)</strong> : Il y a environ 1 chance sur 2 que le colis arrive dans cette fourchette rapide.<br>
-                        • <strong>12-14 jours (43%)</strong> : Une grande partie des colis arrivent également dans ce délai légèrement plus long.<br>
-                        • <strong>15+ jours (6%)</strong> : Une petite minorité de colis prend plus de temps en raison d'imprévus (douane, météo, etc.).<br><br>
-                        En résumé, la majorité des commandes (94%) devraient arriver sous 14 jours, mais il s'agit d'une estimation statistique et non d'une garantie absolue, car des facteurs externes comme le dédouanement peuvent influencer le délai final.
-                    </span>
+        let prixAffiche = Array.isArray(p.prix) ? (p.prix[0] || "0") : (p.prix || "0");
+        
+        return `
+            <div class="card" onclick="openProductModal(${index})">
+                <div class="card-img-container">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom}" loading="lazy">
                 </div>
+                <h3>${p.nom || 'Sans nom'}</h3>
+                <p>Prix : ${prixAffiche} €</p>
+                <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
             </div>
-
-            <div style="margin-top: 8px; font-size: 13px; color: #4b5563;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                    <span>⚡ 7-11 jours</span>
-                    <strong style="color: #16a34a;">51%</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                    <span>📦 12-14 jours</span>
-                    <strong style="color: #2563eb;">43%</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>⏳ 15+ jours</span>
-                    <strong style="color: #dc2626;">6%</strong>
-                </div>
-            </div>
-        </div>
-    `;
-
-    calculateShipping();
+        `;
+    }).join('');
 }
 
-// --- 5. INITIALISATION DU SELECTEUR DE PAYS ---
+// --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
+const listeDesPaysMondiaux = [
+    { code: "FR", nom: "France" }, { code: "DE", nom: "Allemagne" }, { code: "BE", nom: "Belgique" },
+    { code: "CH", nom: "Suisse" }, { code: "CA", nom: "Canada" }, { code: "US", nom: "États-Unis" },
+    { code: "GB", nom: "Royaume-Uni" }, { code: "ES", nom: "Espagne" }, { code: "IT", nom: "Italie" },
+    { code: "SN", nom: "Sénégal" }, { code: "CI", nom: "Côte d'Ivoire" }, { code: "MA", nom: "Maroc" },
+    { code: "TN", nom: "Tunisie" }, { code: "DZ", nom: "Algérie" }, { code: "CN", nom: "Chine" }
+];
+
 function initialiserPays() {
     const selectCountry = document.getElementById('modalCountrySelect');
     if (!selectCountry) return;
-
-    const paysDisponibles = [
-        { code: "FR", nom: "France" },
-        { code: "DE", nom: "Allemagne" },
-        { code: "BE", nom: "Belgique" },
-        { code: "ES", nom: "Espagne" },
-        { code: "IT", nom: "Italie" },
-        { code: "GB", nom: "Royaume-Uni" },
-        { code: "CH", nom: "Suisse" },
-        { code: "US", nom: "États-Unis" },
-        { code: "CA", nom: "Canada" },
-        { code: "SN", nom: "Sénégal" },
-        { code: "CI", nom: "Côte d'Ivoire" },
-        { code: "MA", nom: "Maroc" },
-        { code: "TN", nom: "Tunisie" },
-        { code: "DZ", nom: "Algérie" }
-    ];
-
-    selectCountry.innerHTML = "";
-    paysDisponibles.forEach(p => {
-        let opt = document.createElement('option');
-        opt.value = p.code;
-        opt.textContent = p.nom;
-        if (p.code === "FR") opt.selected = true; // Par défaut France
-        selectCountry.appendChild(opt);
-    });
-
-    selectCountry.onchange = calculateShipping;
+    selectCountry.innerHTML = listeDesPaysMondiaux.map(pays => `
+        <option value="${pays.code}">${pays.nom}</option>
+    `).join('');
 }
 
-// --- 6. CALCUL DES FRAIS DE PORT ET DU PRIX TOTAL ---
+let currentSelectedProduct = null;
+
+function openProductModal(index) {
+    const cachedStock = localStorage.getItem("cached_cj_stock");
+    if (!cachedStock) return;
+    const stock = JSON.parse(cachedStock);
+    currentSelectedProduct = stock[index];
+    if (!currentSelectedProduct) return;
+
+    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom;
+    
+    let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
+    if (rawImg) {
+        document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
+    }
+    
+    document.getElementById('modalDesc').innerText = currentSelectedProduct.details || "Aucune description disponible.";
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    if (variantSelect) {
+        variantSelect.innerHTML = "";
+        let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+        let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
+
+        taillesTab.forEach((taille, i) => {
+            if (taille && taille.trim() !== "") {
+                let pVal = prixTab[i] || prixTab[0] || "0";
+                let opt = document.createElement('option');
+                opt.value = i;
+                opt.text = `${taille} - ${pVal} €`;
+                variantSelect.appendChild(opt);
+            }
+        });
+    }
+
+    updateModalPriceAndSpecs();
+    document.getElementById('productModal').style.display = 'flex';
+}
+
+function closeProductModal() {
+    document.getElementById('productModal').style.display = 'none';
+}
+
+function updateModalPriceAndSpecs() {
+    if (!currentSelectedProduct) return;
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? variantSelect.value : 0;
+
+    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+    let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
+
+    document.getElementById('modalPrice').innerText = currentPrice.toFixed(2) + " €";
+    calculateShipping();
+}
+
+// --- 5. CALCUL DYNAMIQUE DES FRAIS DE PORT PAR PAYS ---
 function calculateShipping() {
     if (!currentSelectedProduct) return;
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
 
-    // Multiplicateurs selon les zones géographiques
     let multiplicateurPays = 1.0;
+
+    // Coefficients par zone géographique
     const zonesLoin = ["US", "CA", "CN"];
     const zonesTresLoin = ["SN", "CI", "MA", "TN", "DZ"];
 
@@ -222,17 +161,16 @@ function calculateShipping() {
         multiplicateurPays = 1.4;
     }
 
-    // Récupération de la base calculée par Python (Ligne de liquide + surplus 0.99€)
-    let shippingBaseProduit = currentSelectedProduct.shippingBase !== undefined 
+    // Récupération de la base calculée par Python selon le poids réel du produit
+    let shippingBaseProduit = currentSelectedProduct && currentSelectedProduct.shippingBase !== undefined 
         ? parseFloat(currentSelectedProduct.shippingBase) 
-        : 4.53; // Valeur de repli sécurisée
+        : 4.00;
 
     let shippingCostFinal = shippingBaseProduit * multiplicateurPays;
 
     const modalShippingCost = document.getElementById('modalShippingCost');
     if (modalShippingCost) modalShippingCost.innerText = shippingCostFinal.toFixed(2);
 
-    // Calcul du prix total (Article + Transport)
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? variantSelect.value : 0;
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
@@ -243,24 +181,10 @@ function calculateShipping() {
     if (modalTotalCost) modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
 }
 
-// --- 7. ECOUTEURS D'EVENEMENTS GLOBAUX ---
-function initEventListeners() {
-    const closeBtn = document.querySelector('.close-modal') || document.getElementById('closeModalBtn');
-    const modal = document.getElementById('productModal');
-
-    if (closeBtn && modal) {
-        closeBtn.onclick = () => { modal.style.display = 'none'; };
-        window.onclick = (event) => {
-            if (event.target === modal) { modal.style.display = 'none'; };
-        };
-    }
-
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    if (checkoutBtn) {
-        checkoutBtn.onclick = checkoutWithCard;
-    }
-}
-
 function checkoutWithCard() {
     alert("Redirection vers le système de paiement sécurisé...");
 }
+
+function initEventListeners() {}
+script.js
+Affichage de script.js.
