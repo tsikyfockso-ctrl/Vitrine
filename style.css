@@ -646,8 +646,3 @@ nav {
 .modal-buy-btn:hover {
     background-color: #219653;
 }
-
-.tooltip-container:hover .tooltip-text {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
