@@ -630,7 +630,6 @@ nav {
     padding: 12px;
     border-radius: 6px;
 }
-
 .modal-buy-btn {
     background-color: #27ae60;
     color: white;
@@ -642,7 +641,6 @@ nav {
     font-weight: bold;
     transition: background 0.3s;
 }
-
 .modal-buy-btn:hover {
     background-color: #219653;
 }
