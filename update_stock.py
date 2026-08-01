@@ -8,7 +8,6 @@ def get_cj_access_token():
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     headers = {"Content-Type": "application/json"}
     payload = {"apiKey": CJ_API_KEY}
-    
     try:
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code == 200:
@@ -26,7 +25,6 @@ def fetch_cj_products_deep(token):
         "Content-Type": "application/json"
     }
     params = {"keyword": "fashion accessories"}
-    
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
@@ -37,7 +35,7 @@ def fetch_cj_products_deep(token):
     return []
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation des produits et calcul du fret de base...")
+    print("🤖 Synchronisation avec la Ligne de liquide et application du surplus de 0.99€...")
     token = get_cj_access_token()
     if not token:
         print("❌ Token CJ introuvable.")
@@ -86,8 +84,20 @@ def generate_update_stock_json():
         except ValueError:
             poids_grammes = 200.0
 
-        # Frais de port de base calculés selon le poids réel du produit
-        frais_port_base = round(3.00 + (poids_grammes * 0.0025), 2)
+        # --- CALCUL DE LA BASE : Ligne de liquide ---
+        if poids_grammes <= 1:
+            port_base = 3.54
+        elif poids_grammes < 100:
+            port_base = 3.54 + (poids_grammes * 0.015)
+        elif poids_grammes == 100:
+            port_base = 4.05
+        elif poids_grammes <= 300:
+            port_base = 4.05 + ((poids_grammes - 100) * 0.02525)
+        else:
+            port_base = 8.10 + ((poids_grammes - 300) * 0.0205)
+
+        # --- APPLICATION DE VOTRE SURPLUS DE 0.99 € ---
+        port_final = port_base + 0.99
 
         product_obj = {
             "nom": nom,
@@ -96,13 +106,13 @@ def generate_update_stock_json():
             "images": images_values,
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock,
-            "shippingBase": frais_port_base  # <-- Intégré directement dans le JSON
+            "shippingBase": round(port_final, 2)  # Le prix final unique intégré pour GitHub
         }
         formatted_products.append(product_obj)
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print("✨ Fichier update_stock.json généré avec succès pour GitHub Pages !")
+    print("✨ Fichier update_stock.json mis à jour avec succès (Ligne de liquide + 0.99€) !")
 
 if __name__ == "__main__":
     generate_update_stock_json()
