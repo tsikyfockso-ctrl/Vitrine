@@ -71,11 +71,7 @@ function renderProducts(stock, container) {
 
 // --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
-    { code: "FR", nom: "France" }, { code: "DE", nom: "Allemagne" }, { code: "BE", nom: "Belgique" },
-    { code: "CH", nom: "Suisse" }, { code: "CA", nom: "Canada" }, { code: "US", nom: "États-Unis" },
-    { code: "GB", nom: "Royaume-Uni" }, { code: "ES", nom: "Espagne" }, { code: "IT", nom: "Italie" },
-    { code: "SN", nom: "Sénégal" }, { code: "CI", nom: "Côte d'Ivoire" }, { code: "MA", nom: "Maroc" },
-    { code: "TN", nom: "Tunisie" }, { code: "DZ", nom: "Algérie" }, { code: "CN", nom: "Chine" }
+    { code: "FR", nom: "France" }, { code: "US", nom: "États-Unis" },
 ];
 
 function initialiserPays() {
@@ -151,8 +147,7 @@ function calculateShipping() {
     let multiplicateurPays = 1.0;
 
     // Coefficients par zone géographique
-    const zonesLoin = ["US", "CA", "CN"];
-    const zonesTresLoin = ["SN", "CI", "MA", "TN", "DZ"];
+    const zonesLoin = ["FR", "US"];
 
     if (zonesTresLoin.includes(countryCode)) {
         multiplicateurPays = 2.0;
