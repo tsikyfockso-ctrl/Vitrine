@@ -49,7 +49,6 @@ function renderProducts(stock, container) {
         let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
         let imgSrc = rawImg ? rawImg.trim() : "";
         
-        // Proxy wsrv.nl pour forcer l'affichage des images en provenance de CJ/Aliexpress
         if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
@@ -71,7 +70,8 @@ function renderProducts(stock, container) {
 
 // --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
-    { code: "FR", nom: "France" }, { code: "US", nom: "États-Unis" },
+    { code: "FR", nom: "France" }, 
+    { code: "US", nom: "États-Unis" }
 ];
 
 function initialiserPays() {
@@ -146,13 +146,11 @@ function calculateShipping() {
 
     let multiplicateurPays = 1.0;
 
-    // Coefficients par zone géographique
-    const zonesLoin = ["FR", "US"];
-
-    if (zonesTresLoin.includes(countryCode)) {
-        multiplicateurPays = 2.0;
-    } else if (zonesLoin.includes(countryCode)) {
+    // Application du coefficient selon le pays (FR ou US)
+    if (countryCode === "US") {
         multiplicateurPays = 1.4;
+    } else {
+        multiplicateurPays = 1.0; // ou la valeur souhaitée pour la France
     }
 
     // Récupération de la base calculée par Python selon le poids réel du produit
@@ -186,7 +184,6 @@ function defilerProduits(direction) {
     const container = document.getElementById('product-container');
     if (!container) return;
     
-    // Défile de la largeur d'une carte environ (270px avec l'écart)
     const scrollAmount = 270; 
     
     if (direction === 'gauche') {
@@ -205,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX;
     let scrollLeft;
 
-    // Début du touch / clic
     container.addEventListener('mousedown', (e) => {
         isDown = true;
         container.classList.add('active');
@@ -219,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollLeft = container.scrollLeft;
     }, { passive: true });
 
-    // Fin du touch / clic
     container.addEventListener('mouseleave', () => {
         isDown = false;
     });
@@ -232,12 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
         isDown = false;
     });
 
-    // Mouvement du glissement
     container.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2; // Vitesse du défilement
+        const walk = (x - startX) * 2;
         container.scrollLeft = scrollLeft - walk;
     });
 
