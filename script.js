@@ -185,3 +185,18 @@ function checkoutWithCard() {
 }
 
 function initEventListeners() {}
+
+// --- FONCTION DE DÉFILEMENT DU CARROUSEL ---
+function defilerProduits(direction) {
+    const container = document.getElementById('product-container');
+    if (!container) return;
+    
+    // Défile de la largeur d'une carte environ (270px avec l'écart)
+    const scrollAmount = 270; 
+    
+    if (direction === 'gauche') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
