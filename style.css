@@ -216,7 +216,7 @@ body {
 
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
-   display: flex;
+    display: flex;
     align-items: center;
     background: transparent;
 }
@@ -243,6 +243,22 @@ body {
 .goog-logo-link {
     display: none !important;
 }
+nav {
+    display: flex;
+    justify-content: space-between; /* Garde les éléments aux extrémités */
+    align-items: center;
+    padding: 10px 5%;
+    position: relative; /* Indispensable */
+}
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
 
 #produits h2 {
     margin-top: 50px; /* Espace au-dessus du titre */
@@ -259,11 +275,9 @@ body {
     }
 
     nav {
-        display: flex;
-        justify-content: space-between; /* Garde les éléments aux extrémités */
-        align-items: center;
-        padding: 10px 5%;
-        position: relative; /* Indispensable */
+        flex-direction: column;      /* Empile les éléments */
+        gap: 15px;
+        padding: 15px;
     }
 
     .nav-links {
@@ -275,12 +289,9 @@ body {
     }
 
     #google_translate_element {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: center;
-        z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+        position: static;            /* Annule le positionnement absolu */
+        transform: none;
+        order: 1;                    
     }
 
     header, .slideshow-container {
