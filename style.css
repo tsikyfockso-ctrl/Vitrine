@@ -211,16 +211,14 @@ button {
 body {
     top: 0px !important;
     position: static !important;
+    margin-top: 0px !important;
 }
 
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+   display: flex;
+    align-items: center;
+    background: transparent;
 }
 
 /* Modifie la "boîte" de sélection de langue */
@@ -261,9 +259,11 @@ body {
     }
 
     nav {
-        flex-direction: column;      /* Empile les éléments */
-        gap: 15px;
-        padding: 15px;
+        display: flex;
+        justify-content: space-between; /* Garde les éléments aux extrémités */
+        align-items: center;
+        padding: 10px 5%;
+        position: relative; /* Indispensable */
     }
 
     .nav-links {
@@ -275,9 +275,12 @@ body {
     }
 
     #google_translate_element {
-        position: static;            /* Annule le positionnement absolu */
-        transform: none;
-        order: 1;                    
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        z-index: 100; /* Assure que le widget reste bien visible au-dessus */
     }
 
     header, .slideshow-container {
