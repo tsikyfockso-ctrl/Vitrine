@@ -139,17 +139,16 @@ function calculateShipping() {
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
-    // Récupération sécurisée des prix calculés par Python selon le pays
+    // Récupération des frais selon le pays (calculés par Python)
     if (countryCode === "US") {
         shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
         shippingMethodName = "USPS / Ligne Express (États-Unis)";
     } else {
-        // Par défaut France (FR)
         shippingCostFinal = currentSelectedProduct.shippingBase !== undefined ? parseFloat(currentSelectedProduct.shippingBase) : 0;
         shippingMethodName = "Colissimo / Ligne de Liquide (France)";
     }
 
-    // Affichage du nom de la méthode de livraison (si l'élément HTML existe)
+    // Affichage de la méthode de livraison
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
         modalShippingName.innerText = shippingMethodName;
@@ -161,7 +160,7 @@ function calculateShipping() {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    // Récupération du prix du produit selon la variante sélectionnée
+    // 1. Récupération du prix du produit selon la variante sélectionnée
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     
@@ -169,7 +168,13 @@ function calculateShipping() {
     let rawPrice = prixTab[selectedIndex] !== undefined ? prixTab[selectedIndex] : (prixTab[0] || 0);
     let currentPrice = parseFloat(rawPrice) || 0;
 
-    // Calcul du total global
+    // 2. MISE À JOUR AUTOMATIQUE DU PRIX DU PRODUIT DANS LA MODALE (#modalPrice)
+    const modalPriceElem = document.getElementById('modalPrice');
+    if (modalPriceElem) {
+        modalPriceElem.innerText = currentPrice.toFixed(2) + " €";
+    }
+
+    // 3. Calcul et affichage du total global (Prix du produit + Frais de port)
     let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
