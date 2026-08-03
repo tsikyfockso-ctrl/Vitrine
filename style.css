@@ -260,11 +260,11 @@ body {
     }
 
     .nav-links {
-        margin-right: 0;
-        margin-left: 0;
-        gap: 10px;
-        flex-wrap: wrap;             
-        justify-content: center;
+        list-style: none;
+        display: flex;
+        gap: 15px; /* Espace entre les boutons */
+        margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
+        margin-left: auto;
     }
 
     #google_translate_element {
