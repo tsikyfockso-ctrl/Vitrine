@@ -6,30 +6,23 @@ body {
   margin: 0 auto;       /* Centre la page */
   max-width: 1200px;    /* Le site ne dépassera jamais 1200px sur PC */
   width: 100%;          /* Mais prend 100% sur mobile */
-    /* 1.75 correspond à 175% */
-  /*transform: scale(1.75); */
-    
-    /* Cela permet de garder le site centré malgré l'agrandissement */
-   /* transform-origin: top center; */
-    
-    /* Important : ajuste la largeur pour éviter que le site ne déborde */
-    /*width: 57.14%;*/ /* (100 / 1.75 = 57.14) */
-    /*margin: 0 auto;*/
 }
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    /* Utilisation d'une couleur de fond fixe basée sur votre logo */
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
     background-color: var(--couleur-principale);
     position: relative; /* Indispensable */
 }
+
 :root {
     --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
 }
+
 header {
     width: 100%;
     height: 600px;
@@ -42,6 +35,7 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
     position: relative;
 }
+
 .fixed-overlay {
     position: absolute; /* Reste à la même place */
     top: 50%;           /* Centre vertical */
@@ -69,6 +63,7 @@ header {
     border-radius: 5px;
     font-size: 1.1rem;
 }
+
 button { 
   padding: 15px 30px; 
   background: #e74c3c; 
@@ -86,7 +81,7 @@ button {
   margin-left: 10px;
 }
 
-/* --- STRUCTURE FIXE DE LA CARTE (Basée sur vos 3 lignes de texte) --- */
+/* --- STRUCTURE FIXE DE LA CARTE POUR LE CONTENU CJ DROPSHIPPING --- */
 .card { 
   background: white;
   padding: 20px; 
@@ -94,20 +89,21 @@ button {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
   display: flex;
   flex-direction: column;
-  height: 420px; /* Hauteur fixe du cadre pour garder l'harmonie */
+  height: 420px; /* Cadre de hauteur fixe et stable */
   box-sizing: border-box;
+  overflow: hidden; /* Empêche tout débordement hors du cadre */
 }
 
-/* Troncature propre du texte sur 3 lignes max avec points de suspension (...) */
-.card p, .card .product-desc {
+/* Troncature automatique du texte dynamique sur 3 lignes max avec points de suspension (...) */
+.card p, .card .product-desc, .card h3, .card span {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limite stricte à 3 lignes */
+  -webkit-line-clamp: 3; /* Limite stricte à 3 lignes pour correspondre à votre besoin */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Pousse automatiquement les actions/boutons en bas de la carte */
+/* Pousse automatiquement le bouton ou les éléments du bas de la carte */
 .card .card-action, .card button, .card .modal-buy-btn {
   margin-top: auto; 
 }
@@ -117,22 +113,18 @@ button {
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    
-    /* C'est ici l'astuce pour un cercle parfait */
     background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
-    background-size: 150px;
     background-size: cover;      /* L'image remplit le cercle sans déformation */
     background-position: center; /* Centre le logo dans le cercle */
     background-repeat: no-repeat;
-    
     border: 3px solid white;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
     gap: 15px; /* Espace entre les boutons */
-    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
-    margin-left: auto;
+    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
 }
 
 .nav-btn {
@@ -151,6 +143,7 @@ button {
     color: white;
     transform: translateY(-2px); /* Léger effet de soulèvement */
 }
+
 .slideshow-container {
     width: 100%;
     height: 600px;
@@ -164,6 +157,7 @@ button {
     animation: slide-animation 24s infinite; /* Temps total du cycle */
     opacity: 0;
 }
+
 .slide::after {
     content: "";
     position: absolute;
@@ -171,7 +165,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
+    background-color: rgba(0, 0, 0, 0.6); /* 60% d'opacité noire */
     pointer-events: none; /* Permet aux clics de traverser cette couche */
 }
 
@@ -191,6 +185,7 @@ button {
     43% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 .slide img {
     width: 100%;       /* L'image prend toute la largeur du conteneur */
     height: 100%;      /* L'image prend toute la hauteur du conteneur */
@@ -198,11 +193,13 @@ button {
     object-position: bottom; /* Centre l'image pour garder les éléments importants visibles */
     display: block;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 /* Cache le bandeau intrusif de Google en haut de page */
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
@@ -218,9 +215,12 @@ body {
 
 /* Style moderne pour le conteneur du widget */
 #google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    align-items: center;
-    background: transparent;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
 }
 
 /* Modifie la "boîte" de sélection de langue */
@@ -241,41 +241,25 @@ body {
     border-color: #e74c3c; /* Couleur de votre bouton principal */
 }
 
-/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
+/* Supprime le texte "Powered by Google" */
 .goog-logo-link {
     display: none !important;
 }
 
-/* On force le conteneur du widget à se placer au centre absolu dans la navbar */
-#google_translate_element {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
-}
-
-/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
-.nav-links {
-    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
-}
 #produits h2 {
     margin-top: 50px; /* Espace au-dessus du titre */
     margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
     text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
 }
-/* --- COMPATIBILITÉ SMARTPHONE --- */
 
+/* --- COMPATIBILITÉ SMARTPHONE --- */
 @media (max-width: 768px) {
-    /* 1. Annulation de l'échelle qui rend le site trop petit sur mobile */
     body {
         transform: none !important; /* Désactive le scale sur mobile */
         width: 100% !important;      /* Occupe toute la largeur */
         overflow-x: hidden;          /* Empêche le débordement horizontal */
     }
 
-    /* 2. Adaptation de la navigation */
     nav {
         flex-direction: column;      /* Empile les éléments */
         gap: 15px;
@@ -290,14 +274,12 @@ body {
         justify-content: center;
     }
 
-    /* 3. Déplacement du widget traducteur pour éviter les chevauchements */
     #google_translate_element {
         position: static;            /* Annule le positionnement absolu */
         transform: none;
-        order: 1;                    /* Change l'ordre d'affichage si nécessaire */
+        order: 1;                    
     }
 
-    /* 4. Adaptation du Header et du Slideshow */
     header, .slideshow-container {
         height: 300px;               /* Réduit la hauteur sur mobile */
     }
@@ -306,39 +288,38 @@ body {
         font-size: 1.5rem;           /* Titre plus petit */
     }
 
-    /* 5. Grille des produits */
     .grid {
         grid-template-columns: 1fr;  /* Une seule colonne sur mobile */
         padding: 20px 10px;
     }
 
-    /* 6. Ajustement des marges spécifiques */
     #produits h2 {
         margin-left: 10px;
         text-align: center;
     }
 }
 
-/* Conteneur pour l'image dans la carte */
+/* Conteneur pour l'image dans la carte (Fixe et protégé) */
 .card-img-container {
     width: 100%;
-    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    height: 200px; /* Hauteur fixe pour toutes les images */
     overflow: hidden; /* Cache ce qui dépasse */
     border-radius: 8px;
     margin-bottom: 15px;
-    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
+    background-color: #f0f0f0; 
+    flex-shrink: 0; /* Empêche l'image d'être compressée */
 }
 
 /* Style de l'image elle-même */
 .card-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
-    object-position: center;  /* Centre le sujet principal de l'image */
+    object-fit: cover;        
+    object-position: center;  
     transition: transform 0.3s ease;
 }
 
-/* Effet zoom sympa au survol (optionnel) */
+/* Effet zoom sympa au survol */
 .card:hover .card-img-container img {
     transform: scale(1.05);
 }
@@ -384,7 +365,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Classe pour cacher/montrer le chat */
 .chat-hidden {
     display: none;
     opacity: 0;
@@ -419,7 +399,6 @@ body {
     font-size: 13px;
 }
 
-/* Ciblage spécifique du champ Nom */
 #userName {
     width: 100%;
     padding: 10px;
@@ -437,7 +416,6 @@ body {
 }
 
 /* --- BARRE DE RECHERCHE DANS LA NAVIGATION --- */
-
 .search-container {
     display: flex;
     align-items: center;
@@ -447,7 +425,7 @@ body {
 
 .search-container input {
     padding: 8px 16px;
-    border-radius: 25px; /* Forme arrondie pour s'harmoniser avec vos boutons */
+    border-radius: 25px; 
     border: 1px solid #ddd;
     background-color: #ffffff;
     color: #333;
@@ -459,18 +437,16 @@ body {
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* Effet au survol et au focus */
 .search-container input:hover {
     border-color: #bbb;
 }
 
 .search-container input:focus {
-    width: 280px; /* S'élargit légèrement quand on clique dedans */
-    border-color: #e74c3c; /* Rappel de la couleur de vos boutons principaux */
+    width: 280px; 
+    border-color: #e74c3c; 
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
 }
 
-/* --- ADAPTATION MOBILE POUR LA RECHERCHE --- */
 @media (max-width: 768px) {
     .search-container {
         width: 100%;
@@ -479,12 +455,11 @@ body {
     }
 
     .search-container input {
-        width: 90%; /* Occupe presque toute la largeur sur petit écran */
+        width: 90%; 
     }
 }
 
 /* --- AJOUT POUR LE DÉFILEMENT HORIZONTAL --- */
-
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -494,7 +469,6 @@ body {
     margin: 0 auto;
 }
 
-/* Force l'alignement horizontal des produits sans saut de ligne */
 #product-container {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -503,21 +477,20 @@ body {
     gap: 20px;
     padding: 10px 10px;
     width: 100%;
-    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
-    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
 }
 
 #product-container::-webkit-scrollbar {
-    display: none; /* Masque la barre de défilement sur Chrome/Safari */
+    display: none; 
 }
 
-/* Fixe une largeur précise pour chaque carte pour qu'elles gardent leur forme */
 #product-container .card {
     flex: 0 0 250px !important;
     width: 250px !important;
     box-sizing: border-box;
 }
-/* --- BOUTONS DU CARROUSEL PARFAITEMENT RONDS --- */
+
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
@@ -529,11 +502,8 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-40%);
-    
-    /* On force des dimensions égales pour un cercle parfait */
     width: 20px;
     height: 20px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
