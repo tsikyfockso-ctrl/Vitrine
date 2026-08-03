@@ -132,10 +132,6 @@ function googleTranslateElementInit() {
             <div class="modal-img-container">
                 <img id="modalImg" src="" alt="Produit">
             </div>
-               <div class="modal-sku-badge">
-                     <span class="sku-label">SKU : </span>
-                     <span id="modalSku" class="sku-value"></span>
-                </div> 
             <div class="modal-info">
                 <h2 id="modalTitle">Nom du produit</h2>
                 <p id="modalPrice" class="modal-price-tag">0.00 €</p>
@@ -144,7 +140,12 @@ function googleTranslateElementInit() {
                     <h4>Description :</h4>
                     <p id="modalDesc">Chargement de la description...</p>
                 </div>
-
+                
+                <div class="modal-sku-badge">
+                     <span class="sku-label">SKU : </span>
+                     <span id="modalSku" class="sku-value"></span>
+                </div>
+                
                 <div class="modal-section">
                     <label for="modalVariantSelect"><strong>Spécifications / Variantes :</strong></label>
                     <select id="modalVariantSelect" onchange="updateModalPriceAndSpecs()">
