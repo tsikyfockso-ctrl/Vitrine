@@ -53,7 +53,8 @@ function renderProducts(stock, container) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
 
-        let prixAffiche = Array.isArray(p.prix) ? (p.prix[0] || "0") : (p.prix || "0");
+        let prixTab = Array.isArray(p.prix) ? p.prix : [p.prix];
+        let prixAffiche = prixTab[0] !== undefined ? prixTab[0] : "0";
         
         return `
             <div class="card" onclick="openProductModal(${index})">
@@ -68,7 +69,7 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// --- 4. LISTE DES PAYS (FR et US) ET GESTION DE LA MODALE ---
+// --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
     { code: "FR", nom: "France" }, 
     { code: "US", nom: "États-Unis" }
@@ -107,13 +108,11 @@ function openProductModal(index) {
         let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
 
         taillesTab.forEach((taille, i) => {
-            if (taille && taille.trim() !== "") {
-                let pVal = prixTab[i] || prixTab[0] || "0";
-                let opt = document.createElement('option');
-                opt.value = i;
-                opt.text = `${taille} - ${pVal} €`;
-                variantSelect.appendChild(opt);
-            }
+            let pVal = prixTab[i] !== undefined ? prixTab[i] : (prixTab[0] || "0");
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.text = `${taille || 'Standard'} - ${pVal} €`;
+            variantSelect.appendChild(opt);
         });
     }
 
@@ -130,7 +129,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- 5. AFFICHAGE DIRECT DES FRAIS DE PORT PRÉ-CALCULÉS PAR PYTHON ---
+// --- 5. AFFICHAGE DES FRAIS DE PORT ET DU PRIX TOTAL ---
 function calculateShipping() {
     if (!currentSelectedProduct) return;
 
@@ -140,33 +139,37 @@ function calculateShipping() {
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
-    // Lecture directe des valeurs générées et calculées dans le JSON par Python
-    if (countryCode === "FR") {
-        shippingCostFinal = currentSelectedProduct.shippingBase !== undefined ? parseFloat(currentSelectedProduct.shippingBase) : 0;
-        shippingMethodName = "Colissimo / Ligne de Liquide (France)";
-    } else if (countryCode === "US") {
+    // Récupération sécurisée des prix calculés par Python selon le pays
+    if (countryCode === "US") {
         shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
         shippingMethodName = "USPS / Ligne Express (États-Unis)";
+    } else {
+        // Par défaut France (FR)
+        shippingCostFinal = currentSelectedProduct.shippingBase !== undefined ? parseFloat(currentSelectedProduct.shippingBase) : 0;
+        shippingMethodName = "Colissimo / Ligne de Liquide (France)";
     }
 
-    // Affichage du nom de la méthode de livraison
+    // Affichage du nom de la méthode de livraison (si l'élément HTML existe)
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
         modalShippingName.innerText = shippingMethodName;
     }
 
-    // Affichage du coût de livraison
+    // Affichage du coût de livraison estimé
     const modalShippingCost = document.getElementById('modalShippingCost');
     if (modalShippingCost) {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    // Calcul du total global (Prix du produit sélectionné + Frais de port)
+    // Récupération du prix du produit selon la variante sélectionnée
     const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect ? variantSelect.value : 0;
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
-    let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
+    let rawPrice = prixTab[selectedIndex] !== undefined ? prixTab[selectedIndex] : (prixTab[0] || 0);
+    let currentPrice = parseFloat(rawPrice) || 0;
 
+    // Calcul du total global
     let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
