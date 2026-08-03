@@ -25,7 +25,7 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    params = {"keyword": "fashion accessories"}
+    params = {"keyword": "clothing"}
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
