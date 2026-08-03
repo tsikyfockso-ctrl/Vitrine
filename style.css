@@ -120,8 +120,9 @@ button {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px; 
-    margin-right: auto; 
+    gap: 15px; /* Espace entre les boutons */
+    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
+    margin-left: auto; 
 }
 
 .nav-btn {
@@ -260,11 +261,11 @@ body {
     }
 
     .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 15px; /* Espace entre les boutons */
-        margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
-        margin-left: auto;
+        margin-right: 0;
+        margin-left: 0;
+        gap: 10px;
+        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
+        justify-content: center;
     }
 
     #google_translate_element {
