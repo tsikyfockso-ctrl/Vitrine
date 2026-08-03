@@ -20,33 +20,22 @@ def get_cj_access_token():
     return None
     
 #recuperation vetement pour femme
-def fetch_cj_products_by_sku(token, target_sku):
+def fetch_cj_products_deep(token):
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # On récupère une liste générale de la catégorie (ex: women clothing)
-    params = {"keyword": "women clothing", "pageSize": 50} 
-    
+    params = {"keyword": "fashion accessories"}
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            products = data.get("data", {}).get("list", [])
-            
-            # --- FILTRAGE LOCAL PAR SKU ---
-            # On cherche dans la liste celui qui correspond exactement au SKU souhaité
-            for product in products:
-                sku_produit = product.get("productSku") or product.get("sku") or ""
-                if target_sku.lower() in sku_produit.lower():
-                    return [product] # Retourne le produit trouvé sous forme de liste
-                    
+            return data.get("data", {}).get("list", [])
     except Exception as e:
-        print(f"Erreur lors de la recherche par SKU : {e}")
-        
+        print(f"Erreur de connexion CJ : {e}")
     return []
-
+    
 def traduire_texte(texte):
     """Traduit automatiquement n'importe quel texte (chinois, etc.) en Français"""
     if not texte or not isinstance(texte, str):
