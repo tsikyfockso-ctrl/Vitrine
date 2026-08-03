@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+from deep_translator import GoogleTranslator
 
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
@@ -34,8 +35,21 @@ def fetch_cj_products_deep(token):
         print(f"Erreur de connexion CJ : {e}")
     return []
 
+def traduire_texte(texte):
+    """Traduit automatiquement n'importe quel texte (chinois, etc.) en Français"""
+    if not texte or not isinstance(texte, str):
+        return "Produit sans nom"
+    try:
+        # Utilisation de Google Traduction (cible : Français 'fr')
+        traducteur = GoogleTranslator(source='auto', target='fr')
+        resultat = traducteur.translate(texte)
+        return resultat if resultat else texte
+    except Exception as e:
+        # En cas de problème de connexion internet pour la traduction, on renvoie le texte d'origine
+        return texte
+
 def generate_update_stock_json():
-    print("🤖 Synchronisation avec les données et application des tarifs de transport...")
+    print("🤖 Synchronisation, application des tarifs et traduction automatique en Français...")
     
     token = get_cj_access_token()
     if not token:
@@ -46,7 +60,9 @@ def generate_update_stock_json():
     processed_products = []
 
     for product in products_raw:
-        nom = product.get("productName", "Produit sans nom")
+        # --- TRADUCTION AUTOMATIQUE DU NOM DU PRODUIT ---
+        nom_brut = product.get("productName", "Produit sans nom")
+        nom = traduire_texte(nom_brut)
         
         # Gestion des variantes / prix / stock
         variants = product.get("variants", [])
@@ -58,7 +74,11 @@ def generate_update_stock_json():
 
         if variants:
             for v in variants:
-                tailles_values.append(v.get("variantName", ""))
+                # Traduction optionnelle des noms de variantes si elles contiennent du chinois
+                nom_variante_brut = v.get("variantName", "")
+                nom_variante = traduire_texte(nom_variante_brut) if nom_variante_brut else "Standard"
+                
+                tailles_values.append(nom_variante)
                 prix_values.append(str(v.get("variantPrice", "0")))
                 images_values.append(v.get("variantImage", ""))
                 total_stock += int(v.get("variantStock", 0))
@@ -74,7 +94,7 @@ def generate_update_stock_json():
         except ValueError:
             poids_grammes = 200.0
 
-        # --- 1. TARIF DE LIVRAISON : FRANCE (FR) ---
+        # --- TARIF DE LIVRAISON : FRANCE (FR) ---
         if poids_grammes <= 1:
             port_base_fr = 3.54
         elif poids_grammes < 100:
@@ -88,7 +108,7 @@ def generate_update_stock_json():
 
         port_final_fr = port_base_fr + 0.99
 
-        # --- 2. TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
+        # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
         if poids_grammes <= 0.01:
             port_final_us = 6.67
         elif 1 <= poids_grammes <= 50:
@@ -100,10 +120,9 @@ def generate_update_stock_json():
         elif poids_grammes == 53:
             port_final_us = 7.80
         else:
-            # Application de la règle de +0.02 par gramme supplémentaire au-delà de 53g
             port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
 
-        # Construction de l'objet produit final pour le fichier JSON
+        # Construction de l'objet produit final traduit et prêt pour le site
         product_obj = {
             "nom": nom,
             "tailles": tailles_values,
@@ -112,8 +131,8 @@ def generate_update_stock_json():
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock,
             "poids": poids_grammes,
-            "shippingBase": round(port_final_fr, 2), # Utilisé pour la France
-            "shippingUS": round(port_final_us, 2)    # Utilisé pour les États-Unis
+            "shippingBase": round(port_final_fr, 2), # Pour la France
+            "shippingUS": round(port_final_us, 2)    # Pour les États-Unis
         }
         processed_products.append(product_obj)
 
@@ -121,7 +140,7 @@ def generate_update_stock_json():
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(processed_products, f, ensure_ascii=False, indent=4)
 
-    print(f"✅ Succès : {len(processed_products)} produits synchronisés dans update_stock.json")
+    print(f"✅ Succès : {len(processed_products)} produits traduits et synchronisés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
