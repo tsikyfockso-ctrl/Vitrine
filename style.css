@@ -645,3 +645,60 @@ nav {
 .modal-buy-btn:hover {
     background-color: #219653;
 }
+
+/* Structure de la carte en colonne pour aligner les éléments du haut vers le bas */
+.product-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    display: flex;
+    flex-direction: column; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Empêche le nom d'être trop long, l'affiche sur une seule ligne avec des "..." */
+.product-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+    color: #333;
+    white-space: nowrap;       /* Empêche le texte de passer à la ligne */
+    overflow: hidden;          /* Cache ce qui dépasse */
+    text-overflow: ellipsis;   /* Remplace la fin du texte long par des points de suspension (...) */
+    width: 100%;
+}
+
+.product-card .price {
+    font-size: 15px;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+/* Aligne tous les boutons strictement au même niveau en bas de chaque carte */
+.product-card button, 
+.product-card .voir-options-btn {
+    margin-top: auto; 
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.product-card button:hover, 
+.product-card .voir-options-btn:hover {
+    background-color: #457b9d;
+}
