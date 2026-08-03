@@ -94,6 +94,13 @@ function openProductModal(index) {
 
     document.getElementById('modalTitle').innerText = currentSelectedProduct.nom;
     
+    // --- GESTION ET AFFICHAGE DU SKU ---
+    const modalSkuElem = document.getElementById('modalSku'); // Assurez-vous d'avoir un élément avec cet ID dans votre HTML ou créez-le dynamiquement
+    if (modalSkuElem) {
+        modalSkuElem.innerText = currentSelectedProduct.sku || 'N/A';
+    }
+    // -----------------------------------
+
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
     if (rawImg) {
         document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
