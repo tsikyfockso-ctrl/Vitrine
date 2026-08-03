@@ -3,9 +3,9 @@ body {
   margin: 0; 
   padding: 0; 
   background: #f9f9f9;
-  margin: 0 auto;       /* Centre la page */
-  max-width: 1200px;    /* Le site ne dépassera jamais 1200px sur PC */
-  width: 100%;          /* Mais prend 100% sur mobile */
+  margin: 0 auto;       
+  max-width: 1200px;    
+  width: 100%;          
 }
 
 nav {
@@ -13,14 +13,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background-color: #fdf5f5; /* Un ton rosé poudré très clair */
+    background-color: #fdf5f5; 
     transition: background 0.3s ease;
     background-color: var(--couleur-principale);
-    position: relative; /* Indispensable */
+    position: relative; 
 }
 
 :root {
-    --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
+    --couleur-principale: #fdf5f5; 
 }
 
 header {
@@ -32,16 +32,16 @@ header {
     justify-content: center;
     color: white; 
     background-color: transparent;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
     position: relative;
 }
 
 .fixed-overlay {
-    position: absolute; /* Reste à la même place */
-    top: 50%;           /* Centre vertical */
-    left: 50%;          /* Centre horizontal */
-    transform: translate(-50%, -50%); /* Centrage parfait */
-    z-index: 10;        /* Assure que c'est au-dessus des images */
+    position: absolute; 
+    top: 50%;           
+    left: 50%;          
+    transform: translate(-50%, -50%); 
+    z-index: 10;        
     text-align: center;
     color: white;
     width: 100%;
@@ -50,10 +50,9 @@ header {
 .fixed-overlay h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ombre pour bien voir le texte */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); 
 }
 
-/* Bouton */
 .fixed-overlay button {
     padding: 15px 30px;
     background: #e74c3c;
@@ -81,7 +80,7 @@ button {
   margin-left: 10px;
 }
 
-/* --- STRUCTURE FIXE DE LA CARTE POUR LE CONTENU CJ DROPSHIPPING --- */
+/* --- STRUCTURE FIXE DE LA CARTE --- */
 .card { 
   background: white;
   padding: 20px; 
@@ -89,33 +88,31 @@ button {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
   display: flex;
   flex-direction: column;
-  height: 420px; /* Cadre de hauteur fixe et stable */
+  height: 420px; 
   box-sizing: border-box;
-  overflow: hidden; /* Empêche tout débordement hors du cadre */
+  overflow: hidden; 
 }
 
-/* Troncature automatique du texte dynamique sur 3 lignes max avec points de suspension (...) */
 .card p, .card .product-desc, .card h3, .card span {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limite stricte à 3 lignes pour correspondre à votre besoin */
+  -webkit-line-clamp: 3; 
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Pousse automatiquement le bouton ou les éléments du bas de la carte */
 .card .card-action, .card button, .card .modal-buy-btn {
   margin-top: auto; 
 }
-/* ------------------------------------------------------------------ */
+/* ---------------------------------- */
 
 .logo-container {
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
-    background-size: cover;      /* L'image remplit le cercle sans déformation */
-    background-position: center; /* Centre le logo dans le cercle */
+    background-image: url('logo_vitrine/Mayah.png'); 
+    background-size: cover;      
+    background-position: center; 
     background-repeat: no-repeat;
     border: 3px solid white;
 }
@@ -123,8 +120,8 @@ button {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px; /* Espace entre les boutons */
-    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
+    gap: 15px; 
+    margin-right: auto; 
 }
 
 .nav-btn {
@@ -132,16 +129,15 @@ button {
     color: #333;
     background: #f0f0f0;
     padding: 10px 20px;
-    border-radius: 25px; /* Forme arrondie moderne */
+    border-radius: 25px; 
     font-weight: 600;
-    transition: all 0.3s ease; /* Animation fluide */
+    transition: all 0.3s ease; 
 }
 
-/* Effet au survol de la souris */
 .nav-btn:hover {
     background: #333;
     color: white;
-    transform: translateY(-2px); /* Léger effet de soulèvement */
+    transform: translateY(-2px); 
 }
 
 .slideshow-container {
@@ -154,7 +150,7 @@ button {
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: slide-animation 24s infinite; /* Temps total du cycle */
+    animation: slide-animation 24s infinite; 
     opacity: 0;
 }
 
@@ -165,11 +161,10 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* 60% d'opacité noire */
-    pointer-events: none; /* Permet aux clics de traverser cette couche */
+    background-color: rgba(0, 0, 0, 0.6); 
+    pointer-events: none; 
 }
 
-/* Calcul du délai pour chaque image (7 images = 4s chacune) */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
@@ -187,10 +182,10 @@ button {
 }
 
 .slide img {
-    width: 100%;       /* L'image prend toute la largeur du conteneur */
-    height: 100%;      /* L'image prend toute la hauteur du conteneur */
-    object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
-    object-position: bottom; /* Centre l'image pour garder les éléments importants visibles */
+    width: 100%;       
+    height: 100%;      
+    object-fit: cover; 
+    object-position: bottom; 
     display: block;
 }
 
@@ -207,26 +202,26 @@ button {
     display: none !important;
 }
 
-/* Restauration propre du corps de page sans forcer de décalage indésirable */
+/* Restauration de votre body d'origine pour éviter le masquage par Google Translate */
 body {
     top: 0px !important;
     position: static !important;
+    margin-top: 0px !important;
 }
 
-/* Style moderne pour le conteneur du widget */
+/* Widget Google Translate placé proprement au centre sans cacher la navbar */
 #google_translate_element {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+    z-index: 100; 
 }
 
-/* Modifie la "boîte" de sélection de langue */
 .goog-te-combo {
     padding: 8px 12px;
-    border-radius: 25px; /* Arrondi moderne */
+    border-radius: 25px; 
     border: 1px solid #ddd;
     background-color: #ffffff;
     color: #333;
@@ -236,32 +231,30 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Effet au survol pour rester cohérent avec vos autres boutons */
 .goog-te-combo:hover {
-    border-color: #e74c3c; /* Couleur de votre bouton principal */
+    border-color: #e74c3c; 
 }
 
-/* Supprime le texte "Powered by Google" */
 .goog-logo-link {
     display: none !important;
 }
 
 #produits h2 {
-    margin-top: 50px; /* Espace au-dessus du titre */
-    margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
-    text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
+    margin-top: 50px; 
+    margin-left: 20px; 
+    text-align: left;    
 }
 
 /* --- COMPATIBILITÉ SMARTPHONE --- */
 @media (max-width: 768px) {
     body {
-        transform: none !important; /* Désactive le scale sur mobile */
-        width: 100% !important;      /* Occupe toute la largeur */
-        overflow-x: hidden;          /* Empêche le débordement horizontal */
+        transform: none !important; 
+        width: 100% !important;      
+        overflow-x: hidden;          
     }
 
     nav {
-        flex-direction: column;      /* Empile les éléments */
+        flex-direction: column;      
         gap: 15px;
         padding: 15px;
     }
@@ -270,26 +263,26 @@ body {
         margin-right: 0;
         margin-left: 0;
         gap: 10px;
-        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
+        flex-wrap: wrap;             
         justify-content: center;
     }
 
     #google_translate_element {
-        position: static;            /* Annule le positionnement absolu */
+        position: static;            
         transform: none;
         order: 1;                    
     }
 
     header, .slideshow-container {
-        height: 300px;               /* Réduit la hauteur sur mobile */
+        height: 300px;               
     }
 
     .fixed-overlay h1 {
-        font-size: 1.5rem;           /* Titre plus petit */
+        font-size: 1.5rem;           
     }
 
     .grid {
-        grid-template-columns: 1fr;  /* Une seule colonne sur mobile */
+        grid-template-columns: 1fr;  
         padding: 20px 10px;
     }
 
@@ -299,18 +292,16 @@ body {
     }
 }
 
-/* Conteneur pour l'image dans la carte (Fixe et protégé) */
 .card-img-container {
     width: 100%;
-    height: 200px; /* Hauteur fixe pour toutes les images */
-    overflow: hidden; /* Cache ce qui dépasse */
+    height: 200px; 
+    overflow: hidden; 
     border-radius: 8px;
     margin-bottom: 15px;
     background-color: #f0f0f0; 
-    flex-shrink: 0; /* Empêche l'image d'être compressée */
+    flex-shrink: 0; 
 }
 
-/* Style de l'image elle-même */
 .card-img-container img {
     width: 100%;
     height: 100%;
@@ -319,12 +310,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Effet zoom sympa au survol */
 .card:hover .card-img-container img {
     transform: scale(1.05);
 }
 
-/* Bouton bulle de discussion flottante */
 #chat-bubble {
     position: fixed;
     bottom: 20px;
@@ -348,7 +337,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Panneau de discussion transformé en popup de chat */
 .comment-panel {
     position: fixed;
     bottom: 90px;
@@ -415,7 +403,6 @@ body {
     outline: none;
 }
 
-/* --- BARRE DE RECHERCHE DANS LA NAVIGATION --- */
 .search-container {
     display: flex;
     align-items: center;
@@ -459,7 +446,6 @@ body {
     }
 }
 
-/* --- AJOUT POUR LE DÉFILEMENT HORIZONTAL --- */
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -522,7 +508,6 @@ body {
     right: -20px;
 }
 
-/* --- STYLE DE LA MODALE PRODUIT --- */
 .modal-overlay {
     position: fixed;
     top: 0;
