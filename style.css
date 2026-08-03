@@ -25,6 +25,7 @@ nav {
     background-color: #fdf5f5; /* Un ton rosé poudré très clair */
     transition: background 0.3s ease;
     background-color: var(--couleur-principale);
+    position: relative; /* Indispensable */
 }
 :root {
     --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
@@ -84,12 +85,34 @@ button {
   padding: 50px 5%;
   margin-left: 10px;
 }
+
+/* --- STRUCTURE FIXE DE LA CARTE (Basée sur vos 3 lignes de texte) --- */
 .card { 
   background: white;
   padding: 20px; 
   border-radius: 10px; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  display: flex;
+  flex-direction: column;
+  height: 420px; /* Hauteur fixe du cadre pour garder l'harmonie */
+  box-sizing: border-box;
 }
+
+/* Troncature propre du texte sur 3 lignes max avec points de suspension (...) */
+.card p, .card .product-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limite stricte à 3 lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pousse automatiquement les actions/boutons en bas de la carte */
+.card .card-action, .card button, .card .modal-buy-btn {
+  margin-top: auto; 
+}
+/* ------------------------------------------------------------------ */
+
 .logo-container {
     width: 60px;
     height: 60px;
@@ -187,11 +210,10 @@ button {
     display: none !important;
 }
 
-/* Force le corps de la page à ne pas être décalé par le bandeau */
+/* Restauration propre du corps de page sans forcer de décalage indésirable */
 body {
     top: 0px !important;
     position: static !important;
-    margin-top: 0px !important;
 }
 
 /* Style moderne pour le conteneur du widget */
@@ -223,16 +245,8 @@ body {
 .goog-logo-link {
     display: none !important;
 }
-/* Assurez-vous que votre nav est bien un conteneur flexible centré */
-nav {
-    display: flex;
-    justify-content: space-between; /* Garde les éléments aux extrémités */
-    align-items: center;
-    padding: 10px 5%;
-    position: relative; /* Indispensable */
-}
 
-/* On force le conteneur du widget à se placer au centre absolu */
+/* On force le conteneur du widget à se placer au centre absolu dans la navbar */
 #google_translate_element {
     position: absolute;
     left: 50%;
@@ -240,7 +254,6 @@ nav {
     display: flex;
     justify-content: center;
     z-index: 100; /* Assure que le widget reste bien visible au-dessus */
-}
 }
 
 /* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
@@ -323,11 +336,6 @@ nav {
     object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
     object-position: center;  /* Centre le sujet principal de l'image */
     transition: transform 0.3s ease;
-}
-
-/* Effet zoom sympa au survol (optionnel) */
-.card:hover .card-img-container img {
-    transform: scale(1.05);
 }
 
 /* Effet zoom sympa au survol (optionnel) */
