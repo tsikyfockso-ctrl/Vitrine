@@ -35,70 +35,75 @@ def fetch_cj_products_deep(token):
     return []
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation avec la Ligne de liquide et application du surplus de 0.99€...")
+    print("🤖 Synchronisation avec les données et application des tarifs de transport...")
+    
     token = get_cj_access_token()
     if not token:
-        print("❌ Token CJ introuvable.")
+        print("❌ Impossible d'obtenir le token d'accès CJ.")
         return
-    
+
     products_raw = fetch_cj_products_deep(token)
-    formatted_products = []
-    
+    processed_products = []
+
     for product in products_raw:
-        nom = product.get("productNameEn") or product.get("productName", "")
-        variants = product.get("variants", [])
+        nom = product.get("productName", "Produit sans nom")
         
-        tailles_values = [""] * 6
-        prix_values = [""] * 6
-        images_values = [""] * 7
-        details_list = []
+        # Gestion des variantes / prix / stock
+        variants = product.get("variants", [])
+        tailles_values = []
+        prix_values = []
+        images_values = []
         total_stock = 0
+        details_list = []
 
         if variants:
-            for idx, variant in enumerate(variants):
-                v_size = str(variant.get("variantSize", "")).strip()
-                v_price = str(variant.get("variantPrice", ""))
-                v_image = variant.get("variantImage", "")
-                v_stock = variant.get("variantStock", 0)
-                v_key = variant.get("variantKey", "")
-                
-                try:
-                    total_stock += int(v_stock)
-                except ValueError:
-                    pass
-
-                pos = idx if idx < 6 else 5
-                tailles_values[pos] = v_size
-                prix_values[pos] = v_price
-                if idx < 7:
-                    images_values[idx] = v_image
-                if v_key:
-                    details_list.append(v_key)
+            for v in variants:
+                tailles_values.append(v.get("variantName", ""))
+                prix_values.append(str(v.get("variantPrice", "0")))
+                images_values.append(v.get("variantImage", ""))
+                total_stock += int(v.get("variantStock", 0))
         else:
-            tailles_values[0] = str(product.get("productSize", ""))
-            prix_values[0] = str(product.get("sellPrice", ""))
-            images_values[0] = product.get("productImage", "")
+            tailles_values.append("Standard")
+            prix_values.append(str(product.get("sellPrice", "0")))
+            images_values.append(product.get("productImage", ""))
+            total_stock = product.get("totalStock", 100)
 
+        # Récupération du poids du produit en grammes
         try:
             poids_grammes = float(product.get("productWeight", 200))
         except ValueError:
             poids_grammes = 200.0
 
-        # --- CALCUL DE LA BASE : Ligne de liquide ---
+        # --- 1. TARIF DE LIVRAISON : FRANCE (FR) ---
         if poids_grammes <= 1:
-            port_base = 3.54
+            port_base_fr = 3.54
         elif poids_grammes < 100:
-            port_base = 3.54 + (poids_grammes * 0.015)
+            port_base_fr = 3.54 + (poids_grammes * 0.015)
         elif poids_grammes == 100:
-            port_base = 4.05
+            port_base_fr = 4.05
         elif poids_grammes <= 300:
-            port_base = 4.05 + ((poids_grammes - 100) * 0.02525)
+            port_base_fr = 4.05 + ((poids_grammes - 100) * 0.02525)
         else:
-            port_base = 8.10 + ((poids_grammes - 300) * 0.0205)
+            port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
 
-        # --- APPLICATION DE VOTRE SURPLUS DE 0.99 € ---
-        port_final = port_base + 0.99
+        port_final_fr = port_base_fr + 0.99
 
+        # --- 2. TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
+        if poids_grammes <= 0.01:
+            port_final_us = 6.67
+        elif 1 <= poids_grammes <= 50:
+            port_final_us = 7.73
+        elif poids_grammes == 51:
+            port_final_us = 7.76
+        elif poids_grammes == 52:
+            port_final_us = 7.78
+        elif poids_grammes == 53:
+            port_final_us = 7.80
+        else:
+            # Application de la règle de +0.02 par gramme supplémentaire au-delà de 53g
+            port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
+
+        # Construction de l'objet produit final pour le fichier JSON
         product_obj = {
             "nom": nom,
             "tailles": tailles_values,
@@ -106,13 +111,17 @@ def generate_update_stock_json():
             "images": images_values,
             "details": " | ".join(filter(None, details_list)),
             "stock": total_stock,
-            "shippingBase": round(port_final, 2)  # Le prix final unique intégré pour GitHub
+            "poids": poids_grammes,
+            "shippingBase": round(port_final_fr, 2), # Utilisé pour la France
+            "shippingUS": round(port_final_us, 2)    # Utilisé pour les États-Unis
         }
-        formatted_products.append(product_obj)
+        processed_products.append(product_obj)
 
+    # Écriture dans le fichier JSON local
     with open("update_stock.json", "w", encoding="utf-8") as f:
-        json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print("✨ Fichier update_stock.json mis à jour avec succès (Ligne de liquide + 0.99€) !")
+        json.dump(processed_products, f, ensure_ascii=False, indent=4)
+
+    print(f"✅ Succès : {len(processed_products)} produits synchronisés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
