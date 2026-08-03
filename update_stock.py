@@ -18,14 +18,15 @@ def get_cj_access_token():
     except Exception as e:
         print(f"Erreur d'authentification CJ : {e}")
     return None
-
+    
+#recuperation vetement pour femme
 def fetch_cj_products_deep(token):
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    params = {"keyword": "clothing"}
+    params = {"keyword": "women clothing"}
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
