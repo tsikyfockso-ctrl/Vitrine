@@ -489,12 +489,11 @@ nav {
 /* Force l'alignement horizontal des produits sans saut de ligne */
 #product-container {
     display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
+    flex-wrap: wrap !important;
     scroll-behavior: smooth;
+    justify-content: center;
     gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
+    padding: 20px;
     scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
     -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
 }
