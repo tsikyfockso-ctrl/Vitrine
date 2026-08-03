@@ -81,7 +81,7 @@ button {
   margin-left: 10px;
 }
 
-/* --- MISE À JOUR DES CARTES PRODUITS (ALIGNEMENT & TRONCATURE) --- */
+/* --- MISE À JOUR CORRIGÉE DES CARTES PRODUITS --- */
 .card { 
   background: white;
   padding: 20px; 
@@ -89,17 +89,18 @@ button {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
   display: flex;
   flex-direction: column;
-  height: 420px; /* Hauteur fixe pour assurer une harmonie visuelle parfaite */
+  min-height: 440px; /* Hauteur minimale pour garder de l'espace sans bloquer ni cacher le contenu */
   box-sizing: border-box;
 }
 
-/* Troncature pour limiter la longueur du texte dans les cartes (ex: description ou titre long) */
+/* C'est uniquement la description textuelle qui prend l'espace disponible et se tronque si trop longue */
 .card p, .card .product-desc {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limite l'affichage à 2 lignes maximum */
+  -webkit-line-clamp: 2; /* Limite l'affichage à 2 lignes maximum avec des points de suspension */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-grow: 1; /* Permet d'occuper l'espace de manière fluide */
 }
 
 /* Pousse automatiquement le bouton ou les éléments de fin tout en bas de la carte */
@@ -307,6 +308,7 @@ body {
     border-radius: 8px;
     margin-bottom: 15px;
     background-color: #f0f0f0; 
+    flex-shrink: 0; /* Empêche l'image de se faire écraser */
 }
 
 /* Style de l'image elle-même */
