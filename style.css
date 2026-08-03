@@ -1,0 +1,647 @@
+body { 
+  font-family: 'Segoe UI', sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  background: #f9f9f9;
+  margin: 0 auto;       /* Centre la page */
+  max-width: 1200px;    /* Le site ne dépassera jamais 1200px sur PC */
+  width: 100%;          /* Mais prend 100% sur mobile */
+    /* 1.75 correspond à 175% */
+  /*transform: scale(1.75); */
+    
+    /* Cela permet de garder le site centré malgré l'agrandissement */
+   /* transform-origin: top center; */
+    
+    /* Important : ajuste la largeur pour éviter que le site ne déborde */
+    /*width: 57.14%;*/ /* (100 / 1.75 = 57.14) */
+    /*margin: 0 auto;*/
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    /* Utilisation d'une couleur de fond fixe basée sur votre logo */
+    background-color: #fdf5f5; /* Un ton rosé poudré très clair */
+    transition: background 0.3s ease;
+    background-color: var(--couleur-principale);
+}
+:root {
+    --couleur-principale: #fdf5f5; /* La couleur dominante de votre logo */
+}
+header {
+    width: 100%;
+    height: 600px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    color: white; 
+    background-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Votre ombre portée */
+    position: relative;
+}
+.fixed-overlay {
+    position: absolute; /* Reste à la même place */
+    top: 50%;           /* Centre vertical */
+    left: 50%;          /* Centre horizontal */
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    z-index: 10;        /* Assure que c'est au-dessus des images */
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.fixed-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ombre pour bien voir le texte */
+}
+
+/* Bouton */
+.fixed-overlay button {
+    padding: 15px 30px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+button { 
+  padding: 15px 30px; 
+  background: #e74c3c; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; 
+  padding: 50px 5%;
+  margin-left: 10px;
+}
+.card { 
+  background: white;
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+.logo-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    
+    /* C'est ici l'astuce pour un cercle parfait */
+    background-image: url('logo_vitrine/Mayah.png'); /* Chemin de votre image */
+    background-size: 150px;
+    background-size: cover;      /* L'image remplit le cercle sans déformation */
+    background-position: center; /* Centre le logo dans le cercle */
+    background-repeat: no-repeat;
+    
+    border: 3px solid white;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Espace entre les boutons */
+    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
+    margin-left: auto;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #333;
+    background: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 25px; /* Forme arrondie moderne */
+    font-weight: 600;
+    transition: all 0.3s ease; /* Animation fluide */
+}
+
+/* Effet au survol de la souris */
+.nav-btn:hover {
+    background: #333;
+    color: white;
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
+.slideshow-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: slide-animation 24s infinite; /* Temps total du cycle */
+    opacity: 0;
+}
+.slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 0.4 signifie 40% d'opacité noire. Augmentez à 0.6 pour plus sombre */
+    pointer-events: none; /* Permet aux clics de traverser cette couche */
+}
+
+/* Calcul du délai pour chaque image (7 images = 4s chacune) */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+.slide:nth-child(5) { animation-delay: 16s; }
+.slide:nth-child(6) { animation-delay: 20s; }
+.slide:nth-child(7) { animation-delay: 24s; }
+
+@keyframes slide-animation {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
+.slide img {
+    width: 100%;       /* L'image prend toute la largeur du conteneur */
+    height: 100%;      /* L'image prend toute la hauteur du conteneur */
+    object-fit: cover; /* L'image est rognée intelligemment pour remplir l'espace sans se déformer */
+    object-position: bottom; /* Centre l'image pour garder les éléments importants visibles */
+    display: block;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Cache le bandeau intrusif de Google en haut de page */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate iframe {
+    display: none !important;
+}
+
+/* Force le corps de la page à ne pas être décalé par le bandeau */
+body {
+    top: 0px !important;
+    position: static !important;
+    margin-top: 0px !important;
+}
+
+/* Style moderne pour le conteneur du widget */
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+/* Modifie la "boîte" de sélection de langue */
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 25px; /* Arrondi moderne */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol pour rester cohérent avec vos autres boutons */
+.goog-te-combo:hover {
+    border-color: #e74c3c; /* Couleur de votre bouton principal */
+}
+
+/* Supprime le texte "Powered by Google" si vous voulez un design ultra-minimaliste */
+.goog-logo-link {
+    display: none !important;
+}
+/* Assurez-vous que votre nav est bien un conteneur flexible centré */
+nav {
+    display: flex;
+    justify-content: space-between; /* Garde les éléments aux extrémités */
+    align-items: center;
+    padding: 10px 5%;
+    position: relative; /* Indispensable */
+}
+
+/* On force le conteneur du widget à se placer au centre absolu */
+#google_translate_element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 100; /* Assure que le widget reste bien visible au-dessus */
+}
+}
+
+/* On ajuste les liens pour qu'ils ne chevauchent pas le widget au centre */
+.nav-links {
+    margin-right: auto; /* Pousse les liens vers la gauche si nécessaire */
+}
+#produits h2 {
+    margin-top: 50px; /* Espace au-dessus du titre */
+    margin-left: 20px; /* Ajustez ce nombre pour décaler plus ou moins */
+    text-align: left;  /* S'assure que le texte est bien aligné à gauche */  
+}
+/* --- COMPATIBILITÉ SMARTPHONE --- */
+
+@media (max-width: 768px) {
+    /* 1. Annulation de l'échelle qui rend le site trop petit sur mobile */
+    body {
+        transform: none !important; /* Désactive le scale sur mobile */
+        width: 100% !important;      /* Occupe toute la largeur */
+        overflow-x: hidden;          /* Empêche le débordement horizontal */
+    }
+
+    /* 2. Adaptation de la navigation */
+    nav {
+        flex-direction: column;      /* Empile les éléments */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-right: 0;
+        margin-left: 0;
+        gap: 10px;
+        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
+        justify-content: center;
+    }
+
+    /* 3. Déplacement du widget traducteur pour éviter les chevauchements */
+    #google_translate_element {
+        position: static;            /* Annule le positionnement absolu */
+        transform: none;
+        order: 1;                    /* Change l'ordre d'affichage si nécessaire */
+    }
+
+    /* 4. Adaptation du Header et du Slideshow */
+    header, .slideshow-container {
+        height: 300px;               /* Réduit la hauteur sur mobile */
+    }
+
+    .fixed-overlay h1 {
+        font-size: 1.5rem;           /* Titre plus petit */
+    }
+
+    /* 5. Grille des produits */
+    .grid {
+        grid-template-columns: 1fr;  /* Une seule colonne sur mobile */
+        padding: 20px 10px;
+    }
+
+    /* 6. Ajustement des marges spécifiques */
+    #produits h2 {
+        margin-left: 10px;
+        text-align: center;
+    }
+}
+
+/* Conteneur pour l'image dans la carte */
+.card-img-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Couleur de fond si l'image est transparente */
+}
+
+/* Style de l'image elle-même */
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Rogne intelligemment pour remplir tout le carré */
+    object-position: center;  /* Centre le sujet principal de l'image */
+    transition: transform 0.3s ease;
+}
+
+/* Effet zoom sympa au survol (optionnel) */
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+/* Effet zoom sympa au survol (optionnel) */
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+/* Bouton bulle de discussion flottante */
+#chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+#chat-bubble:hover {
+    transform: scale(1.05);
+}
+
+/* Panneau de discussion transformé en popup de chat */
+.comment-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    max-width: 90vw;
+    max-height: 450px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+/* Classe pour cacher/montrer le chat */
+.chat-hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.comment-panel textarea {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.comment-panel button {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.msg-card {
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+/* Ciblage spécifique du champ Nom */
+#userName {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#userName:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* --- BARRE DE RECHERCHE DANS LA NAVIGATION --- */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 40px;
+}
+
+.search-container input {
+    padding: 8px 16px;
+    border-radius: 25px; /* Forme arrondie pour s'harmoniser avec vos boutons */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+    width: 220px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Effet au survol et au focus */
+.search-container input:hover {
+    border-color: #bbb;
+}
+
+.search-container input:focus {
+    width: 280px; /* S'élargit légèrement quand on clique dedans */
+    border-color: #e74c3c; /* Rappel de la couleur de vos boutons principaux */
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
+}
+
+/* --- ADAPTATION MOBILE POUR LA RECHERCHE --- */
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    .search-container input {
+        width: 90%; /* Occupe presque toute la largeur sur petit écran */
+    }
+}
+
+/* --- AJOUT POUR LE DÉFILEMENT HORIZONTAL --- */
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Force l'alignement horizontal des produits sans saut de ligne */
+#product-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS et Android */
+}
+
+#product-container::-webkit-scrollbar {
+    display: none; /* Masque la barre de défilement sur Chrome/Safari */
+}
+
+/* Fixe une largeur précise pour chaque carte pour qu'elles gardent leur forme */
+#product-container .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+/* --- BOUTONS DU CARROUSEL PARFAITEMENT RONDS --- */
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 20%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    
+    /* On force des dimensions égales pour un cercle parfait */
+    width: 20px;
+    height: 20px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.prev-btn {
+    left: -20px;
+}
+
+.next-btn {
+    right: -20px;
+}
+
+/* --- STYLE DE LA MODALE PRODUIT --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: #fff;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-body {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.modal-img-container {
+    flex: 1;
+    min-width: 250px;
+}
+
+.modal-img-container img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.modal-info {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-price-tag {
+    font-size: 24px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-section select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.modal-shipping-details {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.modal-buy-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.modal-buy-btn:hover {
+    background-color: #219653;
+}
