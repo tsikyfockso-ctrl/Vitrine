@@ -26,14 +26,37 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    params = {"keyword": "fashion accessories"}
+    
+    # 1. Définissez ici la liste des SKU exacts que vous voulez récupérer
+    # (Vous pouvez en mettre un ou plusieurs dans cette liste)
+    sku_recherches = ["VOTRE_SKU_1", "VOTRE_SKU_2"] 
+    
+    # Si vous préférez chercher par catégorie globale de vêtements pour femme en premier :
+    params = {"keyword": "women clothing", "pageSize": 50}
+    
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            return data.get("data", {}).get("list", [])
+            products = data.get("data", {}).get("list", [])
+            
+            # Si vous n'avez pas de SKU spécifique dans la liste, on retourne tout
+            if not sku_recherches or sku_recherches == [""]:
+                return products
+                
+            # 2. Sinon, on filtre localement pour ne garder QUE les produits avec vos SKU exacts
+            produits_filtres = []
+            for product in products:
+                # Vérifiez les champs où CJ stocke le SKU selon votre structure de données
+                sku_produit = product.get("productSku") or product.get("sku") or ""
+                if any(sku.lower() in sku_produit.lower() for sku in sku_recherches):
+                    produits_filtres.append(product)
+            
+            return produits_filtres
+            
     except Exception as e:
         print(f"Erreur de connexion CJ : {e}")
+        
     return []
     
 def traduire_texte(texte):
