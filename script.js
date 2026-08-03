@@ -58,7 +58,7 @@ function renderProducts(stock, container) {
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
-                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom}" loading="lazy">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || 'Produit'}" loading="lazy">
                 </div>
                 <h3>${p.nom || 'Sans nom'}</h3>
                 <p>Prix : ${prixAffiche} €</p>
@@ -68,7 +68,7 @@ function renderProducts(stock, container) {
     }).join('');
 }
 
-// --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
+// --- 4. LISTE DES PAYS (FR et US) ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
     { code: "FR", nom: "France" }, 
     { code: "US", nom: "États-Unis" }
@@ -127,42 +127,41 @@ function closeProductModal() {
 
 function updateModalPriceAndSpecs() {
     if (!currentSelectedProduct) return;
-    const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect ? variantSelect.value : 0;
-
-    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
-    let currentPrice = parseFloat(prixTab[selectedIndex] || prixTab[0] || 0);
-
-    document.getElementById('modalPrice').innerText = currentPrice.toFixed(2) + " €";
     calculateShipping();
 }
 
-// --- 5. CALCUL DYNAMIQUE DES FRAIS DE PORT PAR PAYS ---
+// --- 5. AFFICHAGE DIRECT DES FRAIS DE PORT PRÉ-CALCULÉS PAR PYTHON ---
 function calculateShipping() {
     if (!currentSelectedProduct) return;
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
 
-    let multiplicateurPays = 1.0;
+    let shippingCostFinal = 0;
+    let shippingMethodName = "";
 
-    // Application du coefficient selon le pays (FR ou US)
-    if (countryCode === "US") {
-        multiplicateurPays = 1.4;
-    } else {
-        multiplicateurPays = 1.0; // ou la valeur souhaitée pour la France
+    // Lecture directe des valeurs générées et calculées dans le JSON par Python
+    if (countryCode === "FR") {
+        shippingCostFinal = currentSelectedProduct.shippingBase !== undefined ? parseFloat(currentSelectedProduct.shippingBase) : 0;
+        shippingMethodName = "Colissimo / Ligne de Liquide (France)";
+    } else if (countryCode === "US") {
+        shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
+        shippingMethodName = "USPS / Ligne Express (États-Unis)";
     }
 
-    // Récupération de la base calculée par Python selon le poids réel du produit
-    let shippingBaseProduit = currentSelectedProduct && currentSelectedProduct.shippingBase !== undefined 
-        ? parseFloat(currentSelectedProduct.shippingBase) 
-        : 4.00;
+    // Affichage du nom de la méthode de livraison
+    const modalShippingName = document.getElementById('modalShippingName');
+    if (modalShippingName) {
+        modalShippingName.innerText = shippingMethodName;
+    }
 
-    let shippingCostFinal = shippingBaseProduit * multiplicateurPays;
-
+    // Affichage du coût de livraison
     const modalShippingCost = document.getElementById('modalShippingCost');
-    if (modalShippingCost) modalShippingCost.innerText = shippingCostFinal.toFixed(2);
+    if (modalShippingCost) {
+        modalShippingCost.innerText = shippingCostFinal.toFixed(2);
+    }
 
+    // Calcul du total global (Prix du produit sélectionné + Frais de port)
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? variantSelect.value : 0;
     let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
@@ -170,7 +169,9 @@ function calculateShipping() {
 
     let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
-    if (modalTotalCost) modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
+    if (modalTotalCost) {
+        modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
+    }
 }
 
 function checkoutWithCard() {
