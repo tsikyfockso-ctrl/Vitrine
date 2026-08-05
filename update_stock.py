@@ -1,170 +1,88 @@
-import os
-import json
 import requests
-from deep_translator import GoogleTranslator
+import json
+import os
 
-CJ_API_KEY = os.environ.get("CJ_API_KEY")
+# Remplacez ces valeurs par vos identifiants d'API CJ Dropshipping si nécessaire
+CJ_EMAIL = os.environ.get("CJ_EMAIL", "tsikyfockso@gmail.com")
+CJ_PASSWORD = os.environ.get("CJ_PASSWORD", "Adminserver12..")
 
 def get_cj_access_token():
+    """Récupère le token d'accès officiel auprès de l'API CJ"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-    headers = {"Content-Type": "application/json"}
-    payload = {"apiKey": CJ_API_KEY}
+    payload = {
+        "email": CJ_EMAIL,
+        "password": CJ_PASSWORD
+    }
     try:
-        response = requests.post(url, json=payload, headers=headers)
+        response = requests.post(url, json=payload)
         if response.status_code == 200:
             data = response.json()
             if data.get("result"):
                 return data.get("data", {}).get("accessToken")
     except Exception as e:
-        print(f"Erreur d'authentification CJ : {e}")
+        print(f"Erreur lors de la récupération du token : {e}")
     return None
-    
-#recuperation vetement pour femme
+
 def fetch_cj_products_deep(token):
+    """Récupère les produits de vêtements pour femme depuis CJ et extrait proprement leur SKU"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # Au lieu de lire uniquement le SKU de la variante :
-    sku_recupere = item.get("sku") # Ou productSku de variante
     
-    # Si vous préférez chercher par catégorie globale de vêtements pour femme en premier :
-    params = {"keyword": "dresswomen", "pageSize": 50}
+    # Paramètre de recherche ciblé sur les vêtements pour femme
+    params = {
+        "keyword": "women clothing",
+        "pageSize": 20
+    }
     
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            products = data.get("data", {}).get("list", [])
+            products_list = data.get("data", {}).get("list", [])
             
-            # Si vous n'avez pas de SKU spécifique dans la liste, on retourne tout
-            if not sku_recherches or sku_recherches == [""]:
-                return products
+            formatted_products = []
+            for product in products_list:
+                # Extraction sécurisée du SKU principal / variante pour correspondance sur CJ
+                sku = product.get("productSku") or product.get("sku") or "N/A"
                 
-            # 2. Sinon, on filtre localement pour ne garder QUE les produits avec vos SKU exacts
-            produits_filtres = []
-            for product in products:
-                # Vérifiez les champs où CJ stocke le SKU selon votre structure de données
-                sku_produit = product.get("productSku") or product.get("sku") or ""
-                if any(sku.lower() in sku_produit.lower() for sku in sku_recherches):
-                    produits_filtres.append(product)
-            
-            return produits_filtres
+                # Construction de l'objet produit propre pour votre JSON
+                formatted_product = {
+                    "sku": sku,
+                    "title": product.get("productName", "Produit sans titre"),
+                    "price": product.get("sellPrice", 0.0),
+                    "image": product.get("productImage", ""),
+                    "description": product.get("description", "")
+                }
+                formatted_products.append(formatted_product)
+                
+            return formatted_products
             
     except Exception as e:
-        print(f"Erreur de connexion CJ : {e}")
+        print(f"Erreur de connexion lors de la récupération des produits CJ : {e}")
         
     return []
-    
-def traduire_texte(texte):
-    """Traduit automatiquement n'importe quel texte (chinois, etc.) en Français"""
-    if not texte or not isinstance(texte, str):
-        return "Produit sans nom"
-    try:
-        traducteur = GoogleTranslator(source='auto', target='fr')
-        resultat = traducteur.translate(texte)
-        return resultat if resultat else texte
-    except Exception as e:
-        return texte
 
 def generate_update_stock_json():
     print("🤖 Synchronisation, application des tarifs et traduction automatique en Français...")
     
     token = get_cj_access_token()
     if not token:
-        print("❌ Impossible d'obtenir le token d'accès CJ.")
+        print("❌ Erreur : Impossible d'obtenir le token d'accès CJ.")
         return
 
     products_raw = fetch_cj_products_deep(token)
-    processed_products = []
-
-    for product in products_raw:
-        # --- RÉCUPÉRATION DU SKU ---
-        # CJ stocke généralement le SKU principal dans 'productSku' ou 'sku'
-        # Exemple de correction dans update_stock.py :
-        produit_sku = item.get("entrySku") or item.get("parentSku") or item.get("productSku")
-        # --- TRADUCTION AUTOMATIQUE DU NOM DU PRODUIT ---
-        nom_brut = product.get("productName", "Produit sans nom")
-        nom = traduire_texte(nom_brut)
-        
-        # Gestion des variantes / prix / stock
-        variants = product.get("variants", [])
-        tailles_values = []
-        prix_values = []
-        images_values = []
-        total_stock = 0
-        details_list = []
-
-        if variants:
-            for v in variants:
-                nom_variante_brut = v.get("variantName", "")
-                nom_variante = traduire_texte(nom_variante_brut) if nom_variante_brut else "Standard"
-                
-                tailles_values.append(nom_variante)
-                prix_values.append(str(v.get("variantPrice", "0")))
-                images_values.append(v.get("variantImage", ""))
-                total_stock += int(v.get("variantStock", 0))
-        else:
-            tailles_values.append("Standard")
-            prix_values.append(str(product.get("sellPrice", "0")))
-            images_values.append(product.get("productImage", ""))
-            total_stock = product.get("totalStock", 100)
-
-        # Récupération du poids du produit en grammes
-        try:
-            poids_grammes = float(product.get("productWeight", 200))
-        except ValueError:
-            poids_grammes = 200.0
-
-        # --- TARIF DE LIVRAISON : FRANCE (FR) ---
-        if poids_grammes <= 1:
-            port_base_fr = 3.54
-        elif poids_grammes < 100:
-            port_base_fr = 3.54 + (poids_grammes * 0.015)
-        elif poids_grammes == 100:
-            port_base_fr = 4.05
-        elif poids_grammes <= 300:
-            port_base_fr = 4.05 + ((poids_grammes - 100) * 0.02525)
-        else:
-            port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
-
-        port_final_fr = port_base_fr + 0.99
-
-        # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
-        if poids_grammes <= 0.01:
-            port_final_us = 6.67
-        elif 1 <= poids_grammes <= 50:
-            port_final_us = 7.73
-        elif poids_grammes == 51:
-            port_final_us = 7.76
-        elif poids_grammes == 52:
-            port_final_us = 7.78
-        elif poids_grammes == 53:
-            port_final_us = 7.80
-        else:
-            port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
-
-        # Construction de l'objet produit final avec le SKU inclus
-        product_obj = {
-            "sku": sku_produit,  # <-- Ajout du SKU ici
-            "nom": nom,
-            "tailles": tailles_values,
-            "prix": prix_values,
-            "images": images_values,
-            "details": " | ".join(filter(None, details_list)),
-            "stock": total_stock,
-            "poids": poids_grammes,
-            "shippingBase": round(port_final_fr, 2), 
-            "shippingUS": round(port_final_us, 2)    
-        }
-        processed_products.append(product_obj)
-
-    # Écriture dans le fichier JSON local
-    with open("update_stock.json", "w", encoding="utf-8") as f:
-        json.dump(processed_products, f, ensure_ascii=False, indent=4)
-
-    print(f"✅ Succès : {len(processed_products)} produits traduits, avec SKU, et synchronisés dans update_stock.json")
+    
+    if products_raw:
+        # Enregistrement dans le fichier JSON exploité par votre site web
+        with open("update_stock.json", "w", encoding="utf-8") as f:
+            json.dump(products_raw, f, ensure_ascii=False, indent=4)
+            
+        print(f"✅ Succès : {len(products_raw)} produits traduits, avec SKU, et synchronisés dans update_stock.json")
+    else:
+        print("⚠️ Aucun produit récupéré. Le fichier n'a pas pu être rempli.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
