@@ -34,7 +34,13 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    params = {"keyword": "fashion accessories", "pageSize": 20}
+    
+    # Mot-clé strict et ciblée sur les vêtements pour femmes
+    params = {
+        "keyword": "women clothing", 
+        "pageSize": 20
+    }
+    
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
@@ -54,7 +60,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation, application des tarifs et traduction automatique en Français...")
+    print("🤖 Synchronisation, application des tarifs et traduction automatique en Français (Vêtements Femmes)...")
     
     token = get_cj_access_token()
     if not token:
@@ -72,7 +78,7 @@ def generate_update_stock_json():
         nom_traduite = traduire_texte(nom_original)
         
         # Récupération des données d'origine de votre script
-        try:
+       try:
             poids_grammes = float(product.get("productWeight", 200))
         except ValueError:
             poids_grammes = 200.0
@@ -120,9 +126,9 @@ def generate_update_stock_json():
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"✅ Succès : {len(formatted_products)} produits traduits, avec SKU, et synchronisés dans update_stock.json")
+        print(f"✅ Succès : {len(formatted_products)} vêtements pour femmes synchronisés dans update_stock.json")
     else:
-        print("✅ Succès : 0 produits traduits, avec SKU, et synchronisés dans update_stock.json")
+        print("✅ Succès : 0 produits trouvés.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
