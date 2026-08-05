@@ -26,13 +26,11 @@ def fetch_cj_products_deep(token):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    
-    # 1. Définissez ici la liste des SKU exacts que vous voulez récupérer
-    # (Vous pouvez en mettre un ou plusieurs dans cette liste)
-    sku_recherches = ["VOTRE_SKU_1", "VOTRE_SKU_2"] 
+    # Au lieu de lire uniquement le SKU de la variante :
+    sku_recupere = item.get("sku") # Ou productSku de variante
     
     # Si vous préférez chercher par catégorie globale de vêtements pour femme en premier :
-    params = {"keyword": "women clothing", "pageSize": 50}
+    params = {"keyword": "dresswomen", "pageSize": 50}
     
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -84,8 +82,8 @@ def generate_update_stock_json():
     for product in products_raw:
         # --- RÉCUPÉRATION DU SKU ---
         # CJ stocke généralement le SKU principal dans 'productSku' ou 'sku'
-        sku_produit = product.get("productSku") or product.get("sku") or "SKU-INCONNU"
-
+        # Exemple de correction dans update_stock.py :
+        produit_sku = item.get("entrySku") or item.get("parentSku") or item.get("productSku")
         # --- TRADUCTION AUTOMATIQUE DU NOM DU PRODUIT ---
         nom_brut = product.get("productName", "Produit sans nom")
         nom = traduire_texte(nom_brut)
