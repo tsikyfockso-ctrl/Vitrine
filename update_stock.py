@@ -22,39 +22,46 @@ def get_cj_access_token():
             data = response.json()
             if data.get("result"):
                 return data.get("data", {}).get("accessToken")
-            else:
-                print(f"❌ Erreur API CJ (Token) : {data.get('message', 'Réponse invalide')}")
     except Exception as e:
         print(f"Erreur d'authentification CJ : {e}")
     return None
 
-def verify_sku_on_cj(token, sku):
+def verify_and_get_strict_product(token, target_sku):
     """
-    Simule une recherche humaine : teste si le SKU existe et est trouvé sur CJ.
-    Retourne True si le produit est valide et trouvé, False sinon.
+    Simule une recherche humaine rigoureuse : 
+    Interroge l'API CJ spécifiquement pour ce SKU et vérifie que le produit existe réellement.
     """
-    if not sku or sku == "N/A":
-        return False
+    if not target_sku or target_sku == "N/A":
+        return None
         
-    url = "https://developers.cjdropshipping.com/api2.0/v1/product/query" # Endpoint de recherche par SKU/détail
+    url = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # Paramètre pour tester le SKU exact
-    params = {"productSku": sku}
+    params = {"productSku": target_sku}
     
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            # Si l'API renvoie des données valides pour ce SKU, il existe
-            if data.get("result") and data.get("data"):
-                return True
+            # Vérification stricte : le résultat de l'API doit contenir les données et correspondre au SKU
+            product_data = data.get("data")
+            if data.get("result") and product_data:
+                # Si c'est un dictionnaire direct ou une liste
+                if isinstance(product_data, dict):
+                    found_sku = product_data.get("productSku") or product_data.get("sku")
+                    if found_sku and found_sku.strip() == target_sku.strip():
+                        return product_data
+                elif isinstance(product_data, list) and len(product_data) > 0:
+                    for item in product_data:
+                        found_sku = item.get("productSku") or item.get("sku")
+                        if found_sku and found_sku.strip() == target_sku.strip():
+                            return item
     except Exception:
         pass
         
-    return False
+    return None
 
 def fetch_cj_products_deep(token):
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
@@ -63,20 +70,24 @@ def fetch_cj_products_deep(token):
         "Content-Type": "application/json"
     }
     
-    # Recherche stricte et ciblée uniquement sur les robes pour femmes
-    params = {
-        "keyword": "women dress",
-        "pageSize": 40  # On en demande un peu plus pour filtrer ceux qui n'ont pas de SKU valide
-    }
+    # Recherche humaine par termes stricts et multiples de robes pour femmes
+    search_keywords = ["women dress", "summer dress", "casual dress"]
+    all_raw_products = []
     
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
-            data = response.json()
-            return data.get("data", {}).get("list", [])
-    except Exception as e:
-        print(f"Erreur de connexion CJ : {e}")
-    return []
+    for kw in search_keywords:
+        print(f"🔍 Recherche humaine sur CJ avec le filtre : '{kw}'...")
+        params = {"keyword": kw, "pageSize": 15}
+        try:
+            response = requests.get(url, headers=headers, params=params)
+            if response.status_code == 200:
+                data = response.json()
+                items = data.get("data", {}).get("list", [])
+                if items:
+                    all_raw_products.extend(items)
+        except Exception as e:
+            print(f"Erreur lors de la recherche pour {kw}: {e}")
+            
+    return all_raw_products
 
 def traduire_texte(texte):
     """Traduit automatiquement n'importe quel texte en Français"""
@@ -88,7 +99,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation, vérification des SKU et traduction (Robes Femmes)...")
+    print("🤖 Démarrage de la synchronisation intelligente et stricte (Robes Femmes)...")
     
     token = get_cj_access_token()
     if not token:
@@ -98,18 +109,28 @@ def generate_update_stock_json():
     products_raw = fetch_cj_products_deep(token)
     
     formatted_products = []
+    seen_skus = set() # Pour éviter les doublons
+
     for product in products_raw:
         sku = product.get("productSku") or product.get("sku") or "N/A"
         
-        # ÉTAPE CLÉ : Le script teste le SKU un par un avant de valider le produit
-        print(f"🔍 Test du SKU : {sku}...")
-        if not verify_sku_on_cj(token, sku):
-            print(f"⚠️ SKU {sku} introuvable ou invalide sur CJ. Produit ignoré.")
-            continue  # Ignore ce produit et passe au suivant
+        if sku in seen_skus or sku == "N/A":
+            continue
             
-        print(f"✅ SKU {sku} validé avec succès !")
+        print(f"🔎 Test rigoureux du SKU : {sku}...")
         
-        nom_original = product.get("productName", "Produit sans titre")
+        # Le script interroge CJ pour valider que le produit existe bel et bien avec ce SKU exact
+        verified_product = verify_and_get_strict_product(token, sku)
+        
+        if not verified_product:
+            print(f"❌ SKU {sku} introuvable sur le site CJ. Produit rejeté.")
+            continue
+            
+        print(f"✅ SKU {sku} confirmé et trouvé sur CJ !")
+        seen_skus.add(sku)
+        
+        # On utilise les données vérifiées du produit
+        nom_original = verified_product.get("productName", product.get("productName", "Produit sans titre"))
         nom_traduite = traduire_texte(nom_original)
         
         # Récupération sécurisée du poids
@@ -131,7 +152,7 @@ def generate_update_stock_json():
             port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
 
         port_final_fr = port_base_fr + 0.99
-
+        
         # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
         if poids_grammes <= 0.01:
             port_final_us = 6.67
@@ -149,8 +170,8 @@ def generate_update_stock_json():
         product_obj = {
             "sku": sku,
             "nom": nom_traduite,
-            "prix": product.get("sellPrice", 0.0),
-            "images": [product.get("productImage", "")],
+            "prix": verified_product.get("sellPrice", product.get("sellPrice", 0.0)),
+            "images": [verified_product.get("productImage", product.get("productImage", ""))],
             "poids": poids_grammes,
             "shippingBase": round(port_final_fr, 2),
             "shippingUS": round(port_final_us, 2)
@@ -160,9 +181,9 @@ def generate_update_stock_json():
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"✅ Succès : {len(formatted_products)} robes valides synchronisées dans update_stock.json")
+        print(f"🎉 Succès : {len(formatted_products)} robes 100% vérifiées et valides enregistrées dans update_stock.json")
     else:
-        print("⚠️ Aucun produit valide avec un SKU vérifié n'a été trouvé.")
+        print("⚠️ Aucun produit n'a passé la vérification stricte du SKU.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
