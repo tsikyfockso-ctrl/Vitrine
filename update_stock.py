@@ -37,8 +37,8 @@ def fetch_cj_products_deep(token):
     
     # Recherche spécifique de vêtements pour femmes pour garantir des SKU valides sur CJ
     params = {
-        "keyword": "womendress",
-        "pageSize": 20
+        "keyword": "women dress",
+        "pageSize": 1
     }
     
     try:
