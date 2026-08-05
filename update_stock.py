@@ -77,14 +77,24 @@ def generate_update_stock_json():
         nom_original = product.get("productName", "Produit sans titre")
         nom_traduite = traduire_texte(nom_original)
         
-        # Récupération des données d'origine de votre script
-        poids_grammes = product.get("productWeight", 300)
-        
+        # Récupération sécurisée du poids converti en float (gère les chaînes de caractères vides ou textuelles)
+        try:
+            poids_grammes = float(product.get("productWeight", 200))
+        except ValueError:
+            poids_grammes = 200.0
+
         # --- TARIF DE LIVRAISON : FRANCE (FR) ---
-        if poids_grammes <= 300:
-            port_base_fr = 8.10
+        if poids_grammes <= 1:
+            port_base_fr = 3.54
+        elif poids_grammes < 100:
+            port_base_fr = 3.54 + (poids_grammes * 0.015)
+        elif poids_grammes == 100:
+            port_base_fr = 4.05
+        elif poids_grammes <= 300:
+            port_base_fr = 4.05 + ((poids_grammes - 100) * 0.02525)
         else:
             port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
+
         port_final_fr = port_base_fr + 0.99
 
         # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
