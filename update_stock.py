@@ -2,13 +2,18 @@ import requests
 import json
 import os
 
-# Remplacez ces valeurs par vos identifiants d'API CJ Dropshipping si nécessaire
-CJ_EMAIL = os.environ.get("CJ_EMAIL", "tsikyfockso@gmail.com")
-CJ_PASSWORD = os.environ.get("CJ_PASSWORD", "Adminserver12..")
+# Récupération sécurisée des identifiants depuis les Secrets de GitHub Actions
+CJ_EMAIL = os.environ.get("CJ_EMAIL")
+CJ_PASSWORD = os.environ.get("CJ_PASSWORD")
 
 def get_cj_access_token():
     """Récupère le token d'accès officiel auprès de l'API CJ"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
+    
+    if not CJ_EMAIL or not CJ_PASSWORD:
+        print("❌ Erreur : Les variables d'environnement CJ_EMAIL ou CJ_PASSWORD ne sont pas définies.")
+        return None
+
     payload = {
         "email": CJ_EMAIL,
         "password": CJ_PASSWORD
@@ -19,8 +24,10 @@ def get_cj_access_token():
             data = response.json()
             if data.get("result"):
                 return data.get("data", {}).get("accessToken")
+            else:
+                print(f"❌ Erreur API CJ (Token) : {data.get('message', 'Réponse invalide')}")
     except Exception as e:
-        print(f"Erreur lors de la récupération du token : {e}")
+        print(f"Erreur de connexion lors de la récupération du token : {e}")
     return None
 
 def fetch_cj_products_deep(token):
@@ -33,8 +40,8 @@ def fetch_cj_products_deep(token):
     
     # Paramètre de recherche ciblé sur les vêtements pour femme
     params = {
-        "keyword": "women clothing",
-        "pageSize": 20
+        "keyword": "dresswomen",
+        "pageSize": 50
     }
     
     try:
@@ -45,7 +52,7 @@ def fetch_cj_products_deep(token):
             
             formatted_products = []
             for product in products_list:
-                # Extraction sécurisée du SKU principal / variante pour correspondance sur CJ
+                # Extraction sécurisée du SKU pour correspondance sur le site de CJ
                 sku = product.get("productSku") or product.get("sku") or "N/A"
                 
                 # Construction de l'objet produit propre pour votre JSON
