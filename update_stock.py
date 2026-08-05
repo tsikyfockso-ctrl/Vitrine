@@ -35,9 +35,9 @@ def fetch_cj_products_deep(token):
         "Content-Type": "application/json"
     }
     
-    # Mot-clé strict et ciblée sur les vêtements pour femmes
+    # Recherche spécifique de vêtements pour femmes pour garantir des SKU valides sur CJ
     params = {
-        "keyword": "women clothing", 
+        "keyword": "women clothing",
         "pageSize": 20
     }
     
@@ -78,23 +78,13 @@ def generate_update_stock_json():
         nom_traduite = traduire_texte(nom_original)
         
         # Récupération des données d'origine de votre script
-       try:
-            poids_grammes = float(product.get("productWeight", 200))
-        except ValueError:
-            poids_grammes = 200.0
-
+        poids_grammes = product.get("productWeight", 300)
+        
         # --- TARIF DE LIVRAISON : FRANCE (FR) ---
-        if poids_grammes <= 1:
-            port_base_fr = 3.54
-        elif poids_grammes < 100:
-            port_base_fr = 3.54 + (poids_grammes * 0.015)
-        elif poids_grammes == 100:
-            port_base_fr = 4.05
-        elif poids_grammes <= 300:
-            port_base_fr = 4.05 + ((poids_grammes - 100) * 0.02525)
+        if poids_grammes <= 300:
+            port_base_fr = 8.10
         else:
             port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
-
         port_final_fr = port_base_fr + 0.99
 
         # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
