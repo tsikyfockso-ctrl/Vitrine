@@ -152,7 +152,7 @@ def generate_update_stock_json():
             port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
 
         port_final_fr = port_base_fr + 0.99
-        
+
         # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
         if poids_grammes <= 0.01:
             port_final_us = 6.67
