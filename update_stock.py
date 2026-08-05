@@ -2,22 +2,23 @@ import requests
 import json
 import os
 
-# Récupération sécurisée des identifiants depuis les Secrets de GitHub Actions
-CJ_EMAIL = os.environ.get("CJ_EMAIL")
-CJ_PASSWORD = os.environ.get("CJ_PASSWORD")
+# Récupération sécurisée de la clé API depuis les Secrets de GitHub Actions
+CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 def get_cj_access_token():
-    """Récupère le token d'accès officiel auprès de l'API CJ"""
+    """Récupère le token d'accès officiel auprès de l'API CJ via la clé API (apiKey mode)"""
+    # Nouvel endpoint officiel pour l'authentification par API Key
     url = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
     
-    if not CJ_EMAIL or not CJ_PASSWORD:
-        print("❌ Erreur : Les variables d'environnement CJ_EMAIL ou CJ_PASSWORD ne sont pas définies.")
+    if not CJ_API_KEY:
+        print("❌ Erreur : La variable d'environnement CJ_API_KEY n'est pas définie dans les Secrets GitHub.")
         return None
 
+    # Payload officiel avec la clé API
     payload = {
-        "email": CJ_EMAIL,
-        "password": CJ_PASSWORD
+        "apiKey": CJ_API_KEY
     }
+    
     try:
         response = requests.post(url, json=payload)
         if response.status_code == 200:
@@ -40,8 +41,8 @@ def fetch_cj_products_deep(token):
     
     # Paramètre de recherche ciblé sur les vêtements pour femme
     params = {
-        "keyword": "dresswomen",
-        "pageSize": 50
+        "keyword": "women clothing",
+        "pageSize": 20
     }
     
     try:
