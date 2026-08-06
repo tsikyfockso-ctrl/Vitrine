@@ -28,8 +28,8 @@ def get_cj_access_token():
 
 def verify_and_get_strict_product(token, target_sku):
     """
-    Simule une recherche humaine rigoureuse : 
-    Interroge l'API CJ spécifiquement pour ce SKU et vérifie que le produit existe réellement.
+    Simule la vérification humaine : interroge l'API CJ avec le SKU exact 
+    pour confirmer que le produit existe bel et bien.
     """
     if not target_sku or target_sku == "N/A":
         return None
@@ -45,10 +45,9 @@ def verify_and_get_strict_product(token, target_sku):
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            # Vérification stricte : le résultat de l'API doit contenir les données et correspondre au SKU
             product_data = data.get("data")
             if data.get("result") and product_data:
-                # Si c'est un dictionnaire direct ou une liste
+                # Vérification que le SKU retourné correspond parfaitement au SKU cherché
                 if isinstance(product_data, dict):
                     found_sku = product_data.get("productSku") or product_data.get("sku")
                     if found_sku and found_sku.strip() == target_sku.strip():
@@ -63,31 +62,34 @@ def verify_and_get_strict_product(token, target_sku):
         
     return None
 
-def fetch_cj_products_deep(token):
+def search_cj_like_human(token):
+    """
+    Imite un humain tapant 'women dress' dans la barre de recherche du site CJ.
+    """
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
     
-    # Recherche humaine par termes stricts et multiples de robes pour femmes
-    search_keywords = ["women dress", "summer dress", "casual dress"]
-    all_raw_products = []
+    # Recherche exacte avec le mot-clé demandé
+    params = {
+        "keyword": "women dress",
+        "pageSize": 30
+    }
     
-    for kw in search_keywords:
-        print(f"🔍 Recherche humaine sur CJ avec le filtre : '{kw}'...")
-        params = {"keyword": kw, "pageSize": 15}
-        try:
-            response = requests.get(url, headers=headers, params=params)
-            if response.status_code == 200:
-                data = response.json()
-                items = data.get("data", {}).get("list", [])
-                if items:
-                    all_raw_products.extend(items)
-        except Exception as e:
-            print(f"Erreur lors de la recherche pour {kw}: {e}")
-            
-    return all_raw_products
+    print("🔍 Action humaine : Saisie de 'women dress' dans la barre de recherche CJ...")
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        if response.status_code == 200:
+            data = response.json()
+            products = data.get("data", {}).get("list", [])
+            print(f"📦 {len(products)} produits trouvés dans les résultats de recherche.")
+            return products
+    except Exception as e:
+        print(f"Erreur lors de la recherche CJ : {e}")
+        
+    return []
 
 def traduire_texte(texte):
     """Traduit automatiquement n'importe quel texte en Français"""
@@ -99,41 +101,43 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Démarrage de la synchronisation intelligente et stricte (Robes Femmes)...")
+    print("🤖 Démarrage du script intelligent (Recherche ciblée 'women dress' + Validation SKU)...")
     
     token = get_cj_access_token()
     if not token:
         print("❌ Erreur : Impossible d'obtenir le token d'accès CJ.")
         return
 
-    products_raw = fetch_cj_products_deep(token)
+    # 1. Recherche par mot-clé comme un humain
+    products_raw = search_cj_like_human(token)
     
     formatted_products = []
-    seen_skus = set() # Pour éviter les doublons
+    seen_skus = set()
 
+    # 2. Analyse un par un des produits de la liste
     for product in products_raw:
         sku = product.get("productSku") or product.get("sku") or "N/A"
         
         if sku in seen_skus or sku == "N/A":
             continue
             
-        print(f"🔎 Test rigoureux du SKU : {sku}...")
+        print(f"👉 Inspection du produit -> SKU testé : {sku}")
         
-        # Le script interroge CJ pour valider que le produit existe bel et bien avec ce SKU exact
+        # 3. Test unitaire rigoureux du SKU pour s'assurer qu'il est valide
         verified_product = verify_and_get_strict_product(token, sku)
         
         if not verified_product:
-            print(f"❌ SKU {sku} introuvable sur le site CJ. Produit rejeté.")
+            print(f"❌ SKU {sku} non validé/introuvable. Le produit est ignoré.")
             continue
             
-        print(f"✅ SKU {sku} confirmé et trouvé sur CJ !")
+        print(f"✅ SKU {sku} validé avec succès !")
         seen_skus.add(sku)
         
-        # On utilise les données vérifiées du produit
+        # Récupération et traduction des données validées
         nom_original = verified_product.get("productName", product.get("productName", "Produit sans titre"))
         nom_traduite = traduire_texte(nom_original)
         
-        # Récupération sécurisée du poids
+        poids_brut = verified_product.get("productWeight", product.get("productWeight", 200))
         try:
             poids_grammes = float(product.get("productWeight", 200))
         except ValueError:
@@ -178,12 +182,13 @@ def generate_update_stock_json():
         }
         formatted_products.append(product_obj)
 
+    # 4. Enregistrement dans le fichier final
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès : {len(formatted_products)} robes 100% vérifiées et valides enregistrées dans update_stock.json")
+        print(f"🎉 Succès total : {len(formatted_products)} robes authentiques et vérifiées enregistrées dans update_stock.json")
     else:
-        print("⚠️ Aucun produit n'a passé la vérification stricte du SKU.")
+        print("⚠️ Aucun produit n'a validé le test SKU.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
