@@ -3,7 +3,6 @@ import json
 import requests
 from deep_translator import GoogleTranslator
 
-# Configuration avec l'API Key moderne de CJ Dropshipping
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 def get_cj_access_token():
@@ -26,73 +25,56 @@ def get_cj_access_token():
         print(f"Erreur d'authentification CJ : {e}")
     return None
 
-def verify_and_get_strict_product(token, target_sku):
+def fetch_product_details_and_variants(token, pid):
     """
-    Simule la vérification humaine : interroge l'API CJ avec le SKU exact 
-    pour confirmer que le produit existe bel et bien.
+    Simule le clic sur un produit pour récupérer les variantes détaillées,
+    les tailles, les couleurs, les prix et les détails de coûts (Product Fee / Shipping Cost).
     """
-    if not target_sku or target_sku == "N/A":
-        return None
-        
-    url = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
+    url = "https://developers.cjdropshipping.com/api2.0/v1/product/variant"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    params = {"productSku": target_sku}
+    params = {"pid": pid}
     
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            product_data = data.get("data")
-            if data.get("result") and product_data:
-                # Vérification que le SKU retourné correspond parfaitement au SKU cherché
-                if isinstance(product_data, dict):
-                    found_sku = product_data.get("productSku") or product_data.get("sku")
-                    if found_sku and found_sku.strip() == target_sku.strip():
-                        return product_data
-                elif isinstance(product_data, list) and len(product_data) > 0:
-                    for item in product_data:
-                        found_sku = item.get("productSku") or item.get("sku")
-                        if found_sku and found_sku.strip() == target_sku.strip():
-                            return item
-    except Exception:
-        pass
+            if data.get("result"):
+                return data.get("data")
+    except Exception as e:
+        print(f"Erreur lors de la récupération des détails pour le PID {pid} : {e}")
         
     return None
 
-def search_cj_like_human(token):
+def search_cj_products(token):
     """
-    Imite un humain tapant 'women dress' dans la barre de recherche du site CJ.
+    Recherche les produits sur la barre de recherche CJ avec le mot-clé 'women dress'
     """
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    
-    # Recherche exacte avec le mot-clé demandé
     params = {
         "keyword": "women dress",
-        "pageSize": 30
+        "pageSize": 15
     }
     
-    print("🔍 Action humaine : Saisie de 'women dress' dans la barre de recherche CJ...")
+    print("🔍 Recherche ciblée sur la barre CJ avec le mot-clé : 'women dress'...")
     try:
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
             products = data.get("data", {}).get("list", [])
-            print(f"📦 {len(products)} produits trouvés dans les résultats de recherche.")
+            print(f"📦 {len(products)} produits trouvés dans les résultats.")
             return products
     except Exception as e:
-        print(f"Erreur lors de la recherche CJ : {e}")
-        
+        print(f"Erreur de recherche CJ : {e}")
     return []
 
 def traduire_texte(texte):
-    """Traduit automatiquement n'importe quel texte en Français"""
     if not texte:
         return ""
     try:
@@ -101,94 +83,133 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Démarrage du script intelligent (Recherche ciblée 'women dress' + Validation SKU)...")
+    print("🤖 Démarrage du script d'extraction intelligente (Variantes, Tailles, Couleurs, Product Fee & Shipping Cost)...")
     
     token = get_cj_access_token()
     if not token:
         print("❌ Erreur : Impossible d'obtenir le token d'accès CJ.")
         return
 
-    # 1. Recherche par mot-clé comme un humain
-    products_raw = search_cj_like_human(token)
-    
+    # 1. Recherche par mot-clé
+    raw_products = search_cj_products(token)
     formatted_products = []
     seen_skus = set()
 
-    # 2. Analyse un par un des produits de la liste
-    for product in products_raw:
-        sku = product.get("productSku") or product.get("sku") or "N/A"
+    for product in raw_products:
+        pid = product.get("pid")
+        parent_sku = product.get("productSku") or product.get("sku")
         
-        if sku in seen_skus or sku == "N/A":
+        if not pid or parent_sku in seen_skus:
             continue
             
-        print(f"👉 Inspection du produit -> SKU testé : {sku}")
+        print(f"\n👉 Inspection détaillée du produit PID: {pid} (SKU: {parent_sku})")
         
-        # 3. Test unitaire rigoureux du SKU pour s'assurer qu'il est valide
-        verified_product = verify_and_get_strict_product(token, sku)
-        
-        if not verified_product:
-            print(f"❌ SKU {sku} non validé/introuvable. Le produit est ignoré.")
+        # 2 & 5 & 6 & 7. Récupération des variantes, des prix, tailles, couleurs et coûts détaillés
+        detailed_data = fetch_product_details_and_variants(token, pid)
+        if not detailed_data:
+            print(f"⚠️ Impossible de récupérer les détails/variantes pour le PID {pid}.")
             continue
             
-        print(f"✅ SKU {sku} validé avec succès !")
-        seen_skus.add(sku)
-        
-        # Récupération et traduction des données validées
-        nom_original = verified_product.get("productName", product.get("productName", "Produit sans titre"))
+        # Extraction des informations de base
+        nom_original = detailed_data.get("productName", product.get("productName", "Produit sans titre"))
         nom_traduite = traduire_texte(nom_original)
         
-        poids_brut = verified_product.get("productWeight", product.get("productWeight", 200))
-        try:
-            poids_grammes = float(product.get("productWeight", 200))
-        except ValueError:
-            poids_grammes = 200.0
+        variants = detailed_data.get("variants", [])
+        if not variants:
+            # S'il n'y a pas de tableau de variantes détaillé, on utilise les données de base
+            variants = [product]
 
-        # --- TARIF DE LIVRAISON : FRANCE (FR) ---
-        if poids_grammes <= 1:
-            port_base_fr = 3.54
-        elif poids_grammes < 100:
-            port_base_fr = 3.54 + (poids_grammes * 0.015)
-        elif poids_grammes == 100:
-            port_base_fr = 4.05
-        elif poids_grammes <= 300:
-            port_base_fr = 4.05 + ((poids_grammes - 100) * 0.02525)
+        tailles_values = []
+        prix_values = []
+        couleurs_values = []
+        details_list = []
+        images_values = [detailed_data.get("productImage", product.get("productImage", ""))]
+        
+        total_poids = 300.0
+        product_fee = 0.0
+        shipping_cost = 0.0
+
+        for var in variants:
+            sku_var = var.get("variantSku") or var.get("sku")
+            if sku_var:
+                seen_skus.add(sku_var)
+                
+            # Récupération des attributs (Taille / Couleur)
+            size = var.get("variantSize") or var.get("size") or ""
+            color = var.get("variantColor") or var.get("color") or ""
+            
+            if size and size not in tailles_values:
+                tailles_values.append(size)
+            if color and color not in couleurs_values:
+                couleurs_values.append(color)
+                
+            # Prix par variante
+            price_var = var.get("variantPrice") or var.get("sellPrice") or product.get("sellPrice", 0.0)
+            try:
+                price_var = float(price_var)
+            except ValueError:
+                price_var = 0.0
+            if price_var not in prix_values:
+                prix_values.append(price_var)
+                
+            # Poids par variante (si disponible)
+            weight_var = var.get("variantWeight") or product.get("productWeight", 300)
+            try:
+                total_poids = float(weight_var)
+            except (ValueError, TypeError):
+                pass
+
+            # Récupération des détails de coûts (Product Fee & Shipping Cost)
+            product_fee = float(var.get("productFee", product.get("productFee", price_var)))
+            shipping_cost = float(var.get("shippingCost", product.get("shippingCost", 8.10)))
+
+            details_list.append(f"SKU: {sku_var} | Couleur: {color or 'Unique'} | Taille: {size or 'Unique'} | Prix: {price_var}€")
+
+        # Calculs logistiques (France et États-Unis basés sur le poids)
+        if total_poids <= 300:
+            port_base_fr = 8.10
         else:
-            port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
-
+            port_base_fr = 8.10 + ((total_poids - 300) * 0.0205)
         port_final_fr = port_base_fr + 0.99
 
-        # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
-        if poids_grammes <= 0.01:
+        if total_poids <= 0.01:
             port_final_us = 6.67
-        elif 1 <= poids_grammes <= 50:
+        elif 1 <= total_poids <= 50:
             port_final_us = 7.73
-        elif poids_grammes == 51:
+        elif total_poids == 51:
             port_final_us = 7.76
-        elif poids_grammes == 52:
+        elif total_poids == 52:
             port_final_us = 7.78
-        elif poids_grammes == 53:
+        elif total_poids == 53:
             port_final_us = 7.80
         else:
-            port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
+            port_final_us = 7.80 + ((total_poids - 53) * 0.02)
 
+        # Construction de l'objet complet structuré
         product_obj = {
-            "sku": sku,
+            "sku": parent_sku,
             "nom": nom_traduite,
-            "prix": verified_product.get("sellPrice", product.get("sellPrice", 0.0)),
-            "images": [verified_product.get("productImage", product.get("productImage", ""))],
-            "poids": poids_grammes,
-            "shippingBase": round(port_final_fr, 2),
-            "shippingUS": round(port_final_us, 2)
+            "tailles": tailles_values,
+            "couleurs": couleurs_values,
+            "prix": prix_values if prix_values else [0.0],
+            "images": images_values,
+            "details": " | ".join(filter(None, details_list)),
+            "poids": total_poids,
+            "productFee": round(product_fee, 2),     # Coût du produit extrait des détails
+            "shippingCost": round(shipping_cost, 2), # Frais d'expédition de base extraits
+            "shippingBase": round(port_final_fr, 2), # Frais de port calculés pour la France
+            "shippingUS": round(port_final_us, 2)    # Frais de port calculés pour les USA
         }
+        
         formatted_products.append(product_obj)
+        print(f"✅ Succès : Produit '{nom_traduite}' extrait avec {len(tailles_values)} tailles, {len(couleurs_values)} couleurs et ses coûts détaillés.")
 
-    # 4. Enregistrement dans le fichier final
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès total : {len(formatted_products)} robes authentiques et vérifiées enregistrées dans update_stock.json")
+        print(f"\n🎉 Terminé ! {len(formatted_products)} produits intelligents enregistrés dans update_stock.json")
     else:
-        print("⚠️ Aucun produit n'a validé le test SKU.")
+        print("⚠️ Aucun produit n'a pu être extrait.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
