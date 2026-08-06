@@ -134,7 +134,7 @@ def generate_update_stock_json():
             if sku_var:
                 seen_skus.add(sku_var)
                 
-            # Récupération des attributs (Taill / Couleur)
+            # Récupération des attributs (Taille / Couleur)
             size = var.get("variantSize") or var.get("size") or ""
             color = var.get("variantColor") or var.get("color") or ""
             
