@@ -28,16 +28,18 @@ def get_cj_access_token():
         print(f"Erreur d'authentification CJ : {e}")
     return None
 
-def fetch_cj_products_deep(token):
+def fetch_cj_products_stable(token):
+    """
+    Récupère la liste stable des produits CJ avec recherche ciblée 'women dress'
+    """
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
     
-    # Recherche spécifique de vêtements pour femmes pour garantir des SKU valides sur CJ
     params = {
-        "keyword": "women clothing",
+        "keyword": "women dress",
         "pageSize": 20
     }
     
@@ -45,13 +47,14 @@ def fetch_cj_products_deep(token):
         response = requests.get(url, headers=headers, params=params)
         if response.status_code == 200:
             data = response.json()
-            return data.get("data", {}).get("list", [])
+            if data.get("result"):
+                return data.get("data", {}).get("list", [])
     except Exception as e:
-        print(f"Erreur de connexion CJ : {e}")
+        print(f"Erreur lors de la récupération des produits : {e}")
+        
     return []
 
 def traduire_texte(texte):
-    """Traduit automatiquement n'importe quel texte en Français"""
     if not texte:
         return ""
     try:
@@ -60,69 +63,53 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Synchronisation, application des tarifs et traduction automatique en Français (Vêtements Femmes)...")
-
+    print("🤖 Démarrage du script stable et validé avec extraction des variantes...")
+    
     token = get_cj_access_token()
     if not token:
-        print("❌ Erreur : Impossible d'obtenir le token d'accès CJ.")
+        print("❌ Impossible de continuer sans token CJ.")
         return
 
-    products_raw = fetch_cj_products_deep(token)
-    
+    products = fetch_cj_products_stable(token)
+    if not products:
+        print("⚠️ Aucun produit récupéré.")
+        return
+
     formatted_products = []
-    for product in products_raw:
-        # Extraction sécurisée et prioritaire du SKU principal pour correspondance sur CJ
-        sku = product.get("productSku") or product.get("sku") or "N/A"
-        
+    seen_skus = set()
+
+    for product in products:
+        sku = product.get("productSku") or product.get("sku")
+        if not sku or sku in seen_skus:
+            continue
+        seen_skus.add(sku)
+
+        # 2. Nom du produit traduit
         nom_original = product.get("productName", "Produit sans titre")
         nom_traduite = traduire_texte(nom_original)
+
+        # 4. Prix de base et prix variants
+        sell_price = float(product.get("sellPrice", 0.0))
+
+        # 5. Poids, tailles et longueurs
+        poids_grammes = float(product.get("productWeight", 300))
         
-        # Récupération sécurisée du poids converti en float (gère les chaînes de caractères vides ou textuelles)
-        poids_brut = product.get("productWeight", 300)
-        try:
-            poids_grammes = float(poids_brut) if poids_brut else 300.0
-        except (ValueError, TypeError):
-            poids_grammes = 300.0
-        
-        # --- TARIF DE LIVRAISON : FRANCE (FR) ---
-        if poids_grammes <= 300:
-            port_base_fr = 8.10
-        else:
-            port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
-        port_final_fr = port_base_fr + 0.99
+        # Extraction des attributs si présents dans le produit
+        variants_list = product.get("variants", [])
+        tailles = []
+        couleurs = []
+        prix_variants = [sell_price]
 
-        # --- TARIF DE LIVRAISON : ÉTATS-UNIS (US) ---
-        if poids_grammes <= 0.01:
-            port_final_us = 6.67
-        elif 1 <= poids_grammes <= 50:
-            port_final_us = 7.73
-        elif poids_grammes == 51:
-            port_final_us = 7.76
-        elif poids_grammes == 52:
-            port_final_us = 7.78
-        elif poids_grammes == 53:
-            port_final_us = 7.80
-        else:
-            port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
-
-        # Construction de l'objet produit final intégrant le SKU
-        product_obj = {
-            "sku": sku,
-            "nom": nom_traduite,
-            "prix": product.get("sellPrice", 0.0),
-            "images": [product.get("productImage", "")],
-            "poids": poids_grammes,
-            "shippingBase": round(port_final_fr, 2),
-            "shippingUS": round(port_final_us, 2)
-        }
-        formatted_products.append(product_obj)
-
-    if formatted_products:
-        with open("update_stock.json", "w", encoding="utf-8") as f:
-            json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"✅ Succès : {len(formatted_products)} vêtements pour femmes synchronisés dans update_stock.json")
-    else:
-        print("✅ Succès : 0 produits trouvés.")
-
-if __name__ == "__main__":
-    generate_update_stock_json()
+        if isinstance(variants_list, list) and len(variants_list) > 0:
+            for v in variants_list:
+                s = v.get("variantSize") or v.get("size")
+                c = v.get("variantColor") or v.get("color")
+                p = v.get("variantPrice")
+                if s and s not in tailles:
+                    tailles.append(s)
+                if c and c not in couleurs:
+                    couleurs.append(c)
+                if p:
+                    try:
+                        p_val = float(p)
+                        if p_
