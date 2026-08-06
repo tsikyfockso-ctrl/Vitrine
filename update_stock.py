@@ -10,7 +10,7 @@ def get_cj_access_token():
     headers = {"Content-Type": "application/json"}
     
     if not CJ_API_KEY:
-        print("❌ Erreur : La variable d'environnement CJ_API_KEY n'est pas définie.")
+        print("❌ Erreur : La variable CJ_API_KEY n'est pas définie.")
         return None
 
     payload = {"apiKey": CJ_API_KEY}
@@ -18,14 +18,15 @@ def get_cj_access_token():
         response = requests.post(url, json=payload, headers=headers, timeout=12)
         if response.status_code == 200:
             data = response.json()
-            if data.get("result"):
-                return data.get("data", {}).get("accessToken")
+            if isinstance(data, dict) and data.get("result"):
+                token_data = data.get("data")
+                if isinstance(token_data, dict):
+                    return token_data.get("accessToken")
     except Exception as e:
         print(f"Erreur d'authentification CJ : {e}")
     return None
 
 def fetch_cj_product_variants(token, pid):
-    """Interroge l'API CJ pour récupérer les vraies variantes détaillées du produit (pid)"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/variant"
     headers = {
         "CJ-Access-Token": token,
@@ -36,14 +37,13 @@ def fetch_cj_product_variants(token, pid):
         response = requests.get(url, headers=headers, params=params, timeout=12)
         if response.status_code == 200:
             data = response.json()
-            if data.get("result"):
+            if isinstance(data, dict) and data.get("result"):
                 return data.get("data")
     except Exception:
         pass
     return None
 
 def search_cj_products(token):
-    """Recherche dynamique de la liste des produits depuis l'API CJ"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -57,8 +57,11 @@ def search_cj_products(token):
         response = requests.get(url, headers=headers, params=params, timeout=12)
         if response.status_code == 200:
             data = response.json()
-            items = data.get("data", {}).get("list", [])
-            return items if isinstance(items, list) else []
+            if isinstance(data, dict):
+                inner_data = data.get("data")
+                if isinstance(inner_data, dict):
+                    items = inner_data.get("list", [])
+                    return items if isinstance(items, list) else []
     except Exception:
         pass
     return []
@@ -72,11 +75,11 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Démarrage de l'extraction intelligente et réelle des données CJ...")
+    print("🤖 Démarrage du script sécurisé anti-NoneType...")
     
     token = get_cj_access_token()
     if not token:
-        print("❌ Impossible d'obtenir le token d'accès CJ.")
+        print("❌ Impossible d'obtenir le token CJ.")
         return
 
     raw_products = search_cj_products(token)
@@ -98,7 +101,7 @@ def generate_update_stock_json():
             if not pid or not parent_sku or parent_sku in seen_skus:
                 continue
 
-            # Appel intelligent pour récupérer les vraies variantes et attributs profonds
+            # Sécurisation stricte de la récupération des variantes
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
@@ -109,7 +112,6 @@ def generate_update_stock_json():
                 
             nom_traduite = traduire_texte(nom_original)
             
-            # Récupération de la liste réelle des variantes
             variants = detailed_data.get("variants", [])
             if not variants or not isinstance(variants, list):
                 variants = [product]
@@ -174,7 +176,7 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
-            # --- CALCULS LOGISTIQUES BASÉS SUR LES VRAIS POIDS ---
+            # --- CALCULS LOGISTIQUES ---
             if poids_reel <= 300:
                 port_base_fr = 8.10
             else:
@@ -194,7 +196,6 @@ def generate_update_stock_json():
             else:
                 port_final_us = 7.80 + ((poids_reel - 53) * 0.02)
 
-            # Objet final contenant uniquement les informations réelles issues de l'API CJ
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
                 "sku": parent_sku,
@@ -213,13 +214,13 @@ def generate_update_stock_json():
             formatted_products.append(product_obj)
 
         except Exception as err:
-            print(f"⚠️ Erreur traitée sur un produit : {err}")
+            print(f"⚠️ Erreur interceptée sur un produit : {err}")
             continue
 
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès : {len(formatted_products)} produits réels synchronisés dans update_stock.json")
+        print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
     else:
         print("⚠️ Aucun produit valide extrait.")
 
