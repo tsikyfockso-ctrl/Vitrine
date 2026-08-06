@@ -61,7 +61,7 @@ def traduire_texte(texte):
 
 def generate_update_stock_json():
     print("🤖 Synchronisation, application des tarifs et traduction automatique en Français (Vêtements Femmes)...")
-    
+
     token = get_cj_access_token()
     if not token:
         print("❌ Erreur : Impossible d'obtenir le token d'accès CJ.")
