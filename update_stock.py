@@ -22,16 +22,11 @@ def get_cj_access_token():
             data = response.json()
             if data.get("result"):
                 return data.get("data", {}).get("accessToken")
-            else:
-                print(f"❌ Erreur API CJ (Token) : {data.get('message', 'Réponse invalide')}")
     except Exception as e:
         print(f"Erreur d'authentification CJ : {e}")
     return None
 
 def fetch_cj_products_stable(token):
-    """
-    Récupère la liste stable des produits CJ avec recherche ciblée 'women dress'
-    """
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -63,7 +58,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Démarrage du script stable et validé avec extraction des variantes...")
+    print("🤖 Démarrage du script stable et validé...")
     
     token = get_cj_access_token()
     if not token:
@@ -84,32 +79,80 @@ def generate_update_stock_json():
             continue
         seen_skus.add(sku)
 
-        # 2. Nom du produit traduit
+        # 1. Nom traduit
         nom_original = product.get("productName", "Produit sans titre")
         nom_traduite = traduire_texte(nom_original)
 
-        # 4. Prix de base et prix variants
+        # 2. Prix et Coûts
         sell_price = float(product.get("sellPrice", 0.0))
+        product_fee = float(product.get("productFee", sell_price))
+        shipping_cost = float(product.get("shippingCost", 8.10))
 
-        # 5. Poids, tailles et longueurs
+        # 3. Poids et Dimensions / Tailles / Couleurs
         poids_grammes = float(product.get("productWeight", 300))
         
-        # Extraction des attributs si présents dans le produit
-        variants_list = product.get("variants", [])
         tailles = []
         couleurs = []
-        prix_variants = [sell_price]
-
-        if isinstance(variants_list, list) and len(variants_list) > 0:
+        variants_list = product.get("variants", [])
+        
+        if isinstance(variants_list, list):
             for v in variants_list:
                 s = v.get("variantSize") or v.get("size")
                 c = v.get("variantColor") or v.get("color")
-                p = v.get("variantPrice")
                 if s and s not in tailles:
                     tailles.append(s)
                 if c and c not in couleurs:
                     couleurs.append(c)
-                if p:
-                    try:
-                        p_val = float(p)
-                        if p_
+                    
+        if not tailles:
+            tailles = ["Standard"]
+        if not couleurs:
+            couleurs = ["Unique"]
+
+        # --- CALCULS LOGISTIQUES (France & US) ---
+        if poids_grammes <= 300:
+            port_base_fr = 8.10
+        else:
+            port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
+        port_final_fr = port_base_fr + 0.99
+
+        if poids_grammes <= 0.01:
+            port_final_us = 6.67
+        elif 1 <= poids_grammes <= 50:
+            port_final_us = 7.73
+        elif poids_grammes == 51:
+            port_final_us = 7.76
+        elif poids_grammes == 52:
+            port_final_us = 7.78
+        elif poids_grammes == 53:
+            port_final_us = 7.80
+        else:
+            port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
+
+        # Construction de l'objet final propre
+        product_obj = {
+            "dropshipping": "CJ Dropshipping",
+            "sku": sku,
+            "nom": nom_traduite,
+            "prix": [sell_price],
+            "tailles": tailles,
+            "couleurs": couleurs,
+            "productFee": round(product_fee, 2),
+            "shippingCost": round(shipping_cost, 2),
+            "images": [product.get("productImage", "")],
+            "poids": poids_grammes,
+            "shippingBase": round(port_final_fr, 2),
+            "shippingUS": round(port_final_us, 2)
+        }
+
+        formatted_products.append(product_obj)
+
+    if formatted_products:
+        with open("update_stock.json", "w", encoding="utf-8") as f:
+            json.dump(formatted_products, f, ensure_ascii=False, indent=4)
+        print(f"🎉 Succès : {len(formatted_products)} produits enregistrés dans update_stock.json")
+    else:
+        print("⚠️ Aucun produit à enregistrer.")
+
+if __name__ == "__main__":
+    generate_update_stock_json()
