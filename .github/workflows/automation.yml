@@ -1,5 +1,7 @@
 name: Mettre à jour le stock Mayah_Store
-
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 on:
   schedule:
     - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
