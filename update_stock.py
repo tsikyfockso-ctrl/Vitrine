@@ -101,7 +101,7 @@ def generate_update_stock_json():
             if not pid or not parent_sku or parent_sku in seen_skus:
                 continue
 
-            # Sécurisation stricte de la récupération des variantes
+            # Sécurisation strict de la récupération des variantes
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
