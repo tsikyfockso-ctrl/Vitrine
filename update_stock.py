@@ -51,7 +51,7 @@ def search_cj_products_strict(token):
     }
     params = {
         "keyword": "women dress",
-        "pageSize": 30
+        "pageSize": 15
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=12)
@@ -75,7 +75,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Recherche stricte 'women dress' et validation des SKU officiels CJ...")
+    print("🤖 Recherche 'women dress' et formatage des SKU officiels CJ...")
     
     token = get_cj_access_token()
     if not token:
@@ -98,10 +98,10 @@ def generate_update_stock_json():
             pid = product.get("pid")
             raw_sku = product.get("productSku") or product.get("sku") or product.get("entrySku") or ""
             
-            if not pid or not raw_sku:
+            if not pid:
                 continue
 
-            # Inspection approfondie pour récupérer les vraies variantes
+            # Inspection approfondie pour récupérer les variantes et le vrai SKU officiel CJ
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
@@ -110,12 +110,6 @@ def generate_update_stock_json():
             if not nom_original:
                 continue
 
-            # --- FILTRAGE STRICT : On s'assure que c'est bien une robe pour femme ---
-            nom_lower = nom_original.lower()
-            if "dress" not in nom_lower and "jupe" not in nom_lower and "skirt" not in nom_lower:
-                # Ignore les produits non pertinents (coques, chaussures, valises, etc.)
-                continue
-                
             nom_traduite = traduire_texte(nom_original)
             
             variants = detailed_data.get("variants", [])
@@ -130,23 +124,14 @@ def generate_update_stock_json():
             img = detailed_data.get("productImage") or product.get("productImage") or ""
             images = [img] if img else []
             
-            poids_reel = product.get("productWeight")
+            poids_reel = product.get("productWeight", 0.0)
             try:
-                poids_reel = float(poids_reel) if poids_reel is not None else 0.0
+                poids_reel = float(poids_reel)
             except (ValueError, TypeError):
                 poids_reel = 0.0
 
-            product_fee = product.get("productFee")
-            try:
-                product_fee = float(product_fee) if product_fee is not None else 0.0
-            except (ValueError, TypeError):
-                product_fee = 0.0
-
-            shipping_cost = product.get("shippingCost")
-            try:
-                shipping_cost = float(shipping_cost) if shipping_cost is not None else 0.0
-            except (ValueError, TypeError):
-                shipping_cost = 0.0
+            product_fee = product.get("productFee", 0.0)
+            shipping_cost = product.get("shippingCost", 0.0)
 
             final_parent_sku = raw_sku
 
@@ -156,9 +141,9 @@ def generate_update_stock_json():
                     
                 sku_var = var.get("variantSku") or var.get("sku") or raw_sku
                 if sku_var:
-                    # S'assure que le SKU respecte la casse (majuscules à la fin si requis par CJ)
+                    # Normalisation du SKU en majuscules pour respecter le format CJ (ex: CJYD...IR)
                     sku_var = str(sku_var).strip().upper()
-                    final_parent_sku = sku_var # Conserve le SKU exact de la variante/produit
+                    final_parent_sku = sku_var
                     seen_skus.add(sku_var)
                     
                 size = var.get("variantSize") or var.get("size")
@@ -169,26 +154,16 @@ def generate_update_stock_json():
                 if color and str(color) not in couleurs:
                     couleurs.append(str(color))
                     
-                price_raw = var.get("variantPrice") or var.get("sellPrice") or product.get("sellPrice")
+                price_raw = var.get("variantPrice") or var.get("sellPrice") or product.get("sellPrice", 0)
                 try:
-                    price_var = float(price_raw) if price_raw is not None else 0.0
+                    price_var = float(price_raw)
                 except (ValueError, TypeError):
                     price_var = 0.0
                     
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
-                w_var = var.get("variantWeight")
-                try:
-                    if w_var is not None:
-                        poids_reel = float(w_var)
-                except (ValueError, TypeError):
-                    pass
-
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
-
-            if final_parent_sku in seen_skus and len(formatted_products) > 0 and any(p["sku"] == final_parent_sku for p in formatted_products):
-                continue
 
             # Conversion du poids si nécessaire
             if 0 < poids_reel < 10:
@@ -203,18 +178,7 @@ def generate_update_stock_json():
                 port_base_fr = 8.10 + ((poids_grammes - 300) * 0.0205)
             port_final_fr = port_base_fr + 0.99
 
-            if poids_grammes <= 0.01:
-                port_final_us = 6.67
-            elif 1 <= poids_grammes <= 50:
-                port_final_us = 7.73
-            elif poids_grammes == 51:
-                port_final_us = 7.76
-            elif poids_grammes == 52:
-                port_final_us = 7.78
-            elif poids_grammes == 53:
-                port_final_us = 7.80
-            else:
-                port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
+            port_final_us = 7.73 if poids_grammes <= 50 else 7.80 + max(0, (poids_grammes - 53) * 0.02)
 
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
@@ -226,8 +190,8 @@ def generate_update_stock_json():
                 "images": images,
                 "details": " | ".join(filter(None, details_list)),
                 "poids": float(poids_reel),
-                "productFee": round(product_fee, 2),
-                "shippingCost": round(shipping_cost, 2),
+                "productFee": round(float(product_fee), 2),
+                "shippingCost": round(float(shipping_cost), 2),
                 "shippingBase": round(port_final_fr, 2),
                 "shippingUS": round(port_final_us, 2)
             }
@@ -240,9 +204,9 @@ def generate_update_stock_json():
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès : {len(formatted_products)} robes filtrées avec SKU officiels CJ dans update_stock.json")
+        print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec SKU officiels dans update_stock.json")
     else:
-        print("⚠️ Aucun produit correspondant à 'women dress' n'a été trouvé avec ces critères.")
+        print("⚠️ Aucun produit valide généré.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
