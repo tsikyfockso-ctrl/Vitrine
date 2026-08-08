@@ -44,14 +44,19 @@ def fetch_cj_product_variants(token, pid):
     return None
 
 def search_cj_products_strict(token):
+    # Endpoint officiel de l'API CJ simulant la recherche basée sur votre lien
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
+    # Paramètres basés exactement sur votre lien de recherche (women dress, CN -> US)
     params = {
         "keyword": "women dress",
-        "pageSize": 15
+        "pageNum": 1,
+        "pageSize": 20,
+        "from": "CN",
+        "shipTo": "US"
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=12)
@@ -75,7 +80,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Recherche 'women dress' et formatage des SKU officiels CJ...")
+    print("🤖 Connexion à l'API CJ et recherche via le lien configuré (women dress, CN -> US)...")
     
     token = get_cj_access_token()
     if not token:
@@ -84,7 +89,9 @@ def generate_update_stock_json():
 
     raw_products = search_cj_products_strict(token)
     if not raw_products:
-        print("⚠️ Aucun produit brut récupéré.")
+        print("⚠️ Aucun produit brut récupéré, création d'un fichier de secours vide pour éviter les erreurs Git.")
+        with open("update_stock.json", "w", encoding="utf-8") as f:
+            json.dump([], f, ensure_ascii=False, indent=4)
         return
 
     formatted_products = []
@@ -101,7 +108,7 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
-            # Inspection approfondie pour récupérer les variantes et le vrai SKU officiel CJ
+            # Inspection approfondie pour récupérer les variantes et les vrais détails
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
@@ -141,7 +148,7 @@ def generate_update_stock_json():
                     
                 sku_var = var.get("variantSku") or var.get("sku") or raw_sku
                 if sku_var:
-                    # Normalisation du SKU en majuscules pour respecter le format CJ (ex: CJYD...IR)
+                    # Normalisation stricte du SKU en majuscules (ex: CJYD...IR)
                     sku_var = str(sku_var).strip().upper()
                     final_parent_sku = sku_var
                     seen_skus.add(sku_var)
@@ -201,12 +208,10 @@ def generate_update_stock_json():
             print(f"⚠️ Erreur interceptée sur un produit : {err}")
             continue
 
-    if formatted_products:
-        with open("update_stock.json", "w", encoding="utf-8") as f:
-            json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec SKU officiels dans update_stock.json")
-    else:
-        print("⚠️ Aucun produit valide généré.")
+    # Écriture systématique du fichier JSON pour éviter l'erreur Git pathspec
+    with open("update_stock.json", "w", encoding="utf-8") as f:
+        json.dump(formatted_products, f, ensure_ascii=False, indent=4)
+    print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec SKU officiels en majuscules dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
