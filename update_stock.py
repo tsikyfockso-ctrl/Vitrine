@@ -27,7 +27,6 @@ def get_cj_access_token():
     return None
 
 def fetch_cj_product_variants(token, pid):
-    """Interroge l'API CJ pour récupérer les vraies variantes détaillées du produit (pid)"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/variant"
     headers = {
         "CJ-Access-Token": token,
@@ -45,7 +44,6 @@ def fetch_cj_product_variants(token, pid):
     return None
 
 def search_cj_products_strict(token):
-    """Simule la recherche stricte par mot-clé 'women dress' dans la barre de recherche CJ"""
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -53,7 +51,7 @@ def search_cj_products_strict(token):
     }
     params = {
         "keyword": "women dress",
-        "pageSize": 20
+        "pageSize": 30
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=12)
@@ -77,7 +75,7 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Simulation de la recherche humaine 'women dress' et extraction stricte des vrais SKU CJ...")
+    print("🤖 Recherche stricte 'women dress' et validation des SKU officiels CJ...")
     
     token = get_cj_access_token()
     if not token:
@@ -86,7 +84,7 @@ def generate_update_stock_json():
 
     raw_products = search_cj_products_strict(token)
     if not raw_products:
-        print("⚠️ Aucun produit brut récupéré pour 'women dress'.")
+        print("⚠️ Aucun produit brut récupéré.")
         return
 
     formatted_products = []
@@ -98,26 +96,24 @@ def generate_update_stock_json():
                 continue
                 
             pid = product.get("pid")
+            raw_sku = product.get("productSku") or product.get("sku") or product.get("entrySku") or ""
             
-            # --- CORRECTION MAJEURE DU SKU ---
-            # Récupération stricte du SKU parent ou SKU global CJ (souvent en finissant par des majuscules)
-            parent_sku = product.get("productSku") or product.get("sku") or product.get("entrySku")
-            
-            if not pid or not parent_sku or parent_sku in seen_skus:
+            if not pid or not raw_sku:
                 continue
 
-            # Inspection approfondie de la fiche produit
+            # Inspection approfondie pour récupérer les vraies variantes
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
 
-            # Parfois le vrai SKU parent se trouve dans les données détaillées de l'API de variantes
-            detailed_sku = detailed_data.get("productSku") or detailed_data.get("sku")
-            if detailed_sku:
-                parent_sku = detailed_sku
-
-            nom_original = detailed_data.get("productName") or product.get("productName")
+            nom_original = detailed_data.get("productName") or product.get("productName") or ""
             if not nom_original:
+                continue
+
+            # --- FILTRAGE STRICT : On s'assure que c'est bien une robe pour femme ---
+            nom_lower = nom_original.lower()
+            if "dress" not in nom_lower and "jupe" not in nom_lower and "skirt" not in nom_lower:
+                # Ignore les produits non pertinents (coques, chaussures, valises, etc.)
                 continue
                 
             nom_traduite = traduire_texte(nom_original)
@@ -152,12 +148,17 @@ def generate_update_stock_json():
             except (ValueError, TypeError):
                 shipping_cost = 0.0
 
+            final_parent_sku = raw_sku
+
             for var in variants:
                 if not isinstance(var, dict):
                     continue
                     
-                sku_var = var.get("variantSku") or var.get("sku") or parent_sku
+                sku_var = var.get("variantSku") or var.get("sku") or raw_sku
                 if sku_var:
+                    # S'assure que le SKU respecte la casse (majuscules à la fin si requis par CJ)
+                    sku_var = str(sku_var).strip().upper()
+                    final_parent_sku = sku_var # Conserve le SKU exact de la variante/produit
                     seen_skus.add(sku_var)
                     
                 size = var.get("variantSize") or var.get("size")
@@ -186,14 +187,16 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
-            # --- CONVERSION DU POIDS EN GRAMMES SI NÉCESSAIRE ---
-            # Si le poids est inférieur à 10, l'API CJ le renvoie parfois en kg, on le convertit en grammes pour la logistique
+            if final_parent_sku in seen_skus and len(formatted_products) > 0 and any(p["sku"] == final_parent_sku for p in formatted_products):
+                continue
+
+            # Conversion du poids si nécessaire
             if 0 < poids_reel < 10:
                 poids_grammes = poids_reel * 1000
             else:
                 poids_grammes = poids_reel
 
-            # --- CALCULS LOGISTIQUES BASÉS SUR LES VRAIS POIDS ---
+            # Calculs logistiques
             if poids_grammes <= 300:
                 port_base_fr = 8.10
             else:
@@ -213,10 +216,9 @@ def generate_update_stock_json():
             else:
                 port_final_us = 7.80 + ((poids_grammes - 53) * 0.02)
 
-            # Structure finale intégrant le vrai SKU officiel CJ
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
-                "sku": parent_sku,
+                "sku": str(final_parent_sku).upper(),
                 "nom": nom_traduite,
                 "tailles": tailles,
                 "couleurs": couleurs,
@@ -238,9 +240,9 @@ def generate_update_stock_json():
     if formatted_products:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-        print(f"🎉 Succès : {len(formatted_products)} produits 'women dress' avec vrais SKU synchronisés dans update_stock.json")
+        print(f"🎉 Succès : {len(formatted_products)} robes filtrées avec SKU officiels CJ dans update_stock.json")
     else:
-        print("⚠️ Aucun produit valide extrait.")
+        print("⚠️ Aucun produit correspondant à 'women dress' n'a été trouvé avec ces critères.")
 
 if __name__ == "__main__":
     generate_update_stock_json()
