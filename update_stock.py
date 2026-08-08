@@ -43,7 +43,7 @@ def fetch_cj_product_variants(token, pid):
         pass
     return None
 
-def search_cj_products(token):
+def fetch_cj_products_deep(token):
     url = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
     headers = {
         "CJ-Access-Token": token,
@@ -51,7 +51,7 @@ def search_cj_products(token):
     }
     params = {
         "keyword": "women dress",
-        "pageSize": 15
+        "pageSize": 20
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=12)
@@ -75,14 +75,14 @@ def traduire_texte(texte):
         return texte
 
 def generate_update_stock_json():
-    print("🤖 Démarrage du script sécurisé anti-NoneType...")
+    print("🤖 Synchronisation, application des tarifs et traduction automatique en Français...")
     
     token = get_cj_access_token()
     if not token:
-        print("❌ Impossible d'obtenir le token CJ.")
+        print("❌ Impossible d'obtenir le token d'accès CJ.")
         return
 
-    raw_products = search_cj_products(token)
+    raw_products = fetch_cj_products_deep(token)
     if not raw_products:
         print("⚠️ Aucun produit brut récupéré.")
         return
@@ -101,7 +101,7 @@ def generate_update_stock_json():
             if not pid or not parent_sku or parent_sku in seen_skus:
                 continue
 
-            # Sécurisation stricte de la récupération des variantes
+            # Récupération des détails approfondis (variantes, prix réels, etc.)
             detailed_data = fetch_cj_product_variants(token, pid)
             if not detailed_data or not isinstance(detailed_data, dict):
                 detailed_data = product
@@ -153,9 +153,9 @@ def generate_update_stock_json():
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
                 
-                if size and size not in tailles:
+                if size and str(size) not in tailles:
                     tailles.append(str(size))
-                if color and color not in couleurs:
+                if color and str(color) not in couleurs:
                     couleurs.append(str(color))
                     
                 price_raw = var.get("variantPrice") or var.get("sellPrice") or product.get("sellPrice")
