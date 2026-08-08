@@ -25,17 +25,21 @@ jobs:
           pip install requests
           pip install requests deep-translator
 
-      - name: Exécuter le script de mise à jour Python
+      - name: Run update_stock.py
         env:
           CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
           CJ_EMAIL: ${{ secrets.CJ_EMAIL }}
           CJ_PASSWORD: ${{ secrets.CJ_PASSWORD }}
         run: python update_stock.py
 
-      - name: Commit et Push de update_stock.json sur GitHub
+      - name: Commit and Push if JSON exists
         run: |
-          git config --global user.name "Mayah Bot"
-          git config --global user.email "bot@mayahstore.com"
-          git add update_stock.json
-          git commit -m "Mise à jour automatique de update_stock.json [skip ci]" || echo "Aucun changement détecté"
-          git push
+           git config --global user.name "Mayah Bot"
+           git config --global user.email "bot@mayahstore.com"
+           if [ -f update_stock.json ]; then
+             git add update_stock.json
+             git commit -m "Mise à jour automatique de update_stock.json [skip ci]" || echo "Aucun changement détecté"
+             git push
+           else
+             echo "Le fichier update_stock.json n'a pas été généré, saut de l'étape git."
+           fi
