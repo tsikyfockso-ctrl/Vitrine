@@ -102,11 +102,9 @@ def generate_update_stock_json():
 
     # 1. Get All Products / Product List
     params = {
-        "keyword": "women dress",
+        "keyword": "womendress",
         "pageNum": 1,
         "pageSize": 15,
-        "from": "CN",
-        "shipTo": "US"
     }
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     if not raw_list_data or not isinstance(raw_list_data, dict):
