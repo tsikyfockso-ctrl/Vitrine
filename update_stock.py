@@ -41,10 +41,10 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=12)
+        response = requests.get(url, headers=headers, params=params, timeout=15)
         if response.status_code == 200:
             data = response.json()
-            if isinstance(data, dict) and data.get("result"):
+            if isinstance(data, dict):
                 return data.get("data")
     except Exception:
         pass
@@ -59,7 +59,7 @@ def traduire_texte(texte):
         return texte
 
 def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
-    """Interroge les calculateurs logistiques officiels CJ"""
+    """Interroge les calculateurs logistiques officiels CJ sans valeurs figées"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -81,17 +81,16 @@ def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
                     freight_cost = float(logistic_list[0].get("logisticPrice", 0.0))
         
-        # 2. Freight Calculate Tip & Partner Freight (Appels pour valider les règles logistiques de l'API)
+        # 2. Appels de validation logistique demandés (Tip & Partner)
         requests.post(CJ_FREIGHT_TIP_URL, json=payload, headers=headers, timeout=5)
         requests.post(CJ_PARTNER_FREIGHT_URL, json=payload, headers=headers, timeout=5)
-        
     except Exception:
         pass
         
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Connexion à l'API CJ et application des interfaces (List, Query, Variant, Stock, Logistics)...")
+    print("🤖 Connexion à l'API CJ (sans filtres from/shipTo) et application des interfaces...")
     
     token = get_cj_access_token()
     if not token:
@@ -100,21 +99,22 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 1. Get All Products / Product List
+    # 1. Get All Products / Product List (Paramètres épurés sans from ni shipTo)
     params = {
-        "keyword": "womendress",
+        "keyword": "women dress",
         "pageNum": 1,
-        "pageSize": 15,
+        "pageSize": 20
     }
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
-    if not raw_list_data or not isinstance(raw_list_data, dict):
-        print("⚠️ Aucun produit trouvé via Product List.")
-        with open("update_stock.json", "w", encoding="utf-8") as f:
-            json.dump([], f, ensure_ascii=False, indent=4)
-        return
+    
+    items = []
+    if isinstance(raw_list_data, dict):
+        items = raw_list_data.get("list", [])
+    elif isinstance(raw_list_data, list):
+        items = raw_list_data
 
-    items = raw_list_data.get("list", [])
-    if not items or not isinstance(items, list):
+    if not items:
+        print("⚠️ Aucun produit trouvé. Génération d'un fichier vide de sécurité.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -125,7 +125,7 @@ def generate_update_stock_json():
         try:
             if not isinstance(item, dict):
                 continue
-            pid = item.get("pid")
+            pid = item.get("pid") or item.get("productId")
             if not pid:
                 continue
 
@@ -136,10 +136,6 @@ def generate_update_stock_json():
 
             nom_original = product_detail.get("productName") or item.get("productName") or ""
             if not nom_original:
-                continue
-            
-            # Filtre strict pour ne garder que ce qui concerne les robes de femmes
-            if "dress" not in nom_original.lower():
                 continue
 
             nom_traduite = traduire_texte(nom_original)
@@ -152,7 +148,7 @@ def generate_update_stock_json():
             if isinstance(variants_data, list):
                 variants = variants_data
             elif isinstance(variants_data, dict):
-                variants = variants_data.get("variants", [])
+                variants = variants_data.get("variants", []) or variants_data.get("list", [])
             
             if not variants or not isinstance(variants, list):
                 variants = [item]
@@ -173,7 +169,7 @@ def generate_update_stock_json():
                 if not isinstance(var, dict):
                     continue
                 
-                # Récupération du SKU officiel CJ (normalisé en majuscules)
+                # Récupération et normalisation du SKU officiel CJ en majuscules
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("productSku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -190,7 +186,7 @@ def generate_update_stock_json():
                 if color and str(color) not in couleurs:
                     couleurs.append(str(color))
 
-                # 4. Get Stock (Vérification par VID si disponible)
+                # 4. Get Stock (Vérification par VID)
                 if vid:
                     api_get(CJ_STOCK_URL, token, params={"vid": vid})
 
@@ -203,7 +199,7 @@ def generate_update_stock_json():
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
-                # 5. Calculs logistiques via Freight Calculate / Partner Freight
+                # 5. Freight Calculate (Frais logistiques dynamiques)
                 if vid and poids_reel > 0:
                     shipping_cost_us = calculate_freight_official(token, vid, poids_reel, ship_to="US")
                     shipping_cost_base = calculate_freight_official(token, vid, poids_reel, ship_to="FR")
@@ -228,12 +224,12 @@ def generate_update_stock_json():
             formatted_products.append(product_obj)
 
         except Exception as err:
-            print(f"⚠️ Erreur sur un produit : {err}")
+            print(f"⚠️ Erreur interceptée sur un produit : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec SKU officiels et frais logistiques réels dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec succès dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
