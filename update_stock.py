@@ -58,8 +58,20 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
+def safe_float(val):
+    """Convertit proprement une valeur en float, gérant les fourchettes comme '210.00-230.00'"""
+    if val is None:
+        return 0.0
+    val_str = str(val).strip()
+    if "-" in val_str and not val_str.startswith("-"):
+        # Prend la première valeur de la fourchette
+        val_str = val_str.split("-")[0].strip()
+    try:
+        return float(val_str)
+    except (ValueError, TypeError):
+        return 0.0
+
 def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
-    """Interroge les calculateurs logistiques officiels CJ sans valeurs figées"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -72,16 +84,14 @@ def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
     
     freight_cost = 0.0
     try:
-        # 1. Freight Calculate
         res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=10)
         if res.status_code == 200:
             data = res.json()
             if data.get("result") and data.get("data"):
                 logistic_list = data.get("data")
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
-                    freight_cost = float(logistic_list[0].get("logisticPrice", 0.0))
+                    freight_cost = safe_float(logistic_list[0].get("logisticPrice", 0.0))
         
-        # 2. Appels de validation logistique demandés (Tip & Partner)
         requests.post(CJ_FREIGHT_TIP_URL, json=payload, headers=headers, timeout=5)
         requests.post(CJ_PARTNER_FREIGHT_URL, json=payload, headers=headers, timeout=5)
     except Exception:
@@ -90,7 +100,7 @@ def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Connexion à l'API CJ (sans filtres from/shipTo) et application des interfaces...")
+    print("🤖 Connexion à l'API CJ et application des interfaces (List, Query, Variant, Stock, Logistics)...")
     
     token = get_cj_access_token()
     if not token:
@@ -99,7 +109,6 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 1. Get All Products / Product List (Paramètres épurés sans from ni shipTo)
     params = {
         "keyword": "women dress",
         "pageNum": 1,
@@ -129,7 +138,6 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
-            # 2. Product Query (Détails approfondis)
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
@@ -142,7 +150,6 @@ def generate_update_stock_json():
             img = product_detail.get("productImage") or item.get("productImage") or ""
             images = [img] if img else []
 
-            # 3. Get Variants by PID / SKU
             variants_data = api_get(CJ_VARIANT_URL, token, params={"pid": pid})
             variants = []
             if isinstance(variants_data, list):
@@ -159,8 +166,8 @@ def generate_update_stock_json():
             details_list = []
             final_parent_sku = ""
             
-            poids_reel = float(product_detail.get("productWeight", item.get("productWeight", 0.0) or 0.0))
-            product_fee = float(product_detail.get("productFee", item.get("productFee", 0.0) or 0.0))
+            poids_reel = safe_float(product_detail.get("productWeight", item.get("productWeight", 0.0)))
+            product_fee = safe_float(product_detail.get("productFee", item.get("productFee", 0.0)))
 
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
@@ -169,7 +176,6 @@ def generate_update_stock_json():
                 if not isinstance(var, dict):
                     continue
                 
-                # Récupération et normalisation du SKU officiel CJ en majuscules
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("productSku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -186,20 +192,15 @@ def generate_update_stock_json():
                 if color and str(color) not in couleurs:
                     couleurs.append(str(color))
 
-                # 4. Get Stock (Vérification par VID)
                 if vid:
                     api_get(CJ_STOCK_URL, token, params={"vid": vid})
 
                 price_raw = var.get("variantPrice") or var.get("sellPrice") or item.get("sellPrice", 0)
-                try:
-                    price_var = float(price_raw)
-                except (ValueError, TypeError):
-                    price_var = 0.0
+                price_var = safe_float(price_raw)
 
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
-                # 5. Freight Calculate (Frais logistiques dynamiques)
                 if vid and poids_reel > 0:
                     shipping_cost_us = calculate_freight_official(token, vid, poids_reel, ship_to="US")
                     shipping_cost_base = calculate_freight_official(token, vid, poids_reel, ship_to="FR")
