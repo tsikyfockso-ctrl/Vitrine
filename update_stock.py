@@ -49,22 +49,36 @@ def api_get(url, token, params=None):
         pass
     return None
 
+def nettoyer_texte(val):
+    """Nettoie proprement le texte pour supprimer les crochets, listes et guillemets superflus"""
+    if not val:
+        return ""
+    if isinstance(val, list):
+        val = val[0] if val else ""
+    val_str = str(val).strip()
+    
+    # Si c'est une chaîne représentant une liste JSON (ex: '["abc", "def"]')
+    if val_str.startswith("[") and val_str.endswith("]"):
+        try:
+            parsed = json.loads(val_str)
+            if isinstance(parsed, list) and len(parsed) > 0:
+                val_str = str(parsed[0])
+        except Exception:
+            pass
+            
+    return val_str.strip('[]"\'')
+
 def traduire_texte(texte):
-    if not texte:
+    texte_propre = nettoyer_texte(texte)
+    if not texte_propre:
         return ""
     try:
-        # Si le texte est une liste, on le convertit ou prend le premier élément
-        if isinstance(texte, list):
-            texte = texte[0] if texte else ""
-        trads = GoogleTranslator(source='auto', target='fr').translate(str(texte))
-        if isinstance(trads, list):
-            trads = trads[0] if trads else ""
-        return str(trads).strip()
+        trads = GoogleTranslator(source='auto', target='fr').translate(texte_propre)
+        return nettoyer_texte(trads)
     except Exception:
-        return str(texte)
+        return texte_propre
 
 def safe_float(val):
-    """Convertit proprement les valeurs numériques ou les fourchettes (ex: '210.00-230.00')"""
     if val is None:
         return 0.0
     val_str = str(val).strip()
@@ -76,7 +90,6 @@ def safe_float(val):
         return 0.0
 
 def calculate_logistics(token, vid, weight, ship_to="US"):
-    """Interroge vos URL de calcul logistique"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -105,7 +118,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution du script avec vos URL sélectionnées...")
+    print("🤖 Exécution du script avec correction du formatage des textes et images...")
     
     token = get_cj_access_token()
     if not token:
@@ -114,7 +127,6 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Utilisation de CJ_PRODUCT_LIST_URL
     params = {"keyword": "womendress", "pageNum": 1, "pageSize": 20}
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
@@ -140,22 +152,25 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
-            # Utilisation de CJ_PRODUCT_QUERY_URL
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
             nom_original = product_detail.get("productName") or item.get("productName") or ""
-            if isinstance(nom_original, list):
-                nom_original = nom_original[0] if nom_original else ""
-            if not nom_original:
+            nom_traduite = traduire_texte(nom_original)
+            if not nom_traduite:
                 continue
 
-            # Nettoyage et traduction propre du nom
-            nom_traduite = traduire_texte(str(nom_original))
-
-            img = product_detail.get("productImage") or item.get("productImage") or ""
-            images = [img] if img else []
+            # Extraction propre de l'image (si c'est une liste JSON, on prend la première image valide)
+            img_raw = product_detail.get("productImage") or item.get("productImage") or ""
+            img_clean = nettoyer_texte(img_raw)
+            if img_clean.startswith("["):
+                try:
+                    img_list = json.loads(img_clean)
+                    img_clean = img_list[0] if img_list else ""
+                except Exception:
+                    pass
+            images = [img_clean] if img_clean else []
 
             poids_reel = safe_float(product_detail.get("productWeight", item.get("productWeight", 0.0)))
             product_fee = safe_float(product_detail.get("productFee", item.get("productFee", 0.0)))
@@ -168,7 +183,6 @@ def generate_update_stock_json():
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
 
-            # Récupération des variantes via item ou ID de variante pour queryByVid
             variants = product_detail.get("variants", []) or [item]
             
             for var in variants:
@@ -176,8 +190,6 @@ def generate_update_stock_json():
                     continue
                 
                 vid = var.get("vid") or var.get("variantId")
-                
-                # Utilisation de CJ_PRODUCT_VARIANT_URL (queryByVid) si un vid est disponible
                 if vid:
                     vid_data = api_get(CJ_PRODUCT_VARIANT_URL, token, params={"vid": vid})
                     if vid_data and isinstance(vid_data, dict):
@@ -186,7 +198,8 @@ def generate_update_stock_json():
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("productSku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
-                    final_parent_sku = sku_var
+                    if not final_parent_sku:
+                        final_parent_sku = sku_var
                 else:
                     sku_var = "N/A"
 
@@ -231,7 +244,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits nettoyés et générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
