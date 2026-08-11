@@ -119,7 +119,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution du script avec filtre anti-QK Source et nettoyage des données...")
+    print("🤖 Exécution du script avec filtrage strict et nettoyage des données...")
     
     token = get_cj_access_token()
     if not token:
@@ -128,8 +128,12 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Utilisation de CJ_PRODUCT_LIST_URL
-    params = {"keyword": "womendress", "pageNum": 1, "pageSize": 20}
+    # Paramètres optimisés pour cibler le catalogue direct
+    params = {
+        "keyword": "dress", 
+        "pageNum": 1, 
+        "pageSize": 20
+    }
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
     items = []
@@ -159,11 +163,14 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # 🛑 FILTRE AUTOMATIQUE : Ignorer si le produit provient de QK Source
+            # 🛑 FILTRE ANTI-TIERS ÉTENDU : Bloque toute référence à QK Source ou fournisseurs externes
             fournisseur = str(item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
-            if "qk source" in fournisseur or "qksource" in fournisseur or "qk source" in source_nom or "qksource" in source_nom:
-                print(f"⏩ Produit ignoré (provient de QK Source) : {pid}")
+            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
+            
+            texte_verification = f"{fournisseur} {source_nom} {store_name}"
+            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
+                print(f"⏩ Produit tiers ignoré : {pid}")
                 continue
 
             nom_original = product_detail.get("productName") or item.get("productName") or ""
@@ -192,7 +199,6 @@ def generate_update_stock_json():
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
 
-            # Récupération des variantes via item ou ID de variante pour queryByVid
             variants = product_detail.get("variants", []) or [item]
             
             for var in variants:
@@ -200,8 +206,6 @@ def generate_update_stock_json():
                     continue
                 
                 vid = var.get("vid") or var.get("variantId")
-                
-                # Utilisation de CJ_PRODUCT_VARIANT_URL (queryByVid) si un vid est disponible
                 if vid:
                     vid_data = api_get(CJ_PRODUCT_VARIANT_URL, token, params={"vid": vid})
                     if vid_data and isinstance(vid_data, dict):
