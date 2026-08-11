@@ -6,12 +6,11 @@ from deep_translator import GoogleTranslator
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
-# Endpoints officiels de l'API CJ v2.0
+# Vos URL exactes demandées
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
-CJ_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/query"
-CJ_STOCK_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/stock/queryByVid"
+CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
 CJ_FREIGHT_TIP_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculateTip"
 CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/partnerFreightCalculate"
@@ -59,19 +58,19 @@ def traduire_texte(texte):
         return texte
 
 def safe_float(val):
-    """Convertit proprement une valeur en float, gérant les fourchettes comme '210.00-230.00'"""
+    """Convertit proprement les valeurs numériques ou les fourchettes (ex: '210.00-230.00')"""
     if val is None:
         return 0.0
     val_str = str(val).strip()
     if "-" in val_str and not val_str.startswith("-"):
-        # Prend la première valeur de la fourchette
         val_str = val_str.split("-")[0].strip()
     try:
         return float(val_str)
     except (ValueError, TypeError):
         return 0.0
 
-def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
+def calculate_logistics(token, vid, weight, ship_to="US"):
+    """Interroge vos URL de calcul logistique"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -79,7 +78,7 @@ def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
     payload = {
         "startCountryCode": "CN",
         "endCountryCode": ship_to,
-        "products": [{"vid": vid, "quantity": quantity, "weight": weight}]
+        "products": [{"vid": vid, "quantity": 1, "weight": weight}]
     }
     
     freight_cost = 0.0
@@ -100,20 +99,17 @@ def calculate_freight_official(token, vid, weight, quantity=1, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Connexion à l'API CJ et application des interfaces (List, Query, Variant, Stock, Logistics)...")
+    print("🤖 Exécution du script avec vos URL sélectionnées...")
     
     token = get_cj_access_token()
     if not token:
-        print("❌ Impossible d'obtenir le token d'accès CJ.")
+        print("❌ Impossible d'obtenir le token d'accès.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    params = {
-        "keyword": "women dress",
-        "pageNum": 1,
-        "pageSize": 20
-    }
+    # Utilisation de CJ_PRODUCT_LIST_URL
+    params = {"keyword": "women dress", "pageNum": 1, "pageSize": 20}
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
     items = []
@@ -123,7 +119,7 @@ def generate_update_stock_json():
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé. Génération d'un fichier vide de sécurité.")
+        print("⚠️ Aucun produit trouvé.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -138,6 +134,7 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
+            # Utilisation de CJ_PRODUCT_QUERY_URL
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
@@ -150,32 +147,32 @@ def generate_update_stock_json():
             img = product_detail.get("productImage") or item.get("productImage") or ""
             images = [img] if img else []
 
-            variants_data = api_get(CJ_VARIANT_URL, token, params={"pid": pid})
-            variants = []
-            if isinstance(variants_data, list):
-                variants = variants_data
-            elif isinstance(variants_data, dict):
-                variants = variants_data.get("variants", []) or variants_data.get("list", [])
-            
-            if not variants or not isinstance(variants, list):
-                variants = [item]
+            poids_reel = safe_float(product_detail.get("productWeight", item.get("productWeight", 0.0)))
+            product_fee = safe_float(product_detail.get("productFee", item.get("productFee", 0.0)))
 
             tailles = []
             couleurs = []
             prix_variants = []
             details_list = []
             final_parent_sku = ""
-            
-            poids_reel = safe_float(product_detail.get("productWeight", item.get("productWeight", 0.0)))
-            product_fee = safe_float(product_detail.get("productFee", item.get("productFee", 0.0)))
-
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
 
+            # Récupération des variantes via item ou ID de variante pour queryByVid
+            variants = product_detail.get("variants", []) or [item]
+            
             for var in variants:
                 if not isinstance(var, dict):
                     continue
                 
+                vid = var.get("vid") or var.get("variantId")
+                
+                # Utilisation de CJ_PRODUCT_VARIANT_URL (queryByVid) si un vid est disponible
+                if vid:
+                    vid_data = api_get(CJ_PRODUCT_VARIANT_URL, token, params={"vid": vid})
+                    if vid_data and isinstance(vid_data, dict):
+                        var.update(vid_data)
+
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("productSku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -185,25 +182,19 @@ def generate_update_stock_json():
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
-                vid = var.get("vid") or var.get("variantId")
 
                 if size and str(size) not in tailles:
                     tailles.append(str(size))
                 if color and str(color) not in couleurs:
                     couleurs.append(str(color))
 
-                if vid:
-                    api_get(CJ_STOCK_URL, token, params={"vid": vid})
-
-                price_raw = var.get("variantPrice") or var.get("sellPrice") or item.get("sellPrice", 0)
-                price_var = safe_float(price_raw)
-
+                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or item.get("sellPrice", 0))
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
                 if vid and poids_reel > 0:
-                    shipping_cost_us = calculate_freight_official(token, vid, poids_reel, ship_to="US")
-                    shipping_cost_base = calculate_freight_official(token, vid, poids_reel, ship_to="FR")
+                    shipping_cost_us = calculate_logistics(token, vid, poids_reel, ship_to="US")
+                    shipping_cost_base = calculate_logistics(token, vid, poids_reel, ship_to="FR")
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
@@ -225,12 +216,12 @@ def generate_update_stock_json():
             formatted_products.append(product_obj)
 
         except Exception as err:
-            print(f"⚠️ Erreur interceptée sur un produit : {err}")
+            print(f"⚠️ Erreur : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits synchronisés avec succès dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
