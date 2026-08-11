@@ -53,9 +53,15 @@ def traduire_texte(texte):
     if not texte:
         return ""
     try:
-        return GoogleTranslator(source='auto', target='fr').translate(texte)
+        # Si le texte est une liste, on le convertit ou prend le premier élément
+        if isinstance(texte, list):
+            texte = texte[0] if texte else ""
+        trads = GoogleTranslator(source='auto', target='fr').translate(str(texte))
+        if isinstance(trads, list):
+            trads = trads[0] if trads else ""
+        return str(trads).strip()
     except Exception:
-        return texte
+        return str(texte)
 
 def safe_float(val):
     """Convertit proprement les valeurs numériques ou les fourchettes (ex: '210.00-230.00')"""
@@ -140,10 +146,14 @@ def generate_update_stock_json():
                 product_detail = item
 
             nom_original = product_detail.get("productName") or item.get("productName") or ""
+            if isinstance(nom_original, list):
+                nom_original = nom_original[0] if nom_original else ""
             if not nom_original:
                 continue
 
-            nom_traduite = traduire_texte(nom_original)
+            # Nettoyage et traduction propre du nom
+            nom_traduite = traduire_texte(str(nom_original))
+
             img = product_detail.get("productImage") or item.get("productImage") or ""
             images = [img] if img else []
 
