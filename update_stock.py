@@ -260,4 +260,3 @@ def generate_update_stock_json():
 
 if __name__ == "__main__":
     generate_update_stock_json()
-```[cite: 1]
