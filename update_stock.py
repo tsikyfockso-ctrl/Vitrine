@@ -6,8 +6,9 @@ from deep_translator import GoogleTranslator
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
-# Vos URL exactes demandées
+# URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
+CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
@@ -118,8 +119,27 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
         
     return freight_cost
 
+def afficher_categories_test():
+    """Fonction temporaire pour récupérer et afficher la liste des catégories CJ et leurs IDs"""
+    token = get_cj_access_token()
+    if not token:
+        print("❌ Impossible d'obtenir le token pour récupérer les catégories.")
+        return
+    
+    headers = {"CJ-Access-Token": token, "Content-Type": "application/json"}
+    try:
+        response = requests.get(CJ_CATEGORY_URL, headers=headers, timeout=15)
+        if response.status_code == 200:
+            data = response.json()
+            print("--- LISTE DES CATEGORIES CJ ---")
+            print(json.dumps(data, indent=4, ensure_ascii=False))
+        else:
+            print(f"Erreur HTTP : {response.status_code}")
+    except Exception as e:
+        print(f"Erreur : {e}")
+
 def generate_update_stock_json():
-    print("🤖 Exécution du script avec filtrage strict et nettoyage des données...")
+    print("🤖 Exécution du script avec ciblage par catégorie CJ...")
     
     token = get_cj_access_token()
     if not token:
@@ -128,22 +148,23 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Paramètres optimisés pour cibler le catalogue direct
+    # 🎯 REMPLACEZ "VOTRE_ID_DE_CATEGORIE" par l'ID récupéré (ex: "12345678")
     params = {
-        "keyword": "dress", 
-        "pageNum": 1, 
-        "pageSize": 20
+        "categoryId": "VOTRE_ID_DE_CATEGORIE", 
+        "page": 1, 
+        "size": 20
     }
+    
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
     items = []
     if isinstance(raw_list_data, dict):
-        items = raw_list_data.get("list", [])
+        items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
     elif isinstance(raw_list_data, list):
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé.")
+        print("⚠️ Aucun produit trouvé pour cette catégorie.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -154,31 +175,27 @@ def generate_update_stock_json():
         try:
             if not isinstance(item, dict):
                 continue
-            pid = item.get("pid") or item.get("productId")
+            pid = item.get("id") or item.get("pid") or item.get("productId")
             if not pid:
                 continue
 
-            # Utilisation de CJ_PRODUCT_QUERY_URL
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # 🛑 FILTRE ANTI-TIERS ÉTENDU : Bloque toute référence à QK Source ou fournisseurs externes
-            fournisseur = str(item.get("supplier") or product_detail.get("supplier") or "").lower()
+            # Sécurité anti-tiers
+            fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
-            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
-            
-            texte_verification = f"{fournisseur} {source_nom} {store_name}"
-            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
+            if "qk source" in fournisseur or "qksource" in fournisseur or "qk source" in source_nom:
                 print(f"⏩ Produit tiers ignoré : {pid}")
                 continue
 
-            nom_original = product_detail.get("productName") or item.get("productName") or ""
+            nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
                 continue
 
-            img_raw = product_detail.get("productImage") or item.get("productImage") or ""
+            img_raw = product_detail.get("productImage") or item.get("bigImage") or item.get("productImage") or ""
             img_clean = nettoyer_texte(img_raw)
             if img_clean.startswith("["):
                 try:
@@ -211,7 +228,7 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
-                raw_sku = var.get("variantSku") or var.get("sku") or item.get("productSku") or ""
+                raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
                     if not final_parent_sku:
@@ -260,7 +277,13 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
 
 if __name__ == "__main__":
+    # Étape 1 : Si vous voulez afficher les catégories pour trouver votre ID, 
+    # enlevez le '#' devant la ligne ci-dessous pour exécuter le test :
+    afficher_categories_test()
+
+    # Étape 2 : Une fois votre categoryId récupéré et inséré dans la fonction du dessus, 
+    # laissez cette ligne active pour générer vos produits normalement :
     generate_update_stock_json()
