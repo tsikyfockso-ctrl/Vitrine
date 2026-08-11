@@ -8,6 +8,7 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
+CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
@@ -50,7 +51,6 @@ def api_get(url, token, params=None):
     return None
 
 def nettoyer_texte(val):
-    """Nettoie proprement le texte pour supprimer les crochets, listes et guillemets superflus"""
     if not val:
         return ""
     if isinstance(val, list):
@@ -78,7 +78,6 @@ def traduire_texte(texte):
         return texte_propre
 
 def safe_float(val):
-    """Convertit proprement les valeurs numériques ou les fourchettes (ex: '210.00-230.00')"""
     if val is None:
         return 0.0
     val_str = str(val).strip()
@@ -90,7 +89,6 @@ def safe_float(val):
         return 0.0
 
 def calculate_logistics(token, vid, weight, ship_to="US"):
-    """Interroge vos URL de calcul logistique"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -118,8 +116,26 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
         
     return freight_cost
 
+def afficher_categories_test():
+    token = get_cj_access_token()
+    if not token:
+        print("❌ Impossible d'obtenir le token pour récupérer les catégories.")
+        return
+    
+    headers = {"CJ-Access-Token": token, "Content-Type": "application/json"}
+    try:
+        response = requests.get(CJ_CATEGORY_URL, headers=headers, timeout=15)
+        if response.status_code == 200:
+            data = response.json()
+            print("--- LISTE DES CATEGORIES CJ ---")
+            print(json.dumps(data, indent=4, ensure_ascii=False))
+        else:
+            print(f"Erreur HTTP : {response.status_code}")
+    except Exception as e:
+        print(f"Erreur : {e}")
+
 def generate_update_stock_json():
-    print("🤖 Exécution du script avec ciblage par catégorie CJ...")
+    print("🤖 Exécution du script avec ciblage par catégorie CJ et filtrage strict anti-QKsource...")
     
     token = get_cj_access_token()
     if not token:
@@ -128,7 +144,7 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 🎯 PARAMÈTRE DE CATÉGORIE (Remplacez par l'ID de catégorie souhaité, ex: "12345678")
+    # 🎯 REMPLACEZ "VOTRE_ID_DE_CATEGORIE" par l'ID récupéré
     params = {
         "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9", 
         "page": 1, 
@@ -159,16 +175,21 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
-            # Utilisation de CJ_PRODUCT_QUERY_URL
+            # Interrogation de la fiche officielle du produit par PID
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
-                product_detail = item
+                print(f"⏩ Produit CJ introuvable pour le PID : {pid}")
+                continue
 
-            # Filtre de sécurité anti-tiers
+            # 🛑 FILTRE STRICT ANTI-TIERS / QKSOURCE (Vérification poussée sur tous les champs)
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
-            if "qk source" in fournisseur or "qksource" in fournisseur or "qk source" in source_nom:
-                print(f"⏩ Produit tiers ignoré : {pid}")
+            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
+            sku_item = str(item.get("sku") or item.get("productSku") or product_detail.get("productSku") or "").lower()
+            
+            texte_verification = f"{fournisseur} {source_nom} {store_name} {sku_item}"
+            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
+                print(f"⏩ Produit tiers/QKsource rejeté : {pid}")
                 continue
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
@@ -258,7 +279,8 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json")
 
 if __name__ == "__main__":
+    # afficher_categories_test()
     generate_update_stock_json()
