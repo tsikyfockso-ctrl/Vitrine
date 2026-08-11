@@ -8,7 +8,6 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
@@ -119,25 +118,6 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
         
     return freight_cost
 
-def afficher_categories_test():
-    """Fonction temporaire pour récupérer et afficher la liste des catégories CJ et leurs IDs"""
-    token = get_cj_access_token()
-    if not token:
-        print("❌ Impossible d'obtenir le token pour récupérer les catégories.")
-        return
-    
-    headers = {"CJ-Access-Token": token, "Content-Type": "application/json"}
-    try:
-        response = requests.get(CJ_CATEGORY_URL, headers=headers, timeout=15)
-        if response.status_code == 200:
-            data = response.json()
-            print("--- LISTE DES CATEGORIES CJ ---")
-            print(json.dumps(data, indent=4, ensure_ascii=False))
-        else:
-            print(f"Erreur HTTP : {response.status_code}")
-    except Exception as e:
-        print(f"Erreur : {e}")
-
 def generate_update_stock_json():
     print("🤖 Exécution du script avec ciblage par catégorie CJ...")
     
@@ -148,9 +128,9 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 🎯 REMPLACEZ "VOTRE_ID_DE_CATEGORIE" par l'ID récupéré (ex: "12345678")
+    # 🎯 PARAMÈTRE DE CATÉGORIE (Remplacez par l'ID de catégorie souhaité, ex: "12345678")
     params = {
-        "categoryId": "VOTRE_ID_DE_CATEGORIE", 
+        "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9", 
         "page": 1, 
         "size": 20
     }
@@ -179,11 +159,12 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
+            # Utilisation de CJ_PRODUCT_QUERY_URL
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # Sécurité anti-tiers
+            # Filtre de sécurité anti-tiers
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
             if "qk source" in fournisseur or "qksource" in fournisseur or "qk source" in source_nom:
@@ -280,10 +261,4 @@ def generate_update_stock_json():
     print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
 
 if __name__ == "__main__":
-    # Étape 1 : Si vous voulez afficher les catégories pour trouver votre ID, 
-    # enlevez le '#' devant la ligne ci-dessous pour exécuter le test :
-    afficher_categories_test()
-
-    # Étape 2 : Une fois votre categoryId récupéré et inséré dans la fonction du dessus, 
-    # laissez cette ligne active pour générer vos produits normalement :
     generate_update_stock_json()
