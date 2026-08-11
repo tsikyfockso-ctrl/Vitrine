@@ -9,7 +9,7 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
-CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
+CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -135,7 +135,7 @@ def afficher_categories_test():
         print(f"Erreur : {e}")
 
 def generate_update_stock_json():
-    print("🤖 Exécution de la recherche de produits CJ valides...")
+    print("🤖 Exécution de la récupération standard des produits CJ...")
     
     token = get_cj_access_token()
     if not token:
@@ -144,10 +144,8 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 🎯 UTILISATION D'UN MOT-CLÉ PRÉCIS (ex: "dress", "shoes", "watch", "hoodie")
-    # Cela garantit de remonter des vrais produits avec des SKU natifs CJ fonctionnels.
+    # Paramètres de base acceptés par le endpoint /product/list standard
     params = {
-        "keyWord": "dress", 
         "page": 1, 
         "size": 20
     }
@@ -156,12 +154,21 @@ def generate_update_stock_json():
     
     items = []
     if isinstance(raw_list_data, dict):
-        items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
+        items = raw_list_data.get("productList", []) or raw_list_data.get("list", []) or raw_list_data.get("content", [])
     elif isinstance(raw_list_data, list):
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé.")
+        # Fallback de secours si le dictionnaire global est structuré différemment
+        print("⚠️ Tentative de récupération alternative sans paramètres...")
+        raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token)
+        if isinstance(raw_list_data, dict):
+            items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
+        elif isinstance(raw_list_data, list):
+            items = raw_list_data
+
+    if not items:
+        print("⚠️ Aucun produit trouvé sur l'API CJ.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -178,15 +185,12 @@ def generate_update_stock_json():
 
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
-                continue
+                product_detail = item
 
-            # 🛑 FILTRE STRICT ANTI-TIERS / QKSOURCE
+            # Filtre de sécurité anti-fournisseur tiers
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
-            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
-            sku_item = str(item.get("sku") or item.get("productSku") or product_detail.get("productSku") or "").lower()
-            
-            texte_verification = f"{fournisseur} {source_nom} {store_name} {sku_item}"
+            texte_verification = f"{fournisseur} {source_nom}"
             if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
                 print(f"⏩ Produit tiers/QKsource rejeté : {pid}")
                 continue
@@ -278,7 +282,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits valides avec SKU CJ générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits générés avec succès dans update_stock.json")
 
 if __name__ == "__main__":
     # afficher_categories_test()
