@@ -6,10 +6,10 @@ from deep_translator import GoogleTranslator
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
-# URLs officielles de l'API CJ V2.0 (Migration vers listV2 pour un vrai filtrage par catégorie)
+# URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
-CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"  # Endpoint V2 mis à jour
+CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -135,7 +135,7 @@ def afficher_categories_test():
         print(f"Erreur : {e}")
 
 def generate_update_stock_json():
-    print("🤖 Exécution avec listV2 et filtrage strict par catégorie CJ...")
+    print("🤖 Exécution de la recherche de produits CJ valides...")
     
     token = get_cj_access_token()
     if not token:
@@ -144,9 +144,10 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 🎯 REMPLACEZ "VOTRE_ID_DE_CATEGORIE" par l'ID exact de la catégorie (ex: "12345678")
+    # 🎯 UTILISATION D'UN MOT-CLÉ PRÉCIS (ex: "dress", "shoes", "watch", "hoodie")
+    # Cela garantit de remonter des vrais produits avec des SKU natifs CJ fonctionnels.
     params = {
-        "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9", 
+        "keyWord": "dress", 
         "page": 1, 
         "size": 20
     }
@@ -160,7 +161,7 @@ def generate_update_stock_json():
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé pour cette catégorie via listV2.")
+        print("⚠️ Aucun produit trouvé.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -177,10 +178,9 @@ def generate_update_stock_json():
 
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
-                print(f"⏩ Produit CJ introuvable pour le PID : {pid}")
                 continue
 
-            # 🛑 DOUBLE FILTRE ANTI-TIERS / QKSOURCE
+            # 🛑 FILTRE STRICT ANTI-TIERS / QKSOURCE
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
             store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
@@ -278,7 +278,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json via listV2")
+    print(f"🎉 Succès : {len(formatted_products)} produits valides avec SKU CJ générés dans update_stock.json")
 
 if __name__ == "__main__":
     # afficher_categories_test()
