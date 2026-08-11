@@ -8,7 +8,6 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
@@ -116,26 +115,8 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
         
     return freight_cost
 
-def afficher_categories_test():
-    token = get_cj_access_token()
-    if not token:
-        print("❌ Impossible d'obtenir le token pour récupérer les catégories.")
-        return
-    
-    headers = {"CJ-Access-Token": token, "Content-Type": "application/json"}
-    try:
-        response = requests.get(CJ_CATEGORY_URL, headers=headers, timeout=15)
-        if response.status_code == 200:
-            data = response.json()
-            print("--- LISTE DES CATEGORIES CJ ---")
-            print(json.dumps(data, indent=4, ensure_ascii=False))
-        else:
-            print(f"Erreur HTTP : {response.status_code}")
-    except Exception as e:
-        print(f"Erreur : {e}")
-
 def generate_update_stock_json():
-    print("🤖 Exécution de la récupération standard des produits CJ...")
+    print("🤖 Exécution de la récupération des produits QKsource par catégorie...")
     
     token = get_cj_access_token()
     if not token:
@@ -144,8 +125,11 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Paramètres de base acceptés par le endpoint /product/list standard
+    # 🎯 Renseignez ici l'ID de catégorie de niveau 3 cible
+    CATEGORY_ID_CIBLE = "D2432903-0D4E-4787-886F-D3D9DA7890D9" 
+
     params = {
+        "categoryId": CATEGORY_ID_CIBLE,
         "page": 1, 
         "size": 20
     }
@@ -154,21 +138,12 @@ def generate_update_stock_json():
     
     items = []
     if isinstance(raw_list_data, dict):
-        items = raw_list_data.get("productList", []) or raw_list_data.get("list", []) or raw_list_data.get("content", [])
+        items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
     elif isinstance(raw_list_data, list):
         items = raw_list_data
 
     if not items:
-        # Fallback de secours si le dictionnaire global est structuré différemment
-        print("⚠️ Tentative de récupération alternative sans paramètres...")
-        raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token)
-        if isinstance(raw_list_data, dict):
-            items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
-        elif isinstance(raw_list_data, list):
-            items = raw_list_data
-
-    if not items:
-        print("⚠️ Aucun produit trouvé sur l'API CJ.")
+        print("⚠️ Aucun produit trouvé pour cette catégorie.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -187,12 +162,13 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # Filtre de sécurité anti-fournisseur tiers
+            # 🎯 FILTRE STRICT : On ne garde QUE les produits provenant de QKsource
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
-            texte_verification = f"{fournisseur} {source_nom}"
-            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
-                print(f"⏩ Produit tiers/QKsource rejeté : {pid}")
+            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
+            
+            texte_verification = f"{fournisseur} {source_nom} {store_name}"
+            if not any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
                 continue
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
@@ -233,6 +209,7 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
+                # Récupération prioritaire du SKU spécifique QKsource
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -260,7 +237,7 @@ def generate_update_stock_json():
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
             product_obj = {
-                "dropshipping": "CJ Dropshipping",
+                "dropshipping": "QKsource",
                 "sku": str(final_parent_sku).upper(),
                 "nom": nom_traduite,
                 "tailles": tailles,
@@ -282,8 +259,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés avec succès dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits QKsource générés dans update_stock.json")
 
 if __name__ == "__main__":
-    # afficher_categories_test()
     generate_update_stock_json()
