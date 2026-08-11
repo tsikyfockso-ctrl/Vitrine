@@ -57,7 +57,6 @@ def nettoyer_texte(val):
         val = val[0] if val else ""
     val_str = str(val).strip()
     
-    # Si c'est une chaîne représentant une liste JSON (ex: '["abc", "def"]')
     if val_str.startswith("[") and val_str.endswith("]"):
         try:
             parsed = json.loads(val_str)
@@ -79,6 +78,7 @@ def traduire_texte(texte):
         return texte_propre
 
 def safe_float(val):
+    """Convertit proprement les valeurs numériques ou les fourchettes (ex: '210.00-230.00')"""
     if val is None:
         return 0.0
     val_str = str(val).strip()
@@ -90,6 +90,7 @@ def safe_float(val):
         return 0.0
 
 def calculate_logistics(token, vid, weight, ship_to="US"):
+    """Interroge vos URL de calcul logistique"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -118,7 +119,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution du script avec correction du formatage des textes et images...")
+    print("🤖 Exécution du script avec filtre anti-QK Source et nettoyage des données...")
     
     token = get_cj_access_token()
     if not token:
@@ -127,6 +128,7 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
+    # Utilisation de CJ_PRODUCT_LIST_URL
     params = {"keyword": "womendress", "pageNum": 1, "pageSize": 20}
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
@@ -152,16 +154,23 @@ def generate_update_stock_json():
             if not pid:
                 continue
 
+            # Utilisation de CJ_PRODUCT_QUERY_URL
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
+
+            # 🛑 FILTRE AUTOMATIQUE : Ignorer si le produit provient de QK Source
+            fournisseur = str(item.get("supplier") or product_detail.get("supplier") or "").lower()
+            source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
+            if "qk source" in fournisseur or "qksource" in fournisseur or "qk source" in source_nom or "qksource" in source_nom:
+                print(f"⏩ Produit ignoré (provient de QK Source) : {pid}")
+                continue
 
             nom_original = product_detail.get("productName") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
                 continue
 
-            # Extraction propre de l'image (si c'est une liste JSON, on prend la première image valide)
             img_raw = product_detail.get("productImage") or item.get("productImage") or ""
             img_clean = nettoyer_texte(img_raw)
             if img_clean.startswith("["):
@@ -183,6 +192,7 @@ def generate_update_stock_json():
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
 
+            # Récupération des variantes via item ou ID de variante pour queryByVid
             variants = product_detail.get("variants", []) or [item]
             
             for var in variants:
@@ -190,6 +200,8 @@ def generate_update_stock_json():
                     continue
                 
                 vid = var.get("vid") or var.get("variantId")
+                
+                # Utilisation de CJ_PRODUCT_VARIANT_URL (queryByVid) si un vid est disponible
                 if vid:
                     vid_data = api_get(CJ_PRODUCT_VARIANT_URL, token, params={"vid": vid})
                     if vid_data and isinstance(vid_data, dict):
@@ -244,7 +256,8 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits nettoyés et générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
+```[cite: 1]
