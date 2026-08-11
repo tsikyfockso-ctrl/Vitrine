@@ -109,7 +109,7 @@ def generate_update_stock_json():
         return
 
     # Utilisation de CJ_PRODUCT_LIST_URL
-    params = {"keyword": "women dress", "pageNum": 1, "pageSize": 20}
+    params = {"keyword": "womendress", "pageNum": 1, "pageSize": 20}
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
     items = []
