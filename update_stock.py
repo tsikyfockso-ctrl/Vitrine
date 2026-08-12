@@ -8,7 +8,7 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
+CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -116,7 +116,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de la récupération des produits QKsource par catégorie...")
+    print("🤖 Exécution de la récupération des produits par catégorie...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,14 +125,15 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # 🎯 Renseignez ici l'ID de catégorie de niveau 3 cible
-    CATEGORY_ID_CIBLE = "D2432903-0D4E-4787-886F-D3D9DA7890D9" 
+    # Remplacez par votre ID de catégorie de niveau 3 si besoin, ou retirez-le pour ratisser large
+    CATEGORY_ID_CIBLE = "VOTRE_ID_DE_CATEGORIE" 
 
     params = {
-        "categoryId": CATEGORY_ID_CIBLE,
         "page": 1, 
         "size": 20
     }
+    if CATEGORY_ID_CIBLE and CATEGORY_ID_CIBLE != "VOTRE_ID_DE_CATEGORIE":
+        params["categoryId"] = CATEGORY_ID_CIBLE
     
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
@@ -143,7 +144,7 @@ def generate_update_stock_json():
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé pour cette catégorie.")
+        print("⚠️ Aucun produit trouvé avec ces critères.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -162,14 +163,13 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # 🎯 FILTRE STRICT : On ne garde QUE les produits provenant de QKsource
+            # Vérification du fournisseur sans blocage excessif
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
             store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
             
-            texte_verification = f"{fournisseur} {source_nom} {store_name}"
-            if not any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
-                continue
+            is_qk = any(terme in f"{fournisseur} {source_nom} {store_name}" for terme in ["qk source", "qksource", "qk"])
+            source_label = "QKsource" if is_qk else "CJ Dropshipping"
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
@@ -209,7 +209,6 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
-                # Récupération prioritaire du SKU spécifique QKsource
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -237,7 +236,7 @@ def generate_update_stock_json():
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
             product_obj = {
-                "dropshipping": "QKsource",
+                "dropshipping": source_label,
                 "sku": str(final_parent_sku).upper(),
                 "nom": nom_traduite,
                 "tailles": tailles,
@@ -259,7 +258,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits QKsource générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
