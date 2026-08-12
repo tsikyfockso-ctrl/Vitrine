@@ -116,7 +116,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (recherche élargie CJ)...")
+    print("🤖 Exécution de listV2 (avec mode debug)...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,7 +125,6 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Mots-clés alternatifs courants pour forcer listV2 à remonter des produits CJ valides
     mots_cles = ["dress", "shoes", "watch", "bag", "shirt"]
     items = []
 
@@ -149,7 +148,7 @@ def generate_update_stock_json():
             break
 
     if not items:
-        print("⚠️ Aucun produit trouvé avec les mots-clés par défaut.")
+        print("⚠️ Aucun produit trouvé.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -161,6 +160,7 @@ def generate_update_stock_json():
             if not isinstance(item, dict):
                 continue
             pid = item.get("id") or item.get("pid") or item.get("productId")
+            print(f"🔍 Traitement du produit PID: {pid}")
             if not pid:
                 continue
 
@@ -168,11 +168,13 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # Suppression du filtre bloquant et marquage direct CJ Dropshipping
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
+            print(f"   Nom original : {nom_original}")
+            
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
-                continue
+                nom_traduite = nom_original # Fallback si la traduction bloque
+            print(f"   Nom traduit : {nom_traduite}")
 
             img_raw = product_detail.get("productImage") or item.get("bigImage") or item.get("productImage") or ""
             img_clean = nettoyer_texte(img_raw)
@@ -249,14 +251,15 @@ def generate_update_stock_json():
                 "shippingUS": round(shipping_cost_us, 2)
             }
             formatted_products.append(product_obj)
+            print(f"   ✅ Produit formaté avec succès (SKU: {final_parent_sku})")
 
         except Exception as err:
-            print(f"⚠️ Erreur : {err}")
+            print(f"⚠️ Erreur sur un produit : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits CJ générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
