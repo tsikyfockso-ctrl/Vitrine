@@ -116,7 +116,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de la récupération globale des produits...")
+    print("🤖 Exécution de la récupération exclusive des produits CJ Dropshipping...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,7 +125,6 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    # Utilisation du endpoint de liste standard sans filtre de catégorie bloquant pour garantir de récupérer des produits
     params = {
         "page": 1, 
         "size": 20
@@ -159,13 +158,15 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # Identification souple du fournisseur (QKsource ou CJ)
+            # 🛑 FILTRE STRICT : On rejette tout ce qui provient d'un autre grossiste (ex: QKsource)
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
             store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
             
-            is_qk = any(terme in f"{fournisseur} {source_nom} {store_name}" for terme in ["qk source", "qksource", "qk"])
-            source_label = "QKsource" if is_qk else "CJ Dropshipping"
+            texte_verification = f"{fournisseur} {source_nom} {store_name}"
+            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
+                print(f"⏩ Produit tiers rejeté (ex: QKsource) : {pid}")
+                continue
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
@@ -205,6 +206,7 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
+                # Récupération exclusive du SKU natif CJ
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
                 if raw_sku:
                     sku_var = str(raw_sku).strip().upper()
@@ -232,7 +234,7 @@ def generate_update_stock_json():
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
 
             product_obj = {
-                "dropshipping": source_label,
+                "dropshipping": "CJ Dropshipping",
                 "sku": str(final_parent_sku).upper(),
                 "nom": nom_traduite,
                 "tailles": tailles,
@@ -254,7 +256,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
