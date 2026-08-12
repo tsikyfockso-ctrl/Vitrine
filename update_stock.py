@@ -8,7 +8,7 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
-CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
+CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"  # Endpoint officiel V2
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -116,7 +116,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de la récupération exclusive des produits CJ Dropshipping...")
+    print("🤖 Exécution de la recherche listV2 (CJ Dropshipping exclusif)...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,21 +125,23 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
+    # Paramètres conformes à la documentation V2 (avec keyWord obligatoire)
     params = {
         "page": 1, 
-        "size": 20
+        "size": 20,
+        "keyWord": "hoodie"  # Vous pouvez changer ce mot-clé selon vos envies (ex: "shoes", "watch", "dress")
     }
     
     raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
     
     items = []
     if isinstance(raw_list_data, dict):
-        items = raw_list_data.get("productList", []) or raw_list_data.get("list", [])
+        items = raw_list_data.get("productList", []) or raw_list_data.get("list", []) or raw_list_data.get("content", [])
     elif isinstance(raw_list_data, list):
         items = raw_list_data
 
     if not items:
-        print("⚠️ Aucun produit trouvé.")
+        print("⚠️ Aucun produit trouvé avec ce mot-clé via listV2.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -158,14 +160,14 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # 🛑 FILTRE STRICT : On rejette tout ce qui provient d'un autre grossiste (ex: QKsource)
+            # 🛑 FILTRE STRICT : Rejet de tout fournisseur tiers (ex: QKsource) pour garantir 100% CJ
             fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
             source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
             store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
             
             texte_verification = f"{fournisseur} {source_nom} {store_name}"
             if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
-                print(f"⏩ Produit tiers rejeté (ex: QKsource) : {pid}")
+                print(f"⏩ Produit tiers rejeté : {pid}")
                 continue
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
