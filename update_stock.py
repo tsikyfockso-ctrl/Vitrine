@@ -15,6 +15,12 @@ CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freig
 CJ_FREIGHT_TIP_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculateTip"
 CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/partnerFreightCalculate"
 
+# Dictionnaire de secours : Mots-clés associés à leurs Category ID CJ
+# (Remplacez les chaînes vides ou les ID par vos Category ID officiels CJ si nécessaire)
+CATEGORIES_SECOURS = [
+    {"keyword": "Lady dress", "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9"},
+]
+
 def get_cj_access_token():
     headers = {"Content-Type": "application/json"}
     if not CJ_API_KEY:
@@ -116,7 +122,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (correction de l'extraction PID)...")
+    print("🤖 Exécution de listV2 (CJ Dropshipping exclusif avec secours par Category ID)...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,36 +131,54 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    mots_cles = ["women dress"]
     items = []
 
-    for kw in mots_cles:
-        params = {
-            "page": 1, 
-            "size": 20,
-            "keyWord": kw
-        }
-        raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
+    # Étape 1 : Tentative par mot-clé, puis basculement sur Category ID si vide
+    for cat in CATEGORIES_SECOURS:
+        kw = cat["keyword"]
+        cat_id = cat["categoryId"]
         
         temp_items = []
-        if isinstance(raw_list_data, dict):
-            # Recherche élargie des listes dans la réponse V2
-            temp_items = (
-                raw_list_data.get("productList", []) or 
-                raw_list_data.get("list", []) or 
-                raw_list_data.get("content", []) or
-                raw_list_data.get("records", [])
-            )
-        elif isinstance(raw_list_data, list):
-            temp_items = raw_list_data
+        
+        # Essai par mot-clé
+        if kw:
+            params = {"page": 1, "size": 20, "keyWord": kw}
+            print(f"🔍 Essai de recherche par mot-clé : '{kw}'")
+            raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
+            
+            if isinstance(raw_list_data, dict):
+                temp_items = (
+                    raw_list_data.get("productList", []) or 
+                    raw_list_data.get("list", []) or 
+                    raw_list_data.get("content", []) or
+                    raw_list_data.get("records", [])
+                )
+            elif isinstance(raw_list_data, list):
+                temp_items = raw_list_data
+
+        # Si le mot-clé ne donne rien et qu'un Category ID est renseigné, on essaie par ID
+        if not temp_items and cat_id:
+            params_cat = {"page": 1, "size": 20, "categoryId": cat_id}
+            print(f"⚠️ Aucun résultat pour '{kw}', basculement sur le categoryId : {cat_id}")
+            raw_list_data_cat = api_get(CJ_PRODUCT_LIST_URL, token, params=params_cat)
+            
+            if isinstance(raw_list_data_cat, dict):
+                temp_items = (
+                    raw_list_data_cat.get("productList", []) or 
+                    raw_list_data_cat.get("list", []) or 
+                    raw_list_data_cat.get("content", []) or
+                    raw_list_data_cat.get("records", [])
+                )
+            elif isinstance(raw_list_data_cat, list):
+                temp_items = raw_list_data_cat
 
         if temp_items:
-            print(f"✅ {len(temp_items)} produits trouvés avec le mot-clé : '{kw}'")
+            print(f"✅ {len(temp_items)} produits trouvés !")
             items = temp_items
             break
 
     if not items:
-        print("⚠️ Aucun produit trouvé.")
+        print("⚠️ Aucun produit trouvé ni par mot-clé ni par catégorie.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -166,7 +190,6 @@ def generate_update_stock_json():
             if not isinstance(item, dict):
                 continue
             
-            # 🛠️ Extraction élargie pour capturer l'ID peu importe la nomenclature de listV2
             pid = (
                 item.get("id") or 
                 item.get("pid") or 
@@ -181,6 +204,15 @@ def generate_update_stock_json():
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
+
+            # Filtrage strict anti-fournisseur tiers (ex: QKsource)
+            fournisseur = str(item.get("supplierName") or item.get("supplier") or product_detail.get("supplier") or "").lower()
+            source_nom = str(item.get("sourceName") or product_detail.get("sourceName") or "").lower()
+            store_name = str(item.get("storeName") or product_detail.get("storeName") or "").lower()
+            
+            texte_verification = f"{fournisseur} {source_nom} {store_name}"
+            if any(terme in texte_verification for terme in ["qk source", "qksource", "qk"]):
+                continue
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
@@ -268,7 +300,7 @@ def generate_update_stock_json():
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits purs CJ générés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
