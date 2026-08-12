@@ -17,7 +17,7 @@ CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logist
 
 # Dictionnaire de secours : Mots-clés associés à leurs Category ID CJ
 CATEGORIES_SECOURS = [
-    {"keyword": "Lady dress", "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9 "},
+    {"keyword": "Lady Dress", "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9"},
 ]
 
 def get_cj_access_token():
@@ -121,7 +121,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (Mode direct CJ)...")
+    print("🤖 Exécution de listV2 (Mode direct CJ + Diagnostic PID)...")
     
     token = get_cj_access_token()
     if not token:
@@ -185,25 +185,28 @@ def generate_update_stock_json():
             if not isinstance(item, dict):
                 continue
             
+            # Recherche élargie de l'identifiant produit
             pid = (
                 item.get("id") or 
                 item.get("pid") or 
                 item.get("productId") or 
                 item.get("productDid") or 
-                item.get("productID")
+                item.get("productID") or
+                item.get("goodsId") or
+                item.get("uuid")
             )
             
-            print(f"🔍 Traitement PID brut : {pid}")
             if not pid:
+                print(f"⚠️ PID introuvable. Voici les clés disponibles dans l'objet brut : {list(item.keys())}")
                 continue
+            
+            print(f"🔍 Traitement PID extrait : {pid}")
 
             product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
-            print(f"   Nom récupéré : {nom_original}")
-            
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
                 nom_traduite = nom_original
@@ -283,10 +286,9 @@ def generate_update_stock_json():
                 "shippingUS": round(shipping_cost_us, 2)
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Ajouté avec succès ! (SKU: {final_parent_sku})")
+            print(f"   ✅ Produit ajouté avec succès ! (SKU: {final_parent_sku})")
 
         except Exception as err:
-            print(f"⚠️ Erreur attrapée : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
