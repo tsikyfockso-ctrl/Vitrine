@@ -9,6 +9,7 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
+CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -121,7 +122,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (Mode direct CJ + Diagnostic PID)...")
+    print("🤖 Exécution de listV2 (Correction extraction productList)...")
     
     token = get_cj_access_token()
     if not token:
@@ -135,42 +136,25 @@ def generate_update_stock_json():
     for cat in CATEGORIES_SECOURS:
         kw = cat["keyword"]
         cat_id = cat["categoryId"]
-        temp_items = []
+        raw_response = None
         
         if kw:
             params = {"page": 1, "size": 20, "keyWord": kw}
             print(f"🔍 Essai de recherche par mot-clé : '{kw}'")
-            raw_list_data = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
-            
-            if isinstance(raw_list_data, dict):
-                temp_items = (
-                    raw_list_data.get("productList", []) or 
-                    raw_list_data.get("list", []) or 
-                    raw_list_data.get("content", []) or
-                    raw_list_data.get("records", [])
-                )
-            elif isinstance(raw_list_data, list):
-                temp_items = raw_list_data
+            raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
 
-        if not temp_items and cat_id:
+        if not raw_response and cat_id:
             params_cat = {"page": 1, "size": 20, "categoryId": cat_id}
             print(f"⚠️ Aucun résultat pour '{kw}', basculement sur le categoryId : {cat_id}")
-            raw_list_data_cat = api_get(CJ_PRODUCT_LIST_URL, token, params=params_cat)
-            
-            if isinstance(raw_list_data_cat, dict):
-                temp_items = (
-                    raw_list_data_cat.get("productList", []) or 
-                    raw_list_data_cat.get("list", []) or 
-                    raw_list_data_cat.get("content", []) or
-                    raw_list_data_cat.get("records", [])
-                )
-            elif isinstance(raw_list_data_cat, list):
-                temp_items = raw_list_data_cat
+            raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params_cat)
 
-        if temp_items:
-            print(f"✅ {len(temp_items)} produits trouvés !")
-            items = temp_items
-            break
+        if raw_response and isinstance(raw_response, dict):
+            # Extraction ciblée de productList comme renvoyé par l'API V2
+            temp_items = raw_response.get("productList", [])
+            if temp_items:
+                print(f"✅ {len(temp_items)} produits trouvés dans productList !")
+                items = temp_items
+                break
 
     if not items:
         print("⚠️ Aucun produit trouvé.")
@@ -197,7 +181,6 @@ def generate_update_stock_json():
             )
             
             if not pid:
-                print(f"⚠️ PID introuvable. Voici les clés disponibles dans l'objet brut : {list(item.keys())}")
                 continue
             
             print(f"🔍 Traitement PID extrait : {pid}")
