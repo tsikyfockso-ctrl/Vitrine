@@ -116,7 +116,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (avec mode debug)...")
+    print("🤖 Exécution de listV2 (correction de l'extraction PID)...")
     
     token = get_cj_access_token()
     if not token:
@@ -125,7 +125,7 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    mots_cles = ["dress", "shoes", "watch", "bag", "shirt"]
+    mots_cles = ["women dress"]
     items = []
 
     for kw in mots_cles:
@@ -138,7 +138,13 @@ def generate_update_stock_json():
         
         temp_items = []
         if isinstance(raw_list_data, dict):
-            temp_items = raw_list_data.get("productList", []) or raw_list_data.get("list", []) or raw_list_data.get("content", [])
+            # Recherche élargie des listes dans la réponse V2
+            temp_items = (
+                raw_list_data.get("productList", []) or 
+                raw_list_data.get("list", []) or 
+                raw_list_data.get("content", []) or
+                raw_list_data.get("records", [])
+            )
         elif isinstance(raw_list_data, list):
             temp_items = raw_list_data
 
@@ -159,8 +165,16 @@ def generate_update_stock_json():
         try:
             if not isinstance(item, dict):
                 continue
-            pid = item.get("id") or item.get("pid") or item.get("productId")
-            print(f"🔍 Traitement du produit PID: {pid}")
+            
+            # 🛠️ Extraction élargie pour capturer l'ID peu importe la nomenclature de listV2
+            pid = (
+                item.get("id") or 
+                item.get("pid") or 
+                item.get("productId") or 
+                item.get("productDid") or 
+                item.get("productID")
+            )
+            
             if not pid:
                 continue
 
@@ -169,12 +183,9 @@ def generate_update_stock_json():
                 product_detail = item
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
-            print(f"   Nom original : {nom_original}")
-            
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
-                nom_traduite = nom_original # Fallback si la traduction bloque
-            print(f"   Nom traduit : {nom_traduite}")
+                nom_traduite = nom_original
 
             img_raw = product_detail.get("productImage") or item.get("bigImage") or item.get("productImage") or ""
             img_clean = nettoyer_texte(img_raw)
@@ -251,10 +262,8 @@ def generate_update_stock_json():
                 "shippingUS": round(shipping_cost_us, 2)
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Produit formaté avec succès (SKU: {final_parent_sku})")
 
         except Exception as err:
-            print(f"⚠️ Erreur sur un produit : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
