@@ -15,7 +15,7 @@ CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freig
 CJ_FREIGHT_TIP_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculateTip"
 CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/partnerFreightCalculate"
 
-# Dictionnaire de secours : Mots-clés associés à leurs Category ID CJ
+# Dictionnaire de secours élargi pour éviter les retours vides sur 'Lady Dress'
 CATEGORIES_SECOURS = [
     {"keyword": "Lady Dress", "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9"},
 ]
@@ -150,12 +150,12 @@ def generate_update_stock_json():
         if raw_response and isinstance(raw_response, dict):
             temp_items = raw_response.get("productList", [])
             if temp_items:
-                print(f"✅ {len(temp_items)} produits trouvés dans productList !")
+                print(f"✅ {len(temp_items)} produits trouvés dans productList avec le critère '{kw or cat_id}' !")
                 items = temp_items
                 break
 
     if not items:
-        print("⚠️ Aucun produit trouvé.")
+        print("⚠️ Aucun produit trouvé après tous les essais de secours.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
@@ -267,7 +267,7 @@ def generate_update_stock_json():
                 "shippingCost": round(shipping_cost_us, 2),
                 "shippingBase": round(shipping_cost_base, 2),
                 "shippingUS": round(shipping_cost_us, 2),
-                "stock": total_inventory  # Intégration complète du stock global et par variant
+                "stock": total_inventory
             }
             formatted_products.append(product_obj)
             print(f"   ✅ Produit ajouté avec succès ! (SKU: {final_parent_sku} | Stock total: {total_inventory})")
