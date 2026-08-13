@@ -6,14 +6,12 @@ from deep_translator import GoogleTranslator
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
-# Mots-clés de recherche
+# Mots-clés de recherche (navigation humaine par synonymes)
 MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Dress"]
 
-# URLs officielles de l'API CJ V2.0
+# URL officielle de l'API CJ V2.0 (ListV2)
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
-CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
-CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
 CJ_FREIGHT_TIP_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculateTip"
 CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/partnerFreightCalculate"
@@ -128,17 +126,27 @@ def generate_update_stock_json():
 
     items = []
     
+    # 🧠 Comportement humain : Recherche intelligente par mots-clés successifs
     for keyword in MOTS_CLES_RECHERCHE:
-        print(f"🧠 [Comportement Humain] Recherche dans le catalogue avec le mot-clé : '{keyword}'")
-        params = {"page": 1, "size": 15, "keyWord": keyword}
+        print(f"🧠 [Comportement Humain] Recherche listV2 avec le mot-clé : '{keyword}'")
+        
+        # Paramètres exacts conformes à la documentation de la capture d'écran
+        params = {
+            "page": 1,
+            "size": 20,
+            "keyWord": keyword,
+            "features": "enable_description"
+        }
+        
         raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
 
         temp_items = []
         if raw_response:
             if isinstance(raw_response, dict):
+                # Analyse des différentes structures paginées renvoyées par l'API V2
                 temp_items = (
-                    raw_response.get("productList") or 
                     raw_response.get("list") or 
+                    raw_response.get("productList") or 
                     raw_response.get("content") or 
                     raw_response.get("records") or []
                 )
@@ -147,18 +155,18 @@ def generate_update_stock_json():
 
         if temp_items:
             items = temp_items
-            print(f"✅ Trouvé ! {len(items)} produits récupérés avec le mot-clé '{keyword}'.")
+            print(f"✅ Trouvé ! {len(items)} produits récupérés avec succès.")
             break
         else:
             print(f"⚠️ Aucun résultat pour '{keyword}', essai d'un autre terme...")
 
     if not items:
-        print("❌ Aucun produit trouvé malgré les recherches.")
+        print("❌ Aucun produit trouvé malgré l'élargissement de la recherche.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    print(f"👁️ Début de l'analyse détaillée sur {len(items)} produits...")
+    print(f"👁️ Analyse et traitement direct de {len(items)} produits...")
     formatted_products = []
 
     for index, item in enumerate(items, start=1):
@@ -166,45 +174,17 @@ def generate_update_stock_json():
             if not isinstance(item, dict):
                 continue
             
-            pid = (
-                item.get("id") or 
-                item.get("pid") or 
-                item.get("productId") or 
-                item.get("productDid") or 
-                item.get("goodsId") or
-                item.get("uuid")
-            )
-            
+            # Extraction directe des identifiants depuis l'objet listV2
+            pid = item.get("pid") or item.get("id") or item.get("productId") or item.get("goodsId")
             if not pid:
                 continue
-            
-            print(f"   👉 [Produit {index}/{len(items)}] Traitement du PID : {pid}")
 
-            # On récupère le détail, mais si le détail échoue, on se replie instantanément sur l'item de base
-            product_detail = api_get(CJ_PRODUCT_QUERY_URL, token, params={"pid": pid})
-            if not product_detail or not isinstance(product_detail, dict):
-                product_detail = {}
-
-            # Fusion intelligente des sources (priorité au détail, sinon à l'item de recherche listV2)
-            nom_original = (
-                product_detail.get("productName") or 
-                product_detail.get("nameEn") or 
-                item.get("productName") or 
-                item.get("nameEn") or 
-                item.get("name") or 
-                "Produit sans nom"
-            )
+            nom_original = item.get("productName") or item.get("nameEn") or item.get("name") or "Produit sans nom"
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
                 nom_traduite = nom_original
 
-            img_raw = (
-                product_detail.get("productImage") or 
-                product_detail.get("bigImage") or 
-                item.get("productImage") or 
-                item.get("bigImage") or 
-                ""
-            )
+            img_raw = item.get("productImage") or item.get("bigImage") or item.get("image") or ""
             img_clean = nettoyer_texte(img_raw)
             if img_clean.startswith("["):
                 try:
@@ -214,8 +194,8 @@ def generate_update_stock_json():
                     pass
             images = [img_clean] if img_clean else []
 
-            poids_reel = safe_float(product_detail.get("productWeight", item.get("productWeight", 0.0)))
-            product_fee = safe_float(product_detail.get("productFee", item.get("productFee", 0.0)))
+            poids_reel = safe_float(item.get("productWeight", 0.0))
+            product_fee = safe_float(item.get("productFee", 0.0))
 
             tailles = []
             couleurs = []
@@ -225,20 +205,15 @@ def generate_update_stock_json():
             total_inventory = 0
             first_variant_sku = ""
 
-            variants = product_detail.get("variants", []) or item.get("variants", [])
+            variants = item.get("variants", []) or item.get("variantList", [])
             if not variants:
-                variants = [item]
+                variants = [item] # Fallback si le produit est simple
             
             for var in variants:
                 if not isinstance(var, dict):
                     continue
                 
                 vid = var.get("vid") or var.get("variantId")
-                if vid:
-                    vid_data = api_get(CJ_PRODUCT_VARIANT_URL, token, params={"vid": vid})
-                    if vid_data and isinstance(vid_data, dict):
-                        var.update(vid_data)
-
                 raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
                 
@@ -247,7 +222,7 @@ def generate_update_stock_json():
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
-                inventory = int(var.get("inventory") or var.get("stock") or var.get("totalInventory") or 0)
+                inventory = int(var.get("inventory") or var.get("stock") or 0)
                 total_inventory += inventory
 
                 if size and str(size) not in tailles:
@@ -255,7 +230,7 @@ def generate_update_stock_json():
                 if color and str(color) not in couleurs:
                     couleurs.append(str(color))
 
-                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or item.get("sellPrice") or 0)
+                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or item.get("sellPrice", 0))
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
@@ -264,7 +239,7 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
-            final_product_sku = first_variant_sku if first_variant_sku else (product_detail.get("spu") or item.get("spu") or pid)
+            final_product_sku = first_variant_sku if first_variant_sku else (item.get("spu") or pid)
 
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
@@ -281,10 +256,10 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"      ✅ Succès : {nom_traduite[:30]}... (Stock: {total_inventory})")
+            print(f"      ✅ Produit enregistré : {nom_traduite[:30]}... (Stock: {total_inventory})")
 
         except Exception as err:
-            print(f"      ⚠️ Erreur ignorée sur un produit : {err}")
+            print(f"      ⚠️ Erreur sur un produit : {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
