@@ -88,7 +88,6 @@ def safe_float(val):
         return 0.0
 
 def calculate_logistics(token, vid, weight, ship_to="US" or "FR"):
-    """Calcule les frais logistiques pour une zone globale de référence (ex: US)"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -173,6 +172,17 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
+            # 🛠️ Logique améliorée : Recherche prioritaire du vrai SPU / SKU parent global
+            final_parent_sku = (
+                product_detail.get("spu") or 
+                product_detail.get("productSku") or 
+                product_detail.get("sku") or 
+                item.get("spu") or 
+                item.get("productSku") or 
+                item.get("sku") or 
+                ""
+            )
+
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
             nom_traduite = traduire_texte(nom_original)
             if not nom_traduite:
@@ -195,7 +205,6 @@ def generate_update_stock_json():
             couleurs = []
             prix_variants = []
             details_list = []
-            final_parent_sku = ""
             shipping_cost = 0.0
             total_inventory = 0
 
@@ -211,13 +220,11 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
-                raw_sku = var.get("variantSku") or var.get("sku") or item.get("sku") or ""
-                if raw_sku:
-                    sku_var = str(raw_sku).strip().upper()
-                    if not final_parent_sku:
-                        final_parent_sku = sku_var
-                else:
-                    sku_var = "N/A"
+                # Si aucun SPU parent n'a été trouvé, on se rabat sur le SKU de la variante en dernier recours
+                raw_sku = var.get("variantSku") or var.get("sku") or ""
+                sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
+                if not final_parent_sku and sku_var != "N/A":
+                    final_parent_sku = sku_var
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
@@ -234,7 +241,6 @@ def generate_update_stock_json():
                     prix_variants.append(price_var)
 
                 if vid and poids_reel > 0:
-                    # Calcul logistique global basé sur l'indicatif standard de la plateforme
                     shipping_cost = calculate_logistics(token, vid, poids_reel, ship_to="US")
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
@@ -254,7 +260,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Produit ajouté avec succès ! (SKU: {final_parent_sku} | Stock total: {total_inventory})")
+            print(f"   ✅ Produit ajouté avec succès ! (SKU/SPU: {final_parent_sku} | Stock total: {total_inventory})")
 
         except Exception as err:
             continue
