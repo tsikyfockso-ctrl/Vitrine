@@ -9,15 +9,11 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/list"
+CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
 CJ_FREIGHT_TIP_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculateTip"
 CJ_PARTNER_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/partnerFreightCalculate"
-
-# Dictionnaire de secours élargi pour éviter les retours vides sur 'Lady Dress'
-CATEGORIES_SECOURS = [
-    {"keyword": "Lady Dress", "categoryId": "D2432903-0D4E-4787-886F-D3D9DA7890D9"},
-]
 
 def get_cj_access_token():
     headers = {"Content-Type": "application/json"}
@@ -91,7 +87,8 @@ def safe_float(val):
     except (ValueError, TypeError):
         return 0.0
 
-def calculate_logistics(token, vid, weight, ship_to="US"):
+def calculate_logistics(token, vid, weight, ship_to="US" or "FR"):
+    """Calcule les frais logistiques pour une zone globale de référence (ex: US)"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -120,7 +117,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 pour la mise à jour des stocks et des produits...")
+    print("🤖 Exécution de la liste simple des produits CJ...")
     
     token = get_cj_access_token()
     if not token:
@@ -129,36 +126,27 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
+    params = {"page": 1, "size": 20}
+    raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
+
     items = []
-
-    for cat in CATEGORIES_SECOURS:
-        kw = cat["keyword"]
-        cat_id = cat["categoryId"]
-        raw_response = None
-        
-        if kw:
-            params = {"page": 1, "size": 20, "keyWord": kw}
-            print(f"🔍 Essai de recherche par mot-clé : '{kw}'")
-            raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params)
-
-        if not raw_response and cat_id:
-            params_cat = {"page": 1, "size": 20, "categoryId": cat_id}
-            print(f"⚠️ Aucun résultat pour '{kw}', basculement sur le categoryId : {cat_id}")
-            raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params_cat)
-
-        if raw_response and isinstance(raw_response, dict):
-            temp_items = raw_response.get("productList", [])
-            if temp_items:
-                print(f"✅ {len(temp_items)} produits trouvés dans productList avec le critère '{kw or cat_id}' !")
-                items = temp_items
-                break
+    if raw_response:
+        if isinstance(raw_response, dict):
+            items = (
+                raw_response.get("productList") or 
+                raw_response.get("list") or 
+                raw_response.get("content") or []
+            )
+        elif isinstance(raw_response, list):
+            items = raw_response
 
     if not items:
-        print("⚠️ Aucun produit trouvé après tous les essais de secours.")
+        print("⚠️ Aucun produit trouvé avec la liste simple.")
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
+    print(f"✅ {len(items)} produits récupérés avec succès !")
     formatted_products = []
 
     for item in items:
@@ -208,8 +196,7 @@ def generate_update_stock_json():
             prix_variants = []
             details_list = []
             final_parent_sku = ""
-            shipping_cost_us = 0.0
-            shipping_cost_base = 0.0
+            shipping_cost = 0.0
             total_inventory = 0
 
             variants = product_detail.get("variants", []) or [item]
@@ -247,8 +234,8 @@ def generate_update_stock_json():
                     prix_variants.append(price_var)
 
                 if vid and poids_reel > 0:
-                    shipping_cost_us = calculate_logistics(token, vid, poids_reel, ship_to="US")
-                    shipping_cost_base = calculate_logistics(token, vid, poids_reel, ship_to="FR")
+                    # Calcul logistique global basé sur l'indicatif standard de la plateforme
+                    shipping_cost = calculate_logistics(token, vid, poids_reel, ship_to="US")
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
@@ -263,9 +250,7 @@ def generate_update_stock_json():
                 "details": " | ".join(filter(None, details_list)),
                 "poids": poids_reel,
                 "productFee": round(product_fee, 2),
-                "shippingCost": round(shipping_cost_us, 2),
-                "shippingBase": round(shipping_cost_base, 2),
-                "shippingUS": round(shipping_cost_us, 2),
+                "shippingCost": round(shipping_cost, 2),
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
