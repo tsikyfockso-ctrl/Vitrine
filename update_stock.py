@@ -7,7 +7,7 @@ from deep_translator import GoogleTranslator
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
 
 # 🔍 Mot-clé de recherche intelligent (imite la barre de recherche du site)
-MOT_CLE_RECHERCHE = "hoodie"  # Remplacez par le mot-clé de votre choix
+MOT_CLE_RECHERCHE = "Lady Dress"  # Remplacez par le mot-clé de votre choix
 
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
@@ -90,7 +90,7 @@ def safe_float(val):
     except (ValueError, TypeError):
         return 0.0
 
-def calculate_logistics(token, vid, weight, ship_to="US"):
+def calculate_logistics(token, vid, weight, ship_to="US" or "FR"):
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
