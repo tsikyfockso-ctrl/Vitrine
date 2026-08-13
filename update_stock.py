@@ -172,15 +172,12 @@ def generate_update_stock_json():
             if not product_detail or not isinstance(product_detail, dict):
                 product_detail = item
 
-            # 🛠️ Logique améliorée : Recherche prioritaire du vrai SPU / SKU parent global
-            final_parent_sku = (
+            # SPU global de secours
+            spu_fallback = (
                 product_detail.get("spu") or 
                 product_detail.get("productSku") or 
                 product_detail.get("sku") or 
-                item.get("spu") or 
-                item.get("productSku") or 
-                item.get("sku") or 
-                ""
+                item.get("sku") or ""
             )
 
             nom_original = product_detail.get("productName") or item.get("nameEn") or item.get("productName") or ""
@@ -207,6 +204,7 @@ def generate_update_stock_json():
             details_list = []
             shipping_cost = 0.0
             total_inventory = 0
+            first_variant_sku = ""
 
             variants = product_detail.get("variants", []) or [item]
             
@@ -220,11 +218,17 @@ def generate_update_stock_json():
                     if vid_data and isinstance(vid_data, dict):
                         var.update(vid_data)
 
-                # Si aucun SPU parent n'a été trouvé, on se rabat sur le SKU de la variante en dernier recours
-                raw_sku = var.get("variantSku") or var.get("sku") or ""
+                # 🛠️ Priorité absolue au vrai SKU de variante complet s'il existe
+                raw_sku = (
+                    var.get("variantSku") or 
+                    var.get("sku") or 
+                    var.get("entrySku") or 
+                    ""
+                )
                 sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
-                if not final_parent_sku and sku_var != "N/A":
-                    final_parent_sku = sku_var
+                
+                if not first_variant_sku and sku_var != "N/A":
+                    first_variant_sku = sku_var
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
@@ -245,9 +249,12 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
+            # Si on a trouvé un vrai SKU de variante, on l'utilise en priorité pour le produit, sinon le SPU
+            final_product_sku = first_variant_sku if first_variant_sku else spu_fallback
+
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
-                "sku": str(final_parent_sku).upper(),
+                "sku": str(final_product_sku).upper(),
                 "nom": nom_traduite,
                 "tailles": tailles,
                 "couleurs": couleurs,
@@ -260,7 +267,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Produit ajouté avec succès ! (SKU/SPU: {final_parent_sku} | Stock total: {total_inventory})")
+            print(f"   ✅ Produit ajouté avec succès ! (SKU Réel: {final_product_sku} | Stock total: {total_inventory})")
 
         except Exception as err:
             continue
