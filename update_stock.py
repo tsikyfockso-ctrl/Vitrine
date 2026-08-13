@@ -9,7 +9,6 @@ CJ_API_KEY = os.environ.get("CJ_API_KEY")
 # URLs officielles de l'API CJ V2.0
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
-CJ_CATEGORY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/getCategory"
 CJ_PRODUCT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/query"
 CJ_PRODUCT_VARIANT_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/queryByVid"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
@@ -122,7 +121,7 @@ def calculate_logistics(token, vid, weight, ship_to="US"):
     return freight_cost
 
 def generate_update_stock_json():
-    print("🤖 Exécution de listV2 (Correction extraction productList)...")
+    print("🤖 Exécution de listV2 pour la mise à jour des stocks et des produits...")
     
     token = get_cj_access_token()
     if not token:
@@ -149,7 +148,6 @@ def generate_update_stock_json():
             raw_response = api_get(CJ_PRODUCT_LIST_URL, token, params=params_cat)
 
         if raw_response and isinstance(raw_response, dict):
-            # Extraction ciblée de productList comme renvoyé par l'API V2
             temp_items = raw_response.get("productList", [])
             if temp_items:
                 print(f"✅ {len(temp_items)} produits trouvés dans productList !")
@@ -169,7 +167,6 @@ def generate_update_stock_json():
             if not isinstance(item, dict):
                 continue
             
-            # Recherche élargie de l'identifiant produit
             pid = (
                 item.get("id") or 
                 item.get("pid") or 
@@ -214,6 +211,7 @@ def generate_update_stock_json():
             final_parent_sku = ""
             shipping_cost_us = 0.0
             shipping_cost_base = 0.0
+            total_inventory = 0
 
             variants = product_detail.get("variants", []) or [item]
             
@@ -237,6 +235,8 @@ def generate_update_stock_json():
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
+                inventory = int(var.get("inventory") or var.get("stock") or 0)
+                total_inventory += inventory
 
                 if size and str(size) not in tailles:
                     tailles.append(str(size))
@@ -251,7 +251,7 @@ def generate_update_stock_json():
                     shipping_cost_us = calculate_logistics(token, vid, poids_reel, ship_to="US")
                     shipping_cost_base = calculate_logistics(token, vid, poids_reel, ship_to="FR")
 
-                details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€")
+                details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
             product_obj = {
                 "dropshipping": "CJ Dropshipping",
@@ -266,17 +266,18 @@ def generate_update_stock_json():
                 "productFee": round(product_fee, 2),
                 "shippingCost": round(shipping_cost_us, 2),
                 "shippingBase": round(shipping_cost_base, 2),
-                "shippingUS": round(shipping_cost_us, 2)
+                "shippingUS": round(shipping_cost_us, 2),
+                "stock": total_inventory  # Intégration complète du stock global et par variant
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Produit ajouté avec succès ! (SKU: {final_parent_sku})")
+            print(f"   ✅ Produit ajouté avec succès ! (SKU: {final_parent_sku} | Stock total: {total_inventory})")
 
         except Exception as err:
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
         json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès : {len(formatted_products)} produits générés dans update_stock.json")
+    print(f"🎉 Succès : {len(formatted_products)} produits mis à jour dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
