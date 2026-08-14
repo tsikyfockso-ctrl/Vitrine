@@ -3,8 +3,9 @@ import json
 import requests
 from deep_translator import GoogleTranslator
 
+# Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress"]
+MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Dress"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
@@ -66,42 +67,48 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    all_items_dict = {} # Utilisation d'un dictionnaire avec le PID comme clé pour éviter les doublons entre les mots-clés
+    all_items_dict = {} # Dictionnaire pour stocker les produits uniques par leur PID (évite les doublons)
     
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche active avec le mot-clé : '{keyword}'")
-        params = {
-            "page": 1,
-            "size": 20, # Augmenté pour récupérer plus de résultats par mot-clé si besoin
-            "keyWord": keyword,
-            "features": "enable_description"
-        }
         
-        raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
-        
-        if raw_response and isinstance(raw_response, dict):
-            content_data = raw_response.get("content")
-            temp_list = []
-            if isinstance(content_data, dict):
-                temp_list = content_data.get("productList", [])
-            elif isinstance(content_data, list):
-                temp_list = content_data
+        # Parcourir plusieurs pages pour récupérer un maximum de produits par mot-clé
+        for page_num in range(1, 4):
+            params = {
+                "page": page_num,
+                "size": 100,  # Taille maximale par page autorisée par l'API CJ
+                "keyWord": keyword,
+                "features": "enable_description"
+            }
+            
+            raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
+            
+            if raw_response and isinstance(raw_response, dict):
+                content_data = raw_response.get("content")
+                temp_list = []
+                if isinstance(content_data, dict):
+                    temp_list = content_data.get("productList", [])
+                elif isinstance(content_data, list):
+                    temp_list = content_data
 
-            if temp_list:
-                print(f"✅ {len(temp_list)} produits récupérés pour '{keyword}'.")
-                for item in temp_list:
-                    if isinstance(item, dict):
-                        actual_product = item.get("productList")
-                        if isinstance(actual_product, dict):
-                            item_data = actual_product
-                        elif isinstance(actual_product, list) and len(actual_product) > 0 and isinstance(actual_product[0], dict):
-                            item_data = actual_product[0]
-                        else:
-                            item_data = item
-                        
-                        pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
-                        if pid:
-                            all_items_dict[pid] = item_data
+                if temp_list:
+                    print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
+                    for item in temp_list:
+                        if isinstance(item, dict):
+                            actual_product = item.get("productList")
+                            if isinstance(actual_product, dict):
+                                item_data = actual_product
+                            elif isinstance(actual_product, list) and len(actual_product) > 0 and isinstance(actual_product[0], dict):
+                                item_data = actual_product[0]
+                            else:
+                                item_data = item
+                            
+                            pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+                            if pid:
+                                all_items_dict[pid] = item_data
+                else:
+                    # S'il n'y a plus de produits sur cette page, on arrête la pagination pour ce mot-clé
+                    break
 
     products_to_process = list(all_items_dict.values())
 
