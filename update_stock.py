@@ -48,10 +48,17 @@ def calculate_logistics_for_country(token, vid, weight, ship_to="US"):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
+    # Structure officielle validée par la documentation CJ Dropshipping
     payload = {
         "startCountryCode": "CN",
         "endCountryCode": ship_to,
-        "products": [{"vid": vid, "quantity": 1, "weight": weight}]
+        "products": [
+            {
+                "vid": vid,
+                "quantity": 1,
+                "weight": weight
+            }
+        ]
     }
     
     try:
@@ -199,7 +206,7 @@ def generate_update_stock_json():
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
-                # Calcul des frais de port (sur le premier variant pour optimiser la vitesse)
+                # Calcul des frais de port sur le premier variant pour optimiser la performance globale
                 if var_idx == 0 and vid and poids_reel > 0:
                     shipping_costs["FR"] = calculate_logistics_for_country(token, vid, poids_reel, ship_to="FR")
                     shipping_costs["US"] = calculate_logistics_for_country(token, vid, poids_reel, ship_to="US")
