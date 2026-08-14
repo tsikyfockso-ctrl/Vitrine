@@ -48,7 +48,6 @@ def calculate_logistics_for_country(token, vid, weight, ship_to="US"):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
-    # Structure officielle validée par la documentation CJ Dropshipping
     payload = {
         "startCountryCode": "CN",
         "endCountryCode": ship_to,
@@ -84,11 +83,15 @@ def nettoyer_texte(val):
 
 def traduire_texte(texte):
     texte_propre = nettoyer_texte(texte)
-    if not texte_propre:
+    if not texte_propre or "Error 500" in texte_propre:
         return ""
     try:
         trads = GoogleTranslator(source='auto', target='fr').translate(texte_propre)
-        return nettoyer_texte(trads)
+        resultat = nettoyer_texte(trads)
+        # Sécurité anti-erreur 500 de traduction
+        if "Error 500" in resultat or "Server Error" in resultat:
+            return texte_propre
+        return resultat
     except Exception:
         return texte_propre
 
@@ -159,14 +162,15 @@ def generate_update_stock_json():
 
             nom_original = item_data.get("productName") or item_data.get("nameEn") or item_data.get("name") or "Produit sans nom"
             nom_traduite = traduire_texte(nom_original)
-            if not nom_traduite:
+            if not nom_traduite or "Error 500" in nom_traduite:
                 nom_traduite = nom_original
 
             img_raw = item_data.get("productImage") or item_data.get("bigImage") or item_data.get("image") or ""
             img_clean = nettoyer_texte(img_raw)
             images = [img_clean] if img_clean else []
 
-            poids_reel = float(item_data.get("productWeight") or 0.0)
+            # Récupération sécurisée du poids (au niveau global ou variants)
+            poids_reel = float(item_data.get("productWeight") or item_data.get("weight") or 0.0)
             product_fee = float(item_data.get("productFee") or 0.0)
 
             tailles = []
@@ -175,17 +179,21 @@ def generate_update_stock_json():
             details_list = []
             total_inventory = 0
             first_variant_sku = ""
+            first_vid = ""
             shipping_costs = {"FR": 0.0, "US": 0.0}
 
             variants = item_data.get("variants", []) or item_data.get("variantList", [])
             if not variants:
                 variants = [item_data]
 
-            for var_idx, var in enumerate(variants):
+            for var in variants:
                 if not isinstance(var, dict):
                     continue
                 
-                vid = var.get("vid") or var.get("variantId")
+                vid = var.get("vid") or var.get("variantId") or var.get("id")
+                if not first_vid and vid:
+                    first_vid = vid
+
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
                 
@@ -206,12 +214,20 @@ def generate_update_stock_json():
                 if price_var > 0 and price_var not in prix_variants:
                     prix_variants.append(price_var)
 
-                # Calcul des frais de port sur le premier variant pour optimiser la performance globale
-                if var_idx == 0 and vid and poids_reel > 0:
-                    shipping_costs["FR"] = calculate_logistics_for_country(token, vid, poids_reel, ship_to="FR")
-                    shipping_costs["US"] = calculate_logistics_for_country(token, vid, poids_reel, ship_to="US")
-
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
+
+            # Si le poids global est toujours à 0 mais qu'on a un poids dans une variante
+            if poids_reel == 0.0:
+                for var in variants:
+                    p_var = float(var.get("variantWeight") or var.get("weight") or 0.0)
+                    if p_var > 0:
+                        poids_reel = p_var
+                        break
+
+            # Si on a un premier vid et un poids valide, on calcule le transport pour FR et US
+            if first_vid and poids_reel > 0:
+                shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
+                shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
 
             final_product_sku = first_variant_sku if first_variant_sku else (item_data.get("spu") or pid)
 
@@ -231,7 +247,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory})")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Poids: {poids_reel}g | FR: {shipping_costs['FR']}€)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
