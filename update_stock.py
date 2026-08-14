@@ -66,13 +66,13 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    products_to_process = []
+    all_items_dict = {} # Utilisation d'un dictionnaire avec le PID comme clé pour éviter les doublons entre les mots-clés
     
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche active avec le mot-clé : '{keyword}'")
         params = {
             "page": 1,
-            "size": 15,
+            "size": 20, # Augmenté pour récupérer plus de résultats par mot-clé si besoin
             "keyWord": keyword,
             "features": "enable_description"
         }
@@ -81,16 +81,29 @@ def generate_update_stock_json():
         
         if raw_response and isinstance(raw_response, dict):
             content_data = raw_response.get("content")
+            temp_list = []
             if isinstance(content_data, dict):
-                productList = content_data.get("productList", [])
-                if productList:
-                    products_to_process = productList
-                    print(f"✅ Trouvé ! {len(products_to_process)} produits récupérés.")
-                    break
-            elif isinstance(content_data, list) and content_data:
-                products_to_process = content_data
-                print(f"✅ Trouvé ! {len(products_to_process)} produits récupérés.")
-                break
+                temp_list = content_data.get("productList", [])
+            elif isinstance(content_data, list):
+                temp_list = content_data
+
+            if temp_list:
+                print(f"✅ {len(temp_list)} produits récupérés pour '{keyword}'.")
+                for item in temp_list:
+                    if isinstance(item, dict):
+                        actual_product = item.get("productList")
+                        if isinstance(actual_product, dict):
+                            item_data = actual_product
+                        elif isinstance(actual_product, list) and len(actual_product) > 0 and isinstance(actual_product[0], dict):
+                            item_data = actual_product[0]
+                        else:
+                            item_data = item
+                        
+                        pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+                        if pid:
+                            all_items_dict[pid] = item_data
+
+    products_to_process = list(all_items_dict.values())
 
     if not products_to_process:
         with open("update_stock.json", "w", encoding="utf-8") as f:
@@ -98,21 +111,11 @@ def generate_update_stock_json():
         print("🎉 Succès global : 0 produits enregistrés dans update_stock.json")
         return
 
+    print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
     formatted_products = []
-    for index, item in enumerate(products_to_process, start=1):
+    
+    for index, item_data in enumerate(products_to_process, start=1):
         try:
-            if not isinstance(item, dict):
-                continue
-            
-            # D'après vos logs, l'objet dans productList contient lui-même un dictionnaire productList ou les données directes
-            actual_product = item.get("productList")
-            if isinstance(actual_product, dict):
-                item_data = actual_product
-            elif isinstance(actual_product, list) and len(actual_product) > 0 and isinstance(actual_product[0], dict):
-                item_data = actual_product[0]
-            else:
-                item_data = item
-
             pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
             if not pid:
                 continue
@@ -183,7 +186,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ Produit ajouté : {nom_traduite[:35]}... (Stock: {total_inventory})")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory})")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
