@@ -64,6 +64,11 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
+    
+    # Si le poids est strictement inférieur ou égal à 0, on ne peut pas appeler l'API de fret
+    if weight <= 0:
+        return "N/A", 0.0
+
     payload = {
         "startCountryCode": "CN",
         "endCountryCode": ship_to,
@@ -182,7 +187,6 @@ def generate_update_stock_json():
             img_clean = nettoyer_texte(img_raw)
             images = [img_clean] if img_clean else []
 
-            poids_reel = float(item_data.get("productWeight") or item_data.get("weight") or 0.0)
             product_fee = float(item_data.get("productFee") or 0.0)
 
             tailles = []
@@ -192,6 +196,7 @@ def generate_update_stock_json():
             total_inventory = 0
             first_variant_sku = ""
             first_vid = ""
+            poids_reel = 0.0
             
             shipping_info = {
                 "FR": {"method": "N/A", "cost": 0.0},
@@ -211,6 +216,18 @@ def generate_update_stock_json():
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 if not first_vid and vid:
                     first_vid = vid
+
+                # Recherche approfondie du poids réel dans la variante (tous les champs possibles de l'API CJ)
+                if poids_reel == 0.0:
+                    p_var = float(
+                        var.get("variantWeight") or 
+                        var.get("weight") or 
+                        var.get("packWeight") or 
+                        var.get("gram") or 
+                        var.get("productWeight") or 0.0
+                    )
+                    if p_var > 0:
+                        poids_reel = p_var
 
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
@@ -234,14 +251,16 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
+            # Recherche globale au niveau du produit principal si toujours 0.0
             if poids_reel == 0.0:
-                for var in variants:
-                    p_var = float(var.get("variantWeight") or var.get("weight") or 0.0)
-                    if p_var > 0:
-                        poids_reel = p_var
-                        break
+                poids_reel = float(
+                    item_data.get("productWeight") or 
+                    item_data.get("weight") or 
+                    item_data.get("packWeight") or 
+                    item_data.get("gram") or 0.0
+                )
 
-            # Récupération automatique de la méthode et du coût d'expédition pour FR et US
+            # Récupération de la méthode et du coût d'expédition uniquement avec le poids réel trouvé
             if first_vid and poids_reel > 0:
                 m_fr, c_fr = get_logistics_details_for_country(token, first_vid, poids_reel, ship_to="FR")
                 shipping_info["FR"] = {"method": m_fr, "cost": c_fr}
@@ -269,7 +288,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory} | FR: {shipping_info['FR']['method']} - {shipping_info['FR']['cost']}€)")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Poids: {poids_reel}g | FR: {shipping_info['FR']['method']})")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
