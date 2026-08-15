@@ -5,11 +5,11 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Dress","Women Clothing"]
+MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "women clothing"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
-CJ_PRODUCT_DETAILS_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/details"
+CJ_VARIANT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/query"
 CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
 
 def get_cj_access_token():
@@ -44,14 +44,14 @@ def api_get(url, token, params=None):
         pass
     return None
 
-def get_product_details(token, pid):
-    """Interroge le module officiel Product Details pour récupérer stock, poids et variantes exacts"""
+def get_product_variants(token, pid):
+    """Récupère proprement les variantes, le poids et le stock via l'endpoint officiel des variantes"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(CJ_PRODUCT_DETAILS_URL, headers=headers, params={"pid": pid}, timeout=15)
+        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -118,17 +118,19 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    all_pids = set()
+    all_items_dict = {}
     
-    # Étape 1 : Récupération des PIDs via la recherche par mot-clé
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche active avec le mot-clé : '{keyword}'")
-        for page_num in range(1, 3): # Limité à 2 pages pour éviter les timeouts
+        
+        for page_num in range(1, 3):
             params = {
                 "page": page_num,
                 "size": 50,
-                "keyWord": keyword
+                "keyWord": keyword,
+                "features": "enable_description"
             }
+            
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
             
             if raw_response and isinstance(raw_response, dict):
@@ -140,31 +142,32 @@ def generate_update_stock_json():
                     temp_list = content_data
 
                 if temp_list:
+                    print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
                     for item in temp_list:
                         if isinstance(item, dict):
                             actual_product = item.get("productList") or item
                             if isinstance(actual_product, dict):
-                                pid = actual_product.get("pid") or actual_product.get("id") or actual_product.get("productId")
+                                pid = actual_product.get("pid") or actual_product.get("id") or actual_product.get("productId") or actual_product.get("goodsId")
                                 if pid:
-                                    all_pids.add(pid)
+                                    all_items_dict[pid] = actual_product
                 else:
                     break
 
-    pids_list = list(all_pids)
-    if not pids_list:
+    products_to_process = list(all_items_dict.values())
+
+    if not products_to_process:
         with open("update_stock.json", "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=4)
-        print("🎉 Succès global : 0 produits trouvés.")
+        print("🎉 Succès global : 0 produits enregistrés dans update_stock.json")
         return
 
-    print(f"📦 Total de produits uniques à analyser en détail : {len(pids_list)}")
+    print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
     formatted_products = []
     
-    # Étape 2 : Appel du module de détails pour chaque produit
-    for index, pid in enumerate(pids_list, start=1):
+    for index, item_data in enumerate(products_to_process, start=1):
         try:
-            item_data = get_product_details(token, pid)
-            if not item_data:
+            pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+            if not pid:
                 continue
 
             nom_original = item_data.get("productName") or item_data.get("nameEn") or item_data.get("name") or "Produit sans nom"
@@ -173,7 +176,8 @@ def generate_update_stock_json():
                 nom_traduite = nom_original
 
             img_raw = item_data.get("productImage") or item_data.get("bigImage") or item_data.get("image") or ""
-            images = [nettoyer_texte(img_raw)] if img_raw else []
+            img_clean = nettoyer_texte(img_raw)
+            images = [img_clean] if img_clean else []
 
             poids_reel = float(item_data.get("productWeight") or item_data.get("weight") or 0.0)
             product_fee = float(item_data.get("productFee") or 0.0)
@@ -187,7 +191,10 @@ def generate_update_stock_json():
             first_vid = ""
             shipping_costs = {"FR": 0.0, "US": 0.0}
 
-            variants = item_data.get("variants", []) or item_data.get("variantList", []) or item_data.get("skuList", [])
+            # Interrogation spécifique des variantes pour récupérer les VID, poids et stock réel
+            variants = get_product_variants(token, pid)
+            if not variants or not isinstance(variants, list):
+                variants = item_data.get("variants", []) or item_data.get("variantList", [])
             if not variants:
                 variants = [item_data]
 
@@ -228,7 +235,7 @@ def generate_update_stock_json():
                         poids_reel = p_var
                         break
 
-            # Calcul des frais de port automatisés via le premier VID valide trouvé
+            # Calcul automatique des frais de port France et USA grâce au VID récupéré
             if first_vid and poids_reel > 0:
                 shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
                 shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
@@ -251,7 +258,7 @@ def generate_update_stock_json():
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(pids_list)}] Traité : {nom_traduite[:30]}... (Stock: {total_inventory} | Poids: {poids_reel}g | FR: {shipping_costs['FR']}€)")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory} | FR: {shipping_costs['FR']}€)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
