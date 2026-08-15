@@ -59,7 +59,7 @@ def get_product_variants(token, pid):
         pass
     return None
 
-def calculate_logistics_for_country(token, vid, weight, ship_to="US"):
+def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -82,10 +82,13 @@ def calculate_logistics_for_country(token, vid, weight, ship_to="US"):
             if data.get("result") and data.get("data"):
                 logistic_list = data.get("data")
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
-                    return float(logistic_list[0].get("logisticPrice", 0.0))
+                    first_logistic = logistic_list[0]
+                    method_name = first_logistic.get("logisticName", "Standard Shipping")
+                    price = float(first_logistic.get("logisticPrice", 0.0))
+                    return method_name, price
     except Exception:
         pass
-    return 0.0
+    return "N/A", 0.0
 
 def nettoyer_texte(val):
     if not val:
@@ -112,16 +115,15 @@ def generate_update_stock_json():
             json.dump([], f, ensure_ascii=False, indent=4)
         return
 
-    all_items_dict = {} # Dictionnaire pour stocker les produits uniques par leur PID (évite les doublons)
+    all_items_dict = {} 
     
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche active avec le mot-clé : '{keyword}'")
         
-        # Parcourir plusieurs pages pour récupérer un maximum de produits par mot-clé
         for page_num in range(1, 4):
             params = {
                 "page": page_num,
-                "size": 100,  # Taille maximale par page autorisée par l'API CJ
+                "size": 100,
                 "keyWord": keyword,
                 "features": "enable_description"
             }
@@ -152,7 +154,6 @@ def generate_update_stock_json():
                             if pid:
                                 all_items_dict[pid] = item_data
                 else:
-                    # S'il n'y a plus de produits sur cette page, on arrête la pagination pour ce mot-clé
                     break
 
     products_to_process = list(all_items_dict.values())
@@ -191,9 +192,12 @@ def generate_update_stock_json():
             total_inventory = 0
             first_variant_sku = ""
             first_vid = ""
-            shipping_costs = {"FR": 0.0, "US": 0.0}
+            
+            shipping_info = {
+                "FR": {"method": "N/A", "cost": 0.0},
+                "US": {"method": "N/A", "cost": 0.0}
+            }
 
-            # Récupération sécurisée des variantes via l'API dédiée (avec repli sur les données du produit)
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
@@ -230,7 +234,6 @@ def generate_update_stock_json():
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
 
-            # Si le poids est à 0 dans le produit, on essaie de le chercher dans les variantes
             if poids_reel == 0.0:
                 for var in variants:
                     p_var = float(var.get("variantWeight") or var.get("weight") or 0.0)
@@ -238,10 +241,13 @@ def generate_update_stock_json():
                         poids_reel = p_var
                         break
 
-            # Calcul des frais de port France et USA si on a un VID et un poids
+            # Récupération automatique de la méthode et du coût d'expédition pour FR et US
             if first_vid and poids_reel > 0:
-                shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
-                shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
+                m_fr, c_fr = get_logistics_details_for_country(token, first_vid, poids_reel, ship_to="FR")
+                shipping_info["FR"] = {"method": m_fr, "cost": c_fr}
+
+                m_us, c_us = get_logistics_details_for_country(token, first_vid, poids_reel, ship_to="US")
+                shipping_info["US"] = {"method": m_us, "cost": c_us}
 
             final_product_sku = first_variant_sku if first_variant_sku else (item_data.get("spu") or pid)
 
@@ -256,12 +262,14 @@ def generate_update_stock_json():
                 "details": " | ".join(filter(None, details_list)),
                 "poids": poids_reel,
                 "productFee": round(product_fee, 2),
-                "shippingCostFR": round(shipping_costs.get("FR", 0.0), 2),
-                "shippingCostUS": round(shipping_costs.get("US", 0.0), 2),
+                "shippingMethodFR": shipping_info["FR"]["method"],
+                "shippingCostFR": round(shipping_info["FR"]["cost"], 2),
+                "shippingMethodUS": shipping_info["US"]["method"],
+                "shippingCostUS": round(shipping_info["US"]["cost"], 2),
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory} | FR: {shipping_costs['FR']}€)")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory} | FR: {shipping_info['FR']['method']} - {shipping_info['FR']['cost']}€)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
