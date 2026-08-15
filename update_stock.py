@@ -134,7 +134,6 @@ def generate_update_stock_json():
             
             if raw_response:
                 temp_list = []
-                # Sécurité maximale pour extraire la liste peu importe le format renvoyé par l'API CJ
                 if isinstance(raw_response, list):
                     temp_list = raw_response
                 elif isinstance(raw_response, dict):
@@ -156,9 +155,18 @@ def generate_update_stock_json():
                             elif "product" in item and isinstance(item["product"], dict):
                                 item_data = item["product"]
                             
-                            pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+                            # Recherche élargie du PID pour éviter de rejeter les produits
+                            pid = (
+                                item_data.get("pid") or 
+                                item_data.get("id") or 
+                                item_data.get("productId") or 
+                                item_data.get("goodsId") or
+                                item.get("pid") or
+                                item.get("id") or
+                                item.get("productId")
+                            )
                             if pid:
-                                all_items_dict[pid] = item_data
+                                all_items_dict[str(pid)] = item_data
                 else:
                     break
 
@@ -175,7 +183,12 @@ def generate_update_stock_json():
     
     for index, item_data in enumerate(products_to_process, start=1):
         try:
-            pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+            pid = (
+                item_data.get("pid") or 
+                item_data.get("id") or 
+                item_data.get("productId") or 
+                item_data.get("goodsId")
+            )
             if not pid:
                 continue
 
