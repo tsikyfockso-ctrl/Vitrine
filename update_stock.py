@@ -5,7 +5,7 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "women clothing"]
+MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Dress"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
@@ -45,7 +45,6 @@ def api_get(url, token, params=None):
     return None
 
 def get_product_variants(token, pid):
-    """Récupère proprement les variantes, le poids et le stock via l'endpoint officiel des variantes"""
     headers = {
         "CJ-Access-Token": token,
         "Content-Type": "application/json"
@@ -145,11 +144,16 @@ def generate_update_stock_json():
                     print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
                     for item in temp_list:
                         if isinstance(item, dict):
-                            actual_product = item.get("productList") or item
-                            if isinstance(actual_product, dict):
-                                pid = actual_product.get("pid") or actual_product.get("id") or actual_product.get("productId") or actual_product.get("goodsId")
-                                if pid:
-                                    all_items_dict[pid] = actual_product
+                            # Extraction élargie pour s'assurer de récupérer l'objet produit et son PID
+                            item_data = item
+                            if "productList" in item and isinstance(item["productList"], dict):
+                                item_data = item["productList"]
+                            elif "product" in item and isinstance(item["product"], dict):
+                                item_data = item["product"]
+                            
+                            pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
+                            if pid:
+                                all_items_dict[pid] = item_data
                 else:
                     break
 
@@ -191,7 +195,7 @@ def generate_update_stock_json():
             first_vid = ""
             shipping_costs = {"FR": 0.0, "US": 0.0}
 
-            # Interrogation spécifique des variantes pour récupérer les VID, poids et stock réel
+            # Appel sécurisé au module des variantes pour récupérer VID, stock et poids exacts
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
@@ -235,7 +239,7 @@ def generate_update_stock_json():
                         poids_reel = p_var
                         break
 
-            # Calcul automatique des frais de port France et USA grâce au VID récupéré
+            # Calcul des frais de port France et USA via le VID récupéré
             if first_vid and poids_reel > 0:
                 shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
                 shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
