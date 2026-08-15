@@ -132,19 +132,24 @@ def generate_update_stock_json():
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
             
-            if raw_response and isinstance(raw_response, dict):
-                content_data = raw_response.get("content")
+            if raw_response:
                 temp_list = []
-                if isinstance(content_data, dict):
-                    temp_list = content_data.get("productList", [])
-                elif isinstance(content_data, list):
-                    temp_list = content_data
+                # Sécurité maximale pour extraire la liste peu importe le format renvoyé par l'API CJ
+                if isinstance(raw_response, list):
+                    temp_list = raw_response
+                elif isinstance(raw_response, dict):
+                    content_data = raw_response.get("content")
+                    if isinstance(content_data, list):
+                        temp_list = content_data
+                    elif isinstance(content_data, dict):
+                        temp_list = content_data.get("productList", []) or content_data.get("list", [])
+                    else:
+                        temp_list = raw_response.get("productList", []) or raw_response.get("list", []) or raw_response.get("data", [])
 
                 if temp_list:
                     print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
                     for item in temp_list:
                         if isinstance(item, dict):
-                            # Extraction élargie pour s'assurer de récupérer l'objet produit et son PID
                             item_data = item
                             if "productList" in item and isinstance(item["productList"], dict):
                                 item_data = item["productList"]
@@ -195,7 +200,6 @@ def generate_update_stock_json():
             first_vid = ""
             shipping_costs = {"FR": 0.0, "US": 0.0}
 
-            # Appel sécurisé au module des variantes pour récupérer VID, stock et poids exacts
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
@@ -239,7 +243,6 @@ def generate_update_stock_json():
                         poids_reel = p_var
                         break
 
-            # Calcul des frais de port France et USA via le VID récupéré
             if first_vid and poids_reel > 0:
                 shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
                 shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
