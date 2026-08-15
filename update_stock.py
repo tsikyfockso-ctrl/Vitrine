@@ -9,6 +9,8 @@ MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Women clothing"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
+CJ_VARIANT_QUERY_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/variant/query"
+CJ_FREIGHT_URL = "https://developers.cjdropshipping.com/api2.0/v1/logistic/freightCalculate"
 
 def get_cj_access_token():
     headers = {"Content-Type": "application/json"}
@@ -41,6 +43,49 @@ def api_get(url, token, params=None):
     except Exception:
         pass
     return None
+
+def get_product_variants(token, pid):
+    headers = {
+        "CJ-Access-Token": token,
+        "Content-Type": "application/json"
+    }
+    try:
+        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=15)
+        if response.status_code == 200:
+            data = response.json()
+            if isinstance(data, dict) and data.get("result"):
+                return data.get("data")
+    except Exception:
+        pass
+    return None
+
+def calculate_logistics_for_country(token, vid, weight, ship_to="US"):
+    headers = {
+        "CJ-Access-Token": token,
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "startCountryCode": "CN",
+        "endCountryCode": ship_to,
+        "products": [
+            {
+                "vid": vid,
+                "quantity": 1,
+                "weight": weight
+            }
+        ]
+    }
+    try:
+        res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=10)
+        if res.status_code == 200:
+            data = res.json()
+            if data.get("result") and data.get("data"):
+                logistic_list = data.get("data")
+                if isinstance(logistic_list, list) and len(logistic_list) > 0:
+                    return float(logistic_list[0].get("logisticPrice", 0.0))
+    except Exception:
+        pass
+    return 0.0
 
 def nettoyer_texte(val):
     if not val:
@@ -136,7 +181,7 @@ def generate_update_stock_json():
             img_clean = nettoyer_texte(img_raw)
             images = [img_clean] if img_clean else []
 
-            poids_reel = float(item_data.get("productWeight") or 0.0)
+            poids_reel = float(item_data.get("productWeight") or item_data.get("weight") or 0.0)
             product_fee = float(item_data.get("productFee") or 0.0)
 
             tailles = []
@@ -145,8 +190,13 @@ def generate_update_stock_json():
             details_list = []
             total_inventory = 0
             first_variant_sku = ""
+            first_vid = ""
+            shipping_costs = {"FR": 0.0, "US": 0.0}
 
-            variants = item_data.get("variants", []) or item_data.get("variantList", [])
+            # Récupération sécurisée des variantes via l'API dédiée (avec repli sur les données du produit)
+            variants = get_product_variants(token, pid)
+            if not variants or not isinstance(variants, list):
+                variants = item_data.get("variants", []) or item_data.get("variantList", [])
             if not variants:
                 variants = [item_data]
 
@@ -154,6 +204,10 @@ def generate_update_stock_json():
                 if not isinstance(var, dict):
                     continue
                 
+                vid = var.get("vid") or var.get("variantId") or var.get("id")
+                if not first_vid and vid:
+                    first_vid = vid
+
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
                 
@@ -162,7 +216,7 @@ def generate_update_stock_json():
 
                 size = var.get("variantSize") or var.get("size")
                 color = var.get("variantColor") or var.get("color")
-                inventory = int(var.get("inventory") or var.get("stock") or 0)
+                inventory = int(var.get("inventory") or var.get("stock") or var.get("totalInventory") or 0)
                 total_inventory += inventory
 
                 if size and str(size) not in tailles:
@@ -175,6 +229,19 @@ def generate_update_stock_json():
                     prix_variants.append(price_var)
 
                 details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
+
+            # Si le poids est à 0 dans le produit, on essaie de le chercher dans les variantes
+            if poids_reel == 0.0:
+                for var in variants:
+                    p_var = float(var.get("variantWeight") or var.get("weight") or 0.0)
+                    if p_var > 0:
+                        poids_reel = p_var
+                        break
+
+            # Calcul des frais de port France et USA si on a un VID et un poids
+            if first_vid and poids_reel > 0:
+                shipping_costs["FR"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="FR")
+                shipping_costs["US"] = calculate_logistics_for_country(token, first_vid, poids_reel, ship_to="US")
 
             final_product_sku = first_variant_sku if first_variant_sku else (item_data.get("spu") or pid)
 
@@ -189,11 +256,12 @@ def generate_update_stock_json():
                 "details": " | ".join(filter(None, details_list)),
                 "poids": poids_reel,
                 "productFee": round(product_fee, 2),
-                "shippingCost": 0.0,
+                "shippingCostFR": round(shipping_costs.get("FR", 0.0), 2),
+                "shippingCostUS": round(shipping_costs.get("US", 0.0), 2),
                 "stock": total_inventory
             }
             formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory})")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Stock: {total_inventory} | FR: {shipping_costs['FR']}€)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
