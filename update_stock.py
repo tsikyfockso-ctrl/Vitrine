@@ -149,13 +149,13 @@ def generate_update_stock_json():
                     print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
                     for item in temp_list:
                         if isinstance(item, dict):
+                            print(f"   🔍 DEBUG ITEM BRUT : {list(item.keys())}")
                             item_data = item
                             if "productList" in item and isinstance(item["productList"], dict):
                                 item_data = item["productList"]
                             elif "product" in item and isinstance(item["product"], dict):
                                 item_data = item["product"]
                             
-                            # Recherche élargie du PID pour éviter de rejeter les produits
                             pid = (
                                 item_data.get("pid") or 
                                 item_data.get("id") or 
@@ -163,10 +163,13 @@ def generate_update_stock_json():
                                 item_data.get("goodsId") or
                                 item.get("pid") or
                                 item.get("id") or
-                                item.get("productId")
+                                item.get("productId") or
+                                item.get("goodsId")
                             )
                             if pid:
                                 all_items_dict[str(pid)] = item_data
+                            else:
+                                print(f"   ⚠️ Impossible de trouver le PID dans : {item_data}")
                 else:
                     break
 
