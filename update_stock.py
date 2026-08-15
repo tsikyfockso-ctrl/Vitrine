@@ -65,8 +65,7 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
         "Content-Type": "application/json"
     }
     
-    # Si le poids est strictement inférieur ou égal à 0, on ne peut pas appeler l'API de fret
-    if weight <= 0:
+    if weight <= 0 or not vid:
         return "N/A", 0.0
 
     payload = {
@@ -94,6 +93,36 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
     except Exception:
         pass
     return "N/A", 0.0
+
+def safe_float(val, default=0.0):
+    if val is None:
+        return default
+    if isinstance(val, (int, float)):
+        return float(val)
+    
+    val_str = str(val).strip()
+    if not val_str or val_str.lower() == "nan":
+        return default
+        
+    if "--" in val_str:
+        val_str = val_str.split("--")[0].strip()
+    elif "-" in val_str and not val_str.startswith("-"):
+        val_str = val_str.split("-")[0].strip()
+        
+    try:
+        return float(val_str)
+    except ValueError:
+        pass
+        
+    import re
+    matches = re.findall(r"[-+]?\d*\.\d+|\d+", val_str)
+    if matches:
+        try:
+            return float(matches[0])
+        except ValueError:
+            pass
+            
+    return default
 
 def nettoyer_texte(val):
     if not val:
@@ -170,7 +199,7 @@ def generate_update_stock_json():
         return
 
     print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
-    formatted_products = []
+    formatted_variants = []
     
     for index, item_data in enumerate(products_to_process, start=1):
         try:
@@ -187,21 +216,7 @@ def generate_update_stock_json():
             img_clean = nettoyer_texte(img_raw)
             images = [img_clean] if img_clean else []
 
-            product_fee = float(item_data.get("productFee") or 0.0)
-
-            tailles = []
-            couleurs = []
-            prix_variants = []
-            details_list = []
-            total_inventory = 0
-            first_variant_sku = ""
-            first_vid = ""
-            poids_reel = 0.0
-            
-            shipping_info = {
-                "FR": {"method": "N/A", "cost": 0.0},
-                "US": {"method": "N/A", "cost": 0.0}
-            }
+            product_fee = safe_float(item_data.get("productFee"))
 
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
@@ -214,89 +229,63 @@ def generate_update_stock_json():
                     continue
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
-                if not first_vid and vid:
-                    first_vid = vid
-
-                # Recherche approfondie du poids réel dans la variante (tous les champs possibles de l'API CJ)
-                if poids_reel == 0.0:
-                    p_var = float(
-                        var.get("variantWeight") or 
-                        var.get("weight") or 
-                        var.get("packWeight") or 
-                        var.get("gram") or 
-                        var.get("productWeight") or 0.0
-                    )
-                    if p_var > 0:
-                        poids_reel = p_var
-
-                raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
-                sku_var = str(raw_sku).strip().upper() if raw_sku else "N/A"
                 
-                if not first_variant_sku and sku_var != "N/A":
-                    first_variant_sku = sku_var
-
-                size = var.get("variantSize") or var.get("size")
-                color = var.get("variantColor") or var.get("color")
-                inventory = int(var.get("inventory") or var.get("stock") or var.get("totalInventory") or 0)
-                total_inventory += inventory
-
-                if size and str(size) not in tailles:
-                    tailles.append(str(size))
-                if color and str(color) not in couleurs:
-                    couleurs.append(str(color))
-
-                price_var = float(var.get("variantPrice") or var.get("sellPrice") or item_data.get("sellPrice") or 0)
-                if price_var > 0 and price_var not in prix_variants:
-                    prix_variants.append(price_var)
-
-                details_list.append(f"SKU: {sku_var} | Couleur: {color or 'N/A'} | Taille: {size or 'N/A'} | Prix: {price_var}€ | Stock: {inventory}")
-
-            # Recherche globale au niveau du produit principal si toujours 0.0
-            if poids_reel == 0.0:
-                poids_reel = float(
-                    item_data.get("productWeight") or 
-                    item_data.get("weight") or 
-                    item_data.get("packWeight") or 
-                    item_data.get("gram") or 0.0
+                # Récupération individuelle du poids de la variante
+                poids_var = safe_float(
+                    var.get("variantWeight") or 
+                    var.get("weight") or 
+                    var.get("packWeight") or 
+                    var.get("gram") or 
+                    var.get("productWeight") or
+                    item_data.get("productWeight") or
+                    item_data.get("weight")
                 )
 
-            # Récupération de la méthode et du coût d'expédition uniquement avec le poids réel trouvé
-            if first_vid and poids_reel > 0:
-                m_fr, c_fr = get_logistics_details_for_country(token, first_vid, poids_reel, ship_to="FR")
-                shipping_info["FR"] = {"method": m_fr, "cost": c_fr}
+                raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
+                sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                m_us, c_us = get_logistics_details_for_country(token, first_vid, poids_reel, ship_to="US")
-                shipping_info["US"] = {"method": m_us, "cost": c_us}
+                size = var.get("variantSize") or var.get("size") or "N/A"
+                color = var.get("variantColor") or var.get("color") or "N/A"
+                inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
+                
+                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or item_data.get("sellPrice"))
 
-            final_product_sku = first_variant_sku if first_variant_sku else (item_data.get("spu") or pid)
+                # Calcul logistique propre et indépendant pour chaque variante (FR & US)
+                m_fr, c_fr = "N/A", 0.0
+                m_us, c_us = "N/A", 0.0
+                
+                if vid and poids_var > 0:
+                    m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
+                    m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
 
-            product_obj = {
-                "dropshipping": "CJ Dropshipping",
-                "sku": str(final_product_sku).upper(),
-                "nom": nom_traduite,
-                "tailles": tailles,
-                "couleurs": couleurs,
-                "prix": prix_variants,
-                "images": images,
-                "details": " | ".join(filter(None, details_list)),
-                "poids": poids_reel,
-                "productFee": round(product_fee, 2),
-                "shippingMethodFR": shipping_info["FR"]["method"],
-                "shippingCostFR": round(shipping_info["FR"]["cost"], 2),
-                "shippingMethodUS": shipping_info["US"]["method"],
-                "shippingCostUS": round(shipping_info["US"]["cost"], 2),
-                "stock": total_inventory
-            }
-            formatted_products.append(product_obj)
-            print(f"   ✅ [{index}/{len(products_to_process)}] Ajouté : {nom_traduite[:30]}... (Poids: {poids_reel}g | FR: {shipping_info['FR']['method']})")
+                variant_obj = {
+                    "dropshipping": "CJ Dropshipping",
+                    "sku": sku_var,
+                    "pid": pid,
+                    "nom": nom_traduite,
+                    "taille": str(size),
+                    "couleur": str(color),
+                    "prix": round(price_var, 2),
+                    "images": images,
+                    "poids": poids_var,
+                    "productFee": round(product_fee, 2),
+                    "shippingMethodFR": m_fr,
+                    "shippingCostFR": round(c_fr, 2),
+                    "shippingMethodUS": m_us,
+                    "shippingCostUS": round(c_us, 2),
+                    "stock": inventory
+                }
+                formatted_variants.append(variant_obj)
+
+            print(f"   ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(variants)} variantes)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
             continue
 
     with open("update_stock.json", "w", encoding="utf-8") as f:
-        json.dump(formatted_products, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès global : {len(formatted_products)} produits enregistrés dans update_stock.json")
+        json.dump(formatted_variants, f, ensure_ascii=False, indent=4)
+    print(f"🎉 Succès global : {len(formatted_variants)} variantes enregistrées dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
