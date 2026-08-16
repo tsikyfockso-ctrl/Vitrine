@@ -1,3 +1,4 @@
+from collections import defaultdict
 import os
 import json
 import requests
@@ -199,7 +200,9 @@ def generate_update_stock_json():
         return
 
     print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
-    formatted_variants = []
+    
+    # Utilisation d'un dictionnaire pour regrouper par 'pid' unique
+    produits_figures = {}
     
     for index, item_data in enumerate(products_to_process, start=1):
         try:
@@ -217,6 +220,7 @@ def generate_update_stock_json():
             images = [img_clean] if img_clean else []
 
             product_fee = safe_float(item_data.get("productFee"))
+            price_base = safe_float(item_data.get("sellPrice"))
 
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
@@ -224,13 +228,14 @@ def generate_update_stock_json():
             if not variants:
                 variants = [item_data]
 
+            liste_variantes_produit = []
+
             for var in variants:
                 if not isinstance(var, dict):
                     continue
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 
-                # Récupération individuelle du poids de la variante
                 poids_var = safe_float(
                     var.get("variantWeight") or 
                     var.get("weight") or 
@@ -248,7 +253,7 @@ def generate_update_stock_json():
                 color = var.get("variantColor") or var.get("color") or "N/A"
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 
-                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or item_data.get("sellPrice"))
+                price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
                 # Calcul logistique propre et indépendant pour chaque variante (FR & US)
                 m_fr, c_fr = "N/A", 0.0
@@ -259,33 +264,47 @@ def generate_update_stock_json():
                     m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
 
                 variant_obj = {
-                    "dropshipping": "CJ Dropshipping",
                     "sku": sku_var,
-                    "pid": pid,
-                    "nom": nom_traduite,
+                    "vid": vid,
                     "taille": str(size),
                     "couleur": str(color),
                     "prix": round(price_var, 2),
-                    "images": images,
                     "poids": poids_var,
-                    "productFee": round(product_fee, 2),
+                    "stock": inventory,
                     "shippingMethodFR": m_fr,
                     "shippingCostFR": round(c_fr, 2),
                     "shippingMethodUS": m_us,
-                    "shippingCostUS": round(c_us, 2),
-                    "stock": inventory
+                    "shippingCostUS": round(c_us, 2)
                 }
-                formatted_variants.append(variant_obj)
+                
+                # Évite les doublons stricts de variantes
+                if variant_obj not in liste_variantes_produit:
+                    liste_variantes_produit.append(variant_obj)
 
-            print(f"   ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(variants)} variantes)")
+            # Structure finale propre regroupée par produit unique
+            produit_unique = {
+                "dropshipping": "CJ Dropshipping",
+                "pid": pid,
+                "nom": nom_traduite,
+                "prixBase": round(price_base, 2),
+                "productFee": round(product_fee, 2),
+                "images": images,
+                "variantes": liste_variantes_produit
+            }
+
+            produits_figures[pid] = produit_unique
+            print(f"   ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes regroupées)")
 
         except Exception as err:
             print(f"   ⚠️ Erreur sur le produit {index}: {err}")
             continue
 
+    resultat_final = list(produits_figures.values())
+
     with open("update_stock.json", "w", encoding="utf-8") as f:
-        json.dump(formatted_variants, f, ensure_ascii=False, indent=4)
-    print(f"🎉 Succès global : {len(formatted_variants)} variantes enregistrées dans update_stock.json")
+        json.dump(resultat_final, f, ensure_ascii=False, indent=4)
+        
+    print(f"🎉 Succès global : {len(resultat_final)} produits uniques enregistrés dans update_stock.json")
 
 if __name__ == "__main__":
     generate_update_stock_json()
