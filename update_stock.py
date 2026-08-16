@@ -249,7 +249,7 @@ def generate_update_stock_json():
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                # --- EXTRACTION CORRIGÉE VIA variantKey & variantNameEn ---
+                # --- EXTRACTION ET CORRECTION INTELLIGENTE ---
                 variant_key_str = str(var.get("variantKey") or "").strip()
                 variant_name_en = str(var.get("variantNameEn") or "").strip()
                 
@@ -270,7 +270,13 @@ def generate_update_stock_json():
                         if len(pot_size) <= 4:
                             size = pot_size
                             color = mots[-2]
-                # -----------------------------------------------------------
+
+                # 🛡️ CORRECTION AUTOMATIQUE : Si la "couleur" est une taille, on l'inverse !
+                tailles_standards = ["XS", "S", "M", "L", "XL", "XXL", "XXXL", "2XL", "3XL", "4XL", "5XL"]
+                if color.upper() in tailles_standards and size == "N/A":
+                    size = color
+                    color = "N/A"
+                # ---------------------------------------------
 
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
