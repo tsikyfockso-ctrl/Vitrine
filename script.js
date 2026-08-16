@@ -59,9 +59,9 @@ function renderProducts(stock, container) {
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
-                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || 'Produit'}" loading="lazy">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || p.title || 'Produit'}" loading="lazy">
                 </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
+                <h3>${p.nom || p.title || 'Sans nom'}</h3>
                 <p>Prix : ${prixAffiche} €</p>
                 <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
             </div>
@@ -81,6 +81,8 @@ function initialiserPays() {
     selectCountry.innerHTML = listeDesPaysMondiaux.map(pays => `
         <option value="${pays.code}">${pays.nom}</option>
     `).join('');
+    
+    selectCountry.onchange = () => calculateShipping();
 }
 
 let currentSelectedProduct = null;
@@ -92,31 +94,34 @@ function openProductModal(index) {
     currentSelectedProduct = stock[index];
     if (!currentSelectedProduct) return;
 
-    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom;
+    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || currentSelectedProduct.title || 'Sans nom';
     
     // --- GESTION ET AFFICHAGE DU SKU ---
-    const modalSkuElem = document.getElementById('modalSku');
+    const modalSkuElem = document.getElementById('modalSku'); 
     if (modalSkuElem) {
-        modalSkuElem.innerText = currentSelectedProduct.sku || 'N/A';
+        modalSkuElem.innerText = currentSelectedProduct.sku || currentSelectedProduct.productSku || 'N/A';
     }
+    // -----------------------------------
 
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
     if (rawImg) {
-        document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
+        const modalImgElem = document.getElementById('modalImg');
+        if (modalImgElem) {
+            modalImgElem.src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
+        }
     }
-
-    // Affichage initial de la description
+    
+    // Gestion robuste de la description (details, description, desc)
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
-        modalDescElem.innerText = currentSelectedProduct.details || "Aucune description disponible.";
+        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || currentSelectedProduct.desc || "Aucune description disponible.";
     }
 
-    // Remplissage du select des variantes (caché ou visible selon votre structure HTML)
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
-        let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
-        let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
+        let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix || currentSelectedProduct.price || 0];
+        let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : (Array.isArray(currentSelectedProduct.sizes) ? currentSelectedProduct.sizes : [currentSelectedProduct.tailles || currentSelectedProduct.size || 'Standard']);
 
         taillesTab.forEach((taille, i) => {
             let pVal = prixTab[i] !== undefined ? prixTab[i] : (prixTab[0] || "0");
@@ -126,14 +131,13 @@ function openProductModal(index) {
             variantSelect.appendChild(opt);
         });
 
-        // Synchronisation si le select change
         variantSelect.onchange = () => {
             mettreAJourSelectionCasesTailles(variantSelect.value);
-            updateModalPriceAndSpecs();
+            calculateShipping();
         };
     }
 
-    // Génération automatique de TOUTES les tailles sous forme de petites cases horizontales en bas de la description
+    // Génération des boîtes de tailles horizontales sous la description
     genererBoitesTaillesHorizontales(currentSelectedProduct);
 
     updateModalPriceAndSpecs();
@@ -144,28 +148,32 @@ function closeProductModal() {
     document.getElementById('productModal').style.display = 'none';
 }
 
-// --- 5. GÉNÉRATION DES CASES DE TAILLES HORIZONTALES SOUS LA DESCRIPTION ---
+function updateModalPriceAndSpecs() {
+    if (!currentSelectedProduct) return;
+    calculateShipping();
+}
+
+// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE TAILLES ---
 function genererBoitesTaillesHorizontales(produit) {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
 
-    // Supprimer l'ancien conteneur de tailles s'il existe déjà pour éviter les doublons
+    // Supprimer l'ancien conteneur s'il existe pour éviter les doublons
     let containerOptions = document.getElementById('modal-horizontal-sizes');
-    if (containerOptions) {
-        containerOptions.remove();
-    }
+    if (containerOptions) containerOptions.remove();
 
-    // Création du nouveau conteneur placé juste après la description
+    // Création du conteneur juste sous la description
     containerOptions = document.createElement('div');
     containerOptions.id = 'modal-horizontal-sizes';
-    containerOptions.style.marginTop = "15px";
+    containerOptions.style.marginTop = "12px";
+    containerOptions.style.marginBottom = "12px";
     modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
 
-    let taillesTab = Array.isArray(produit.tailles) ? produit.tailles : [produit.tailles];
+    let taillesTab = Array.isArray(produit.tailles) ? produit.tailles : (Array.isArray(produit.sizes) ? produit.sizes : [produit.tailles || produit.size || 'Standard']);
 
     if (taillesTab && taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
         const wrapperTailles = document.createElement('div');
-        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:8px; font-size:0.9em; color:#444;"><strong>Sélectionnez une taille :</strong></label>`;
+        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Tailles :</strong></label>`;
         
         const flexTailles = document.createElement('div');
         flexTailles.id = 'container-cases-tailles';
@@ -177,15 +185,14 @@ function genererBoitesTaillesHorizontales(produit) {
             const box = document.createElement('div');
             box.className = "modern-size-box";
             box.innerText = taille || `Option ${idx + 1}`;
-            box.style.padding = "8px 14px";
+            box.style.padding = "6px 12px";
             box.style.border = "1px solid #ced4da";
             box.style.borderRadius = "6px";
             box.style.cursor = "pointer";
-            box.style.fontSize = "0.9em";
+            box.style.fontSize = "0.85em";
             box.style.fontWeight = "500";
             box.style.transition = "all 0.2s ease";
             
-            // État initial (première taille sélectionnée par défaut)
             if (idx === 0) {
                 box.style.background = "#007bff";
                 box.style.color = "#fff";
@@ -196,13 +203,12 @@ function genererBoitesTaillesHorizontales(produit) {
                 box.style.borderColor = "#ced4da";
             }
 
-            // Action au clic sur une case de taille
             box.onclick = () => {
                 const variantSelect = document.getElementById('modalVariantSelect');
                 if (variantSelect) {
                     variantSelect.value = idx;
                     mettreAJourSelectionCasesTailles(idx);
-                    updateModalPriceAndSpecs();
+                    calculateShipping();
                 }
             };
 
@@ -214,7 +220,7 @@ function genererBoitesTaillesHorizontales(produit) {
     }
 }
 
-// Met à jour l'apparence visuelle des cases horizontales lorsque l'on sélectionne une option
+// Synchronisation visuelle des cases de tailles cliquées
 function mettreAJourSelectionCasesTailles(selectedIndex) {
     const container = document.getElementById('container-cases-tailles');
     if (!container) return;
@@ -232,11 +238,6 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-function updateModalPriceAndSpecs() {
-    if (!currentSelectedProduct) return;
-    calculateShipping();
-}
-
 // --- 6. AFFICHAGE DES FRAIS DE PORT ET DU PRIX TOTAL ---
 function calculateShipping() {
     if (!currentSelectedProduct) return;
@@ -247,7 +248,6 @@ function calculateShipping() {
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
-    // Récupération dynamique des frais selon la France (FR) ou les États-Unis (US)
     if (countryCode === "US") {
         shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
         shippingMethodName = "USPS / Ligne Express (États-Unis)";
@@ -266,21 +266,18 @@ function calculateShipping() {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    // Récupération du prix correspondant à la taille/variante sélectionnée
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     
-    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix];
+    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix || currentSelectedProduct.price || 0];
     let rawPrice = prixTab[selectedIndex] !== undefined ? prixTab[selectedIndex] : (prixTab[0] || 0);
     let currentPrice = parseFloat(rawPrice) || 0;
 
-    // Mise à jour du prix du produit dans la modale
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
         modalPriceElem.innerText = currentPrice.toFixed(2) + " €";
     }
 
-    // Calcul du total global (Prix du produit + Frais de port)
     let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
