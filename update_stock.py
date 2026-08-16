@@ -221,11 +221,18 @@ def generate_update_stock_json():
             product_fee = safe_float(item_data.get("productFee"))
             price_base = safe_float(item_data.get("sellPrice"))
 
+            # --- RÉCUPÉRATION ET DÉBOGAGE DES VARIANTES ---
             variants = get_product_variants(token, pid)
+            print(f"   🔍 DEBUG [PID {pid}] - get_product_variants() -> {variants}")
+
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
+                print(f"   🔍 DEBUG [PID {pid}] - Fallback item_data -> {variants}")
+
             if not variants:
                 variants = [item_data]
+                print(f"   ⚠️ DEBUG [PID {pid}] - Aucune variante trouvée, utilisation du produit parent.")
+            # ---------------------------------------------
 
             liste_variantes_produit = []
 
@@ -235,7 +242,6 @@ def generate_update_stock_json():
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 
-                # Récupération élargie du poids avec secours par défaut (100.0g)
                 poids_var = safe_float(
                     var.get("variantWeight") or 
                     var.get("weight") or 
@@ -250,7 +256,6 @@ def generate_update_stock_json():
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                # Extraction robuste de la taille et de la couleur
                 variant_name_str = str(var.get("variantName") or "")
                 
                 size = (
@@ -268,7 +273,6 @@ def generate_update_stock_json():
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
-                # Calcul logistique indépendant (FR & US)
                 m_fr, c_fr = "N/A", 0.0
                 m_us, c_us = "N/A", 0.0
                 
