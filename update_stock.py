@@ -221,18 +221,11 @@ def generate_update_stock_json():
             product_fee = safe_float(item_data.get("productFee"))
             price_base = safe_float(item_data.get("sellPrice"))
 
-            # --- RÉCUPÉRATION ET DÉBOGAGE DES VARIANTES ---
             variants = get_product_variants(token, pid)
-            print(f"   🔍 DEBUG [PID {pid}] - get_product_variants() -> {variants}")
-
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
-                print(f"   🔍 DEBUG [PID {pid}] - Fallback item_data -> {variants}")
-
             if not variants:
                 variants = [item_data]
-                print(f"   ⚠️ DEBUG [PID {pid}] - Aucune variante trouvée, utilisation du produit parent.")
-            # ---------------------------------------------
 
             liste_variantes_produit = []
 
@@ -256,19 +249,28 @@ def generate_update_stock_json():
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                variant_name_str = str(var.get("variantName") or "")
+                # --- EXTRACTION CORRIGÉE VIA variantKey & variantNameEn ---
+                variant_key_str = str(var.get("variantKey") or "").strip()
+                variant_name_en = str(var.get("variantNameEn") or "").strip()
                 
-                size = (
-                    var.get("variantSize") or 
-                    var.get("size") or 
-                    (variant_name_str.split("/")[-1].strip() if "/" in variant_name_str else "N/A")
-                )
-                
-                color = (
-                    var.get("variantColor") or 
-                    var.get("color") or 
-                    (variant_name_str.split("/")[0].strip() if "/" in variant_name_str else "N/A")
-                )
+                color = "N/A"
+                size = "N/A"
+
+                if variant_key_str and "-" in variant_key_str:
+                    parts = variant_key_str.split("-")
+                    color = parts[0].strip()
+                    size = parts[-1].strip()
+                elif variant_key_str:
+                    color = variant_key_str
+
+                if (color == "N/A" or size == "N/A") and variant_name_en:
+                    mots = variant_name_en.split()
+                    if len(mots) >= 2:
+                        pot_size = mots[-1]
+                        if len(pot_size) <= 4:
+                            size = pot_size
+                            color = mots[-2]
+                # -----------------------------------------------------------
 
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
