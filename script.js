@@ -95,18 +95,15 @@ function openProductModal(index) {
     document.getElementById('modalTitle').innerText = currentSelectedProduct.nom;
     
     // --- GESTION ET AFFICHAGE DU SKU ---
-    const modalSkuElem = document.getElementById('modalSku'); // Assurez-vous d'avoir un élément avec cet ID dans votre HTML ou créez-le dynamiquement
+    const modalSkuElem = document.getElementById('modalSku');
     if (modalSkuElem) {
         modalSkuElem.innerText = currentSelectedProduct.sku || 'N/A';
     }
-    // -----------------------------------
 
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
     if (rawImg) {
         document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
     }
-    
-    document.getElementById('modalDesc').innerText = currentSelectedProduct.details || "Aucune description disponible.";
 
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
@@ -123,6 +120,9 @@ function openProductModal(index) {
         });
     }
 
+    // Génération des couleurs cliquables si la propriété existe dans le JSON, sinon masque la section
+    genererBoutonsCouleursDynamique(currentSelectedProduct);
+
     updateModalPriceAndSpecs();
     document.getElementById('productModal').style.display = 'flex';
 }
@@ -131,12 +131,92 @@ function closeProductModal() {
     document.getElementById('productModal').style.display = 'none';
 }
 
+// --- 5. GESTION DES COULEURS CLIQUABLES ET TAILLES MODERNES ---
+function genererBoutonsCouleursDynamique(produit) {
+    // Crée ou récupère un conteneur de couleurs dans la modale s'il existe
+    let containerCouleurs = document.getElementById('modal-color-options');
+    if (!containerCouleurs) {
+        // Si l'élément HTML n'existe pas encore dans votre modale, on peut l'insérer dynamiquement sous le select des variantes
+        const variantSection = document.getElementById('modalVariantSelect')?.parentNode;
+        if (variantSection) {
+            containerCouleurs = document.createElement('div');
+            containerCouleurs.id = 'modal-color-options';
+            containerCouleurs.style.margin = "10px 0";
+            variantSection.appendChild(containerCouleurs);
+        }
+    }
+
+    if (!containerCouleurs) return;
+    containerCouleurs.innerHTML = "";
+
+    // Si le produit possède des couleurs dans son JSON
+    if (produit.couleurs && Array.isArray(produit.couleurs) && produit.couleurs.length > 0) {
+        containerCouleurs.style.display = "block";
+        containerCouleurs.innerHTML = `<label style="display:block; margin-bottom:5px;"><strong>Couleurs disponibles :</strong></label>`;
+        
+        const flexDiv = document.createElement('div');
+        flexDiv.style.display = "flex";
+        flexDiv.style.gap = "8px";
+        flexDiv.style.flexWrap = "wrap";
+
+        produit.couleurs.forEach((couleur, idx) => {
+            const btn = document.createElement('button');
+            btn.type = "button";
+            btn.innerText = couleur;
+            btn.className = "color-option-btn";
+            btn.style.padding = "6px 12px";
+            btn.style.border = "1px solid #ccc";
+            btn.style.borderRadius = "4px";
+            btn.style.cursor = "pointer";
+            btn.style.background = idx === 0 ? "#007bff" : "#fff";
+            btn.style.color = idx === 0 ? "#fff" : "#000";
+
+            btn.onclick = () => {
+                // Style actif sur le bouton cliqué
+                Array.from(flexDiv.children).forEach(b => {
+                    b.style.background = "#fff";
+                    b.style.color = "#000";
+                });
+                btn.style.background = "#007bff";
+                btn.style.color = "#fff";
+
+                // Vous pouvez lier le choix de la couleur ici si nécessaire
+            };
+
+            flexDiv.appendChild(btn);
+        });
+        containerCouleurs.appendChild(flexDiv);
+    } else {
+        containerCouleurs.style.display = "none";
+    }
+}
+
 function updateModalPriceAndSpecs() {
     if (!currentSelectedProduct) return;
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    
+    let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
+    let tailleActuelle = taillesTab[selectedIndex] || taillesTab[0] || "Standard";
+
+    // --- STYLE MODERNE POUR LA TAILLE DANS LA DESCRIPTION ---
+    const modalDescElem = document.getElementById('modalDesc');
+    const descriptionOriginale = currentSelectedProduct.details || "Aucune description disponible.";
+    
+    if (modalDescElem) {
+        modalDescElem.innerHTML = `
+            <p>${descriptionOriginale}</p>
+            <div style="margin-top: 12px; padding: 8px 12px; background: #f8f9fa; border-left: 4px solid #28a745; border-radius: 4px;">
+                📏 <strong>Taille complète :</strong> <span class="complete-size" style="color: #2c3e50; font-weight: bold;">${tailleActuelle}</span>
+            </div>
+        `;
+    }
+
     calculateShipping();
 }
 
-// --- 5. AFFICHAGE DES FRAIS DE PORT ET DU PRIX TOTAL ---
+// --- 6. AFFICHAGE DES FRAIS DE PORT ET DU PRIX TOTAL ---
 function calculateShipping() {
     if (!currentSelectedProduct) return;
 
@@ -146,7 +226,7 @@ function calculateShipping() {
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
-    // Récupération des frais selon le pays (calculés par Python)
+    // Récupération dynamique des frais selon la France (FR) ou les États-Unis (US)[cite: 8]
     if (countryCode === "US") {
         shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
         shippingMethodName = "USPS / Ligne Express (États-Unis)";
@@ -155,19 +235,17 @@ function calculateShipping() {
         shippingMethodName = "Colissimo / Ligne de Liquide (France)";
     }
 
-    // Affichage de la méthode de livraison
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
         modalShippingName.innerText = shippingMethodName;
     }
 
-    // Affichage du coût de livraison estimé
     const modalShippingCost = document.getElementById('modalShippingCost');
     if (modalShippingCost) {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    // 1. Récupération du prix du produit selon la variante sélectionnée
+    // Récupération du prix de la variante sélectionnée
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     
@@ -175,13 +253,13 @@ function calculateShipping() {
     let rawPrice = prixTab[selectedIndex] !== undefined ? prixTab[selectedIndex] : (prixTab[0] || 0);
     let currentPrice = parseFloat(rawPrice) || 0;
 
-    // 2. MISE À JOUR AUTOMATIQUE DU PRIX DU PRODUIT DANS LA MODALE (#modalPrice)
+    // Mise à jour du prix du produit dans la modale
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
         modalPriceElem.innerText = currentPrice.toFixed(2) + " €";
     }
 
-    // 3. Calcul et affichage du total global (Prix du produit + Frais de port)
+    // Calcul du total global (Prix du produit + Frais de port)
     let totalGlobal = currentPrice + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
