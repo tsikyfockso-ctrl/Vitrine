@@ -94,15 +94,16 @@ function openProductModal(index) {
     currentSelectedProduct = stock[index];
     if (!currentSelectedProduct) return;
 
+    // Nom du produit
     document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || currentSelectedProduct.title || 'Sans nom';
     
-    // --- GESTION ET AFFICHAGE DU SKU ---
+    // SKU
     const modalSkuElem = document.getElementById('modalSku'); 
     if (modalSkuElem) {
         modalSkuElem.innerText = currentSelectedProduct.sku || currentSelectedProduct.productSku || 'N/A';
     }
-    // -----------------------------------
 
+    // Image principale
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
     if (rawImg) {
         const modalImgElem = document.getElementById('modalImg');
@@ -111,12 +112,13 @@ function openProductModal(index) {
         }
     }
     
-    // Gestion robuste de la description (details, description, desc)
+    // Description / Détails du produit
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
         modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || currentSelectedProduct.desc || "Aucune description disponible.";
     }
 
+    // Menu déroulant des variantes
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
@@ -137,7 +139,7 @@ function openProductModal(index) {
         };
     }
 
-    // Génération des boîtes de tailles horizontales sous la description
+    // Génération dynamique des boîtes de tailles horizontales sous la description
     genererBoitesTaillesHorizontales(currentSelectedProduct);
 
     updateModalPriceAndSpecs();
@@ -153,7 +155,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE TAILLES ---
+// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE TAILLES / VARIANTES ---
 function genererBoitesTaillesHorizontales(produit) {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
@@ -162,18 +164,38 @@ function genererBoitesTaillesHorizontales(produit) {
     let containerOptions = document.getElementById('modal-horizontal-sizes');
     if (containerOptions) containerOptions.remove();
 
-    // Création du conteneur juste sous la description
+    // Création du conteneur des cases juste sous la description
     containerOptions = document.createElement('div');
     containerOptions.id = 'modal-horizontal-sizes';
     containerOptions.style.marginTop = "12px";
     containerOptions.style.marginBottom = "12px";
     modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
 
-    let taillesTab = Array.isArray(produit.tailles) ? produit.tailles : (Array.isArray(produit.sizes) ? produit.sizes : [produit.tailles || produit.size || 'Standard']);
+    // Extraction dynamique des tailles/variantes du produit
+    let taillesTab = [];
+    
+    if (Array.isArray(produit.tailles) && produit.tailles.length > 0) {
+        taillesTab = produit.tailles;
+    } else if (Array.isArray(produit.sizes) && produit.sizes.length > 0) {
+        taillesTab = produit.sizes;
+    } else if (Array.isArray(produit.variants) && produit.variants.length > 0) {
+        taillesTab = produit.variants.map(v => v.taille || v.size || v.name || v.variantName || v.spec || "Option");
+    } else if (Array.isArray(produit.options) && produit.options.length > 0) {
+        taillesTab = produit.options;
+    } else if (produit.taille) {
+        taillesTab = [produit.taille];
+    } else if (produit.size) {
+        taillesTab = [produit.size];
+    } else {
+        const variantSelect = document.getElementById('modalVariantSelect');
+        if (variantSelect && variantSelect.options.length > 0) {
+            taillesTab = Array.from(variantSelect.options).map(opt => opt.text.split(' - ')[0]);
+        }
+    }
 
-    if (taillesTab && taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
+    if (taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
         const wrapperTailles = document.createElement('div');
-        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Tailles :</strong></label>`;
+        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Tailles / Variantes disponibles :</strong></label>`;
         
         const flexTailles = document.createElement('div');
         flexTailles.id = 'container-cases-tailles';
@@ -184,7 +206,7 @@ function genererBoitesTaillesHorizontales(produit) {
         taillesTab.forEach((taille, idx) => {
             const box = document.createElement('div');
             box.className = "modern-size-box";
-            box.innerText = taille || `Option ${idx + 1}`;
+            box.innerText = typeof taille === 'object' ? (taille.name || taille.taille || 'Option') : taille;
             box.style.padding = "6px 12px";
             box.style.border = "1px solid #ced4da";
             box.style.borderRadius = "6px";
@@ -193,6 +215,7 @@ function genererBoitesTaillesHorizontales(produit) {
             box.style.fontWeight = "500";
             box.style.transition = "all 0.2s ease";
             
+            // Sélection par défaut de la première variante
             if (idx === 0) {
                 box.style.background = "#007bff";
                 box.style.color = "#fff";
@@ -203,9 +226,10 @@ function genererBoitesTaillesHorizontales(produit) {
                 box.style.borderColor = "#ced4da";
             }
 
+            // Action au clic sur une case de taille/variante
             box.onclick = () => {
                 const variantSelect = document.getElementById('modalVariantSelect');
-                if (variantSelect) {
+                if (variantSelect && variantSelect.options[idx]) {
                     variantSelect.value = idx;
                     mettreAJourSelectionCasesTailles(idx);
                     calculateShipping();
