@@ -50,10 +50,10 @@
         ],
         "poids": 390.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 8.39,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 9.3,
         "stock": 0
     },
     {
@@ -96,35 +96,35 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191901AZ",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
+        "sku": "CJLY271709001AZ",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 4.36,
+        "prix": 3.0,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
         ],
-        "poids": 380.0,
+        "poids": 166.0,
         "productFee": 0.0,
         "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 8.28,
+        "shippingCostFR": 6.14,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191902BY",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
+        "sku": "CJLY271709002BY",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 4.36,
+        "prix": 3.0,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
         ],
-        "poids": 390.0,
+        "poids": 186.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
@@ -134,458 +134,325 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191903CX",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
+        "sku": "CJLY271709003CX",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 4.36,
+        "prix": 3.0,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
         ],
-        "poids": 400.0,
+        "poids": 206.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.4,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709004DW",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 226.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.65,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709005EV",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 246.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.94,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.92,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709006FU",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 166.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.14,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 6.82,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709007GT",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 186.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.34,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 7.1,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709008HS",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 206.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.53,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.4,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709009IR",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 226.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.74,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709010JQ",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 246.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709011KP",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 166.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.14,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709012LO",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 186.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709013MN",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 206.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.53,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.4,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709014NM",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 226.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY271709015OL",
+        "pid": "2008829097790373890",
+        "nom": "Robe mi-longue ample à imprimé Floral, couleur bloquée, caraco, sans manches, Style pastoral pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 3.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d18cb1fa-711d-4e4f-9963-df6d1ab6acd5.png"
+        ],
+        "poids": 246.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.94,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJQZ205453801AZ",
+        "pid": "1798588917705486336",
+        "nom": "Robe Imprimée Femme Avec Fentes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.31,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/c56f3bed-c4b6-424d-b8af-1dbb614c3a15.jpg"
+        ],
+        "poids": 320.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.68,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.87,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJQZ205453802BY",
+        "pid": "1798588917705486336",
+        "nom": "Robe Imprimée Femme Avec Fentes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.31,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/c56f3bed-c4b6-424d-b8af-1dbb614c3a15.jpg"
+        ],
+        "poids": 330.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.78,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 8.43,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJQZ205453803CX",
+        "pid": "1798588917705486336",
+        "nom": "Robe Imprimée Femme Avec Fentes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.31,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/c56f3bed-c4b6-424d-b8af-1dbb614c3a15.jpg"
+        ],
+        "poids": 340.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJQZ205453804DW",
+        "pid": "1798588917705486336",
+        "nom": "Robe Imprimée Femme Avec Fentes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.31,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/c56f3bed-c4b6-424d-b8af-1dbb614c3a15.jpg"
+        ],
+        "poids": 350.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
         "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 9.44,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191904DW",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.36,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
-        ],
-        "poids": 410.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 8.98,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191905EV",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.36,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
-        ],
-        "poids": 420.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD217191906FU",
-        "pid": "2410250958451627600",
-        "nom": "Robe d'été en gaze pour bébé, Style occidental, en Tulle, Tutu en maille, robe de princesse d'un an",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.36,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/10/25/09/76de9e44-43ff-4230-a79a-d28312543caf.jpg"
-        ],
-        "poids": 430.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 9.88,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468501AZ",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 150.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 5.97,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468502BY",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 160.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468503CX",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 170.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468504DW",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 180.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468505EV",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 190.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468506FU",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 150.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 6.59,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468507GT",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 160.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468508HS",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 170.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468509IR",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 180.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.02,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468510JQ",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 190.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468511KP",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 150.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468512LO",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 160.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468513MN",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 170.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.17,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468514NM",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 180.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468515OL",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 190.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468516PK",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 150.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 5.97,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468517QJ",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 160.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468518RI",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 170.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468519SH",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 180.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJLY238468520TG",
-        "pid": "2505240715491612100",
-        "nom": "Robe de couleur unie pour femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 4.02,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/734bb57d-1870-4a13-847e-c299b0548193.jpg"
-        ],
-        "poids": 190.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingCostUS": 8.72,
         "stock": 0
     },
     {
@@ -603,8 +470,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "CJPacket Ordinary I",
         "shippingCostFR": 11.09,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 12.52,
         "stock": 0
     },
     {
@@ -622,8 +489,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 12.8,
         "stock": 0
     },
     {
@@ -641,8 +508,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 13.09,
         "stock": 0
     },
     {
@@ -679,8 +546,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 13.65,
         "stock": 0
     },
     {
@@ -734,8 +601,8 @@
         ],
         "poids": 660.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 11.49,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -753,8 +620,8 @@
         ],
         "poids": 680.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 11.69,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "YunExpress Ordinary",
         "shippingCostUS": 13.38,
         "stock": 0
@@ -793,8 +660,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 12.52,
         "stock": 0
     },
     {
@@ -812,8 +679,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 12.8,
         "stock": 0
     },
     {
@@ -831,8 +698,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 13.09,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -848,8 +715,8 @@
         ],
         "poids": 680.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 11.69,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -867,8 +734,8 @@
         ],
         "poids": 700.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 11.9,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -886,10 +753,10 @@
         ],
         "poids": 620.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 11.09,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 12.52,
         "stock": 0
     },
     {
@@ -926,8 +793,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 13.09,
         "stock": 0
     },
     {
@@ -964,8 +831,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 13.65,
         "stock": 0
     },
     {
@@ -981,8 +848,8 @@
         ],
         "poids": 620.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 11.09,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1019,8 +886,8 @@
         ],
         "poids": 660.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 11.49,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1059,8 +926,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 13.65,
         "stock": 0
     },
     {
@@ -1116,8 +983,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -1171,10 +1038,10 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 11.28,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.23,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -1211,8 +1078,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -1247,8 +1114,8 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1306,8 +1173,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -1342,10 +1209,10 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.02,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -1382,8 +1249,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.57,
         "stock": 0
     },
     {
@@ -1418,10 +1285,10 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.23,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -1439,8 +1306,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -1458,8 +1325,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -1477,8 +1344,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -1496,8 +1363,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.57,
         "stock": 0
     },
     {
@@ -1515,8 +1382,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "CJPacket Ordinary I",
         "shippingCostFR": 9.82,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -1534,8 +1401,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -1551,10 +1418,10 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -1589,8 +1456,8 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.23,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1610,8 +1477,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.57,
         "stock": 0
     },
     {
@@ -1627,8 +1494,8 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1665,8 +1532,8 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.02,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1684,8 +1551,8 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1703,8 +1570,8 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
         "shippingMethodUS": "YunExpress Ordinary",
         "shippingCostUS": 10.72,
         "stock": 0
@@ -1743,8 +1610,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -1798,10 +1665,10 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 10.43,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -1836,8 +1703,8 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1857,8 +1724,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -1893,8 +1760,8 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1931,8 +1798,8 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.23,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -1952,8 +1819,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -1969,10 +1836,10 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -2009,8 +1876,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2026,10 +1893,10 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 10.72,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -2066,8 +1933,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -2085,8 +1952,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -2121,10 +1988,10 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.02,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2142,8 +2009,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -2178,10 +2045,10 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -2216,10 +2083,10 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.02,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2235,8 +2102,8 @@
         ],
         "poids": 494.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.82,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2313,8 +2180,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -2351,8 +2218,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -2368,10 +2235,10 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 9.62,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.43,
         "stock": 0
     },
     {
@@ -2389,8 +2256,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -2408,8 +2275,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.28,
         "stock": 0
     },
     {
@@ -2482,8 +2349,8 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2503,8 +2370,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2539,8 +2406,8 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.23,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2558,8 +2425,8 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.02,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2577,8 +2444,8 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.23,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2617,8 +2484,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2634,10 +2501,10 @@
         ],
         "poids": 553.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 11.55,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.42,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -2655,8 +2522,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -2693,8 +2560,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 11.0,
         "stock": 0
     },
     {
@@ -2710,8 +2577,8 @@
         ],
         "poids": 534.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 10.23,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2729,8 +2596,8 @@
         ],
         "poids": 514.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 10.02,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "YunExpress Ordinary",
         "shippingCostUS": 11.0,
         "stock": 0
@@ -2786,8 +2653,8 @@
         ],
         "poids": 474.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 9.62,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2807,8 +2674,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 10.72,
         "stock": 0
     },
     {
@@ -2826,8 +2693,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 10.72,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -2881,8 +2748,8 @@
         ],
         "poids": 230.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.77,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -2902,8 +2769,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.84,
         "stock": 0
     },
     {
@@ -2940,8 +2807,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -2995,8 +2862,8 @@
         ],
         "poids": 230.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.77,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3016,8 +2883,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.58,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3033,8 +2900,8 @@
         ],
         "poids": 200.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.47,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3071,8 +2938,8 @@
         ],
         "poids": 210.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.58,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3109,8 +2976,8 @@
         ],
         "poids": 230.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.77,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3130,8 +2997,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 6.84,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3147,8 +3014,8 @@
         ],
         "poids": 200.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.47,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3168,8 +3035,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -3225,8 +3092,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.71,
         "stock": 0
     },
     {
@@ -3280,10 +3147,10 @@
         ],
         "poids": 250.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.72,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.98,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3318,8 +3185,8 @@
         ],
         "poids": 220.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.68,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3356,8 +3223,8 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.88,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3451,8 +3318,8 @@
         ],
         "poids": 230.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.77,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3489,8 +3356,8 @@
         ],
         "poids": 200.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.47,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3508,8 +3375,8 @@
         ],
         "poids": 250.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.98,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3527,8 +3394,8 @@
         ],
         "poids": 190.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.38,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3586,8 +3453,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.23,
         "stock": 0
     },
     {
@@ -3605,8 +3472,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -3624,8 +3491,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.48,
         "stock": 0
     },
     {
@@ -3643,8 +3510,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.62,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3662,8 +3529,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.84,
         "stock": 0
     },
     {
@@ -3700,8 +3567,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.1,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3717,8 +3584,8 @@
         ],
         "poids": 270.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.18,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3755,8 +3622,8 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3776,8 +3643,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.62,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3793,8 +3660,8 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.88,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3888,8 +3755,8 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3907,8 +3774,8 @@
         ],
         "poids": 300.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.48,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3926,10 +3793,10 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 6.84,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.88,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -3964,8 +3831,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.08,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -3983,8 +3850,8 @@
         ],
         "poids": 270.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.18,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4002,10 +3869,10 @@
         ],
         "poids": 280.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.28,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -4021,10 +3888,10 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.48,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -4042,8 +3909,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -4059,8 +3926,8 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.88,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4080,8 +3947,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -4173,8 +4040,8 @@
         ],
         "poids": 300.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.48,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4192,10 +4059,10 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.88,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.84,
         "stock": 0
     },
     {
@@ -4232,8 +4099,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.1,
         "stock": 0
     },
     {
@@ -4270,8 +4137,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -4287,8 +4154,8 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.38,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4308,8 +4175,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -4346,8 +4213,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -4363,8 +4230,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.08,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4403,8 +4270,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -4422,8 +4289,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.48,
         "stock": 0
     },
     {
@@ -4477,8 +4344,8 @@
         ],
         "poids": 250.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.98,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4498,8 +4365,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.1,
         "stock": 0
     },
     {
@@ -4515,8 +4382,8 @@
         ],
         "poids": 270.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.18,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4536,8 +4403,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -4572,8 +4439,8 @@
         ],
         "poids": 300.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.48,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4593,8 +4460,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.84,
         "stock": 0
     },
     {
@@ -4610,10 +4477,10 @@
         ],
         "poids": 250.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.98,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -4629,8 +4496,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.08,
         "shippingMethodUS": "LuWei Ordinary US",
         "shippingCostUS": 7.1,
         "stock": 0
@@ -4648,8 +4515,8 @@
         ],
         "poids": 270.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.18,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4686,8 +4553,8 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4745,8 +4612,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.96,
         "stock": 0
     },
     {
@@ -4762,8 +4629,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.08,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4783,8 +4650,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.23,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -4802,8 +4669,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -4840,8 +4707,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -4876,8 +4743,8 @@
         ],
         "poids": 250.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.98,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4895,8 +4762,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.08,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -4916,8 +4783,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.23,
         "stock": 0
     },
     {
@@ -4954,8 +4821,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.48,
         "stock": 0
     },
     {
@@ -4973,8 +4840,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -4990,8 +4857,8 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 6.88,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5028,8 +4895,8 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.08,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5047,8 +4914,8 @@
         ],
         "poids": 270.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.18,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5068,8 +4935,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -5085,8 +4952,8 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.38,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5104,8 +4971,8 @@
         ],
         "poids": 300.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.48,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5125,8 +4992,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 6.84,
         "stock": 0
     },
     {
@@ -5144,8 +5011,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 6.96,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -5161,10 +5028,10 @@
         ],
         "poids": 260.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.08,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.1,
         "stock": 0
     },
     {
@@ -5199,10 +5066,10 @@
         ],
         "poids": 280.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.28,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.35,
         "stock": 0
     },
     {
@@ -5239,8 +5106,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -5256,8 +5123,8 @@
         ],
         "poids": 240.0,
         "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.88,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
@@ -5332,10 +5199,10 @@
         ],
         "poids": 280.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.35,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.28,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
         "stock": 0
     },
     {
@@ -5351,10 +5218,10 @@
         ],
         "poids": 290.0,
         "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.48,
         "stock": 0
     },
     {
@@ -5372,8 +5239,8 @@
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
@@ -5397,52 +5264,33 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314801AZ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
+        "sku": "CJLY233048801AZ",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 8.46,
+        "prix": 5.03,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 230.0,
+        "poids": 260.0,
         "productFee": 0.0,
         "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.77,
+        "shippingCostFR": 7.08,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314802BY",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
+        "sku": "CJLY233048802BY",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 8.46,
+        "prix": 5.03,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314803CX",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
         "poids": 270.0,
         "productFee": 0.0,
@@ -5454,983 +5302,14 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314804DW",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
+        "sku": "CJLY233048803CX",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 8.46,
+        "prix": 5.03,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.48,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314805EV",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 296.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314806FU",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314807GT",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314808HS",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.48,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314809IR",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314810JQ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314811KP",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314812LO",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.48,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314813MN",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314814NM",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314815OL",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314816PK",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314817QJ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314818RI",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.98,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314819SH",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314820TG",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314821UF",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314822VE",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314823WD",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.23,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314824XC",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314825YB",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314826ZA",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314827AZ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 344.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314828BY",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314829CX",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.77,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314830DW",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314831EV",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314832FU",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314833GT",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314834HS",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314835IR",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.23,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314836JQ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314837KP",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 277.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314838LO",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314839MN",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314840NM",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314841OL",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314842PK",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.72,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314843QJ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314844RI",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314845SH",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.43,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314846TG",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.98,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314847UF",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314848VE",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.38,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314849WD",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 250.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.98,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.72,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314850XC",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 230.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314851YB",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 270.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.18,
-        "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.23,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314852ZA",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 290.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314855CX",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314854BY",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.47,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.3,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314874VE",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
         "poids": 280.0,
         "productFee": 0.0,
@@ -6442,35 +5321,16 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314853AZ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
+        "sku": "CJLY233048804DW",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 8.46,
+        "prix": 5.03,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.47,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 7.3,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314859GT",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
+        "poids": 290.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
@@ -6480,624 +5340,35 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314863KP",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
+        "sku": "CJLY233048805EV",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 8.46,
+        "prix": 5.03,
         "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314865MN",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314867OL",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314869QJ",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314873UF",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 6.47,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314875WD",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD214314877YB",
-        "pid": "2409210305121603300",
-        "nom": "Cardigan en laine mérinos pour femme, pull à manches longues, col rond, tricot en cachemire, vêtements féminins, hauts, printemps automne",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 8.46,
-        "images": [
-            "https://oss-cf.cjdropshipping.com/product/2024/09/30/06/04e629ae-3ef2-4a2a-9bae-5c595974a687.jpg"
-        ],
-        "poids": 200.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705901AZ",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 320.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.68,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705902BY",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 330.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705903CX",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 340.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705904DW",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 350.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705905EV",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 360.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 8.08,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705906FU",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 370.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705907GT",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 320.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705908HS",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 330.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 8.43,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705909IR",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 340.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705910JQ",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 350.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705911KP",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 360.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 8.87,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705912LO",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 370.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705913MN",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 320.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705914NM",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 330.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705915OL",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 340.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "YunExpress Ordinary",
-        "shippingCostUS": 8.58,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705916PK",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 350.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705917QJ",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 360.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705918RI",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 370.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705919SH",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 320.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705920TG",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 330.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705921UF",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 340.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 7.89,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705922VE",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 350.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705923WD",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 360.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705924XC",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 370.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705925YB",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 320.0,
+        "poids": 300.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
         "shippingMethodUS": "LuWei Ordinary US",
-        "shippingCostUS": 7.87,
+        "shippingCostUS": 7.62,
         "stock": 0
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705926ZA",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
+        "sku": "CJLY233048806FU",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 10.98,
+        "prix": 5.03,
         "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 330.0,
+        "poids": 260.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
@@ -7107,16 +5378,35 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705927AZ",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
+        "sku": "CJLY233048807GT",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 10.98,
+        "prix": 5.03,
         "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 340.0,
+        "poids": 270.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.23,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048808HS",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 280.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
@@ -7126,16 +5416,16 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705928BY",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
+        "sku": "CJLY233048809IR",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 10.98,
+        "prix": 5.03,
         "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 350.0,
+        "poids": 290.0,
         "productFee": 0.0,
         "shippingMethodFR": "N/A",
         "shippingCostFR": 0.0,
@@ -7145,38 +5435,342 @@
     },
     {
         "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705929CX",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
+        "sku": "CJLY233048810JQ",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
         "taille": "N/A",
         "couleur": "N/A",
-        "prix": 10.98,
+        "prix": 5.03,
         "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
         ],
-        "poids": 360.0,
-        "productFee": 0.0,
-        "shippingMethodFR": "N/A",
-        "shippingCostFR": 0.0,
-        "shippingMethodUS": "N/A",
-        "shippingCostUS": 0.0,
-        "stock": 0
-    },
-    {
-        "dropshipping": "CJ Dropshipping",
-        "sku": "CJYD233705930DW",
-        "pid": "2503250948051602100",
-        "nom": "Vêtements légers de protection solaire pour hommes et femmes",
-        "taille": "N/A",
-        "couleur": "N/A",
-        "prix": 10.98,
-        "images": [
-            "https://cf.cjdropshipping.com/quick/product/eeda32df-50b6-4427-8c52-0f66be3f5c1f.jpg"
-        ],
-        "poids": 370.0,
+        "poids": 300.0,
         "productFee": 0.0,
         "shippingMethodFR": "CJPacket Ordinary I",
-        "shippingCostFR": 8.19,
+        "shippingCostFR": 7.48,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048811KP",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 260.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048812LO",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 270.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.23,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048813MN",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 280.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048814NM",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 290.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "LuWei Ordinary US",
+        "shippingCostUS": 7.48,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048815OL",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 300.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048816PK",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 260.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048817QJ",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 270.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.18,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048818RI",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 280.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048819SH",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 290.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.38,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048820TG",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 300.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048821UF",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 310.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 7.58,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048822VE",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 310.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJLY233048823WD",
+        "pid": "1901879343671582722",
+        "nom": "Robe d'été imprimée à pois, mode décontractée, col en v, manches courtes, vêtements de plage quotidiens pour femmes",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 5.03,
+        "images": [
+            "https://cf.cjdropshipping.com/d556c815-10c2-4f86-aa80-5864933ed83d.jpg"
+        ],
+        "poids": 310.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 8.14,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJYD204003401AZ",
+        "pid": "1792382623285784576",
+        "nom": "Vêtements de protection solaire Veste de sport courte pour femme",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 8.56,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/fcfb5602-afcc-4484-b689-692e34b2e0a5.jpg"
+        ],
+        "poids": 120.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "CJPacket Ordinary I",
+        "shippingCostFR": 5.67,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJYD204003402BY",
+        "pid": "1792382623285784576",
+        "nom": "Vêtements de protection solaire Veste de sport courte pour femme",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 8.56,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/fcfb5602-afcc-4484-b689-692e34b2e0a5.jpg"
+        ],
+        "poids": 130.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "YunExpress Ordinary",
+        "shippingCostUS": 6.3,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJYD204003403CX",
+        "pid": "1792382623285784576",
+        "nom": "Vêtements de protection solaire Veste de sport courte pour femme",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 8.56,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/fcfb5602-afcc-4484-b689-692e34b2e0a5.jpg"
+        ],
+        "poids": 140.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
+        "shippingMethodUS": "N/A",
+        "shippingCostUS": 0.0,
+        "stock": 0
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "sku": "CJYD204003404DW",
+        "pid": "1792382623285784576",
+        "nom": "Vêtements de protection solaire Veste de sport courte pour femme",
+        "taille": "N/A",
+        "couleur": "N/A",
+        "prix": 8.56,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/fcfb5602-afcc-4484-b689-692e34b2e0a5.jpg"
+        ],
+        "poids": 150.0,
+        "productFee": 0.0,
+        "shippingMethodFR": "N/A",
+        "shippingCostFR": 0.0,
         "shippingMethodUS": "N/A",
         "shippingCostUS": 0.0,
         "stock": 0
