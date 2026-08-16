@@ -19,7 +19,7 @@ def get_cj_access_token():
         return None
     payload = {"apiKey": CJ_API_KEY}
     try:
-        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=1800)
+        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=1800)
+        response = requests.get(url, headers=headers, params=params, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
@@ -51,7 +51,7 @@ def get_product_variants(token, pid):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=15)
+        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=120)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -66,7 +66,7 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
         "Content-Type": "application/json"
     }
     
-    if weight <= 0 or not vid:
+    if not vid or not weight or weight <= 0:
         return "N/A", 0.0
 
     payload = {
@@ -82,7 +82,6 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
     }
     
     try:
-        # Augmentation du timeout à 20s pour plus de stabilité avec l'API CJ
         res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=3600)
         if res.status_code == 200:
             data = res.json()
@@ -96,18 +95,12 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
                     logistic_list = logistic_data.get("logisticList") or logistic_data.get("list") or []
 
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
-                    # Recherche d'un transporteur valide avec un prix supérieur à 0
+                    # Recherche du premier transporteur valide renvoyé par l'API pour ce produit/poids
                     for logistic in logistic_list:
                         price = safe_float(logistic.get("logisticPrice") or logistic.get("price", 0.0))
                         method_name = logistic.get("logisticName") or logistic.get("name")
-                        if method_name and price > 0:
-                            return str(method_name).strip(), price
-                    
-                    # Repli sur le premier transporteur de la liste si aucun filtre strict ne matche
-                    first_logistic = logistic_list[0]
-                    method_name = first_logistic.get("logisticName") or first_logistic.get("name", "Standard Shipping")
-                    price = safe_float(first_logistic.get("logisticPrice") or first_logistic.get("price", 0.0))
-                    return str(method_name).strip(), price
+                        if method_name:
+                            return str(method_name).strip(), round(price, 2)
                     
     except Exception as e:
         print(f"   ⚠️ Erreur logistique pour VID {vid} ({ship_to}) : {e}")
@@ -151,15 +144,23 @@ def nettoyer_texte(val):
     if isinstance(val, list):
         val = val[0] if val else ""
     val_str = str(val).strip()
+    
+    # Sécurité anti-erreur 500 ou page HTML d'erreur
+    if "500" in val_str or "Server Error" in val_str or "<html" in val_str.lower():
+        return "Produit CJ"
+        
     return val_str.strip('[]"\'')
 
 def traduire_texte(texte):
     texte_propre = nettoyer_texte(texte)
-    if not texte_propre:
-        return ""
+    if not texte_propre or texte_propre == "Produit CJ":
+        return "Produit CJ"
     try:
         trads = GoogleTranslator(source='auto', target='fr').translate(texte_propre)
-        return nettoyer_texte(trads)
+        resultat = nettoyer_texte(trads)
+        if "500" in resultat or "Server Error" in resultat:
+            return texte_propre
+        return resultat
     except Exception:
         return texte_propre
 
@@ -226,7 +227,7 @@ def generate_update_stock_json():
     for index, item_data in enumerate(products_to_process, start=1):
         try:
             pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
-            if not pid:
+            if notpid:
                 continue
 
             nom_original = item_data.get("productName") or item_data.get("nameEn") or item_data.get("name") or "Produit sans nom"
@@ -255,6 +256,7 @@ def generate_update_stock_json():
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 
+                # Récupération stricte du poids réel de la variante depuis l'API sans valeur par défaut arbitraire
                 poids_var = safe_float(
                     var.get("variantWeight") or 
                     var.get("weight") or 
@@ -263,7 +265,7 @@ def generate_update_stock_json():
                     var.get("productWeight") or
                     item_data.get("productWeight") or
                     item_data.get("weight") or 
-                    100.0
+                    0.0
                 )
 
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
@@ -298,6 +300,7 @@ def generate_update_stock_json():
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
+                # Interrogation réelle de l'API de fret pour FR et US avec le poids réel de la variante
                 m_fr, c_fr = "N/A", 0.0
                 m_us, c_us = "N/A", 0.0
                 
