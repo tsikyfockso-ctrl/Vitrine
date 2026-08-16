@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=15)
+        response = requests.get(url, headers=headers, params=params, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
@@ -80,19 +80,39 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
             }
         ]
     }
+    
     try:
-        res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=10)
+        # Augmentation du timeout à 20s pour plus de stabilité avec l'API CJ
+        res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=20)
         if res.status_code == 200:
             data = res.json()
-            if data.get("result") and data.get("data"):
-                logistic_list = data.get("data")
+            logistic_data = data.get("data")
+            
+            if data.get("result") and logistic_data:
+                logistic_list = []
+                if isinstance(logistic_data, list):
+                    logistic_list = logistic_data
+                elif isinstance(logistic_data, dict):
+                    logistic_list = logistic_data.get("logisticList") or logistic_data.get("list") or []
+
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
+                    # Recherche d'un transporteur valide avec un prix supérieur à 0
+                    for logistic in logistic_list:
+                        price = safe_float(logistic.get("logisticPrice") or logistic.get("price", 0.0))
+                        method_name = logistic.get("logisticName") or logistic.get("name")
+                        if method_name and price > 0:
+                            return str(method_name).strip(), price
+                    
+                    # Repli sur le premier transporteur de la liste si aucun filtre strict ne matche
                     first_logistic = logistic_list[0]
-                    method_name = first_logistic.get("logisticName", "Standard Shipping")
-                    price = float(first_logistic.get("logisticPrice", 0.0))
-                    return method_name, price
-    except Exception:
+                    method_name = first_logistic.get("logisticName") or first_logistic.get("name", "Standard Shipping")
+                    price = safe_float(first_logistic.get("logisticPrice") or first_logistic.get("price", 0.0))
+                    return str(method_name).strip(), price
+                    
+    except Exception as e:
+        print(f"   ⚠️ Erreur logistique pour VID {vid} ({ship_to}) : {e}")
         pass
+        
     return "N/A", 0.0
 
 def safe_float(val, default=0.0):
@@ -174,7 +194,7 @@ def generate_update_stock_json():
                     temp_list = content_data
 
                 if temp_list:
-                    print(f"   📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
+                    print(f"    📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
                     for item in temp_list:
                         if isinstance(item, dict):
                             actual_product = item.get("productList")
@@ -249,7 +269,6 @@ def generate_update_stock_json():
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                # --- EXTRACTION ET CORRECTION INTELLIGENTE ---
                 variant_key_str = str(var.get("variantKey") or "").strip()
                 variant_name_en = str(var.get("variantNameEn") or "").strip()
                 
@@ -271,12 +290,10 @@ def generate_update_stock_json():
                             size = pot_size
                             color = mots[-2]
 
-                # 🛡️ CORRECTION AUTOMATIQUE : Si la "couleur" est une taille, on l'inverse !
                 tailles_standards = ["XS", "S", "M", "L", "XL", "XXL", "XXXL", "2XL", "3XL", "4XL", "5XL"]
                 if color.upper() in tailles_standards and size == "N/A":
                     size = color
                     color = "N/A"
-                # ---------------------------------------------
 
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
@@ -316,10 +333,10 @@ def generate_update_stock_json():
             }
 
             produits_figures[pid] = produit_unique
-            print(f"   ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes regroupées)")
+            print(f"    ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes regroupées)")
 
         except Exception as err:
-            print(f"   ⚠️ Erreur sur le produit {index}: {err}")
+            print(f"    ⚠️ Erreur sur le produit {index}: {err}")
             continue
 
     resultat_final = list(produits_figures.values())
