@@ -201,7 +201,6 @@ def generate_update_stock_json():
 
     print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
     
-    # Utilisation d'un dictionnaire pour regrouper par 'pid' unique
     produits_figures = {}
     
     for index, item_data in enumerate(products_to_process, start=1):
@@ -236,6 +235,7 @@ def generate_update_stock_json():
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 
+                # Récupération élargie du poids avec secours par défaut (100.0g)
                 poids_var = safe_float(
                     var.get("variantWeight") or 
                     var.get("weight") or 
@@ -243,19 +243,32 @@ def generate_update_stock_json():
                     var.get("gram") or 
                     var.get("productWeight") or
                     item_data.get("productWeight") or
-                    item_data.get("weight")
+                    item_data.get("weight") or 
+                    100.0
                 )
 
                 raw_sku = var.get("variantSku") or var.get("sku") or item_data.get("sku") or ""
                 sku_var = str(raw_sku).strip().upper() if raw_sku else str(item_data.get("spu") or pid).upper()
 
-                size = var.get("variantSize") or var.get("size") or "N/A"
-                color = var.get("variantColor") or var.get("color") or "N/A"
-                inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
+                # Extraction robuste de la taille et de la couleur
+                variant_name_str = str(var.get("variantName") or "")
                 
+                size = (
+                    var.get("variantSize") or 
+                    var.get("size") or 
+                    (variant_name_str.split("/")[-1].strip() if "/" in variant_name_str else "N/A")
+                )
+                
+                color = (
+                    var.get("variantColor") or 
+                    var.get("color") or 
+                    (variant_name_str.split("/")[0].strip() if "/" in variant_name_str else "N/A")
+                )
+
+                inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
-                # Calcul logistique propre et indépendant pour chaque variante (FR & US)
+                # Calcul logistique indépendant (FR & US)
                 m_fr, c_fr = "N/A", 0.0
                 m_us, c_us = "N/A", 0.0
                 
@@ -277,11 +290,9 @@ def generate_update_stock_json():
                     "shippingCostUS": round(c_us, 2)
                 }
                 
-                # Évite les doublons stricts de variantes
                 if variant_obj not in liste_variantes_produit:
                     liste_variantes_produit.append(variant_obj)
 
-            # Structure finale propre regroupée par produit unique
             produit_unique = {
                 "dropshipping": "CJ Dropshipping",
                 "pid": pid,
