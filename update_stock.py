@@ -66,11 +66,8 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
         "Content-Type": "application/json"
     }
     
-    if not vid:
-        return "Standard Shipping", 5.00
-
-    # Utilisation d'un poids par défaut sécurisé (ex: 300g) si le poids est nul ou non renseigné
-    Effective_weight = weight if weight and weight > 0 else 300.0
+    if weight <= 0 or not vid:
+        return "N/A", 0.0
 
     payload = {
         "startCountryCode": "CN",
@@ -79,13 +76,14 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
             {
                 "vid": vid,
                 "quantity": 1,
-                "weight": effective_weight
+                "weight": weight
             }
         ]
     }
     
     try:
-        res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=60)
+        # Augmentation du timeout à 20s pour plus de stabilité avec l'API CJ
+        res = requests.post(CJ_FREIGHT_URL, json=payload, headers=headers, timeout=20)
         if res.status_code == 200:
             data = res.json()
             logistic_data = data.get("data")
@@ -98,27 +96,24 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
                     logistic_list = logistic_data.get("logisticList") or logistic_data.get("list") or []
 
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
-                    # 1. Recherche d'un transporteur valide avec un prix strictement supérieur à 0
+                    # Recherche d'un transporteur valide avec un prix supérieur à 0
                     for logistic in logistic_list:
                         price = safe_float(logistic.get("logisticPrice") or logistic.get("price", 0.0))
                         method_name = logistic.get("logisticName") or logistic.get("name")
                         if method_name and price > 0:
-                            return str(method_name).strip(), round(price, 2)
+                            return str(method_name).strip(), price
                     
-                    # 2. Si tous les prix sont à 0 mais qu'une méthode existe, on prend la première avec un nom valide
-                    for logistic in logistic_list:
-                        method_name = logistic.get("logisticName") or logistic.get("name")
-                        if method_name:
-                            price = safe_float(logistic.get("logisticPrice") or logistic.get("price", 0.0))
-                            return str(method_name).strip(), round(price if price > 0 else 5.00, 2)
+                    # Repli sur le premier transporteur de la liste si aucun filtre strict ne matche
+                    first_logistic = logistic_list[0]
+                    method_name = first_logistic.get("logisticName") or first_logistic.get("name", "Standard Shipping")
+                    price = safe_float(first_logistic.get("logisticPrice") or first_logistic.get("price", 0.0))
+                    return str(method_name).strip(), price
                     
     except Exception as e:
         print(f"   ⚠️ Erreur logistique pour VID {vid} ({ship_to}) : {e}")
         pass
         
-    # Valeur par défaut de secours si l'API ne renvoie rien pour éviter le N/A et 0.0
-    fallback_name = "CJ Packet Sensitive" if ship_to == "US" else "CJ Packet Express"
-    return fallback_name, 5.00
+    return "N/A", 0.0
 
 def safe_float(val, default=0.0):
     if val is None:
@@ -303,9 +298,12 @@ def generate_update_stock_json():
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
-                # Récupération sécurisée des méthodes et coûts d'expédition (FR et US)
-                m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
-                m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
+                m_fr, c_fr = "N/A", 0.0
+                m_us, c_us = "N/A", 0.0
+                
+                if vid and poids_var > 0:
+                    m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
+                    m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
 
                 variant_obj = {
                     "sku": sku_var,
