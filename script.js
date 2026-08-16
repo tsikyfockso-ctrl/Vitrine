@@ -105,7 +105,13 @@ function openProductModal(index) {
         document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
     }
 
-    // Remplissage du select des variantes
+    // Affichage initial de la description
+    const modalDescElem = document.getElementById('modalDesc');
+    if (modalDescElem) {
+        modalDescElem.innerText = currentSelectedProduct.details || "Aucune description disponible.";
+    }
+
+    // Remplissage du select des variantes (caché ou visible selon votre structure HTML)
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
@@ -120,15 +126,15 @@ function openProductModal(index) {
             variantSelect.appendChild(opt);
         });
 
-        // Écouteur pour synchroniser les cases tailles si l'utilisateur change le select
+        // Synchronisation si le select change
         variantSelect.onchange = () => {
             mettreAJourSelectionCasesTailles(variantSelect.value);
             updateModalPriceAndSpecs();
         };
     }
 
-    // Génération des boîtes de tailles et de couleurs interactives sous la description
-    genererBoitesTaillesEtCouleurs(currentSelectedProduct);
+    // Génération automatique de TOUTES les tailles sous forme de petites cases horizontales en bas de la description
+    genererBoitesTaillesHorizontales(currentSelectedProduct);
 
     updateModalPriceAndSpecs();
     document.getElementById('productModal').style.display = 'flex';
@@ -138,30 +144,28 @@ function closeProductModal() {
     document.getElementById('productModal').style.display = 'none';
 }
 
-// --- 5. GÉNÉRATION DES CASES HORIZONTALES MODERNES POUR LES TAILLES ET COULEURS ---
-function genererBoitesTaillesEtCouleurs(produit) {
-    let containerOptions = document.getElementById('modal-dynamic-options');
-    
-    // Si le conteneur n'existe pas encore sous la description, on le crée dynamiquement
-    if (!containerOptions) {
-        const modalDescElem = document.getElementById('modalDesc');
-        if (modalDescElem && modalDescElem.parentNode) {
-            containerOptions = document.createElement('div');
-            containerOptions.id = 'modal-dynamic-options';
-            containerOptions.style.marginTop = "15px";
-            modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
-        }
+// --- 5. GÉNÉRATION DES CASES DE TAILLES HORIZONTALES SOUS LA DESCRIPTION ---
+function genererBoitesTaillesHorizontales(produit) {
+    const modalDescElem = document.getElementById('modalDesc');
+    if (!modalDescElem) return;
+
+    // Supprimer l'ancien conteneur de tailles s'il existe déjà pour éviter les doublons
+    let containerOptions = document.getElementById('modal-horizontal-sizes');
+    if (containerOptions) {
+        containerOptions.remove();
     }
 
-    if (!containerOptions) return;
-    containerOptions.innerHTML = "";
+    // Création du nouveau conteneur placé juste après la description
+    containerOptions = document.createElement('div');
+    containerOptions.id = 'modal-horizontal-sizes';
+    containerOptions.style.marginTop = "15px";
+    modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
 
     let taillesTab = Array.isArray(produit.tailles) ? produit.tailles : [produit.tailles];
 
     if (taillesTab && taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
         const wrapperTailles = document.createElement('div');
-        wrapperTailles.style.marginBottom = "12px";
-        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#555;"><strong>Tailles disponibles :</strong></label>`;
+        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:8px; font-size:0.9em; color:#444;"><strong>Sélectionnez une taille :</strong></label>`;
         
         const flexTailles = document.createElement('div');
         flexTailles.id = 'container-cases-tailles';
@@ -173,17 +177,26 @@ function genererBoitesTaillesEtCouleurs(produit) {
             const box = document.createElement('div');
             box.className = "modern-size-box";
             box.innerText = taille || `Option ${idx + 1}`;
-            box.style.padding = "6px 12px";
+            box.style.padding = "8px 14px";
             box.style.border = "1px solid #ced4da";
             box.style.borderRadius = "6px";
             box.style.cursor = "pointer";
             box.style.fontSize = "0.9em";
+            box.style.fontWeight = "500";
             box.style.transition = "all 0.2s ease";
-            box.style.background = idx === 0 ? "#007bff" : "#f8f9fa";
-            box.style.color = idx === 0 ? "#fff" : "#333";
-            box.style.borderColor = idx === 0 ? "#007bff" : "#ced4da";
+            
+            // État initial (première taille sélectionnée par défaut)
+            if (idx === 0) {
+                box.style.background = "#007bff";
+                box.style.color = "#fff";
+                box.style.borderColor = "#007bff";
+            } else {
+                box.style.background = "#f8f9fa";
+                box.style.color = "#333";
+                box.style.borderColor = "#ced4da";
+            }
 
-            // Clic sur la case horizontale moderne -> met à jour le select principal et les prix
+            // Action au clic sur une case de taille
             box.onclick = () => {
                 const variantSelect = document.getElementById('modalVariantSelect');
                 if (variantSelect) {
@@ -201,7 +214,7 @@ function genererBoitesTaillesEtCouleurs(produit) {
     }
 }
 
-// Synchronise l'apparence visuelle des petites cases de tailles lorsque l'on change le select
+// Met à jour l'apparence visuelle des cases horizontales lorsque l'on sélectionne une option
 function mettreAJourSelectionCasesTailles(selectedIndex) {
     const container = document.getElementById('container-cases-tailles');
     if (!container) return;
@@ -221,14 +234,6 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
 
 function updateModalPriceAndSpecs() {
     if (!currentSelectedProduct) return;
-
-    // Mise à jour de la description brute si nécessaire
-    const modalDescElem = document.getElementById('modalDesc');
-    if (modalDescElem && !modalDescElem.dataset.originalSet) {
-        modalDescElem.innerText = currentSelectedProduct.details || "Aucune description disponible.";
-        modalDescElem.dataset.originalSet = "true";
-    }
-
     calculateShipping();
 }
 
@@ -261,7 +266,7 @@ function calculateShipping() {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    // Récupération du prix de la variante sélectionnée
+    // Récupération du prix correspondant à la taille/variante sélectionnée
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     
