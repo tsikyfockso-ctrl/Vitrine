@@ -43,7 +43,7 @@ async function loadProductsFromCJ() {
     }
 }
 
-// --- 3. AFFICHAGE DES PRODUITS AVEC PROXY D'IMAGES ---
+// --- 3. AFFICHAGE DES PRODUITS ---
 function renderProducts(stock, container) {
     container.innerHTML = stock.map((p, index) => {
         let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
@@ -53,15 +53,18 @@ function renderProducts(stock, container) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
 
-        let prixTab = Array.isArray(p.prix) ? p.prix : [p.prix];
-        let prixAffiche = prixTab[0] !== undefined ? prixTab[0] : "0";
+        // Récupération du premier prix dans les variantes ou prixBase
+        let prixAffiche = p.prixBase || 0;
+        if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
+            prixAffiche = p.variantes[0].prix;
+        }
         
         return `
             <div class="card" onclick="openProductModal(${index})">
                 <div class="card-img-container">
-                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || p.title || 'Produit'}" loading="lazy">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || 'Produit'}" loading="lazy">
                 </div>
-                <h3>${p.nom || p.title || 'Sans nom'}</h3>
+                <h3>${p.nom || 'Sans nom'}</h3>
                 <p>Prix : ${prixAffiche} €</p>
                 <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
             </div>
@@ -95,13 +98,7 @@ function openProductModal(index) {
     if (!currentSelectedProduct) return;
 
     // Nom du produit
-    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || currentSelectedProduct.title || 'Sans nom';
-    
-    // SKU
-    const modalSkuElem = document.getElementById('modalSku'); 
-    if (modalSkuElem) {
-        modalSkuElem.innerText = currentSelectedProduct.sku || currentSelectedProduct.productSku || 'N/A';
-    }
+    document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || 'Sans nom';
 
     // Image principale
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
@@ -115,23 +112,22 @@ function openProductModal(index) {
     // Description / Détails du produit
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
-        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || currentSelectedProduct.desc || "Aucune description disponible.";
+        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || "Aucune description disponible.";
     }
 
     // Menu déroulant des variantes
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
-        let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix || currentSelectedProduct.price || 0];
-        let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : (Array.isArray(currentSelectedProduct.sizes) ? currentSelectedProduct.sizes : [currentSelectedProduct.tailles || currentSelectedProduct.size || 'Standard']);
-
-        taillesTab.forEach((taille, i) => {
-            let pVal = prixTab[i] !== undefined ? prixTab[i] : (prixTab[0] || "0");
-            let opt = document.createElement('option');
-            opt.value = i;
-            opt.text = `${taille || 'Standard'} - ${pVal} €`;
-            variantSelect.appendChild(opt);
-        });
+        
+        if (Array.isArray(currentSelectedProduct.variantes)) {
+            currentSelectedProduct.variantes.forEach((v, i) => {
+                let opt = document.createElement('option');
+                opt.value = i;
+                opt.text = `${v.taille || 'Standard'} / ${v.couleur || ''} - ${v.prix || 0} €`;
+                variantSelect.appendChild(opt);
+            });
+        }
 
         variantSelect.onchange = () => {
             mettreAJourSelectionCasesTailles(variantSelect.value);
@@ -139,7 +135,7 @@ function openProductModal(index) {
         };
     }
 
-    // Génération dynamique des boîtes de tailles horizontales sous la description
+    // Génération dynamique des boîtes horizontales de tailles basées sur "variantes"
     genererBoitesTaillesHorizontales(currentSelectedProduct);
 
     updateModalPriceAndSpecs();
@@ -155,45 +151,21 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE TAILLES / VARIANTES ---
+// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE VARIANTES ---
 function genererBoitesTaillesHorizontales(produit) {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
 
-    // Supprimer l'ancien conteneur s'il existe pour éviter les doublons
     let containerOptions = document.getElementById('modal-horizontal-sizes');
     if (containerOptions) containerOptions.remove();
 
-    // Création du conteneur des cases juste sous la description
     containerOptions = document.createElement('div');
     containerOptions.id = 'modal-horizontal-sizes';
     containerOptions.style.marginTop = "12px";
     containerOptions.style.marginBottom = "12px";
     modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
 
-    // Extraction dynamique des tailles/variantes du produit
-    let taillesTab = [];
-    
-    if (Array.isArray(produit.tailles) && produit.tailles.length > 0) {
-        taillesTab = produit.tailles;
-    } else if (Array.isArray(produit.sizes) && produit.sizes.length > 0) {
-        taillesTab = produit.sizes;
-    } else if (Array.isArray(produit.variants) && produit.variants.length > 0) {
-        taillesTab = produit.variants.map(v => v.taille || v.size || v.name || v.variantName || v.spec || "Option");
-    } else if (Array.isArray(produit.options) && produit.options.length > 0) {
-        taillesTab = produit.options;
-    } else if (produit.taille) {
-        taillesTab = [produit.taille];
-    } else if (produit.size) {
-        taillesTab = [produit.size];
-    } else {
-        const variantSelect = document.getElementById('modalVariantSelect');
-        if (variantSelect && variantSelect.options.length > 0) {
-            taillesTab = Array.from(variantSelect.options).map(opt => opt.text.split(' - ')[0]);
-        }
-    }
-
-    if (taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
+    if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
         const wrapperTailles = document.createElement('div');
         wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Tailles / Variantes disponibles :</strong></label>`;
         
@@ -203,10 +175,10 @@ function genererBoitesTaillesHorizontales(produit) {
         flexTailles.style.gap = "8px";
         flexTailles.style.flexWrap = "wrap";
 
-        taillesTab.forEach((taille, idx) => {
+        produit.variantes.forEach((v, idx) => {
             const box = document.createElement('div');
             box.className = "modern-size-box";
-            box.innerText = typeof taille === 'object' ? (taille.name || taille.taille || 'Option') : taille;
+            box.innerText = `${v.taille || 'Option'} (${v.couleur || ''})`;
             box.style.padding = "6px 12px";
             box.style.border = "1px solid #ced4da";
             box.style.borderRadius = "6px";
@@ -215,7 +187,6 @@ function genererBoitesTaillesHorizontales(produit) {
             box.style.fontWeight = "500";
             box.style.transition = "all 0.2s ease";
             
-            // Sélection par défaut de la première variante
             if (idx === 0) {
                 box.style.background = "#007bff";
                 box.style.color = "#fff";
@@ -226,7 +197,6 @@ function genererBoitesTaillesHorizontales(produit) {
                 box.style.borderColor = "#ced4da";
             }
 
-            // Action au clic sur une case de taille/variante
             box.onclick = () => {
                 const variantSelect = document.getElementById('modalVariantSelect');
                 if (variantSelect && variantSelect.options[idx]) {
@@ -244,7 +214,6 @@ function genererBoitesTaillesHorizontales(produit) {
     }
 }
 
-// Synchronisation visuelle des cases de tailles cliquées
 function mettreAJourSelectionCasesTailles(selectedIndex) {
     const container = document.getElementById('container-cases-tailles');
     if (!container) return;
@@ -262,22 +231,33 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-// --- 6. AFFICHAGE DES FRAIS DE PORT ET DU PRIX TOTAL ---
+// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
 function calculateShipping() {
-    if (!currentSelectedProduct) return;
+    if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
+
+    // Mise à jour du SKU spécifique à la variante sélectionnée
+    const modalSkuElem = document.getElementById('modalSku');
+    if (modalSkuElem) {
+        modalSkuElem.innerText = varianteActuelle.sku || 'N/A';
+    }
 
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
     if (countryCode === "US") {
-        shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
-        shippingMethodName = "USPS / Ligne Express (États-Unis)";
+        shippingCostFinal = varianteActuelle.shippingCostUS !== undefined ? parseFloat(varianteActuelle.shippingCostUS) : 0;
+        shippingMethodName = varianteActuelle.shippingMethodUS || "YunExpress Ordinary";
     } else {
-        shippingCostFinal = currentSelectedProduct.shippingBase !== undefined ? parseFloat(currentSelectedProduct.shippingBase) : 0;
-        shippingMethodName = "Colissimo / Ligne de Liquide (France)";
+        shippingCostFinal = varianteActuelle.shippingCostFR !== undefined ? parseFloat(varianteActuelle.shippingCostFR) : 0;
+        shippingMethodName = varianteActuelle.shippingMethodFR || "CJPacket Ordinary I";
     }
 
     const modalShippingName = document.getElementById('modalShippingName');
@@ -290,13 +270,7 @@ function calculateShipping() {
         modalShippingCost.innerText = shippingCostFinal.toFixed(2);
     }
 
-    const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
-    
-    let prixTab = Array.isArray(currentSelectedProduct.prix) ? currentSelectedProduct.prix : [currentSelectedProduct.prix || currentSelectedProduct.price || 0];
-    let rawPrice = prixTab[selectedIndex] !== undefined ? prixTab[selectedIndex] : (prixTab[0] || 0);
-    let currentPrice = parseFloat(rawPrice) || 0;
-
+    let currentPrice = parseFloat(varianteActuelle.prix) || 0;
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
         modalPriceElem.innerText = currentPrice.toFixed(2) + " €";
