@@ -105,6 +105,7 @@ function openProductModal(index) {
         document.getElementById('modalImg').src = `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=600&fit=cover`;
     }
 
+    // Remplissage du select des variantes
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
@@ -118,10 +119,16 @@ function openProductModal(index) {
             opt.text = `${taille || 'Standard'} - ${pVal} €`;
             variantSelect.appendChild(opt);
         });
+
+        // Écouteur pour synchroniser les cases tailles si l'utilisateur change le select
+        variantSelect.onchange = () => {
+            mettreAJourSelectionCasesTailles(variantSelect.value);
+            updateModalPriceAndSpecs();
+        };
     }
 
-    // Génération des couleurs cliquables si la propriété existe dans le JSON, sinon masque la section
-    genererBoutonsCouleursDynamique(currentSelectedProduct);
+    // Génération des boîtes de tailles et de couleurs interactives sous la description
+    genererBoitesTaillesEtCouleurs(currentSelectedProduct);
 
     updateModalPriceAndSpecs();
     document.getElementById('productModal').style.display = 'flex';
@@ -131,86 +138,95 @@ function closeProductModal() {
     document.getElementById('productModal').style.display = 'none';
 }
 
-// --- 5. GESTION DES COULEURS CLIQUABLES ET TAILLES MODERNES ---
-function genererBoutonsCouleursDynamique(produit) {
-    // Crée ou récupère un conteneur de couleurs dans la modale s'il existe
-    let containerCouleurs = document.getElementById('modal-color-options');
-    if (!containerCouleurs) {
-        // Si l'élément HTML n'existe pas encore dans votre modale, on peut l'insérer dynamiquement sous le select des variantes
-        const variantSection = document.getElementById('modalVariantSelect')?.parentNode;
-        if (variantSection) {
-            containerCouleurs = document.createElement('div');
-            containerCouleurs.id = 'modal-color-options';
-            containerCouleurs.style.margin = "10px 0";
-            variantSection.appendChild(containerCouleurs);
+// --- 5. GÉNÉRATION DES CASES HORIZONTALES MODERNES POUR LES TAILLES ET COULEURS ---
+function genererBoitesTaillesEtCouleurs(produit) {
+    let containerOptions = document.getElementById('modal-dynamic-options');
+    
+    // Si le conteneur n'existe pas encore sous la description, on le crée dynamiquement
+    if (!containerOptions) {
+        const modalDescElem = document.getElementById('modalDesc');
+        if (modalDescElem && modalDescElem.parentNode) {
+            containerOptions = document.createElement('div');
+            containerOptions.id = 'modal-dynamic-options';
+            containerOptions.style.marginTop = "15px";
+            modalDescElem.parentNode.insertBefore(containerOptions, modalDescElem.nextSibling);
         }
     }
 
-    if (!containerCouleurs) return;
-    containerCouleurs.innerHTML = "";
+    if (!containerOptions) return;
+    containerOptions.innerHTML = "";
 
-    // Si le produit possède des couleurs dans son JSON
-    if (produit.couleurs && Array.isArray(produit.couleurs) && produit.couleurs.length > 0) {
-        containerCouleurs.style.display = "block";
-        containerCouleurs.innerHTML = `<label style="display:block; margin-bottom:5px;"><strong>Couleurs disponibles :</strong></label>`;
+    let taillesTab = Array.isArray(produit.tailles) ? produit.tailles : [produit.tailles];
+
+    if (taillesTab && taillesTab.length > 0 && taillesTab[0] !== null && taillesTab[0] !== undefined) {
+        const wrapperTailles = document.createElement('div');
+        wrapperTailles.style.marginBottom = "12px";
+        wrapperTailles.innerHTML = `<label style="display:block; margin-bottom:6px; font-size:0.9em; color:#555;"><strong>Tailles disponibles :</strong></label>`;
         
-        const flexDiv = document.createElement('div');
-        flexDiv.style.display = "flex";
-        flexDiv.style.gap = "8px";
-        flexDiv.style.flexWrap = "wrap";
+        const flexTailles = document.createElement('div');
+        flexTailles.id = 'container-cases-tailles';
+        flexTailles.style.display = "flex";
+        flexTailles.style.gap = "8px";
+        flexTailles.style.flexWrap = "wrap";
 
-        produit.couleurs.forEach((couleur, idx) => {
-            const btn = document.createElement('button');
-            btn.type = "button";
-            btn.innerText = couleur;
-            btn.className = "color-option-btn";
-            btn.style.padding = "6px 12px";
-            btn.style.border = "1px solid #ccc";
-            btn.style.borderRadius = "4px";
-            btn.style.cursor = "pointer";
-            btn.style.background = idx === 0 ? "#007bff" : "#fff";
-            btn.style.color = idx === 0 ? "#fff" : "#000";
+        taillesTab.forEach((taille, idx) => {
+            const box = document.createElement('div');
+            box.className = "modern-size-box";
+            box.innerText = taille || `Option ${idx + 1}`;
+            box.style.padding = "6px 12px";
+            box.style.border = "1px solid #ced4da";
+            box.style.borderRadius = "6px";
+            box.style.cursor = "pointer";
+            box.style.fontSize = "0.9em";
+            box.style.transition = "all 0.2s ease";
+            box.style.background = idx === 0 ? "#007bff" : "#f8f9fa";
+            box.style.color = idx === 0 ? "#fff" : "#333";
+            box.style.borderColor = idx === 0 ? "#007bff" : "#ced4da";
 
-            btn.onclick = () => {
-                // Style actif sur le bouton cliqué
-                Array.from(flexDiv.children).forEach(b => {
-                    b.style.background = "#fff";
-                    b.style.color = "#000";
-                });
-                btn.style.background = "#007bff";
-                btn.style.color = "#fff";
-
-                // Vous pouvez lier le choix de la couleur ici si nécessaire
+            // Clic sur la case horizontale moderne -> met à jour le select principal et les prix
+            box.onclick = () => {
+                const variantSelect = document.getElementById('modalVariantSelect');
+                if (variantSelect) {
+                    variantSelect.value = idx;
+                    mettreAJourSelectionCasesTailles(idx);
+                    updateModalPriceAndSpecs();
+                }
             };
 
-            flexDiv.appendChild(btn);
+            flexTailles.appendChild(box);
         });
-        containerCouleurs.appendChild(flexDiv);
-    } else {
-        containerCouleurs.style.display = "none";
+
+        wrapperTailles.appendChild(flexTailles);
+        containerOptions.appendChild(wrapperTailles);
     }
+}
+
+// Synchronise l'apparence visuelle des petites cases de tailles lorsque l'on change le select
+function mettreAJourSelectionCasesTailles(selectedIndex) {
+    const container = document.getElementById('container-cases-tailles');
+    if (!container) return;
+
+    Array.from(container.children).forEach((box, idx) => {
+        if (idx === parseInt(selectedIndex)) {
+            box.style.background = "#007bff";
+            box.style.color = "#fff";
+            box.style.borderColor = "#007bff";
+        } else {
+            box.style.background = "#f8f9fa";
+            box.style.color = "#333";
+            box.style.borderColor = "#ced4da";
+        }
+    });
 }
 
 function updateModalPriceAndSpecs() {
     if (!currentSelectedProduct) return;
 
-    const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
-    
-    let taillesTab = Array.isArray(currentSelectedProduct.tailles) ? currentSelectedProduct.tailles : [currentSelectedProduct.tailles];
-    let tailleActuelle = taillesTab[selectedIndex] || taillesTab[0] || "Standard";
-
-    // --- STYLE MODERNE POUR LA TAILLE DANS LA DESCRIPTION ---
+    // Mise à jour de la description brute si nécessaire
     const modalDescElem = document.getElementById('modalDesc');
-    const descriptionOriginale = currentSelectedProduct.details || "Aucune description disponible.";
-    
-    if (modalDescElem) {
-        modalDescElem.innerHTML = `
-            <p>${descriptionOriginale}</p>
-            <div style="margin-top: 12px; padding: 8px 12px; background: #f8f9fa; border-left: 4px solid #28a745; border-radius: 4px;">
-                📏 <strong>Taille complète :</strong> <span class="complete-size" style="color: #2c3e50; font-weight: bold;">${tailleActuelle}</span>
-            </div>
-        `;
+    if (modalDescElem && !modalDescElem.dataset.originalSet) {
+        modalDescElem.innerText = currentSelectedProduct.details || "Aucune description disponible.";
+        modalDescElem.dataset.originalSet = "true";
     }
 
     calculateShipping();
@@ -226,7 +242,7 @@ function calculateShipping() {
     let shippingCostFinal = 0;
     let shippingMethodName = "";
 
-    // Récupération dynamique des frais selon la France (FR) ou les États-Unis (US)[cite: 8]
+    // Récupération dynamique des frais selon la France (FR) ou les États-Unis (US)
     if (countryCode === "US") {
         shippingCostFinal = currentSelectedProduct.shippingUS !== undefined ? parseFloat(currentSelectedProduct.shippingUS) : 0;
         shippingMethodName = "USPS / Ligne Express (États-Unis)";
