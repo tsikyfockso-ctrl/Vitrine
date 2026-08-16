@@ -19,7 +19,7 @@ def get_cj_access_token():
         return None
     payload = {"apiKey": CJ_API_KEY}
     try:
-        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=60)
+        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=60)
+        response = requests.get(url, headers=headers, params=params, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
@@ -51,7 +51,7 @@ def get_product_variants(token, pid):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=120)
+        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -95,7 +95,6 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
                     logistic_list = logistic_data.get("logisticList") or logistic_data.get("list") or []
 
                 if isinstance(logistic_list, list) and len(logistic_list) > 0:
-                    # Recherche du premier transporteur valide renvoyé par l'API pour ce produit/poids
                     for logistic in logistic_list:
                         price = safe_float(logistic.get("logisticPrice") or logistic.get("price", 0.0))
                         method_name = logistic.get("logisticName") or logistic.get("name")
@@ -145,7 +144,6 @@ def nettoyer_texte(val):
         val = val[0] if val else ""
     val_str = str(val).strip()
     
-    # Sécurité anti-erreur 500 ou page HTML d'erreur
     if "500" in val_str or "Server Error" in val_str or "<html" in val_str.lower():
         return "Produit CJ"
         
@@ -227,7 +225,7 @@ def generate_update_stock_json():
     for index, item_data in enumerate(products_to_process, start=1):
         try:
             pid = item_data.get("pid") or item_data.get("id") or item_data.get("productId") or item_data.get("goodsId")
-            if notpid:
+            if not pid:
                 continue
 
             nom_original = item_data.get("productName") or item_data.get("nameEn") or item_data.get("name") or "Produit sans nom"
@@ -256,7 +254,6 @@ def generate_update_stock_json():
                 
                 vid = var.get("vid") or var.get("variantId") or var.get("id")
                 
-                # Récupération stricte du poids réel de la variante depuis l'API sans valeur par défaut arbitraire
                 poids_var = safe_float(
                     var.get("variantWeight") or 
                     var.get("weight") or 
@@ -300,7 +297,6 @@ def generate_update_stock_json():
                 inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
-                # Interrogation réelle de l'API de fret pour FR et US avec le poids réel de la variante
                 m_fr, c_fr = "N/A", 0.0
                 m_us, c_us = "N/A", 0.0
                 
