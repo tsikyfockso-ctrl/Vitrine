@@ -306,7 +306,7 @@ function calculateShipping() {
     }
 
     // Application du surplus sur les frais de port + conversion devise
-    let shippingCostFinal = shippingCostBrut * MARGE_EXPEDITION * taux;
+    let shippingCostFinal = (shippingCostBrut + MARGE_EXPEDITION) * taux;
 
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
