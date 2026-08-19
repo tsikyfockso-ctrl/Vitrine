@@ -102,7 +102,7 @@ def get_logistics_details_for_country(token, vid, weight, ship_to="US"):
                             return str(method_name).strip(), round(price, 2)
                     
     except Exception as e:
-        print(f"   ⚠️ Erreur logistique pour VID {vid} ({ship_to}) : {e}")
+        print(f"    ⚠️ Erreur logistique pour VID {vid} ({ship_to}) : {e}")
         pass
         
     return "N/A", 0.0
@@ -239,6 +239,13 @@ def generate_update_stock_json():
 
             product_fee = safe_float(item_data.get("productFee"))
             price_base = safe_float(item_data.get("sellPrice"))
+            
+            # Stock global de repli récupéré au niveau du produit
+            global_warehouse_stock = int(safe_float(
+                item_data.get("warehouseInventoryNum") or 
+                item_data.get("totalVerifiedInventory") or 
+                item_data.get("inventory") or 0
+            ))
 
             variants = get_product_variants(token, pid)
             if not variants or not isinstance(variants, list):
@@ -280,7 +287,16 @@ def generate_update_stock_json():
                 elif variant_key_str:
                     color = variant_key_str
 
-                inventory = int(safe_float(var.get("inventory") or var.get("stock") or var.get("totalInventory")))
+                # CORRECTION STOCK : On teste toutes les clés possibles de l'API CJ, avec repli sur le stock global du produit
+                inventory = int(safe_float(
+                    var.get("inventory") or 
+                    var.get("stock") or 
+                    var.get("variantInventory") or 
+                    var.get("totalInventory") or 
+                    var.get("warehouseInventoryNum") or 
+                    global_warehouse_stock
+                ))
+
                 price_var = safe_float(var.get("variantPrice") or var.get("sellPrice") or price_base)
 
                 m_fr, c_fr = "N/A", 0.0
