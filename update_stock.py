@@ -358,7 +358,7 @@ def generate_update_stock_json():
             }
 
             produits_figures[pid] = produit_unique
-            print(f"    ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes harmonisées)")
+            print(f"   ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes harmonisées)")
 
         except Exception as err:
             print(f"    ⚠️ Erreur sur le produit {index}: {err}")
