@@ -164,7 +164,7 @@ function openProductModal(index) {
 
             currentSelectedProduct.variantes.forEach((v, i) => {
                 let prixVarBrut = v.prix || 0;
-                let prixVarFinal = (prixVarBrut * MARGE_PRODUIT * taux).toFixed(2);
+                let prixVarFinal = ((prixVarBrut + MARGE_PRODUIT) * taux).toFixed(2);
 
                 let opt = document.createElement('option');
                 opt.value = i;
