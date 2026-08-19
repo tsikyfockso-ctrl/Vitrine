@@ -4,7 +4,7 @@
 const MARGE_PRODUIT = 1.30;       // +30% de marge sur le prix de base du produit
 const MARGE_EXPEDITION = 1.15;    // +15% de marge sur les frais de port
 
-// Stockage global des taux de change actualisés
+// Stockage global des taux de change actualisés (avec vos valeurs de référence par défaut)
 let tauxDeChangeActuels = { "USD": 0.86, "EUR": 1.16 };
 
 // --- 1. CONFIGURATION INITIALE ---
@@ -15,7 +15,7 @@ window.onload = async () => {
     initEventListeners();
 };
 
-// Récupération automatique des taux de change en direct
+// Récupération automatique des taux de change actualisés (vient écraser les valeurs par défaut si l'API répond)
 async function chargerTauxDeChange() {
     try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -24,7 +24,7 @@ async function chargerTauxDeChange() {
             tauxDeChangeActuels = data.rates;
         }
     } catch (e) {
-        console.warn("Impossible de charger les taux en direct, utilisation des valeurs par défaut.", e);
+        console.warn("Impossible de charger les taux en direct, utilisation des valeurs de secours.", e);
     }
 }
 
@@ -37,7 +37,7 @@ function obtenirDeviseEtTaux(countryCode) {
         devise = "USD";
     }
 
-    const taux = tauxDeChangeActuels[devise] || 0.86;
+    const taux = tauxDeChangeActuels[devise] || 1.0;
     return { devise, taux };
 }
 
@@ -280,7 +280,7 @@ function calculateShipping() {
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
     
-    // Récupération de la devise et du taux de change mis à jour (EUR pour FR, USD pour US)
+    // Récupération de la devise et du taux de change (EUR pour FR, USD pour US)
     const { devise, taux } = obtenirDeviseEtTaux(countryCode);
 
     const variantSelect = document.getElementById('modalVariantSelect');
