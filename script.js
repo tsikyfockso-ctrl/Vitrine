@@ -98,7 +98,7 @@ function renderProducts(stock, container) {
         }
 
         // Application de la marge + conversion devise
-        let prixAffiche = (prixBrut * MARGE_PRODUIT * taux).toFixed(2);
+        let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
         
         return `
             <div class="card" onclick="openProductModal(${index})">
@@ -320,7 +320,7 @@ function calculateShipping() {
 
     // Application du surplus sur le prix du produit + conversion devise
     let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
-    let currentPriceFinal = currentPriceBrut * MARGE_PRODUIT * taux;
+    let currentPriceFinal = (currentPriceBrut + MARGE_PRODUIT) * taux;
 
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
