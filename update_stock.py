@@ -19,7 +19,7 @@ def get_cj_access_token():
         return None
     payload = {"apiKey": CJ_API_KEY}
     try:
-        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=15)
+        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=1800)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=15)
+        response = requests.get(url, headers=headers, params=params, timeout=1800)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
@@ -51,7 +51,7 @@ def get_product_variants(token, pid):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=60)
+        response = requests.get(CJ_VARIANT_QUERY_URL, headers=headers, params={"pid": pid}, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -321,6 +321,34 @@ def generate_update_stock_json():
                 if variant_obj not in liste_variantes_produit:
                     liste_variantes_produit.append(variant_obj)
 
+            # --- ÉTAPE DE PROPAGATION INTELLIGENTE ---
+            # Si certaines variantes affichent "N/A" à cause d'une limite de poids stricte renvoyée par l'API,
+            # on récupère une méthode d'expédition valide trouvée sur une autre variante du même produit.
+            best_fr_method, best_fr_cost = "N/A", 0.0
+            best_us_method, best_us_cost = "N/A", 0.0
+
+            for v in liste_variantes_produit:
+                if v["shippingMethodFR"] != "N/A":
+                    best_fr_method = v["shippingMethodFR"]
+                    best_fr_cost = v["shippingCostFR"]
+                    break
+            
+            for v in liste_variantes_produit:
+                if v["shippingMethodUS"] != "N/A":
+                    best_us_method = v["shippingMethodUS"]
+                    best_us_cost = v["shippingCostUS"]
+                    break
+
+            # Appliquer cette méthode de secours saine aux variantes qui étaient restées à "N/A"
+            for v in liste_variantes_produit:
+                if v["shippingMethodFR"] == "N/A" and best_fr_method != "N/A":
+                    v["shippingMethodFR"] = best_fr_method
+                    v["shippingCostFR"] = best_fr_cost
+                if v["shippingMethodUS"] == "N/A" and best_us_method != "N/A":
+                    v["shippingMethodUS"] = best_us_method
+                    v["shippingCostUS"] = best_us_cost
+            # ------------------------------------------
+
             produit_unique = {
                 "dropshipping": "CJ Dropshipping",
                 "pid": pid,
@@ -332,7 +360,7 @@ def generate_update_stock_json():
             }
 
             produits_figures[pid] = produit_unique
-            print(f"    ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes regroupées)")
+            print(f"    ✅ [{index}/{len(products_to_process)}] Traité : {nom_traduite[:30]}... ({len(liste_variantes_produit)} variantes harmonisées)")
 
         except Exception as err:
             print(f"    ⚠️ Erreur sur le produit {index}: {err}")
