@@ -1,9 +1,45 @@
+// ==========================================
+// CONFIGURATION DES MARGES & SURPLUS
+// ==========================================
+const MARGE_PRODUIT = 1.30;       // +30% de marge sur le prix de base du produit
+const MARGE_EXPEDITION = 1.15;    // +15% de marge sur les frais de port
+
+// Stockage global des taux de change actualisés
+let tauxDeChangeActuels = { "USD": 0.86, "EUR": 1.16 };
+
 // --- 1. CONFIGURATION INITIALE ---
-window.onload = () => {
+window.onload = async () => {
+    await chargerTauxDeChange();
     loadProductsFromCJ();
     initialiserPays();
     initEventListeners();
 };
+
+// Récupération automatique des taux de change en direct
+async function chargerTauxDeChange() {
+    try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD');
+        const data = await res.json();
+        if (data && data.rates) {
+            tauxDeChangeActuels = data.rates;
+        }
+    } catch (e) {
+        console.warn("Impossible de charger les taux en direct, utilisation des valeurs par défaut.", e);
+    }
+}
+
+// Obtenir la devise et le taux selon le code pays (limité à US et FR)
+function obtenirDeviseEtTaux(countryCode) {
+    let devise = "USD";
+    if (countryCode.toUpperCase() === "FR") {
+        devise = "EUR";
+    } else if (countryCode.toUpperCase() === "US") {
+        devise = "USD";
+    }
+
+    const taux = tauxDeChangeActuels[devise] || 0.86;
+    return { devise, taux };
+}
 
 // --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
 async function loadProductsFromCJ() {
@@ -45,6 +81,9 @@ async function loadProductsFromCJ() {
 
 // --- 3. AFFICHAGE DES PRODUITS ---
 function renderProducts(stock, container) {
+    // Par défaut affichage catalogue basé sur la France (EUR)
+    const { devise, taux } = obtenirDeviseEtTaux("FR");
+
     container.innerHTML = stock.map((p, index) => {
         let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
         let imgSrc = rawImg ? rawImg.trim() : "";
@@ -53,11 +92,13 @@ function renderProducts(stock, container) {
             imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
 
-        // Récupération du premier prix dans les variantes ou prixBase
-        let prixAffiche = p.prixBase || 0;
+        let prixBrut = p.prixBase || 0;
         if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
-            prixAffiche = p.variantes[0].prix;
+            prixBrut = p.variantes[0].prix;
         }
+
+        // Application de la marge + conversion devise
+        let prixAffiche = (prixBrut * MARGE_PRODUIT * taux).toFixed(2);
         
         return `
             <div class="card" onclick="openProductModal(${index})">
@@ -65,14 +106,14 @@ function renderProducts(stock, container) {
                     <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || 'Produit'}" loading="lazy">
                 </div>
                 <h3>${p.nom || 'Sans nom'}</h3>
-                <p>Prix : ${prixAffiche} €</p>
+                <p>Prix : ${prixAffiche} ${devise}</p>
                 <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
             </div>
         `;
     }).join('');
 }
 
-// --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
+// --- 4. LISTE DES PAYS (RESTREINTE À US ET FR) ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
     { code: "FR", nom: "France" }, 
     { code: "US", nom: "États-Unis" }
@@ -97,10 +138,8 @@ function openProductModal(index) {
     currentSelectedProduct = stock[index];
     if (!currentSelectedProduct) return;
 
-    // Nom du produit
     document.getElementById('modalTitle').innerText = currentSelectedProduct.nom || 'Sans nom';
 
-    // Image principale
     let rawImg = Array.isArray(currentSelectedProduct.images) ? currentSelectedProduct.images[0] : currentSelectedProduct.images;
     if (rawImg) {
         const modalImgElem = document.getElementById('modalImg');
@@ -109,22 +148,27 @@ function openProductModal(index) {
         }
     }
     
-    // Description / Détails du produit
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
         modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || "Aucune description disponible.";
     }
 
-    // Menu déroulant des variantes
     const variantSelect = document.getElementById('modalVariantSelect');
     if (variantSelect) {
         variantSelect.innerHTML = "";
         
         if (Array.isArray(currentSelectedProduct.variantes)) {
+            const selectCountry = document.getElementById('modalCountrySelect');
+            const countryCode = selectCountry ? selectCountry.value : "FR";
+            const { devise, taux } = obtenirDeviseEtTaux(countryCode);
+
             currentSelectedProduct.variantes.forEach((v, i) => {
+                let prixVarBrut = v.prix || 0;
+                let prixVarFinal = (prixVarBrut * MARGE_PRODUIT * taux).toFixed(2);
+
                 let opt = document.createElement('option');
                 opt.value = i;
-                opt.text = `${v.taille || 'Standard'} / ${v.couleur || ''} - ${v.prix || 0} €`;
+                opt.text = `${v.taille || 'Standard'} / ${v.couleur || ''} - ${prixVarFinal} ${devise}`;
                 variantSelect.appendChild(opt);
             });
         }
@@ -135,9 +179,7 @@ function openProductModal(index) {
         };
     }
 
-    // Génération dynamique des boîtes horizontales de tailles basées sur "variantes"
     genererBoitesTaillesHorizontales(currentSelectedProduct);
-
     updateModalPriceAndSpecs();
     document.getElementById('productModal').style.display = 'flex';
 }
@@ -231,12 +273,15 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
+// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT (AVEC MARGES & DEVISES) ---
 function calculateShipping() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
+    
+    // Récupération de la devise et du taux de change mis à jour (EUR pour FR, USD pour US)
+    const { devise, taux } = obtenirDeviseEtTaux(countryCode);
 
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
@@ -249,16 +294,19 @@ function calculateShipping() {
         modalSkuElem.innerText = varianteActuelle.sku || 'N/A';
     }
 
-    let shippingCostFinal = 0;
+    let shippingCostBrut = 0;
     let shippingMethodName = "";
 
     if (countryCode === "US") {
-        shippingCostFinal = varianteActuelle.shippingCostUS !== undefined ? parseFloat(varianteActuelle.shippingCostUS) : 0;
+        shippingCostBrut = varianteActuelle.shippingCostUS !== undefined ? parseFloat(varianteActuelle.shippingCostUS) : 0;
         shippingMethodName = varianteActuelle.shippingMethodUS || "YunExpress Ordinary";
     } else {
-        shippingCostFinal = varianteActuelle.shippingCostFR !== undefined ? parseFloat(varianteActuelle.shippingCostFR) : 0;
+        shippingCostBrut = varianteActuelle.shippingCostFR !== undefined ? parseFloat(varianteActuelle.shippingCostFR) : 0;
         shippingMethodName = varianteActuelle.shippingMethodFR || "CJPacket Ordinary I";
     }
+
+    // Application du surplus sur les frais de port + conversion devise
+    let shippingCostFinal = shippingCostBrut * MARGE_EXPEDITION * taux;
 
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
@@ -267,19 +315,34 @@ function calculateShipping() {
 
     const modalShippingCost = document.getElementById('modalShippingCost');
     if (modalShippingCost) {
-        modalShippingCost.innerText = shippingCostFinal.toFixed(2);
+        modalShippingCost.innerText = `${shippingCostFinal.toFixed(2)} ${devise}`;
     }
 
-    let currentPrice = parseFloat(varianteActuelle.prix) || 0;
+    // Application du surplus sur le prix du produit + conversion devise
+    let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
+    let currentPriceFinal = currentPriceBrut * MARGE_PRODUIT * taux;
+
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
-        modalPriceElem.innerText = currentPrice.toFixed(2) + " €";
+        modalPriceElem.innerText = `${currentPriceFinal.toFixed(2)} ${devise}`;
     }
 
-    let totalGlobal = currentPrice + shippingCostFinal;
+    // Calcul du total global
+    let totalGlobal = currentPriceFinal + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
-        modalTotalCost.innerText = totalGlobal.toFixed(2) + " €";
+        modalTotalCost.innerText = `${totalGlobal.toFixed(2)} ${devise}`;
+    }
+
+    // Actualiser également le libellé du menu déroulant des variantes avec la nouvelle devise/marge
+    if (variantSelect) {
+        Array.from(variantSelect.options).forEach((opt, i) => {
+            const v = currentSelectedProduct.variantes[i];
+            if (v) {
+                let pFinal = (parseFloat(v.prix || 0) * MARGE_PRODUIT * taux).toFixed(2);
+                opt.text = `${v.taille || 'Standard'} / ${v.couleur || ''} - ${pFinal} ${devise}`;
+            }
+        });
     }
 }
 
