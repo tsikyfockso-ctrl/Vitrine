@@ -474,6 +474,8 @@ async function sendComment() {
         });
         
         msgInput.value = '';
+        nameInput.value = '';
+        
         afficherMessagesClient();
         alert("Message envoyé avec succès !");
     } catch (e) {
