@@ -483,6 +483,17 @@ function afficherMessagesClient() {
                 <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
             </div>
         `;
+
+        // Si l'admin n'a pas encore répondu, on affiche le badge "En attente de réponse"
+        if (!aRepondu) {
+            html += `
+                <div style="margin-top: 8px; font-size: 0.8rem; color: #e67e22; font-style: italic; display: flex; align-items: center; gap: 5px;">
+                    <span>⏳</span> En attente de réponse...
+                </div>
+            `;
+        }
+        
+        html += `</div>`;
         
         // Si l'administrateur a répondu, on l'affiche juste en dessous au nom de "Mayah Store"
         if (m.reponse && m.reponse.trim() !== "") {
