@@ -427,7 +427,9 @@ function toggleChat() {
     }
 }
 
-// 2. Envoyer un message
+// --- CÔTÉ CLIENT : GESTION DU CHAT ET AFFICHAGE DES RÉPONSES ---
+
+// 1. Envoyer un message du client vers l'admin
 function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
@@ -440,37 +442,32 @@ function sendComment() {
         return;
     }
     
-    // Structure exacte attendue par admin.js
-    const nouveauMessageAdmin = {
-        nom: name,
-        message: message,      // 'message' (et non 'texte') pour correspondre à admin.js
-        lu: false,             // Indique que le message n'est pas encore lu par l'admin
-        reponse: ""            // Champ vide pour la future réponse de l'admin
-    };
-    
-    // Récupération de la liste partagée avec l'admin
+    // Récupération de la liste partagée
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
-    // Ajout du nouveau message
-    messages.push(nouveauMessageAdmin);
+    // Ajout du message du client
+    const nouveauMessageAdmin = {
+        nom: name,
+        message: message,
+        lu: false,
+        reponse: "" // Pas encore de réponse
+    };
     
-    // Sauvegarde dans le localStorage partagé
+    messages.push(nouveauMessageAdmin);
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
     
-    // Réinitialisation du champ texte et confirmation
     msgInput.value = '';
-    alert("Votre message a bien été envoyé à l'administrateur !");
     
-    // Optionnel : fermer le chat après l'envoi
-    toggleChat();
+    // Rafraîchir l'affichage du chat pour voir le message instantanément
+    afficherMessagesClient();
 }
 
-// 3. Afficher les messages dans le panneau
-function afficherMessages() {
+// 2. Afficher les messages ET les réponses de l'Admin (au nom de Mayah Store) dans le chat
+function afficherMessagesClient() {
     const container = document.getElementById('client-messages');
     if (!container) return;
     
-    const messages = JSON.parse(localStorage.getItem('client_messages')) || [];
+    const messages = JSON.parse(localStorage.getItem("admin_messages_list")) || [];
     
     if (messages.length === 0) {
         container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
@@ -479,20 +476,34 @@ function afficherMessages() {
     
     let html = '';
     messages.forEach(m => {
+        // Affichage du message envoyé par le client
         html += `
-            <div style="background: #f9f9f9; border-left: 3px solid #3498db; padding: 8px 10px; margin-bottom: 8px; border-radius: 4px; font-size: 0.9rem;">
-                <strong style="color: #333;">${m.nom}</strong> <span style="font-size: 0.75rem; color: #888; float: right;">${m.date}</span>
-                <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.texte}</p>
+            <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 8px 10px; margin-bottom: 8px; border-radius: 4px; font-size: 0.9rem;">
+                <strong style="color: #333;">${m.nom} (Vous)</strong>
+                <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
             </div>
         `;
+        
+        // Si l'administrateur a répondu, on l'affiche juste en dessous au nom de "Mayah Store"
+        if (m.reponse && m.reponse.trim() !== "") {
+            html += `
+                <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
+                    <strong style="color: #27ae60;">Mayah Store (Support)</strong>
+                    <p style="margin: 5px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
+                </div>
+            `;
+        }
     });
     
     container.innerHTML = html;
 }
 
-// Charger les messages enregistrés dès que la page s'ouvre
+// Actualiser automatiquement le chat toutes les 3 secondes pour voir si l'admin a répondu
+setInterval(afficherMessagesClient, 3000);
+
+// Charger les messages à l'ouverture de la page
 document.addEventListener('DOMContentLoaded', () => {
-    afficherMessages();
+    afficherMessagesClient();
 });
 
 
