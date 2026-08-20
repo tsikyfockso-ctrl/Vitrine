@@ -463,6 +463,7 @@ function sendComment() {
 }
 
 // 2. Afficher les messages ET les réponses de l'Admin (au nom de Mayah Store) dans le chat
+// Affichage des messages et des réponses de l'Admin dans le chat client
 function afficherMessagesClient() {
     const container = document.getElementById('client-messages');
     if (!container) return;
@@ -476,14 +477,16 @@ function afficherMessagesClient() {
     
     let html = '';
     messages.forEach(m => {
+        // Vérifie si l'admin a répondu ou non
+        const aRepondu = m.reponse && m.reponse.trim() !== "";
+        
         // Affichage du message envoyé par le client
         html += `
-            <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 8px 10px; margin-bottom: 8px; border-radius: 4px; font-size: 0.9rem;">
-                <strong style="color: #333;">${m.nom}</strong>
+            <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 0.9rem;">
+                <strong style="color: #333;">${m.nom} (Vous)</strong>
                 <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
-            </div>
         `;
-
+        
         // Si l'admin n'a pas encore répondu, on affiche le badge "En attente de réponse"
         if (!aRepondu) {
             html += `
@@ -495,11 +498,11 @@ function afficherMessagesClient() {
         
         html += `</div>`;
         
-        // Si l'administrateur a répondu, on l'affiche juste en dessous au nom de "Mayah Store"
-        if (m.reponse && m.reponse.trim() !== "") {
+        // Si l'administrateur a répondu, on l'affiche en dessous au nom de "Mayah Store"
+        if (aRepondu) {
             html += `
-                <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
-                    <strong style="color: #27ae60;">Mayah Store</strong>
+                <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
+                    <strong style="color: #27ae60;">Mayah Store (Support)</strong>
                     <p style="margin: 5px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
                 </div>
             `;
@@ -509,12 +512,10 @@ function afficherMessagesClient() {
     container.innerHTML = html;
 }
 
-// Actualiser automatiquement le chat toutes les 3 secondes pour voir si l'admin a répondu
+// Actualiser automatiquement le chat toutes les 3 secondes pour voir la réponse de l'admin en temps réel
 setInterval(afficherMessagesClient, 3000);
 
 // Charger les messages à l'ouverture de la page
 document.addEventListener('DOMContentLoaded', () => {
     afficherMessagesClient();
 });
-
-
