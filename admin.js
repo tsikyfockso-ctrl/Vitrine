@@ -1,3 +1,8 @@
+// --- CONFIGURATION CLOUD (Récupérée depuis config.js et les secrets) ---
+const BIN_ID = window.CONFIG_BIN_ID || ""; 
+const API_KEY = window.CONFIG_API_KEY || ""; 
+const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
 document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
     window.location.href = "login.html";
@@ -16,103 +21,129 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// Mise à jour du badge de notification
-function updateNotificationBadge() {
-    const messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    const nonLus = messages.filter(m => m.lu === false).length;
-    const btn = document.getElementById("inboxBtn");
-    if (btn) {
-        btn.innerHTML = nonLus > 0 ? `Boîte de réception (${nonLus})` : "Boîte de réception";
-        btn.style.borderColor = nonLus > 0 ? "orange" : "transparent";
+// 1. Mise à jour du badge de notification (depuis JSONbin.io)
+async function updateNotificationBadge() {
+    try {
+        const response = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await response.json();
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        
+        const nonLus = messages.filter(m => m.lu === false || !m.reponse).length;
+        const btn = document.getElementById("inboxBtn");
+        if (btn) {
+            btn.innerHTML = nonLus > 0 ? `Boîte de réception (${nonLus})` : "Boîte de réception";
+            btn.style.borderColor = nonLus > 0 ? "orange" : "transparent";
+        }
+    } catch (e) {
+        console.error("Erreur de mise à jour du badge :", e);
     }
 }
 
-// Liste des messages Admin
-function checkAdminNotifications() {
+// 2. Liste des messages Admin (récupérés depuis le cloud JSONbin.io)
+async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
+    if (!inbox) return;
     
-    inbox.innerHTML = "";
+    inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
-    messages.forEach((note, index) => {
-        const point = note.lu === false ? '<span style="color:orange; margin-right:10px;">●</span>' : '';
-        const div = document.createElement("div");
-        div.style.padding = "10px";
-        div.style.borderBottom = "1px solid #eee";
-        div.style.display = "flex";
-        div.style.alignItems = "center";
+    try {
+        const response = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await response.json();
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
-        div.innerHTML = `
-            <div style="display: flex; align-items: flex-start; gap: 10px; width: 100%;">
-                ${point}
-                <div style="flex-grow: 1;">
-                    <a href="#" onclick="openMessageAndMarkRead(${index})" style="font-weight:${note.lu ? 'normal' : 'bold'}; text-decoration:none;">
-                        ${note.nom}
-                    </a>
-                    <span style="color: #555; margin-left: 10px;">- ${note.message}</span>
-                </div>
-                <button class="delete-btn" onclick="deleteMessage(${index})">Effacer</button>
-            </div>
-        `;
-        inbox.appendChild(div);
-    });
-}
-
-// Ouvrir le message et marquer comme lu
-function openMessageAndMarkRead(index) {
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
-    messages[index].lu = true;
-    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    updateNotificationBadge();
-    checkAdminNotifications();
-    openMessageWindow(index);
-}
-
-// Fenêtre de réponse
-function openMessageWindow(index) {
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
-    let note = messages[index];
-
-    const win = window.open("", "_blank", "width=400,height=450");
-    win.document.write(`
-        <div style="padding: 20px; font-family: sans-serif;">
-            <h3>Répondre à ${note.nom}</h3>
-            <div style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-                <strong>Message du client :</strong><br>${note.message}
-            </div>
-            <textarea id="replyText" style="width:100%; height:100px;">${note.reponse || ''}</textarea><br><br>
-            <button onclick="saveAndClose()">Envoyer la réponse</button>
-        </div>
-        <script>
-            function saveAndClose() {
-                const rep = document.getElementById('replyText').value;
-                window.opener.updateReply(${index}, rep);
-                window.close();
+        inbox.innerHTML = "";
+        
+        if (messages.length === 0) {
+            inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Aucun message reçu pour le moment.</p>";
+            return;
+        }
+        
+        messages.forEach((note, index) => {
+            const aRepondu = note.reponse && note.reponse.trim() !== "";
+            const point = (note.lu === false || !aRepondu) ? '<span style="color:orange; margin-right:10px;">●</span>' : '';
+            const clientNom = note.nom ? note.nom : "Client Anonyme";
+            
+            const div = document.createElement("div");
+            div.style.padding = "10px";
+            div.style.borderBottom = "1px solid #eee";
+            div.style.marginBottom = "8px";
+            
+            div.innerHTML = `
+                <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
+            `;
+            
+            if (aRepondu) {
+                div.innerHTML += `
+                    <div style="margin-top: 5px; margin-left: 20px; font-size: 0.9rem; color: #27ae60; background: #e8f8f5; padding: 6px; border-radius: 4px;">
+                        <strong>Votre réponse :</strong> ${note.reponse}
+                    </div>
+                `;
+            } else {
+                div.innerHTML += `
+                    <div style="margin-top: 8px; margin-left: 20px;">
+                        <input type="text" id="admin-reply-${index}" placeholder="Écrire une réponse..." style="width: 70%; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                        <button onclick="envoyerReponseAdmin(${index})" style="background: #27ae60; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 5px;">Répondre</button>
+                    </div>
+                `;
             }
-        </script>
-    `);
+            
+            inbox.appendChild(div);
+        });
+        
+        updateNotificationBadge();
+    } catch (e) {
+        console.error("Erreur de chargement des messages admin :", e);
+        inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur de chargement des messages.</p>";
+    }
 }
 
-// Enregistrer la réponse
-window.updateReply = function(index, rep) {
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list"));
-    messages[index].reponse = rep;
-    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    checkAdminNotifications();
-};
-
-// Suppression
-function deleteMessage(index) {
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    messages.splice(index, 1);
-    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    checkAdminNotifications();
-    updateNotificationBadge();
+// 3. Fonction pour envoyer la réponse de l'admin vers le cloud
+async function envoyerReponseAdmin(index) {
+    const inputReponse = document.getElementById(`admin-reply-${index}`);
+    if (!inputReponse) return;
+    
+    const texteReponse = inputReponse.value.trim();
+    if (!texteReponse) {
+        alert("Veuillez écrire une réponse.");
+        return;
+    }
+    
+    try {
+        const getRes = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await getRes.json();
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        
+        if (messages[index]) {
+            messages[index].reponse = texteReponse;
+            messages[index].lu = true;
+        }
+        
+        await fetch(URL_API, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': API_KEY
+            },
+            body: JSON.stringify({ messages: messages })
+        });
+        
+        alert("Réponse envoyée avec succès !");
+        checkAdminNotifications(); 
+    } catch (e) {
+        console.error("Erreur lors de l'envoi de la réponse :", e);
+        alert("Erreur lors de l'envoi de la réponse.");
+    }
 }
 
-// Lancer la surveillance
-setInterval(updateNotificationBadge, 2000);
-updateNotificationBadge();
+// ========================================================
+// VOTRE CODE ORIGINAL DE GESTION DE STOCK (Intact)
+// ========================================================
 
 // Fonction pour ajouter un produit
 function addProduct() {
@@ -135,6 +166,7 @@ function addProduct() {
 // Fonction pour charger et afficher le stock
 function loadStock() {
     const stockList = document.getElementById("stock-list");
+    if (!stockList) return;
     let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
     
     stockList.innerHTML = stock.map((p, index) => `
@@ -153,5 +185,13 @@ function removeProduct(index) {
     loadStock();
 }
 
-// Charger le stock au démarrage de la page admin
-loadStock();
+// Actualiser automatiquement le badge et les notifications admin en arrière-plan
+setInterval(updateNotificationBadge, 4000);
+
+// Vérifier au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    updateNotificationBadge();
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock();
+    }
+});
