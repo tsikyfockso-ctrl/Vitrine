@@ -428,7 +428,6 @@ function toggleChat() {
 }
 
 // --- CÔTÉ CLIENT : GESTION DU CHAT ET AFFICHAGE DES RÉPONSES ---
-
 // Vos identifiants seront injectés automatiquement par GitHub Actions ou lus depuis la configuration
 const BIN_ID = window.CONFIG_BIN_ID || ""; 
 const API_KEY = window.CONFIG_API_KEY || ""; 
