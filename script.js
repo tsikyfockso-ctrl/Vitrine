@@ -520,7 +520,7 @@ function afficherMessagesClient() {
             if (aRepondu) {
                 html += `
                     <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px; margin-bottom: 8px; margin-left: 10px; border-radius: 4px; font-size: 0.90rem;">
-                        <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store (Support)</strong>
+                        <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store</strong>
                         <p style="margin: 4px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
                     </div>
                 `;
