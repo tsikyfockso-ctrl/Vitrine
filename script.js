@@ -463,67 +463,80 @@ function sendComment() {
 }
 
 // Afficher UNIQUEMENT les messages du client actuellement connecté (basé sur le champ nom)
+// Affichage des messages groupés et séparés par nom de chaque client
 function afficherMessagesClient() {
     const container = document.getElementById('client-messages');
-    const nameInput = document.getElementById('userName');
     if (!container) return;
-    
-    const clientNomActuel = nameInput ? nameInput.value.trim() : "";
     
     const messages = JSON.parse(localStorage.getItem("admin_messages_list")) || [];
     
-    // Filtrer les messages pour ne garder que ceux de ce client précis
-    const messagesDuClient = messages.filter(m => m.nom.toLowerCase() === clientNomActuel.toLowerCase());
-    
-    if (!clientNomActuel || messagesDuClient.length === 0) {
-        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Entrez votre nom et écrivez un message pour commencer.</p>`;
+    if (messages.length === 0) {
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
         return;
     }
     
+    // Étape 1 : Regrouper les messages par nom de client
+    let conversationsParClient = {};
+    messages.forEach(m => {
+        let nomClient = m.nom ? m.nom.trim() : "Anonyme";
+        if (!conversationsParClient[nomClient]) {
+            conversationsParClient[nomClient] = [];
+        }
+        conversationsParClient[nomClient].push(m);
+    });
+    
     let html = '';
-    messagesDuClient.forEach(m => {
-        const aRepondu = m.reponse && m.reponse.trim() !== "";
-        
-        // Message du client
+    
+    // Étape 2 : Créer un bloc visuel séparé pour chaque client
+    for (let nomClient in conversationsParClient) {
         html += `
-            <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 0.9rem;">
-                <strong style="color: #333;">${m.nom}</strong>
-                <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
+            <div style="background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 12px;">
+                <div style="font-weight: bold; color: #2c3e50; font-size: 0.95rem; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 8px;">
+                    👤 Client : ${nomClient}
+                </div>
         `;
         
-        // En attente de réponse si l'admin n'a pas répondu
-        if (!aRepondu) {
+        // Afficher tous les messages de ce client spécifique
+        conversationsParClient[nomClient].forEach(m => {
+            const aRepondu = m.reponse && m.reponse.trim() !== "";
+            
             html += `
-                <div style="margin-top: 8px; font-size: 0.8rem; color: #e67e22; font-style: italic; display: flex; align-items: center; gap: 5px;">
-                    <span>⏳</span> En attente de réponse...
-                </div>
+                <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.90rem;">
+                    <p style="margin: 0; color: #333; word-break: break-word;">${m.message}</p>
             `;
-        }
+            
+            // Mention en attente si l'admin n'a pas répondu
+            if (!aRepondu) {
+                html += `
+                    <div style="margin-top: 6px; font-size: 0.75rem; color: #e67e22; font-style: italic;">
+                        ⏳ En attente de réponse...
+                    </div>
+                `;
+            }
+            
+            html += `</div>`;
+            
+            // Réponse de Mayah Store si elle existe
+            if (aRepondu) {
+                html += `
+                    <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px; margin-bottom: 8px; margin-left: 10px; border-radius: 4px; font-size: 0.90rem;">
+                        <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store (Support)</strong>
+                        <p style="margin: 4px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
+                    </div>
+                `;
+            }
+        });
         
-        html += `</div>`;
-        
-        // Réponse de l'admin (Mayah Store)
-        if (aRepondu) {
-            html += `
-                <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
-                    <strong style="color: #27ae60;">Mayah Store</strong>
-                    <p style="margin: 5px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
-                </div>
-            `;
-        }
-    });
+        html += `</div>`; // Fin du bloc du client
+    }
     
     container.innerHTML = html;
 }
 
-// Mettre à jour l'affichage si le client change son nom dans l'input
+// Actualisation automatique toutes les 3 secondes
+setInterval(afficherMessagesClient, 3000);
+
+// Charger les messages à l'ouverture de la page
 document.addEventListener('DOMContentLoaded', () => {
-    const nameInput = document.getElementById('userName');
-    if (nameInput) {
-        nameInput.addEventListener('input', afficherMessagesClient);
-    }
     afficherMessagesClient();
 });
-
-// Actualisation automatique pour voir la réponse de l'admin
-setInterval(afficherMessagesClient, 3000);
