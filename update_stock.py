@@ -136,7 +136,7 @@ def safe_float(val, default=0.0):
             pass
             
     return default
-
+    
 def nettoyer_texte(val):
     if not val:
         return ""
@@ -144,15 +144,20 @@ def nettoyer_texte(val):
         val = val[0] if val else ""
     val_str = str(val).strip()
     
+    # Si le texte reçu est une erreur serveur HTML de l'API, 
+    # on évite de planter mais on ne met plus "Produit CJ" aveuglément
     if "500" in val_str or "Server Error" in val_str or "<html" in val_str.lower():
-        return "Produit CJ"
+        return "" # ou un nom générique basé sur l'ID si vous préférez
         
     return val_str.strip('[]"\'')
 
 def traduire_texte(texte):
     texte_propre = nettoyer_texte(texte)
-    if not texte_propre or texte_propre == "Produit CJ":
-        return "Produit CJ"
+    # Si le texte propre est vide ou invalide, on retourne une chaîne vide 
+    # ou on garde le texte d'origine au lieu de forcer "Produit CJ"
+    if not texte_propre:
+        return "Nom indisponible" 
+        
     try:
         trads = GoogleTranslator(source='auto', target='fr').translate(texte_propre)
         resultat = nettoyer_texte(trads)
