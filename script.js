@@ -429,12 +429,19 @@ function toggleChat() {
 
 // --- CÔTÉ CLIENT : GESTION DU CHAT ET AFFICHAGE DES RÉPONSES ---
 
-// 1. Envoyer un message du client vers l'admin
-// Envoyer un message en l'associant au nom du client
-function sendComment() {
+// Vos identifiants seront injectés automatiquement par GitHub Actions ou lus depuis la configuration
+const BIN_ID = window.CONFIG_BIN_ID || ""; 
+const API_KEY = window.CONFIG_API_KEY || ""; 
+
+const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+// 1. Envoyer un message
+async function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
     
+    if (!nameInput || !msgInput) return;
+
     const name = nameInput.value.trim();
     const message = msgInput.value.trim();
     
@@ -443,100 +450,109 @@ function sendComment() {
         return;
     }
     
-    // Récupération de la liste globale partagée avec l'admin
-    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
-    
-    const nouveauMessage = {
-        nom: name,
-        message: message,
-        lu: false,
-        reponse: ""
-    };
-    
-    messages.push(nouveauMessage);
-    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
-    
-    msgInput.value = '';
-    
-    // Rafraîchir l'affichage du chat client
-    afficherMessagesClient();
+    try {
+        const getRes = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await getRes.json();
+        
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        
+        messages.push({
+            nom: name,
+            message: message,
+            lu: false,
+            reponse: ""
+        });
+        
+        await fetch(URL_API, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': API_KEY
+            },
+            body: JSON.stringify({ messages: messages })
+        });
+        
+        msgInput.value = '';
+        afficherMessagesClient();
+        alert("Message envoyé avec succès !");
+    } catch (e) {
+        console.error("Erreur lors de l'envoi :", e);
+    }
 }
 
-// Afficher UNIQUEMENT les messages du client actuellement connecté (basé sur le champ nom)
-// Affichage des messages groupés et séparés par nom de chaque client
-function afficherMessagesClient() {
+// 2. Afficher les messages
+async function afficherMessagesClient() {
     const container = document.getElementById('client-messages');
     if (!container) return;
     
-    const messages = JSON.parse(localStorage.getItem("admin_messages_list")) || [];
-    
-    if (messages.length === 0) {
-        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
-        return;
-    }
-    
-    // Étape 1 : Regrouper les messages par nom de client
-    let conversationsParClient = {};
-    messages.forEach(m => {
-        let nomClient = m.nom ? m.nom.trim() : "Anonyme";
-        if (!conversationsParClient[nomClient]) {
-            conversationsParClient[nomClient] = [];
-        }
-        conversationsParClient[nomClient].push(m);
-    });
-    
-    let html = '';
-    
-    // Étape 2 : Créer un bloc visuel séparé pour chaque client
-    for (let nomClient in conversationsParClient) {
-        html += `
-            <div style="background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 12px;">
-                <div style="font-weight: bold; color: #2c3e50; font-size: 0.95rem; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 8px;">
-                    👤 Client : ${nomClient}
-                </div>
-        `;
+    try {
+        const response = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await response.json();
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
-        // Afficher tous les messages de ce client spécifique
-        conversationsParClient[nomClient].forEach(m => {
-            const aRepondu = m.reponse && m.reponse.trim() !== "";
-            
-            html += `
-                <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.90rem;">
-                    <p style="margin: 0; color: #333; word-break: break-word;">${m.message}</p>
-            `;
-            
-            // Mention en attente si l'admin n'a pas répondu
-            if (!aRepondu) {
-                html += `
-                    <div style="margin-top: 6px; font-size: 0.75rem; color: #e67e22; font-style: italic;">
-                        ⏳ En attente de réponse...
-                    </div>
-                `;
+        if (messages.length === 0) {
+            container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
+            return;
+        }
+        
+        let conversationsParClient = {};
+        messages.forEach(m => {
+            let nomClient = m.nom ? m.nom.trim() : "Anonyme";
+            if (!conversationsParClient[nomClient]) {
+                conversationsParClient[nomClient] = [];
             }
-            
-            html += `</div>`;
-            
-            // Réponse de Mayah Store si elle existe
-            if (aRepondu) {
-                html += `
-                    <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px; margin-bottom: 8px; margin-left: 10px; border-radius: 4px; font-size: 0.90rem;">
-                        <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store</strong>
-                        <p style="margin: 4px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
-                    </div>
-                `;
-            }
+            conversationsParClient[nomClient].push(m);
         });
         
-        html += `</div>`; // Fin du bloc du client
+        let html = '';
+        for (let nomClient in conversationsParClient) {
+            html += `
+                <div style="background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 12px;">
+                    <div style="font-weight: bold; color: #2c3e50; font-size: 0.95rem; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 8px;">
+                        👤 Client : ${nomClient}
+                    </div>
+            `;
+            
+            conversationsParClient[nomClient].forEach(m => {
+                const aRepondu = m.reponse && m.reponse.trim() !== "";
+                
+                html += `
+                    <div style="background: #eef2f7; border-left: 3px solid #3498db; padding-8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.90rem;">
+                        <p style="margin: 0; color: #333; word-break: break-word;">${m.message}</p>
+                `;
+                
+                if (!aRepondu) {
+                    html += `
+                        <div style="margin-top: 6px; font-size: 0.75rem; color: #e67e22; font-style: italic;">
+                            ⏳ En attente de réponse...
+                        </div>
+                    `;
+                }
+                
+                html += `</div>`;
+                
+                if (aRepondu) {
+                    html += `
+                        <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px; margin-bottom: 8px; margin-left: 10px; border-radius: 4px; font-size: 0.90rem;">
+                            <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store</strong>
+                            <p style="margin: 4px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            html += `</div>`;
+        }
+        
+        container.innerHTML = html;
+    } catch (e) {
+        console.error("Erreur de chargement des messages :", e);
     }
-    
-    container.innerHTML = html;
 }
 
-// Actualisation automatique toutes les 3 secondes
-setInterval(afficherMessagesClient, 3000);
-
-// Charger les messages à l'ouverture de la page
-document.addEventListener('DOMContentLoaded', () => {
-    afficherMessagesClient();
-});
+setInterval(afficherMessagesClient, 4000);
+document.addEventListener('DOMContentLoaded', afficherMessagesClient);
