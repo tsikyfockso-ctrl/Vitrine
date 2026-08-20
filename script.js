@@ -487,7 +487,7 @@ function afficherMessagesClient() {
         // Message du client
         html += `
             <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 0.9rem;">
-                <strong style="color: #333;">${m.nom} (Vous)</strong>
+                <strong style="color: #333;">${m.nom}</strong>
                 <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
         `;
         
@@ -506,7 +506,7 @@ function afficherMessagesClient() {
         if (aRepondu) {
             html += `
                 <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
-                    <strong style="color: #27ae60;">Mayah Store (Support)</strong>
+                    <strong style="color: #27ae60;">Mayah Store</strong>
                     <p style="margin: 5px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
                 </div>
             `;
