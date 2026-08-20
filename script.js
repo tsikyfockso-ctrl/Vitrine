@@ -430,6 +430,7 @@ function toggleChat() {
 // --- CÔTÉ CLIENT : GESTION DU CHAT ET AFFICHAGE DES RÉPONSES ---
 
 // 1. Envoyer un message du client vers l'admin
+// Envoyer un message en l'associant au nom du client
 function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
@@ -442,52 +443,55 @@ function sendComment() {
         return;
     }
     
-    // Récupération de la liste partagée
+    // Récupération de la liste globale partagée avec l'admin
     let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
-    // Ajout du message du client
-    const nouveauMessageAdmin = {
+    const nouveauMessage = {
         nom: name,
         message: message,
         lu: false,
-        reponse: "" // Pas encore de réponse
+        reponse: ""
     };
     
-    messages.push(nouveauMessageAdmin);
+    messages.push(nouveauMessage);
     localStorage.setItem("admin_messages_list", JSON.stringify(messages));
     
     msgInput.value = '';
     
-    // Rafraîchir l'affichage du chat pour voir le message instantanément
+    // Rafraîchir l'affichage du chat client
     afficherMessagesClient();
 }
 
-// 2. Afficher les messages ET les réponses de l'Admin (au nom de Mayah Store) dans le chat
-// Affichage des messages et des réponses de l'Admin dans le chat client
+// Afficher UNIQUEMENT les messages du client actuellement connecté (basé sur le champ nom)
 function afficherMessagesClient() {
     const container = document.getElementById('client-messages');
+    const nameInput = document.getElementById('userName');
     if (!container) return;
+    
+    const clientNomActuel = nameInput ? nameInput.value.trim() : "";
     
     const messages = JSON.parse(localStorage.getItem("admin_messages_list")) || [];
     
-    if (messages.length === 0) {
-        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
+    // Filtrer les messages pour ne garder que ceux de ce client précis
+    const messagesDuClient = messages.filter(m => m.nom.toLowerCase() === clientNomActuel.toLowerCase());
+    
+    if (!clientNomActuel || messagesDuClient.length === 0) {
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Entrez votre nom et écrivez un message pour commencer.</p>`;
         return;
     }
     
     let html = '';
-    messages.forEach(m => {
-        // Vérifie si l'admin a répondu ou non
+    messagesDuClient.forEach(m => {
         const aRepondu = m.reponse && m.reponse.trim() !== "";
         
-        // Affichage du message envoyé par le client
+        // Message du client
         html += `
             <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 0.9rem;">
                 <strong style="color: #333;">${m.nom} (Vous)</strong>
                 <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.message}</p>
         `;
         
-        // Si l'admin n'a pas encore répondu, on affiche le badge "En attente de réponse"
+        // En attente de réponse si l'admin n'a pas répondu
         if (!aRepondu) {
             html += `
                 <div style="margin-top: 8px; font-size: 0.8rem; color: #e67e22; font-style: italic; display: flex; align-items: center; gap: 5px;">
@@ -498,7 +502,7 @@ function afficherMessagesClient() {
         
         html += `</div>`;
         
-        // Si l'administrateur a répondu, on l'affiche en dessous au nom de "Mayah Store"
+        // Réponse de l'admin (Mayah Store)
         if (aRepondu) {
             html += `
                 <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 10px; margin-bottom: 12px; margin-left: 15px; border-radius: 4px; font-size: 0.9rem;">
@@ -512,10 +516,14 @@ function afficherMessagesClient() {
     container.innerHTML = html;
 }
 
-// Actualiser automatiquement le chat toutes les 3 secondes pour voir la réponse de l'admin en temps réel
-setInterval(afficherMessagesClient, 3000);
-
-// Charger les messages à l'ouverture de la page
+// Mettre à jour l'affichage si le client change son nom dans l'input
 document.addEventListener('DOMContentLoaded', () => {
+    const nameInput = document.getElementById('userName');
+    if (nameInput) {
+        nameInput.addEventListener('input', afficherMessagesClient);
+    }
     afficherMessagesClient();
 });
+
+// Actualisation automatique pour voir la réponse de l'admin
+setInterval(afficherMessagesClient, 3000);
