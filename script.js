@@ -435,33 +435,34 @@ function sendComment() {
     const name = nameInput.value.trim();
     const message = msgInput.value.trim();
     
-    // Vérification que les champs ne sont pas vides
     if (!name || !message) {
         alert("Veuillez remplir votre nom et votre message.");
         return;
     }
     
-    // Création de l'objet message
-    const nouveauMessage = {
+    // Structure exacte attendue par admin.js
+    const nouveauMessageAdmin = {
         nom: name,
-        texte: message,
-        date: new Date().toLocaleDateString() + ' à ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        message: message,      // 'message' (et non 'texte') pour correspondre à admin.js
+        lu: false,             // Indique que le message n'est pas encore lu par l'admin
+        reponse: ""            // Champ vide pour la future réponse de l'admin
     };
     
-    // Récupération des anciens messages stockés ou création d'une liste vide
-    let messages = JSON.parse(localStorage.getItem('client_messages')) || [];
+    // Récupération de la liste partagée avec l'admin
+    let messages = JSON.parse(localStorage.getItem("admin_messages_list") || "[]");
     
-    // Ajout du nouveau message au début de la liste
-    messages.unshift(nouveauMessage);
+    // Ajout du nouveau message
+    messages.push(nouveauMessageAdmin);
     
-    // Sauvegarde dans le localStorage
-    localStorage.setItem('client_messages', JSON.stringify(messages));
+    // Sauvegarde dans le localStorage partagé
+    localStorage.setItem("admin_messages_list", JSON.stringify(messages));
     
-    // Réinitialisation du champ message (on garde le nom pour plus de confort)
+    // Réinitialisation du champ texte et confirmation
     msgInput.value = '';
+    alert("Votre message a bien été envoyé à l'administrateur !");
     
-    // Rafraîchissement de l'affichage
-    afficherMessages();
+    // Optionnel : fermer le chat après l'envoi
+    toggleChat();
 }
 
 // 3. Afficher les messages dans le panneau
