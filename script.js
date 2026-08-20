@@ -415,3 +415,83 @@ document.addEventListener('DOMContentLoaded', () => {
         container.scrollLeft = scrollLeft - walk;
     }, { passive: true });
 });
+
+// --- GESTION DU CHAT FLOTTANT ---
+
+// 1. Ouvrir ou fermer le panneau de chat
+function toggleChat() {
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup) {
+        // Alterne entre la classe 'chat-hidden' et l'affichage normal
+        chatPopup.classList.toggle('chat-hidden');
+    }
+}
+
+// 2. Envoyer un message
+function sendComment() {
+    const nameInput = document.getElementById('userName');
+    const msgInput = document.getElementById('userMsg');
+    
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+    
+    // Vérification que les champs ne sont pas vides
+    if (!name || !message) {
+        alert("Veuillez remplir votre nom et votre message.");
+        return;
+    }
+    
+    // Création de l'objet message
+    const nouveauMessage = {
+        nom: name,
+        texte: message,
+        date: new Date().toLocaleDateString() + ' à ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+    
+    // Récupération des anciens messages stockés ou création d'une liste vide
+    let messages = JSON.parse(localStorage.getItem('client_messages')) || [];
+    
+    // Ajout du nouveau message au début de la liste
+    messages.unshift(nouveauMessage);
+    
+    // Sauvegarde dans le localStorage
+    localStorage.setItem('client_messages', JSON.stringify(messages));
+    
+    // Réinitialisation du champ message (on garde le nom pour plus de confort)
+    msgInput.value = '';
+    
+    // Rafraîchissement de l'affichage
+    afficherMessages();
+}
+
+// 3. Afficher les messages dans le panneau
+function afficherMessages() {
+    const container = document.getElementById('client-messages');
+    if (!container) return;
+    
+    const messages = JSON.parse(localStorage.getItem('client_messages')) || [];
+    
+    if (messages.length === 0) {
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
+        return;
+    }
+    
+    let html = '';
+    messages.forEach(m => {
+        html += `
+            <div style="background: #f9f9f9; border-left: 3px solid #3498db; padding: 8px 10px; margin-bottom: 8px; border-radius: 4px; font-size: 0.9rem;">
+                <strong style="color: #333;">${m.nom}</strong> <span style="font-size: 0.75rem; color: #888; float: right;">${m.date}</span>
+                <p style="margin: 5px 0 0 0; color: #555; word-break: break-word;">${m.texte}</p>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// Charger les messages enregistrés dès que la page s'ouvre
+document.addEventListener('DOMContentLoaded', () => {
+    afficherMessages();
+});
+
+
