@@ -483,13 +483,21 @@ async function sendComment() {
 
 // 2. Afficher les messages
 async function afficherMessagesClient() {
+    // Vérification de sécurité si le Bin ID est vide ou non chargé
+    if (!window.CONFIG_BIN_ID || window.CONFIG_BIN_ID.includes("...")) {
+        console.error("Erreur : BIN_ID non chargé depuis config.js");
+        return;
+    }
+
+    const URL_API = `https://api.jsonbin.io/v3/b/${window.CONFIG_BIN_ID}`;
     const container = document.getElementById('client-messages');
     if (!container) return;
     
     try {
         const response = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+            headers: { 'X-Master-Key': window.CONFIG_API_KEY }
         });
+        // ... reste de votre code
         const data = await response.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
