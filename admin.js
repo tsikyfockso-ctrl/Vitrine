@@ -299,3 +299,18 @@ async function loadStock() {
         stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
     }
 }
+
+// Actualiser automatiquement le tableau des stocks toutes les 4 secondes
+setInterval(() => {
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock();
+    }
+}, 4000);
+
+// Charger le stock dès l'ouverture de la page admin
+document.addEventListener('DOMContentLoaded', () => {
+    updateNotificationBadge();
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock();
+    }
+});
