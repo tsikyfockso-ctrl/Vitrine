@@ -1,7 +1,7 @@
 // ==========================================
 // CONFIGURATION DES MARGES & SURPLUS
 // ==========================================
-const MARGE_PRODUIT = 1.30;       // +30% de marge sur le prix de base du produit
+const MARGE_PRODUIT = 1.30;        // +30% de marge sur le prix de base du produit
 const MARGE_EXPEDITION = 1.15;    // +15% de marge sur les frais de port
 
 // Stockage global des taux de change actualisés (avec vos valeurs de référence par défaut)
@@ -10,12 +10,25 @@ let tauxDeChangeActuels = { "USD": 0.86, "EUR": 1.16 };
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
     await chargerTauxDeChange();
-    loadProductsFromCJ();
+    
+    // Chargement de chaque catégorie avec son fichier JSON attitré
+    // La catégorie "femme" utilise update_stock.json
+    chargerCategorie("update_stock.json", "product-container-femme");
+    chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
+    chargerCategorie("update_stock_homme.json", "product-container-homme");
+    chargerCategorie("update_stock_acc_homme.json", "product-container-acc-homme");
+    chargerCategorie("update_stock_enfant.json", "product-container-enfant");
+    chargerCategorie("update_stock_acc_enfant.json", "product-container-acc-enfant");
+    chargerCategorie("update_stock_sante.json", "product-container-sante");
+    chargerCategorie("update_stock_maison.json", "product-container-maison");
+    chargerCategorie("update_stock_electronique.json", "product-container-electrov");
+    chargerCategorie("update_stock_informatique.json", "product-container-info");
+
     initialiserPays();
     initEventListeners();
 };
 
-// Récupération automatique des taux de change actualisés (vient écraser les valeurs par défaut si l'API répond)
+// Récupération automatique des taux de change actualisés
 async function chargerTauxDeChange() {
     try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -41,17 +54,16 @@ function obtenirDeviseEtTaux(countryCode) {
     return { devise, taux };
 }
 
-// --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
-async function loadProductsFromCJ() {
-    const jsonUrl = "update_stock.json?v=" + new Date().getTime(); // Anti-cache
-    const container = document.getElementById('product-container-femme');
+// --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
+async function chargerCategorie(jsonFileName, containerId) {
+    const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); // Anti-cache
+    const container = document.getElementById(containerId);
     
     if (!container) {
-        console.error("Erreur : L'élément HTML avec l'id 'product-container-femme' est introuvable !");
         return;
     }
 
-    container.innerHTML = `<p style="text-align:center; width:100%; padding:20px;">Chargement des produits...</p>`;
+    container.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
 
     try {
         const response = await fetch(jsonUrl);
@@ -62,90 +74,58 @@ async function loadProductsFromCJ() {
         const stock = await response.json();
         
         if (Array.isArray(stock) && stock.length > 0) {
-            localStorage.setItem("cached_cj_stock", JSON.stringify(stock));
-            renderProducts(stock, container);
+            localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
+            renderCategoryProducts(stock, container);
         } else {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:orange;">Le fichier update_stock.json est vide.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit.</p>`;
         }
     } catch (error) {
-        console.error("Erreur de chargement :", error);
+        console.error("Erreur de chargement pour " + jsonFileName, error);
         
-        const cachedStock = localStorage.getItem("cached_cj_stock");
+        const cachedStock = localStorage.getItem("cached_" + containerId);
         if (cachedStock) {
-            renderProducts(JSON.parse(cachedStock), container);
+            renderCategoryProducts(JSON.parse(cachedStock), container);
         } else {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:red;">Impossible de charger les produits.</p>`;
+            container.innerHTML = `<p style="text-align:center; width:100%; color:#e74c3c; font-size:0.85rem;">Indisponible.</p>`;
         }
     }
 }
 
-// --- 3. AFFICHAGE DES PRODUITS ---
-function renderProducts(stock) {
+// --- 3. AFFICHAGE DES PRODUITS PAR CONTENEUR ---
+function renderCategoryProducts(stock, container) {
     const { devise, taux } = obtenirDeviseEtTaux("FR");
 
-    // Associez chaque ID de conteneur à un mot-clé ou une condition de filtrage
-    const categories = [
-        { id: 'product-container-femme', keyword: 'femme' },
-        { id: 'product-container-acc-femme', keyword: 'accessoire femme' },
-        { id: 'product-container-homme', keyword: 'homme' },
-        { id: 'product-container-acc-homme', keyword: 'accessoire homme' },
-        { id: 'product-container-enfant', keyword: 'enfant' },
-        { id: 'product-container-acc-enfant', keyword: 'accessoire enfant' },
-        { id: 'product-container-sante', keyword: 'sante' },
-        { id: 'product-container-maison', keyword: 'maison' },
-        { id: 'product-container-electrov', keyword: 'electronique' },
-        { id: 'product-container-info', keyword: 'informatique' }
-    ];
-
-    categories.forEach(cat => {
-        const container = document.getElementById(cat.id);
-        if (!container) return;
-
-        // Filtrer les produits selon un mot clé présent dans le nom ou la catégorie du produit
-        const produitsFiltres = stock.filter(p => {
-            const nom = (p.nom || "").toLowerCase();
-            const categorieProd = (p.categorie || "").toLowerCase();
-            return nom.includes(cat.keyword) || categorieProd.includes(cat.keyword);
-        });
-
-        if (produitsFiltres.length === 0) {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit dans cette catégorie.</p>`;
-            return;
+    container.innerHTML = stock.map((p, index) => {
+        let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
+        let imgSrc = rawImg ? rawImg.trim() : "";
+        
+        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
+            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
         }
 
-        container.innerHTML = produitsFiltres.map((p) => {
-            // Trouver l'index global du produit dans le stock d'origine pour que la modale s'ouvre correctement
-            const indexGlobal = stock.indexOf(p);
+        let prixBrut = p.prixBase || 0;
+        if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
+            prixBrut = p.variantes[0].prix;
+        }
 
-            let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
-            let imgSrc = rawImg ? rawImg.trim() : "";
-            
-            if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
-                imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
-            }
+        let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
+        let nomProduit = p.nom || 'Sans nom';
 
-            let prixBrut = p.prixBase || 0;
-            if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
-                prixBrut = p.variantes[0].prix;
-            }
-
-            let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
-            let nomProduit = p.nom || 'Sans nom';
-
-            return `
-                <div class="card" data-nom="${nomProduit.toLowerCase()}" onclick="openProductModal(${indexGlobal})">
-                    <div class="card-img-container">
-                        <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${nomProduit}" loading="lazy">
-                    </div>
-                    <h3>${nomProduit}</h3>
-                    <p>Prix : ${prixAffiche} ${devise}</p>
-                    <button onclick="event.stopPropagation(); openProductModal(${indexGlobal})">Voir les options</button>
+        return `
+            <div class="card" data-nom="${nomProduit.toLowerCase()}" onclick="openProductModalFromCache('${container.id}', ${index})">
+                <div class="card-img-container">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${nomProduit}" loading="lazy">
                 </div>
-            `;
-        }).join('');
-    });
+                <h3>${nomProduit}</h3>
+                <p>Prix : ${prixAffiche} ${devise}</p>
+                <button onclick="event.stopPropagation(); openProductModalFromCache('${container.id}', ${index})">Voir les options</button>
+            </div>
+        `;
+    }).join('');
 }
-function defilerProduits(direction, containerId) {
+
+// --- FONCTIONS DE DÉFILEMENT ---
+function defilerProduits(direction, containerId = 'product-container-femme') {
     const container = document.getElementById(containerId);
     if (!container) return;
     
@@ -157,7 +137,8 @@ function defilerProduits(direction, containerId) {
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 }
-// --- 4. LISTE DES PAYS (RESTREINTE À US ET FR) ET GESTION DE LA MODALE ---
+
+// --- 4. LISTE DES PAYS ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
     { code: "FR", nom: "France" }, 
     { code: "US", nom: "États-Unis" }
@@ -175,8 +156,8 @@ function initialiserPays() {
 
 let currentSelectedProduct = null;
 
-function openProductModal(index) {
-    const cachedStock = localStorage.getItem("cached_cj_stock");
+function openProductModalFromCache(containerId, index) {
+    const cachedStock = localStorage.getItem("cached_" + containerId);
     if (!cachedStock) return;
     const stock = JSON.parse(cachedStock);
     currentSelectedProduct = stock[index];
@@ -317,14 +298,13 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT (AVEC MARGES & DEVISES) ---
+// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
 function calculateShipping() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
     
-    // Récupération de la devise et du taux de change (EUR pour FR, USD pour US)
     const { devise, taux } = obtenirDeviseEtTaux(countryCode);
 
     const variantSelect = document.getElementById('modalVariantSelect');
@@ -332,7 +312,6 @@ function calculateShipping() {
     
     const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
 
-    // Mise à jour du SKU spécifique à la variante sélectionnée
     const modalSkuElem = document.getElementById('modalSku');
     if (modalSkuElem) {
         modalSkuElem.innerText = varianteActuelle.sku || 'N/A';
@@ -349,7 +328,6 @@ function calculateShipping() {
         shippingMethodName = varianteActuelle.shippingMethodFR || "CJPacket Ordinary I";
     }
 
-    // Application du surplus sur les frais de port + conversion devise
     let shippingCostFinal = (shippingCostBrut + MARGE_EXPEDITION) * taux;
 
     const modalShippingName = document.getElementById('modalShippingName');
@@ -362,7 +340,6 @@ function calculateShipping() {
         modalShippingCost.innerText = `${shippingCostFinal.toFixed(2)} ${devise}`;
     }
 
-    // Application du surplus sur le prix du produit + conversion devise
     let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
     let currentPriceFinal = (currentPriceBrut + MARGE_PRODUIT) * taux;
 
@@ -371,14 +348,12 @@ function calculateShipping() {
         modalPriceElem.innerText = `${currentPriceFinal.toFixed(2)} ${devise}`;
     }
 
-    // Calcul du total global
     let totalGlobal = currentPriceFinal + shippingCostFinal;
     const modalTotalCost = document.getElementById('modalTotalCost');
     if (modalTotalCost) {
         modalTotalCost.innerText = `${totalGlobal.toFixed(2)} ${devise}`;
     }
 
-    // Actualiser également le libellé du menu déroulant des variantes avec la nouvelle devise/marge
     if (variantSelect) {
         Array.from(variantSelect.options).forEach((opt, i) => {
             const v = currentSelectedProduct.variantes[i];
@@ -396,89 +371,70 @@ function checkoutWithCard() {
 
 function initEventListeners() {}
 
-// --- FONCTION DE DÉFILEMENT DU CARROUSEL ---
-function defilerProduits(direction) {
-    const container = document.getElementById('product-container-femme');
-    if (!container) return;
-    
-    const scrollAmount = 270; 
-    
-    if (direction === 'gauche') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-}
-
-// --- GESTION DU DÉFILEMENT TACTILE (SWIPE) ---
+// --- GESTION DU DÉFILEMENT TACTILE (SWIPE) POUR CHAQUE CONTENEUR ---
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('product-container-femme');
-    if (!container) return;
+    const containerIds = [
+        'product-container-femme', 'product-container-acc-femme', 
+        'product-container-homme', 'product-container-acc-homme', 
+        'product-container-enfant', 'product-container-acc-enfant', 
+        'product-container-sante', 'product-container-maison', 
+        'product-container-electrov', 'product-container-info'
+    ];
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+    containerIds.forEach(id => {
+        const container = document.getElementById(id);
+        if (!container) return;
 
-    container.addEventListener('mousedown', (e) => {
-        isDown = true;
-        container.classList.add('active');
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('active');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        }, { passive: true });
+
+        container.addEventListener('mouseleave', () => { isDown = false; });
+        container.addEventListener('mouseup', () => { isDown = false; });
+        container.addEventListener('touchend', () => { isDown = false; });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        }, { passive: true });
     });
-
-    container.addEventListener('touchstart', (e) => {
-        isDown = true;
-        startX = e.touches[0].pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    }, { passive: true });
-
-    container.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    container.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    container.addEventListener('touchend', () => {
-        isDown = false;
-    });
-
-    container.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2;
-        container.scrollLeft = scrollLeft - walk;
-    });
-
-    container.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        const x = e.touches[0].pageX - container.offsetLeft;
-        const walk = (x - startX) * 2;
-        container.scrollLeft = scrollLeft - walk;
-    }, { passive: true });
 });
 
 // --- GESTION DU CHAT FLOTTANT ---
-
-// 1. Ouvrir ou fermer le panneau de chat
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
-        // Alterne entre la classe 'chat-hidden' et l'affichage normal
         chatPopup.classList.toggle('chat-hidden');
     }
 }
 
-// --- CÔTÉ CLIENT : GESTION DU CHAT ET AFFICHAGE DES RÉPONSES ---
-// --- SÉCURISATION DE LA CONFIGURATION CLOUD ---
 const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID) ? window.CONFIG_BIN_ID : "6a86df44f5f4af5e292ca904";
 const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? window.CONFIG_API_KEY : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
-
 const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-// 1. Envoyer un message
 async function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
@@ -527,23 +483,19 @@ async function sendComment() {
     }
 }
 
-// 2. Afficher les messages
 async function afficherMessagesClient() {
-    // Vérification de sécurité si le Bin ID est vide ou non chargé
     if (!window.CONFIG_BIN_ID || window.CONFIG_BIN_ID.includes("...")) {
-        console.error("Erreur : BIN_ID non chargé depuis config.js");
         return;
     }
 
-    const URL_API = `https://api.jsonbin.io/v3/b/${window.CONFIG_BIN_ID}`;
+    const currentUrlApi = `https://api.jsonbin.io/v3/b/${window.CONFIG_BIN_ID}`;
     const container = document.getElementById('client-messages');
     if (!container) return;
     
     try {
-        const response = await fetch(URL_API + "/latest", {
+        const response = await fetch(currentUrlApi + "/latest", {
             headers: { 'X-Master-Key': window.CONFIG_API_KEY }
         });
-        // ... reste de votre code
         const data = await response.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
@@ -574,7 +526,7 @@ async function afficherMessagesClient() {
                 const aRepondu = m.reponse && m.reponse.trim() !== "";
                 
                 html += `
-                    <div style="background: #eef2f7; border-left: 3px solid #3498db; padding-8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.90rem;">
+                    <div style="background: #eef2f7; border-left: 3px solid #3498db; padding: 8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.90rem;">
                         <p style="margin: 0; color: #333; word-break: break-word;">${m.message}</p>
                 `;
                 
