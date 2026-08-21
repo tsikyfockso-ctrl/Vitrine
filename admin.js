@@ -185,27 +185,6 @@ async function deleteMessage(index) {
     }
 }
 
-// ========================================================
-// VOTRE CODE ORIGINAL DE GESTION DE STOCK (Intact)
-// ========================================================
-
-function addProduct() {
-    const name = document.getElementById("prodName").value;
-    const price = document.getElementById("prodPrice").value;
-    const imgUrl = document.getElementById("prodImg").value; 
-    
-    if (!name || !price || !imgUrl) return alert("Veuillez remplir tous les champs (Nom, Prix, Image)");
-
-    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    stock.push({ nom: name, prix: price, img: imgUrl }); 
-    localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
-    
-    document.getElementById("prodName").value = "";
-    document.getElementById("prodPrice").value = "";
-    document.getElementById("prodImg").value = "";
-    loadStock();
-}
-
 // --- FONCTION POUR CHARGER ET AFFICHER LE STOCK (Façon Tableau Excel) ---
 async function loadStock() {
     const stockList = document.getElementById("stock-list");
