@@ -67,28 +67,20 @@ function googleTranslateElementInit() {
     
     <!-- Fonction de filtrage en direct attachée à la barre de recherche -->
     <script>
-      function filtrerProduits() {
+    function filtrerProduits() {
         const input = document.getElementById('searchInput').value.toLowerCase().trim();
-        
-        // On cible toutes les cartes de produits (adaptez '.product-card' si votre script.js utilise un autre nom de classe, ex: '.card', '.produit-item')
-        const cartesProduits = document.querySelectorAll('.product-card'); 
+        const cartesProduits = document.querySelectorAll('.card');
 
         cartesProduits.forEach(carte => {
-            // On cherche le titre dans h3, h4 ou un élément de texte de la carte
-            const titreElement = carte.querySelector('h3') || carte.querySelector('h4') || carte.querySelector('.product-title');
-            
-            if (titreElement) {
-                const titre = titreElement.textContent.toLowerCase();
-                if (titre.includes(input)) {
-                    carte.style.display = ""; // Affiche le produit
-                } else {
-                    carte.style.display = "none"; // Masque le produit
-                }
+            const nomProduit = carte.getAttribute('data-nom') || "";
+            if (nomProduit.includes(input)) {
+                carte.style.display = ""; // Affiche la carte
+            } else {
+                carte.style.display = "none"; // Masque la carte
             }
         });
-      }
-    </script>
-    
+    }
+</script>
     <script>
     // Attend que l'image soit chargée
     const logoImg = document.querySelector('.logo-container');
