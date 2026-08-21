@@ -246,6 +246,12 @@ body {
     text-align: left;    
 }
 
+#produits h3 {
+    margin-top: 50px; 
+    margin-left: 20px; 
+    text-align: left;    
+}
+
 /* --- COMPATIBILITÉ SMARTPHONE --- */
 @media (max-width: 768px) {
     body {
