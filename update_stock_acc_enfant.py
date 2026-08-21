@@ -6,7 +6,7 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Lady Dress", "Women Dress", "Women clothing"]
+MOTS_CLES_RECHERCHE = ["Kids Accessories", "Baby Accessories", "School Bags", "Kids Toys", "Baby Caps"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
@@ -172,9 +172,9 @@ def generate_update_stock_json():
     
     # 1. Charger l'ancien fichier JSON existant pour préserver les produits ayant encore du stock
     produits_existants = {}
-    if os.path.exists("update_stock.json"):
+    if os.path.exists("update_stock_acc_enfant.json"):
         try:
-            with open("update_stock.json", "r", encoding="utf-8") as f:
+            with open("update_stock_acc_enfant.json", "r", encoding="utf-8") as f:
                 old_data = json.load(f)
                 if isinstance(old_data, list):
                     for p in old_data:
@@ -190,7 +190,7 @@ def generate_update_stock_json():
     if not token:
         # S'il n'y a pas de token, on conserve au moins ce qu'on a déjà en stock
         if produits_existants:
-            with open("update_stock.json", "w", encoding="utf-8") as f:
+            with open("update_stock_acc_enfant.json", "w", encoding="utf-8") as f:
                 json.dump(list(produits_existants.values()), f, ensure_ascii=False, indent=4)
         return
 
@@ -240,7 +240,7 @@ def generate_update_stock_json():
     if not products_to_process:
         # Si l'API ne renvoie rien, on garde les anciens produits en stock
         resultat_final = list(produits_existants.values())
-        with open("update_stock.json", "w", encoding="utf-8") as f:
+        with open("update_stock_acc_enfant.json", "w", encoding="utf-8") as f:
             json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         print("🎉 Succès global : Utilisation des stocks existants (aucun nouveau produit récupéré)")
         return
@@ -402,10 +402,10 @@ def generate_update_stock_json():
 
     resultat_final = list(produits_figures.values())
 
-    with open("update_stock.json", "w", encoding="utf-8") as f:
+    with open("update_stock_acc_enfant.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Succès global : {len(resultat_final)} produits actifs enregistrés dans update_stock.json")
+    print(f"🎉 Succès global : {len(resultat_final)} produits actifs enregistrés dans update_stock_acc_enfant.json")
 
 if __name__ == "__main__":
-    generate_update_stock_json()
+    generate_update_stock_acc_enfant_json()
