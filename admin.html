@@ -45,6 +45,10 @@
         </div>
         <div class="stock-manager">
     <h3>Gestion de Stock</h3>
+ <!-- Barre de recherche pour le stock -->
+    <div style="margin-bottom: 15px;">
+        <input type="text" id="stockSearchInput" placeholder="Rechercher par nom de produit ou SKU..." onkeyup="filterStock()" style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+    </div>
     <!-- C'est ici que le tableau Excel va s'injecter automatiquement -->
     <div id="stock-list"></div>
 </div>
