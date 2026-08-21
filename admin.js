@@ -97,7 +97,6 @@ async function checkAdminNotifications() {
             
             contenuHtml += `</div>`;
             
-            // Bouton Effacer moderne
             const boutonEffacer = `
                 <button class="delete-btn" onclick="deleteMessage(${index})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-left: 10px;">Effacer</button>
             `;
@@ -164,10 +163,8 @@ async function deleteMessage(index) {
         const data = await getRes.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
-        // Supprime le message ciblée
         messages.splice(index, 1);
         
-        // Sauvegarde la liste mise à jour sur JSONbin.io
         await fetch(URL_API, {
             method: 'PUT',
             headers: {
@@ -184,39 +181,53 @@ async function deleteMessage(index) {
         alert("Erreur lors de la suppression.");
     }
 }
-// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK SILENCIEUSEMENT ---
-// Variable globale pour stocker temporairement les données du stock
+
+// --- GESTION DU FICHIER JSON ACTIF SELON LE SÉLECTEUR ---
+function getFichierActif() {
+    const select = document.getElementById('adminCategorySelect');
+    if (select) {
+        return select.value; // Récupère dynamiquement le fichier sélectionné (ex: update_stock_homme.json)
+    }
+    return "update_stock.json"; // Sécurité par défaut
+}
+
+// Appelée automatiquement quand on change de catégorie dans le select de l'admin.html
+function changerFichierAdmin() {
+    loadStock(false);
+}
+
+// --- GESTION DU STOCK ET CHARGEMENT DYNAMIQUE ---
 let globalStockData = [];
 
-// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK SILENCIEUSEMENT ---
 async function loadStock(silent = false) {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
 
+    const fichierActif = getFichierActif();
+
     if (!silent && stockList.innerHTML.trim() === "") {
-        stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des détails du stock...</p>";
+        stockList.innerHTML = `<p style='padding: 10px; color: #666;'>Chargement des détails du stock pour ${fichierActif}...</p>`;
     }
 
     try {
-        const response = await fetch("update_stock.json?v=" + new Date().getTime());
-        if (!response.ok) throw new Error("Impossible de charger update_stock.json");
+        const response = await fetch(fichierActif + "?v=" + new Date().getTime());
+        if (!response.ok) throw new Error(`Impossible de charger ${fichierActif}`);
         
         globalStockData = await response.json();
         
         if (!Array.isArray(globalStockData) || globalStockData.length === 0) {
             if (!silent) {
-                stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans le stock.</p>`;
+                stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans cette catégorie (${fichierActif}).</p>`;
             }
             return;
         }
 
-        // On affiche le stock en tenant compte de la recherche active
         renderStockTable();
 
     } catch (e) {
         console.error("Erreur lors du chargement des détails du stock :", e);
         if (!silent) {
-            stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
+            stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier ${fichierActif}</p>`;
         }
     }
 }
@@ -261,7 +272,6 @@ function renderStockTable() {
         if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
             produit.variantes.forEach((v) => {
                 const skuVar = v.sku || '';
-                // Vérifie si le produit correspond à la recherche (par nom ou par SKU)
                 const correspond = nomProduit.toLowerCase().includes(searchTerm) || skuVar.toLowerCase().includes(searchTerm);
 
                 if (correspond) {
