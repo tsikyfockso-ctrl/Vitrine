@@ -143,6 +143,38 @@ async function envoyerReponseAdmin(index) {
     }
 }
 
+// 4. Fonction pour supprimer un message du cloud
+async function deleteMessage(index) {
+    if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
+    
+    try {
+        const getRes = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
+        });
+        const data = await getRes.json();
+        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        
+        // Supprime le message ciblée
+        messages.splice(index, 1);
+        
+        // Sauvegarde la liste mise à jour sur JSONbin.io
+        await fetch(URL_API, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': API_KEY
+            },
+            body: JSON.stringify({ messages: messages })
+        });
+        
+        checkAdminNotifications();
+        updateNotificationBadge();
+    } catch (e) {
+        console.error("Erreur lors de la suppression du message :", e);
+        alert("Erreur lors de la suppression.");
+    }
+}
+
 // ========================================================
 // VOTRE CODE ORIGINAL DE GESTION DE STOCK (Intact)
 // ========================================================
