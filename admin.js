@@ -1,8 +1,6 @@
 // --- CONFIGURATION CLOUD (Récupérée depuis config.js et les secrets) ---
-// --- SÉCURISATION DE LA CONFIGURATION CLOUD ADMIN ---
-const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID) ? window.CONFIG_BIN_ID : "6a86df44f5f4af5e292ca904";
-const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? window.CONFIG_API_KEY : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
-
+const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID) ? window.CONFIG_BIN_ID : "6a86df44f5f4af5e292ca904"; 
+const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? window.CONFIG_API_KEY : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva"; 
 const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
@@ -43,7 +41,7 @@ async function updateNotificationBadge() {
     }
 }
 
-// 2. Liste des messages Admin (récupérés depuis le cloud JSONbin.io)
+// 2. Liste des messages Admin (récupérés depuis le cloud JSONbin.io avec le bouton Effacer)
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
@@ -73,19 +71,23 @@ async function checkAdminNotifications() {
             div.style.padding = "10px";
             div.style.borderBottom = "1px solid #eee";
             div.style.marginBottom = "8px";
+            div.style.display = "flex";
+            div.style.alignItems = "flex-start";
+            div.style.justifyContent = "space-between";
             
-            div.innerHTML = `
-                <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
+            let contenuHtml = `
+                <div style="flex-grow: 1;">
+                    <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
             `;
             
             if (aRepondu) {
-                div.innerHTML += `
+                contenuHtml += `
                     <div style="margin-top: 5px; margin-left: 20px; font-size: 0.9rem; color: #27ae60; background: #e8f8f5; padding: 6px; border-radius: 4px;">
                         <strong>Votre réponse :</strong> ${note.reponse}
                     </div>
                 `;
             } else {
-                div.innerHTML += `
+                contenuHtml += `
                     <div style="margin-top: 8px; margin-left: 20px;">
                         <input type="text" id="admin-reply-${index}" placeholder="Écrire une réponse..." style="width: 70%; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
                         <button onclick="envoyerReponseAdmin(${index})" style="background: #27ae60; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 5px;">Répondre</button>
@@ -93,6 +95,14 @@ async function checkAdminNotifications() {
                 `;
             }
             
+            contenuHtml += `</div>`;
+            
+            // Bouton Effacer moderne
+            const boutonEffacer = `
+                <button class="delete-btn" onclick="deleteMessage(${index})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-left: 10px;">Effacer</button>
+            `;
+            
+            div.innerHTML = contenuHtml + boutonEffacer;
             inbox.appendChild(div);
         });
         
@@ -179,16 +189,15 @@ async function deleteMessage(index) {
 // VOTRE CODE ORIGINAL DE GESTION DE STOCK (Intact)
 // ========================================================
 
-// Fonction pour ajouter un produit
 function addProduct() {
     const name = document.getElementById("prodName").value;
     const price = document.getElementById("prodPrice").value;
-    const imgUrl = document.getElementById("prodImg").value; // Capture l'URL
+    const imgUrl = document.getElementById("prodImg").value; 
     
     if (!name || !price || !imgUrl) return alert("Veuillez remplir tous les champs (Nom, Prix, Image)");
 
     let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    stock.push({ nom: name, prix: price, img: imgUrl }); // Ajoute img à l'objet
+    stock.push({ nom: name, prix: price, img: imgUrl }); 
     localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
     
     document.getElementById("prodName").value = "";
@@ -197,7 +206,6 @@ function addProduct() {
     loadStock();
 }
 
-// Fonction pour charger et afficher le stock
 function loadStock() {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
@@ -211,7 +219,6 @@ function loadStock() {
     `).join('');
 }
 
-// Fonction pour supprimer un produit
 function removeProduct(index) {
     let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
     stock.splice(index, 1);
@@ -219,10 +226,8 @@ function removeProduct(index) {
     loadStock();
 }
 
-// Actualiser automatiquement le badge et les notifications admin en arrière-plan
 setInterval(updateNotificationBadge, 4000);
 
-// Vérifier au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
