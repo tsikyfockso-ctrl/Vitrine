@@ -99,13 +99,13 @@ function renderProducts(stock, container) {
 
         // Application de la marge + conversion devise
         let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
-        
+        const nomProduit = p.nom || 'Sans nom';
         return `
-            <div class="card" onclick="openProductModal(${index})">
+            <div class="card" data-nom="${nomProduit.toLowerCase()}" onclick="openProductModal(${index})">
                 <div class="card-img-container">
-                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${p.nom || 'Produit'}" loading="lazy">
+                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${nomProduit}" loading="lazy">
                 </div>
-                <h3>${p.nom || 'Sans nom'}</h3>
+                <h3>${nomProduit}</h3>
                 <p>Prix : ${prixAffiche} ${devise}</p>
                 <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
             </div>
