@@ -49,19 +49,88 @@ function googleTranslateElementInit() {
         <button onclick="location.href='#produits'">Voir les produits</button>
     </div>
     </header>
-
+    
     <section id="produits">
-           <h2>Vêtements pour Femme</h2>
-        <div class="carousel-wrapper">
-        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche')">&#10094;</button>
-        
-        <div id="product-container" class="products-grid">
-            </div>
-        
-        <button class="carousel-btn next-btn" onclick="defilerProduits('droite')">&#10095;</button>
+    <!-- Vêtements pour Femme -->
+    <h2>Vêtements pour Femme</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-femme')">&#10094;</button>
+        <div id="product-container-femme" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-femme')">&#10095;</button>
     </div>
-        <h3>Accessoires pour Femme</h3>
-    </section>
+
+    <!-- Accessoires pour Femme -->
+    <h2>Accessoires pour Femme</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-acc-femme')">&#10094;</button>
+        <div id="product-container-acc-femme" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-acc-femme')">&#10095;</button>
+    </div>
+
+    <!-- Vêtements pour Homme -->
+    <h2>Vêtements pour Homme</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-homme')">&#10094;</button>
+        <div id="product-container-homme" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-homme')">&#10095;</button>
+    </div>
+
+    <!-- Accessoires pour Homme -->
+    <h2>Accessoires pour Homme</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-acc-homme')">&#10094;</button>
+        <div id="product-container-acc-homme" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-acc-homme')">&#10095;</button>
+    </div>
+
+    <!-- Vêtements pour Enfant -->
+    <h2>Vêtements pour Enfant</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-enfant')">&#10094;</button>
+        <div id="product-container-enfant" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-enfant')">&#10095;</button>
+    </div>
+
+    <!-- Accessoires pour Enfant -->
+    <h2>Accessoires pour Enfant</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-acc-enfant')">&#10094;</button>
+        <div id="product-container-acc-enfant" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-acc-enfant')">&#10095;</button>
+    </div>
+
+    <!-- Santé et Bien-être -->
+    <h2>Santé et Bien-être</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-sante')">&#10094;</button>
+        <div id="product-container-sante" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-sante')">&#10095;</button>
+    </div>
+
+    <!-- Accessoires Maison et Meuble -->
+    <h2>Accessoires Maison et Meuble</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-maison')">&#10094;</button>
+        <div id="product-container-maison" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-maison')">&#10095;</button>
+    </div>
+
+    <!-- Accessoires Électroniques -->
+    <h2>Accessoires Électroniques</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-electrov')">&#10094;</button>
+        <div id="product-container-electrov" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-electrov')">&#10095;</button>
+    </div>
+
+    <!-- Accessoires Informatiques -->
+    <h2>Accessoires Informatiques</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" onclick="defilerProduits('gauche', 'product-container-info')">&#10094;</button>
+        <div id="product-container-info" class="products-grid"></div>
+        <button class="carousel-btn next-btn" onclick="defilerProduits('droite', 'product-container-info')">&#10095;</button>
+    </div>
+</section>
     <script src="config.js"></script>
     <script src="script.js"></script>
     
