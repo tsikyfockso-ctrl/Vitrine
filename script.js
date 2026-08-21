@@ -80,39 +80,83 @@ async function loadProductsFromCJ() {
 }
 
 // --- 3. AFFICHAGE DES PRODUITS ---
-function renderProducts(stock, container) {
-    // Par défaut affichage catalogue basé sur la France (EUR)
+function renderProducts(stock) {
     const { devise, taux } = obtenirDeviseEtTaux("FR");
 
-    container.innerHTML = stock.map((p, index) => {
-        let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
-        let imgSrc = rawImg ? rawImg.trim() : "";
-        
-        if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
-            imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
+    // Associez chaque ID de conteneur à un mot-clé ou une condition de filtrage
+    const categories = [
+        { id: 'product-container-femme', keyword: 'femme' },
+        { id: 'product-container-acc-femme', keyword: 'accessoire femme' },
+        { id: 'product-container-homme', keyword: 'homme' },
+        { id: 'product-container-acc-homme', keyword: 'accessoire homme' },
+        { id: 'product-container-enfant', keyword: 'enfant' },
+        { id: 'product-container-acc-enfant', keyword: 'accessoire enfant' },
+        { id: 'product-container-sante', keyword: 'sante' },
+        { id: 'product-container-maison', keyword: 'maison' },
+        { id: 'product-container-electrov', keyword: 'electronique' },
+        { id: 'product-container-info', keyword: 'informatique' }
+    ];
+
+    categories.forEach(cat => {
+        const container = document.getElementById(cat.id);
+        if (!container) return;
+
+        // Filtrer les produits selon un mot clé présent dans le nom ou la catégorie du produit
+        const produitsFiltres = stock.filter(p => {
+            const nom = (p.nom || "").toLowerCase();
+            const categorieProd = (p.categorie || "").toLowerCase();
+            return nom.includes(cat.keyword) || categorieProd.includes(cat.keyword);
+        });
+
+        if (produitsFiltres.length === 0) {
+            container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit dans cette catégorie.</p>`;
+            return;
         }
 
-        let prixBrut = p.prixBase || 0;
-        if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
-            prixBrut = p.variantes[0].prix;
-        }
+        container.innerHTML = produitsFiltres.map((p) => {
+            // Trouver l'index global du produit dans le stock d'origine pour que la modale s'ouvre correctement
+            const indexGlobal = stock.indexOf(p);
 
-        // Application de la marge + conversion devise
-        let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
-        const nomProduit = p.nom || 'Sans nom';
-        return `
-            <div class="card" data-nom="${nomProduit.toLowerCase()}" onclick="openProductModal(${index})">
-                <div class="card-img-container">
-                    <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${nomProduit}" loading="lazy">
+            let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
+            let imgSrc = rawImg ? rawImg.trim() : "";
+            
+            if (imgSrc.includes("alicdn.com") || imgSrc.includes("cj") || imgSrc.includes("aliexpress")) {
+                imgSrc = `https://wsrv.nl/?url=${encodeURIComponent(imgSrc)}&w=400&fit=cover`;
+            }
+
+            let prixBrut = p.prixBase || 0;
+            if (p.variantes && p.variantes.length > 0 && p.variantes[0].prix !== undefined) {
+                prixBrut = p.variantes[0].prix;
+            }
+
+            let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
+            let nomProduit = p.nom || 'Sans nom';
+
+            return `
+                <div class="card" data-nom="${nomProduit.toLowerCase()}" onclick="openProductModal(${indexGlobal})">
+                    <div class="card-img-container">
+                        <img src="${imgSrc || 'https://via.placeholder.com/300x200'}" alt="${nomProduit}" loading="lazy">
+                    </div>
+                    <h3>${nomProduit}</h3>
+                    <p>Prix : ${prixAffiche} ${devise}</p>
+                    <button onclick="event.stopPropagation(); openProductModal(${indexGlobal})">Voir les options</button>
                 </div>
-                <h3>${nomProduit}</h3>
-                <p>Prix : ${prixAffiche} ${devise}</p>
-                <button onclick="event.stopPropagation(); openProductModal(${index})">Voir les options</button>
-            </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
+    });
 }
-
+function defilerProduits(direction, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    const scrollAmount = 270; 
+    
+    if (direction === 'gauche') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
 // --- 4. LISTE DES PAYS (RESTREINTE À US ET FR) ET GESTION DE LA MODALE ---
 const listeDesPaysMondiaux = [
     { code: "FR", nom: "France" }, 
