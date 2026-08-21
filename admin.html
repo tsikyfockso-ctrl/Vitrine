@@ -45,6 +45,21 @@
         </div>
         <div class="stock-manager">
     <h3>Gestion de Stock</h3>
+        <div style="margin-bottom: 15px;">
+                <label for="adminCategorySelect"><strong>Sélectionner la catégorie à gérer :</strong></label>
+                <select id="adminCategorySelect" onchange="changerFichierAdmin()" style="padding: 8px; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc; margin-left: 10px;">
+                    <option value="update_stock.json">Vêtements pour Femme (update_stock.json)</option>
+                    <option value="update_stock_acc_femme.json">Accessoires pour Femme</option>
+                    <option value="update_stock_homme.json">Vêtements pour Homme</option>
+                    <option value="update_stock_acc_homme.json">Accessoires pour Homme</option>
+                    <option value="update_stock_enfant.json">Vêtements pour Enfant</option>
+                    <option value="update_stock_acc_enfant.json">Accessoires pour Enfant</option>
+                    <option value="update_stock_sante.json">Santé et Bien-être</option>
+                    <option value="update_stock_maison.json">Maison et Meuble</option>
+                    <option value="update_stock_electronique.json">Électronique</option>
+                    <option value="update_stock_informatique.json">Informatique</option>
+                </select>
+            </div>
  <!-- Barre de recherche pour le stock -->
     <div style="margin-bottom: 15px;">
         <input type="text" id="stockSearchInput" placeholder="Rechercher par nom de produit ou SKU..." onkeyup="filterStock()" style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
