@@ -455,7 +455,7 @@ body {
     margin: 0 auto;
 }
 
-#product-container {
+#product-container-femme {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -467,11 +467,11 @@ body {
     -webkit-overflow-scrolling: touch; 
 }
 
-#product-container::-webkit-scrollbar {
+#product-container-femme::-webkit-scrollbar {
     display: none; 
 }
 
-#product-container .card {
+#product-container-femme .card {
     flex: 0 0 250px !important;
     width: 250px !important;
     box-sizing: border-box;
