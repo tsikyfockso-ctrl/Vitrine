@@ -206,31 +206,96 @@ function addProduct() {
     loadStock();
 }
 
-function loadStock() {
+// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK (Façon Tableau Excel) ---
+async function loadStock() {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
-    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    
-    stockList.innerHTML = stock.map((p, index) => `
-        <div style="padding: 10px; border-bottom: 1px solid #ccc;">
-            ${p.nom} - ${p.prix}€ 
-            <button onclick="removeProduct(${index})">Supprimer</button>
-        </div>
-    `).join('');
-}
 
-function removeProduct(index) {
-    let stock = JSON.parse(localStorage.getItem("aliexpress_stock") || "[]");
-    stock.splice(index, 1);
-    localStorage.setItem("aliexpress_stock", JSON.stringify(stock));
-    loadStock();
-}
+    stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des produits depuis le stock...</p>";
 
-setInterval(updateNotificationBadge, 4000);
+    try {
+        // On récupère le fichier JSON des produits mis à jour (avec anti-cache)
+        const response = await fetch("update_stock.json?v=" + new Date().getTime());
+        if (!response.ok) throw new Error("Impossible de charger update_stock.json");
+        
+        const stock = await response.json();
+        
+        if (!Array.isArray(stock) || stock.length === 0) {
+            stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans le stock.</p>`;
+            return;
+        }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateNotificationBadge();
-    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock();
+        // Création d'un style de tableau type Excel / Lignes séparées
+        let html = `
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.9rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #2c3e50; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Image</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Nom du Produit</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Variante (Taille / Couleur)</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">SKU</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Prix de Base (€)</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        stock.forEach((produit, pIndex) => {
+            const nomProduit = produit.nom || "Produit sans nom";
+            let rawImg = Array.isArray(produit.images) ? produit.images[0] : produit.images;
+            let imgSrc = rawImg ? rawImg.trim() : "https://via.placeholder.com/50";
+
+            // Si le produit possède des variantes, on crée une ligne par variante
+            if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
+                produit.variantes.forEach((v, vIndex) => {
+                    html += `
+                        <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                                <img src="${imgSrc}" alt="" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                            </td>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #333;">${nomProduit}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; color: #555;">
+                                📦 Taille : <strong>${v.taille || 'Standard'}</strong> | Couleur : <strong>${v.couleur || 'N/A'}</strong>
+                            </td>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-family: monospace; font-size: 0.85rem; color: #666;">${v.sku || 'N/A'}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${v.prix ? v.prix + ' €' : 'N/A'}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                                <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Supprimer</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } else {
+                // S'il n'y a pas de variantes explicites, on affiche une ligne simple pour le produit
+                html += `
+                    <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                            <img src="${imgSrc}" alt="" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                        </td>
+                        <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #333;">${nomProduit}</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; color: #777; font-style: italic;">Aucune variante</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">N/A</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${produit.prixBase ? produit.prixBase + ' €' : 'N/A'}</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                            <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Supprimer</button>
+                        </td>
+                    </tr>
+                `;
+            }
+        });
+
+        html += `
+                    </tbody>
+                </table>
+            </div>
+        `;
+
+        stockList.innerHTML = html;
+
+    } catch (e) {
+        console.error("Erreur lors du chargement du stock admin :", e);
+        stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
     }
-});
+}
