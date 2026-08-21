@@ -167,7 +167,7 @@ def traduire_texte(texte):
     except Exception:
         return texte_propre
 
-def generate_update_stock_json():
+def generate_update_stock_acc_enfant_json():
     token = get_cj_access_token()
     
     # 1. Charger l'ancien fichier JSON existant pour préserver les produits ayant encore du stock
