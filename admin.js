@@ -186,14 +186,14 @@ async function deleteMessage(index) {
 }
 
 // --- FONCTION POUR CHARGER ET AFFICHER LE STOCK (Façon Tableau Excel) ---
+// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK AVEC TOUS LES DÉTAILS ---
 async function loadStock() {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
 
-    stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des produits depuis le stock...</p>";
+    stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des détails du stock...</p>";
 
     try {
-        // On récupère le fichier JSON des produits mis à jour (avec anti-cache)
         const response = await fetch("update_stock.json?v=" + new Date().getTime());
         if (!response.ok) throw new Error("Impossible de charger update_stock.json");
         
@@ -204,18 +204,26 @@ async function loadStock() {
             return;
         }
 
-        // Création d'un style de tableau type Excel / Lignes séparées
+        // Tableau complet avec toutes vos colonnes demandées
         let html = `
             <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.9rem; text-align: left;">
+                <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; text-align: left; white-space: nowrap;">
                     <thead>
                         <tr style="background: #2c3e50; color: white;">
-                            <th style="padding: 10px; border: 1px solid #ddd;">Image</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">Nom du Produit</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">Variante (Taille / Couleur)</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">SKU</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">Prix de Base (€)</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Image</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Nom du Produit</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">VID</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Taille</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Couleur</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">SKU</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Prix (€)</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Poids (g)</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Stock</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Méthode FR</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Port FR (€)</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Méthode US</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Port US (€)</th>
+                            <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -224,41 +232,45 @@ async function loadStock() {
         stock.forEach((produit, pIndex) => {
             const nomProduit = produit.nom || "Produit sans nom";
             let rawImg = Array.isArray(produit.images) ? produit.images[0] : produit.images;
-            let imgSrc = rawImg ? rawImg.trim() : "https://via.placeholder.com/50";
+            let imgSrc = rawImg ? rawImg.trim() : "https://via.placeholder.com/40";
 
-            // Si le produit possède des variantes, on crée une ligne par variante
             if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
                 produit.variantes.forEach((v, vIndex) => {
                     html += `
                         <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
-                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
-                                <img src="${imgSrc}" alt="" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                            <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
+                                <img src="${imgSrc}" alt="" style="width: 35px; height: 35px; object-fit: cover; border-radius: 4px;">
                             </td>
-                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #333;">${nomProduit}</td>
-                            <td style="padding: 8px; border: 1px solid #ddd; color: #555;">
-                                📦 Taille : <strong>${v.taille || 'Standard'}</strong> | Couleur : <strong>${v.couleur || 'N/A'}</strong>
-                            </td>
-                            <td style="padding: 8px; border: 1px solid #ddd; font-family: monospace; font-size: 0.85rem; color: #666;">${v.sku || 'N/A'}</td>
-                            <td style="padding: 8px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${v.prix ? v.prix + ' €' : 'N/A'}</td>
-                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
-                                <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Supprimer</button>
+                            <td style="padding: 6px; border: 1px solid #ddd; font-weight: bold; color: #333;">${nomProduit}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.vid || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.taille || 'Standard'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.couleur || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; font-family: monospace; font-size: 0.8rem; color: #666;">${v.sku || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${v.prix !== undefined ? v.prix + ' €' : 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.poids !== undefined ? v.poids : 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #2980b9; font-weight: bold;">${v.stock !== undefined ? v.stock : 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555; font-size: 0.8rem;">${v.shippingMethodFR || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #e67e22;">${v.shippingCostFR !== undefined ? v.shippingCostFR + ' €' : 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #555; font-size: 0.8rem;">${v.shippingMethodUS || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; color: #e67e22;">${v.shippingCostUS !== undefined ? v.shippingCostUS + ' €' : 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
+                                <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
                             </td>
                         </tr>
                     `;
                 });
             } else {
-                // S'il n'y a pas de variantes explicites, on affiche une ligne simple pour le produit
+                // S'il n'y a pas de variantes
                 html += `
                     <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
-                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
-                            <img src="${imgSrc}" alt="" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                        <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
+                            <img src="${imgSrc}" alt="" style="width: 35px; height: 35px; object-fit: cover; border-radius: 4px;">
                         </td>
-                        <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #333;">${nomProduit}</td>
-                        <td style="padding: 8px; border: 1px solid #ddd; color: #777; font-style: italic;">Aucune variante</td>
-                        <td style="padding: 8px; border: 1px solid #ddd;">N/A</td>
-                        <td style="padding: 8px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${produit.prixBase ? produit.prixBase + ' €' : 'N/A'}</td>
-                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
-                            <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Supprimer</button>
+                        <td style="padding: 6px; border: 1px solid #ddd; font-weight: bold; color: #333;" colspan="5">${nomProduit} (Pas de variante)</td>
+                        <td style="padding: 6px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${produit.prixBase ? produit.prixBase + ' €' : 'N/A'}</td>
+                        <td style="padding: 6px; border: 1px solid #ddd;" colspan="6">N/A</td>
+                        <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
+                            <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
                         </td>
                     </tr>
                 `;
@@ -274,7 +286,7 @@ async function loadStock() {
         stockList.innerHTML = html;
 
     } catch (e) {
-        console.error("Erreur lors du chargement du stock admin :", e);
+        console.error("Erreur lors du chargement des détails du stock :", e);
         stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
     }
 }
