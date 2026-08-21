@@ -184,14 +184,15 @@ async function deleteMessage(index) {
         alert("Erreur lors de la suppression.");
     }
 }
+// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK SILENCIEUSEMENT ---
+// Variable globale pour stocker temporairement les données du stock
+let globalStockData = [];
 
-// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK AVEC TOUS LES DÉTAILS ---
 // --- FONCTION POUR CHARGER ET AFFICHER LE STOCK SILENCIEUSEMENT ---
 async function loadStock(silent = false) {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
 
-    // On n'affiche le message de chargement que si ce n'est pas un rafraîchissement automatique en arrière-plan
     if (!silent && stockList.innerHTML.trim() === "") {
         stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des détails du stock...</p>";
     }
@@ -200,49 +201,73 @@ async function loadStock(silent = false) {
         const response = await fetch("update_stock.json?v=" + new Date().getTime());
         if (!response.ok) throw new Error("Impossible de charger update_stock.json");
         
-        const stock = await response.json();
+        globalStockData = await response.json();
         
-        if (!Array.isArray(stock) || stock.length === 0) {
+        if (!Array.isArray(globalStockData) || globalStockData.length === 0) {
             if (!silent) {
                 stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans le stock.</p>`;
             }
             return;
         }
 
-        // Tableau complet avec toutes vos colonnes
-        let html = `
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; text-align: left; white-space: nowrap;">
-                    <thead>
-                        <tr style="background: #2c3e50; color: white;">
-                            <th style="padding: 8px; border: 1px solid #ddd;">Image</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Nom du Produit</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">VID</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Taille</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Couleur</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">SKU</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Prix (€)</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Poids (g)</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Stock</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Méthode FR</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Port FR (€)</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Méthode US</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Port US (€)</th>
-                            <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        `;
+        // On affiche le stock en tenant compte de la recherche active
+        renderStockTable();
 
-        stock.forEach((produit, pIndex) => {
-            const nomProduit = produit.nom || "Produit sans nom";
-            let rawImg = Array.isArray(produit.images) ? produit.images[0] : produit.images;
-            let imgSrc = rawImg ? rawImg.trim() : "https://via.placeholder.com/40";
+    } catch (e) {
+        console.error("Erreur lors du chargement des détails du stock :", e);
+        if (!silent) {
+            stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
+        }
+    }
+}
 
-            if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
-                produit.variantes.forEach((v, vIndex) => {
+// --- FONCTION POUR RENDRE LE TABLEAU (AVEC OU SANS FILTRE) ---
+function renderStockTable() {
+    const stockList = document.getElementById("stock-list");
+    const searchInput = document.getElementById("stockSearchInput");
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+    let html = `
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; text-align: left; white-space: nowrap;">
+                <thead>
+                    <tr style="background: #2c3e50; color: white;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">Image</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Nom du Produit</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">VID</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Taille</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Couleur</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">SKU</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Prix (€)</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Poids (g)</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Stock</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Méthode FR</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Port FR (€)</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Méthode US</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Port US (€)</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+    let lignesAjoutees = 0;
+
+    globalStockData.forEach((produit, pIndex) => {
+        const nomProduit = produit.nom || "Produit sans nom";
+        let rawImg = Array.isArray(produit.images) ? produit.images[0] : produit.images;
+        let imgSrc = rawImg ? rawImg.trim() : "https://via.placeholder.com/40";
+
+        if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
+            produit.variantes.forEach((v) => {
+                const skuVar = v.sku || '';
+                // Vérifie si le produit correspond à la recherche (par nom ou par SKU)
+                const correspond = nomProduit.toLowerCase().includes(searchTerm) || skuVar.toLowerCase().includes(searchTerm);
+
+                if (correspond) {
+                    lignesAjoutees++;
                     html += `
-                        <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+                        <tr style="border-bottom: 1px solid #eee; background: ${lignesAjoutees % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
                             <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
                                 <img src="${imgSrc}" alt="" style="width: 35px; height: 35px; object-fit: cover; border-radius: 4px;">
                             </td>
@@ -250,7 +275,7 @@ async function loadStock(silent = false) {
                             <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.vid || 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.taille || 'Standard'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.couleur || 'N/A'}</td>
-                            <td style="padding: 6px; border: 1px solid #ddd; font-family: monospace; font-size: 0.8rem; color: #666;">${v.sku || 'N/A'}</td>
+                            <td style="padding: 6px; border: 1px solid #ddd; font-family: monospace; font-size: 0.8rem; color: #666;">${skuVar || 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #27ae60; font-weight: bold;">${v.prix !== undefined ? v.prix + ' €' : 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #555;">${v.poids !== undefined ? v.poids : 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #2980b9; font-weight: bold;">${v.stock !== undefined ? v.stock : 'N/A'}</td>
@@ -263,10 +288,14 @@ async function loadStock(silent = false) {
                             </td>
                         </tr>
                     `;
-                });
-            } else {
+                }
+            });
+        } else {
+            const correspond = nomProduit.toLowerCase().includes(searchTerm);
+            if (correspond) {
+                lignesAjoutees++;
                 html += `
-                    <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+                    <tr style="border-bottom: 1px solid #eee; background: ${lignesAjoutees % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
                         <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
                             <img src="${imgSrc}" alt="" style="width: 35px; height: 35px; object-fit: cover; border-radius: 4px;">
                         </td>
@@ -279,25 +308,28 @@ async function loadStock(silent = false) {
                     </tr>
                 `;
             }
-        });
-
-        html += `
-                    </tbody>
-                </table>
-            </div>
-        `;
-
-        stockList.innerHTML = html;
-
-    } catch (e) {
-        console.error("Erreur lors du chargement des détails du stock :", e);
-        if (!silent) {
-            stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
         }
+    });
+
+    if (lignesAjoutees === 0) {
+        html += `<tr><td colspan="14" style="text-align: center; padding: 15px; color: #777;">Aucun produit ou SKU trouvé pour cette recherche.</td></tr>`;
     }
+
+    html += `
+                </tbody>
+            </table>
+        </div>
+    `;
+
+    stockList.innerHTML = html;
 }
 
-// Actualisation automatique silencieuse toutes les 4 secondes (passe 'true' pour éviter le clignotement)
+// --- FONCTION DE DÉCLENCHEMENT DE LA RECHERCHE ---
+function filterStock() {
+    renderStockTable();
+}
+
+// Actualisation automatique silencieuse toutes les 4 secondes
 setInterval(() => {
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
         loadStock(true);
