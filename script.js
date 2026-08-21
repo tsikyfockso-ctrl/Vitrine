@@ -44,10 +44,10 @@ function obtenirDeviseEtTaux(countryCode) {
 // --- 2. GESTION DES PRODUITS (DEPUIS LE FICHIER JSON LOCAL) ---
 async function loadProductsFromCJ() {
     const jsonUrl = "update_stock.json?v=" + new Date().getTime(); // Anti-cache
-    const container = document.getElementById('product-container');
+    const container = document.getElementById('product-container-femme');
     
     if (!container) {
-        console.error("Erreur : L'élément HTML avec l'id 'product-container' est introuvable !");
+        console.error("Erreur : L'élément HTML avec l'id 'product-container-femme' est introuvable !");
         return;
     }
 
@@ -398,7 +398,7 @@ function initEventListeners() {}
 
 // --- FONCTION DE DÉFILEMENT DU CARROUSEL ---
 function defilerProduits(direction) {
-    const container = document.getElementById('product-container');
+    const container = document.getElementById('product-container-femme');
     if (!container) return;
     
     const scrollAmount = 270; 
@@ -412,7 +412,7 @@ function defilerProduits(direction) {
 
 // --- GESTION DU DÉFILEMENT TACTILE (SWIPE) ---
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('product-container');
+    const container = document.getElementById('product-container-femme');
     if (!container) return;
 
     let isDown = false;
