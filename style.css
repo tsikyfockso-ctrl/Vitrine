@@ -477,6 +477,197 @@ body {
     box-sizing: border-box;
 }
 
+#product-container-acc-femme {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-acc-femme::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-acc-femme .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-homme {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-homme::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-homme .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-acc-homme {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-acc-homme::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-acc-homme .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-enfant {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-enfant::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-enfant .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-acc-enfant {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-acc-enfant::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-acc-enfant .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-sante {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-sante::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-sante .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-maison {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-maison::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-maison .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-electrov {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-electrov::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-electrov .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+#product-container-info {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+#product-container-info::-webkit-scrollbar {
+    display: none; 
+}
+
+#product-container-info .card {
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    box-sizing: border-box;
+}
+
+
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
