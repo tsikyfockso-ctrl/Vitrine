@@ -185,13 +185,16 @@ async function deleteMessage(index) {
     }
 }
 
-// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK (Façon Tableau Excel) ---
 // --- FONCTION POUR CHARGER ET AFFICHER LE STOCK AVEC TOUS LES DÉTAILS ---
-async function loadStock() {
+// --- FONCTION POUR CHARGER ET AFFICHER LE STOCK SILENCIEUSEMENT ---
+async function loadStock(silent = false) {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
 
-    stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des détails du stock...</p>";
+    // On n'affiche le message de chargement que si ce n'est pas un rafraîchissement automatique en arrière-plan
+    if (!silent && stockList.innerHTML.trim() === "") {
+        stockList.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des détails du stock...</p>";
+    }
 
     try {
         const response = await fetch("update_stock.json?v=" + new Date().getTime());
@@ -200,11 +203,13 @@ async function loadStock() {
         const stock = await response.json();
         
         if (!Array.isArray(stock) || stock.length === 0) {
-            stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans le stock.</p>`;
+            if (!silent) {
+                stockList.innerHTML = `<p style='padding: 10px; color: orange;'>Aucun produit trouvé dans le stock.</p>`;
+            }
             return;
         }
 
-        // Tableau complet avec toutes vos colonnes demandées
+        // Tableau complet avec toutes vos colonnes
         let html = `
             <div style="overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; text-align: left; white-space: nowrap;">
@@ -260,7 +265,6 @@ async function loadStock() {
                     `;
                 });
             } else {
-                // S'il n'y a pas de variantes
                 html += `
                     <tr style="border-bottom: 1px solid #eee; background: ${pIndex % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
                         <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
@@ -287,21 +291,23 @@ async function loadStock() {
 
     } catch (e) {
         console.error("Erreur lors du chargement des détails du stock :", e);
-        stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
+        if (!silent) {
+            stockList.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement du fichier update_stock.json</p>`;
+        }
     }
 }
 
-// Actualiser automatiquement le tableau des stocks toutes les 4 secondes
+// Actualisation automatique silencieuse toutes les 4 secondes (passe 'true' pour éviter le clignotement)
 setInterval(() => {
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock();
+        loadStock(true);
     }
 }, 4000);
 
-// Charger le stock dès l'ouverture de la page admin
+// Chargement initial normal au démarrage de la page
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock();
+        loadStock(false);
     }
 });
