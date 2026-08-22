@@ -405,7 +405,7 @@ def generate_update_stock_acc_femme_json():
     with open("update_stock_acc_femme.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Succès global : {len(resultat_final)} produits actifs enregistrés dans update_stock.json")
+    print(f"🎉 Succès global : {len(resultat_final)} produits actifs enregistrés dans update_stock_acc_femme.json")
 
 if __name__ == "__main__":
     generate_update_stock_acc_femme_json()
