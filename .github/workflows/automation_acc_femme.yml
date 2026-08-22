@@ -1,0 +1,40 @@
+name: Mettre à jour le stock Mayah_Store
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
+  workflow_dispatch: # Permet de le lancer manuellement depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v3
+
+      - name: Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Installer les dépendances
+        run: |
+          pip install requests
+          pip install requests deep-translator
+
+      - name: Run update_stock.py
+        env:
+          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
+          CJ_EMAIL: ${{ secrets.CJ_EMAIL }}
+          CJ_PASSWORD: ${{ secrets.CJ_PASSWORD }}
+        run: python update_stock.py
+
+      - name: Commit and Push if JSON exists
+        run: |
+           git config --global user.name "Mayah Bot"
+           git config --global user.email "bot@mayahstore.com"
+           git add update_stock.json
+           git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique de update_stock.json [skip ci]" && git pull --rebase origin main && git push origin main)
