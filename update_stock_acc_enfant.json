@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "47FA2AB0-D1CA-447D-BCB8-96D4BD394C19",
-        "nom": "Girls hair accessories set",
+        "nom": "Ensemble d'accessoires pour cheveux pour filles",
         "prixBase": 0.69,
         "productFee": 0.0,
         "images": [
@@ -17,8 +17,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -30,8 +30,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -43,8 +43,8 @@
                 "prix": 0.69,
                 "poids": 55.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -56,8 +56,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -69,8 +69,8 @@
                 "prix": 0.69,
                 "poids": 48.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -82,8 +82,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -95,8 +95,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             }
@@ -176,6 +176,83 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 8.26
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1602533789086003200",
+        "nom": "Couvertures tricotées pour bébé nouveau-né à volants",
+        "prixBase": 20.75,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/3c8003f3-db16-4f2c-9f08-7430be8b93ae.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE163664002BY",
+                "vid": "1602613993510809600",
+                "taille": "70x90cm",
+                "couleur": "Khaki",
+                "prix": 20.75,
+                "poids": 320.0,
+                "stock": 64433,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE163664003CX",
+                "vid": "1602613993515003904",
+                "taille": "70x90cm",
+                "couleur": "Light green",
+                "prix": 20.75,
+                "poids": 320.0,
+                "stock": 64433,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE163664004DW",
+                "vid": "1602613993515003905",
+                "taille": "70x90cm",
+                "couleur": "Mauve",
+                "prix": 20.75,
+                "poids": 320.0,
+                "stock": 64433,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE163664005EV",
+                "vid": "1602613993515003906",
+                "taille": "70x90cm",
+                "couleur": "White",
+                "prix": 20.75,
+                "poids": 320.0,
+                "stock": 64433,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE163664006FU",
+                "vid": "1602613993519198208",
+                "taille": "70x90cm",
+                "couleur": "Grey",
+                "prix": 20.75,
+                "poids": 320.0,
+                "stock": 64433,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
