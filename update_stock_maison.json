@@ -17,8 +17,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -30,8 +30,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -43,8 +43,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -176,12 +176,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -297,7 +297,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -310,7 +310,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -323,7 +323,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -336,7 +336,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -349,7 +349,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -362,7 +362,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -375,7 +375,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -388,7 +388,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -401,7 +401,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -414,7 +414,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -427,7 +427,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -440,7 +440,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -453,7 +453,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -466,9 +466,9 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.23
+                "shippingCostUS": 9.59
             },
             {
                 "sku": "CJJJJTYS00246-U-180X180",
@@ -479,7 +479,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -505,7 +505,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -518,7 +518,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -531,9 +531,9 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.59
+                "shippingCostUS": 10.23
             },
             {
                 "sku": "CJJJJTYS00246-Y-180X180",
@@ -544,7 +544,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -570,7 +570,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -609,9 +609,9 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.23
+                "shippingCostUS": 9.59
             },
             {
                 "sku": "CJJJJTYS00246-A1-180X180",
@@ -622,9 +622,9 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.59
+                "shippingCostUS": 10.23
             },
             {
                 "sku": "CJJJJTYS00246-R-180X180",
@@ -635,7 +635,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.59
             },
@@ -648,7 +648,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -674,7 +674,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -700,7 +700,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -726,7 +726,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             }
@@ -775,6 +775,106 @@
                 "prix": 71.73,
                 "poids": 8989.0,
                 "stock": 5,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1875383188586532865",
+        "nom": "Supports à bois de chauffage",
+        "prixBase": 30.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/75e879b9-fc49-4bed-bf9b-eaa4adfd83ef.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL226070201AZ",
+                "vid": "1875383188657836033",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 30.17,
+                "poids": 4700.0,
+                "stock": 43,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1880071773957304322",
+        "nom": "Chaises de salle à manger rembourrées sans accoudoirs avec pieds en métal, ensemble de 2",
+        "prixBase": 123.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0e295acc-b76c-40dd-a4da-3ac510a8dc81.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU227286501AZ",
+                "vid": "1880071774057967618",
+                "taille": "N/A",
+                "couleur": "Black White",
+                "prix": 123.26,
+                "poids": 19867.0,
+                "stock": 51,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2042462084476870657",
+        "nom": "Buffet U-STYLE 54.3 avec rangement 4 portes et 1 tiroir Rangement de cuisine en mélamine MDF avec étagères réglables Poignées en alliage d'aluminium Étagères latérales et tringle de suspension pour salle à manger",
+        "prixBase": 207.01,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17757792/809ebae8-53a2-449e-84b2-110436c7dc1a.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2826884",
+                "vid": "2042462084476870657",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 207.01,
+                "poids": 0.0,
+                "stock": 54,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406100254201621500",
+        "nom": "Creative And Minimalist All Aluminum Alloy Bracket Chair",
+        "prixBase": 4.32,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/06/10/08/3c7ab1d6-473d-4001-8c44-1b6ea07efe0f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD2056949",
+                "vid": "2406100254201621500",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 4.32,
+                "poids": 0.0,
+                "stock": 28855,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
