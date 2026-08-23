@@ -35,28 +35,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJLX219565401AZ",
-                "vid": "2411141257591606500",
+                "sku": "CJLX2195654",
+                "vid": "2411141257591606300",
                 "taille": "N/A",
-                "couleur": "Black",
+                "couleur": "N/A",
                 "prix": 0.9,
-                "poids": 23.0,
+                "poids": 0.0,
                 "stock": 19446,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.21,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJLX219565402BY",
-                "vid": "2509031156331619200",
-                "taille": "N/A",
-                "couleur": "Gold",
-                "prix": 0.9,
-                "poids": 23.0,
-                "stock": 19446,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.21,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -73,30 +60,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD207149201AZ",
-                "vid": "2406290649131606000",
+                "sku": "CJYD2071492",
+                "vid": "2406290649131605100",
                 "taille": "N/A",
-                "couleur": "7PCS",
+                "couleur": "N/A",
                 "prix": 9.15,
-                "poids": 1150.0,
+                "poids": 0.0,
                 "stock": 19077,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 17.87,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 18.65
-            },
-            {
-                "sku": "CJYD207149202BY",
-                "vid": "2603030110411604200",
-                "taille": "N/A",
-                "couleur": "9link 6nozzle",
-                "prix": 9.15,
-                "poids": 1830.0,
-                "stock": 19077,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 23.4,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 28.25
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
