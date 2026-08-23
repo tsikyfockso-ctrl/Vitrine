@@ -17,10 +17,10 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT01879-BEIGE",
@@ -30,10 +30,10 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT01879-GREY",
@@ -43,10 +43,10 @@
                 "prix": 0.69,
                 "poids": 55.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT01879-PURPLE",
@@ -56,8 +56,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -69,10 +69,10 @@
                 "prix": 0.69,
                 "poids": 48.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJWJNHNT01879-PINK",
@@ -82,10 +82,10 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT01879-RED",
@@ -95,10 +95,10 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             }
         ]
     },
@@ -253,6 +253,173 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "8CE6ECB3-4AB8-4B54-8932-213C14FE4735",
+        "nom": "Nouvelles lunettes de soleil polarisées pour enfants",
+        "prixBase": 1.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200603/1005765160055.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE02169-ORANGE GREEN",
+                "vid": "002B3C11-3434-47F9-9ADD-9DD9F5BF8253",
+                "taille": "N/A",
+                "couleur": "Orange green",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-BLACK",
+                "vid": "4B997FD8-A24F-4490-887D-5CA1625C5D6C",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-BLUE YELLOW",
+                "vid": "537C7B65-50FD-4C3F-B511-F3C7C3F06F5F",
+                "taille": "N/A",
+                "couleur": "Blue Yellow",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-PURPLE YELLOW",
+                "vid": "571FA24C-E6B3-4A78-B9E2-3FF7A14407C6",
+                "taille": "N/A",
+                "couleur": "Purple Yellow",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-RED PURPLE",
+                "vid": "72882FD9-96EC-41F7-9B3E-6361183D352C",
+                "taille": "N/A",
+                "couleur": "Red Purple",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-BLACK RED",
+                "vid": "9DAE5355-525C-4E98-8DBA-E952D3A705AD",
+                "taille": "N/A",
+                "couleur": "Black Red",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-PINK BLUE",
+                "vid": "BACF5CC7-63C2-4353-9D4C-C2C5325906B8",
+                "taille": "N/A",
+                "couleur": "Pink Blue",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJWJYEYE02169-PINK",
+                "vid": "D828B78C-9866-4D67-832E-02443544AE30",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.65,
+                "poids": 42.0,
+                "stock": 103790,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.47,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1423126076338606080",
+        "nom": "Sac à dos d'affaires de voyage de sac à dos d'étudiant de style simple",
+        "prixBase": 3.99,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/6614da30-b918-445e-8a91-3a49f3952d53.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE124016801AZ",
+                "vid": "1423126078871965696",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 3.99,
+                "poids": 320.0,
+                "stock": 96175,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYE124016802BY",
+                "vid": "1423126078884548608",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 3.99,
+                "poids": 320.0,
+                "stock": 96175,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYE124016803CX",
+                "vid": "1423126078892937216",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 3.99,
+                "poids": 320.0,
+                "stock": 96175,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
             }
         ]
     }
