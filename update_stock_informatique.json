@@ -17,8 +17,8 @@
                 "prix": 27.86,
                 "poids": 520.0,
                 "stock": 9110,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -195,10 +195,10 @@
                 "prix": 4.37,
                 "poids": 128.0,
                 "stock": 80000,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.75,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.28
             },
             {
                 "sku": "CJQT113456102BY",
@@ -208,8 +208,71 @@
                 "prix": 4.37,
                 "poids": 128.0,
                 "stock": 80000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.75,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1925373197707935745",
+        "nom": "Piège à rats électrique piège à souris réutilisable Zapper à rongeurs lutte antiparasitaire d'intérieur tueur de souris à choc rechargeable avec haute tension 1800 V pour la maison",
+        "prixBase": 33.99,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/c337427b-3cc1-4ee1-a700-c5a36a1e4589.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSL238237901AZ",
+                "vid": "1925373197808599042",
+                "taille": "N/A",
+                "couleur": "Rat Trap",
+                "prix": 33.99,
+                "poids": 671.0,
+                "stock": 460,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1382608421127327744",
+        "nom": "Lampe de table en plumes télécommandée, alimentée par batterie USB",
+        "prixBase": 10.71,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1618474351592.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJCF108165701AZ",
+                "vid": "1382608422553391104",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 10.71,
+                "poids": 342.0,
+                "stock": 80000,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 10.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJCF108165702BY",
+                "vid": "1382608422565974016",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 10.71,
+                "poids": 342.0,
+                "stock": 80000,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 10.18,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
