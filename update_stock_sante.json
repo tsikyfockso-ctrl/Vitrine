@@ -17,17 +17,17 @@
                 "prix": 3.07,
                 "poids": 190.0,
                 "stock": 12036,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.09
             }
         ]
     },
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1367452646205689856",
-        "nom": "Ustensiles de pinceaux de maquillage de beauté colorés en diamant",
+        "nom": "Diamond Colorful Beauty Makeup Brush Utensils",
         "prixBase": 2.24,
         "productFee": 0.0,
         "images": [
@@ -188,7 +188,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928713MN",
@@ -200,8 +200,8 @@
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.33
             },
             {
                 "sku": "CJHZ102928716PK",
@@ -214,7 +214,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928722VE",
@@ -225,7 +225,7 @@
                 "poids": 278.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -238,9 +238,9 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928711KP",
@@ -251,7 +251,7 @@
                 "poids": 278.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -264,7 +264,7 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -277,7 +277,7 @@
                 "poids": 278.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -290,7 +290,7 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -303,7 +303,7 @@
                 "poids": 278.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
             },
@@ -316,9 +316,9 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928720TG",
@@ -330,8 +330,8 @@
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.33
             },
             {
                 "sku": "CJHZ102928721UF",
@@ -344,7 +344,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928723WD",
@@ -356,8 +356,8 @@
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.33
             },
             {
                 "sku": "CJHZ102928724XC",
@@ -370,7 +370,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928726ZA",
@@ -394,9 +394,9 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.05,
+                "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             },
             {
                 "sku": "CJHZ102928729CX",
@@ -420,9 +420,9 @@
                 "poids": 417.0,
                 "stock": 645890,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.92,
+                "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.52
+                "shippingCostUS": 9.69
             }
         ]
     }
