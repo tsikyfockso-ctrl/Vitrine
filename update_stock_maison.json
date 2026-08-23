@@ -17,8 +17,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -30,8 +30,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -43,8 +43,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -151,12 +151,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU28070030001",
-                "vid": "2037351293888155650",
+                "sku": "CJFU2807003",
+                "vid": "2037351293577777154",
                 "taille": "N/A",
-                "couleur": "Black",
+                "couleur": "N/A",
                 "prix": 76.04,
-                "poids": 11022.0,
+                "poids": 0.0,
                 "stock": 10,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -251,28 +251,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -768,12 +755,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU225168902BY",
-                "vid": "1871135084860727297",
+                "sku": "CJFU2251689",
+                "vid": "1871135084781035521",
                 "taille": "N/A",
-                "couleur": "Grey",
+                "couleur": "N/A",
                 "prix": 71.73,
-                "poids": 8989.0,
+                "poids": 0.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -875,6 +862,131 @@
                 "prix": 4.32,
                 "poids": 0.0,
                 "stock": 28855,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037070093492727810",
+        "nom": "Abri d'auto robuste, tente d'auvent de voiture de garage portable UPF50 avec cadre galvanisé, pour les articles expédiés en plusieurs colis, veuillez faire attention aux dimensions et au poids dans les détails du produit.",
+        "prixBase": 273.3,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/cedb8b9b-e677-410c-8a76-99ba1b72bb14.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL280540301AZ",
+                "vid": "2037070093639528450",
+                "taille": "N/A",
+                "couleur": "Dark Gray",
+                "prix": 273.3,
+                "poids": 36000.0,
+                "stock": 40,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037387394901114881",
+        "nom": "Ensemble de 2 tables à thé modernes en verre trempé, plateau en verre trempé avec couche MDF, table basse, table de bout, table carrée pour le salon, gris noir",
+        "prixBase": 122.35,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/52bfbc68-f093-452f-a89c-594c8d389c84.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28074820001",
+                "vid": "2037387395018555394",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 122.35,
+                "poids": 16692.0,
+                "stock": 61,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037387166583635970",
+        "nom": "Ensemble de 2 tables d'appoint modernes avec tiroir – Table de chevet pour chambre à coucher et salon, MDF à grain de bois rustique et plateau en verre trempé, table d'appoint de style industriel",
+        "prixBase": 76.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/c8e435ed-b476-4478-b0d0-8b97977d2ff6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28074800001",
+                "vid": "2037387166713659394",
+                "taille": "N/A",
+                "couleur": "Wood",
+                "prix": 76.62,
+                "poids": 32023.0,
+                "stock": 25,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034925661148282881",
+        "nom": "Miroir carré ondulé en bois massif-noir 36X 36 décoration murale de miroir moderne pour salle de bain, chambre à coucher, salon, salle à manger, vestiaire, entrée",
+        "prixBase": 109.67,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/a64c6ccc-3678-40b6-8787-aa3683ad65cc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27966940001",
+                "vid": "2034925661265723394",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 109.67,
+                "poids": 13072.0,
+                "stock": 5,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1821469053664776192",
+        "nom": "Tapis de sol de cuisine, ensemble de deux pièces, antidérapant, imperméable et facile à nettoyer pour la maison et la cuisine",
+        "prixBase": 12.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/a57e1c2b-40f5-4cc1-84ec-cbe8fb480429.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT2105393",
+                "vid": "1821469053664776192",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 12.8,
+                "poids": 0.0,
+                "stock": 12350,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
