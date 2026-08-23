@@ -6,7 +6,7 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Women Accessories", "Women Bags", "Women Jewelry", "Scarves", "Women Belts"]
+MOTS_CLES_RECHERCHE = ["Womens Accessories", "Womens Bags", "Womens Jewelry", "Scarves", "Womens Belts"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
