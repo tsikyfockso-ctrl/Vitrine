@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
+        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -178,7 +178,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1727528401138880512",
-        "nom": "Simulation de lampe de poisson ornementale, décoration de nuit pour la maison",
+        "nom": "Simulation Ornamental Fish Lamp Home Night Decoration Home Decor",
         "prixBase": 6.6,
         "productFee": 0.0,
         "images": [
@@ -195,8 +195,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             },
             {
                 "sku": "CJHD190402902BY",
@@ -208,15 +208,15 @@
                 "stock": 22067,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1963501897115009026",
-        "nom": "Autocollants de sol antidérapants auto-adhésifs à grain de bois, autocollants de carrelage imperméables et résistants à l'huile en PVC durable, décoration murale amovible",
+        "nom": "Wood Grain Self-Adhesive Anti-Slip Floor Stickers, Durable PVC Peel-and-Stick Waterproof And Oil-Proof Tile Stickers, Removable Wall Decor",
         "prixBase": 19.97,
         "productFee": 0.0,
         "images": [
@@ -318,7 +318,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Chaise de patio avec coussins",
+        "nom": "Patio Chair With Cushions",
         "prixBase": 71.73,
         "productFee": 0.0,
         "images": [
@@ -326,12 +326,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU225168902BY",
-                "vid": "1871135084860727297",
+                "sku": "CJFU2251689",
+                "vid": "1871135084781035521",
                 "taille": "N/A",
-                "couleur": "Grey",
+                "couleur": "N/A",
                 "prix": 71.73,
-                "poids": 8989.0,
+                "poids": 0.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -439,6 +439,156 @@
                 "shippingCostFR": 10.85,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 14.91
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2035265902302507009",
+        "nom": "Stainless Steel Cart, 2-Tier Rolling Lab Utility Cart With Lockable Wheels, Medical Serving Trolley Clinic Tray, Heavy Duty Mobile Service Storage Tray For Hospital, Restaurant, Kitchen, Salon",
+        "prixBase": 45.52,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17740512/65410025-c931-45c1-97e9-4ebe7033a0d9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL27984990001",
+                "vid": "2035265902495444993",
+                "taille": "N/A",
+                "couleur": "default",
+                "prix": 45.52,
+                "poids": 6200.0,
+                "stock": 160,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1944947310978183169",
+        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
+        "prixBase": 1191.05,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/436b8029-5085-485a-9d68-6d3c37368984.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHD243033401AZ",
+                "vid": "1944947311066263554",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 1191.05,
+                "poids": 5450.0,
+                "stock": 24,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2001861347321884674",
+        "nom": "Mechanical Keyless Entry Door Lock, 14 Key Mechanical Door Lock With Keys, Mechanical Keypad Door Lock With Handle, Stainless Steel Waterproof Keyless Gate Lock, For Home Office Outdoor Garage",
+        "prixBase": 73.52,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17661024/d173ae4f-fa1b-42af-9eb7-d39b8b9ace80.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU26595670001",
+                "vid": "2001861347758092290",
+                "taille": "N/A",
+                "couleur": "Silvery",
+                "prix": 73.52,
+                "poids": 2070.0,
+                "stock": 98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037383487873384450",
+        "nom": "36  Inch Round Tempered Glass Table Top Clear Glass 2-5  Inch Thick Beveled Polished Edge",
+        "prixBase": 94.97,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/ae24b3b6-7f72-4b62-91b9-573fa20ced88.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2807445",
+                "vid": "2037383487873384450",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 94.97,
+                "poids": 0.0,
+                "stock": 50,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1732295333251649536",
+        "nom": "Humidifier Small Home Bedroom Office Desktop Dorm Quiet Mini Usb Hydrating Water Purification Spray Flowers Shape Humidifiers",
+        "prixBase": 3.49,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2023/12/06/07/9cb4dd90-0e13-40ed-9c01-45c71aa56b3f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD1914416",
+                "vid": "1732295333251649536",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 3.49,
+                "poids": 0.0,
+                "stock": 38977,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1902654925525090306",
+        "nom": "US XPB35-ZK35 14.3 Lb Washing Machine, Double Drum With Drain Pump, Plastic, Semi-Automatic",
+        "prixBase": 88.77,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/29125654-be63-4c5a-bd72-39ea0245f0db.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJD2332968",
+                "vid": "1902654925525090306",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 88.77,
+                "poids": 0.0,
+                "stock": 6,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
