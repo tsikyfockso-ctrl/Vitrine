@@ -19,8 +19,8 @@
                 "stock": 38439,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.94
             },
             {
                 "sku": "CJJT205026902BY",
@@ -32,8 +32,8 @@
                 "stock": 38439,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.94
             },
             {
                 "sku": "CJJT205026903CX",
@@ -45,8 +45,8 @@
                 "stock": 38439,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.94
             }
         ]
     },
@@ -755,12 +755,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2251689",
-                "vid": "1871135084781035521",
+                "sku": "CJFU225168902BY",
+                "vid": "1871135084860727297",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey",
                 "prix": 71.73,
-                "poids": 0.0,
+                "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -905,12 +905,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU28074820001",
-                "vid": "2037387395018555394",
+                "sku": "CJFU2807482",
+                "vid": "2037387394901114881",
                 "taille": "N/A",
-                "couleur": "Black",
+                "couleur": "N/A",
                 "prix": 122.35,
-                "poids": 16692.0,
+                "poids": 0.0,
                 "stock": 61,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -991,6 +991,159 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1964932838396305409",
+        "nom": "Table basse emboîtable, extérieur en marbre brillant, accents dorés, table d'appoint avec tiroir. Ensemble de deux",
+        "prixBase": 137.84,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/403b72d1-29f2-470e-ad81-29d4ca125150.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU249250601AZ",
+                "vid": "1964932838534717441",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 137.84,
+                "poids": 13800.0,
+                "stock": 93,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJFU249250602BY",
+                "vid": "1964932838534717442",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 137.84,
+                "poids": 13800.0,
+                "stock": 93,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1963501897115009026",
+        "nom": "Autocollants de sol antidérapants auto-adhésifs à grain de bois, autocollants de carrelage imperméables et résistants à l'huile en PVC durable, décoration murale amovible",
+        "prixBase": 19.97,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/917cfe7f-effd-4397-9a1f-9e52d5e3d9ed.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT247798901AZ",
+                "vid": "1963501897211478018",
+                "taille": "N/A",
+                "couleur": "40pcs",
+                "prix": 19.97,
+                "poids": 1710.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT247798902BY",
+                "vid": "1963501897211478019",
+                "taille": "N/A",
+                "couleur": "20pcs",
+                "prix": 19.97,
+                "poids": 860.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT247798903CX",
+                "vid": "1963501897211478020",
+                "taille": "N/A",
+                "couleur": "10pcs",
+                "prix": 19.97,
+                "poids": 430.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1404319600371437568",
+        "nom": "Vases nordiques en céramique pour corps humain, accessoires de décoration pour la maison, bureau, Table à manger, conteneur d'arrangement de fleurs, Vases de fleurs séchées",
+        "prixBase": 4.31,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1623650746311.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT117323701AZ",
+                "vid": "1404319601772335104",
+                "taille": "S",
+                "couleur": "White",
+                "prix": 4.31,
+                "poids": 418.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.7
+            },
+            {
+                "sku": "CJJT117323702BY",
+                "vid": "1404319601780723712",
+                "taille": "M",
+                "couleur": "White",
+                "prix": 4.31,
+                "poids": 682.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 17.68
+            },
+            {
+                "sku": "CJJT117323703CX",
+                "vid": "1412655384900014080",
+                "taille": "M",
+                "couleur": "Golden",
+                "prix": 4.31,
+                "poids": 682.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 17.68
+            },
+            {
+                "sku": "CJJT117323704DW",
+                "vid": "1412655385101340672",
+                "taille": "S",
+                "couleur": "Golden",
+                "prix": 4.31,
+                "poids": 418.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.7
             }
         ]
     }
