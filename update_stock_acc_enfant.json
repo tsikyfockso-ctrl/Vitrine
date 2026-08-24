@@ -17,8 +17,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -30,8 +30,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -43,8 +43,8 @@
                 "prix": 0.69,
                 "poids": 55.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -56,8 +56,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -69,8 +69,8 @@
                 "prix": 0.69,
                 "poids": 48.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -82,8 +82,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -95,8 +95,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             }
@@ -3007,6 +3007,70 @@
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1710622530622459904",
+        "nom": "Nouveau Garçons et filles enfants Double boule laine chapeau gants deux pièces costume",
+        "prixBase": 2.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/d17da10a-9e81-4fa7-bd35-3983d5ba2d4e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD186496002BY",
+                "vid": "1710622530697957376",
+                "taille": "48to52cm",
+                "couleur": "Black",
+                "prix": 2.26,
+                "poids": 120.0,
+                "stock": 45770,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYD186496003CX",
+                "vid": "1710622530756677632",
+                "taille": "48to52cm",
+                "couleur": "Gray",
+                "prix": 2.26,
+                "poids": 120.0,
+                "stock": 45770,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYD186496004DW",
+                "vid": "1710622530815397888",
+                "taille": "48to52cm",
+                "couleur": "Pink",
+                "prix": 2.26,
+                "poids": 120.0,
+                "stock": 45770,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYD186496005EV",
+                "vid": "1710622530874118144",
+                "taille": "48to52cm",
+                "couleur": "White",
+                "prix": 2.26,
+                "poids": 120.0,
+                "stock": 45770,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
             }
         ]
     }
