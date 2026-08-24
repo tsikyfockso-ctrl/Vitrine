@@ -249,7 +249,7 @@ function genererBoitesTaillesHorizontales(produit) {
     }
 }
 
-// Création dynamique d'un sélecteur de quantité moderne avec gestion du stock
+// Création dynamique d'un sélecteur de quantité moderne avec boutons de couleur noire
 function genererSelecteurQuantiteModerne() {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
@@ -264,10 +264,10 @@ function genererSelecteurQuantiteModerne() {
     containerQty.innerHTML = `
         <label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Quantité :</strong></label>
         <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="display: flex; align-items: border; border: 1px solid #ced4da; border-radius: 6px; overflow: hidden; background: #fff;">
-                <button type="button" onclick="changerQuantite(-1)" style="background: #f8f9fa; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">-</button>
+            <div style="display: flex; align-items: center; border: 1px solid #ced4da; border-radius: 6px; overflow: hidden; background: #fff;">
+                <button type="button" onclick="changerQuantite(-1)" style="background: #f8f9fa; color: #000; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">-</button>
                 <input type="number" id="modalQuantityInput" value="1" min="1" onchange="validerQuantiteSaisie()" style="width: 50px; text-align: center; border: none; outline: none; font-size: 0.9em;" />
-                <button type="button" onclick="changerQuantite(1)" style="background: #f8f9fa; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">+</button>
+                <button type="button" onclick="changerQuantite(1)" style="background: #f8f9fa; color: #000; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">+</button>
             </div>
             <span id="modalStockInfo" style="font-size: 0.85em; color: #666; font-style: italic;"></span>
         </div>
@@ -281,7 +281,6 @@ function resetQuantiteEtStockMax() {
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
     
-    // Si la propriété stock n'existe pas dans le JSON, on met une valeur par défaut élevée (ex: 99)
     if (varianteActuelle.stockActuel === undefined) {
         varianteActuelle.stockActuel = varianteActuelle.stock !== undefined ? parseInt(varianteActuelle.stock) : 50;
     }
@@ -411,7 +410,7 @@ function calculateShipping() {
     let quantite = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
 
     let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
-    let currentPriceFinal = currentPriceBrut * quantite; // Multiplié par la quantité
+    let currentPriceFinal = currentPriceBrut * quantite;
 
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
@@ -447,7 +446,7 @@ function checkoutWithCard() {
     let quantiteDemandee = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
 
     if (varianteActuelle.stockActuel >= quantiteDemandee) {
-        varianteActuelle.stockActuel -= quantiteDemandee; // Le stock diminue
+        varianteActuelle.stockActuel -= quantiteDemandee;
         mettreAJourAffichageStock();
         alert(`Commande validée ! ${quantiteDemandee} article(s) acheté(s). Stock restant : ${varianteActuelle.stockActuel}`);
         closeProductModal();
