@@ -141,7 +141,7 @@ function openProductModalFromCache(containerId, index) {
     
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
-        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || "";
+        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description;
     }
 
     const variantSelect = document.getElementById('modalVariantSelect');
