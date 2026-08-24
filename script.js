@@ -1,18 +1,10 @@
 // ==========================================
-// CONFIGURATION DES MARGES & SURPLUS
+// CONFIGURATION DE BASE
 // ==========================================
-const MARGE_PRODUIT = 1.30;        // +30% de marge sur le prix de base du produit
-const MARGE_EXPEDITION = 1.15;    // +15% de marge sur les frais de port
-
-// Stockage global des taux de change actualisés (avec vos valeurs de référence par défaut)
-let tauxDeChangeActuels = { "USD": 0.86, "EUR": 1.16 };
 
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
-    await chargerTauxDeChange();
-    
     // Chargement de chaque catégorie avec son fichier JSON attitré
-    // La catégorie "femme" utilise update_stock.json
     chargerCategorie("update_stock.json", "product-container-femme");
     chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
     chargerCategorie("update_stock_homme.json", "product-container-homme");
@@ -27,32 +19,6 @@ window.onload = async () => {
     initialiserPays();
     initEventListeners();
 };
-
-// Récupération automatique des taux de change actualisés
-async function chargerTauxDeChange() {
-    try {
-        const res = await fetch('https://open.er-api.com/v6/latest/USD');
-        const data = await res.json();
-        if (data && data.rates) {
-            tauxDeChangeActuels = data.rates;
-        }
-    } catch (e) {
-        console.warn("Impossible de charger les taux en direct, utilisation des valeurs de secours.", e);
-    }
-}
-
-// Obtenir la devise et le taux selon le code pays (limité à US et FR)
-function obtenirDeviseEtTaux(countryCode) {
-    let devise = "USD";
-    if (countryCode.toUpperCase() === "FR") {
-        devise = "EUR";
-    } else if (countryCode.toUpperCase() === "US") {
-        devise = "USD";
-    }
-
-    const taux = tauxDeChangeActuels[devise] || 1.0;
-    return { devise, taux };
-}
 
 // --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
 async function chargerCategorie(jsonFileName, containerId) {
@@ -93,7 +59,7 @@ async function chargerCategorie(jsonFileName, containerId) {
 
 // --- 3. AFFICHAGE DES PRODUITS PAR CONTENEUR ---
 function renderCategoryProducts(stock, container) {
-    const { devise, taux } = obtenirDeviseEtTaux("FR");
+    const devise = "USD"; // Devise par défaut ou fixe sans conversion
 
     container.innerHTML = stock.map((p, index) => {
         let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
@@ -108,7 +74,7 @@ function renderCategoryProducts(stock, container) {
             prixBrut = p.variantes[0].prix;
         }
 
-        let prixAffiche = ((prixBrut + MARGE_PRODUIT) * taux).toFixed(2);
+        let prixAffiche = Number(prixBrut).toFixed(2);
         let nomProduit = p.nom || 'Sans nom';
 
         return `
@@ -183,13 +149,11 @@ function openProductModalFromCache(containerId, index) {
         variantSelect.innerHTML = "";
         
         if (Array.isArray(currentSelectedProduct.variantes)) {
-            const selectCountry = document.getElementById('modalCountrySelect');
-            const countryCode = selectCountry ? selectCountry.value : "FR";
-            const { devise, taux } = obtenirDeviseEtTaux(countryCode);
+            const devise = "USD";
 
             currentSelectedProduct.variantes.forEach((v, i) => {
                 let prixVarBrut = v.prix || 0;
-                let prixVarFinal = ((prixVarBrut + MARGE_PRODUIT) * taux).toFixed(2);
+                let prixVarFinal = Number(prixVarBrut).toFixed(2);
 
                 let opt = document.createElement('option');
                 opt.value = i;
@@ -304,8 +268,7 @@ function calculateShipping() {
 
     const selectCountry = document.getElementById('modalCountrySelect');
     const countryCode = selectCountry ? selectCountry.value : "FR";
-    
-    const { devise, taux } = obtenirDeviseEtTaux(countryCode);
+    const devise = "USD";
 
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
@@ -328,7 +291,7 @@ function calculateShipping() {
         shippingMethodName = varianteActuelle.shippingMethodFR || "CJPacket Ordinary I";
     }
 
-    let shippingCostFinal = (shippingCostBrut + MARGE_EXPEDITION) * taux;
+    let shippingCostFinal = shippingCostBrut;
 
     const modalShippingName = document.getElementById('modalShippingName');
     if (modalShippingName) {
@@ -341,7 +304,7 @@ function calculateShipping() {
     }
 
     let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
-    let currentPriceFinal = (currentPriceBrut + MARGE_PRODUIT) * taux;
+    let currentPriceFinal = currentPriceBrut;
 
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
@@ -358,7 +321,7 @@ function calculateShipping() {
         Array.from(variantSelect.options).forEach((opt, i) => {
             const v = currentSelectedProduct.variantes[i];
             if (v) {
-                let pFinal = (parseFloat(v.prix || 0) * MARGE_PRODUIT * taux).toFixed(2);
+                let pFinal = parseFloat(v.prix || 0).toFixed(2);
                 opt.text = `${v.taille || 'Standard'} / ${v.couleur || ''} - ${pFinal} ${devise}`;
             }
         });
