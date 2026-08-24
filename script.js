@@ -473,9 +473,9 @@ function checkoutWithCard() {
         <p><strong>Variante :</strong> ${selectedVariantText}</p>
         <p><strong>SKU :</strong> ${sku}</p>
         <p><strong>Prix unitaire :</strong> ${price}</p>
-        <p><strong>Destination :</strong> ${selectedCountryText} (Frais : ${shippingCost} €)</p>
+        <p><strong>Destination :</strong> ${selectedCountryText} (Frais : ${shippingCost})</p>
         <hr style="border: 0; border-top: 1px solid #ccc; margin: 8px 0;">
-        <h3 style="margin: 0; color: #2c3e50;">Total à régler : ${totalCost} €</h3>
+        <h3 style="margin: 0; color: #2c3e50;">Total à régler : ${totalCost}</h3>
     `;
 
     // 3. Injecter le résumé dans la deuxième modale
