@@ -27,7 +27,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2411141257591606300",
-        "nom": "Accessoires de collier de minerai brut d'obsidienne irrégulière naturelle",
+        "nom": "Natural Irregular Obsidian Raw Ore Necklace Accessories",
         "prixBase": 0.9,
         "productFee": 0.0,
         "images": [
@@ -35,17 +35,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJLX2195654",
-                "vid": "2411141257591606300",
+                "sku": "CJLX219565401AZ",
+                "vid": "2411141257591606500",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black",
                 "prix": 0.9,
-                "poids": 0.0,
+                "poids": 23.0,
                 "stock": 19446,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX219565402BY",
+                "vid": "2509031156331619200",
+                "taille": "N/A",
+                "couleur": "Gold",
+                "prix": 0.9,
+                "poids": 23.0,
+                "stock": 19446,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     },
@@ -804,6 +817,109 @@
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1366266837695860736",
+        "nom": "Filter Nozzle Mesh Inner Core Copper Adapter Spout Faucet Accessories",
+        "prixBase": 0.79,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1614577997568.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJCF102462101AZ",
+                "vid": "1366266839168061440",
+                "taille": "N/A",
+                "couleur": "A",
+                "prix": 0.79,
+                "poids": 60.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJCF102462102BY",
+                "vid": "1366266839235170304",
+                "taille": "N/A",
+                "couleur": "B",
+                "prix": 0.79,
+                "poids": 60.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJCF102462103CX",
+                "vid": "1366266839377776640",
+                "taille": "N/A",
+                "couleur": "C",
+                "prix": 0.79,
+                "poids": 60.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJCF102462104DW",
+                "vid": "1366266839474245632",
+                "taille": "N/A",
+                "couleur": "D",
+                "prix": 0.79,
+                "poids": 60.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJCF102462105EV",
+                "vid": "1366266839713320960",
+                "taille": "N/A",
+                "couleur": "E",
+                "prix": 0.79,
+                "poids": 50.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJCF102462106FU",
+                "vid": "1366266839964979200",
+                "taille": "N/A",
+                "couleur": "F",
+                "prix": 0.79,
+                "poids": 50.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJCF102462107GT",
+                "vid": "1366266840036282368",
+                "taille": "N/A",
+                "couleur": "G",
+                "prix": 0.79,
+                "poids": 50.0,
+                "stock": 210000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     }
