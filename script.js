@@ -455,6 +455,52 @@ function checkoutWithCard() {
     }
 }
 
+function checkoutWithCard() {
+    // 1. Récupérer les éléments du premier récapitulatif
+    const title = document.getElementById('modalTitle').innerText;
+    const price = document.getElementById('modalPrice').innerText;
+    const sku = document.getElementById('modalSku').innerText;
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedVariantText = variantSelect.options[variantSelect.selectedIndex] ? variantSelect.options[variantSelect.selectedIndex].text : '';
+    const countrySelect = document.getElementById('modalCountrySelect');
+    const selectedCountryText = countrySelect.options[countrySelect.selectedIndex].text;
+    const shippingCost = document.getElementById('modalShippingCost').innerText;
+    const totalCost = document.getElementById('modalTotalCost').innerText;
+
+    // 2. Construire le HTML récapitulatif pour la seconde modale
+    const summaryHTML = `
+        <p><strong>Produit :</strong> ${title}</p>
+        <p><strong>Variante :</strong> ${selectedVariantText}</p>
+        <p><strong>SKU :</strong> ${sku}</p>
+        <p><strong>Prix unitaire :</strong> ${price}</p>
+        <p><strong>Destination :</strong> ${selectedCountryText} (Frais : ${shippingCost} €)</p>
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 8px 0;">
+        <h3 style="margin: 0; color: #2c3e50;">Total à régler : ${totalCost} €</h3>
+    `;
+
+    // 3. Injecter le résumé dans la deuxième modale
+    document.getElementById('paymentModalSummary').innerHTML = summaryHTML;
+
+    // 4. Masquer la première modale et afficher la seconde
+    document.getElementById('productModal').style.display = 'none';
+    document.getElementById('paymentModal').style.display = 'flex';
+}
+
+function closePaymentModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+}
+
+function backToProductModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+    document.getElementById('productModal').style.display = 'flex';
+}
+
+function submitCardPayment() {
+    alert("Paiement simulé avec succès ! Merci pour votre commande sur Mayah Store.");
+    document.getElementById('paymentModal').style.display = 'none';
+    // Vous pouvez vider le formulaire ou rediriger ici si besoin
+}
+
 function initEventListeners() {}
 
 // --- GESTION DU DÉFILEMENT TACTILE (SWIPE) POUR CHAQUE CONTENEUR ---
