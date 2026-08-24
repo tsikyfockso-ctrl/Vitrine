@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -195,8 +195,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.09,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             },
             {
                 "sku": "CJHD190402902BY",
@@ -208,8 +208,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.09,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             }
         ]
     },
@@ -326,12 +326,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2251689",
-                "vid": "1871135084781035521",
+                "sku": "CJFU225168902BY",
+                "vid": "1871135084860727297",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey",
                 "prix": 71.73,
-                "poids": 0.0,
+                "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -343,7 +343,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2508190856401610700",
-        "nom": "Lampe murale ronde rotative de chevet, ornements pour la maison",
+        "nom": "Home Ornaments Lighting Round Rotatable Bedside Wall Lamp",
         "prixBase": 3.35,
         "productFee": 0.0,
         "images": [
@@ -589,6 +589,622 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1908754026725507073",
+        "nom": "Tissu résistant à l'herbe de 4 x 300 pieds.",
+        "prixBase": 50.04,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/13ef31c2-068e-4667-903f-5dfc318a2aa7.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL234682501AZ",
+                "vid": "1908754026901667842",
+                "taille": "N/A",
+                "couleur": "Width 4ft Total Length 300ft",
+                "prix": 50.04,
+                "poids": 11840.0,
+                "stock": 99,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2412240907191608500",
+        "nom": "Solar Fishnet Lamp LED Outdoor Courtyard Garden Decorative Colored Light String Low Voltage Mesh Lattice",
+        "prixBase": 5.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/5c7cb533-cbce-4fe5-ac09-32e53e879f79.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHD225250101AZ",
+                "vid": "2412240907191609000",
+                "taille": "100 Lights",
+                "couleur": "Warm White",
+                "prix": 5.8,
+                "poids": 350.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 9.81
+            },
+            {
+                "sku": "CJHD225250102BY",
+                "vid": "2412240907191609500",
+                "taille": "120 Lights",
+                "couleur": "Warm White",
+                "prix": 5.8,
+                "poids": 590.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 21.41,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 15.61
+            },
+            {
+                "sku": "CJHD225250103CX",
+                "vid": "2412240907191609800",
+                "taille": "204 Lights",
+                "couleur": "Warm White",
+                "prix": 5.8,
+                "poids": 970.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 27.54,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 25.44
+            },
+            {
+                "sku": "CJHD225250104DW",
+                "vid": "2412240907201600100",
+                "taille": "100 Lights",
+                "couleur": "Pure White",
+                "prix": 5.8,
+                "poids": 350.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 9.81
+            },
+            {
+                "sku": "CJHD225250105EV",
+                "vid": "2412240907201600400",
+                "taille": "120 Lights",
+                "couleur": "Pure White",
+                "prix": 5.8,
+                "poids": 590.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 21.41,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 15.61
+            },
+            {
+                "sku": "CJHD225250106FU",
+                "vid": "2412240907201600700",
+                "taille": "204 Lights",
+                "couleur": "Pure White",
+                "prix": 5.8,
+                "poids": 970.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 27.54,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 25.44
+            },
+            {
+                "sku": "CJHD225250107GT",
+                "vid": "2412240907201600900",
+                "taille": "100 Lights",
+                "couleur": "Color",
+                "prix": 5.8,
+                "poids": 350.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 9.81
+            },
+            {
+                "sku": "CJHD225250108HS",
+                "vid": "2412240907201601200",
+                "taille": "120 Lights",
+                "couleur": "Color",
+                "prix": 5.8,
+                "poids": 590.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 15.61
+            },
+            {
+                "sku": "CJHD225250109IR",
+                "vid": "2412240907201601500",
+                "taille": "204 Lights",
+                "couleur": "Color",
+                "prix": 5.8,
+                "poids": 970.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 27.54,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 25.44
+            },
+            {
+                "sku": "CJHD225250110JQ",
+                "vid": "2412240907201601900",
+                "taille": "100 Lights",
+                "couleur": "Blue",
+                "prix": 5.8,
+                "poids": 350.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 9.81
+            },
+            {
+                "sku": "CJHD225250111KP",
+                "vid": "2412240907201602200",
+                "taille": "120 Lights",
+                "couleur": "Blue",
+                "prix": 5.8,
+                "poids": 590.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 17.53,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 15.61
+            },
+            {
+                "sku": "CJHD225250112LO",
+                "vid": "2412240907201602500",
+                "taille": "204 Lights",
+                "couleur": "Blue",
+                "prix": 5.8,
+                "poids": 970.0,
+                "stock": 96000,
+                "shippingMethodFR": "CJPacket Pure Electricity",
+                "shippingCostFR": 27.54,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 25.44
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045362010154635265",
+        "nom": "Single Sofa Recliner With Manually Adjustable Backrest, USB Charging Port On The Armrest Side, Phone Stand Included, Hidden Armrest Storage, And A Matching Storage Ottoman-Brown",
+        "prixBase": 260.42,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/37c4b793-3440-462e-9167-4ae5266317a0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28411920001",
+                "vid": "2045362011534561282",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 260.42,
+                "poids": 43499.0,
+                "stock": 88,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2001537446588162050",
+        "nom": "Baseball Batting Netting, Professional Softball Baseball Batting Hitting Training Net, Practice Portable Pitching Cage Net With Door & Carry Bag, Heavy Duty Enclosed PE Netting, 55FT NET ONLY",
+        "prixBase": 139.92,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17660160/7596cc04-127e-41b0-ac08-5e1d5379c25e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU26568340001",
+                "vid": "2001537446969843714",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 139.92,
+                "poids": 11050.0,
+                "stock": 315,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2409190514201600100",
+        "nom": "Jellyfish Humidifier Fragrance Diffuser Colorful Night Light Heavy Fog Essential Oil Diffuser Home Bedroom Office Air Humidifier",
+        "prixBase": 9.12,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/09/30/04/6c1ac0b6-a349-4c4a-a896-a0af7f85f0a5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT214131101AZ",
+                "vid": "2409190514201600400",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 9.12,
+                "poids": 504.0,
+                "stock": 11411,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 10.84,
+                "shippingMethodUS": "CJPacket Sensitive Over Length",
+                "shippingCostUS": 21.26
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504280540451624500",
+        "nom": "Portable And Simple Household Hair Ball Trimmer",
+        "prixBase": 1.59,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/28/05/dcd751d0-cf04-4675-b3cd-b734f5e38973.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD236437601AZ",
+                "vid": "2504280540451625200",
+                "taille": "N/A",
+                "couleur": "Rechargeable",
+                "prix": 1.59,
+                "poids": 320.0,
+                "stock": 17795,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 8.49,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.59
+            },
+            {
+                "sku": "CJYD236437602BY",
+                "vid": "2504280540451625600",
+                "taille": "N/A",
+                "couleur": "Rechargeable Cutter Head X1",
+                "prix": 1.59,
+                "poids": 340.0,
+                "stock": 17795,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 8.77,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.94
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1635915397646004224",
+        "nom": "Retro Light Aroma Diffuser Essential Oil LED Light Filament Night Light Air Humidifier For Home",
+        "prixBase": 6.81,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/25132684-bf8f-4609-8b4c-9a747aef36b0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT170746101AZ",
+                "vid": "1635915397734084608",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 6.81,
+                "poids": 340.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 8.77,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.94
+            },
+            {
+                "sku": "CJJT170746102BY",
+                "vid": "1635915397796999168",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 6.81,
+                "poids": 340.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 8.77,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.94
+            },
+            {
+                "sku": "CJJT170746103CX",
+                "vid": "1635922638012952576",
+                "taille": "N/A",
+                "couleur": "Set",
+                "prix": 6.81,
+                "poids": 655.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 12.7,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.0
+            },
+            {
+                "sku": "CJJT170746104DW",
+                "vid": "1637727458394910720",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 6.81,
+                "poids": 340.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 8.77,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.94
+            },
+            {
+                "sku": "CJJT170746105EV",
+                "vid": "1646064686636470272",
+                "taille": "N/A",
+                "couleur": "Set1",
+                "prix": 6.81,
+                "poids": 386.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 9.42,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 10.74
+            },
+            {
+                "sku": "CJJT170746106FU",
+                "vid": "1646064686661636096",
+                "taille": "N/A",
+                "couleur": "Set2",
+                "prix": 6.81,
+                "poids": 387.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 9.43,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 10.75
+            },
+            {
+                "sku": "CJJT170746107GT",
+                "vid": "1646066082958024704",
+                "taille": "N/A",
+                "couleur": "Set3",
+                "prix": 6.81,
+                "poids": 638.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 12.49,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.72
+            },
+            {
+                "sku": "CJJT170746108HS",
+                "vid": "1646066083020939264",
+                "taille": "N/A",
+                "couleur": "Set4",
+                "prix": 6.81,
+                "poids": 639.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 12.5,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.74
+            },
+            {
+                "sku": "CJJT170746109IR",
+                "vid": "1646718966779355136",
+                "taille": "N/A",
+                "couleur": "Set5",
+                "prix": 6.81,
+                "poids": 446.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 10.13,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.78
+            },
+            {
+                "sku": "CJJT170746110JQ",
+                "vid": "1646718966833881088",
+                "taille": "N/A",
+                "couleur": "Set6",
+                "prix": 6.81,
+                "poids": 445.0,
+                "stock": 133482,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 10.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.75
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1476496860209352704",
+        "nom": "Creative Home Purple Fruit And Vegetable Knife",
+        "prixBase": 2.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/7ce3bfe7-9bee-4d30-a5cd-2b18c4c540ef.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJCF139051702BY",
+                "vid": "1476496860347764736",
+                "taille": "N/A",
+                "couleur": "Cutting knife",
+                "prix": 2.98,
+                "poids": 211.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.52
+            },
+            {
+                "sku": "CJCF139051703CX",
+                "vid": "1476496860347764737",
+                "taille": "N/A",
+                "couleur": "Chefs knife",
+                "prix": 2.98,
+                "poids": 212.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.6,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.52
+            },
+            {
+                "sku": "CJCF139051704DW",
+                "vid": "1476496860351959040",
+                "taille": "N/A",
+                "couleur": "Bread knife",
+                "prix": 2.98,
+                "poids": 210.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.56,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.48
+            },
+            {
+                "sku": "CJCF139051705EV",
+                "vid": "1476496860351959041",
+                "taille": "N/A",
+                "couleur": "Butcher knife",
+                "prix": 2.98,
+                "poids": 202.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.4,
+                "shippingMethodUS": "Qfulfillment A line",
+                "shippingCostUS": 9.37
+            },
+            {
+                "sku": "CJCF139051706FU",
+                "vid": "1476496860351959042",
+                "taille": "N/A",
+                "couleur": "Santoku knife",
+                "prix": 2.98,
+                "poids": 212.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.6,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.52
+            },
+            {
+                "sku": "CJCF139051707GT",
+                "vid": "1476496860356153344",
+                "taille": "N/A",
+                "couleur": "Side dish cut",
+                "prix": 2.98,
+                "poids": 223.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.81,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 9.73
+            },
+            {
+                "sku": "CJCF139051708HS",
+                "vid": "1476496860356153345",
+                "taille": "N/A",
+                "couleur": "Deboning knife",
+                "prix": 2.98,
+                "poids": 110.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "Qfulfillment A line",
+                "shippingCostUS": 7.31
+            },
+            {
+                "sku": "CJCF139051709IR",
+                "vid": "1476496860360347648",
+                "taille": "N/A",
+                "couleur": "Universal knife",
+                "prix": 2.98,
+                "poids": 170.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 9.79,
+                "shippingMethodUS": "Qfulfillment A line",
+                "shippingCostUS": 8.65
+            },
+            {
+                "sku": "CJCF139051710JQ",
+                "vid": "1476496860360347649",
+                "taille": "N/A",
+                "couleur": "Little Santoku Knife",
+                "prix": 2.98,
+                "poids": 115.0,
+                "stock": 539341,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 7.7,
+                "shippingMethodUS": "Qfulfillment A line",
+                "shippingCostUS": 7.41
+            },
+            {
+                "sku": "CJCF139051711KP",
+                "vid": "1476496860364541952",
+                "taille": "N/A",
+                "couleur": "Peel knife",
+                "prix": 2.98,
+                "poids": 102.0,
+                "stock": 539341,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 7.43,
+                "shippingMethodUS": "Qfulfillment A line",
+                "shippingCostUS": 7.12
+            },
+            {
+                "sku": "CJCF139051712LO",
+                "vid": "1476496860364541953",
+                "taille": "N/A",
+                "couleur": "3PC set",
+                "prix": 2.98,
+                "poids": 508.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 16.31,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 15.29
+            },
+            {
+                "sku": "CJCF139051713MN",
+                "vid": "1476496860364541954",
+                "taille": "N/A",
+                "couleur": "5PC set",
+                "prix": 2.98,
+                "poids": 821.0,
+                "stock": 539341,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 22.35,
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 21.38
             }
         ]
     }
