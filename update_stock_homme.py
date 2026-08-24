@@ -332,6 +332,25 @@ def generate_update_stock_homme_json():
                     m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
                     m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
 
+                # --- SÉCURITÉ ANTI-N/A ---
+                # Si l'API retourne N/A pour les US, on va chercher si l'ancienne version avait une valeur valide
+                if m_us == "N/A" and pid in produits_existants:
+                    old_prod = produits_existants[pid]
+                    for old_v in old_prod.get("variantes", []):
+                        if old_v.get("vid") == vid and old_v.get("shippingMethodUS") != "N/A":
+                            m_us = old_v.get("shippingMethodUS")
+                            c_us = old_v.get("shippingCostUS")
+                            break
+                # Idem par sécurité pour la France
+                if m_fr == "N/A" and pid in produits_existants:
+                    old_prod = produits_existants[pid]
+                    for old_v in old_prod.get("variantes", []):
+                        if old_v.get("vid") == vid and old_v.get("shippingMethodFR") != "N/A":
+                            m_fr = old_v.get("shippingMethodFR")
+                            c_fr = old_v.get("shippingCostFR")
+                            break
+                # -------------------------
+
                 variant_obj = {
                     "sku": sku_var,
                     "vid": vid,
