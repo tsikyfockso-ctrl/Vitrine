@@ -17,8 +17,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -30,8 +30,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -43,10 +43,10 @@
                 "prix": 0.69,
                 "poids": 55.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.64,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.18
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.96
             },
             {
                 "sku": "CJWJNHNT01879-PURPLE",
@@ -56,8 +56,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -69,10 +69,10 @@
                 "prix": 0.69,
                 "poids": 48.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.55,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.96
             },
             {
                 "sku": "CJWJNHNT01879-PINK",
@@ -82,8 +82,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -95,8 +95,8 @@
                 "prix": 0.69,
                 "poids": 250.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             }
@@ -2538,7 +2538,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1402446458522832896",
-        "nom": "Cute Bunny Ears Bowknot Backpack Student",
+        "nom": "Mignon oreilles de lapin Bowknot sac à dos étudiant",
         "prixBase": 4.54,
         "productFee": 0.0,
         "images": [
@@ -2627,7 +2627,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796041942690705408",
-        "nom": "Cute Baby Gauze Triangle Rompers",
+        "nom": "Jolies barboteuses triangulaires en gaze pour bébé",
         "prixBase": 3.05,
         "productFee": 0.0,
         "images": [
@@ -2656,9 +2656,9 @@
                 "poids": 310.0,
                 "stock": 102008,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.58,
+                "shippingCostFR": 7.48,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.74
+                "shippingCostUS": 7.62
             },
             {
                 "sku": "CJYE204936603CX",
@@ -2671,7 +2671,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.87
+                "shippingCostUS": 7.62
             },
             {
                 "sku": "CJYE204936604DW",
@@ -2682,9 +2682,9 @@
                 "poids": 330.0,
                 "stock": 102008,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.78,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJYE204936605EV",
@@ -2721,7 +2721,7 @@
                 "poids": 320.0,
                 "stock": 102008,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 7.48,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.87
             },
@@ -2737,6 +2737,276 @@
                 "shippingCostFR": 7.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.43
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "305DB8CB-34A1-4E04-A84F-DA84A8AD32F5",
+        "nom": "Écharpe en peluche Pure, écharpe chaude d'hiver pour filles coréennes, bébé garçon, col décoratif, assemblage, écharpe chaude",
+        "prixBase": 2.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15141312/6126806609_1212065894.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJNHNT00029-MILK WHITE",
+                "vid": "0D6323EF-6873-459C-920A-6902C36D087B",
+                "taille": "N/A",
+                "couleur": "Milk white",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWJNHNT00029-DARK YELLOW",
+                "vid": "3144A3C7-D539-4330-9B88-1A2A8AA42E6E",
+                "taille": "N/A",
+                "couleur": "Dark yellow",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWJNHNT00029-RICE WHITE",
+                "vid": "4C70CEC3-E8DE-4D9C-A40E-7B974939BA3E",
+                "taille": "N/A",
+                "couleur": "Rice white",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWJNHNT00029-PINK",
+                "vid": "70E44DD9-17D8-46C9-8BFC-DE1BB7C2FC8F",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWJNHNT00029-GRAY",
+                "vid": "FBDE3AA1-6438-42D2-BBB2-A07D309993AE",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2412200808491611400",
+        "nom": "Sangle brodée rouge amour pour bébé fille Ha Yi",
+        "prixBase": 5.97,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/35030786-7f96-4921-842a-c6504517f32f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE224921701AZ",
+                "vid": "2412200808491611900",
+                "taille": "66",
+                "couleur": "Coat",
+                "prix": 5.97,
+                "poids": 173.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921702BY",
+                "vid": "2412200808491612200",
+                "taille": "73",
+                "couleur": "Coat",
+                "prix": 5.97,
+                "poids": 184.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921703CX",
+                "vid": "2412200808491612500",
+                "taille": "80",
+                "couleur": "Coat",
+                "prix": 5.97,
+                "poids": 202.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921704DW",
+                "vid": "2412200808491612800",
+                "taille": "90",
+                "couleur": "Coat",
+                "prix": 5.97,
+                "poids": 220.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921705EV",
+                "vid": "2412200808491613300",
+                "taille": "100",
+                "couleur": "Coat",
+                "prix": 5.97,
+                "poids": 237.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921706FU",
+                "vid": "2412200808491613800",
+                "taille": "66",
+                "couleur": "Romper",
+                "prix": 5.97,
+                "poids": 125.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921707GT",
+                "vid": "2412200808491614000",
+                "taille": "73",
+                "couleur": "Romper",
+                "prix": 5.97,
+                "poids": 137.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921708HS",
+                "vid": "2412200808491614500",
+                "taille": "80",
+                "couleur": "Romper",
+                "prix": 5.97,
+                "poids": 149.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE224921709IR",
+                "vid": "2412200808491615300",
+                "taille": "90",
+                "couleur": "Romper",
+                "prix": 5.97,
+                "poids": 160.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE224921710JQ",
+                "vid": "2412200808491615700",
+                "taille": "100",
+                "couleur": "Romper",
+                "prix": 5.97,
+                "poids": 177.0,
+                "stock": 77394,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.98
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1781918712610689024",
+        "nom": "Panneau lumineux 14CM, chapeau de paille à grand bord, dôme de plage résistant au soleil pour femmes",
+        "prixBase": 3.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/30e6cedd-1add-44e4-ac33-f4331addc218.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBQ201635901AZ",
+                "vid": "1781918712681992192",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 3.02,
+                "poids": 220.0,
+                "stock": 39576,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
+            },
+            {
+                "sku": "CJBQ201635902BY",
+                "vid": "1781918712736518144",
+                "taille": "N/A",
+                "couleur": "Beige",
+                "prix": 3.02,
+                "poids": 220.0,
+                "stock": 39576,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
+            },
+            {
+                "sku": "CJBQ201635903CX",
+                "vid": "1781918712791044096",
+                "taille": "N/A",
+                "couleur": "Milky White",
+                "prix": 3.02,
+                "poids": 220.0,
+                "stock": 39576,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
             }
         ]
     }
