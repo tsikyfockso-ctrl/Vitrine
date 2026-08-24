@@ -364,6 +364,10 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
+// Synchroniser le pays choisi dans la première modale vers la modale de paiement
+const currentCountry = document.getElementById('modalCountrySelect').value;
+document.getElementById('paymentCountrySelect').value = currentCountry;
+
 // --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
 function calculateShipping() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
