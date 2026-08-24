@@ -43,8 +43,8 @@
                 "prix": 0.69,
                 "poids": 55.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.18
             },
@@ -69,8 +69,8 @@
                 "prix": 0.69,
                 "poids": 48.0,
                 "stock": 85859,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.55,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
             },
@@ -169,7 +169,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2503210348081606600",
-        "nom": "Pantalon droit curling pantalon décontracté ample bébé",
+        "nom": "Curling Straight-leg Pants Baby Loose Casual Trousers",
         "prixBase": 5.8,
         "productFee": 0.0,
         "images": [
@@ -198,7 +198,7 @@
                 "poids": 280.0,
                 "stock": 41265,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.28,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.35
             },
@@ -211,7 +211,7 @@
                 "poids": 290.0,
                 "stock": 41265,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.38,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -226,7 +226,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.23
+                "shippingCostUS": 7.62
             },
             {
                 "sku": "CJNT233337505EV",
@@ -250,7 +250,7 @@
                 "poids": 320.0,
                 "stock": 41265,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.68,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.87
             }
@@ -2157,6 +2157,586 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1385865414172610560",
+        "nom": "Hat Ladies Light Version Summer Foldable Sunscreen Straw Hat Sun Hat Fisherman Hat Outdoor Beach Sun Hat Wholesale",
+        "prixBase": 0.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1619332098084.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT109692101AZ",
+                "vid": "1385865415523176448",
+                "taille": "Child",
+                "couleur": "A",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692102BY",
+                "vid": "1385865415531565056",
+                "taille": "Adult",
+                "couleur": "A",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692103CX",
+                "vid": "1385865415539953664",
+                "taille": "Child",
+                "couleur": "B",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692104DW",
+                "vid": "1385865415548342272",
+                "taille": "Adult",
+                "couleur": "B",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692105EV",
+                "vid": "1385865415556730880",
+                "taille": "Child",
+                "couleur": "C",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692106FU",
+                "vid": "1385865415565119488",
+                "taille": "Adult",
+                "couleur": "C",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692107GT",
+                "vid": "1385865415569313792",
+                "taille": "Child",
+                "couleur": "D",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692108HS",
+                "vid": "1385865415577702400",
+                "taille": "Adult",
+                "couleur": "D",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692109IR",
+                "vid": "1385865415586091008",
+                "taille": "Child",
+                "couleur": "E",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 13.48
+            },
+            {
+                "sku": "CJNT109692110JQ",
+                "vid": "1385865415598673920",
+                "taille": "Adult",
+                "couleur": "E",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692111KP",
+                "vid": "1385865415607062528",
+                "taille": "Child",
+                "couleur": "F",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692112LO",
+                "vid": "1385865415615451136",
+                "taille": "Adult",
+                "couleur": "F",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692113MN",
+                "vid": "1385865415619645440",
+                "taille": "Child",
+                "couleur": "G",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692114NM",
+                "vid": "1385865415628034048",
+                "taille": "Adult",
+                "couleur": "G",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692115OL",
+                "vid": "1385865415636422656",
+                "taille": "Child",
+                "couleur": "H",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692116PK",
+                "vid": "1385865415644811264",
+                "taille": "Adult",
+                "couleur": "H",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692117QJ",
+                "vid": "1385865415653199872",
+                "taille": "Child",
+                "couleur": "I",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692118RI",
+                "vid": "1385865415661588480",
+                "taille": "Adult",
+                "couleur": "I",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692119SH",
+                "vid": "1385865415669977088",
+                "taille": "Child",
+                "couleur": "J",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692120TG",
+                "vid": "1385865415678365696",
+                "taille": "Adult",
+                "couleur": "J",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692121UF",
+                "vid": "1385865415682560000",
+                "taille": "Child",
+                "couleur": "K",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692122VE",
+                "vid": "1385865415690948608",
+                "taille": "Adult",
+                "couleur": "K",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692123WD",
+                "vid": "1385865415699337216",
+                "taille": "Child",
+                "couleur": "L",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            },
+            {
+                "sku": "CJNT109692124XC",
+                "vid": "1385865415707725824",
+                "taille": "Adult",
+                "couleur": "L",
+                "prix": 0.98,
+                "poids": 140.0,
+                "stock": 960000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.65
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1846382639713243136",
+        "nom": "Child Christmas Socks Winter No-shedding Cute Elk Elk Santa Claus Snowman Sleeping Floor Coral Fleece Socks",
+        "prixBase": 0.9,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/10/16/07/01a470e8-eb60-4e1c-a7bc-386e6db70fb3.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT216105101AZ",
+                "vid": "1846382640073953280",
+                "taille": "N/A",
+                "couleur": "Santa Claus",
+                "prix": 0.9,
+                "poids": 80.0,
+                "stock": 37926,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJNT216105102BY",
+                "vid": "1846382640073953281",
+                "taille": "N/A",
+                "couleur": "Elk",
+                "prix": 0.9,
+                "poids": 80.0,
+                "stock": 37926,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJNT216105103CX",
+                "vid": "1846382640073953282",
+                "taille": "N/A",
+                "couleur": "Snowman",
+                "prix": 0.9,
+                "poids": 80.0,
+                "stock": 37926,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1402446458522832896",
+        "nom": "Cute Bunny Ears Bowknot Backpack Student",
+        "prixBase": 4.54,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1623204152352.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE116601801AZ",
+                "vid": "1402446460066336768",
+                "taille": "16inches",
+                "couleur": "Blue",
+                "prix": 4.54,
+                "poids": 400.0,
+                "stock": 80601,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.49,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.44
+            },
+            {
+                "sku": "CJYE116601802BY",
+                "vid": "1402446460074725376",
+                "taille": "16inches",
+                "couleur": "Black",
+                "prix": 4.54,
+                "poids": 400.0,
+                "stock": 80601,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.49,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.44
+            },
+            {
+                "sku": "CJYE116601803CX",
+                "vid": "1402446460083113984",
+                "taille": "16inches",
+                "couleur": "Pink",
+                "prix": 4.54,
+                "poids": 400.0,
+                "stock": 80601,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.49,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.44
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1371372671513792512",
+        "nom": "Protector Knee-Pad Kids Safety Leg-Warmer Crawling Baby Cush",
+        "prixBase": 7.4,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1615795600608.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE104261301AZ",
+                "vid": "1371372672839192576",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 7.4,
+                "poids": 220.0,
+                "stock": 80000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
+            },
+            {
+                "sku": "CJYE104261302BY",
+                "vid": "1371372672902107136",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 7.4,
+                "poids": 220.0,
+                "stock": 80000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1796041942690705408",
+        "nom": "Cute Baby Gauze Triangle Rompers",
+        "prixBase": 3.05,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/16182b42-84e8-4d76-b35c-f9f85731de5c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE204936601AZ",
+                "vid": "1796041942820728832",
+                "taille": "66 Yards",
+                "couleur": "Gauze Doll Brown Bear",
+                "prix": 3.05,
+                "poids": 300.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYE204936602BY",
+                "vid": "1796041942883643392",
+                "taille": "73 Yards",
+                "couleur": "Gauze Doll Brown Bear",
+                "prix": 3.05,
+                "poids": 310.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.74
+            },
+            {
+                "sku": "CJYE204936603CX",
+                "vid": "1796041942996889600",
+                "taille": "80 Yards",
+                "couleur": "Gauze Doll Brown Bear",
+                "prix": 3.05,
+                "poids": 320.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYE204936604DW",
+                "vid": "1796041943059804160",
+                "taille": "90 Yards",
+                "couleur": "Gauze Doll Brown Bear",
+                "prix": 3.05,
+                "poids": 330.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.78,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYE204936605EV",
+                "vid": "1796041943168856064",
+                "taille": "66 Yards",
+                "couleur": "Gauze Doll Pink Rabbit",
+                "prix": 3.05,
+                "poids": 300.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYE204936606FU",
+                "vid": "1796041943269519360",
+                "taille": "73 Yards",
+                "couleur": "Gauze Doll Pink Rabbit",
+                "prix": 3.05,
+                "poids": 310.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.74
+            },
+            {
+                "sku": "CJYE204936607GT",
+                "vid": "1796041943332433920",
+                "taille": "80 Yards",
+                "couleur": "Gauze Doll Pink Rabbit",
+                "prix": 3.05,
+                "poids": 320.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYE204936608HS",
+                "vid": "1796041943395348480",
+                "taille": "90 Yards",
+                "couleur": "Gauze Doll Pink Rabbit",
+                "prix": 3.05,
+                "poids": 330.0,
+                "stock": 102008,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             }
         ]
     }
