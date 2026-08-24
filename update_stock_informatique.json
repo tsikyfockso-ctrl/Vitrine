@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "AB309FDB-EC7E-4022-A44C-2C8269BB7E03",
-        "nom": "Accessoires informatiques Souris filaire USB lumineuse",
+        "nom": "Computer Accessories Luminous USB Wired Mouse",
         "prixBase": 1.64,
         "productFee": 0.0,
         "images": [
@@ -17,10 +17,10 @@
                 "prix": 1.64,
                 "poids": 140.0,
                 "stock": 20000,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.45
             }
         ]
     },
@@ -579,7 +579,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "116B5C69-00E3-4E3D-A8A3-D84D8E6D06CA",
-        "nom": "Sac d'ordinateur, sac d'exposition, sac cadeau, sac d'ordinateur",
+        "nom": "Computer bag exhibition bag gift bag computer bag",
         "prixBase": 2.8,
         "productFee": 0.0,
         "images": [
@@ -918,6 +918,133 @@
                 "stock": 210000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1387604935763431424",
+        "nom": "Bicycle Accessories Bicycle Silicone-Free Cushion Cover",
+        "prixBase": 1.21,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1619665413159.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZX110527101AZ",
+                "vid": "1387604937264992256",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.21,
+                "poids": 117.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.52
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1784203938154164224",
+        "nom": "Drop Shape Band Sinker Fishing Hot Hoy Fishing Gear Accessories",
+        "prixBase": 0.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/47f4e8fe-f439-4b65-a8a8-29789b4bae50.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD202242401AZ",
+                "vid": "1784203938246438912",
+                "taille": "N/A",
+                "couleur": "20g",
+                "prix": 0.2,
+                "poids": 30.0,
+                "stock": 63941,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD202242402BY",
+                "vid": "1784203938317742080",
+                "taille": "N/A",
+                "couleur": "30g",
+                "prix": 0.2,
+                "poids": 40.0,
+                "stock": 63941,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD202242403CX",
+                "vid": "1784203938384850944",
+                "taille": "N/A",
+                "couleur": "50g",
+                "prix": 0.2,
+                "poids": 60.0,
+                "stock": 63941,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD202242404DW",
+                "vid": "1784203938456154112",
+                "taille": "N/A",
+                "couleur": "40g",
+                "prix": 0.2,
+                "poids": 50.0,
+                "stock": 63941,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD202242405EV",
+                "vid": "1784203938531651584",
+                "taille": "N/A",
+                "couleur": "Tongxin Sinker 20g",
+                "prix": 0.2,
+                "poids": 30.0,
+                "stock": 63941,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1850109648016658432",
+        "nom": "King Size Metal Platform Bed Frame With Wooden Headboard And Footboard With USB LINER",
+        "prixBase": 162.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/6e1bacaa-8508-4b3a-bee0-5bff2274502d.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT217257301AZ",
+                "vid": "1850109648121516032",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 162.2,
+                "poids": 35925.0,
+                "stock": 357,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
