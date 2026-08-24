@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
+        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -17,8 +17,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.94
             },
@@ -30,8 +30,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.94
             },
@@ -43,8 +43,8 @@
                 "prix": 2.68,
                 "poids": 580.0,
                 "stock": 38439,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.94
             }
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -178,7 +178,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1727528401138880512",
-        "nom": "Simulation de lampe de poisson ornementale, décoration de nuit pour la maison",
+        "nom": "Simulation Ornamental Fish Lamp Home Night Decoration Home Decor",
         "prixBase": 6.6,
         "productFee": 0.0,
         "images": [
@@ -186,28 +186,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -216,7 +203,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1963501897115009026",
-        "nom": "Autocollants de sol antidérapants auto-adhésifs à grain de bois, autocollants de carrelage imperméables et résistants à l'huile en PVC durable, décoration murale amovible",
+        "nom": "Wood Grain Self-Adhesive Anti-Slip Floor Stickers, Durable PVC Peel-and-Stick Waterproof And Oil-Proof Tile Stickers, Removable Wall Decor",
         "prixBase": 19.97,
         "productFee": 0.0,
         "images": [
@@ -1381,6 +1368,168 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1905186843035979778",
+        "nom": "White Hydroponic Planting System",
+        "prixBase": 91.73,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/89fca0d0-b18b-409a-80a7-7a29966e88e1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL233877201AZ",
+                "vid": "1905186848090116097",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 91.73,
+                "poids": 2800.0,
+                "stock": 266,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508160543061615700",
+        "nom": "Traditional Yixing Purple Clay Exquisite Flower Pots Are All Handmade",
+        "prixBase": 60.53,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/08/16/06/959e8c8b-ea30-4f46-a6fb-d763b30c1d5f_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU245798201AZ",
+                "vid": "2508160543061615900",
+                "taille": "N/A",
+                "couleur": "Purple Clay Flower Pot",
+                "prix": 60.53,
+                "poids": 8060.0,
+                "stock": 6351,
+                "shippingMethodFR": "CJPacket Ordinary E",
+                "shippingCostFR": 96.3,
+                "shippingMethodUS": "CJPacket Sea",
+                "shippingCostUS": 82.98
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2029122060734087169",
+        "nom": "78 TV Stand For 75-80-85 Inch TV, Console With Ample Storage For Living Room, Bedroom, Entertainment Center With Open Shelf",
+        "prixBase": 134.74,
+        "productFee": 0.0,
+        "images": [],
+        "variantes": [
+            {
+                "sku": "CJFU27753420001",
+                "vid": "2029122060889276418",
+                "taille": "N/A",
+                "couleur": "Walnut",
+                "prix": 134.74,
+                "poids": 36800.0,
+                "stock": 75,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2407270749431600900",
+        "nom": "Melting Halloween Pumpkin Candy Bowl With Lid Reusable Candy Dish Spooky Food Display Bowl For Home Halloween",
+        "prixBase": 3.51,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/09/16/06/cb690581-8fca-40d5-90a8-979930f23058.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT209486503CX",
+                "vid": "2407270749431601300",
+                "taille": "N/A",
+                "couleur": "12x12x6.8cm",
+                "prix": 3.51,
+                "poids": 991.0,
+                "stock": 34536,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 14.82,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 16.42
+            },
+            {
+                "sku": "CJJT209486501AZ",
+                "vid": "2409120303501626300",
+                "taille": "N/A",
+                "couleur": "14x14x18cm",
+                "prix": 3.51,
+                "poids": 983.0,
+                "stock": 34536,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 14.74,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 16.3
+            },
+            {
+                "sku": "CJJT209486504DW",
+                "vid": "2608240441571600600",
+                "taille": "N/A",
+                "couleur": "15x15x18cm",
+                "prix": 3.51,
+                "poids": 840.0,
+                "stock": 34536,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 13.3,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 14.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2412120509331618900",
+        "nom": "Mortier de pierre broyeur de cuisine en marbre Vintage",
+        "prixBase": 6.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/d4e878db-5310-4f11-b83b-f154215c1f04.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJCJ224148701AZ",
+                "vid": "2412120509331619100",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 6.45,
+                "poids": 3230.0,
+                "stock": 29692,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 37.29,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 43.45
+            },
+            {
+                "sku": "CJCJ224148702BY",
+                "vid": "2412120509331619300",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 6.45,
+                "poids": 3230.0,
+                "stock": 29692,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 37.29,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 43.45
             }
         ]
     }
