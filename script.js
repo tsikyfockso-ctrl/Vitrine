@@ -59,7 +59,7 @@ async function chargerCategorie(jsonFileName, containerId) {
 
 // --- 3. AFFICHAGE DES PRODUITS PAR CONTENEUR ---
 function renderCategoryProducts(stock, container) {
-    const devise = "USD"; // Devise par défaut ou fixe sans conversion
+    const devise = "USD";
 
     container.innerHTML = stock.map((p, index) => {
         let rawImg = Array.isArray(p.images) ? p.images.find(img => img && img.trim() !== "") : p.images;
@@ -164,11 +164,14 @@ function openProductModalFromCache(containerId, index) {
 
         variantSelect.onchange = () => {
             mettreAJourSelectionCasesTailles(variantSelect.value);
+            resetQuantiteEtStockMax();
             calculateShipping();
         };
     }
 
     genererBoitesTaillesHorizontales(currentSelectedProduct);
+    genererSelecteurQuantiteModerne();
+    resetQuantiteEtStockMax();
     updateModalPriceAndSpecs();
     document.getElementById('productModal').style.display = 'flex';
 }
@@ -182,7 +185,7 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE VARIANTES ---
+// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE VARIANTES ET QUANTITÉ ---
 function genererBoitesTaillesHorizontales(produit) {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
@@ -233,6 +236,7 @@ function genererBoitesTaillesHorizontales(produit) {
                 if (variantSelect && variantSelect.options[idx]) {
                     variantSelect.value = idx;
                     mettreAJourSelectionCasesTailles(idx);
+                    resetQuantiteEtStockMax();
                     calculateShipping();
                 }
             };
@@ -243,6 +247,105 @@ function genererBoitesTaillesHorizontales(produit) {
         wrapperTailles.appendChild(flexTailles);
         containerOptions.appendChild(wrapperTailles);
     }
+}
+
+// Création dynamique d'un sélecteur de quantité moderne avec gestion du stock
+function genererSelecteurQuantiteModerne() {
+    const modalDescElem = document.getElementById('modalDesc');
+    if (!modalDescElem) return;
+
+    let containerQty = document.getElementById('modal-quantity-container');
+    if (containerQty) containerQty.remove();
+
+    containerQty = document.createElement('div');
+    containerQty.id = 'modal-quantity-container';
+    containerQty.style.marginTop = "12px";
+    containerQty.style.marginBottom = "12px";
+    containerQty.innerHTML = `
+        <label style="display:block; margin-bottom:6px; font-size:0.9em; color:#333;"><strong>Quantité :</strong></label>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; align-items: border; border: 1px solid #ced4da; border-radius: 6px; overflow: hidden; background: #fff;">
+                <button type="button" onclick="changerQuantite(-1)" style="background: #f8f9fa; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">-</button>
+                <input type="number" id="modalQuantityInput" value="1" min="1" onchange="validerQuantiteSaisie()" style="width: 50px; text-align: center; border: none; outline: none; font-size: 0.9em;" />
+                <button type="button" onclick="changerQuantite(1)" style="background: #f8f9fa; border: none; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 1em;">+</button>
+            </div>
+            <span id="modalStockInfo" style="font-size: 0.85em; color: #666; font-style: italic;"></span>
+        </div>
+    `;
+    modalDescElem.parentNode.insertBefore(containerQty, modalDescElem.nextSibling);
+}
+
+// Récupère le stock initial de la variante et réinitialise l'input à 1
+function resetQuantiteEtStockMax() {
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
+    
+    // Si la propriété stock n'existe pas dans le JSON, on met une valeur par défaut élevée (ex: 99)
+    if (varianteActuelle.stockActuel === undefined) {
+        varianteActuelle.stockActuel = varianteActuelle.stock !== undefined ? parseInt(varianteActuelle.stock) : 50;
+    }
+
+    const qtyInput = document.getElementById('modalQuantityInput');
+    if (qtyInput) {
+        qtyInput.value = 1;
+        qtyInput.max = varianteActuelle.stockActuel;
+    }
+    
+    mettreAJourAffichageStock();
+}
+
+function mettreAJourAffichageStock() {
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
+    
+    const stockInfoElem = document.getElementById('modalStockInfo');
+    if (stockInfoElem) {
+        stockInfoElem.innerText = `Stock disponible : ${varianteActuelle.stockActuel}`;
+    }
+}
+
+function changerQuantite(delta) {
+    const qtyInput = document.getElementById('modalQuantityInput');
+    if (!qtyInput) return;
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
+
+    let currentQty = parseInt(qtyInput.value) || 1;
+    let nouvelleQty = currentQty + delta;
+
+    if (nouvelleQty < 1) nouvelleQty = 1;
+    if (nouvelleQty > varianteActuelle.stockActuel) {
+        alert("Stock insuffisant pour cette variante !");
+        nouvelleQty = varianteActuelle.stockActuel;
+    }
+
+    qtyInput.value = nouvelleQty;
+    calculateShipping();
+}
+
+function validerQuantiteSaisie() {
+    const qtyInput = document.getElementById('modalQuantityInput');
+    if (!qtyInput) return;
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex] || currentSelectedProduct.variantes[0];
+
+    let nouvelleQty = parseInt(qtyInput.value) || 1;
+
+    if (nouvelleQty < 1) {
+        nouvelleQty = 1;
+    } else if (nouvelleQty > varianteActuelle.stockActuel) {
+        alert("Stock insuffisant ! Quantité ramenée au maximum disponible.");
+        nouvelleQty = varianteActuelle.stockActuel;
+    }
+
+    qtyInput.value = nouvelleQty;
+    calculateShipping();
 }
 
 function mettreAJourSelectionCasesTailles(selectedIndex) {
@@ -303,8 +406,12 @@ function calculateShipping() {
         modalShippingCost.innerText = `${shippingCostFinal.toFixed(2)} ${devise}`;
     }
 
+    // Récupération de la quantité choisie
+    const qtyInput = document.getElementById('modalQuantityInput');
+    let quantite = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+
     let currentPriceBrut = parseFloat(varianteActuelle.prix) || 0;
-    let currentPriceFinal = currentPriceBrut;
+    let currentPriceFinal = currentPriceBrut * quantite; // Multiplié par la quantité
 
     const modalPriceElem = document.getElementById('modalPrice');
     if (modalPriceElem) {
@@ -328,8 +435,25 @@ function calculateShipping() {
     }
 }
 
+// Simulation d'achat : déduit réellement du stock de la variante sélectionnée
 function checkoutWithCard() {
-    alert("Redirection vers le système de paiement sécurisé...");
+    if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
+
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex];
+    
+    const qtyInput = document.getElementById('modalQuantityInput');
+    let quantiteDemandee = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+
+    if (varianteActuelle.stockActuel >= quantiteDemandee) {
+        varianteActuelle.stockActuel -= quantiteDemandee; // Le stock diminue
+        mettreAJourAffichageStock();
+        alert(`Commande validée ! ${quantiteDemandee} article(s) acheté(s). Stock restant : ${varianteActuelle.stockActuel}`);
+        closeProductModal();
+    } else {
+        alert("Stock insuffisant pour finaliser cette commande.");
+    }
 }
 
 function initEventListeners() {}
