@@ -364,10 +364,6 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-// Synchroniser le pays choisi dans la première modale vers la modale de paiement
-const currentCountry = document.getElementById('modalCountrySelect').value;
-document.getElementById('paymentCountrySelect').value = currentCountry;
-
 // --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
 function calculateShipping() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
@@ -438,28 +434,11 @@ function calculateShipping() {
     }
 }
 
-// Simulation d'achat : déduit réellement du stock de la variante sélectionnée
+// --- GESTION DES MODALES DE PAIEMENT & VALIDATION LUHN ---
+
 function checkoutWithCard() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
-    const variantSelect = document.getElementById('modalVariantSelect');
-    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
-    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex];
-    
-    const qtyInput = document.getElementById('modalQuantityInput');
-    let quantiteDemandee = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
-
-    if (varianteActuelle.stockActuel >= quantiteDemandee) {
-        varianteActuelle.stockActuel -= quantiteDemandee;
-        mettreAJourAffichageStock();
-        alert(`Commande validée ! ${quantiteDemandee} article(s) acheté(s). Stock restant : ${varianteActuelle.stockActuel}`);
-        closeProductModal();
-    } else {
-        alert("Stock insuffisant pour finaliser cette commande.");
-    }
-}
-
-function checkoutWithCard() {
     // 1. Récupérer les éléments du premier récapitulatif
     const title = document.getElementById('modalTitle').innerText;
     const price = document.getElementById('modalPrice').innerText;
@@ -471,7 +450,14 @@ function checkoutWithCard() {
     const shippingCost = document.getElementById('modalShippingCost').innerText;
     const totalCost = document.getElementById('modalTotalCost').innerText;
 
-    // 2. Construire le HTML récapitulatif pour la seconde modale
+    // 2. Synchroniser le pays choisi vers la seconde modale
+    const currentCountryValue = countrySelect.value;
+    const paymentCountrySelect = document.getElementById('paymentCountrySelect');
+    if (paymentCountrySelect) {
+        paymentCountrySelect.value = currentCountryValue;
+    }
+
+    // 3. Construire le HTML récapitulatif pour la seconde modale
     const summaryHTML = `
         <p><strong>Produit :</strong> ${title}</p>
         <p><strong>Variante :</strong> ${selectedVariantText}</p>
@@ -482,10 +468,10 @@ function checkoutWithCard() {
         <h3 style="margin: 0; color: #2c3e50;">Total à régler : ${totalCost}</h3>
     `;
 
-    // 3. Injecter le résumé dans la deuxième modale
+    // 4. Injecter le résumé dans la deuxième modale
     document.getElementById('paymentModalSummary').innerHTML = summaryHTML;
 
-    // 4. Masquer la première modale et afficher la seconde
+    // 5. Masquer la première modale et afficher la seconde
     document.getElementById('productModal').style.display = 'none';
     document.getElementById('paymentModal').style.display = 'flex';
 }
@@ -499,10 +485,60 @@ function backToProductModal() {
     document.getElementById('productModal').style.display = 'flex';
 }
 
+// Algorithme de Luhn pour vérifier si un numéro de carte bancaire est formellement faux
+function validerNumeroCarte(numero) {
+    const nettoyer = numero.replace(/\D/g, "");
+    
+    if (nettoyer.length < 13 || nettoyer.length > 19) {
+        return false;
+    }
+
+    let somme = 0;
+    let alterne = false;
+
+    for (let i = nettoyer.length - 1; i >= 0; i--) {
+        let n = parseInt(nettoyer[i], 10);
+
+        if (alterne) {
+            n *= 2;
+            if (n > 9) {
+                n -= 9;
+            }
+        }
+
+        somme += n;
+        alterne = !alterne;
+    }
+
+    return somme % 10 === 0;
+}
+
 function submitCardPayment() {
-    alert("Paiement simulé avec succès ! Merci pour votre commande sur Mayah Store.");
-    document.getElementById('paymentModal').style.display = 'none';
-    // Vous pouvez vider le formulaire ou rediriger ici si besoin
+    const numeroCarte = document.getElementById('cardNumber').value;
+
+    // Vérification de la validité du numéro de carte via l'algorithme de Luhn
+    if (!validerNumeroCarte(numeroCarte)) {
+        alert("⚠️ Le numéro de carte bancaire saisi est invalide ou faux. Veuillez le vérifier.");
+        document.getElementById('cardNumber').focus();
+        return; // Bloque l'envoi si la carte est fausse
+    }
+
+    // Gestion du stock si la carte est valide
+    const variantSelect = document.getElementById('modalVariantSelect');
+    const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
+    const varianteActuelle = currentSelectedProduct.variantes[selectedIndex];
+    
+    const qtyInput = document.getElementById('modalQuantityInput');
+    let quantiteDemandee = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+
+    if (varianteActuelle.stockActuel >= quantiteDemandee) {
+        varianteActuelle.stockActuel -= quantiteDemandee;
+        mettreAJourAffichageStock();
+        alert(`Paiement validé avec succès ! ${quantiteDemandee} article(s) acheté(s). Stock restant : ${varianteActuelle.stockActuel}`);
+        document.getElementById('paymentModal').style.display = 'none';
+    } else {
+        alert("Stock insuffisant pour finaliser cette commande.");
+    }
 }
 
 function initEventListeners() {}
