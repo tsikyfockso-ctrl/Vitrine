@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -224,38 +224,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT247798901AZ",
-                "vid": "1963501897211478018",
+                "sku": "CJJT2477989",
+                "vid": "1963501897115009026",
                 "taille": "N/A",
-                "couleur": "40pcs",
+                "couleur": "N/A",
                 "prix": 19.97,
-                "poids": 1710.0,
-                "stock": 600,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJJT247798902BY",
-                "vid": "1963501897211478019",
-                "taille": "N/A",
-                "couleur": "20pcs",
-                "prix": 19.97,
-                "poids": 860.0,
-                "stock": 600,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJJT247798903CX",
-                "vid": "1963501897211478020",
-                "taille": "N/A",
-                "couleur": "10pcs",
-                "prix": 19.97,
-                "poids": 430.0,
+                "poids": 0.0,
                 "stock": 600,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -553,15 +527,41 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD1914416",
-                "vid": "1732295333251649536",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJYD191441601AZ",
+                "vid": "1732295333343924224",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Pink",
                 "prix": 3.49,
-                "poids": 0.0,
+                "poids": 271.0,
                 "stock": 38977,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.82,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD191441602BY",
+                "vid": "1732295333415227392",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Green",
+                "prix": 3.49,
+                "poids": 272.0,
+                "stock": 38977,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.82,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD191441603CX",
+                "vid": "1732295333478141952",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Purple",
+                "prix": 3.49,
+                "poids": 264.0,
+                "stock": 38977,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.82,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -1664,6 +1664,156 @@
                 "prix": 21.57,
                 "poids": 4000.0,
                 "stock": 1716,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1889916721505026050",
+        "nom": "2PCS Brown Free Splicing Injection Molded Planter Box",
+        "prixBase": 37.5,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/e7c7910e-b750-462a-81ef-b32c6617aa1e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL229049701AZ",
+                "vid": "1889916721647632385",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 37.5,
+                "poids": 4500.0,
+                "stock": 170,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037351849134313474",
+        "nom": "Metal Garden Arch With Gate With Planter W80.71xH97.24 Climbing Plants Support Rose Arch Outdoor Black",
+        "prixBase": 109.42,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/1778148f-1477-4a82-8b37-13b9d83399db.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2807014",
+                "vid": "2037351849134313474",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 109.42,
+                "poids": 0.0,
+                "stock": 32,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2016681611429969922",
+        "nom": "Long Console Table",
+        "prixBase": 125.51,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17696448/4f7bdb81-0914-46ba-8896-a6d07f832772.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2747263",
+                "vid": "2016681611429969922",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 125.51,
+                "poids": 0.0,
+                "stock": 230,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037442492745703426",
+        "nom": "Set Of 3, Rounded Wood Coffee Tables, End Tables, Plant Stands,Decorative Accent Pieces - Rustic Wood Finish",
+        "prixBase": 196.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/2c1869cb-59a3-4f5f-af79-29a2732b1b92.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2808471",
+                "vid": "2037442492745703426",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 196.26,
+                "poids": 0.0,
+                "stock": 16,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1768891093724176384",
+        "nom": "Flame Humidifier USB Smart Timing LED Electric Aroma Diffuser Simulation Fire Night Lamp Home Decor",
+        "prixBase": 4.19,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/04/16/05/9c2a3777-4945-4d0c-a0d2-59d603455335.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD1989662",
+                "vid": "1768891093724176384",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 4.19,
+                "poids": 0.0,
+                "stock": 27308,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1367023282628464640",
+        "nom": "Computer Audio Desktop Home Wired Small Speaker",
+        "prixBase": 4.04,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1614758557663.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYS1027053",
+                "vid": "1367023282628464640",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 4.04,
+                "poids": 0.0,
+                "stock": 200000,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
