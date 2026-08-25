@@ -513,7 +513,7 @@ function validerNumeroCarte(numero) {
     return somme % 10 === 0;
 }
 
-function submitCardPayment() {
+async function submitCardPayment() {
     const numeroCarte = document.getElementById('cardNumber').value;
 
     // Vérification de la validité du numéro de carte via l'algorithme de Luhn
