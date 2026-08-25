@@ -60,56 +60,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYDYDYD01224-BLACK-XL",
-                "vid": "31616E22-1183-4A4A-A3C5-E7E56C386704",
-                "taille": "XL",
-                "couleur": "Black",
+                "sku": "CJYDYDYD01224",
+                "vid": "7498926D-055E-4F66-949C-AE0D7DEA4DC9",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 4.38,
-                "poids": 220.0,
+                "poids": 0.0,
                 "stock": 50279,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.28
-            },
-            {
-                "sku": "CJYDYDYD01224-BLACK-S",
-                "vid": "68E82F2B-8A76-4B4C-BB02-33D3E33BFE03",
-                "taille": "S",
-                "couleur": "Black",
-                "prix": 4.38,
-                "poids": 220.0,
-                "stock": 50279,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.28
-            },
-            {
-                "sku": "CJYDYDYD01224-BLACK-L",
-                "vid": "AB492D5A-71F6-42FD-B6F5-992C3EF09778",
-                "taille": "L",
-                "couleur": "Black",
-                "prix": 4.38,
-                "poids": 220.0,
-                "stock": 50279,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.28
-            },
-            {
-                "sku": "CJYDYDYD01224-BLACK-M",
-                "vid": "C5BD930A-22D8-4442-BB11-2CDF4099DC6C",
-                "taille": "M",
-                "couleur": "Black",
-                "prix": 4.38,
-                "poids": 220.0,
-                "stock": 50279,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.28
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
