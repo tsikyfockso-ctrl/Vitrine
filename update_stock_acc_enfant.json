@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "47FA2AB0-D1CA-447D-BCB8-96D4BD394C19",
-        "nom": "Girls hair accessories set",
+        "nom": "Ensemble d'accessoires pour cheveux pour filles",
         "prixBase": 0.69,
         "productFee": 0.0,
         "images": [
@@ -3910,6 +3910,147 @@
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.62
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "40C9EA3A-E1B5-41C2-904C-627D181AE092",
+        "nom": "Sac de chaise de salle à manger portable",
+        "prixBase": 7.96,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2057/210670089622.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE01456-YELLOW",
+                "vid": "0A4791A6-0AFC-4A5D-A783-BE9F2B1F4AE6",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 7.96,
+                "poids": 459.0,
+                "stock": 40863,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.5
+            },
+            {
+                "sku": "CJWJYEYE01456-BLUE",
+                "vid": "23481163-BB70-4750-A25E-88E1EDFE85C7",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 7.96,
+                "poids": 480.0,
+                "stock": 40863,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.5
+            },
+            {
+                "sku": "CJWJYEYE01456-PINK",
+                "vid": "BE87A37C-57DE-43EE-9119-52F27EA1178A",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 7.96,
+                "poids": 480.0,
+                "stock": 40863,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.5
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "A89D214E-D126-4B85-9BD2-68ECF92F58C3",
+        "nom": "Sucette bébé en silicone super doux",
+        "prixBase": 1.96,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200401/1388647283706.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE01791-BLUE-S",
+                "vid": "160EC972-8207-4899-8755-1BFC86B2B15E",
+                "taille": "S",
+                "couleur": "Blue",
+                "prix": 1.96,
+                "poids": 50.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJWJYEYE01791-PINK-S",
+                "vid": "1BB20845-12D7-46F2-894F-D82B72A5024B",
+                "taille": "S",
+                "couleur": "Pink",
+                "prix": 1.96,
+                "poids": 50.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJWJYEYE01791-BEIGE-M",
+                "vid": "5BB5E9CE-4CF4-441C-A473-C3EE231CCDDE",
+                "taille": "M",
+                "couleur": "Beige",
+                "prix": 1.96,
+                "poids": 60.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJWJYEYE01791-PINK-M",
+                "vid": "72F4E5DB-0794-4B67-8039-C725DD95ECE5",
+                "taille": "M",
+                "couleur": "Pink",
+                "prix": 1.96,
+                "poids": 60.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJWJYEYE01791-BLUE-M",
+                "vid": "B41D7C18-5AC3-45DA-B05D-0F622CFD90F0",
+                "taille": "M",
+                "couleur": "Blue",
+                "prix": 1.96,
+                "poids": 60.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJWJYEYE01791-BEIGE-S",
+                "vid": "E041FD51-A432-4BCA-BD4B-9B0B061D7AEB",
+                "taille": "S",
+                "couleur": "Beige",
+                "prix": 1.96,
+                "poids": 50.0,
+                "stock": 81466,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
             }
         ]
     }
