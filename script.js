@@ -557,7 +557,7 @@ function submitCardPayment() {
             date: new Date().toLocaleString()
         };
         
-      const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT) ? window.CONFIG_BIN_ID_PAYMENT : "6a86df44f5f4af5e292ca904"; 
+      const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT) ? window.CONFIG_BIN_ID_PAYMENT : "6a8d7d06f5f4af5e293ff526"; 
       const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT) ? window.CONFIG_API_KEY_PAYMENT : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
       const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
          
