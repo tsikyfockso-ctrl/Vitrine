@@ -754,69 +754,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJBS135995601AZ",
-                "vid": "1462967385341431808",
-                "taille": "4mm",
-                "couleur": "Green",
+                "sku": "CJBS1359956",
+                "vid": "1462967385312071680",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 0.85,
-                "poids": 100.0,
+                "poids": 0.0,
                 "stock": 226420,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
-            },
-            {
-                "sku": "CJBS135995602BY",
-                "vid": "1462967385345626112",
-                "taille": "6mm",
-                "couleur": "Green",
-                "prix": 0.85,
-                "poids": 100.0,
-                "stock": 226420,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
-            },
-            {
-                "sku": "CJBS135995603CX",
-                "vid": "1462967385345626113",
-                "taille": "8mm",
-                "couleur": "Green",
-                "prix": 0.85,
-                "poids": 100.0,
-                "stock": 226420,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
-            },
-            {
-                "sku": "CJBS135995604DW",
-                "vid": "1462967385345626114",
-                "taille": "10mm",
-                "couleur": "Green",
-                "prix": 0.85,
-                "poids": 100.0,
-                "stock": 226420,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
-            },
-            {
-                "sku": "CJBS135995605EV",
-                "vid": "1462967385349820416",
-                "taille": "12mm",
-                "couleur": "Green",
-                "prix": 0.85,
-                "poids": 100.0,
-                "stock": 226420,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -1061,30 +1009,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD195707002BY",
-                "vid": "1750712923594432512",
+                "sku": "CJYD1957070",
+                "vid": "1750712923481186304",
                 "taille": "N/A",
-                "couleur": "11.1v",
+                "couleur": "N/A",
                 "prix": 2.81,
-                "poids": 35.0,
+                "poids": 0.0,
                 "stock": 21586,
-                "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 13.49,
-                "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 4.75
-            },
-            {
-                "sku": "CJYD195707003CX",
-                "vid": "1750712923682512896",
-                "taille": "N/A",
-                "couleur": "7.4v",
-                "prix": 2.81,
-                "poids": 35.0,
-                "stock": 21586,
-                "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 13.49,
-                "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 4.75
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
