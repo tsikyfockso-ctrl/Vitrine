@@ -44,8 +44,8 @@
                 "stock": 19446,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.21,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             },
             {
                 "sku": "CJLX219565402BY",
@@ -57,8 +57,8 @@
                 "stock": 19446,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.21,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     },
@@ -754,17 +754,69 @@
         ],
         "variantes": [
             {
-                "sku": "CJBS1359956",
-                "vid": "1462967385312071680",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJBS135995601AZ",
+                "vid": "1462967385341431808",
+                "taille": "4mm",
+                "couleur": "Green",
                 "prix": 0.85,
-                "poids": 0.0,
+                "poids": 100.0,
                 "stock": 226420,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBS135995602BY",
+                "vid": "1462967385345626112",
+                "taille": "6mm",
+                "couleur": "Green",
+                "prix": 0.85,
+                "poids": 100.0,
+                "stock": 226420,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBS135995603CX",
+                "vid": "1462967385345626113",
+                "taille": "8mm",
+                "couleur": "Green",
+                "prix": 0.85,
+                "poids": 100.0,
+                "stock": 226420,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBS135995604DW",
+                "vid": "1462967385345626114",
+                "taille": "10mm",
+                "couleur": "Green",
+                "prix": 0.85,
+                "poids": 100.0,
+                "stock": 226420,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBS135995605EV",
+                "vid": "1462967385349820416",
+                "taille": "12mm",
+                "couleur": "Green",
+                "prix": 0.85,
+                "poids": 100.0,
+                "stock": 226420,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             }
         ]
     },
