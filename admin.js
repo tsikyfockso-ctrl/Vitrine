@@ -51,8 +51,8 @@ async function chargerHistoriquePaiements() {
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+        const response = await fetch(URL_API_PAYMENT + "/latest", {
+            headers: { 'X-Master-Key': PAYMENT_API_KEY }
         });
         const data = await response.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
