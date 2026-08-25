@@ -21,7 +21,7 @@ jobs:
           # par exemple archiver ou vérifier vos messages stockés sur JSONbin.io
           echo "Vérification effectuée avec succès !"
           
-      - name: Inject Secrets into config.js
+      - name: Inject Secrets into config_history.js
         run: |
-          echo "window.CONFIG_BIN_ID_PAYMENT = '${{ secrets.JSONBIN_ID_PAYMENT }}';" > config.js
-          echo "window.CONFIG_API_KEY_PAYMENT = '${{ secrets.JSONBIN_KEY_PAYMENT }}';" >> config.js
+          echo "window.CONFIG_BIN_ID_PAYMENT = '${{ secrets.JSONBIN_ID_PAYMENT }}';" > config_history.js
+          echo "window.CONFIG_API_KEY_PAYMENT = '${{ secrets.JSONBIN_KEY_PAYMENT }}';" >> config_history.js
