@@ -551,7 +551,7 @@
                 "poids": 180.0,
                 "stock": 2033216,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.27,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.02
             },
@@ -577,7 +577,7 @@
                 "poids": 200.0,
                 "stock": 2033216,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.88
             },
@@ -1122,7 +1122,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.34,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.82
+                "shippingCostUS": 7.1
             },
             {
                 "sku": "CJWJYEYE01358-BROWN-90CM",
@@ -3300,6 +3300,187 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.23
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504150332351609600",
+        "nom": "Baby Adjustable Three-dimensional Bow Tie Four-layer Waterproof Saliva Towel",
+        "prixBase": 1.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/4b0ac23d-fad0-49cc-864d-b9d4eb406b92.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD235402101AZ",
+                "vid": "2504150332351609800",
+                "taille": "Free Size",
+                "couleur": "Hulan",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402102BY",
+                "vid": "2504150332361600000",
+                "taille": "Free Size",
+                "couleur": "Black And White Stripes",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402103CX",
+                "vid": "2504150332361600200",
+                "taille": "Free Size",
+                "couleur": "Gray",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402104DW",
+                "vid": "2504150332361600400",
+                "taille": "Free Size",
+                "couleur": "Yellow",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402105EV",
+                "vid": "2504150332361600600",
+                "taille": "Free Size",
+                "couleur": "Dark Green Star And Moon",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402106FU",
+                "vid": "2504150332361600800",
+                "taille": "Free Size",
+                "couleur": "Fashion Red Stripes",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402107GT",
+                "vid": "2504150332361601000",
+                "taille": "Free Size",
+                "couleur": "Beige",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402108HS",
+                "vid": "2504150332361601100",
+                "taille": "Free Size",
+                "couleur": "Blue Plaid",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402109IR",
+                "vid": "2504150332361601300",
+                "taille": "Free Size",
+                "couleur": "Pink Dot",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402110JQ",
+                "vid": "2504150332361601500",
+                "taille": "Free Size",
+                "couleur": "Xiao Lan Dian",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402111KP",
+                "vid": "2504150332361601700",
+                "taille": "Free Size",
+                "couleur": "Blue Bus",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402112LO",
+                "vid": "2504150332361601800",
+                "taille": "Free Size",
+                "couleur": "Beige Bus",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYD235402113MN",
+                "vid": "2504150332361602000",
+                "taille": "Free Size",
+                "couleur": "Grey Pentagram",
+                "prix": 1.65,
+                "poids": 60.0,
+                "stock": 100914,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
             }
         ]
     }
