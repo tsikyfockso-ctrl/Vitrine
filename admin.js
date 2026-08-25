@@ -4,7 +4,7 @@ const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? windo
 const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 // Configuration pour l'Historique des Paiements (Second Bin séparé)
-const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT) ? window.CONFIG_BIN_ID_PAYMENT : "6a86df44f5f4af5e292ca904"; 
+const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT) ? window.CONFIG_BIN_ID_PAYMENT : "6a8d7d06f5f4af5e293ff526"; 
 const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT) ? window.CONFIG_API_KEY_PAYMENT : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
 const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
 
@@ -43,49 +43,45 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
-//Vérifier la fonction de chargement côté Admin
-async function chargerHistoriquePaiementsAdmin() {
-    const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT) ? window.CONFIG_BIN_ID_PAYMENT : "6a86df44f5f4af5e292ca904"; 
-    const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT) ? window.CONFIG_API_KEY_PAYMENT : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
-    const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+//récupérer et afficher ces paiements dans la modale d'historique
+async function chargerHistoriquePaiements() {
+    const container = document.getElementById('payment-history-list');
+    if (!container) return;
+
+    container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(URL_API_PAYMENT + "/latest", {
-            headers: { 'X-Master-Key': PAYMENT_API_KEY }
+        const response = await fetch(URL_API + "/latest", {
+            headers: { 'X-Master-Key': API_KEY }
         });
         const data = await response.json();
-        
-        // Récupération du tableau des paiements enregistré lors de l'achat
-        const paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
-        
-        const tbody = document.getElementById('admin-paiements-table-body'); // ID de votre tableau HTML dans l'admin
-        if (!tbody) return;
-
-        tbody.innerHTML = ''; // Nettoyage avant affichage
+        let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
 
         if (paiements.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">Aucun paiement enregistré pour le moment.</td></tr>`;
+            container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
             return;
         }
 
-        // Boucle pour afficher chaque achat dans l'historique
-        paiements.forEach((p) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${p.date || 'N/A'}</td>
-                <td>${p.produit || 'N/A'}</td>
-                <td>${p.variante || 'N/A'}</td>
-                <td>${p.sku || 'N/A'}</td>
-                <td>${p.quantite || 1}</td>
-                <td>${p.prix || 'N/A'}</td>
-                <td>${p.destination || 'N/A'} (${p.fraisPort || '0'})</td>
-                <td><strong>${p.total || 'N/A'}</strong></td>
+        let html = '';
+        // Afficher du plus récent au plus ancien
+        paiements.slice().reverse().forEach(p => {
+            html += `
+                <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem;">
+                    <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
+                        💰 Paiement Reçu - ${p.date}
+                    </div>
+                    <p style="margin: 4px 0; color: #333;"><strong>Produit :</strong> ${p.produit}</p>
+                    <p style="margin: 4px 0; color: #333;"><strong>Variante :</strong> ${p.variante} (SKU : ${p.sku})</p>
+                    <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite} | <strong>Destination :</strong> ${p.destination} (Frais : ${p.fraisPort})</p>
+                    <p style="margin: 6px 0 0 0; color: #2c3e50; font-weight: bold; font-size: 1rem;">Total réglé : ${p.total}</p>
+                </div>
             `;
-            tbody.appendChild(tr);
         });
 
+        container.innerHTML = html;
     } catch (e) {
-        console.error("Erreur lors du chargement de l'historique admin :", e);
+        console.error("Erreur de chargement des paiements :", e);
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur lors du chargement de l'historique.</p>`;
     }
 }
 
