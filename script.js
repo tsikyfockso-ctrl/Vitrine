@@ -534,6 +534,55 @@ function submitCardPayment() {
     if (varianteActuelle.stockActuel >= quantiteDemandee) {
         varianteActuelle.stockActuel -= quantiteDemandee;
         mettreAJourAffichageStock();
+
+        // Récupération des éléments du premier récapitulatif
+        const title = document.getElementById('modalTitle').innerText;
+        const price = document.getElementById('modalPrice').innerText;
+        const sku = document.getElementById('modalSku').innerText;
+        const selectedVariantText = variantSelect.options[selectedIndex] ? variantSelect.options[selectedIndex].text : '';
+        const countrySelect = document.getElementById('modalCountrySelect');
+        const selectedCountryText = countrySelect.options[countrySelect.selectedIndex].text;
+        const shippingCost = document.getElementById('modalShippingCost').innerText;
+        const totalCost = document.getElementById('modalTotalCost').innerText;
+
+        const nouveauPaiement = {
+            produit: title,
+            variante: selectedVariantText,
+            sku: sku,
+            prix: price,
+            destination: selectedCountryText,
+            fraisPort: shippingCost,
+            total: totalCost,
+            quantite: quantiteDemandee,
+            date: new Date().toLocaleString()
+        };
+        
+       const PAYMENT_BIN_ID = "6a8d7d06f5f4af5e293ff526"; // Remplacez par l'ID de votre second Bin
+       const PAYMENT_API_KEY = "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
+       const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+        
+        // Enregistrement des données dans le second Bin dédié aux paiements
+        try {
+            const getRes = await fetch(URL_API_PAYMENT + "/latest", {
+                headers: { 'X-Master-Key': PAYMENT_API_KEY }
+            });
+            const data = await getRes.json();
+            
+            let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
+            paiements.push(nouveauPaiement);
+            
+            await fetch(URL_API_PAYMENT, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': PAYMENT_API_KEY
+                },
+                body: JSON.stringify({ paiements: paiements })
+            });
+        } catch (e) {
+            console.error("Erreur lors de l'enregistrement du paiement :", e);
+        }
+        
         alert(`Paiement validé avec succès ! ${quantiteDemandee} article(s) acheté(s). Stock restant : ${varianteActuelle.stockActuel}`);
         document.getElementById('paymentModal').style.display = 'none';
     } else {
