@@ -443,6 +443,8 @@ function checkoutWithCard() {
     const title = document.getElementById('modalTitle').innerText;
     const price = document.getElementById('modalPrice').innerText;
     const sku = document.getElementById('modalSku').innerText;
+    const qtyInput = document.getElementById('modalQuantityInput');
+    const quantite = qtyInput ? qtyInput.value : "";
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedVariantText = variantSelect.options[variantSelect.selectedIndex] ? variantSelect.options[variantSelect.selectedIndex].text : '';
     const countrySelect = document.getElementById('modalCountrySelect');
@@ -462,6 +464,7 @@ function checkoutWithCard() {
         <p><strong>Produit :</strong> ${title}</p>
         <p><strong>Variante :</strong> ${selectedVariantText}</p>
         <p><strong>SKU :</strong> ${sku}</p>
+        <p><strong>Quantité :</strong> ${quantite}</p>
         <p><strong>Prix unitaire :</strong> ${price}</p>
         <p><strong>Destination :</strong> ${selectedCountryText} (Frais : ${shippingCost})</p>
         <hr style="border: 0; border-top: 1px solid #ccc; margin: 8px 0;">
@@ -539,6 +542,8 @@ async function submitCardPayment() {
         const title = document.getElementById('modalTitle').innerText;
         const price = document.getElementById('modalPrice').innerText;
         const sku = document.getElementById('modalSku').innerText;
+        const qtyInput = document.getElementById('modalQuantityInput');
+        const quantite = qtyInput ? qtyInput.value : "";
         const selectedVariantText = variantSelect.options[selectedIndex] ? variantSelect.options[selectedIndex].text : '';
         const countrySelect = document.getElementById('modalCountrySelect');
         const selectedCountryText = countrySelect.options[countrySelect.selectedIndex].text;
@@ -549,6 +554,7 @@ async function submitCardPayment() {
             produit: title,
             variante: selectedVariantText,
             sku: sku,
+            quantité: qtyInput,
             prix: price,
             destination: selectedCountryText,
             fraisPort: shippingCost,
