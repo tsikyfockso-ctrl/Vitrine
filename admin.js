@@ -334,41 +334,6 @@ function renderStockTable() {
     stockList.innerHTML = html;
 }
 
-// Fonction pour supprimer un produit depuis la session admin
-async function supprimerProduitAdmin(containerId, indexProduit) {
-    // 1. Récupérer les produits stockés pour cette catégorie
-    const cachedStock = localStorage.getItem("cached_" + containerId);
-    if (!cachedStock) return;
-    
-    let stock = JSON.parse(cachedStock);
-
-    // Demander une confirmation avant suppression
-    if (!confirm("Voulez-vous vraiment supprimer ce produit ?")) {
-        return;
-    }
-
-    // 2. Supprimer le produit du tableau JavaScript à l'index donné
-    stock.splice(indexProduit, 1);
-
-    // 3. Mettre à jour le localStorage avec le nouveau stock
-    localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
-
-    // 4. Mettre à jour l'affichage visuel (supprime la colonne/carte instantanément)
-    const container = document.getElementById(containerId);
-    if (container) {
-        renderCategoryProducts(stock, container); // Réaffiche la liste actualisée
-    }
-
-    // 5. Envoyer la mise à jour au serveur ou fichier .json
-    // Note : En JavaScript pur (côté client), un script ne peut pas modifier directement 
-    // un fichier physique sur le serveur (comme "update_stock.json"). 
-    // Il faut soit passer par un script backend (PHP / Node.js), soit mettre à jour 
-    // votre service de stockage (comme JSONBin que vous utilisez déjà pour le chat).
-    
-    console.(`Produit supprimé de la catégorie ${containerId}.`);
-    alert("Produit supprimé avec succès !");
-}
-
 // --- FONCTION DE DÉCLENCHEMENT DE LA RECHERCHE ---
 function filterStock() {
     renderStockTable();
