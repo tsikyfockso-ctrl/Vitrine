@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -224,12 +224,38 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT2477989",
-                "vid": "1963501897115009026",
+                "sku": "CJJT247798901AZ",
+                "vid": "1963501897211478018",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "40pcs",
                 "prix": 19.97,
-                "poids": 0.0,
+                "poids": 1710.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT247798902BY",
+                "vid": "1963501897211478019",
+                "taille": "N/A",
+                "couleur": "20pcs",
+                "prix": 19.97,
+                "poids": 860.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT247798903CX",
+                "vid": "1963501897211478020",
+                "taille": "N/A",
+                "couleur": "10pcs",
+                "prix": 19.97,
+                "poids": 430.0,
                 "stock": 600,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -536,8 +562,8 @@
                 "stock": 38977,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 7.82,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.68
             },
             {
                 "sku": "CJYD191441602BY",
@@ -548,9 +574,9 @@
                 "poids": 272.0,
                 "stock": 38977,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.82,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingCostFR": 7.83,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.68
             },
             {
                 "sku": "CJYD191441603CX",
@@ -561,9 +587,9 @@
                 "poids": 264.0,
                 "stock": 38977,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.82,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingCostFR": 7.72,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.68
             }
         ]
     },
@@ -1707,12 +1733,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2807014",
-                "vid": "2037351849134313474",
+                "sku": "CJFU28070140001",
+                "vid": "2037351849260142594",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black",
                 "prix": 109.42,
-                "poids": 0.0,
+                "poids": 17554.0,
                 "stock": 32,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -1818,6 +1844,196 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1910166774171226113",
+        "nom": "80x40x122.5CM, Carbon Color, 2-in-1 Assembly Type, Planting Trellis, Plastic Trellis With Planting Box",
+        "prixBase": 38.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17521920/1943607734876508160.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL235026301AZ",
+                "vid": "1910166774808760322",
+                "taille": "N/A",
+                "couleur": "Carbonized color",
+                "prix": 38.45,
+                "poids": 6050.0,
+                "stock": 127,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2019333781679415298",
+        "nom": "Upholstered Bed 135 X 190 Cm With LED Lighting, USB Type-C Charging, Storage Headboard For Cellphones And Tablets, 4ft6 Hydraulic Storage Bed With Metal Slatted Frame, Linen, Beige No Mattress",
+        "prixBase": 291.09,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17702496/d4574555-8f65-4a93-8cdf-4d8504d0f5f5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27551870001",
+                "vid": "2019333781801050114",
+                "taille": "N/A",
+                "couleur": "Beige",
+                "prix": 291.09,
+                "poids": 28170.0,
+                "stock": 134,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045064532782845953",
+        "nom": "41  Large Sized Bedside Cabinet Vanity Table   Cushioned Stool, Extra Large Touch Control LED Mirror, 3-color Switch, Multi Layer High Capacity Storage Fashionable Dresser, EPA, GCC, UL Certificate",
+        "prixBase": 161.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17763840/45f0665d-291f-4ba2-a1d4-6c6ac29693bd.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28395940001",
+                "vid": "2045064534649311234",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 161.62,
+                "poids": 33566.0,
+                "stock": 36,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504190927061603400",
+        "nom": "White Countertop Carbon Rod Purifier Household Kitchen Faucet Tap Water Filter",
+        "prixBase": 7.41,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/20/07/c9280880-47dc-427a-b0c9-76046bdf7938.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD235784901AZ",
+                "vid": "2504190927061603600",
+                "taille": "N/A",
+                "couleur": "F8",
+                "prix": 7.41,
+                "poids": 920.0,
+                "stock": 9217,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 14.1,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 15.42
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2607040852081633100",
+        "nom": "Witch Hat Lamps Creative Home Gothic Night Light Gift Witch Hat Light Ornament Halloween Home Ornament Decoration",
+        "prixBase": 5.47,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2026/07/04/08/196c6749-4447-4f89-a8a2-6de899055925_water.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD296761901AZ",
+                "vid": "2607040852081633700",
+                "taille": "18cm",
+                "couleur": "Type A",
+                "prix": 5.47,
+                "poids": 470.0,
+                "stock": 45188,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.47
+            },
+            {
+                "sku": "CJYD296761902BY",
+                "vid": "2607040852081634200",
+                "taille": "30cm",
+                "couleur": "Type A",
+                "prix": 5.47,
+                "poids": 670.0,
+                "stock": 45188,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 17.84,
+                "shippingMethodUS": "CJPacket Sensitive Over Length",
+                "shippingCostUS": 27.31
+            },
+            {
+                "sku": "CJYD296761903CX",
+                "vid": "2607040852081634700",
+                "taille": "18cm",
+                "couleur": "Type B",
+                "prix": 5.47,
+                "poids": 470.0,
+                "stock": 45188,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.47
+            },
+            {
+                "sku": "CJYD296761904DW",
+                "vid": "2607040852081635100",
+                "taille": "30cm",
+                "couleur": "Type B",
+                "prix": 5.47,
+                "poids": 670.0,
+                "stock": 45188,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 17.84,
+                "shippingMethodUS": "CJPacket Sensitive Over Length",
+                "shippingCostUS": 27.31
+            },
+            {
+                "sku": "CJYD296761905EV",
+                "vid": "2607040852081635600",
+                "taille": "18cm",
+                "couleur": "Type C",
+                "prix": 5.47,
+                "poids": 470.0,
+                "stock": 45188,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.47
+            },
+            {
+                "sku": "CJYD296761906FU",
+                "vid": "2607040852081636000",
+                "taille": "30cm",
+                "couleur": "Type C",
+                "prix": 5.47,
+                "poids": 670.0,
+                "stock": 45188,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 17.84,
+                "shippingMethodUS": "CJPacket Sensitive Over Length",
+                "shippingCostUS": 27.31
             }
         ]
     }
