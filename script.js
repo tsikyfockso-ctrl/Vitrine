@@ -659,15 +659,9 @@ function toggleChat() {
 }
 
 // configuration du chat
-if (typeof BIN_ID === 'undefined') {
-    var BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID) ? window.CONFIG_BIN_ID : "6a86df44f5f4af5e292ca904";
-}
-if (typeof API_KEY === 'undefined') {
-    var API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? window.CONFIG_API_KEY : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
-}
-if (typeof URL_API === 'undefined') {
-    var URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-}
+    const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID) ? window.CONFIG_BIN_ID : "6a86df44f5f4af5e292ca904"; 
+    const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY) ? window.CONFIG_API_KEY : "$2a$10$oWpiZV8hm0i.OzlsyPjBSOjhcp7i/oia15o2pK4d7ZWNXSdE3Piva";
+    const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 async function sendComment() {
     const nameInput = document.getElementById('userName');
