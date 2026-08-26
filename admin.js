@@ -384,6 +384,17 @@ async function loadStock(silent = false) {
 // --- FONCTION POUR RENDRE LE TABLEAU (AVEC OU SANS FILTRE) ---
 function renderStockTable() {
     const stockList = document.getElementById("stock-list");
+    if (!stockList) return;
+
+    // 1. Sauvegarder la position actuelle du scroll si le conteneur existe déjà
+    const existingContainer = stockList.querySelector('div[style*="overflow"]');
+    let savedScrollTop = 0;
+    let savedScrollLeft = 0;
+    if (existingContainer) {
+        savedScrollTop = existingContainer.scrollTop;
+        savedScrollLeft = existingContainer.scrollLeft;
+    }
+
     const searchInput = document.getElementById("stockSearchInput");
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
@@ -481,6 +492,13 @@ function renderStockTable() {
     `;
 
     stockList.innerHTML = html;
+
+    // 2. Restaurer la position exacte du scroll après la mise à jour du HTML
+    const newContainer = stockList.querySelector('div[style*="overflow"]');
+    if (newContainer) {
+        newContainer.scrollTop = savedScrollTop;
+        newContainer.scrollLeft = savedScrollLeft;
+    }
 }
 
 // --- FONCTION DE DÉCLENCHEMENT DE LA RECHERCHE ---
