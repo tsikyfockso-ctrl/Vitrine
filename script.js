@@ -548,16 +548,18 @@ async function submitCardPayment() {
         const shippingCost = document.getElementById('modalShippingCost').innerText;
         const totalCost = document.getElementById('modalTotalCost').innerText;
 
-        // 4. RÉCUPÉRATION DE TOUTES LES INFORMATIONS DE LIVRAISON ET CONTACT DU FORMULAIRE DE PAIEMENT
-        const adresseClient = document.getElementById('champ-adresse')?.value || document.getElementById('cardNumber')?.closest('form')?.querySelector('input[type="text"]')?.value || ''; 
-        // Note : Assurez-vous de cibler les bons IDs de vos champs de formulaire de livraison ci-dessous :
-        const adresse = document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : (document.querySelector('input[placeholder*="Adresse"]') ? document.querySelector('input[placeholder*="Adresse"]').value : '');
-        const province = document.getElementById('shippingProvince') ? document.getElementById('shippingProvince').value : '';
-        const paysLivraison = document.getElementById('paymentCountrySelect') ? document.getElementById('paymentCountrySelect').options[document.getElementById('paymentCountrySelect').selectedIndex].text : selectedCountryText;
-        const telephone = document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '';
-        const email = document.getElementById('shippingEmail') ? document.getElementById('shippingEmail').value : '';
+        // 4. RÉCUPÉRATION DE VOS CHAMPS HTML EXACTS
+        const nom = document.getElementById('clientnom') ? document.getElementById('clientnom').value : '';
+        const adresse = document.getElementById('clientAddress') ? document.getElementById('clientAddress').value : '';
+        const province = document.getElementById('clientProvince') ? document.getElementById('clientProvince').value : '';
+        
+        const paymentCountry = document.getElementById('paymentCountrySelect');
+        const paysLivraison = paymentCountry ? paymentCountry.options[paymentCountry.selectedIndex].text : selectedCountryText;
+        
+        const telephone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value : '';
+        const email = document.getElementById('clientEmail') ? document.getElementById('clientEmail').value : '';
 
-        // 5. Création de l'objet de paiement enrichi avec TOUTES les données
+        // 5. Création de l'objet de paiement enrichi
         const nouveauPaiement = {
             produit: title,
             variante: selectedVariantText,
@@ -567,8 +569,8 @@ async function submitCardPayment() {
             destination: paysLivraison,
             fraisPort: shippingCost,
             total: totalCost,
-            // Coordonnées client ajoutées :
-            nom: nom || "Non renseignée",
+            // Coordonnées client pointant sur vos ID HTML :
+            nom: nom || "Non renseigné",
             adresse: adresse || "Non renseignée",
             province: province || "Non renseignée",
             pays: paysLivraison,
