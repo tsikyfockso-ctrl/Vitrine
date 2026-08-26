@@ -62,8 +62,8 @@ async function chargerHistoriquePaiements() {
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(urlApiPayment + "/latest", {
-            headers: { 'X-Master-Key': paymentApiKey }
+        const response = await fetch(URL_API_PAYMENT + "/latest", {
+            headers: { 'X-Master-Key': PAYMENT_API_KEY }
         });
         const data = await response.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
@@ -118,12 +118,12 @@ async function deletePayment(index) {
         return;
     }
 
-    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
+     const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
 
     try {
         // 1. Récupérer les données actuelles du Bin de paiement
-        const getRes = await fetch(urlApiPayment + "/latest", {
-            headers: { 'X-Master-Key': paymentApiKey }
+        const getRes = await fetch((URL_API_PAYMENT + "/latest", {
+            headers: { 'X-Master-Key': PAYMENT_API_KEY }
         });
         const data = await getRes.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
@@ -136,7 +136,7 @@ async function deletePayment(index) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Master-Key': paymentApiKey
+                'X-Master-Key': PAYMENT_API_KEY
             },
             body: JSON.stringify({ paiements: paiements })
         });
@@ -156,7 +156,7 @@ function getChatApiConfig() {
     return {
         binId: binId,
         apiKey: apiKey,
-        url: `https://api.jsonbin.io/v3/b/${binId}`
+       `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
     };
 }
 
