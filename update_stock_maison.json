@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -186,30 +186,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -224,38 +211,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT247798901AZ",
-                "vid": "1963501897211478018",
+                "sku": "CJJT2477989",
+                "vid": "1963501897115009026",
                 "taille": "N/A",
-                "couleur": "40pcs",
+                "couleur": "N/A",
                 "prix": 19.97,
-                "poids": 1710.0,
-                "stock": 600,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJJT247798902BY",
-                "vid": "1963501897211478019",
-                "taille": "N/A",
-                "couleur": "20pcs",
-                "prix": 19.97,
-                "poids": 860.0,
-                "stock": 600,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJJT247798903CX",
-                "vid": "1963501897211478020",
-                "taille": "N/A",
-                "couleur": "10pcs",
-                "prix": 19.97,
-                "poids": 430.0,
+                "poids": 0.0,
                 "stock": 600,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -275,43 +236,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT1623924-GREEN",
-                "vid": "1597502296509272064",
+                "sku": "CJJT1623924",
+                "vid": "1597502296488300544",
                 "taille": "N/A",
-                "couleur": "Green",
+                "couleur": "N/A",
                 "prix": 4.0,
-                "poids": 270.0,
+                "poids": 0.0,
                 "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
-            },
-            {
-                "sku": "CJJT1623924-GREY",
-                "vid": "1597502296509272065",
-                "taille": "N/A",
-                "couleur": "Grey",
-                "prix": 4.0,
-                "poids": 270.0,
-                "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
-            },
-            {
-                "sku": "CJJT1623924-WHITE",
-                "vid": "1597502296509272066",
-                "taille": "N/A",
-                "couleur": "White",
-                "prix": 4.0,
-                "poids": 270.0,
-                "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -2452,6 +2387,106 @@
                 "shippingCostFR": 12.52,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 14.75
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1903383255069097985",
+        "nom": "Adjustable Telescopic Weed Trimmer",
+        "prixBase": 57.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/01573238-7cb8-48e2-89ca-f6e4a35bb9fd.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL233469101AZ",
+                "vid": "1903383255144595458",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 57.63,
+                "poids": 2700.0,
+                "stock": 167,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034879451780251650",
+        "nom": "Wooden Twin Size DayBed With Twin Trundle, DayBed With Storage Shelf And USB Charging Ports,White",
+        "prixBase": 359.23,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/3c68f986-a2e7-40bc-a4da-ca81df22ecc7.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2795917",
+                "vid": "2034879451780251650",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 359.23,
+                "poids": 0.0,
+                "stock": 41,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045061130183086081",
+        "nom": "Soft And Comfortable Pet Bed For Big And Oversized Dogs, Durable Elevated Dog Sofa Bed, Comfortable Dog Sofa, Modern And Fashionable Linen Fabric Dog Sofa-OLIVE GREEN",
+        "prixBase": 152.72,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17763840/a0a031a7-1602-4dd2-8a29-91a4fe7423e5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28395310001",
+                "vid": "2045061131739172865",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 152.72,
+                "poids": 18597.0,
+                "stock": 127,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506040836231607700",
+        "nom": "Household Barrel Portable HM400pro Projector",
+        "prixBase": 46.43,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/ed518e71-6ef7-4cf0-8a31-739fcd3e7bde.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD2392556",
+                "vid": "2506040836231607700",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 46.43,
+                "poids": 0.0,
+                "stock": 31407,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
