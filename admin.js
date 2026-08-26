@@ -99,6 +99,49 @@ async function chargerHistoriquePaiements() {
     }
 }
 
+// Fonction pour supprimer un paiement de l'historique sur JSONBin.io
+async function deletePayment(index) {
+    if (!confirm("Voulez-vous vraiment supprimer cet historique de paiement ?")) return;
+
+    const paymentBinId = window.CONFIG_BIN_ID_PAYMENT;
+    const paymentApiKey = window.CONFIG_API_KEY_PAYMENT;
+
+    if (!paymentBinId || !paymentApiKey) {
+        alert("Erreur de configuration de paiement.");
+        return;
+    }
+
+    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
+
+    try {
+        // 1. Récupérer les données actuelles du Bin de paiement
+        const getRes = await fetch(urlApiPayment + "/latest", {
+            headers: { 'X-Master-Key': paymentApiKey }
+        });
+        const data = await getRes.json();
+        let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
+
+        // 2. Supprimer l'élément à l'index indiqué
+        paiements.splice(index, 1);
+
+        // 3. Envoyer la liste mise à jour sur JSONBin.io
+        await fetch(urlApiPayment, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': paymentApiKey
+            },
+            body: JSON.stringify({ paiements: paiements })
+        });
+
+        // 4. Recharger la liste affichée dans la modale
+        chargerHistoriquePaiements();
+    } catch (e) {
+        console.error("Erreur lors de la suppression du paiement :", e);
+        alert("Erreur lors de la suppression du paiement sur le cloud.");
+    }
+}
+
 // --- FONCTION UTILITAIRE POUR LA MESSAGERIE ---
 function getChatApiConfig() {
     const binId = (typeof window !== 'undefined' ? window.CONFIG_BIN_ID : "");
