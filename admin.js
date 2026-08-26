@@ -76,6 +76,7 @@ async function chargerHistoriquePaiements() {
         let html = '';
         // Afficher du plus récent au plus ancien
         paiements.slice().reverse().forEach(p => {
+            const realIndex = paiements.length - 1 - indexOriginal;
             html += `
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem;">
                     <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
@@ -85,6 +86,8 @@ async function chargerHistoriquePaiements() {
                     <p style="margin: 4px 0; color: #333;"><strong>Variante :</strong> ${p.variante} (SKU : ${p.sku})</p>
                     <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite} | <strong>Destination :</strong> ${p.destination} (Frais : ${p.fraisPort})</p>
                     <p style="margin: 6px 0 0 0; color: #2c3e50; font-weight: bold; font-size: 1rem;">Total réglé : ${p.total}</p>
+                </div>
+                <button onclick="deletePayment(${realIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-left: 10px;">Effacer</button>
                 </div>
             `;
         });
