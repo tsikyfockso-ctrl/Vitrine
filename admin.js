@@ -62,8 +62,8 @@ async function chargerHistoriquePaiements() {
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(URL_API_PAYMENT + "/latest", {
-            headers: { 'X-Master-Key': PAYMENT_API_KEY }
+        const response = await fetch(urlApiPayment + "/latest", {
+            headers: { 'X-Master-Key': paymentApiKey }
         });
         const data = await response.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
@@ -76,8 +76,6 @@ async function chargerHistoriquePaiements() {
         let html = '';
         // Afficher du plus récent au plus ancien
         paiements.slice().reverse().forEach((p, indexInverse) => {
-            // Comme on inverse le tableau avec .slice().reverse(), 
-            // l'index réel dans le tableau original se calcule ainsi :
             const realIndex = paiements.length - 1 - indexInverse;
             
             html += `
@@ -118,30 +116,26 @@ async function deletePayment(index) {
         return;
     }
 
-     const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
 
     try {
-        // 1. Récupérer les données actuelles du Bin de paiement
-        const getRes = await fetch((URL_API_PAYMENT + "/latest", {
-            headers: { 'X-Master-Key': PAYMENT_API_KEY }
+        const getRes = await fetch(urlApiPayment + "/latest", {
+            headers: { 'X-Master-Key': paymentApiKey }
         });
         const data = await getRes.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
 
-        // 2. Supprimer l'élément à l'index indiqué
         paiements.splice(index, 1);
 
-        // 3. Envoyer la liste mise à jour sur JSONBin.io
         await fetch(urlApiPayment, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Master-Key': PAYMENT_API_KEY
+                'X-Master-Key': paymentApiKey
             },
             body: JSON.stringify({ paiements: paiements })
         });
 
-        // 4. Recharger la liste affichée dans la modale
         chargerHistoriquePaiements();
     } catch (e) {
         console.error("Erreur lors de la suppression du paiement :", e);
@@ -156,7 +150,7 @@ function getChatApiConfig() {
     return {
         binId: binId,
         apiKey: apiKey,
-       `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+        url: `https://api.jsonbin.io/v3/b/${binId}`
     };
 }
 
@@ -338,12 +332,11 @@ async function deleteMessage(index) {
 function getFichierActif() {
     const select = document.getElementById('adminCategorySelect');
     if (select) {
-        return select.value; // Récupère dynamiquement le fichier sélectionné (ex: update_stock_homme.json)
+        return select.value; 
     }
-    return "update_stock.json"; // Sécurité par défaut
+    return "update_stock.json"; 
 }
 
-// Appelée automatiquement quand on change de catégorie dans le select de l'admin.html
 function changerFichierAdmin() {
     loadStock(false);
 }
@@ -384,12 +377,11 @@ async function loadStock(silent = false) {
     }
 }
 
-// --- FONCTION POUR RENDRE LE TABLEAU (AVEC OU SANS FILTRE) ---
+// --- FONCTION POUR RENDRE LE TABLEAU ---
 function renderStockTable() {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
 
-    // 1. Sauvegarder la position actuelle du scroll si le conteneur existe déjà
     const existingContainer = stockList.querySelector('div[style*="overflow"]');
     let savedScrollTop = 0;
     let savedScrollLeft = 0;
@@ -496,7 +488,6 @@ function renderStockTable() {
 
     stockList.innerHTML = html;
 
-    // 2. Restaurer la position exacte du scroll après la mise à jour du HTML
     const newContainer = stockList.querySelector('div[style*="overflow"]');
     if (newContainer) {
         newContainer.scrollTop = savedScrollTop;
@@ -504,7 +495,6 @@ function renderStockTable() {
     }
 }
 
-// --- FONCTION DE DÉCLENCHEMENT DE LA RECHERCHE ---
 function filterStock() {
     renderStockTable();
 }
