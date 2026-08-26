@@ -43,16 +43,27 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
-//récupérer et afficher ces paiements dans la modale d'historique
+// Récupérer et afficher ces paiements dans la modale d'historique
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
 
+    // Récupération dynamique des clés injectées par config_history.js
+    const paymentBinId = window.CONFIG_BIN_ID_PAYMENT;
+    const paymentApiKey = window.CONFIG_API_KEY_PAYMENT;
+
+    if (!paymentBinId || !paymentApiKey) {
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur : Configuration de paiement introuvable.</p>`;
+        return;
+    }
+
+    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
+
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(URL_API_PAYMENT + "/latest", {
-            headers: { 'X-Master-Key': PAYMENT_API_KEY }
+        const response = await fetch(urlApiPayment + "/latest", {
+            headers: { 'X-Master-Key': paymentApiKey }
         });
         const data = await response.json();
         let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
@@ -85,11 +96,25 @@ async function chargerHistoriquePaiements() {
     }
 }
 
+// --- FONCTION UTILITAIRE POUR LA MESSAGERIE ---
+function getChatApiConfig() {
+    const binId = (typeof window !== 'undefined' ? window.CONFIG_BIN_ID : "");
+    const apiKey = (typeof window !== 'undefined' ? window.CONFIG_API_KEY : "");
+    return {
+        binId: binId,
+        apiKey: apiKey,
+        url: `https://api.jsonbin.io/v3/b/${binId}`
+    };
+}
+
 // 1. Mise à jour du badge de notification (depuis JSONbin.io)
 async function updateNotificationBadge() {
+    const config = getChatApiConfig();
+    if (!config.binId || !config.apiKey) return;
+
     try {
-        const response = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+        const response = await fetch(config.url + "/latest", {
+            headers: { 'X-Master-Key': config.apiKey }
         });
         const data = await response.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
@@ -105,16 +130,22 @@ async function updateNotificationBadge() {
     }
 }
 
-// 2. Liste des messages Admin (récupérés depuis le cloud JSONbin.io avec le bouton Effacer)
+// 2. Liste des messages Admin
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
+
+    const config = getChatApiConfig();
+    if (!config.binId || !config.apiKey) {
+        inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur : Configuration de la messagerie introuvable.</p>";
+        return;
+    }
     
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
     try {
-        const response = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+        const response = await fetch(config.url + "/latest", {
+            headers: { 'X-Master-Key': config.apiKey }
         });
         const data = await response.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
@@ -186,10 +217,12 @@ async function envoyerReponseAdmin(index) {
         alert("Veuillez écrire une réponse.");
         return;
     }
+
+    const config = getChatApiConfig();
     
     try {
-        const getRes = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+        const getRes = await fetch(config.url + "/latest", {
+            headers: { 'X-Master-Key': config.apiKey }
         });
         const data = await getRes.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
@@ -199,11 +232,11 @@ async function envoyerReponseAdmin(index) {
             messages[index].lu = true;
         }
         
-        await fetch(URL_API, {
+        await fetch(config.url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Master-Key': API_KEY
+                'X-Master-Key': config.apiKey
             },
             body: JSON.stringify({ messages: messages })
         });
@@ -219,21 +252,23 @@ async function envoyerReponseAdmin(index) {
 // 4. Fonction pour supprimer un message du cloud
 async function deleteMessage(index) {
     if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
+
+    const config = getChatApiConfig();
     
     try {
-        const getRes = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
+        const getRes = await fetch(config.url + "/latest", {
+            headers: { 'X-Master-Key': config.apiKey }
         });
         const data = await getRes.json();
         let messages = (data.record && data.record.messages) ? data.record.messages : [];
         
         messages.splice(index, 1);
         
-        await fetch(URL_API, {
+        await fetch(config.url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Master-Key': API_KEY
+                'X-Master-Key': config.apiKey
             },
             body: JSON.stringify({ messages: messages })
         });
