@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2411280809471627900",
-        "nom": "Thé mélangé pour purification du sang, soins de santé",
+        "nom": "Blood Purification Mixed Tea Health Care",
         "prixBase": 3.07,
         "productFee": 0.0,
         "images": [
@@ -27,7 +27,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1369902277694984192",
-        "nom": "Roue abdominale pliable, rouleau de roue musculaire abdominale, équipement de Fitness à domicile",
+        "nom": "Foldable Abdominal Wheel Abdominal Muscle Wheel Roller Home Fitness Equipment",
         "prixBase": 4.53,
         "productFee": 0.0,
         "images": [
@@ -616,6 +616,107 @@
                 "shippingCostFR": 6.03,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 7.54
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504200825211626200",
+        "nom": "Sport Wellness Watch",
+        "prixBase": 2.28,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/20/08/ef63d24f-8a8f-42b1-aa86-1d00e97d19fc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZN235835301AZ",
+                "vid": "2504200825211626900",
+                "taille": "N/A",
+                "couleur": "1pcs",
+                "prix": 2.28,
+                "poids": 40.0,
+                "stock": 6518,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 4.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "E7330336-B3A2-4A22-AFD2-102F3AA22CC9",
+        "nom": "Electric massage ball",
+        "prixBase": 28.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200818/7732585098343.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYDQTJM01094-ROSE RED",
+                "vid": "562E6476-2B85-49B9-8F74-DE07C848E1A7",
+                "taille": "N/A",
+                "couleur": "Rose Red",
+                "prix": 28.62,
+                "poids": 1000.0,
+                "stock": 33468,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 16.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 19.17
+            },
+            {
+                "sku": "CJYDQTJM01094-SKY BLUE",
+                "vid": "7D2419E6-A1F1-469F-8FB6-0B1554A694EB",
+                "taille": "N/A",
+                "couleur": "Sky Blue",
+                "prix": 28.62,
+                "poids": 1000.0,
+                "stock": 33468,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 16.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 19.17
+            },
+            {
+                "sku": "CJYDQTJM01094-BLACK",
+                "vid": "E43860BD-4C23-474F-8595-3E3005DDB52B",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 28.62,
+                "poids": 1000.0,
+                "stock": 33468,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 16.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 19.17
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1914884885643104257",
+        "nom": "Facial Beauty Tools And EMS Beauty Equipment",
+        "prixBase": 20.37,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/fd9a8a67-1c63-4839-881a-89764c4b9cbb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJMB236045501AZ",
+                "vid": "1914884885718601730",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 20.37,
+                "poids": 210.0,
+                "stock": 159,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
