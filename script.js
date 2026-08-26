@@ -519,14 +519,14 @@ function validerNumeroCarte(numero) {
 async function submitCardPayment() {
     const numeroCarte = document.getElementById('cardNumber').value;
 
-    // Vérification de la validité du numéro de carte via l'algorithme de Luhn
+    // 1. Vérification de la validité du numéro de carte via l'algorithme de Luhn
     if (!validerNumeroCarte(numeroCarte)) {
         alert("⚠️ Le numéro de carte bancaire saisi est invalide ou faux. Veuillez le vérifier.");
         document.getElementById('cardNumber').focus();
         return; // Bloque l'envoi si la carte est fausse
     }
 
-    // Gestion du stock si la carte est valide
+    // 2. Gestion du stock si la carte est valide
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     const varianteActuelle = currentSelectedProduct.variantes[selectedIndex];
@@ -538,35 +538,49 @@ async function submitCardPayment() {
         varianteActuelle.stockActuel -= quantiteDemandee;
         mettreAJourAffichageStock();
 
-        // Récupération des éléments du premier récapitulatif
+        // 3. Récupération des éléments du récapitulatif produit
         const title = document.getElementById('modalTitle').innerText;
         const price = document.getElementById('modalPrice').innerText;
         const sku = document.getElementById('modalSku').innerText;
-        const qtyInput = document.getElementById('modalQuantityInput');
-        const quantite = qtyInput ? qtyInput.value : "";
         const selectedVariantText = variantSelect.options[selectedIndex] ? variantSelect.options[selectedIndex].text : '';
         const countrySelect = document.getElementById('modalCountrySelect');
         const selectedCountryText = countrySelect.options[countrySelect.selectedIndex].text;
         const shippingCost = document.getElementById('modalShippingCost').innerText;
         const totalCost = document.getElementById('modalTotalCost').innerText;
 
+        // 4. RÉCUPÉRATION DE TOUTES LES INFORMATIONS DE LIVRAISON ET CONTACT DU FORMULAIRE DE PAIEMENT
+        const adresseClient = document.getElementById('champ-adresse')?.value || document.getElementById('cardNumber')?.closest('form')?.querySelector('input[type="text"]')?.value || ''; 
+        // Note : Assurez-vous de cibler les bons IDs de vos champs de formulaire de livraison ci-dessous :
+        const adresse = document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : (document.querySelector('input[placeholder*="Adresse"]') ? document.querySelector('input[placeholder*="Adresse"]').value : '');
+        const province = document.getElementById('shippingProvince') ? document.getElementById('shippingProvince').value : '';
+        const paysLivraison = document.getElementById('paymentCountrySelect') ? document.getElementById('paymentCountrySelect').options[document.getElementById('paymentCountrySelect').selectedIndex].text : selectedCountryText;
+        const telephone = document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '';
+        const email = document.getElementById('shippingEmail') ? document.getElementById('shippingEmail').value : '';
+
+        // 5. Création de l'objet de paiement enrichi avec TOUTES les données
         const nouveauPaiement = {
             produit: title,
             variante: selectedVariantText,
             sku: sku,
-            quantité: qtyInput,
-            prix: price,
-            destination: selectedCountryText,
+            quantite: quantiteDemandee,
+            prixUnitaire: price,
+            destination: paysLivraison,
             fraisPort: shippingCost,
             total: totalCost,
-            quantite: quantiteDemandee,
+            // Coordonnées client ajoutées :
+            nom: nom || "Non renseignée",
+            adresse: adresse || "Non renseignée",
+            province: province || "Non renseignée",
+            pays: paysLivraison,
+            telephone: telephone || "Non renseigné",
+            email: email || "Non renseigné",
             date: new Date().toLocaleString()
         };
 
-        //ping JSONBIN.io
-      const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT); 
-      const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT);
-      const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+        // Ping JSONBIN.io pour l'historique des paiements
+        const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT); 
+        const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT);
+        const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
          
         // Enregistrement des données dans le second Bin dédié aux paiements
         try {
