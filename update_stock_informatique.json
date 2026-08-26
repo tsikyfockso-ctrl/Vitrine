@@ -1301,5 +1301,146 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503300514331625200",
+        "nom": "Outdoor Camping Aluminum Alloy Umbrella String Clip Tent Drawstring Accessories",
+        "prixBase": 0.09,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/03/30/05/fb90f8e8-6326-43b6-bed8-1d3b011feb88_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD234085001AZ",
+                "vid": "2503300514331625500",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 0.09,
+                "poids": 23.0,
+                "stock": 34770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJYD234085002BY",
+                "vid": "2503300514331625600",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 0.09,
+                "poids": 23.0,
+                "stock": 34770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJYD234085003CX",
+                "vid": "2503300514331625800",
+                "taille": "N/A",
+                "couleur": "Gold",
+                "prix": 0.09,
+                "poids": 23.0,
+                "stock": 34770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJYD234085004DW",
+                "vid": "2503300514331625900",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 0.09,
+                "poids": 23.0,
+                "stock": 34770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.21,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1790909620114952192",
+        "nom": "Notebook Bracket Laptop Bracket Aluminum Alloy Desktop Adjustable Base 360-degree Rotation",
+        "prixBase": 24.1,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/b918a153-b60b-40f7-9526-b1ce60c3ddcc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD203644801AZ",
+                "vid": "1790909620186255360",
+                "taille": "N/A",
+                "couleur": "DT018 Silver",
+                "prix": 24.1,
+                "poids": 1960.0,
+                "stock": 67614,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 24.46,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.09
+            },
+            {
+                "sku": "CJYD203644802BY",
+                "vid": "1790909620240781312",
+                "taille": "N/A",
+                "couleur": "DT018 Gray",
+                "prix": 24.1,
+                "poids": 1960.0,
+                "stock": 67614,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 24.46,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.09
+            },
+            {
+                "sku": "CJYD203644803CX",
+                "vid": "1790909620295307264",
+                "taille": "N/A",
+                "couleur": "DT018 Rose Gold",
+                "prix": 24.1,
+                "poids": 1960.0,
+                "stock": 67614,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 24.46,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.09
+            },
+            {
+                "sku": "CJYD203644804DW",
+                "vid": "1790909620358221824",
+                "taille": "N/A",
+                "couleur": "DT018XS Silver Rotating",
+                "prix": 24.1,
+                "poids": 2180.0,
+                "stock": 67614,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 27.94,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.09
+            },
+            {
+                "sku": "CJYD203644805EV",
+                "vid": "1790909620412747776",
+                "taille": "N/A",
+                "couleur": "DT018XS Gray Rotating Style",
+                "prix": 24.1,
+                "poids": 2180.0,
+                "stock": 67614,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 27.94,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 30.12
+            }
+        ]
     }
 ]
