@@ -98,12 +98,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJSL2382379",
-                "vid": "1925373197707935745",
+                "sku": "CJSL238237901AZ",
+                "vid": "1925373197808599042",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Rat Trap",
                 "prix": 33.99,
-                "poids": 0.0,
+                "poids": 671.0,
                 "stock": 460,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -288,12 +288,38 @@
         ],
         "variantes": [
             {
-                "sku": "CJJSPBBJ00097",
-                "vid": "116B5C69-00E3-4E3D-A8A3-D84D8E6D06CA",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJJSPBBJ00097-RED-14",
+                "vid": "2C305576-F04E-49FD-901D-91B5404193E2",
+                "taille": "14",
+                "couleur": "Red",
                 "prix": 2.8,
-                "poids": 0.0,
+                "poids": 500.0,
+                "stock": 38968,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJSPBBJ00097-WINE RED-14",
+                "vid": "A15398AD-8B47-42B4-A69D-BA100049C6FF",
+                "taille": "14",
+                "couleur": "Wine red",
+                "prix": 2.8,
+                "poids": 500.0,
+                "stock": 38968,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJSPBBJ00097-BLACK-14",
+                "vid": "AC260747-BB31-4E54-9E98-52318A29E4AF",
+                "taille": "14",
+                "couleur": "Black",
+                "prix": 2.8,
+                "poids": 500.0,
                 "stock": 38968,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -1436,6 +1462,95 @@
                 "stock": 71313,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508120832401615700",
+        "nom": "Simple Green Colored Glaze Ornament Gift Accessories",
+        "prixBase": 63.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/223859b0-0e2b-40fd-91a7-3bdc41d4d535.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLX245419201AZ",
+                "vid": "2508120832401616000",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 63.02,
+                "poids": 220.0,
+                "stock": 7230,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1380411421124333568",
+        "nom": "Usb Network Cable To Interface Rj45 Gigabit Wired Network Desktop Computer Network Card Converter",
+        "prixBase": 4.89,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1617949911278.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSJ107234801AZ",
+                "vid": "1380411422525231104",
+                "taille": "N/A",
+                "couleur": "Usb3Alloy",
+                "prix": 4.89,
+                "poids": 50.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ107234802BY",
+                "vid": "1380411422592339968",
+                "taille": "N/A",
+                "couleur": "Usb3",
+                "prix": 4.89,
+                "poids": 50.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ107234803CX",
+                "vid": "1380411422659448832",
+                "taille": "N/A",
+                "couleur": "Usb2",
+                "prix": 4.89,
+                "poids": 50.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ107234804DW",
+                "vid": "1380411422722363392",
+                "taille": "N/A",
+                "couleur": "Typec3",
+                "prix": 4.89,
+                "poids": 50.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
