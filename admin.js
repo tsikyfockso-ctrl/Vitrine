@@ -388,24 +388,24 @@ function renderStockTable() {
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
     let html = `
-        <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; text-align: left; white-space: nowrap;">
-                <thead>
-                    <tr style="background: #2c3e50; color: white;">
-                        <th style="padding: 8px; border: 1px solid #ddd;">Image</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Nom du Produit</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">VID</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Taille</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Couleur</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">SKU</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Prix ($)</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Poids (g)</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Stock</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Méthode FR</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Port FR ($)</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Méthode US</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Port US ($)</th>
-                        <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
+        <div style="max-height: 500px; overflow-y: auto; overflow-x: auto; border: 1px solid #ddd; background: #fff;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; white-space: nowrap;">
+                <thead style="position: sticky; top: 0; z-index: 10; background: #2c3e50; color: white;">
+                    <tr>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Image</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Nom du Produit</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">VID</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Taille</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Couleur</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">SKU</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Prix ($)</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Poids (g)</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Stock</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Méthode FR</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Port FR ($)</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Méthode US</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Port US ($)</th>
+                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
