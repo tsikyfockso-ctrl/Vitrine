@@ -564,8 +564,8 @@ async function submitCardPayment() {
         };
 
         //ping JSONBIN.io
-      const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT; 
-      const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT;
+      const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT); 
+      const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT);
       const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
          
         // Enregistrement des données dans le second Bin dédié aux paiements
@@ -660,8 +660,8 @@ function toggleChat() {
 }
 
 // configuration du chat
-    const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID; 
-    const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY;
+    const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID); 
+    const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY);
     const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 async function sendComment() {
