@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -186,30 +186,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -2507,7 +2494,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2506040836231607700",
-        "nom": "Household Barrel Portable HM400pro Projector",
+        "nom": "Projecteur portable HM400pro à baril domestique",
         "prixBase": 46.43,
         "productFee": 0.0,
         "images": [
@@ -2515,17 +2502,56 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD2392556",
-                "vid": "2506040836231607700",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJYD239255601AZ",
+                "vid": "2506040836231608100",
+                "taille": "US",
+                "couleur": "White",
                 "prix": 46.43,
-                "poids": 0.0,
+                "poids": 770.0,
                 "stock": 31407,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 14.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.37
+            },
+            {
+                "sku": "CJYD239255602BY",
+                "vid": "2506040836231608300",
+                "taille": "EU",
+                "couleur": "White",
+                "prix": 46.43,
+                "poids": 770.0,
+                "stock": 31407,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 14.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.37
+            },
+            {
+                "sku": "CJYD239255603CX",
+                "vid": "2506040836231608500",
+                "taille": "UK",
+                "couleur": "White",
+                "prix": 46.43,
+                "poids": 770.0,
+                "stock": 31407,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 14.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.37
+            },
+            {
+                "sku": "CJYD239255604DW",
+                "vid": "2506040836231608900",
+                "taille": "AU",
+                "couleur": "White",
+                "prix": 46.43,
+                "poids": 770.0,
+                "stock": 31407,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 14.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.37
             }
         ]
     },
@@ -3208,6 +3234,145 @@
                 "shippingCostFR": 10.8,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.1
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2020706263623704578",
+        "nom": "Abri d'auto, tente de garage portable et d'auvent de patio, couverture anti-UV pour voiture, camion, bateau, restauration, mariagePlusieurs colis expédiés. Veuillez faire attention aux dimensions et au poids dans les détails.",
+        "prixBase": 267.42,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0b1aeb4c-b1c1-4b4c-8475-57f94b5104e8.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL275852801AZ",
+                "vid": "2020706263917305857",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 267.42,
+                "poids": 38000.0,
+                "stock": 85,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2055565548429402114",
+        "nom": "Abri d'auto Outsunny 19 'X 19,5', tente de garage portable et d'auvent de patio, couverture anti-UV pour voiture, camion, bateau, restauration, mariage Forfaits multiples",
+        "prixBase": 267.42,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/a53c31b2-5e7e-4ac8-9f0f-c03e53d003cc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU289346701AZ",
+                "vid": "2055565548567814146",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 267.42,
+                "poids": 69000.0,
+                "stock": 85,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037390303221682178",
+        "nom": "Table de chevet moderne 1 pièce pour chambre à coucher et salon, plateau en MDF en verre trempé et bois naturel, table d'appoint de style industriel",
+        "prixBase": 32.39,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/bcc75aa4-4dfb-4e72-a55b-d48969dedd53.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28075080001",
+                "vid": "2037390303330734082",
+                "taille": "N/A",
+                "couleur": "Natural Wood",
+                "prix": 32.39,
+                "poids": 10478.0,
+                "stock": 53,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1404319600371437568",
+        "nom": "Vases nordiques en céramique pour corps humain, accessoires de décoration pour la maison, bureau, Table à manger, conteneur d'arrangement de fleurs, Vases de fleurs séchées",
+        "prixBase": 4.31,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1623650746311.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT117323701AZ",
+                "vid": "1404319601772335104",
+                "taille": "S",
+                "couleur": "White",
+                "prix": 4.31,
+                "poids": 418.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.05,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.7
+            },
+            {
+                "sku": "CJJT117323702BY",
+                "vid": "1404319601780723712",
+                "taille": "M",
+                "couleur": "White",
+                "prix": 4.31,
+                "poids": 682.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.05,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 17.68
+            },
+            {
+                "sku": "CJJT117323703CX",
+                "vid": "1412655384900014080",
+                "taille": "M",
+                "couleur": "Golden",
+                "prix": 4.31,
+                "poids": 682.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 17.68
+            },
+            {
+                "sku": "CJJT117323704DW",
+                "vid": "1412655385101340672",
+                "taille": "S",
+                "couleur": "Golden",
+                "prix": 4.31,
+                "poids": 418.0,
+                "stock": 124814,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.05,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.7
             }
         ]
     }
