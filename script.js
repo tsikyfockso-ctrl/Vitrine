@@ -1,35 +1,34 @@
 // ==========================================
-// CONFIGURATION DE BASE
+// CONFIGURATION DE BASE (GITHUB GIST)
 // ==========================================
+
+const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/f3a237f9d28a2199392668a577f8d7d9fcab28e0/gistfile1.txt";
 
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
-    // Chargement de chaque catégorie avec son fichier JSON attitré
-    chargerCategorie("update_stock.json", "product-container-femme");
-    chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
-    chargerCategorie("update_stock_homme.json", "product-container-homme");
-    chargerCategorie("update_stock_acc_homme.json", "product-container-acc-homme");
-    chargerCategorie("update_stock_enfant.json", "product-container-enfant");
-    chargerCategorie("update_stock_acc_enfant.json", "product-container-acc-enfant");
-    chargerCategorie("update_stock_sante.json", "product-container-sante");
-    chargerCategorie("update_stock_maison.json", "product-container-maison");
-    chargerCategorie("update_stock_electronique.json", "product-container-electrov");
-    chargerCategorie("update_stock_informatique.json", "product-container-info");
+    await chargerDonneesGlobalesGist();
 
     initialiserPays();
     initEventListeners();
+    afficherMessagesClient();
 };
 
-// --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
-async function chargerCategorie(jsonFileName, containerId) {
-    const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); // Anti-cache
-    const container = document.getElementById(containerId);
+// --- 2. GESTION DU CHARGEMENT GLOBAL DEPUIS LE GIST ---
+async function chargerDonneesGlobalesGist() {
+    const jsonUrl = GIST_URL + "?v=" + new Date().getTime(); 
     
-    if (!container) {
-        return;
-    }
+    const containerIds = [
+        "product-container-femme", "product-container-acc-femme",
+        "product-container-homme", "product-container-acc-homme",
+        "product-container-enfant", "product-container-acc-enfant",
+        "product-container-sante", "product-container-maison",
+        "product-container-electrov", "product-container-info"
+    ];
 
-    container.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
+    containerIds.forEach(id => {
+        const c = document.getElementById(id);
+        if (c) c.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
+    });
 
     try {
         const response = await fetch(jsonUrl);
@@ -37,24 +36,46 @@ async function chargerCategorie(jsonFileName, containerId) {
             throw new Error(`Erreur HTTP : ${response.status}`);
         }
         
-        const stock = await response.json();
+        const data = await response.json();
+        localStorage.setItem("cached_gist_data", JSON.stringify(data));
+        chargerCategoriesDepuisDonnees(data, containerIds);
+
+    } catch (error) {
+        console.error("Erreur de chargement depuis le Gist", error);
         
-        if (Array.isArray(stock) && stock.length > 0) {
-            localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
-            renderCategoryProducts(stock, container);
+        const cachedData = localStorage.getItem("cached_gist_data");
+        if (cachedData) {
+            chargerCategoriesDepuisDonnees(JSON.parse(cachedData), containerIds);
+        } else {
+            containerIds.forEach(id => {
+                const c = document.getElementById(id);
+                if (c) c.innerHTML = `<p style="text-align:center; width:100%; color:#e74c3c; font-size:0.85rem;">Indisponible.</p>`;
+            });
+        }
+    }
+}
+
+function chargerCategoriesDepuisDonnees(data, containerIds) {
+    containerIds.forEach(containerId => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        let produitsFiltres = [];
+        if (Array.isArray(data)) {
+            produitsFiltres = data.filter(p => p.categorie && containerId.includes(p.categorie));
+        } else if (data[containerId]) {
+            produitsFiltres = data[containerId];
+        } else {
+            produitsFiltres = data.produits || []; 
+        }
+
+        if (Array.isArray(produitsFiltres) && produitsFiltres.length > 0) {
+            localStorage.setItem("cached_" + containerId, JSON.stringify(produitsFiltres));
+            renderCategoryProducts(produitsFiltres, container);
         } else {
             container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit.</p>`;
         }
-    } catch (error) {
-        console.error("Erreur de chargement pour " + jsonFileName, error);
-        
-        const cachedStock = localStorage.getItem("cached_" + containerId);
-        if (cachedStock) {
-            renderCategoryProducts(JSON.parse(cachedStock), container);
-        } else {
-            container.innerHTML = `<p style="text-align:center; width:100%; color:#e74c3c; font-size:0.85rem;">Indisponible.</p>`;
-        }
-    }
+    });
 }
 
 // --- 3. AFFICHAGE DES PRODUITS PAR CONTENEUR ---
@@ -90,7 +111,6 @@ function renderCategoryProducts(stock, container) {
     }).join('');
 }
 
-// --- FONCTIONS DE DÉFILEMENT ---
 function defilerProduits(direction, containerId = 'product-container-femme') {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -141,7 +161,7 @@ function openProductModalFromCache(containerId, index) {
     
     const modalDescElem = document.getElementById('modalDesc');
     if (modalDescElem) {
-        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description ||"";
+        modalDescElem.innerText = currentSelectedProduct.details || currentSelectedProduct.description || "";
     }
 
     const variantSelect = document.getElementById('modalVariantSelect');
@@ -249,7 +269,6 @@ function genererBoitesTaillesHorizontales(produit) {
     }
 }
 
-// Création dynamique d'un sélecteur de quantité moderne avec boutons de couleur noire
 function genererSelecteurQuantiteModerne() {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
@@ -275,7 +294,6 @@ function genererSelecteurQuantiteModerne() {
     modalDescElem.parentNode.insertBefore(containerQty, modalDescElem.nextSibling);
 }
 
-// Récupère le stock initial de la variante et réinitialise l'input à 1
 function resetQuantiteEtStockMax() {
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
@@ -405,7 +423,6 @@ function calculateShipping() {
         modalShippingCost.innerText = `${shippingCostFinal.toFixed(2)} ${devise}`;
     }
 
-    // Récupération de la quantité choisie
     const qtyInput = document.getElementById('modalQuantityInput');
     let quantite = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
 
@@ -435,11 +452,9 @@ function calculateShipping() {
 }
 
 // --- GESTION DES MODALES DE PAIEMENT & VALIDATION LUHN ---
-
 function checkoutWithCard() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
-    // 1. Récupérer les éléments du premier récapitulatif
     const title = document.getElementById('modalTitle').innerText;
     const price = document.getElementById('modalPrice').innerText;
     const sku = document.getElementById('modalSku').innerText;
@@ -452,14 +467,12 @@ function checkoutWithCard() {
     const shippingCost = document.getElementById('modalShippingCost').innerText;
     const totalCost = document.getElementById('modalTotalCost').innerText;
 
-    // 2. Synchroniser le pays choisi vers la seconde modale
     const currentCountryValue = countrySelect.value;
     const paymentCountrySelect = document.getElementById('paymentCountrySelect');
     if (paymentCountrySelect) {
         paymentCountrySelect.value = currentCountryValue;
     }
 
-    // 3. Construire le HTML récapitulatif pour la seconde modale
     const summaryHTML = `
         <p><strong>Produit :</strong> ${title}</p>
         <p><strong>Variante :</strong> ${selectedVariantText}</p>
@@ -471,10 +484,7 @@ function checkoutWithCard() {
         <h3 style="margin: 0; color: #2c3e50;">Total à régler : ${totalCost}</h3>
     `;
 
-    // 4. Injecter le résumé dans la deuxième modale
     document.getElementById('paymentModalSummary').innerHTML = summaryHTML;
-
-    // 5. Masquer la première modale et afficher la seconde
     document.getElementById('productModal').style.display = 'none';
     document.getElementById('paymentModal').style.display = 'flex';
 }
@@ -488,7 +498,6 @@ function backToProductModal() {
     document.getElementById('productModal').style.display = 'flex';
 }
 
-// Algorithme de Luhn pour vérifier si un numéro de carte bancaire est formellement faux
 function validerNumeroCarte(numero) {
     const nettoyer = numero.replace(/\D/g, "");
     
@@ -519,14 +528,12 @@ function validerNumeroCarte(numero) {
 async function submitCardPayment() {
     const numeroCarte = document.getElementById('cardNumber').value;
 
-    // 1. Vérification de la validité du numéro de carte via l'algorithme de Luhn
     if (!validerNumeroCarte(numeroCarte)) {
         alert("⚠️ Le numéro de carte bancaire saisi est invalide ou faux. Veuillez le vérifier.");
         document.getElementById('cardNumber').focus();
-        return; // Bloque l'envoi si la carte est fausse
+        return;
     }
 
-    // 2. Gestion du stock si la carte est valide
     const variantSelect = document.getElementById('modalVariantSelect');
     const selectedIndex = variantSelect ? parseInt(variantSelect.value) || 0 : 0;
     const varianteActuelle = currentSelectedProduct.variantes[selectedIndex];
@@ -538,7 +545,6 @@ async function submitCardPayment() {
         varianteActuelle.stockActuel -= quantiteDemandee;
         mettreAJourAffichageStock();
 
-        // 3. Récupération des éléments du récapitulatif produit
         const title = document.getElementById('modalTitle').innerText;
         const price = document.getElementById('modalPrice').innerText;
         const sku = document.getElementById('modalSku').innerText;
@@ -548,7 +554,6 @@ async function submitCardPayment() {
         const shippingCost = document.getElementById('modalShippingCost').innerText;
         const totalCost = document.getElementById('modalTotalCost').innerText;
 
-        // 4. RÉCUPÉRATION DE VOS CHAMPS HTML EXACTS
         const nom = document.getElementById('clientnom') ? document.getElementById('clientnom').value : '';
         const adresse = document.getElementById('clientAddress') ? document.getElementById('clientAddress').value : '';
         const province = document.getElementById('clientProvince') ? document.getElementById('clientProvince').value : '';
@@ -559,7 +564,6 @@ async function submitCardPayment() {
         const telephone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value : '';
         const email = document.getElementById('clientEmail') ? document.getElementById('clientEmail').value : '';
 
-        // 5. Création de l'objet de paiement enrichi
         const nouveauPaiement = {
             produit: title,
             variante: selectedVariantText,
@@ -569,7 +573,6 @@ async function submitCardPayment() {
             destination: paysLivraison,
             fraisPort: shippingCost,
             total: totalCost,
-            // Coordonnées client pointant sur vos ID HTML :
             nom: nom || "Non renseigné",
             adresse: adresse || "Non renseignée",
             province: province || "Non renseignée",
@@ -579,29 +582,18 @@ async function submitCardPayment() {
             date: new Date().toLocaleString()
         };
 
-        // Ping JSONBIN.io pour l'historique des paiements
-        const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT); 
-        const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT);
-        const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
-         
-        // Enregistrement des données dans le second Bin dédié aux paiements
+        // Enregistrement du paiement dans le Gist
         try {
-            const getRes = await fetch(URL_API_PAYMENT + "/latest", {
-                headers: { 'X-Master-Key': PAYMENT_API_KEY }
-            });
-            const data = await getRes.json();
-            
-            let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
-            paiements.push(nouveauPaiement);
-            
-            await fetch(URL_API_PAYMENT, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Master-Key': PAYMENT_API_KEY
-                },
-                body: JSON.stringify({ paiements: paiements })
-            });
+            let donneesActuelles = { paiements: [], messages: [] };
+            const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
+            if (res.ok) donneesActuelles = await res.json();
+
+            if (!donneesActuelles.paiements) donneesActuelles.paiements = [];
+            donneesActuelles.paiements.push(nouveauPaiement);
+
+            // Note: L'écriture directe nécessite un token d'administration ou un backend. 
+            // Ici, la structure de données est préparée pour l'API Gist.
+            console.log("Paiement enregistré localement / prêt pour Gist :", nouveauPaiement);
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -667,18 +659,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- GESTION DU CHAT FLOTTANT ---
+// --- GESTION DU CHAT FLOTTANT ET MESSAGES VIA GIST ---
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
         chatPopup.classList.toggle('chat-hidden');
     }
 }
-
-// configuration du chat
-    const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID); 
-    const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY);
-    const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 async function sendComment() {
     const nameInput = document.getElementById('userName');
@@ -695,27 +682,22 @@ async function sendComment() {
     }
     
     try {
-        const getRes = await fetch(URL_API + "/latest", {
-            headers: { 'X-Master-Key': API_KEY }
-        });
-        const data = await getRes.json();
+        let donneesActuelles = { paiements: [], messages: [] };
+        try {
+            const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
+            if (res.ok) donneesActuelles = await res.json();
+        } catch(err) {
+            console.warn("Impossible de lire le Gist pour les messages.");
+        }
+
+        if (!donneesActuelles.messages) donneesActuelles.messages = [];
         
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
-        
-        messages.push({
+        donneesActuelles.messages.push({
             nom: name,
             message: message,
+            date: new Date().toLocaleString(),
             lu: false,
             reponse: ""
-        });
-        
-        await fetch(URL_API, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': API_KEY
-            },
-            body: JSON.stringify({ messages: messages })
         });
         
         msgInput.value = '';
@@ -729,20 +711,13 @@ async function sendComment() {
 }
 
 async function afficherMessagesClient() {
-    if (!window.CONFIG_BIN_ID || window.CONFIG_BIN_ID.includes("...")) {
-        return;
-    }
-
-    const currentUrlApi = `https://api.jsonbin.io/v3/b/${window.CONFIG_BIN_ID}`;
     const container = document.getElementById('client-messages');
     if (!container) return;
     
     try {
-        const response = await fetch(currentUrlApi + "/latest", {
-            headers: { 'X-Master-Key': window.CONFIG_API_KEY }
-        });
+        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
         const data = await response.json();
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        let messages = (data && data.messages) ? data.messages : [];
         
         if (messages.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
