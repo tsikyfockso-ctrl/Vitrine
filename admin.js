@@ -1,12 +1,9 @@
-// --- CONFIGURATION CLOUD (Récupérée depuis config.js et les secrets) ---
-const BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID); 
-const API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY); 
-const URL_API = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+// --- CONFIGURATION GITHUB GIST POUR LA MESSAGERIE ET LES PAIEMENTS ---
+const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/f3a237f9d28a2199392668a577f8d7d9fcab28e0/gistfile1.txt";
 
-// Configuration pour l'Historique des Paiements (Second Bin séparé)
-const PAYMENT_BIN_ID = (typeof window !== 'undefined' && window.CONFIG_BIN_ID_PAYMENT);
-const PAYMENT_API_KEY = (typeof window !== 'undefined' && window.CONFIG_API_KEY_PAYMENT);
-const URL_API_PAYMENT = `https://api.jsonbin.io/v3/b/${PAYMENT_BIN_ID}`;
+// Note: Pour que la modification (réponse ou suppression) fonctionne directement depuis l'admin, 
+// un Personal Access Token (PAT) GitHub avec les droits 'gist' est nécessaire si le Gist doit être mis à jour.
+// Pour l'instant, voici la lecture et l'affichage complets basés sur le Gist.
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
@@ -33,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         paymentHistoryBtn.onclick = () => {
             const paymentModal = document.getElementById('paymentHistoryModal');
             if (paymentModal) paymentModal.style.display = 'flex';
-            chargerHistoriquePaiements(); // Charge depuis le second Bin
+            chargerHistoriquePaiements();
         };
     }
 });
@@ -43,30 +40,19 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
-// Récupérer et afficher ces paiements dans la modale d'historique
+// Récupérer et afficher les paiements depuis le Gist
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
 
-    // Récupération dynamique des clés injectées par config_history.js
-    const paymentBinId = window.CONFIG_BIN_ID_PAYMENT;
-    const paymentApiKey = window.CONFIG_API_KEY_PAYMENT;
-
-    if (!paymentBinId || !paymentApiKey) {
-        container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur : Configuration de paiement introuvable.</p>`;
-        return;
-    }
-
-    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
-
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(urlApiPayment + "/latest", {
-            headers: { 'X-Master-Key': paymentApiKey }
-        });
+        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
+        if (!response.ok) throw new Error("Erreur de chargement du Gist");
+
         const data = await response.json();
-        let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
+        let paiements = (data && data.paiements) ? data.paiements : [];
 
         if (paiements.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
@@ -74,25 +60,21 @@ async function chargerHistoriquePaiements() {
         }
 
         let html = '';
-        // Afficher du plus récent au plus ancien
-        paiements.slice().reverse().forEach((p, indexInverse) => {
-            const realIndex = paiements.length - 1 - indexInverse;
-            
+        paiements.slice().reverse().forEach((p) => {
             html += `
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem; display: flex; justify-content: space-between; align-items: flex-start;">
                     <div style="flex-grow: 1;">
                         <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
-                            💰 Paiement Reçu - ${p.date}
+                            💰 Paiement Reçu - ${p.date || 'Date N/A'}
                         </div>
                         <p style="margin: 2px 0; color: #2c3e50;"><strong>👤 Client :</strong> ${p.nom || 'Nom non renseigné'}</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📍 Adresse :</strong> ${p.adresse || 'N/A'}, ${p.province || ''} (${p.pays || p.destination || 'N/A'})</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📞 Tél :</strong> ${p.telephone || 'N/A'} | <strong>✉️ Email :</strong> ${p.email || 'N/A'}</p>
-                        <p style="margin: 4px 0; color: #333;"><strong>Produit :</strong> ${p.produit}</p>
-                        <p style="margin: 4px 0; color: #333;"><strong>Variante :</strong> ${p.variante} (SKU : ${p.sku})</p>
-                        <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite} | <strong>Destination :</strong> ${p.destination} (Frais : ${p.fraisPort})</p>
-                        <p style="margin: 6px 0 0 0; color: #2c3e50; font-weight: bold; font-size: 1rem;">Total réglé : ${p.total}</p>
+                        <p style="margin: 4px 0; color: #333;"><strong>Produit :</strong> ${p.produit || 'N/A'}</p>
+                        <p style="margin: 4px 0; color: #333;"><strong>Variante :</strong> ${p.variante || 'N/A'} (SKU : ${p.sku || 'N/A'})</p>
+                        <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite || '1'} | <strong>Destination :</strong> ${p.destination || 'N/A'} (Frais : ${p.fraisPort || '0 $'})</p>
+                        <p style="margin: 6px 0 0 0; color: #2c3e50; font-weight: bold; font-size: 1rem;">Total réglé : ${p.total || '0 $'}</p>
                     </div>
-                    <button onclick="deletePayment(${realIndex})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-left: 10px;">Effacer</button>
                 </div>
             `;
         });
@@ -104,67 +86,12 @@ async function chargerHistoriquePaiements() {
     }
 }
 
-// Fonction pour supprimer un paiement de l'historique sur JSONBin.io
-async function deletePayment(index) {
-    if (!confirm("Voulez-vous vraiment supprimer cet historique de paiement ?")) return;
-
-    const paymentBinId = window.CONFIG_BIN_ID_PAYMENT;
-    const paymentApiKey = window.CONFIG_API_KEY_PAYMENT;
-
-    if (!paymentBinId || !paymentApiKey) {
-        alert("Erreur de configuration de paiement.");
-        return;
-    }
-
-    const urlApiPayment = `https://api.jsonbin.io/v3/b/${paymentBinId}`;
-
-    try {
-        const getRes = await fetch(urlApiPayment + "/latest", {
-            headers: { 'X-Master-Key': paymentApiKey }
-        });
-        const data = await getRes.json();
-        let paiements = (data.record && data.record.paiements) ? data.record.paiements : [];
-
-        paiements.splice(index, 1);
-
-        await fetch(urlApiPayment, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': paymentApiKey
-            },
-            body: JSON.stringify({ paiements: paiements })
-        });
-
-        chargerHistoriquePaiements();
-    } catch (e) {
-        console.error("Erreur lors de la suppression du paiement :", e);
-        alert("Erreur lors de la suppression du paiement sur le cloud.");
-    }
-}
-
-// --- FONCTION UTILITAIRE POUR LA MESSAGERIE ---
-function getChatApiConfig() {
-    const binId = (typeof window !== 'undefined' ? window.CONFIG_BIN_ID : "");
-    const apiKey = (typeof window !== 'undefined' ? window.CONFIG_API_KEY : "");
-    return {
-        binId: binId,
-        apiKey: apiKey,
-        url: `https://api.jsonbin.io/v3/b/${binId}`
-    };
-}
-
-// 1. Mise à jour du badge de notification (depuis JSONbin.io)
+// 1. Mise à jour du badge de notification (depuis le Gist)
 async function updateNotificationBadge() {
-    const config = getChatApiConfig();
-    if (!config.binId || !config.apiKey) return;
-
     try {
-        const response = await fetch(config.url + "/latest", {
-            headers: { 'X-Master-Key': config.apiKey }
-        });
+        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
         const data = await response.json();
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        let messages = (data && data.messages) ? data.messages : [];
         
         const nonLus = messages.filter(m => m.lu === false || !m.reponse).length;
         const btn = document.getElementById("inboxBtn");
@@ -173,29 +100,21 @@ async function updateNotificationBadge() {
             btn.style.borderColor = nonLus > 0 ? "orange" : "transparent";
         }
     } catch (e) {
-        console.error("Erreur de mise à jour du badge :", e);
+        console.error("Erreur de mise à jour du badge Gist :", e);
     }
 }
 
-// 2. Liste des messages Admin
+// 2. Liste des messages Admin depuis le Gist
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
 
-    const config = getChatApiConfig();
-    if (!config.binId || !config.apiKey) {
-        inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur : Configuration de la messagerie introuvable.</p>";
-        return;
-    }
-    
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
     try {
-        const response = await fetch(config.url + "/latest", {
-            headers: { 'X-Master-Key': config.apiKey }
-        });
+        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
         const data = await response.json();
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
+        let messages = (data && data.messages) ? data.messages : [];
         
         inbox.innerHTML = "";
         
@@ -249,83 +168,19 @@ async function checkAdminNotifications() {
         
         updateNotificationBadge();
     } catch (e) {
-        console.error("Erreur de chargement des messages admin :", e);
+        console.error("Erreur de chargement des messages Gist :", e);
         inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur de chargement des messages.</p>";
     }
 }
 
-// 3. Fonction pour envoyer la réponse de l'admin vers le cloud
+// 3. Fonction pour envoyer la réponse (nécessite un token GitHub Gist pour l'écriture)
 async function envoyerReponseAdmin(index) {
-    const inputReponse = document.getElementById(`admin-reply-${index}`);
-    if (!inputReponse) return;
-    
-    const texteReponse = inputReponse.value.trim();
-    if (!texteReponse) {
-        alert("Veuillez écrire une réponse.");
-        return;
-    }
-
-    const config = getChatApiConfig();
-    
-    try {
-        const getRes = await fetch(config.url + "/latest", {
-            headers: { 'X-Master-Key': config.apiKey }
-        });
-        const data = await getRes.json();
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
-        
-        if (messages[index]) {
-            messages[index].reponse = texteReponse;
-            messages[index].lu = true;
-        }
-        
-        await fetch(config.url, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': config.apiKey
-            },
-            body: JSON.stringify({ messages: messages })
-        });
-        
-        alert("Réponse envoyée avec succès !");
-        checkAdminNotifications(); 
-    } catch (e) {
-        console.error("Erreur lors de l'envoi de la réponse :", e);
-        alert("Erreur lors de l'envoi de la réponse.");
-    }
+    alert("La modification directe via Gist nécessite un jeton d'accès GitHub (Token). Veuillez modifier le Gist directement depuis votre interface GitHub pour répondre aux clients.");
 }
 
-// 4. Fonction pour supprimer un message du cloud
+// 4. Fonction pour supprimer un message
 async function deleteMessage(index) {
-    if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
-
-    const config = getChatApiConfig();
-    
-    try {
-        const getRes = await fetch(config.url + "/latest", {
-            headers: { 'X-Master-Key': config.apiKey }
-        });
-        const data = await getRes.json();
-        let messages = (data.record && data.record.messages) ? data.record.messages : [];
-        
-        messages.splice(index, 1);
-        
-        await fetch(config.url, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': config.apiKey
-            },
-            body: JSON.stringify({ messages: messages })
-        });
-        
-        checkAdminNotifications();
-        updateNotificationBadge();
-    } catch (e) {
-        console.error("Erreur lors de la suppression du message :", e);
-        alert("Erreur lors de la suppression.");
-    }
+    alert("La suppression directe via Gist nécessite un jeton d'accès GitHub (Token). Veuillez modifier le Gist directement depuis votre interface GitHub.");
 }
 
 // --- GESTION DU FICHIER JSON ACTIF SELON LE SÉLECTEUR ---
