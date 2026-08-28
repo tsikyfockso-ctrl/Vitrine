@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
+        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -216,7 +216,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1963501897115009026",
-        "nom": "Autocollants de sol antidérapants auto-adhésifs à grain de bois, autocollants de carrelage imperméables et résistants à l'huile en PVC durable, décoration murale amovible",
+        "nom": "Wood Grain Self-Adhesive Anti-Slip Floor Stickers, Durable PVC Peel-and-Stick Waterproof And Oil-Proof Tile Stickers, Removable Wall Decor",
         "prixBase": 19.97,
         "productFee": 0.0,
         "images": [
@@ -444,7 +444,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1944947310978183169",
-        "nom": "Gazebo à toit rigide gris 10x13, avec rideaux de toit en acier, crochet de plafond pour pavillon, pour Patio et jardin",
+        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
         "prixBase": 1191.05,
         "productFee": 0.0,
         "images": [
@@ -1782,17 +1782,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD1989662",
-                "vid": "1768891093724176384",
+                "sku": "CJYD198966201AZ",
+                "vid": "1768891093795479552",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 4.19,
-                "poids": 0.0,
+                "poids": 386.0,
                 "stock": 27308,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.6,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 10.74
+            },
+            {
+                "sku": "CJYD198966202BY",
+                "vid": "1768891093912920064",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 4.19,
+                "poids": 386.0,
+                "stock": 27308,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.6,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 10.74
             }
         ]
     },
@@ -3603,6 +3616,208 @@
                 "shippingCostFR": 12.18,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 14.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506090356361616200",
+        "nom": "Gardening Support Climbing Vine White Bamboo",
+        "prixBase": 0.08,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/09/03/dd340144-cb64-4998-bc0c-2b17b665c6cb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD239658301AZ",
+                "vid": "2506090356361616500",
+                "taille": "8to10mm1pcs",
+                "couleur": "Graph Color",
+                "prix": 0.08,
+                "poids": 34.0,
+                "stock": 28076,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.36,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYD239658302BY",
+                "vid": "2506090356361616700",
+                "taille": "8to10mm20pcs No Strapping Tape",
+                "couleur": "Graph Color",
+                "prix": 0.08,
+                "poids": 300.0,
+                "stock": 28076,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.48,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYD239658303CX",
+                "vid": "2506090356361616900",
+                "taille": "8 To10mm20pcs Strapping Tape",
+                "couleur": "Graph Color",
+                "prix": 0.08,
+                "poids": 315.0,
+                "stock": 28076,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.64,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.62
+            },
+            {
+                "sku": "CJYD239658304DW",
+                "vid": "2506090356361617000",
+                "taille": "15cm Strapping Tape 20 Pieces",
+                "couleur": "Graph Color",
+                "prix": 0.08,
+                "poids": 35.0,
+                "stock": 28076,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037388035005890561",
+        "nom": "Meuble TV avec tiroir push-pull pour salon, chambre à coucher, bureaux, chariot TV mobile pour 32 à 75 pouces, support au sol avec support sur roues verrouillables, noir",
+        "prixBase": 145.77,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/10a60c99-4632-44e3-a28b-73d9b8972396.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28074870001",
+                "vid": "2037388035161079809",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 145.77,
+                "poids": 25900.0,
+                "stock": 13,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1871736113175900161",
+        "nom": "HOMCOM Tilt-Out Laundry Sorter Bathroom Cabinet, White",
+        "prixBase": 144.49,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/59cf6e41-d09d-43bb-9893-04767bc09781.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU225276501AZ",
+                "vid": "1871736113582747650",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 144.49,
+                "poids": 24062.0,
+                "stock": 40,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1834044741261348864",
+        "nom": "Kitchen Floor Mat Two-piece Set Of Non-slip, Waterproof And Easy To Scrub For Home, Kitchen",
+        "prixBase": 12.87,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20158250-20f5-4f71-90ec-55f70067e614.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT213517202BY",
+                "vid": "1834044741282320385",
+                "taille": "45x15x17cm",
+                "couleur": "Brown",
+                "prix": 12.87,
+                "poids": 2270.0,
+                "stock": 11229,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 28.73,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 31.27
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504210541151612800",
+        "nom": "Outdoor Waterproof Portable Wireless Bluetooth Speaker",
+        "prixBase": 17.58,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/21/05/3d851145-3d91-45ab-aec5-197a2ae483ce.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD235883901AZ",
+                "vid": "2504210541151613000",
+                "taille": "N/A",
+                "couleur": "Black And Gray",
+                "prix": 17.58,
+                "poids": 950.0,
+                "stock": 14145,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 16.65,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 18.34
+            },
+            {
+                "sku": "CJYD235883902BY",
+                "vid": "2504210541151613200",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 17.58,
+                "poids": 950.0,
+                "stock": 14145,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 16.65,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 18.34
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406080758171617100",
+        "nom": "Outdoor Home Indoor Driving Mouse Home Protection",
+        "prixBase": 1.43,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/ff748a21-95dc-4d8b-8fe9-b00a043f2869.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD205617301AZ",
+                "vid": "2406080758171617300",
+                "taille": "N/A",
+                "couleur": "120g",
+                "prix": 1.43,
+                "poids": 180.0,
+                "stock": 10963,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.88
             }
         ]
     }
