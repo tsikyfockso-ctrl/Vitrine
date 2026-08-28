@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "AB309FDB-EC7E-4022-A44C-2C8269BB7E03",
-        "nom": "Accessoires informatiques Souris filaire USB lumineuse",
+        "nom": "Computer Accessories Luminous USB Wired Mouse",
         "prixBase": 1.64,
         "productFee": 0.0,
         "images": [
@@ -65,7 +65,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2406290649131605100",
-        "nom": "Pistolet à eau pour Machine à laver à haute pression, accessoires combinés de 7 pièces",
+        "nom": "High-pressure Washing Machine Water Gun 7-piece Combination Accessories",
         "prixBase": 9.15,
         "productFee": 0.0,
         "images": [
@@ -73,24 +73,37 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD2071492",
-                "vid": "2406290649131605100",
+                "sku": "CJYD207149201AZ",
+                "vid": "2406290649131606000",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "7PCS",
                 "prix": 9.15,
-                "poids": 0.0,
+                "poids": 1150.0,
                 "stock": 19077,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.25
+            },
+            {
+                "sku": "CJYD207149202BY",
+                "vid": "2603030110411604200",
+                "taille": "N/A",
+                "couleur": "9link 6nozzle",
+                "prix": 9.15,
+                "poids": 1830.0,
+                "stock": 19077,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.4,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.25
             }
         ]
     },
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1925373197707935745",
-        "nom": "Piège à rats électrique piège à souris réutilisable Zapper à rongeurs lutte antiparasitaire d'intérieur tueur de souris à choc rechargeable avec haute tension 1800 V pour la maison",
+        "nom": "Electric Rat Trap Reusable Mice Trap Rodent Zapper Indoor Pest Control Rechargeable Shock Mice Killer With 1800V High Voltage For Home",
         "prixBase": 33.99,
         "productFee": 0.0,
         "images": [
@@ -579,7 +592,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "116B5C69-00E3-4E3D-A8A3-D84D8E6D06CA",
-        "nom": "Sac d'ordinateur, sac d'exposition, sac cadeau, sac d'ordinateur",
+        "nom": "Computer bag exhibition bag gift bag computer bag",
         "prixBase": 2.8,
         "productFee": 0.0,
         "images": [
@@ -1194,7 +1207,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1521327538239451136",
-        "nom": "Boîte de séchage UV électrique USB, déshumidificateur de casque, aide auditive étanche à l'humidité, étui de séchage UV",
+        "nom": "Electric USB UV Drying Box Headphone Dehumidifier Moisture Proof Hearing Aid UV Dryer Case",
         "prixBase": 9.88,
         "productFee": 0.0,
         "images": [
@@ -1235,8 +1248,8 @@
                 "prix": 9.88,
                 "poids": 80.0,
                 "stock": 170785,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.75,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.72
             },
@@ -2212,6 +2225,108 @@
                 "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.3
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1997926057425104898",
+        "nom": "Cat's Eye Stone Crystal Bracelet Advanced Accessories",
+        "prixBase": 0.41,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/13fd57c8-6115-48c4-b5ce-e614b7eba92b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSL263577901AZ",
+                "vid": "1997926057546739714",
+                "taille": "N/A",
+                "couleur": "1Style",
+                "prix": 0.41,
+                "poids": 30.0,
+                "stock": 52770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJSL263577902BY",
+                "vid": "1997926057546739715",
+                "taille": "N/A",
+                "couleur": "2Style",
+                "prix": 0.41,
+                "poids": 30.0,
+                "stock": 52770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJSL263577903CX",
+                "vid": "1997926057546739716",
+                "taille": "N/A",
+                "couleur": "3Style",
+                "prix": 0.41,
+                "poids": 30.0,
+                "stock": 52770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJSL263577904DW",
+                "vid": "1997926057546739717",
+                "taille": "N/A",
+                "couleur": "4Style",
+                "prix": 0.41,
+                "poids": 30.0,
+                "stock": 52770,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1873987701496766466",
+        "nom": "Adjustable Mobile Bed Table, Computer Desk, Mobile Standing Table",
+        "prixBase": 49.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/bb52d793-b505-43c5-850f-3c24650d11f0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT225784901AZ",
+                "vid": "1873987701572263937",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 49.17,
+                "poids": 10160.0,
+                "stock": 20604,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT225784902BY",
+                "vid": "1873987701572263938",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 49.17,
+                "poids": 10160.0,
+                "stock": 20604,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
