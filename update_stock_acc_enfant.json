@@ -6883,5 +6883,69 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "7A4C5598-3490-455A-AAE9-A2D7ACDEEF52",
+        "nom": "Winter Boy-girl Hipsters Add Fluffy Earmuffs",
+        "prixBase": 2.99,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/05/30/07/a9209bfc-8ac8-4925-808b-86a23df476d6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJNHNT05617-PINK",
+                "vid": "4C1A2767-3684-4912-A46F-C1F41A7F8C79",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 2.99,
+                "poids": 70.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWJNHNT05617-BROWN",
+                "vid": "8CAC4EAE-E0C5-44CB-B3DD-3706C7E80ADD",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 2.99,
+                "poids": 70.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWJNHNT05617-BLUE",
+                "vid": "A6CDDCCE-F39B-4E47-A2E8-E497207CAFDB",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 2.99,
+                "poids": 70.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWJNHNT05617-RED",
+                "vid": "B236063E-25D7-4E9C-84AC-E36B9B378921",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 2.99,
+                "poids": 70.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            }
+        ]
     }
 ]
