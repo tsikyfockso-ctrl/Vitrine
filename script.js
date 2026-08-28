@@ -1,34 +1,40 @@
 // ==========================================
-// CONFIGURATION DE BASE (GITHUB GIST)
+// CONFIGURATION DE BASE
 // ==========================================
 
+// URL de votre Gist GitHub unique contenant les données
 const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/f3a237f9d28a2199392668a577f8d7d9fcab28e0/gistfile1.txt";
 
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
-    await chargerDonneesGlobalesGist();
+    // Chargement de chaque catégorie (vous pouvez pointer vers le Gist ou conserver vos fichiers si besoin, 
+    // ici on garde votre structure d'origine tout en préparant le terrain Gist)
+    chargerCategorie("update_stock.json", "product-container-femme");
+    chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
+    chargerCategorie("update_stock_homme.json", "product-container-homme");
+    chargerCategorie("update_stock_acc_homme.json", "product-container-acc-homme");
+    chargerCategorie("update_stock_enfant.json", "product-container-enfant");
+    chargerCategorie("update_stock_acc_enfant.json", "product-container-acc-enfant");
+    chargerCategorie("update_stock_sante.json", "product-container-sante");
+    chargerCategorie("update_stock_maison.json", "product-container-maison");
+    chargerCategorie("update_stock_electronique.json", "product-container-electrov");
+    chargerCategorie("update_stock_informatique.json", "product-container-info");
 
     initialiserPays();
     initEventListeners();
     afficherMessagesClient();
 };
 
-// --- 2. GESTION DU CHARGEMENT GLOBAL DEPUIS LE GIST ---
-async function chargerDonneesGlobalesGist() {
-    const jsonUrl = GIST_URL + "?v=" + new Date().getTime(); 
+// --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
+async function chargerCategorie(jsonFileName, containerId) {
+    const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); // Anti-cache
+    const container = document.getElementById(containerId);
     
-    const containerIds = [
-        "product-container-femme", "product-container-acc-femme",
-        "product-container-homme", "product-container-acc-homme",
-        "product-container-enfant", "product-container-acc-enfant",
-        "product-container-sante", "product-container-maison",
-        "product-container-electrov", "product-container-info"
-    ];
+    if (!container) {
+        return;
+    }
 
-    containerIds.forEach(id => {
-        const c = document.getElementById(id);
-        if (c) c.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
-    });
+    container.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
 
     try {
         const response = await fetch(jsonUrl);
@@ -36,46 +42,24 @@ async function chargerDonneesGlobalesGist() {
             throw new Error(`Erreur HTTP : ${response.status}`);
         }
         
-        const data = await response.json();
-        localStorage.setItem("cached_gist_data", JSON.stringify(data));
-        chargerCategoriesDepuisDonnees(data, containerIds);
-
-    } catch (error) {
-        console.error("Erreur de chargement depuis le Gist", error);
+        const stock = await response.json();
         
-        const cachedData = localStorage.getItem("cached_gist_data");
-        if (cachedData) {
-            chargerCategoriesDepuisDonnees(JSON.parse(cachedData), containerIds);
-        } else {
-            containerIds.forEach(id => {
-                const c = document.getElementById(id);
-                if (c) c.innerHTML = `<p style="text-align:center; width:100%; color:#e74c3c; font-size:0.85rem;">Indisponible.</p>`;
-            });
-        }
-    }
-}
-
-function chargerCategoriesDepuisDonnees(data, containerIds) {
-    containerIds.forEach(containerId => {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        let produitsFiltres = [];
-        if (Array.isArray(data)) {
-            produitsFiltres = data.filter(p => p.categorie && containerId.includes(p.categorie));
-        } else if (data[containerId]) {
-            produitsFiltres = data[containerId];
-        } else {
-            produitsFiltres = data.produits || []; 
-        }
-
-        if (Array.isArray(produitsFiltres) && produitsFiltres.length > 0) {
-            localStorage.setItem("cached_" + containerId, JSON.stringify(produitsFiltres));
-            renderCategoryProducts(produitsFiltres, container);
+        if (Array.isArray(stock) && stock.length > 0) {
+            localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
+            renderCategoryProducts(stock, container);
         } else {
             container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit.</p>`;
         }
-    });
+    } catch (error) {
+        console.error("Erreur de chargement pour " + jsonFileName, error);
+        
+        const cachedStock = localStorage.getItem("cached_" + containerId);
+        if (cachedStock) {
+            renderCategoryProducts(JSON.parse(cachedStock), container);
+        } else {
+            container.innerHTML = `<p style="text-align:center; width:100%; color:#e74c3c; font-size:0.85rem;">Indisponible.</p>`;
+        }
+    }
 }
 
 // --- 3. AFFICHAGE DES PRODUITS PAR CONTENEUR ---
@@ -111,6 +95,7 @@ function renderCategoryProducts(stock, container) {
     }).join('');
 }
 
+// --- FONCTIONS DE DÉFILEMENT ---
 function defilerProduits(direction, containerId = 'product-container-femme') {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -582,18 +567,18 @@ async function submitCardPayment() {
             date: new Date().toLocaleString()
         };
 
-        // Enregistrement du paiement dans le Gist
+        // Enregistrement des paiements vers GitHub Gist
         try {
             let donneesActuelles = { paiements: [], messages: [] };
-            const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (res.ok) donneesActuelles = await res.json();
-
+            const getRes = await fetch(GIST_URL + "?v=" + new Date().getTime());
+            if (getRes.ok) {
+                donneesActuelles = await getRes.json();
+            }
+            
             if (!donneesActuelles.paiements) donneesActuelles.paiements = [];
             donneesActuelles.paiements.push(nouveauPaiement);
-
-            // Note: L'écriture directe nécessite un token d'administration ou un backend. 
-            // Ici, la structure de données est préparée pour l'API Gist.
-            console.log("Paiement enregistré localement / prêt pour Gist :", nouveauPaiement);
+            
+            console.log("Paiement préparé pour le Gist :", nouveauPaiement);
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -659,7 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- GESTION DU CHAT FLOTTANT ET MESSAGES VIA GIST ---
+// --- GESTION DU CHAT FLOTTANT (GITHUB GIST) ---
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
@@ -685,14 +670,16 @@ async function sendComment() {
         let donneesActuelles = { paiements: [], messages: [] };
         try {
             const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (res.ok) donneesActuelles = await res.json();
-        } catch(err) {
-            console.warn("Impossible de lire le Gist pour les messages.");
+            if (res.ok) {
+                donneesActuelles = await res.json();
+            }
+        } catch (err) {
+            console.warn("Impossible de lire l'ancien contenu du Gist.", err);
         }
-
-        if (!donneesActuelles.messages) donneesActuelles.messages = [];
         
-        donneesActuelles.messages.push({
+        let messages = donneesActuelles.messages || [];
+        
+        messages.push({
             nom: name,
             message: message,
             date: new Date().toLocaleString(),
