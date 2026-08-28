@@ -27,7 +27,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1369902277694984192",
-        "nom": "Foldable Abdominal Wheel Abdominal Muscle Wheel Roller Home Fitness Equipment",
+        "nom": "Roue abdominale pliable, rouleau de roue musculaire abdominale, équipement de Fitness à domicile",
         "prixBase": 4.53,
         "productFee": 0.0,
         "images": [
@@ -35,17 +35,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJJM1038421",
-                "vid": "1369902277694984192",
+                "sku": "CJJM103842101AZ",
+                "vid": "1369902279062327296",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "default",
                 "prix": 4.53,
-                "poids": 0.0,
+                "poids": 1120.0,
                 "stock": 40000,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.63,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 18.24
             }
         ]
     },
@@ -622,7 +622,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2504200825211626200",
-        "nom": "Sport Wellness Watch",
+        "nom": "Montre Sport Bien-être",
         "prixBase": 2.28,
         "productFee": 0.0,
         "images": [
@@ -637,10 +637,10 @@
                 "prix": 2.28,
                 "poids": 40.0,
                 "stock": 6518,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.14,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.13,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     },
