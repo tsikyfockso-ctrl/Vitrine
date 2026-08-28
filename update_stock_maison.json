@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -186,17 +186,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             }
         ]
     },
@@ -279,7 +292,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Chaise de patio avec coussins",
+        "nom": "Patio Chair With Cushions",
         "prixBase": 71.73,
         "productFee": 0.0,
         "images": [
@@ -431,7 +444,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1944947310978183169",
-        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
+        "nom": "Gazebo à toit rigide gris 10x13, avec rideaux de toit en acier, crochet de plafond pour pavillon, pour Patio et jardin",
         "prixBase": 1191.05,
         "productFee": 0.0,
         "images": [
@@ -1686,7 +1699,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2037351849134313474",
-        "nom": "Metal Garden Arch With Gate With Planter W80.71xH97.24 Climbing Plants Support Rose Arch Outdoor Black",
+        "nom": "Arche de jardin en métal avec portail avec jardinière W80.71xH97.24, Support pour plantes grimpantes, arche à roses pour l'extérieur, noir",
         "prixBase": 109.42,
         "productFee": 0.0,
         "images": [
@@ -3343,8 +3356,8 @@
                 "prix": 4.31,
                 "poids": 682.0,
                 "stock": 124814,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.05,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 13.01,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 17.68
             },
@@ -3373,6 +3386,223 @@
                 "shippingCostFR": 9.05,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.7
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406250320331627800",
+        "nom": "Sangle noire de suspension latérale pour machine à gazon",
+        "prixBase": 1.73,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/d38b92bd-9c2a-4adf-b762-b292d91118bc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD206806701AZ",
+                "vid": "2406250320331628000",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.73,
+                "poids": 154.0,
+                "stock": 11108,
+                "shippingMethodFR": "CJPacket Sensitive Pro",
+                "shippingCostFR": 9.48,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.32
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031971772824145922",
+        "nom": "PawHut 59 Petit poulailler en bois pour poulailler, cage à volaille pour jardin extérieur avec 2 portes, nichoir et plateau amovible, blanc",
+        "prixBase": 157.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/b4dfdd50-7fca-4452-92da-236949fc8976.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846920001",
+                "vid": "2031971772929003522",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 157.82,
+                "poids": 18008.0,
+                "stock": 45,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1933406181651927042",
+        "nom": "Machine d'aromathérapie de flamme de simulation de cheminée",
+        "prixBase": 20.99,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/d7ac8da1-dac6-4f08-81a9-dcbb621fbe28.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJD240106602BY",
+                "vid": "1933406181769367555",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 20.99,
+                "poids": 620.0,
+                "stock": 960,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502280913011605500",
+        "nom": "Home Fashion Personality Retro Green Begonia Tray",
+        "prixBase": 3.18,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/f6a5d9e6-a105-4150-ab9a-7f04ccbfeffb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD231138302BY",
+                "vid": "2502280913011605800",
+                "taille": "22.6X12.3X3.5CM",
+                "couleur": "White",
+                "prix": 3.18,
+                "poids": 320.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYD231138303CX",
+                "vid": "2502280913011606000",
+                "taille": "32.7X12.3X3.5CM",
+                "couleur": "White",
+                "prix": 3.18,
+                "poids": 420.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.74
+            },
+            {
+                "sku": "CJYD231138304DW",
+                "vid": "2502280913011606100",
+                "taille": "22.6X22.6X3.5CM",
+                "couleur": "White",
+                "prix": 3.18,
+                "poids": 370.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.13
+            },
+            {
+                "sku": "CJYD231138305EV",
+                "vid": "2502280913011606300",
+                "taille": "32.7X22.6X3.5CM",
+                "couleur": "White",
+                "prix": 3.18,
+                "poids": 520.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.22,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.27
+            },
+            {
+                "sku": "CJYD231138306FU",
+                "vid": "2502280913011606500",
+                "taille": "40X30X3.5CM",
+                "couleur": "White",
+                "prix": 3.18,
+                "poids": 620.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 12.18,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 14.28
+            },
+            {
+                "sku": "CJYD231138307GT",
+                "vid": "2502280913011606700",
+                "taille": "22.6X12.3X3.5CM",
+                "couleur": "Green",
+                "prix": 3.18,
+                "poids": 320.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
+            },
+            {
+                "sku": "CJYD231138308HS",
+                "vid": "2502280913011606800",
+                "taille": "32.7X12.3X3.5CM",
+                "couleur": "Green",
+                "prix": 3.18,
+                "poids": 420.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.74
+            },
+            {
+                "sku": "CJYD231138309IR",
+                "vid": "2502280913011607000",
+                "taille": "22.6X22.6X3.5CM",
+                "couleur": "Green",
+                "prix": 3.18,
+                "poids": 370.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.13
+            },
+            {
+                "sku": "CJYD231138310JQ",
+                "vid": "2502280913011607200",
+                "taille": "32.7X22.6X3.5CM",
+                "couleur": "Green",
+                "prix": 3.18,
+                "poids": 520.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.22,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.27
+            },
+            {
+                "sku": "CJYD231138311KP",
+                "vid": "2502280913011607400",
+                "taille": "40X30X3.5CM",
+                "couleur": "Green",
+                "prix": 3.18,
+                "poids": 620.0,
+                "stock": 66690,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 12.18,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 14.28
             }
         ]
     }
