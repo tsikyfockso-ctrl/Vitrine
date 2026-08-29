@@ -550,15 +550,36 @@ async function submitCardPayment() {
             date: new Date().toLocaleString()
         };
 
+        const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // Votre token d'origine
+
         try {
             let donneesActuelles = { paiements: [], messages: [] };
-            const getRes = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (getRes.ok) donneesActuelles = await getRes.json();
+            const getRes = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+            if (getRes.ok) {
+                const gistData = await getRes.json();
+                const fileName = Object.keys(gistData.files)[0];
+                donneesActuelles = JSON.parse(gistData.files[fileName].content);
+            }
             
             if (!donneesActuelles.paiements) donneesActuelles.paiements = [];
             donneesActuelles.paiements.push(nouveauPaiement);
             
-            console.log("Paiement préparé :", nouveauPaiement);
+            await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    files: {
+                        "gistfile1.txt": {
+                            content: JSON.stringify(donneesActuelles, null, 2)
+                        }
+                    }
+                })
+            });
+            
+            console.log("Paiement enregistré sur le Gist :", nouveauPaiement);
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -646,7 +667,6 @@ async function sendComment() {
         return;
     }
     
-    const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
     const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // Votre token d'origine
 
     try {
@@ -686,16 +706,35 @@ async function sendComment() {
             msgInput.value = '';
             nameInput.value = '';
             alert("Message envoyé avec succès !");
-            if (typeof afficherMessagesClient === 'function') {
-                afficherMessagesClient();
-            }
+            afficherMessagesClient();
         } else {
             alert("Erreur lors de l'envoi du message.");
         }
     } catch (e) {
         console.error("Erreur réseau :", e);
     }
-}  
+}
+
+async function afficherMessagesClient() {
+    const container = document.getElementById('client-messages-list');
+    if (!container) return;
+
+    try {
+        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
+        if (!response.ok) throw new Error("Erreur de chargement");
+
+        const data = await response.json();
+        let messages = (data && data.messages) ? data.messages : [];
+
+        let conversationsParClient = {};
+        messages.forEach(m => {
+            let nomClient = m.nom || "Client Anonyme";
+            if (!conversationsParClient[nomClient]) {
+                conversationsParClient[nomClient] = [];
+            }
+            conversationsParClient[nomClient].push(m);
+        });
+
         let html = '';
         for (let nomClient in conversationsParClient) {
             html += `
@@ -735,7 +774,7 @@ async function sendComment() {
             
             html += `</div>`;
         }
-        
+
         container.innerHTML = html;
     } catch (e) {
         console.error("Erreur de chargement des messages :", e);
