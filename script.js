@@ -1,14 +1,13 @@
 // ==========================================
-// CONFIGURATION DE BASE
+// CONFIGURATION DE BASE (SANS EXPOSER LE TOKEN)
 // ==========================================
 
-// URL de votre Gist GitHub unique contenant les données
-const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/f3a237f9d28a2199392668a577f8d7d9fcab28e0/gistfile1.txt";
+const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
+// L'URL brute reste publique et sécurisée pour la lecture (affichage des produits et messages)
+const GIST_URL = `https://gist.githubusercontent.com/tsikyfockso-ctrl/${GIST_ID}/raw/gistfile1.txt`;
 
 // --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
-    // Chargement de chaque catégorie (vous pouvez pointer vers le Gist ou conserver vos fichiers si besoin, 
-    // ici on garde votre structure d'origine tout en préparant le terrain Gist)
     chargerCategorie("update_stock.json", "product-container-femme");
     chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
     chargerCategorie("update_stock_homme.json", "product-container-homme");
@@ -27,20 +26,16 @@ window.onload = async () => {
 
 // --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
 async function chargerCategorie(jsonFileName, containerId) {
-    const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); // Anti-cache
+    const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); 
     const container = document.getElementById(containerId);
     
-    if (!container) {
-        return;
-    }
+    if (!container) return;
 
     container.innerHTML = `<p style="text-align:center; width:100%; padding:20px; font-size:0.85rem; color:#666;">Chargement...</p>`;
 
     try {
         const response = await fetch(jsonUrl);
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP : ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Erreur HTTP : ${response.status}`);
         
         const stock = await response.json();
         
@@ -95,7 +90,6 @@ function renderCategoryProducts(stock, container) {
     }).join('');
 }
 
-// --- FONCTIONS DE DÉFILEMENT ---
 function defilerProduits(direction, containerId = 'product-container-femme') {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -190,7 +184,6 @@ function updateModalPriceAndSpecs() {
     calculateShipping();
 }
 
-// --- 5. GÉNÉRATION DES CASES HORIZONTALES DE VARIANTES ET QUANTITÉ ---
 function genererBoitesTaillesHorizontales(produit) {
     const modalDescElem = document.getElementById('modalDesc');
     if (!modalDescElem) return;
@@ -367,7 +360,6 @@ function mettreAJourSelectionCasesTailles(selectedIndex) {
     });
 }
 
-// --- 6. CALCUL DU PRIX, DU SKU ET DES FRAIS DE PORT ---
 function calculateShipping() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
@@ -436,7 +428,6 @@ function calculateShipping() {
     }
 }
 
-// --- GESTION DES MODALES DE PAIEMENT & VALIDATION LUHN ---
 function checkoutWithCard() {
     if (!currentSelectedProduct || !currentSelectedProduct.variantes) return;
 
@@ -485,28 +476,20 @@ function backToProductModal() {
 
 function validerNumeroCarte(numero) {
     const nettoyer = numero.replace(/\D/g, "");
-    
-    if (nettoyer.length < 13 || nettoyer.length > 19) {
-        return false;
-    }
+    if (nettoyer.length < 13 || nettoyer.length > 19) return false;
 
     let somme = 0;
     let alterne = false;
 
     for (let i = nettoyer.length - 1; i >= 0; i--) {
         let n = parseInt(nettoyer[i], 10);
-
         if (alterne) {
             n *= 2;
-            if (n > 9) {
-                n -= 9;
-            }
+            if (n > 9) n -= 9;
         }
-
         somme += n;
         alterne = !alterne;
     }
-
     return somme % 10 === 0;
 }
 
@@ -567,18 +550,15 @@ async function submitCardPayment() {
             date: new Date().toLocaleString()
         };
 
-        // Enregistrement des paiements vers GitHub Gist
         try {
             let donneesActuelles = { paiements: [], messages: [] };
             const getRes = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (getRes.ok) {
-                donneesActuelles = await getRes.json();
-            }
+            if (getRes.ok) donneesActuelles = await getRes.json();
             
             if (!donneesActuelles.paiements) donneesActuelles.paiements = [];
             donneesActuelles.paiements.push(nouveauPaiement);
             
-            console.log("Paiement préparé pour le Gist :", nouveauPaiement);
+            console.log("Paiement préparé :", nouveauPaiement);
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -592,7 +572,7 @@ async function submitCardPayment() {
 
 function initEventListeners() {}
 
-// --- GESTION DU DÉFILEMENT TACTILE (SWIPE) POUR CHAQUE CONTENEUR ---
+// --- GESTION DU DÉFILEMENT TACTILE (SWIPE) ---
 document.addEventListener('DOMContentLoaded', () => {
     const containerIds = [
         'product-container-femme', 'product-container-acc-femme', 
@@ -644,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- GESTION DU CHAT FLOTTANT (GITHUB GIST) ---
+// --- GESTION DU CHAT FLOTTANT ET MESSAGES ---
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
@@ -670,9 +650,7 @@ async function sendComment() {
         let donneesActuelles = { paiements: [], messages: [] };
         try {
             const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (res.ok) {
-                donneesActuelles = await res.json();
-            }
+            if (res.ok) donneesActuelles = await res.json();
         } catch (err) {
             console.warn("Impossible de lire l'ancien contenu du Gist.", err);
         }
@@ -691,7 +669,7 @@ async function sendComment() {
         nameInput.value = '';
         
         afficherMessagesClient();
-        alert("Message envoyé avec succès !");
+        alert("Message enregistré localement. (Pour l'écriture distante sécurisée sans exposer le token, configurez votre endpoint backend intermédiaire).");
     } catch (e) {
         console.error("Erreur lors de l'envoi :", e);
     }
