@@ -1,6 +1,6 @@
 // --- CONFIGURATION GITHUB GIST ADMIN ---
 const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
-const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // ⚠️ Insérez le même Personal Access Token GitHub ici pour autoriser l'admin à modifier
+const GITHUB_TOKEN = "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"; // ⚠️ Insérez le même Personal Access Token GitHub ici pour autoriser l'admin à modifier
 const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/gistfile1.txt";
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
