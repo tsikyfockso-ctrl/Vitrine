@@ -1,9 +1,7 @@
-// --- CONFIGURATION GITHUB GIST POUR LA MESSAGERIE ET LES PAIEMENTS ---
-const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/f3a237f9d28a2199392668a577f8d7d9fcab28e0/gistfile1.txt";
-
-// Note: Pour que la modification (réponse ou suppression) fonctionne directement depuis l'admin, 
-// un Personal Access Token (PAT) GitHub avec les droits 'gist' est nécessaire si le Gist doit être mis à jour.
-// Pour l'instant, voici la lecture et l'affichage complets basés sur le Gist.
+// --- CONFIGURATION GITHUB GIST ADMIN ---
+const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
+const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // ⚠️ Insérez le même Personal Access Token GitHub ici pour autoriser l'admin à modifier
+const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/gistfile1.txt";
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
@@ -12,18 +10,15 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
 
 const modal = document.getElementById("inboxModal");
 
-// Ouvrir la boîte
 document.getElementById("inboxBtn").addEventListener("click", () => {
     modal.style.display = "flex";
     checkAdminNotifications();
 });
 
-// Fermer la boîte
 function closeModal() {
     modal.style.display = "none";
 }
 
-// Gestion de la modale pour l'historique des paiements
 document.addEventListener('DOMContentLoaded', () => {
     const paymentHistoryBtn = document.getElementById('paymentHistoryBtn');
     if (paymentHistoryBtn) {
@@ -40,7 +35,6 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
-// Récupérer et afficher les paiements depuis le Gist
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
@@ -86,7 +80,6 @@ async function chargerHistoriquePaiements() {
     }
 }
 
-// 1. Mise à jour du badge de notification (depuis le Gist)
 async function updateNotificationBadge() {
     try {
         const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
@@ -104,7 +97,6 @@ async function updateNotificationBadge() {
     }
 }
 
-// 2. Liste des messages Admin depuis le Gist
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
@@ -173,17 +165,97 @@ async function checkAdminNotifications() {
     }
 }
 
-// 3. Fonction pour envoyer la réponse (nécessite un token GitHub Gist pour l'écriture)
+// 3. Envoyer la réponse de l'admin directement sur GitHub
 async function envoyerReponseAdmin(index) {
-    alert("La modification directe via Gist nécessite un jeton d'accès GitHub (Token). Veuillez modifier le Gist directement depuis votre interface GitHub pour répondre aux clients.");
+    const inputReponse = document.getElementById(`admin-reply-${index}`);
+    if (!inputReponse) return;
+    const texteReponse = inputReponse.value.trim();
+
+    if (!texteReponse) {
+        alert("Veuillez écrire une réponse.");
+        return;
+    }
+
+    try {
+        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        if (!res.ok) throw new Error("Erreur de récupération du Gist");
+        const gistData = await res.json();
+        const fileName = Object.keys(gistData.files)[0];
+        let donnees = JSON.parse(gistData.files[fileName].content);
+
+        if (donnees.messages && donnees.messages[index]) {
+            donnees.messages[index].reponse = texteReponse;
+            donnees.messages[index].lu = true;
+        }
+
+        const updateRes = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                files: {
+                    [fileName]: {
+                        content: JSON.stringify(donnees, null, 2)
+                    }
+                }
+            })
+        });
+
+        if (updateRes.ok) {
+            alert("Réponse envoyée avec succès !");
+            checkAdminNotifications();
+        } else {
+            alert("Erreur lors de l'enregistrement de la réponse.");
+        }
+    } catch (e) {
+        console.error("Erreur :", e);
+        alert("Erreur réseau lors de l'envoi de la réponse.");
+    }
 }
 
-// 4. Fonction pour supprimer un message
+// 4. Supprimer un message directement sur GitHub
 async function deleteMessage(index) {
-    alert("La suppression directe via Gist nécessite un jeton d'accès GitHub (Token). Veuillez modifier le Gist directement depuis votre interface GitHub.");
+    if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
+
+    try {
+        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        if (!res.ok) throw new Error("Erreur de récupération du Gist");
+        const gistData = await res.json();
+        const fileName = Object.keys(gistData.files)[0];
+        let donnees = JSON.parse(gistData.files[fileName].content);
+
+        if (donnees.messages) {
+            donnees.messages.splice(index, 1);
+        }
+
+        const updateRes = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                files: {
+                    [fileName]: {
+                        content: JSON.stringify(donnees, null, 2)
+                    }
+                }
+            })
+        });
+
+        if (updateRes.ok) {
+            checkAdminNotifications();
+        } else {
+            alert("Erreur lors de la suppression.");
+        }
+    } catch (e) {
+        console.error("Erreur :", e);
+        alert("Erreur réseau lors de la suppression.");
+    }
 }
 
-// --- GESTION DU FICHIER JSON ACTIF SELON LE SÉLECTEUR ---
 function getFichierActif() {
     const select = document.getElementById('adminCategorySelect');
     if (select) {
@@ -196,7 +268,6 @@ function changerFichierAdmin() {
     loadStock(false);
 }
 
-// --- GESTION DU STOCK ET CHARGEMENT DYNAMIQUE ---
 let globalStockData = [];
 
 async function loadStock(silent = false) {
@@ -232,7 +303,6 @@ async function loadStock(silent = false) {
     }
 }
 
-// --- FONCTION POUR RENDRE LE TABLEAU ---
 function renderStockTable() {
     const stockList = document.getElementById("stock-list");
     if (!stockList) return;
@@ -354,14 +424,15 @@ function filterStock() {
     renderStockTable();
 }
 
-// Actualisation automatique silencieuse toutes les 4 secondes
 setInterval(() => {
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
         loadStock(true);
     }
+    if (typeof updateNotificationBadge === 'function') {
+        updateNotificationBadge();
+    }
 }, 4000);
 
-// Chargement initial normal au démarrage de la page
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
