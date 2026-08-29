@@ -646,18 +646,20 @@ async function sendComment() {
         return;
     }
     
+    const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
+    const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // Votre token d'origine
+
     try {
         let donneesActuelles = { paiements: [], messages: [] };
-        try {
-            const res = await fetch(GIST_URL + "?v=" + new Date().getTime());
-            if (res.ok) donneesActuelles = await res.json();
-        } catch (err) {
-            console.warn("Impossible de lire l'ancien contenu du Gist.", err);
+        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        if (res.ok) {
+            const gistData = await res.json();
+            const fileName = Object.keys(gistData.files)[0];
+            donneesActuelles = JSON.parse(gistData.files[fileName].content);
         }
         
-        let messages = donneesActuelles.messages || [];
-        
-        messages.push({
+        if (!donneesActuelles.messages) donneesActuelles.messages = [];
+        donneesActuelles.messages.push({
             nom: name,
             message: message,
             date: new Date().toLocaleString(),
@@ -665,39 +667,35 @@ async function sendComment() {
             reponse: ""
         });
         
-        msgInput.value = '';
-        nameInput.value = '';
-        
-        afficherMessagesClient();
-        alert("Message enregistré localement. (Pour l'écriture distante sécurisée sans exposer le token, configurez votre endpoint backend intermédiaire).");
-    } catch (e) {
-        console.error("Erreur lors de l'envoi :", e);
-    }
-}
-
-async function afficherMessagesClient() {
-    const container = document.getElementById('client-messages');
-    if (!container) return;
-    
-    try {
-        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
-        const data = await response.json();
-        let messages = (data && data.messages) ? data.messages : [];
-        
-        if (messages.length === 0) {
-            container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun message pour le moment.</p>`;
-            return;
-        }
-        
-        let conversationsParClient = {};
-        messages.forEach(m => {
-            let nomClient = m.nom ? m.nom.trim() : "Anonyme";
-            if (!conversationsParClient[nomClient]) {
-                conversationsParClient[nomClient] = [];
-            }
-            conversationsParClient[nomClient].push(m);
+        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                files: {
+                    "gistfile1.txt": {
+                        content: JSON.stringify(donneesActuelles, null, 2)
+                    }
+                }
+            })
         });
-        
+
+        if (response.ok) {
+            msgInput.value = '';
+            nameInput.value = '';
+            alert("Message envoyé avec succès !");
+            if (typeof afficherMessagesClient === 'function') {
+                afficherMessagesClient();
+            }
+        } else {
+            alert("Erreur lors de l'envoi du message.");
+        }
+    } catch (e) {
+        console.error("Erreur réseau :", e);
+    }
+}  
         let html = '';
         for (let nomClient in conversationsParClient) {
             html += `
