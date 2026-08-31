@@ -1,7 +1,10 @@
-// --- CONFIGURATION GITHUB GIST ADMIN ---
-const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
-const GITHUB_TOKEN = "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"; // ⚠️ Insérez le même Personal Access Token GitHub ici pour autoriser l'admin à modifier
-const GIST_URL = "https://gist.githubusercontent.com/tsikyfockso-ctrl/1c09d3c6ce20fa6af040b2c235c84262/raw/gistfile1.txt";
+// ==========================================
+// CONFIGURATION NPOINT.IO ADMIN
+// ==========================================
+const CONFIG = {
+    MESSAGES_URL: "https://api.npoint.io/7bb351d44d168f9e4bea",
+    PAIEMENTS_URL: "https://api.npoint.io/232b99bcbfdc6b24b18e"
+};
 
 document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
@@ -35,6 +38,7 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
+// --- HISTORIQUE DES PAIEMENTS (NPOINT.IO) ---
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
@@ -42,11 +46,11 @@ async function chargerHistoriquePaiements() {
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
-        if (!response.ok) throw new Error("Erreur de chargement du Gist");
+        const response = await fetch(CONFIG.PAIEMENTS_URL + "?v=" + new Date().getTime());
+        if (!response.ok) throw new Error("Erreur de chargement du bin des paiements");
 
         const data = await response.json();
-        let paiements = (data && data.paiements) ? data.paiements : [];
+        let paiements = Array.isArray(data) ? data : (data.paiements || []);
 
         if (paiements.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
@@ -82,9 +86,9 @@ async function chargerHistoriquePaiements() {
 
 async function updateNotificationBadge() {
     try {
-        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
+        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
         const data = await response.json();
-        let messages = (data && data.messages) ? data.messages : [];
+        let messages = Array.isArray(data) ? data : (data.messages || []);
         
         const nonLus = messages.filter(m => m.lu === false || !m.reponse).length;
         const btn = document.getElementById("inboxBtn");
@@ -93,7 +97,7 @@ async function updateNotificationBadge() {
             btn.style.borderColor = nonLus > 0 ? "orange" : "transparent";
         }
     } catch (e) {
-        console.error("Erreur de mise à jour du badge Gist :", e);
+        console.error("Erreur de mise à jour du badge npoint :", e);
     }
 }
 
@@ -104,9 +108,9 @@ async function checkAdminNotifications() {
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
     try {
-        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
+        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
         const data = await response.json();
-        let messages = (data && data.messages) ? data.messages : [];
+        let messages = Array.isArray(data) ? data : (data.messages || []);
         
         inbox.innerHTML = "";
         
@@ -160,12 +164,12 @@ async function checkAdminNotifications() {
         
         updateNotificationBadge();
     } catch (e) {
-        console.error("Erreur de chargement des messages Gist :", e);
+        console.error("Erreur de chargement des messages npoint :", e);
         inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur de chargement des messages.</p>";
     }
 }
 
-// 3. Envoyer la réponse de l'admin directement sur GitHub
+// --- ENVOYER LA RÉPONSE DE L'ADMIN SUR NPOINT.IO ---
 async function envoyerReponseAdmin(index) {
     const inputReponse = document.getElementById(`admin-reply-${index}`);
     if (!inputReponse) return;
@@ -177,30 +181,22 @@ async function envoyerReponseAdmin(index) {
     }
 
     try {
-        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-        if (!res.ok) throw new Error("Erreur de récupération du Gist");
-        const gistData = await res.json();
-        const fileName = Object.keys(gistData.files)[0];
-        let donnees = JSON.parse(gistData.files[fileName].content);
+        const res = await fetch(CONFIG.MESSAGES_URL);
+        if (!res.ok) throw new Error("Erreur de récupération des messages");
+        let data = await res.json();
+        let messages = Array.isArray(data) ? data : (data.messages || []);
 
-        if (donnees.messages && donnees.messages[index]) {
-            donnees.messages[index].reponse = texteReponse;
-            donnees.messages[index].lu = true;
+        if (messages[index]) {
+            messages[index].reponse = texteReponse;
+            messages[index].lu = true;
         }
 
-        const updateRes = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: 'PATCH',
+        const updateRes = await fetch(CONFIG.MESSAGES_URL, {
+            method: 'PUT',
             headers: {
-                'Authorization': `token ${GITHUB_TOKEN}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                files: {
-                    [fileName]: {
-                        content: JSON.stringify(donnees, null, 2)
-                    }
-                }
-            })
+            body: JSON.stringify(messages)
         });
 
         if (updateRes.ok) {
@@ -215,34 +211,24 @@ async function envoyerReponseAdmin(index) {
     }
 }
 
-// 4. Supprimer un message directement sur GitHub
+// --- SUPPRIMER UN MESSAGE SUR NPOINT.IO ---
 async function deleteMessage(index) {
     if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
 
     try {
-        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-        if (!res.ok) throw new Error("Erreur de récupération du Gist");
-        const gistData = await res.json();
-        const fileName = Object.keys(gistData.files)[0];
-        let donnees = JSON.parse(gistData.files[fileName].content);
+        const res = await fetch(CONFIG.MESSAGES_URL);
+        if (!res.ok) throw new Error("Erreur de récupération des messages");
+        let data = await res.json();
+        let messages = Array.isArray(data) ? data : (data.messages || []);
 
-        if (donnees.messages) {
-            donnees.messages.splice(index, 1);
-        }
+        messages.splice(index, 1);
 
-        const updateRes = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: 'PATCH',
+        const updateRes = await fetch(CONFIG.MESSAGES_URL, {
+            method: 'PUT',
             headers: {
-                'Authorization': `token ${GITHUB_TOKEN}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                files: {
-                    [fileName]: {
-                        content: JSON.stringify(donnees, null, 2)
-                    }
-                }
-            })
+            body: JSON.stringify(messages)
         });
 
         if (updateRes.ok) {
