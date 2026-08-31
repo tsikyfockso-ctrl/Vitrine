@@ -688,8 +688,8 @@ async function sendComment() {
             alert("Erreur lors de l'envoi du message.");
         }
     } catch (e) {
-        console.error("Erreur réseau :", e);
-        alert("Erreur de connexion au serveur.");
+        console.error("Erreur réseau détaillée :", e);
+        alert("Erreur de connexion au serveur : " + e.message);
     }
 }
 
