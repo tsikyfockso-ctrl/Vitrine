@@ -1,12 +1,6 @@
 // ==========================================
-// CONFIGURATION DE BASE (SANS EXPOSER LE TOKEN)
+// CONFIGURATION INITIALE
 // ==========================================
-
-const GIST_ID = "1c09d3c6ce20fa6af040b2c235c84262";
-// L'URL brute reste publique et sécurisée pour la lecture (affichage des produits et messages)
-const GIST_URL = `https://gist.githubusercontent.com/tsikyfockso-ctrl/${GIST_ID}/raw/gistfile1.txt`;
-
-// --- 1. CONFIGURATION INITIALE ---
 window.onload = async () => {
     chargerCategorie("update_stock.json", "product-container-femme");
     chargerCategorie("update_stock_acc_femme.json", "product-container-acc-femme");
@@ -493,6 +487,7 @@ function validerNumeroCarte(numero) {
     return somme % 10 === 0;
 }
 
+// --- ENREGISTREMENT DU PAIEMENT (NPOINT.IO) ---
 async function submitCardPayment() {
     const numeroCarte = document.getElementById('cardNumber').value;
 
@@ -550,36 +545,23 @@ async function submitCardPayment() {
             date: new Date().toLocaleString()
         };
 
-        const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // Votre token d'origine
-
         try {
-            let donneesActuelles = { paiements: [], messages: [] };
-            const getRes = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+            let paiementsActuels = [];
+            const getRes = await fetch(CONFIG.PAIEMENTS_URL);
             if (getRes.ok) {
-                const gistData = await getRes.json();
-                const fileName = Object.keys(gistData.files)[0];
-                donneesActuelles = JSON.parse(gistData.files[fileName].content);
+                const data = await getRes.json();
+                paiementsActuels = Array.isArray(data) ? data : (data.paiements || []);
             }
             
-            if (!donneesActuelles.paiements) donneesActuelles.paiements = [];
-            donneesActuelles.paiements.push(nouveauPaiement);
+            paiementsActuels.push(nouveauPaiement);
             
-            await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-                method: 'PATCH',
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    files: {
-                        "gistfile1.txt": {
-                            content: JSON.stringify(donneesActuelles, null, 2)
-                        }
-                    }
-                })
+            await fetch(CONFIG.PAIEMENTS_URL, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(paiementsActuels)
             });
             
-            console.log("Paiement enregistré sur le Gist :", nouveauPaiement);
+            console.log("Paiement enregistré sur npoint.io :", nouveauPaiement);
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -645,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- GESTION DU CHAT FLOTTANT ET MESSAGES ---
+// --- GESTION DU CHAT FLOTTANT ET MESSAGES (NPOINT.IO) ---
 function toggleChat() {
     const chatPopup = document.getElementById('chat-popup');
     if (chatPopup) {
@@ -666,20 +648,16 @@ async function sendComment() {
         alert("Veuillez remplir votre nom et votre message.");
         return;
     }
-    
-    const GITHUB_TOKEN = "VOTRE_TOKEN_GITHUB_ICI"; // Votre token d'origine
 
     try {
-        let donneesActuelles = { paiements: [], messages: [] };
-        const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+        let messagesActuels = [];
+        const res = await fetch(CONFIG.MESSAGES_URL);
         if (res.ok) {
-            const gistData = await res.json();
-            const fileName = Object.keys(gistData.files)[0];
-            donneesActuelles = JSON.parse(gistData.files[fileName].content);
+            const data = await res.json();
+            messagesActuels = Array.isArray(data) ? data : (data.messages || []);
         }
         
-        if (!donneesActuelles.messages) donneesActuelles.messages = [];
-        donneesActuelles.messages.push({
+        messagesActuels.push({
             nom: name,
             message: message,
             date: new Date().toLocaleString(),
@@ -687,19 +665,10 @@ async function sendComment() {
             reponse: ""
         });
         
-        const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-            method: 'PATCH',
-            headers: {
-                'Authorization': `token ${GITHUB_TOKEN}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                files: {
-                    "gistfile1.txt": {
-                        content: JSON.stringify(donneesActuelles, null, 2)
-                    }
-                }
-            })
+        const response = await fetch(CONFIG.MESSAGES_URL, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(messagesActuels)
         });
 
         if (response.ok) {
@@ -720,11 +689,11 @@ async function afficherMessagesClient() {
     if (!container) return;
 
     try {
-        const response = await fetch(GIST_URL + "?v=" + new Date().getTime());
+        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
         if (!response.ok) throw new Error("Erreur de chargement");
 
         const data = await response.json();
-        let messages = (data && data.messages) ? data.messages : [];
+        let messages = Array.isArray(data) ? data : (data.messages || []);
 
         let conversationsParClient = {};
         messages.forEach(m => {
