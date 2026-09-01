@@ -674,6 +674,7 @@ async function afficherMessagesClient() {
         }
 
         container.innerHTML = html;
+        container.scrollTop = container.scrollHeight;
     } catch (e) {
         console.error("Erreur de chargement des messages :", e);
     }
