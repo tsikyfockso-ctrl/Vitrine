@@ -566,6 +566,12 @@ async function submitCardPayment() {
 }
 
 // --- ENVOI DE MESSAGE CLIENT (GOOGLE SHEETS) ---
+function toggleChat() {
+    const chatPopup = document.getElementById('chat-popup');
+    if (chatPopup) {
+        chatPopup.classList.toggle('chat-hidden');
+    }
+}
 async function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
