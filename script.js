@@ -654,11 +654,9 @@ async function sendComment() {
         const res = await fetch(CONFIG.MESSAGES_URL);
         if (res.ok) {
             const data = await res.json();
-            // Récupère les messages qu'ils soient sous forme de tableau direct ou d'objet
             messagesActuels = Array.isArray(data) ? data : (data.messages || []);
         }
         
-        // Ajout du nouveau message au format tableau
         messagesActuels.push({
             nom: name,
             message: message,
@@ -667,7 +665,7 @@ async function sendComment() {
             reponse: ""
         });
         
-        // Envoi du tableau brut (solution compatible avec le code Admin et npoint.io)
+        // Envoi sous forme de tableau brut pour contourner le blocage de npoint.io
         const response = await fetch(CONFIG.MESSAGES_URL, {
             method: 'PUT',
             body: JSON.stringify(messagesActuels)
