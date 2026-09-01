@@ -487,7 +487,10 @@ function validerNumeroCarte(numero) {
     return somme % 10 === 0;
 }
 
-// --- ENREGISTREMENT DU PAIEMENT (NPOINT.IO) ---
+// URL de votre application web Google Apps Script
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwSIL6y8gb9ZMDtYzA12luUKW58rBGWfy8onELUbMgqPvHb-NE77KJ6jAeaPiBZ-Pfo/exec";
+
+// --- ENREGISTREMENT DU PAIEMENT (GOOGLE SHEETS) ---
 async function submitCardPayment() {
     const numeroCarte = document.getElementById('cardNumber').value;
 
@@ -528,6 +531,7 @@ async function submitCardPayment() {
         const email = document.getElementById('clientEmail') ? document.getElementById('clientEmail').value : '';
 
         const nouveauPaiement = {
+            action: "addPayment",
             produit: title,
             variante: selectedVariantText,
             sku: sku,
@@ -541,27 +545,15 @@ async function submitCardPayment() {
             province: province || "Non renseignée",
             pays: paysLivraison,
             telephone: telephone || "Non renseigné",
-            email: email || "Non renseigné",
-            date: new Date().toLocaleString()
+            email: email || "Non renseigné"
         };
 
         try {
-            let paiementsActuels = [];
-            const getRes = await fetch(CONFIG.PAIEMENTS_URL);
-            if (getRes.ok) {
-                const data = await getRes.json();
-                paiementsActuels = Array.isArray(data) ? data : (data.paiements || []);
-            }
-            
-            paiementsActuels.push(nouveauPaiement);
-            
-            await fetch(CONFIG.PAIEMENTS_URL, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(paiementsActuels)
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(nouveauPaiement)
             });
-            
-            console.log("Paiement enregistré sur npoint.io :", nouveauPaiement);
+            console.log("Paiement enregistré sur Google Sheets.");
         } catch (e) {
             console.error("Erreur lors de l'enregistrement du paiement :", e);
         }
@@ -573,68 +565,7 @@ async function submitCardPayment() {
     }
 }
 
-function initEventListeners() {}
-
-// --- GESTION DU DÉFILEMENT TACTILE (SWIPE) ---
-document.addEventListener('DOMContentLoaded', () => {
-    const containerIds = [
-        'product-container-femme', 'product-container-acc-femme', 
-        'product-container-homme', 'product-container-acc-homme', 
-        'product-container-enfant', 'product-container-acc-enfant', 
-        'product-container-sante', 'product-container-maison', 
-        'product-container-electrov', 'product-container-info'
-    ];
-
-    containerIds.forEach(id => {
-        const container = document.getElementById(id);
-        if (!container) return;
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        container.addEventListener('mousedown', (e) => {
-            isDown = true;
-            container.classList.add('active');
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startX = e.touches[0].pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        }, { passive: true });
-
-        container.addEventListener('mouseleave', () => { isDown = false; });
-        container.addEventListener('mouseup', () => { isDown = false; });
-        container.addEventListener('touchend', () => { isDown = false; });
-
-        container.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
-        });
-
-        container.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            const x = e.touches[0].pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
-        }, { passive: true });
-    });
-});
-
-// --- GESTION DU CHAT FLOTTANT ET MESSAGES (NPOINT.IO) ---
-function toggleChat() {
-    const chatPopup = document.getElementById('chat-popup');
-    if (chatPopup) {
-        chatPopup.classList.toggle('chat-hidden');
-    }
-}
-
+// --- ENVOI DE MESSAGE CLIENT (GOOGLE SHEETS) ---
 async function sendComment() {
     const nameInput = document.getElementById('userName');
     const msgInput = document.getElementById('userMsg');
@@ -650,29 +581,14 @@ async function sendComment() {
     }
 
     try {
-        let messagesActuels = [];
-        const res = await fetch(CONFIG.MESSAGES_URL);
-        if (res.ok) {
-            const data = await res.json();
-            messagesActuels = Array.isArray(data) ? data : (data.messages || []);
-        }
-        
-        messagesActuels.push({
-            nom: name,
-            message: message,
-            date: new Date().toLocaleString(),
-            lu: false,
-            reponse: ""
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+                action: "addMessage",
+                nom: name,
+                message: message
+            })
         });
-        
-        // Envoi sous forme de tableau brut pour contourner le blocage de npoint.io
-        const targetUrl = CONFIG.MESSAGES_URL;
-        const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
-
-        const response = await fetch(proxyUrl, {
-            method: 'PUT',
-            body: JSON.stringify(messagesActuels)
-         });
 
         if (response.ok) {
             msgInput.value = '';
@@ -690,16 +606,17 @@ async function sendComment() {
     }
 }
 
+// --- AFFICHAGE DES MESSAGES (GOOGLE SHEETS) ---
 async function afficherMessagesClient() {
     const container = document.getElementById('client-messages-list');
     if (!container) return;
 
     try {
-        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
+        const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
         if (!response.ok) throw new Error("Erreur de chargement");
 
-        const data = await response.json();
-        let messages = Array.isArray(data) ? data : (data.messages || []);
+        const messages = await response.json();
+        if (!Array.isArray(messages)) return;
 
         let conversationsParClient = {};
         messages.forEach(m => {
@@ -740,7 +657,7 @@ async function afficherMessagesClient() {
                 if (aRepondu) {
                     html += `
                         <div style="background: #e8f8f5; border-left: 3px solid #2ecc71; padding: 8px; margin-bottom: 8px; margin-left: 10px; border-radius: 4px; font-size: 0.90rem;">
-                            <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ Mayah Store</strong>
+                            <strong style="color: #27ae60; font-size: 0.85rem;">🛍️ ${m.adminNom || 'Mayah Store'}</strong>
                             <p style="margin: 4px 0 0 0; color: #333; word-break: break-word;">${m.reponse}</p>
                         </div>
                     `;
