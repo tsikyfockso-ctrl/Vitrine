@@ -35,7 +35,6 @@ function closePaymentHistoryModal() {
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwSIL6y8gb9ZMDtYzA12luUKW58rBGWfy8onELUbMgqPvHb-NE77KJ6jAeaPiBZ-Pfo/exec";
 
-// --- HISTORIQUE DES PAIEMENTS (GOOGLE SHEETS) ---
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
@@ -47,7 +46,6 @@ async function chargerHistoriquePaiements() {
         if (!response.ok) throw new Error("Erreur de chargement des paiements");
 
         const paiements = await response.json();
-
         if (!Array.isArray(paiements) || paiements.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
             return;
@@ -72,7 +70,6 @@ async function chargerHistoriquePaiements() {
                 </div>
             `;
         });
-
         container.innerHTML = html;
     } catch (e) {
         console.error("Erreur de chargement des paiements :", e);
@@ -80,7 +77,6 @@ async function chargerHistoriquePaiements() {
     }
 }
 
-// --- GESTION DES NOTIFICATIONS ET MESSAGES ADMIN ---
 async function updateNotificationBadge() {
     try {
         const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
@@ -146,7 +142,10 @@ async function checkAdminNotifications() {
             let contenuHtml = `
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
-                    <span style="font-size:0.8rem; color:#007bff; font-weight:bold;">${aRepondu ? "Modifier / Voir" : "Répondre ➔"}</span>
+                    <div>
+                        <span style="font-size:0.8rem; color:#007bff; font-weight:bold; margin-right: 10px;">${aRepondu ? "Modifier / Voir" : "Répondre ➔"}</span>
+                        <button onclick="event.stopPropagation(); deleteMessage(${note.rowIndex});" style="background: #e74c3c; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
+                    </div>
                 </div>
                 <div style="font-size: 0.75rem; color: #888; margin-left: 20px; margin-top:4px;">${note.date || ''}</div>
             `;
@@ -170,7 +169,6 @@ async function checkAdminNotifications() {
     }
 }
 
-// --- GESTION DE LA MODALE DE RÉPONSE ADMIN ---
 let currentMessageIndex = null;
 
 function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistante) {
@@ -201,7 +199,7 @@ async function envoyerReponseModale() {
     }
 
     try {
-        const response = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify({
                 action: "updateMessage",
@@ -220,20 +218,18 @@ async function envoyerReponseModale() {
     }
 }
 
-// --- SUPPRIMER UN MESSAGE (GOOGLE SHEETS) ---
-async function deleteMessage(index) {
-    if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
+async function deleteMessage(rowIndex) {
+    if (!confirm("Voulez-vous vraiment supprimer ce message ? Il sera effacé de l'admin, de la vitrine et de Google Sheets.")) return;
 
     try {
-        await fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify({
-                action: "deleteMessage",
-                index: index
-            })
-        });
+        const response = await fetch(`${SCRIPT_URL}?action=deleteMessage&rowIndex=${rowIndex}`);
+        const result = await response.json();
 
-        checkAdminNotifications();
+        if (result.status === "success") {
+            checkAdminNotifications();
+        } else {
+            alert("Erreur lors de la suppression : " + (result.message || "Inconnue"));
+        }
     } catch (e) {
         console.error("Erreur :", e);
         alert("Erreur réseau lors de la suppression.");
@@ -242,9 +238,7 @@ async function deleteMessage(index) {
 
 function getFichierActif() {
     const select = document.getElementById('adminCategorySelect');
-    if (select) {
-        return select.value; 
-    }
+    if (select) return select.value; 
     return "update_stock.json"; 
 }
 
@@ -278,7 +272,6 @@ async function loadStock(silent = false) {
         }
 
         renderStockTable();
-
     } catch (e) {
         console.error("Erreur lors du chargement des détails du stock :", e);
         if (!silent) {
