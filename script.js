@@ -654,14 +654,11 @@ async function sendComment() {
         const res = await fetch(CONFIG.MESSAGES_URL);
         if (res.ok) {
             const data = await res.json();
-            // Gère à la fois si npoint renvoie un tableau direct ou un objet contenant une clé 'messages'
-            if (Array.isArray(data)) {
-                messagesActuels = data;
-            } else if (data && Array.isArray(data.messages)) {
-                messagesActuels = data.messages;
-            }
+            // Récupère les messages qu'ils soient sous forme de tableau direct ou d'objet
+            messagesActuels = Array.isArray(data) ? data : (data.messages || []);
         }
         
+        // Ajout du nouveau message au format tableau
         messagesActuels.push({
             nom: name,
             message: message,
@@ -670,11 +667,10 @@ async function sendComment() {
             reponse: ""
         });
         
-        // On envoie un objet structuré propre que l'admin et la vitrine comprennent tous les deux
+        // Envoi du tableau brut (solution compatible avec le code Admin et npoint.io)
         const response = await fetch(CONFIG.MESSAGES_URL, {
             method: 'PUT',
-            //headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: messagesActuels })
+            body: JSON.stringify(messagesActuels)
         });
 
         if (response.ok) {
