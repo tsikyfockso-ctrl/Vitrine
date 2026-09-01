@@ -86,7 +86,7 @@ async function updateNotificationBadge() {
         const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
         const messages = await response.json();
         if (!Array.isArray(messages)) return;
-        
+
         const nonLus = messages.filter(m => (!m.reponse || m.reponse.trim() === "") && !localStorage.getItem(`lu_${m.id || m.date || m.message}`)).length;
         const btn = document.getElementById("inboxBtn");
         if (btn) {
@@ -171,12 +171,9 @@ async function checkAdminNotifications() {
 }
 
 // --- GESTION DE LA MODALE DE RÉPONSE ADMIN ---
-let currentMessageIndex = null;
-
 function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistante) {
-    currentMessageIndex = index;
-    
     let replyModal = document.getElementById('adminReplyModal');
+    
     if (!replyModal) {
         replyModal = document.createElement('div');
         replyModal.id = 'adminReplyModal';
@@ -194,51 +191,70 @@ function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistant
         `;
         document.body.appendChild(replyModal);
         
-        // Attachement propre des écouteurs d'événements à la création
-        document.getElementById('btnCancelModal').addEventListener('click', closeAdminReplyModal);
-        document.getElementById('btnSendReplyModal').addEventListener('click', envoyerReponseModaleAdmin);
+        document.getElementById('btnCancelModal').onclick = closeAdminReplyModal;
     }
 
+    // Sauvegarde de l'index directement dans l'élément HTML
+    replyModal.dataset.currentIndex = index;
+    
     document.getElementById('modalClientMessage').innerText = `${clientNom} : "${messageTexte}"`;
     document.getElementById('adminReplyText').value = reponseExistante || "";
+    
+    // Attachement explicite au bouton
+    const sendBtn = document.getElementById('btnSendReplyModal');
+    sendBtn.onclick = function() {
+        envoyerReponseModaleAdmin();
+    };
+
     replyModal.style.display = 'flex';
 }
 
 function closeAdminReplyModal() {
     const replyModal = document.getElementById('adminReplyModal');
     if (replyModal) replyModal.style.display = 'none';
-    currentMessageIndex = null;
 }
 
 async function envoyerReponseModaleAdmin() {
+    const replyModal = document.getElementById('adminReplyModal');
+    const index = replyModal ? replyModal.dataset.currentIndex : null;
     const texteReponse = document.getElementById('adminReplyText').value.trim();
+
     if (!texteReponse) {
         alert("Veuillez écrire une réponse.");
         return;
     }
-    if (currentMessageIndex === null) return;
+
+    if (index === null || index === undefined) {
+        alert("Erreur d'index de message.");
+        return;
+    }
+
+    const btn = document.getElementById('btnSendReplyModal');
+    btn.disabled = true;
+    btn.innerText = "Envoi...";
 
     try {
-        const response = await fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify({
-                action: "updateMessage",
-                index: currentMessageIndex,
-                reponse: texteReponse,
-                adminNom: "Mayah Store"
-            })
+        const payload = JSON.stringify({
+            action: "updateMessage",
+            index: parseInt(index, 10),
+            reponse: texteReponse,
+            adminNom: "Mayah Store"
         });
 
-        if (response.ok) {
-            alert("Réponse enregistrée avec succès !");
-            closeAdminReplyModal();
-            checkAdminNotifications();
-        } else {
-            alert("Erreur lors de l'enregistrement de la réponse.");
-        }
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: payload
+        });
+
+        alert("Réponse enregistrée avec succès !");
+        closeAdminReplyModal();
+        checkAdminNotifications();
     } catch (e) {
-        console.error("Erreur :", e);
-        alert("Erreur réseau lors de l'envoi de la réponse.");
+        console.error("Erreur lors de l'envoi :", e);
+        alert("Erreur réseau ou d'envoi. Veuillez réessayer.");
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "Envoyer";
     }
 }
 
@@ -255,11 +271,7 @@ async function deleteMessage(index) {
             })
         });
 
-        if (response.ok) {
-            checkAdminNotifications();
-        } else {
-            alert("Erreur lors de la suppression.");
-        }
+        checkAdminNotifications();
     } catch (e) {
         console.error("Erreur :", e);
         alert("Erreur réseau lors de la suppression.");
