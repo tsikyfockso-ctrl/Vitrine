@@ -87,7 +87,6 @@ async function updateNotificationBadge() {
         const messages = await response.json();
         if (!Array.isArray(messages)) return;
 
-        // Compte les messages non lus qui n'ont pas encore été marqués localement comme lus
         const nonLus = messages.filter(m => (!m.reponse || m.reponse.trim() === "") && !localStorage.getItem(`lu_${m.id || m.date || m.message}`)).length;
         const btn = document.getElementById("inboxBtn");
         if (btn) {
@@ -134,7 +133,6 @@ async function checkAdminNotifications() {
             div.style.background = aRepondu ? "#fdfdfd" : "#fffdf4";
             div.style.borderRadius = "4px";
             
-            // Clic sur le message : retire instantanément le point orange, met à jour le localStorage et rafraîchit le compteur
             div.onclick = () => {
                 if (!aRepondu && !estLuLocalement) {
                     localStorage.setItem(`lu_${messageId}`, "true");
@@ -191,58 +189,36 @@ function closeAdminReplyModal() {
     currentMessageIndex = null;
 }
 
-// Initialisation des écouteurs de la modale au chargement pour éviter tout blocage du bouton
-document.addEventListener('DOMContentLoaded', () => {
-    updateNotificationBadge();
-    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock(false);
+async function envoyerReponseModale() {
+    const texteReponse = document.getElementById('adminReplyText').value.trim();
+    if (!texteReponse) {
+        alert("Veuillez écrire une réponse.");
+        return;
+    }
+    if (currentMessageIndex === null || currentMessageIndex === undefined) {
+        alert("Erreur d'index de message.");
+        return;
     }
 
-    const cancelBtn = document.getElementById('btnCancelModal');
-    if (cancelBtn) {
-        cancelBtn.addEventListener('click', closeAdminReplyModal);
-    }
-
-    const sendBtn = document.getElementById('btnSendReplyModal');
-    if (sendBtn) {
-        sendBtn.addEventListener('click', async () => {
-            const texteReponse = document.getElementById('adminReplyText').value.trim();
-            if (!texteReponse) {
-                alert("Veuillez écrire une réponse.");
-                return;
-            }
-            if (currentMessageIndex === null) {
-                alert("Erreur d'index de message.");
-                return;
-            }
-
-            sendBtn.disabled = true;
-            sendBtn.innerText = "Envoi...";
-
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: "updateMessage",
-                        index: parseInt(currentMessageIndex, 10),
-                        reponse: texteReponse,
-                        adminNom: "Mayah Store"
-                    })
-                });
-
-                alert("Réponse enregistrée avec succès !");
-                closeAdminReplyModal();
-                checkAdminNotifications();
-            } catch (e) {
-                console.error("Erreur lors de l'envoi :", e);
-                alert("Erreur réseau ou d'envoi. Veuillez réessayer.");
-            } finally {
-                sendBtn.disabled = false;
-                sendBtn.innerText = "Envoyer";
-            }
+    try {
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+                action: "updateMessage",
+                index: parseInt(currentMessageIndex, 10),
+                reponse: texteReponse,
+                adminNom: "Mayah Store"
+            })
         });
+
+        alert("Réponse enregistrée avec succès !");
+        closeAdminReplyModal();
+        checkAdminNotifications();
+    } catch (e) {
+        console.error("Erreur lors de l'envoi :", e);
+        alert("Erreur réseau ou d'envoi. Veuillez réessayer.");
     }
-});
+}
 
 // --- SUPPRIMER UN MESSAGE (GOOGLE SHEETS) ---
 async function deleteMessage(index) {
@@ -440,3 +416,10 @@ setInterval(() => {
         updateNotificationBadge();
     }
 }, 4000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateNotificationBadge();
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock(false);
+    }
+});
