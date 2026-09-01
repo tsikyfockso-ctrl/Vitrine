@@ -122,35 +122,32 @@ async function checkAdminNotifications() {
             const clientNom = note.nom ? note.nom : "Client Anonyme";
             
             const div = document.createElement("div");
-            div.style.padding = "10px";
+            div.style.padding = "12px";
             div.style.borderBottom = "1px solid #eee";
             div.style.marginBottom = "8px";
-            div.style.display = "flex";
-            div.style.alignItems = "flex-start";
-            div.style.justifyContent = "space-between";
+            div.style.cursor = "pointer";
+            div.style.background = aRepondu ? "#fdfdfd" : "#fffdf4";
+            div.style.borderRadius = "4px";
+            
+            // Clic sur l'élément de la boîte de réception pour ouvrir la modale de réponse
+            div.onclick = () => ouvrirModalReponseAdmin(index, clientNom, note.message, note.reponse);
             
             let contenuHtml = `
-                <div style="flex-grow: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
-                    <div style="font-size: 0.75rem; color: #888; margin-left: 20px;">${note.date || ''}</div>
+                    <span style="font-size:0.8rem; color:#007bff; font-weight:bold;">${aRepondu ? "Modifier / Voir" : "Répondre ➔"}</span>
+                </div>
+                <div style="font-size: 0.75rem; color: #888; margin-left: 20px; margin-top:4px;">${note.date || ''}</div>
             `;
             
             if (aRepondu) {
                 contenuHtml += `
-                    <div style="margin-top: 5px; margin-left: 20px; font-size: 0.9rem; color: #27ae60; background: #e8f8f5; padding: 6px; border-radius: 4px;">
+                    <div style="margin-top: 6px; margin-left: 20px; font-size: 0.85rem; color: #27ae60; background: #e8f8f5; padding: 6px; border-radius: 4px;">
                         <strong>Votre réponse :</strong> ${note.reponse}
-                    </div>
-                `;
-            } else {
-                contenuHtml += `
-                    <div style="margin-top: 8px; margin-left: 20px;">
-                        <input type="text" id="admin-reply-${index}" placeholder="Écrire une réponse..." style="width: 70%; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
-                        <button onclick="envoyerReponseAdmin(${index})" style="background: #27ae60; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 5px;">Répondre</button>
                     </div>
                 `;
             }
             
-            contenuHtml += `</div>`;
             div.innerHTML = contenuHtml;
             inbox.appendChild(div);
         });
@@ -162,30 +159,64 @@ async function checkAdminNotifications() {
     }
 }
 
-// --- ENVOYER LA RÉPONSE DE L'ADMIN (GOOGLE SHEETS) ---
-async function envoyerReponseAdmin(index) {
-    const inputReponse = document.getElementById(`admin-reply-${index}`);
-    if (!inputReponse) return;
-    const texteReponse = inputReponse.value.trim();
+// --- GESTION DE LA MODALE DE RÉPONSE ADMIN ---
+let currentMessageIndex = null;
 
+function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistante) {
+    currentMessageIndex = index;
+    
+    let replyModal = document.getElementById('adminReplyModal');
+    if (!replyModal) {
+        replyModal = document.createElement('div');
+        replyModal.id = 'adminReplyModal';
+        replyModal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;";
+        replyModal.innerHTML = `
+            <div style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%;">
+                <h3 style="margin-top:0; color:#2c3e50;">Répondre au client</h3>
+                <p id="modalClientMessage" style="background:#f1f1f1; padding:10px; border-radius:4px; font-size:0.9rem; color:#333;"></p>
+                <textarea id="adminReplyText" placeholder="Écrivez votre réponse ici..." style="width:100%; height:100px; margin-top:10px; padding:8px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;"></textarea>
+                <div style="margin-top:15px; text-align:right;">
+                    <button onclick="closeAdminReplyModal()" style="padding:6px 12px; margin-right:8px; cursor:pointer; background:#ccc; border:none; border-radius:4px;">Annuler</button>
+                    <button onclick="envoyerReponseModaleAdmin()" style="background:#27ae60; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Envoyer</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(replyModal);
+    }
+
+    document.getElementById('modalClientMessage').innerText = `${clientNom} : "${messageTexte}"`;
+    document.getElementById('adminReplyText').value = reponseExistante || "";
+    replyModal.style.display = 'flex';
+}
+
+function closeAdminReplyModal() {
+    const replyModal = document.getElementById('adminReplyModal');
+    if (replyModal) replyModal.style.display = 'none';
+    currentMessageIndex = null;
+}
+
+async function envoyerReponseModaleAdmin() {
+    const texteReponse = document.getElementById('adminReplyText').value.trim();
     if (!texteReponse) {
         alert("Veuillez écrire une réponse.");
         return;
     }
+    if (currentMessageIndex === null) return;
 
     try {
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify({
                 action: "updateMessage",
-                index: index,
+                index: currentMessageIndex,
                 reponse: texteReponse,
                 adminNom: "Mayah Store"
             })
         });
 
         if (response.ok) {
-            alert("Réponse envoyée avec succès !");
+            alert("Réponse enregistrée avec succès !");
+            closeAdminReplyModal();
             checkAdminNotifications();
         } else {
             alert("Erreur lors de l'enregistrement de la réponse.");
