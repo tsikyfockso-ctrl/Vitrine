@@ -87,7 +87,6 @@ async function updateNotificationBadge() {
         const messages = await response.json();
         if (!Array.isArray(messages)) return;
         
-        // On compte les messages non lus qui n'ont pas encore été marqués comme lus localement
         const nonLus = messages.filter(m => (!m.reponse || m.reponse.trim() === "") && !localStorage.getItem(`lu_${m.id || m.date || m.message}`)).length;
         const btn = document.getElementById("inboxBtn");
         if (btn) {
@@ -122,7 +121,6 @@ async function checkAdminNotifications() {
             const messageId = note.id || note.date || note.message;
             const estLuLocalement = localStorage.getItem(`lu_${messageId}`) === "true";
             
-            // Le point orange s'affiche si non répondu ET non encore cliqué/lu
             const afficherPoint = !aRepondu && !estLuLocalement;
             const point = afficherPoint ? '<span class="point-orange" style="color:orange; margin-right:10px;">●</span>' : '';
             const clientNom = note.nom ? note.nom : "Client Anonyme";
@@ -135,7 +133,6 @@ async function checkAdminNotifications() {
             div.style.background = aRepondu ? "#fdfdfd" : "#fffdf4";
             div.style.borderRadius = "4px";
             
-            // Clic sur le message : enlève le point orange, enregistre comme lu et ouvre la modale
             div.onclick = () => {
                 if (!aRepondu) {
                     localStorage.setItem(`lu_${messageId}`, "true");
@@ -190,25 +187,21 @@ function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistant
                 <p id="modalClientMessage" style="background:#f1f1f1; padding:10px; border-radius:4px; font-size:0.9rem; color:#333;"></p>
                 <textarea id="adminReplyText" placeholder="Écrivez votre réponse ici..." style="width:100%; height:100px; margin-top:10px; padding:8px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;"></textarea>
                 <div style="margin-top:15px; text-align:right;">
-                    <button type="button" onclick="closeAdminReplyModal()" style="padding:6px 12px; margin-right:8px; cursor:pointer; background:#ccc; border:none; border-radius:4px;">Annuler</button>
+                    <button type="button" id="btnCancelModal" style="padding:6px 12px; margin-right:8px; cursor:pointer; background:#ccc; border:none; border-radius:4px;">Annuler</button>
                     <button type="button" id="btnSendReplyModal" style="background:#27ae60; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Envoyer</button>
                 </div>
             </div>
         `;
         document.body.appendChild(replyModal);
-    } else {
-        replyModal.style.display = 'flex';
+        
+        // Attachement propre des écouteurs d'événements à la création
+        document.getElementById('btnCancelModal').addEventListener('click', closeAdminReplyModal);
+        document.getElementById('btnSendReplyModal').addEventListener('click', envoyerReponseModaleAdmin);
     }
 
     document.getElementById('modalClientMessage').innerText = `${clientNom} : "${messageTexte}"`;
     document.getElementById('adminReplyText').value = reponseExistante || "";
     replyModal.style.display = 'flex';
-
-    // Assure l'attachement de l'événement sur le bouton d'envoi pour éviter tout blocage d'action
-    const sendBtn = document.getElementById('btnSendReplyModal');
-    if (sendBtn) {
-        sendBtn.onclick = envoyerReponseModaleAdmin;
-    }
 }
 
 function closeAdminReplyModal() {
