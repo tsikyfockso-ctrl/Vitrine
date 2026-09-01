@@ -78,6 +78,18 @@
     <!-- C'est ici que le tableau Excel va s'injecter automatiquement -->
     <div id="stock-list"></div>
 </div>
+       <!-- NOUVELLE : Fenêtre modale pour répondre aux messages -->
+        <div id="adminReplyModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+            <div class="modal-content" style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%;">
+                <h3 style="margin-top:0; color:#2c3e50;">Répondre au client</h3>
+                <p id="modalClientMessage" style="background:#f1f1f1; padding:10px; border-radius:4px; font-size:0.9rem; color:#333;"></p>
+                <textarea id="adminReplyText" placeholder="Écrivez votre réponse ici..." style="width:100%; height:100px; margin-top:10px; padding:8px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;"></textarea>
+                <div style="margin-top:15px; text-align:right;">
+                    <button onclick="closeAdminReplyModal()" style="padding:6px 12px; margin-right:8px; cursor:pointer; background:#ccc; border:none; border-radius:4px;">Annuler</button>
+                    <button onclick="envoyerReponseModale()" style="background:#27ae60; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Envoyer la réponse</button>
+                </div>
+            </div>
+        </div> 
     </main>
 
     <!-- 1. Votre script logique -->
