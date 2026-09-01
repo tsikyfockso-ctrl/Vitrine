@@ -680,5 +680,5 @@ async function afficherMessagesClient() {
     }
 }
 
-setInterval(afficherMessagesClient, 4000);
+setInterval(afficherMessagesClient, 2000);
 document.addEventListener('DOMContentLoaded', afficherMessagesClient);
