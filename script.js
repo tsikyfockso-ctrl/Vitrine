@@ -673,7 +673,7 @@ async function sendComment() {
         // On envoie un objet structuré propre que l'admin et la vitrine comprennent tous les deux
         const response = await fetch(CONFIG.MESSAGES_URL, {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            //headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages: messagesActuels })
         });
 
