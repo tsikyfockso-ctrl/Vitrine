@@ -87,6 +87,7 @@ async function updateNotificationBadge() {
         const messages = await response.json();
         if (!Array.isArray(messages)) return;
 
+        // Compte les messages non lus qui n'ont pas encore été marqués localement comme lus
         const nonLus = messages.filter(m => (!m.reponse || m.reponse.trim() === "") && !localStorage.getItem(`lu_${m.id || m.date || m.message}`)).length;
         const btn = document.getElementById("inboxBtn");
         if (btn) {
@@ -133,8 +134,9 @@ async function checkAdminNotifications() {
             div.style.background = aRepondu ? "#fdfdfd" : "#fffdf4";
             div.style.borderRadius = "4px";
             
+            // Clic sur le message : retire instantanément le point orange, met à jour le localStorage et rafraîchit le compteur
             div.onclick = () => {
-                if (!aRepondu) {
+                if (!aRepondu && !estLuLocalement) {
                     localStorage.setItem(`lu_${messageId}`, "true");
                     const pointEl = div.querySelector('.point-orange');
                     if (pointEl) pointEl.remove();
@@ -171,86 +173,76 @@ async function checkAdminNotifications() {
 }
 
 // --- GESTION DE LA MODALE DE RÉPONSE ADMIN ---
-function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistante) {
-    let replyModal = document.getElementById('adminReplyModal');
-    
-    if (!replyModal) {
-        replyModal = document.createElement('div');
-        replyModal.id = 'adminReplyModal';
-        replyModal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:3000;";
-        replyModal.innerHTML = `
-            <div style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%;">
-                <h3 style="margin-top:0; color:#2c3e50;">Répondre au client</h3>
-                <p id="modalClientMessage" style="background:#f1f1f1; padding:10px; border-radius:4px; font-size:0.9rem; color:#333;"></p>
-                <textarea id="adminReplyText" placeholder="Écrivez votre réponse ici..." style="width:100%; height:100px; margin-top:10px; padding:8px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;"></textarea>
-                <div style="margin-top:15px; text-align:right;">
-                    <button type="button" id="btnCancelModal" style="padding:6px 12px; margin-right:8px; cursor:pointer; background:#ccc; border:none; border-radius:4px;">Annuler</button>
-                    <button type="button" id="btnSendReplyModal" style="background:#27ae60; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Envoyer</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(replyModal);
-        
-        document.getElementById('btnCancelModal').onclick = closeAdminReplyModal;
-        document.getElementById('btnSendReplyModal').onclick = envoyerReponseModaleAdmin;
-    }
+let currentMessageIndex = null;
 
-    replyModal.dataset.currentIndex = index;
+function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistante) {
+    currentMessageIndex = index;
+    const replyModal = document.getElementById('adminReplyModal');
+    if (!replyModal) return;
+
     document.getElementById('modalClientMessage').innerText = `${clientNom} : "${messageTexte}"`;
     document.getElementById('adminReplyText').value = reponseExistante || "";
-    
-    // Affichage explicite en mode flex par-dessus tout
     replyModal.style.display = 'flex';
 }
 
 function closeAdminReplyModal() {
     const replyModal = document.getElementById('adminReplyModal');
     if (replyModal) replyModal.style.display = 'none';
+    currentMessageIndex = null;
 }
 
-async function envoyerReponseModaleAdmin() {
-    const replyModal = document.getElementById('adminReplyModal');
-    const index = replyModal ? replyModal.dataset.currentIndex : null;
-    const texteReponse = document.getElementById('adminReplyText').value.trim();
-
-    if (!texteReponse) {
-        alert("Veuillez écrire une réponse.");
-        return;
+// Initialisation des écouteurs de la modale au chargement pour éviter tout blocage du bouton
+document.addEventListener('DOMContentLoaded', () => {
+    updateNotificationBadge();
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock(false);
     }
 
-    if (index === null || index === undefined) {
-        alert("Erreur d'index de message.");
-        return;
+    const cancelBtn = document.getElementById('btnCancelModal');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeAdminReplyModal);
     }
 
-    const btn = document.getElementById('btnSendReplyModal');
-    btn.disabled = true;
-    btn.innerText = "Envoi...";
+    const sendBtn = document.getElementById('btnSendReplyModal');
+    if (sendBtn) {
+        sendBtn.addEventListener('click', async () => {
+            const texteReponse = document.getElementById('adminReplyText').value.trim();
+            if (!texteReponse) {
+                alert("Veuillez écrire une réponse.");
+                return;
+            }
+            if (currentMessageIndex === null) {
+                alert("Erreur d'index de message.");
+                return;
+            }
 
-    try {
-        const payload = JSON.stringify({
-            action: "updateMessage",
-            index: parseInt(index, 10),
-            reponse: texteReponse,
-            adminNom: "Mayah Store"
+            sendBtn.disabled = true;
+            sendBtn.innerText = "Envoi...";
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: "updateMessage",
+                        index: parseInt(currentMessageIndex, 10),
+                        reponse: texteReponse,
+                        adminNom: "Mayah Store"
+                    })
+                });
+
+                alert("Réponse enregistrée avec succès !");
+                closeAdminReplyModal();
+                checkAdminNotifications();
+            } catch (e) {
+                console.error("Erreur lors de l'envoi :", e);
+                alert("Erreur réseau ou d'envoi. Veuillez réessayer.");
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.innerText = "Envoyer";
+            }
         });
-
-        await fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: payload
-        });
-
-        alert("Réponse enregistrée avec succès !");
-        closeAdminReplyModal();
-        checkAdminNotifications();
-    } catch (e) {
-        console.error("Erreur lors de l'envoi :", e);
-        alert("Erreur réseau ou d'envoi. Veuillez réessayer.");
-    } finally {
-        btn.disabled = false;
-        btn.innerText = "Envoyer";
     }
-}
+});
 
 // --- SUPPRIMER UN MESSAGE (GOOGLE SHEETS) ---
 async function deleteMessage(index) {
@@ -448,10 +440,3 @@ setInterval(() => {
         updateNotificationBadge();
     }
 }, 4000);
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateNotificationBadge();
-    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock(false);
-    }
-});
