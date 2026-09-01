@@ -666,10 +666,13 @@ async function sendComment() {
         });
         
         // Envoi sous forme de tableau brut pour contourner le blocage de npoint.io
-        const response = await fetch(CONFIG.MESSAGES_URL, {
+        const targetUrl = CONFIG.MESSAGES_URL;
+        const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
+
+        const response = await fetch(proxyUrl, {
             method: 'PUT',
             body: JSON.stringify(messagesActuels)
-        });
+         });
 
         if (response.ok) {
             msgInput.value = '';
