@@ -1,11 +1,6 @@
 // ==========================================
 // CONFIGURATION NPOINT.IO ADMIN
 // ==========================================
-const CONFIG = {
-    MESSAGES_URL: "https://api.npoint.io/7bb351d44d168f9e4bea",
-    PAIEMENTS_URL: "https://api.npoint.io/232b99bcbfdc6b24b18e"
-};
-
 document.getElementById('logoutBtn').addEventListener('click', function() {
     localStorage.removeItem("isAdmin");
     window.location.href = "login.html";
@@ -38,7 +33,9 @@ function closePaymentHistoryModal() {
     if (paymentModal) paymentModal.style.display = 'none';
 }
 
-// --- HISTORIQUE DES PAIEMENTS (NPOINT.IO) ---
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwSIL6y8gb9ZMDtYzA12luUKW58rBGWfy8onELUbMgqPvHb-NE77KJ6jAeaPiBZ-Pfo/exec";
+
+// --- HISTORIQUE DES PAIEMENTS (GOOGLE SHEETS) ---
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
@@ -46,13 +43,12 @@ async function chargerHistoriquePaiements() {
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(CONFIG.PAIEMENTS_URL + "?v=" + new Date().getTime());
-        if (!response.ok) throw new Error("Erreur de chargement du bin des paiements");
+        const response = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        if (!response.ok) throw new Error("Erreur de chargement des paiements");
 
-        const data = await response.json();
-        let paiements = Array.isArray(data) ? data : (data.paiements || []);
+        const paiements = await response.json();
 
-        if (paiements.length === 0) {
+        if (!Array.isArray(paiements) || paiements.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
             return;
         }
@@ -63,14 +59,14 @@ async function chargerHistoriquePaiements() {
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem; display: flex; justify-content: space-between; align-items: flex-start;">
                     <div style="flex-grow: 1;">
                         <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
-                            💰 Paiement Reçu - ${p.date || 'Date N/A'}
+                            💰 Paiement Reçu
                         </div>
                         <p style="margin: 2px 0; color: #2c3e50;"><strong>👤 Client :</strong> ${p.nom || 'Nom non renseigné'}</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📍 Adresse :</strong> ${p.adresse || 'N/A'}, ${p.province || ''} (${p.pays || p.destination || 'N/A'})</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📞 Tél :</strong> ${p.telephone || 'N/A'} | <strong>✉️ Email :</strong> ${p.email || 'N/A'}</p>
                         <p style="margin: 4px 0; color: #333;"><strong>Produit :</strong> ${p.produit || 'N/A'}</p>
                         <p style="margin: 4px 0; color: #333;"><strong>Variante :</strong> ${p.variante || 'N/A'} (SKU : ${p.sku || 'N/A'})</p>
-                        <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite || '1'} | <strong>Destination :</strong> ${p.destination || 'N/A'} (Frais : ${p.fraisPort || '0 $'})</p>
+                        <p style="margin: 4px 0; color: #333;"><strong>Quantité :</strong> ${p.quantite || '1'} | <strong>Destination :</strong> ${p.destination || 'N/A'}</p>
                         <p style="margin: 6px 0 0 0; color: #2c3e50; font-weight: bold; font-size: 1rem;">Total réglé : ${p.total || '0 $'}</p>
                     </div>
                 </div>
@@ -84,20 +80,21 @@ async function chargerHistoriquePaiements() {
     }
 }
 
+// --- GESTION DES NOTIFICATIONS ET MESSAGES ADMIN ---
 async function updateNotificationBadge() {
     try {
-        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
-        const data = await response.json();
-        let messages = Array.isArray(data) ? data : (data.messages || []);
+        const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
+        const messages = await response.json();
+        if (!Array.isArray(messages)) return;
         
-        const nonLus = messages.filter(m => m.lu === false || !m.reponse).length;
+        const nonLus = messages.filter(m => !m.reponse || m.reponse.trim() === "").length;
         const btn = document.getElementById("inboxBtn");
         if (btn) {
             btn.innerHTML = nonLus > 0 ? `Boîte de réception (${nonLus})` : "Boîte de réception";
             btn.style.borderColor = nonLus > 0 ? "orange" : "transparent";
         }
     } catch (e) {
-        console.error("Erreur de mise à jour du badge npoint :", e);
+        console.error("Erreur de mise à jour du badge :", e);
     }
 }
 
@@ -108,9 +105,9 @@ async function checkAdminNotifications() {
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
     try {
-        const response = await fetch(CONFIG.MESSAGES_URL + "?v=" + new Date().getTime());
-        const data = await response.json();
-        let messages = Array.isArray(data) ? data : (data.messages || []);
+        const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
+        const messages = await response.json();
+        if (!Array.isArray(messages)) throw new Error("Format invalide");
         
         inbox.innerHTML = "";
         
@@ -121,7 +118,7 @@ async function checkAdminNotifications() {
         
         messages.forEach((note, index) => {
             const aRepondu = note.reponse && note.reponse.trim() !== "";
-            const point = (note.lu === false || !aRepondu) ? '<span style="color:orange; margin-right:10px;">●</span>' : '';
+            const point = (!aRepondu) ? '<span style="color:orange; margin-right:10px;">●</span>' : '';
             const clientNom = note.nom ? note.nom : "Client Anonyme";
             
             const div = document.createElement("div");
@@ -135,6 +132,7 @@ async function checkAdminNotifications() {
             let contenuHtml = `
                 <div style="flex-grow: 1;">
                     <div>${point}<strong>👤 ${clientNom} :</strong> ${note.message}</div>
+                    <div style="font-size: 0.75rem; color: #888; margin-left: 20px;">${note.date || ''}</div>
             `;
             
             if (aRepondu) {
@@ -153,23 +151,18 @@ async function checkAdminNotifications() {
             }
             
             contenuHtml += `</div>`;
-            
-            const boutonEffacer = `
-                <button class="delete-btn" onclick="deleteMessage(${index})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-left: 10px;">Effacer</button>
-            `;
-            
-            div.innerHTML = contenuHtml + boutonEffacer;
+            div.innerHTML = contenuHtml;
             inbox.appendChild(div);
         });
         
         updateNotificationBadge();
     } catch (e) {
-        console.error("Erreur de chargement des messages npoint :", e);
+        console.error("Erreur de chargement des messages :", e);
         inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur de chargement des messages.</p>";
     }
 }
 
-// --- ENVOYER LA RÉPONSE DE L'ADMIN SUR NPOINT.IO ---
+// --- ENVOYER LA RÉPONSE DE L'ADMIN (GOOGLE SHEETS) ---
 async function envoyerReponseAdmin(index) {
     const inputReponse = document.getElementById(`admin-reply-${index}`);
     if (!inputReponse) return;
@@ -181,25 +174,17 @@ async function envoyerReponseAdmin(index) {
     }
 
     try {
-        const res = await fetch(CONFIG.MESSAGES_URL);
-        if (!res.ok) throw new Error("Erreur de récupération des messages");
-        let data = await res.json();
-        let messages = Array.isArray(data) ? data : (data.messages || []);
-
-        if (messages[index]) {
-            messages[index].reponse = texteReponse;
-            messages[index].lu = true;
-        }
-
-        const updateRes = await fetch(CONFIG.MESSAGES_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(messages)
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+                action: "updateMessage",
+                index: index,
+                reponse: texteReponse,
+                adminNom: "Mayah Store"
+            })
         });
 
-        if (updateRes.ok) {
+        if (response.ok) {
             alert("Réponse envoyée avec succès !");
             checkAdminNotifications();
         } else {
@@ -211,27 +196,20 @@ async function envoyerReponseAdmin(index) {
     }
 }
 
-// --- SUPPRIMER UN MESSAGE SUR NPOINT.IO ---
+// --- SUPPRIMER UN MESSAGE (GOOGLE SHEETS) ---
 async function deleteMessage(index) {
     if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
 
     try {
-        const res = await fetch(CONFIG.MESSAGES_URL);
-        if (!res.ok) throw new Error("Erreur de récupération des messages");
-        let data = await res.json();
-        let messages = Array.isArray(data) ? data : (data.messages || []);
-
-        messages.splice(index, 1);
-
-        const updateRes = await fetch(CONFIG.MESSAGES_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(messages)
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+                action: "deleteMessage",
+                index: index
+            })
         });
 
-        if (updateRes.ok) {
+        if (response.ok) {
             checkAdminNotifications();
         } else {
             alert("Erreur lors de la suppression.");
