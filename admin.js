@@ -177,7 +177,7 @@ function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistant
     if (!replyModal) {
         replyModal = document.createElement('div');
         replyModal.id = 'adminReplyModal';
-        replyModal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;";
+        replyModal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:3000;";
         replyModal.innerHTML = `
             <div style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%;">
                 <h3 style="margin-top:0; color:#2c3e50;">Répondre au client</h3>
@@ -192,20 +192,14 @@ function ouvrirModalReponseAdmin(index, clientNom, messageTexte, reponseExistant
         document.body.appendChild(replyModal);
         
         document.getElementById('btnCancelModal').onclick = closeAdminReplyModal;
+        document.getElementById('btnSendReplyModal').onclick = envoyerReponseModaleAdmin;
     }
 
-    // Sauvegarde de l'index directement dans l'élément HTML
     replyModal.dataset.currentIndex = index;
-    
     document.getElementById('modalClientMessage').innerText = `${clientNom} : "${messageTexte}"`;
     document.getElementById('adminReplyText').value = reponseExistante || "";
     
-    // Attachement explicite au bouton
-    const sendBtn = document.getElementById('btnSendReplyModal');
-    sendBtn.onclick = function() {
-        envoyerReponseModaleAdmin();
-    };
-
+    // Affichage explicite en mode flex par-dessus tout
     replyModal.style.display = 'flex';
 }
 
@@ -241,7 +235,7 @@ async function envoyerReponseModaleAdmin() {
             adminNom: "Mayah Store"
         });
 
-        const response = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
             method: 'POST',
             body: payload
         });
@@ -263,7 +257,7 @@ async function deleteMessage(index) {
     if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
 
     try {
-        const response = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify({
                 action: "deleteMessage",
