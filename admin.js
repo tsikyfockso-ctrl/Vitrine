@@ -408,7 +408,7 @@ setInterval(() => {
     if (typeof updateNotificationBadge === 'function') {
         updateNotificationBadge();
     }
-}, 4000);
+}, 2000);
 
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
