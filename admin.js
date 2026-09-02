@@ -73,6 +73,7 @@ async function chargerHistoriquePaiements() {
                     <div style="flex-grow: 1;">
                         <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
                             💰 Paiement Reçu</div>
+                        <button onclick="deletePayment(${p.rowIndex})" style="background: #e74c3c; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
                         <p style="margin: 2px 0; color: #2c3e50;"><strong>👤 Client :</strong> ${p.nom || 'Nom non renseigné'}</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📍 Adresse :</strong> ${p.adresse || 'N/A'}, ${p.province || ''} (${p.pays || p.destination || 'N/A'})</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📞 Tél :</strong> ${p.telephone || 'N/A'} | <strong>✉️ Email :</strong> ${p.email || 'N/A'}</p>
@@ -88,6 +89,25 @@ async function chargerHistoriquePaiements() {
     } catch (e) {
         console.error("Erreur de chargement des paiements :", e);
         container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur lors du chargement de l'historique.</p>`;
+    }
+}
+
+// Fonction pour supprimer un paiement
+async function deletePayment(rowIndex) {
+    if (!confirm("Voulez-vous vraiment supprimer cet historique de paiement ?")) return;
+
+    try {
+        const response = await fetch(`${SCRIPT_URL}?action=deletePayment&rowIndex=${rowIndex}`);
+        const result = await response.json();
+
+        if (result.status === "success") {
+            chargerHistoriquePaiements(); // Recharge l'historique mis à jour
+        } else {
+            alert("Erreur lors de la suppression : " + (result.message || "Inconnue"));
+        }
+    } catch (e) {
+        console.error("Erreur :", e);
+        alert("Erreur réseau lors de la suppression du paiement.");
     }
 }
 
