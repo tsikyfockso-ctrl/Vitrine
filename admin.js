@@ -68,7 +68,7 @@ async function chargerHistoriquePaiements() {
 
         let html = '';
         paiements.slice().reverse().forEach((p) => {
-            const datePaiement = formaterDate(p.date);
+            let datePaiement = formaterDate(p.date);
             
             html += `
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem; display: flex; justify-content: space-between; align-items: flex-start;">
