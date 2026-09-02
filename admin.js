@@ -162,7 +162,7 @@ async function checkAdminNotifications() {
                         <button onclick="event.stopPropagation(); deleteMessage(${note.rowIndex});" style="background: #e74c3c; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
                     </div>
                 </div>
-                <div style="font-size: 0.75rem; color: #888; margin-left: 20px; margin-top:4px;">${note.date || ''}</div>
+                <div style="font-size: 0.75rem; color: #888; margin-left: 20px; margin-top:4px;">${formaterDate(note.date)}</div>
             `;
             
             if (aRepondu) {
