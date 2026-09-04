@@ -465,7 +465,7 @@ setInterval(() => {
     if (typeof updateNotificationBadge === 'function') {
         updateNotificationBadge();
     }
-}, 5000); // Augmenté à 5 secondes pour moins de conflits
+}, 1200000); // Augmenté à 5 secondes pour moins de conflits
 
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
