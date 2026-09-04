@@ -453,13 +453,19 @@ function filterStock() {
 }
 
 setInterval(() => {
-    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+    // On met à jour uniquement si l'utilisateur ne tape pas dans la recherche
+    const searchInput = document.getElementById("stockSearchInput");
+    const isSearching = searchInput && document.activeElement === searchInput;
+
+    if (typeof loadStock === 'function' && document.getElementById("stock-list") && !isSearching) {
+        // Passe un paramètre silencieux pour rafraîchir les données sans écraser brutalement le scroll si possible, 
+        // ou désactivez le rechargement automatique du stock toutes les 2 secondes si ce n'est pas indispensable.
         loadStock(true);
     }
     if (typeof updateNotificationBadge === 'function') {
         updateNotificationBadge();
     }
-}, 2000);
+}, 5000); // Augmenté à 5 secondes pour moins de conflits
 
 document.addEventListener('DOMContentLoaded', () => {
     updateNotificationBadge();
