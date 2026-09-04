@@ -73,9 +73,11 @@ async function chargerHistoriquePaiements() {
             html += `
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem; display: flex; justify-content: space-between; align-items: flex-start;">
                     <div style="flex-grow: 1;">
-                        <div style="font-weight: bold; color: #27ae60; font-size: 0.95rem; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
-                            💰 Paiement Reçu</div>
-                        <button onclick="deletePayment(${p.rowIndex})" style="background: #e74c3c; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d0e9e1; padding-bottom: 4px; margin-bottom: 6px;">
+                            <span style="font-weight: bold; color: #27ae60; font-size: 0.95rem;">💰 Paiement Reçu</span>
+                            <span style="font-size: 0.75rem; color: #666;">${datePaiement}</span>
+                        </div>
+                        <button onclick="deletePayment(${p.rowIndex})" style="background: #e74c3c; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem; margin-bottom: 6px;">Supprimer</button>
                         <p style="margin: 2px 0; color: #2c3e50;"><strong>👤 Client :</strong> ${p.nom || 'Nom non renseigné'}</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📍 Adresse :</strong> ${p.adresse || 'N/A'}, ${p.province || ''} (${p.pays || p.destination || 'N/A'})</p>
                         <p style="margin: 2px 0; color: #555;"><strong>📞 Tél :</strong> ${p.telephone || 'N/A'} | <strong>✉️ Email :</strong> ${p.email || 'N/A'}</p>
