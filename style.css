@@ -192,9 +192,10 @@ button {
 .slide img {
     width: 100%;       
     height: 100%;      
-    object-fit: cover; 
-    object-position: bottom; 
+    object-fit: contain; /* Remplace 'cover' par 'contain' pour éviter d'étirer ou de couper l'image */
+    object-position: center; 
     display: block;
+    background-color: #000; /* Optionnel : ajoute un fond noir ou discret sur les côtés si l'image ne remplit pas tout l'espace */
 }
 
 * {
