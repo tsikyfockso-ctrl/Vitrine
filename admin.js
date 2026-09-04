@@ -475,3 +475,71 @@ document.addEventListener('DOMContentLoaded', () => {
         loadStock(false);
     }
 });
+//STATISTIQUE DE VENTE
+let mySalesChart = null;
+
+async function afficherStatistiquesVentesEtStocks() {
+    try {
+        // 1. Récupérer l'historique des paiements (pour les quantités vendues)
+        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        const paiements = await resPayments.json();
+
+        // 2. Récupérer l'état du stock des produits (selon votre fonction de chargement du tableau de stock)
+        // Supposons que vous stockiez vos produits dans un tableau ou récupériez les lignes du tableau Excel admin
+        const resProducts = await fetch(SCRIPT_URL + "?action=getProducts&v=" + new Date().getTime()); // Adaptez l'action selon votre backend
+        const produits = await resProducts.json();
+
+        // Calculer total des quantités vendues
+        let totalVendu = 0;
+        if (Array.isArray(paiements)) {
+            paiements.forEach(p => {
+                totalVendu += parseInt(p.quantite || 1, 10);
+            });
+        }
+
+        // Calculer total du stock restant
+        let totalStockRestant = 0;
+        if (Array.isArray(produits)) {
+            produits.forEach(prod => {
+                totalStockRestant += parseInt(prod.stock || 0, 10);
+            });
+        }
+
+        // 3. Dessiner ou mettre à jour le graphique circulaire
+        const ctx = document.getElementById('salesStatsChart');
+        if (!ctx) return;
+
+        if (mySalesChart) {
+            mySalesChart.destroy(); // Détruit l'ancien graphique pour éviter les superpositions
+        }
+
+        mySalesChart = new Chart(ctx, {
+            type: 'pie', // Type cercle / camembert
+            data: {
+                labels: ['Total Articles Vendus', 'Stock Restant Disponible'],
+                datasets: [{
+                    data: [totalVendu, totalStockRestant],
+                    backgroundColor: ['#e74c3c', '#27ae60'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+
+    } catch (e) {
+        console.error("Erreur lors du chargement des statistiques :", e);
+    }
+}
+
+// Appelez cette fonction au chargement de la session admin ou à la fin de vos fonctions de rafraîchissement
+document.addEventListener("DOMContentLoaded", () => {
+    afficherStatistiquesVentesEtStocks();
+});
+
