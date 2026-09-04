@@ -347,9 +347,9 @@ function renderStockTable() {
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
     let html = `
-        <div style="max-height: 500px; overflow-y: auto; overflow-x: auto; border: 1px solid #ddd; background: #fff;">
+        <div style="position: relative; max-height: 500px; overflow: auto; border: 1px solid #ddd; background: #fff; width: 100%;">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; white-space: nowrap;">
-                <thead style="position: sticky; top: 0; z-index: 10; background: #2c3e50; color: white;">
+                <thead style="position: sticky; top: 0; z-index: 100; background: #2c3e50; color: white;">
                     <tr>
                         <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Image</th>
                         <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Nom du Produit</th>
