@@ -7,9 +7,9 @@ body {
   overflow-x: hidden; /* Empêche tout défilement horizontal indésirable */
 }
 
-/* Crée un conteneur global fluide pour les grands écrans */
+/* Conteneur global fluide pour les grands écrans de PC */
 .site-wrapper {
-  max-width: 1400px; /* S'élargit confortablement sur les grands PC */
+  max-width: 1400px; 
   margin: 0 auto;
   width: 100%;
   background: #f9f9f9;
@@ -82,10 +82,9 @@ button {
 
 .grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 20px; 
-  padding: 50px 5%;
-  margin-left: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 25px; 
+  padding: 50px 4%;
 }
 
 /* --- STRUCTURE FIXE DE LA CARTE --- */
@@ -128,8 +127,8 @@ button {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px; /* Espace entre les boutons */
-    margin-right: 20px; /* Pousse tout ce qui est à droite vers la droite */
+    gap: 15px; 
+    margin-right: 20px; 
     margin-left: auto; 
 }
 
@@ -211,14 +210,12 @@ button {
     display: none !important;
 }
 
-/* Restauration de votre body d'origine pour éviter le masquage par Google Translate */
 body {
     top: 0px !important;
     position: static !important;
     margin-top: 0px !important;
 }
 
-/* Widget Google Translate placé proprement au centre sans cacher la navbar */
 #google_translate_element {
     position: absolute;
     left: 50%;
@@ -252,52 +249,6 @@ body {
     margin-top: 50px; 
     margin-left: 20px; 
     text-align: left;    
-}
-/* --- COMPATIBILITÉ SMARTPHONE --- */
-@media (max-width: 768px) {
-    body {
-        transform: none !important; 
-        width: 100% !important;      
-        overflow-x: hidden;          
-    }
-
-    nav {
-        flex-direction: column;      
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .nav-links {
-        margin-right: 0;
-        margin-left: 0;
-        gap: 10px;
-        flex-wrap: wrap;             /* Permet aux liens de passer à la ligne */
-        justify-content: center;
-    }
-
-    #google_translate_element {
-        position: static;            
-        transform: none;
-        order: 1;                    
-    }
-
-    header, .slideshow-container {
-        height: 300px;               
-    }
-
-    .fixed-overlay h1 {
-        font-size: 1.5rem;           
-    }
-
-    .grid {
-        grid-template-columns: 1fr;  
-        padding: 20px 10px;
-    }
-
-    #produits h2 {
-        margin-left: 10px;
-        text-align: center;
-    }
 }
 
 .card-img-container {
@@ -442,217 +393,24 @@ body {
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
 }
 
-@media (max-width: 768px) {
-    .search-container {
-        width: 100%;
-        justify-content: center;
-        margin: 5px 0;
-    }
-
-    .search-container input {
-        width: 90%; 
-    }
-}
-
 .carousel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 1100px;
+    width: 92%;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
-#product-container-femme {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-femme::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-femme .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-
-#product-container-acc-femme {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-acc-femme::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-acc-femme .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-homme {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-homme::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-homme .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-acc-homme {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-acc-homme::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-acc-homme .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-enfant {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-enfant::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-enfant .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-acc-enfant {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-acc-enfant::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-acc-enfant .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-sante {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-sante::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-sante .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-maison {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-maison::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-maison .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
-#product-container-electrov {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-#product-container-electrov::-webkit-scrollbar {
-    display: none; 
-}
-
-#product-container-electrov .card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    box-sizing: border-box;
-}
+#product-container-femme,
+#product-container-acc-femme,
+#product-container-homme,
+#product-container-acc-homme,
+#product-container-enfant,
+#product-container-acc-enfant,
+#product-container-sante,
+#product-container-maison,
+#product-container-electrov,
 #product-container-info {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -665,16 +423,33 @@ body {
     -webkit-overflow-scrolling: touch; 
 }
 
+#product-container-femme::-webkit-scrollbar,
+#product-container-acc-femme::-webkit-scrollbar,
+#product-container-homme::-webkit-scrollbar,
+#product-container-acc-homme::-webkit-scrollbar,
+#product-container-enfant::-webkit-scrollbar,
+#product-container-acc-enfant::-webkit-scrollbar,
+#product-container-sante::-webkit-scrollbar,
+#product-container-maison::-webkit-scrollbar,
+#product-container-electrov::-webkit-scrollbar,
 #product-container-info::-webkit-scrollbar {
     display: none; 
 }
 
+#product-container-femme .card,
+#product-container-acc-femme .card,
+#product-container-homme .card,
+#product-container-acc-homme .card,
+#product-container-enfant .card,
+#product-container-acc-enfant .card,
+#product-container-sante .card,
+#product-container-maison .card,
+#product-container-electrov .card,
 #product-container-info .card {
     flex: 0 0 250px !important;
     width: 250px !important;
     box-sizing: border-box;
 }
-
 
 .carousel-btn {
     background-color: rgba(0, 0, 0, 0.6);
@@ -808,7 +583,6 @@ body {
     background-color: #219653;
 }
 
-/* Style moderne pour le badge SKU dans la modale */
 .modal-sku-badge {
     display: inline-flex;
     align-items: center;
@@ -836,4 +610,78 @@ body {
     font-family: monospace;
     font-weight: 600;
     color: #111827;
+}
+
+/* --- MEDIA QUERIES POUR PC (GRANDS ÉCRANS) --- */
+@media screen and (min-width: 1200px) {
+    nav {
+        padding: 15px 8%;
+    }
+    
+    .carousel-wrapper {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .site-wrapper {
+        max-width: 1600px;
+    }
+}
+
+/* --- COMPATIBILITÉ SMARTPHONE --- */
+@media (max-width: 768px) {
+    body {
+        transform: none !important; 
+        width: 100% !important;      
+        overflow-x: hidden;          
+    }
+
+    nav {
+        flex-direction: column;      
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-right: 0;
+        margin-left: 0;
+        gap: 10px;
+        flex-wrap: wrap;             
+        justify-content: center;
+    }
+
+    #google_translate_element {
+        position: static;            
+        transform: none;
+        order: 1;                    
+    }
+
+    header, .slideshow-container {
+        height: 300px;               
+    }
+
+    .fixed-overlay h1 {
+        font-size: 1.5rem;           
+    }
+
+    .grid {
+        grid-template-columns: 1fr;  
+        padding: 20px 10px;
+    }
+
+    #produits h2 {
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    .search-container input {
+        width: 90%; 
+    }
 }
