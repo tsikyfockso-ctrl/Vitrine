@@ -734,3 +734,10 @@ footer, .footer-container, body::after {
     text-decoration: underline;
     color: #c0392b;
 }
+
+@media (max-width: 768px) {
+    .g-recaptcha {
+        transform: scale(0.85);
+        transform-origin: 0 0;
+    }
+}
