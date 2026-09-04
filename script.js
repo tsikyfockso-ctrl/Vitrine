@@ -682,3 +682,14 @@ async function afficherMessagesClient() {
 
 setInterval(afficherMessagesClient, 2000);
 document.addEventListener('DOMContentLoaded', afficherMessagesClient);
+
+function openAntivirusPolicy(e) {
+    e.preventDefault();
+    const modal = document.getElementById('antivirus-modal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeAntivirusPolicy() {
+    const modal = document.getElementById('antivirus-modal');
+    if (modal) modal.style.display = 'none';
+}
