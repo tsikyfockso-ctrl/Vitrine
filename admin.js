@@ -480,30 +480,31 @@ let mySalesChart = null;
 
 async function afficherStatistiquesVentesEtStocks() {
     try {
-        // 1. Récupérer l'historique des paiements (pour les quantités vendues)
+        // 1. Récupérer l'historique des paiements
         const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
         const paiements = await resPayments.json();
 
-        // 2. Récupérer l'état du stock des produits (selon votre fonction de chargement du tableau de stock)
-        // Supposons que vous stockiez vos produits dans un tableau ou récupériez les lignes du tableau Excel admin
-        const resProducts = await fetch(SCRIPT_URL + "?action=getProducts&v=" + new Date().getTime()); // Adaptez l'action selon votre backend
-        const produits = await resProducts.json();
-
-        // Calculer total des quantités vendues
-        let totalVendu = 0;
-        if (Array.isArray(paiements)) {
-            paiements.forEach(p => {
-                totalVendu += parseInt(p.quantite || 1, 10);
-            });
+        if (!Array.isArray(paiements) || paiements.length === 0) {
+            console.log("Aucun paiement trouvé pour les statistiques.");
+            return;
         }
 
-        // Calculer total du stock restant
-        let totalStockRestant = 0;
-        if (Array.isArray(produits)) {
-            produits.forEach(prod => {
-                totalStockRestant += parseInt(prod.stock || 0, 10);
-            });
-        }
+        // 2. Regrouper les quantités vendues par nom de produit
+        const ventesParProduit = {};
+        paiements.forEach(p => {
+            const nomProduit = p.produit || 'Produit inconnu';
+            const quantite = parseInt(p.quantite || 1, 10);
+            
+            if (ventesParProduit[nomProduit]) {
+                ventesParProduit[nomProduit] += quantite;
+            } else {
+                ventesParProduit[nomProduit] = quantite;
+            }
+        });
+
+        // Extraire les labels (noms des produits) et les données (quantités)
+        const labelsProduits = Object.keys(ventesParProduit);
+        const dataQuantites = Object.values(ventesParProduit);
 
         // 3. Dessiner ou mettre à jour le graphique circulaire
         const ctx = document.getElementById('salesStatsChart');
@@ -516,10 +517,14 @@ async function afficherStatistiquesVentesEtStocks() {
         mySalesChart = new Chart(ctx, {
             type: 'pie', // Type cercle / camembert
             data: {
-                labels: ['Total Articles Vendus', 'Stock Restant Disponible'],
+                labels: labelsProduits,
                 datasets: [{
-                    data: [totalVendu, totalStockRestant],
-                    backgroundColor: ['#e74c3c', '#27ae60'],
+                    data: dataQuantites,
+                    // Palette de couleurs automatiques ou personnalisables pour chaque produit
+                    backgroundColor: [
+                        '#e74c3c', '#3498db', '#27ae60', '#f1c40f', 
+                        '#9b59b6', '#e67e22', '#1abc9c', '#34495e'
+                    ],
                     borderWidth: 1
                 }]
             },
@@ -528,18 +533,21 @@ async function afficherStatistiquesVentesEtStocks() {
                 plugins: {
                     legend: {
                         position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Répartition des ventes par produit'
                     }
                 }
             }
         });
 
     } catch (e) {
-        console.error("Erreur lors du chargement des statistiques :", e);
+        console.error("Erreur lors du chargement des statistiques par produit :", e);
     }
 }
 
-// Appelez cette fonction au chargement de la session admin ou à la fin de vos fonctions de rafraîchissement
+// Appelez cette fonction au chargement de la session admin
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
-
