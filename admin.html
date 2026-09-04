@@ -91,7 +91,17 @@
             </div>
         </div> 
     </main>
+    
+    <div style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📊 Statistiques des Ventes & Stocks</h3>
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 250px;">
+        <!-- Élément Canvas pour le graphique circulaire -->
+        <canvas id="salesStatsChart" style="max-width: 400px; max-height: 400px;"></canvas>
+    </div>
+</div>
 
+<!-- Inclusion de la bibliothèque Chart.js pour afficher les graphiques facilement -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- 1. Votre script logique -->
     <script src="admin.js"></script>
     <script src="script.js"></script>
