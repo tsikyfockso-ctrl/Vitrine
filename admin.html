@@ -11,20 +11,18 @@
     <nav class="admin-nav">
         <div class="nav-left">
             <strong>Mayah Store Admin</strong>
-            </div>
-            <!-- ID unique pour le traducteur, dans le flux normal -->
-            <div id="google_translate_element"></div>
-             <!-- 2. Script Google Translate (placé après admin.js pour sécurité) -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'fr', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'fr', 
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <div class="nav-right">
             <button id="paymentHistoryBtn" class="payment-history-btn" style="background-color: #27ae60; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;">Historique des paiements</button>
             <button id="inboxBtn" class="inbox-btn">Boîte de réception</button>
@@ -43,7 +41,7 @@
             </div>
         </div>
 
-        <!-- NOUVELLE : Fenêtre modale de l'historique des paiements -->
+        <!-- Fenêtre modale de l'historique des paiements -->
         <div id="paymentHistoryModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
             <div class="modal-content" style="background:white; padding:20px; border-radius:8px; width:90%; max-width:600px; max-height:80vh; overflow-y:auto; border-top: 5px solid #27ae60;">
                 <h3 style="color: #27ae60; margin-top: 0;">Historique des paiements reçus</h3>
@@ -55,38 +53,52 @@
         </div>
         
         <div class="stock-manager">
-    <h3>Gestion de Stock</h3>
-        <div style="margin-bottom: 15px;">
-                <label for="adminCategorySelect"><strong>Sélectionner la catégorie à gérer :</strong></label>
-                <select id="adminCategorySelect" onchange="changerFichierAdmin()" style="padding: 8px; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc; margin-left: 10px;">
-                    <option value="update_stock.json">Vêtements pour Femme</option>
-                    <option value="update_stock_acc_femme.json">Accessoires pour Femme</option>
-                    <option value="update_stock_homme.json">Vêtements pour Homme</option>
-                    <option value="update_stock_acc_homme.json">Accessoires pour Homme</option>
-                    <option value="update_stock_enfant.json">Vêtements pour Enfant</option>
-                    <option value="update_stock_acc_enfant.json">Accessoires pour Enfant</option>
-                    <option value="update_stock_sante.json">Santé et Bien-être</option>
-                    <option value="update_stock_maison.json">Maison et Meuble</option>
-                    <option value="update_stock_electronique.json">Électronique</option>
-                    <option value="update_stock_informatique.json">Informatique</option>
-                </select>
+            
+            <!-- CONTENEUR FLEX POUR Aligner la Gestion de stock à gauche et le Cumul mensuel à droite -->
+            <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; flex-wrap: wrap;">
+                
+                <!-- COLONNE DE GAUCHE : Titre, Catégories, Recherche et Tableau -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Gestion de Stock</h3>
+                    <div style="margin-bottom: 15px;">
+                        <label for="adminCategorySelect"><strong>Sélectionner la catégorie à gérer :</strong></label>
+                        <select id="adminCategorySelect" onchange="changerFichierAdmin()" style="padding: 8px; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc; margin-left: 10px;">
+                            <option value="update_stock.json">Vêtements pour Femme</option>
+                            <option value="update_stock_acc_femme.json">Accessoires pour Femme</option>
+                            <option value="update_stock_homme.json">Vêtements pour Homme</option>
+                            <option value="update_stock_acc_homme.json">Accessoires pour Homme</option>
+                            <option value="update_stock_enfant.json">Vêtements pour Enfant</option>
+                            <option value="update_stock_acc_enfant.json">Accessoires pour Enfant</option>
+                            <option value="update_stock_sante.json">Santé et Bien-être</option>
+                            <option value="update_stock_maison.json">Maison et Meuble</option>
+                            <option value="update_stock_electronique.json">Électronique</option>
+                            <option value="update_stock_informatique.json">Informatique</option>
+                        </select>
+                    </div>
+
+                    <!-- Barre de recherche pour le stock -->
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="stockSearchInput" placeholder="Rechercher par nom de produit ou SKU..." onkeyup="filterStock()" style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
+                    </div>
+                </div>
+
+                <!-- COLONNE DE DROITE : Le cumul des ventes par mois -->
+                <div style="width: 280px; flex-shrink: 0;">
+                    <div id="monthly-sales-summary" style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e1e8ed;">
+                        <h4 style="margin-bottom: 12px; color: #2c3e50; font-size: 1rem; border-bottom: 2px solid #f1f1f1; padding-bottom: 5px;">📅 Cumul des Ventes par Mois</h4>
+                        <div id="monthly-sales-list" style="max-height: 220px; overflow-y: auto; font-size: 0.85rem; color: #555;">
+                            <em>Chargement des cumuls...</em>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-     <div id="monthly-sales-summary" style="margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 280px;">
-      <h4 style="margin-bottom: 12px; color: #2c3e50; font-size: 1rem; border-bottom: 2px solid #f1f1f1; padding-bottom: 5px;">📅 Cumul des Ventes par Mois</h4>
-       <div id="monthly-sales-list" style="max-height: 220px; overflow-y: auto; font-size: 0.85rem; color: #555;">
-        <!-- Les résultats mensuels s'afficheront ici dynamiquement -->
-        <em>Chargement des cumuls...</em>
-    </div>
- </div>
- <!-- Barre de recherche pour le stock -->
-    <div style="margin-bottom: 15px;">
-        <input type="text" id="stockSearchInput" placeholder="Rechercher par nom de produit ou SKU..." onkeyup="filterStock()" style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
-    </div>
-    
-    <!-- C'est ici que le tableau Excel va s'injecter automatiquement -->
-    <div id="stock-list"></div>
-</div>
-       <!-- NOUVELLE : Fenêtre modale pour répondre aux messages -->
+            
+            <!-- C'est ici que le tableau Excel va s'injecter automatiquement -->
+            <div id="stock-list"></div>
+        </div>
+
+       <!-- Fenêtre modale pour répondre aux messages -->
         <div id="adminReplyModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
             <div class="modal-content" style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%;">
                 <h3 style="margin-top:0; color:#2c3e50;">Répondre au client</h3>
@@ -101,34 +113,33 @@
     </main>
     
     <div style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📊 Statistiques des Ventes & Stocks</h3>
-    <div style="display: flex; justify-content: center; align-items: center; min-height: 250px;">
-        <!-- Élément Canvas pour le graphique circulaire -->
-        <canvas id="salesStatsChart" style="max-width: 400px; max-height: 400px;"></canvas>
-    </div>
-<!-- Nouveau Tableau Moderne avec Barres de Volume et Stock -->
-    <div style="flex: 1; min-width: 350px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📦 Volume des Ventes & Stock Restant</h3>
-        <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #eee; text-align: left; color: #7f8c8d;">
-                        <th style="padding: 10px;">Produit</th>
-                        <th style="padding: 10px; width: 40%;">Volume Vendu</th>
-                        <th style="padding: 10px; text-align: center;">Stock Restant</th>
-                    </tr>
-                </thead>
-                <tbody id="sales-volume-table-body">
-                    <!-- Les lignes seront injectées dynamiquement par JavaScript -->
-                </tbody>
-            </table>
+        <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📊 Statistiques des Ventes & Stocks</h3>
+        <div style="display: flex; justify-content: center; align-items: center; min-height: 250px;">
+            <canvas id="salesStatsChart" style="max-width: 400px; max-height: 400px;"></canvas>
         </div>
-    </div>   
-</div>
+        
+        <!-- Nouveau Tableau Moderne avec Barres de Volume et Stock -->
+        <div style="margin-top: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📦 Volume des Ventes & Stock Restant</h3>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #eee; text-align: left; color: #7f8c8d;">
+                            <th style="padding: 10px;">Produit</th>
+                            <th style="padding: 10px; width: 40%;">Volume Vendu</th>
+                            <th style="padding: 10px; text-align: center;">Stock Restant</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sales-volume-table-body">
+                        <!-- Les lignes seront injectées dynamiquement par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>   
+    </div>
 
-<!-- Inclusion de la bibliothèque Chart.js pour afficher les graphiques facilement -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- 1. Votre script logique -->
+    <!-- Inclusion de la bibliothèque Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="admin.js"></script>
     <script src="script.js"></script>
     <script src="config.js"></script>
