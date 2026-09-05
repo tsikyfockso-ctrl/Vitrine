@@ -480,58 +480,59 @@ let mySalesChart = null;
 
 async function afficherStatistiquesVentesEtStocks() {
     try {
-        // 1. Récupérer l'historique des paiements (pour calculer les quantités vendues)
+        // 1. Récupérer l'historique des paiements
         const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
         const paiements = await resPayments.json();
 
         if (!Array.isArray(paiements)) return;
 
-        // 2. Regrouper les ventes par produit
+        // 2. Regrouper les ventes par nom de produit
         const ventesParProduit = {};
         paiements.forEach(p => {
-            const nomProduit = p.produit || 'Produit sans nom';
+            const nomProduit = (p.produit || 'Produit sans nom').trim().toLowerCase();
             const quantite = parseInt(p.quantite || 1, 10);
             ventesParProduit[nomProduit] = (ventesParProduit[nomProduit] || 0) + quantite;
         });
 
-        // 3. Récupérer le stock directement depuis votre structure de données globale (globalStockData)
-        const stockParProduit = {};
+        // 3. Récupérer le stock réel depuis le tableau Excel admin (globalStockData) basé sur le nom du produit
+        const stockParProduitNom = {};
         if (typeof globalStockData !== 'undefined' && Array.isArray(globalStockData)) {
             globalStockData.forEach(produit => {
-                const nomProduit = produit.nom || "Produit sans nom";
+                const nomProduitGlobal = (produit.nom || "Produit sans nom").trim().toLowerCase();
                 
-                // Si le produit a des variantes, on additionne les stocks des variantes ou on prend la valeur globale
-                let totalStockProd = 0;
+                let stockTotal = 0;
+                // Si le produit contient des variantes dans le tableau Excel, on somme leur stock
                 if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
                     produit.variantes.forEach(v => {
-                        totalStockProd += parseInt(v.stock || 0, 10);
+                        stockTotal += parseInt(v.stock || 0, 10);
                     });
                 } else {
-                    totalStockProd = parseInt(produit.stock || produit.stockRestant || 0, 10);
+                    stockTotal = parseInt(produit.stock || produit.stockRestant || 0, 10);
                 }
-                stockParProduit[nomProduit] = totalStockProd;
+                
+                stockParProduitNom[nomProduitGlobal] = stockTotal;
             });
         }
 
-        const labelsProduits = Object.keys(ventesParProduit);
+        const labelsProduitsOriginaux = Object.keys(ventesParProduit);
         const dataQuantites = Object.values(ventesParProduit);
         const maxVente = Math.max(...dataQuantites, 1);
 
-        // Palette fixe de 12 couleurs distinctes et modernes
+        // Palette de 12 couleurs distinctes
         const palette12Couleurs = [
             '#e74c3c', '#3498db', '#27ae60', '#f1c40f', 
             '#9b59b6', '#e67e22', '#1abc9c', '#34495e', 
             '#e84393', '#00b894', '#0984e3', '#6c5ce7'
         ];
 
-        // 4. Dessiner le graphique circulaire (Pie Chart) avec les 12 couleurs
+        // 4. Mettre à jour le graphique circulaire
         const ctx = document.getElementById('salesStatsChart');
         if (ctx) {
             if (window.mySalesChart) window.mySalesChart.destroy();
             window.mySalesChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: labelsProduits,
+                    labels: labelsProduitsOriginaux,
                     datasets: [{
                         data: dataQuantites,
                         backgroundColor: palette12Couleurs,
@@ -542,23 +543,26 @@ async function afficherStatistiquesVentesEtStocks() {
             });
         }
 
-        // 5. Générer le tableau moderne avec les barres de volume horizontales et le stock réel
+        // 5. Remplir le tableau moderne avec le stock réel récupéré par correspondance de nom
         const tableBody = document.getElementById('sales-volume-table-body');
         if (tableBody) {
             let htmlRows = '';
             
-            labelsProduits.forEach((produit, index) => {
-                const qteVendue = ventesParProduit[produit];
-                // Récupération sécurisée du stock depuis le tableau global Excel
-                const stockRestant = stockParProduit[produit] !== undefined ? stockParProduit[produit] : 'N/A';
+            labelsProduitsOriginaux.forEach((produitKey, index) => {
+                const qteVendue = ventesParProduit[produitKey];
                 
-                // Calcul du pourcentage pour la barre de volume
+                // Recherche sécurisée du stock réel dans l'objet basé sur le nom en minuscules
+                const stockRestant = stockParProduitNom[produitKey] !== undefined ? stockParProduitNom[produitKey] : 'N/A';
+                
                 const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
                 const couleurBarre = palette12Couleurs[index % palette12Couleurs.length];
 
+                // Restitution propre du nom avec majuscule initiale si besoin
+                const nomAffichage = produitKey.charAt(0).toUpperCase() + produitKey.slice(1);
+
                 htmlRows += `
                     <tr style="border-bottom: 1px solid #f1f1f1;">
-                        <td style="padding: 12px 10px; font-weight: 500; color: #2c3e50;">${produit}</td>
+                        <td style="padding: 12px 10px; font-weight: 500; color: #2c3e50;">${nomAffichage}</td>
                         <td style="padding: 12px 10px;">
                             <div style="display: flex; align-items: center; gap: 8px;">
                                 <div style="flex-grow: 1; background: #f0f0f0; border-radius: 4px; height: 10px; overflow: hidden;">
@@ -568,7 +572,7 @@ async function afficherStatistiquesVentesEtStocks() {
                             </div>
                         </td>
                         <td style="padding: 12px 10px; text-align: center;">
-                            <span style="background: ${stockRestant > 5 ? '#e8f8f5' : '#fdebd0'}; color: ${stockRestant > 5 ? '#27ae60' : '#d35400'}; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">
+                            <span style="background: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#e8f8f5' : '#fdebd0'}; color: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#27ae60' : '#d35400'}; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">
                                 ${stockRestant}
                             </span>
                         </td>
@@ -579,11 +583,11 @@ async function afficherStatistiquesVentesEtStocks() {
         }
 
     } catch (e) {
-        console.error("Erreur lors de la génération des statistiques :", e);
+        console.error("Erreur lors de la mise à jour des statistiques de stock :", e);
     }
 }
 
-// Lancement automatique au chargement
+// Lancer le chargement
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
