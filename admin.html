@@ -98,6 +98,24 @@
         <!-- Élément Canvas pour le graphique circulaire -->
         <canvas id="salesStatsChart" style="max-width: 400px; max-height: 400px;"></canvas>
     </div>
+<!-- Nouveau Tableau Moderne avec Barres de Volume et Stock -->
+    <div style="flex: 1; min-width: 350px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h3 style="margin-bottom: 15px; color: #2c3e50; font-size: 1.1rem;">📦 Volume des Ventes & Stock Restant</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #eee; text-align: left; color: #7f8c8d;">
+                        <th style="padding: 10px;">Produit</th>
+                        <th style="padding: 10px; width: 40%;">Volume Vendu</th>
+                        <th style="padding: 10px; text-align: center;">Stock Restant</th>
+                    </tr>
+                </thead>
+                <tbody id="sales-volume-table-body">
+                    <!-- Les lignes seront injectées dynamiquement par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>   
 </div>
 
 <!-- Inclusion de la bibliothèque Chart.js pour afficher les graphiques facilement -->
