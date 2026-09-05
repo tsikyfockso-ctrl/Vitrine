@@ -480,38 +480,51 @@ let mySalesChart = null;
 
 async function afficherStatistiquesVentesEtStocks() {
     try {
-        // 1. Récupérer l'historique des paiements et l'état des stocks
-        const [resPayments, resProducts] = await Promise.all([
-            fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime()),
-            fetch(SCRIPT_URL + "?action=getProducts&v=" + new Date().getTime())
-        ]);
-        
+        // 1. Récupérer l'historique des paiements (pour calculer les quantités vendues)
+        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
         const paiements = await resPayments.json();
-        const produits = await resProducts.json();
 
         if (!Array.isArray(paiements)) return;
 
         // 2. Regrouper les ventes par produit
         const ventesParProduit = {};
         paiements.forEach(p => {
-            const nomProduit = p.produit || 'Produit inconnu';
+            const nomProduit = p.produit || 'Produit sans nom';
             const quantite = parseInt(p.quantite || 1, 10);
             ventesParProduit[nomProduit] = (ventesParProduit[nomProduit] || 0) + quantite;
         });
 
-        // Associer le stock restant à chaque produit depuis la base de données/produits
+        // 3. Récupérer le stock directement depuis votre structure de données globale (globalStockData)
         const stockParProduit = {};
-        if (Array.isArray(produits)) {
-            produits.forEach(prod => {
-                stockParProduit[prod.nom || prod.produit] = parseInt(prod.stock || 0, 10);
+        if (typeof globalStockData !== 'undefined' && Array.isArray(globalStockData)) {
+            globalStockData.forEach(produit => {
+                const nomProduit = produit.nom || "Produit sans nom";
+                
+                // Si le produit a des variantes, on additionne les stocks des variantes ou on prend la valeur globale
+                let totalStockProd = 0;
+                if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
+                    produit.variantes.forEach(v => {
+                        totalStockProd += parseInt(v.stock || 0, 10);
+                    });
+                } else {
+                    totalStockProd = parseInt(produit.stock || produit.stockRestant || 0, 10);
+                }
+                stockParProduit[nomProduit] = totalStockProd;
             });
         }
 
         const labelsProduits = Object.keys(ventesParProduit);
         const dataQuantites = Object.values(ventesParProduit);
-        const maxVente = Math.max(...dataQuantites, 1); // Pour calculer le pourcentage de la barre
+        const maxVente = Math.max(...dataQuantites, 1);
 
-        // 3. Dessiner le graphique circulaire (Pie Chart)
+        // Palette fixe de 12 couleurs distinctes et modernes
+        const palette12Couleurs = [
+            '#e74c3c', '#3498db', '#27ae60', '#f1c40f', 
+            '#9b59b6', '#e67e22', '#1abc9c', '#34495e', 
+            '#e84393', '#00b894', '#0984e3', '#6c5ce7'
+        ];
+
+        // 4. Dessiner le graphique circulaire (Pie Chart) avec les 12 couleurs
         const ctx = document.getElementById('salesStatsChart');
         if (ctx) {
             if (window.mySalesChart) window.mySalesChart.destroy();
@@ -521,7 +534,7 @@ async function afficherStatistiquesVentesEtStocks() {
                     labels: labelsProduits,
                     datasets: [{
                         data: dataQuantites,
-                        backgroundColor: ['#e74c3c', '#3498db', '#27ae60', '#f1c40f', '#9b59b6', '#e67e22', '#1abc9c'],
+                        backgroundColor: palette12Couleurs,
                         borderWidth: 1
                     }]
                 },
@@ -529,20 +542,19 @@ async function afficherStatistiquesVentesEtStocks() {
             });
         }
 
-        // 4. Générer le contenu du tableau moderne avec barres de volume horizontales
+        // 5. Générer le tableau moderne avec les barres de volume horizontales et le stock réel
         const tableBody = document.getElementById('sales-volume-table-body');
         if (tableBody) {
             let htmlRows = '';
-            const couleursBarres = ['#3498db', '#27ae60', '#e74c3c', '#9b59b6', '#f1c40f', '#e67e22', '#1abc9c'];
             
             labelsProduits.forEach((produit, index) => {
                 const qteVendue = ventesParProduit[produit];
-                // Recherche du stock (si non trouvé dans le tableau produits, affiche 'N/A')
+                // Récupération sécurisée du stock depuis le tableau global Excel
                 const stockRestant = stockParProduit[produit] !== undefined ? stockParProduit[produit] : 'N/A';
                 
-                // Calcul du pourcentage pour la barre horizontale (par rapport au produit le plus vendu)
+                // Calcul du pourcentage pour la barre de volume
                 const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
-                const couleurBarre = couleursBarres[index % couleursBarres.length];
+                const couleurBarre = palette12Couleurs[index % palette12Couleurs.length];
 
                 htmlRows += `
                     <tr style="border-bottom: 1px solid #f1f1f1;">
@@ -567,11 +579,11 @@ async function afficherStatistiquesVentesEtStocks() {
         }
 
     } catch (e) {
-        console.error("Erreur lors de la génération des statistiques et du tableau de volume :", e);
+        console.error("Erreur lors de la génération des statistiques :", e);
     }
 }
 
-// Lancer au chargement
+// Lancement automatique au chargement
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
