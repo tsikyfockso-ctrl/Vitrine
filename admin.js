@@ -480,74 +480,98 @@ let mySalesChart = null;
 
 async function afficherStatistiquesVentesEtStocks() {
     try {
-        // 1. Récupérer l'historique des paiements
-        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        // 1. Récupérer l'historique des paiements et l'état des stocks
+        const [resPayments, resProducts] = await Promise.all([
+            fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime()),
+            fetch(SCRIPT_URL + "?action=getProducts&v=" + new Date().getTime())
+        ]);
+        
         const paiements = await resPayments.json();
+        const produits = await resProducts.json();
 
-        if (!Array.isArray(paiements) || paiements.length === 0) {
-            console.log("Aucun paiement trouvé pour les statistiques.");
-            return;
-        }
+        if (!Array.isArray(paiements)) return;
 
-        // 2. Regrouper les quantités vendues par nom de produit
+        // 2. Regrouper les ventes par produit
         const ventesParProduit = {};
         paiements.forEach(p => {
             const nomProduit = p.produit || 'Produit inconnu';
             const quantite = parseInt(p.quantite || 1, 10);
-            
-            if (ventesParProduit[nomProduit]) {
-                ventesParProduit[nomProduit] += quantite;
-            } else {
-                ventesParProduit[nomProduit] = quantite;
-            }
+            ventesParProduit[nomProduit] = (ventesParProduit[nomProduit] || 0) + quantite;
         });
 
-        // Extraire les labels (noms des produits) et les données (quantités)
-        const labelsProduits = Object.keys(ventesParProduit);
-        const dataQuantites = Object.values(ventesParProduit);
-
-        // 3. Dessiner ou mettre à jour le graphique circulaire
-        const ctx = document.getElementById('salesStatsChart');
-        if (!ctx) return;
-
-        if (mySalesChart) {
-            mySalesChart.destroy(); // Détruit l'ancien graphique pour éviter les superpositions
+        // Associer le stock restant à chaque produit depuis la base de données/produits
+        const stockParProduit = {};
+        if (Array.isArray(produits)) {
+            produits.forEach(prod => {
+                stockParProduit[prod.nom || prod.produit] = parseInt(prod.stock || 0, 10);
+            });
         }
 
-        mySalesChart = new Chart(ctx, {
-            type: 'pie', // Type cercle / camembert
-            data: {
-                labels: labelsProduits,
-                datasets: [{
-                    data: dataQuantites,
-                    // Palette de couleurs automatiques ou personnalisables pour chaque produit
-                    backgroundColor: [
-                        '#e74c3c', '#3498db', '#27ae60', '#f1c40f', 
-                        '#9b59b6', '#e67e22', '#1abc9c', '#34495e'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Répartition des ventes par produit'
-                    }
-                }
-            }
-        });
+        const labelsProduits = Object.keys(ventesParProduit);
+        const dataQuantites = Object.values(ventesParProduit);
+        const maxVente = Math.max(...dataQuantites, 1); // Pour calculer le pourcentage de la barre
+
+        // 3. Dessiner le graphique circulaire (Pie Chart)
+        const ctx = document.getElementById('salesStatsChart');
+        if (ctx) {
+            if (window.mySalesChart) window.mySalesChart.destroy();
+            window.mySalesChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labelsProduits,
+                    datasets: [{
+                        data: dataQuantites,
+                        backgroundColor: ['#e74c3c', '#3498db', '#27ae60', '#f1c40f', '#9b59b6', '#e67e22', '#1abc9c'],
+                        borderWidth: 1
+                    }]
+                },
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+            });
+        }
+
+        // 4. Générer le contenu du tableau moderne avec barres de volume horizontales
+        const tableBody = document.getElementById('sales-volume-table-body');
+        if (tableBody) {
+            let htmlRows = '';
+            const couleursBarres = ['#3498db', '#27ae60', '#e74c3c', '#9b59b6', '#f1c40f', '#e67e22', '#1abc9c'];
+            
+            labelsProduits.forEach((produit, index) => {
+                const qteVendue = ventesParProduit[produit];
+                // Recherche du stock (si non trouvé dans le tableau produits, affiche 'N/A')
+                const stockRestant = stockParProduit[produit] !== undefined ? stockParProduit[produit] : 'N/A';
+                
+                // Calcul du pourcentage pour la barre horizontale (par rapport au produit le plus vendu)
+                const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
+                const couleurBarre = couleursBarres[index % couleursBarres.length];
+
+                htmlRows += `
+                    <tr style="border-bottom: 1px solid #f1f1f1;">
+                        <td style="padding: 12px 10px; font-weight: 500; color: #2c3e50;">${produit}</td>
+                        <td style="padding: 12px 10px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="flex-grow: 1; background: #f0f0f0; border-radius: 4px; height: 10px; overflow: hidden;">
+                                    <div style="width: ${pourcentage}%; background-color: ${couleurBarre}; height: 100%; border-radius: 4px; transition: width 0.5s ease;"></div>
+                                </div>
+                                <span style="font-size: 0.85rem; font-weight: bold; color: #555; min-width: 25px;">${qteVendue}</span>
+                            </div>
+                        </td>
+                        <td style="padding: 12px 10px; text-align: center;">
+                            <span style="background: ${stockRestant > 5 ? '#e8f8f5' : '#fdebd0'}; color: ${stockRestant > 5 ? '#27ae60' : '#d35400'}; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">
+                                ${stockRestant}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            });
+            tableBody.innerHTML = htmlRows;
+        }
 
     } catch (e) {
-        console.error("Erreur lors du chargement des statistiques par produit :", e);
+        console.error("Erreur lors de la génération des statistiques et du tableau de volume :", e);
     }
 }
 
-// Appelez cette fonction au chargement de la session admin
+// Lancer au chargement
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
