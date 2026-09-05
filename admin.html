@@ -75,6 +75,13 @@
     <div style="margin-bottom: 15px;">
         <input type="text" id="stockSearchInput" placeholder="Rechercher par nom de produit ou SKU..." onkeyup="filterStock()" style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem;">
     </div>
+    <div id="monthly-sales-summary" style="margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 280px;">
+    <h4 style="margin-bottom: 12px; color: #2c3e50; font-size: 1rem; border-bottom: 2px solid #f1f1f1; padding-bottom: 5px;">📅 Cumul des Ventes par Mois</h4>
+    <div id="monthly-sales-list" style="max-height: 220px; overflow-y: auto; font-size: 0.85rem; color: #555;">
+        <!-- Les résultats mensuels s'afficheront ici dynamiquement -->
+        <em>Chargement des cumuls...</em>
+    </div>
+    </div>
     <!-- C'est ici que le tableau Excel va s'injecter automatiquement -->
     <div id="stock-list"></div>
 </div>
