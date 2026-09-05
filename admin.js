@@ -591,3 +591,77 @@ async function afficherStatistiquesVentesEtStocks() {
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
+async function afficherCumulVentesParMois() {
+    try {
+        // 1. Récupérer l'historique des paiements
+        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        const paiements = await resPayments.json();
+
+        const containerList = document.getElementById('monthly-sales-list');
+        if (!containerList) return;
+
+        if (!Array.isArray(paiements) || paiements.length === 0) {
+            containerList.innerHTML = "<em>Aucun paiement enregistré.</em>";
+            return;
+        }
+
+        // 2. Grouper et sommer les prix par mois (Format "Mois Année", ex: "Juin 2026")
+        const cumulParMois = {};
+        const NomsMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+        paiements.forEach(p => {
+            // Utilise la date de paiement (format ISO 8601 ou standard)
+            const dateStr = p.date || p.datePaiement;
+            if (!dateStr) return;
+
+            const dateObj = new Date(dateStr);
+            if (isNaN(dateObj.getTime())) return;
+
+            const moisNom = NomsMois[dateObj.getMonth()];
+            const annee = dateObj.getFullYear();
+            const cleMois = `${moisNom} ${annee}`;
+
+            // Récupère le prix total réglé (adaptez 'prixTotal' ou 'prix' selon votre colonne de paiement)
+            const prixTotal = parseFloat(p.prixTotal || p.prix || 0);
+
+            if (!cumulParMois[cleMois]) {
+                cumulParMois[cleMois] = 0;
+            }
+            cumulParMois[cleMois] += prixTotal;
+        });
+
+        // 3. Générer l'affichage HTML
+        let htmlContent = "";
+        const clesMoisTriees = Object.keys(cumulParMois).sort((a, b) => {
+            // Optionnel : trier par ordre chronologique ou inverse si nécessaire
+            return new Date(b) - new Date(a);
+        });
+
+        if (clesMoisTriees.length === 0) {
+            containerList.innerHTML = "<em>Aucune donnée exploitable.</em>";
+            return;
+        }
+
+        clesMoisTriees.forEach(mois => {
+            const totalMois = cumulParMois[mois].toFixed(2);
+            htmlContent += `
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f9f9f9;">
+                    <span style="font-weight: 500; color: #333;">${mois}</span>
+                    <span style="font-weight: bold; color: #27ae60;">${totalMois} $</span>
+                </div>
+            `;
+        });
+
+        containerList.innerHTML = htmlContent;
+
+    } catch (e) {
+        console.error("Erreur lors du calcul du cumul des ventes par mois :", e);
+        const containerList = document.getElementById('monthly-sales-list');
+        if (containerList) containerList.innerHTML = "<em>Erreur de chargement.</em>";
+    }
+}
+
+// Lancer le calcul au chargement de la session admin
+document.addEventListener("DOMContentLoaded", () => {
+    afficherCumulVentesParMois();
+});
