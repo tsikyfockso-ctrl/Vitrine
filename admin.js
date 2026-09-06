@@ -518,7 +518,6 @@ async function afficherStatistiquesVentesEtStocks() {
             
             labelsProduitsOriginaux.forEach((produitKey, index) => {
                 const qteVendue = ventesParProduit[produitKey];
-                const stockRestant = stockParProduitNom[produitKey] !== undefined ? stockParProduitNom[produitKey] : 'N/A';
                 const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
                 const couleurBarre = palette12Couleurs[index % palette12Couleurs.length];
                 const nomAffichage = produitKey.charAt(0).toUpperCase() + produitKey.slice(1);
