@@ -591,10 +591,13 @@ async function afficherStatistiquesVentesEtStocks() {
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
-//CUMULE DE VENTE PAR MOIS
+
+// CUMULE DE VENTE PAR MOIS
 async function afficherCumulVentesParMois() {
     const containerList = document.getElementById('monthly-sales-list');
     if (!containerList) return;
+
+    containerList.innerHTML = "<em style='color: #666;'>Chargement des cumuls...</em>";
 
     try {
         if (typeof SCRIPT_URL === 'undefined' || !SCRIPT_URL) {
