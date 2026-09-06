@@ -54,6 +54,11 @@ async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
 
+// Ajout d'une hauteur maximale et du défilement vertical
+    container.style.maxHeight = "400px";
+    container.style.overflowY = "auto";
+    container.style.paddingRight = "5px"; // Pour éviter que le contenu ne touche la barre de scroll
+  
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
@@ -134,6 +139,11 @@ async function updateNotificationBadge() {
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
+
+    // Ajout d'une hauteur maximale et du défilement vertical
+    inbox.style.maxHeight = "400px";
+    inbox.style.overflowY = "auto";
+    inbox.style.paddingRight = "5px";
 
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
