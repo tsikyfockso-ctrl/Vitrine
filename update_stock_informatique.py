@@ -19,7 +19,7 @@ def get_cj_access_token():
         return None
     payload = {"apiKey": CJ_API_KEY}
     try:
-        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=15)
+        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=15)
+        response = requests.get(url, headers=headers, params=params, timeout=60)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
