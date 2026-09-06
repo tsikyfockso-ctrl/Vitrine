@@ -593,7 +593,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 async function afficherCumulVentesParMois() {
     try {
-        // 1. Récupérer l'historique des paiements
         const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
         const paiements = await resPayments.json();
 
@@ -605,12 +604,10 @@ async function afficherCumulVentesParMois() {
             return;
         }
 
-        // 2. Grouper et sommer les prix par mois (Format "Mois Année", ex: "Juin 2026")
         const cumulParMois = {};
         const NomsMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 
         paiements.forEach(p => {
-            // Utilise la date de paiement (format ISO 8601 ou standard)
             const dateStr = p.date || p.datePaiement;
             if (!dateStr) return;
 
@@ -621,8 +618,8 @@ async function afficherCumulVentesParMois() {
             const annee = dateObj.getFullYear();
             const cleMois = `${moisNom} ${annee}`;
 
-            // Récupère le prix total réglé (adaptez 'prixTotal' ou 'prix' selon votre colonne de paiement)
-            const prixTotal = parseFloat(p.prixTotal || p.prix || 0);
+            // Correction ici : nettoyage et conversion de p.total
+            const prixTotal = parseFloat(String(p.total || '0').replace(/[^0-9.-]+/g, "")) || 0;
 
             if (!cumulParMois[cleMois]) {
                 cumulParMois[cleMois] = 0;
@@ -630,10 +627,8 @@ async function afficherCumulVentesParMois() {
             cumulParMois[cleMois] += prixTotal;
         });
 
-        // 3. Générer l'affichage HTML
         let htmlContent = "";
         const clesMoisTriees = Object.keys(cumulParMois).sort((a, b) => {
-            // Optionnel : trier par ordre chronologique ou inverse si nécessaire
             return new Date(b) - new Date(a);
         });
 
@@ -660,8 +655,3 @@ async function afficherCumulVentesParMois() {
         if (containerList) containerList.innerHTML = "<em>Erreur de chargement.</em>";
     }
 }
-
-// Lancer le calcul au chargement de la session admin
-document.addEventListener("DOMContentLoaded", () => {
-    afficherCumulVentesParMois();
-});
