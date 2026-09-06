@@ -592,12 +592,21 @@ document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
 async function afficherCumulVentesParMois() {
-    try {
-        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
-        const paiements = await resPayments.json();
+    const containerList = document.getElementById('monthly-sales-list');
+    if (!containerList) return;
 
-        const containerList = document.getElementById('monthly-sales-list');
-        if (!containerList) return;
+    try {
+        if (typeof SCRIPT_URL === 'undefined' || !SCRIPT_URL) {
+            containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur : SCRIPT_URL non défini.</em>";
+            return;
+        }
+
+        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        if (!resPayments.ok) {
+            throw new Error(`Erreur HTTP: ${resPayments.status}`);
+        }
+
+        const paiements = await resPayments.json();
 
         if (!Array.isArray(paiements) || paiements.length === 0) {
             containerList.innerHTML = "<em>Aucun paiement enregistré.</em>";
@@ -618,7 +627,6 @@ async function afficherCumulVentesParMois() {
             const annee = dateObj.getFullYear();
             const cleMois = `${moisNom} ${annee}`;
 
-            // Correction ici : nettoyage et conversion de p.total
             const prixTotal = parseFloat(String(p.total || '0').replace(/[^0-9.-]+/g, "")) || 0;
 
             if (!cumulParMois[cleMois]) {
@@ -651,7 +659,5 @@ async function afficherCumulVentesParMois() {
 
     } catch (e) {
         console.error("Erreur lors du calcul du cumul des ventes par mois :", e);
-        const containerList = document.getElementById('monthly-sales-list');
-        if (containerList) containerList.innerHTML = "<em>Erreur de chargement.</em>";
-    }
-}
+        containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur de chargement des données.</em>";
+   }
