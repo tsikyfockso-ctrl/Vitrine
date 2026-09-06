@@ -477,9 +477,6 @@ async function afficherStatistiquesVentesEtStocks() {
                     produit.variantes.forEach(v => {
                         stockTotal += parseInt(v.stock || 0, 10);
                     });
-                } else {
-                    stockTotal = parseInt(produit.stock || produit.stockRestant || 0, 10);
-                }
                 
                 stockParProduitNom[nomProduitGlobal] = stockTotal;
             });
