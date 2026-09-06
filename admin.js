@@ -534,11 +534,7 @@ async function afficherStatistiquesVentesEtStocks() {
                                 <span style="font-size: 0.85rem; font-weight: bold; color: #555; min-width: 25px;">${qteVendue}</span>
                             </div>
                         </td>
-                        <td style="padding: 12px 10px; text-align: center;">
-                            <span style="background: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#e8f8f5' : '#fdebd0'}; color: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#27ae60' : '#d35400'}; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">
-                                ${stockRestant}
-                            </span>
-                        </td>
+                     </span>
                     </tr>
                 `;
             });
