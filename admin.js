@@ -518,7 +518,6 @@ async function afficherStatistiquesVentesEtStocks() {
             
             labelsProduitsOriginaux.forEach((produitKey, index) => {
                 const qteVendue = ventesParProduit[produitKey];
-                const stockRestant = stockParProduitNom[produitKey] !== undefined ? stockParProduitNom[produitKey] : 'N/A';
                 const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
                 const couleurBarre = palette12Couleurs[index % palette12Couleurs.length];
                 const nomAffichage = produitKey.charAt(0).toUpperCase() + produitKey.slice(1);
@@ -534,12 +533,6 @@ async function afficherStatistiquesVentesEtStocks() {
                                 <span style="font-size: 0.85rem; font-weight: bold; color: #555; min-width: 25px;">${qteVendue}</span>
                             </div>
                         </td>
-                        <td style="padding: 12px 10px; text-align: center;">
-                            <span style="background: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#e8f8f5' : '#fdebd0'}; color: ${stockRestant !== 'N/A' && stockRestant > 5 ? '#27ae60' : '#d35400'}; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">
-                                ${stockRestant}
-                            </span>
-                        </td>
-                    </tr>
                 `;
             });
             tableBody.innerHTML = htmlRows;
@@ -622,7 +615,7 @@ async function afficherCumulVentesParMois() {
             const totalMois = cumulParMois[mois].toFixed(2);
             htmlContent += `
                 <div onclick="ouvrirModaleMoisPasses('${mois}')" style="display: flex; justify-content: space-between; padding: 10px; margin-bottom: 6px; background: #fdfdfd; border: 1px solid #eee; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1ffec'" onmouseout="this.style.background='#fdfdfd'">
-                    <span style="font-weight: 500; color: #2c3e50;">📅 ${mois} <span style="font-size: 0.75rem; color: #27ae60; font-weight: normal;">(Cliquer pour détails)</span></span>
+                    <span style="font-weight: 500; color: #2c3e50;">📅 ${mois} <span style="font-size: 0.75rem; color: #27ae60; font-weight: normal;">détails</span></span>
                     <span style="font-weight: bold; color: #27ae60;">${totalMois} $</span>
                 </div>
             `;
