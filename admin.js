@@ -591,6 +591,7 @@ async function afficherStatistiquesVentesEtStocks() {
 document.addEventListener("DOMContentLoaded", () => {
     afficherStatistiquesVentesEtStocks();
 });
+//CUMULE DE VENTE PAR MOIS
 async function afficherCumulVentesParMois() {
     const containerList = document.getElementById('monthly-sales-list');
     if (!containerList) return;
@@ -660,4 +661,5 @@ async function afficherCumulVentesParMois() {
     } catch (e) {
         console.error("Erreur lors du calcul du cumul des ventes par mois :", e);
         containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur de chargement des données.</em>";
-   }
+    }
+}
