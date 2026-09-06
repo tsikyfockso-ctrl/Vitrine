@@ -350,7 +350,6 @@ function renderStockTable() {
                         <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Port FR ($)</th>
                         <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Méthode US</th>
                         <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Port US ($)</th>
-                        <th style="padding: 10px 8px; border: 1px solid #ddd; background: #2c3e50;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -388,7 +387,6 @@ function renderStockTable() {
                             <td style="padding: 6px; border: 1px solid #ddd; color: #555; font-size: 0.8rem;">${v.shippingMethodUS || 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; color: #e67e22;">${v.shippingCostUS !== undefined ? v.shippingCostUS + ' $' : 'N/A'}</td>
                             <td style="padding: 6px; border: 1px solid #ddd; text-align: center;">
-                                <button onclick="removeProduct(${pIndex})" style="background: #e74c3c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">Supprimer</button>
                             </td>
                         </tr>
                     `;
