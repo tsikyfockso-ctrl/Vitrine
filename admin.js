@@ -466,22 +466,6 @@ async function afficherStatistiquesVentesEtStocks() {
             const quantite = parseInt(p.quantite || 1, 10);
             ventesParProduit[nomProduit] = (ventesParProduit[nomProduit] || 0) + quantite;
         });
-
-        const stockParProduitNom = {};
-        if (typeof globalStockData !== 'undefined' && Array.isArray(globalStockData)) {
-            globalStockData.forEach(produit => {
-                const nomProduitGlobal = (produit.nom || "Produit sans nom").trim().toLowerCase();
-                
-                let stockTotal = 0;
-                if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
-                    produit.variantes.forEach(v => {
-                        stockTotal += parseInt(v.stock || 0, 10);
-                    });
-                
-                stockParProduitNom[nomProduitGlobal] = stockTotal;
-            });
-        }
-
         const labelsProduitsOriginaux = Object.keys(ventesParProduit);
         const dataQuantites = Object.values(ventesParProduit);
         const maxVente = Math.max(...dataQuantites, 1);
