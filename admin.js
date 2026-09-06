@@ -132,21 +132,6 @@ async function updateNotificationBadge() {
     }
 }
 
-function formaterDate(dateString) {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString; 
-    
-    return date.toLocaleString('fr-FR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-    });
-}
-
 async function checkAdminNotifications() {
     const inbox = document.getElementById("inbox-messages");
     if (!inbox) return;
@@ -455,38 +440,27 @@ function filterStock() {
 }
 
 setInterval(() => {
-    // On met à jour uniquement si l'utilisateur ne tape pas dans la recherche
     const searchInput = document.getElementById("stockSearchInput");
     const isSearching = searchInput && document.activeElement === searchInput;
 
     if (typeof loadStock === 'function' && document.getElementById("stock-list") && !isSearching) {
-        // Passe un paramètre silencieux pour rafraîchir les données sans écraser brutalement le scroll si possible, 
-        // ou désactivez le rechargement automatique du stock toutes les 2 secondes si ce n'est pas indispensable.
         loadStock(true);
     }
     if (typeof updateNotificationBadge === 'function') {
         updateNotificationBadge();
     }
-}, 1200000); // Augmenté à 5 secondes pour moins de conflits
+}, 1200000);
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateNotificationBadge();
-    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
-        loadStock(false);
-    }
-});
 //STATISTIQUE DE VENTE
 let mySalesChart = null;
 
 async function afficherStatistiquesVentesEtStocks() {
     try {
-        // 1. Récupérer l'historique des paiements
         const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
         const paiements = await resPayments.json();
 
         if (!Array.isArray(paiements)) return;
 
-        // 2. Regrouper les ventes par nom de produit
         const ventesParProduit = {};
         paiements.forEach(p => {
             const nomProduit = (p.produit || 'Produit sans nom').trim().toLowerCase();
@@ -494,14 +468,12 @@ async function afficherStatistiquesVentesEtStocks() {
             ventesParProduit[nomProduit] = (ventesParProduit[nomProduit] || 0) + quantite;
         });
 
-        // 3. Récupérer le stock réel depuis le tableau Excel admin (globalStockData) basé sur le nom du produit
         const stockParProduitNom = {};
         if (typeof globalStockData !== 'undefined' && Array.isArray(globalStockData)) {
             globalStockData.forEach(produit => {
                 const nomProduitGlobal = (produit.nom || "Produit sans nom").trim().toLowerCase();
                 
                 let stockTotal = 0;
-                // Si le produit contient des variantes dans le tableau Excel, on somme leur stock
                 if (Array.isArray(produit.variantes) && produit.variantes.length > 0) {
                     produit.variantes.forEach(v => {
                         stockTotal += parseInt(v.stock || 0, 10);
@@ -518,14 +490,12 @@ async function afficherStatistiquesVentesEtStocks() {
         const dataQuantites = Object.values(ventesParProduit);
         const maxVente = Math.max(...dataQuantites, 1);
 
-        // Palette de 12 couleurs distinctes
         const palette12Couleurs = [
             '#e74c3c', '#3498db', '#27ae60', '#f1c40f', 
             '#9b59b6', '#e67e22', '#1abc9c', '#34495e', 
             '#e84393', '#00b894', '#0984e3', '#6c5ce7'
         ];
 
-        // 4. Mettre à jour le graphique circulaire
         const ctx = document.getElementById('salesStatsChart');
         if (ctx) {
             if (window.mySalesChart) window.mySalesChart.destroy();
@@ -543,21 +513,15 @@ async function afficherStatistiquesVentesEtStocks() {
             });
         }
 
-        // 5. Remplir le tableau moderne avec le stock réel récupéré par correspondance de nom
         const tableBody = document.getElementById('sales-volume-table-body');
         if (tableBody) {
             let htmlRows = '';
             
             labelsProduitsOriginaux.forEach((produitKey, index) => {
                 const qteVendue = ventesParProduit[produitKey];
-                
-                // Recherche sécurisée du stock réel dans l'objet basé sur le nom en minuscules
                 const stockRestant = stockParProduitNom[produitKey] !== undefined ? stockParProduitNom[produitKey] : 'N/A';
-                
                 const pourcentage = Math.min(Math.round((qteVendue / maxVente) * 100), 100);
                 const couleurBarre = palette12Couleurs[index % palette12Couleurs.length];
-
-                // Restitution propre du nom avec majuscule initiale si besoin
                 const nomAffichage = produitKey.charAt(0).toUpperCase() + produitKey.slice(1);
 
                 htmlRows += `
@@ -587,17 +551,10 @@ async function afficherStatistiquesVentesEtStocks() {
     }
 }
 
-// Lancer le chargement
-document.addEventListener("DOMContentLoaded", () => {
-    afficherStatistiquesVentesEtStocks();
-});
-
-// CUMULE DE VENTE PAR MOIS
+//CUMULE DE VENTE PAR MOIS
 async function afficherCumulVentesParMois() {
     const containerList = document.getElementById('monthly-sales-list');
     if (!containerList) return;
-
-    containerList.innerHTML = "<em style='color: #666;'>Chargement des cumuls...</em>";
 
     try {
         if (typeof SCRIPT_URL === 'undefined' || !SCRIPT_URL) {
@@ -666,3 +623,13 @@ async function afficherCumulVentesParMois() {
         containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur de chargement des données.</em>";
     }
 }
+
+// Initialisation globale au chargement du DOM
+document.addEventListener("DOMContentLoaded", () => {
+    updateNotificationBadge();
+    if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
+        loadStock(false);
+    }
+    afficherStatistiquesVentesEtStocks();
+    afficherCumulVentesParMois();
+});
