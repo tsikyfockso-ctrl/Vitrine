@@ -622,7 +622,7 @@ async function afficherCumulVentesParMois() {
             const totalMois = cumulParMois[mois].toFixed(2);
             htmlContent += `
                 <div onclick="ouvrirModaleMoisPasses('${mois}')" style="display: flex; justify-content: space-between; padding: 10px; margin-bottom: 6px; background: #fdfdfd; border: 1px solid #eee; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1ffec'" onmouseout="this.style.background='#fdfdfd'">
-                    <span style="font-weight: 500; color: #2c3e50;">📅 ${mois} <span style="font-size: 0.75rem; color: #27ae60; font-weight: normal;">(Cliquer pour détails)</span></span>
+                    <span style="font-weight: 500; color: #2c3e50;">${mois} <span style="font-size: 0.75rem; color: #27ae60; font-weight: normal;">(détails)</span></span>
                     <span style="font-weight: bold; color: #27ae60;">${totalMois} $</span>
                 </div>
             `;
