@@ -40,9 +40,12 @@ def api_get(url, token, params=None):
         response = requests.get(url, headers=headers, params=params, timeout=60)
         print(f"    📡 [API Status] {response.status_code} pour URL: {url} avec params={params}")
         if response.status_code == 200:
-            data = response.json()
-            if isinstance(data, dict):
-                return data.get("data")
+            res_json = response.json()
+            if isinstance(res_json, dict):
+                if not res_json.get("result", True):
+                    print(f"    ⚠️ [API Message] {res_json.get('message')}")
+                    return None
+                return res_json.get("data")
         else:
             print(f"    ⚠️ [API Erreur Texte] {response.text}")
     except Exception as e:
@@ -201,29 +204,20 @@ def generate_update_stock_informatique_json():
             params = {
                 "page": page_num,
                 "size": 100,
-                "keyword": keyword,
+                "keyWord": keyword,
                 "features": "enable_description"
             }
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
-            
-            # 🔎 DEBUG pour analyser la structure exacte retournée par l'API v2
-            print(f"    🔎 DEBUG Contenu brut (Page {page_num}) : {str(raw_response)[:300]}")
-            
             time.sleep(1.2)
             
             if raw_response and isinstance(raw_response, dict):
-                print(f"    🔑 Clés disponibles : {list(raw_response.keys())}")
-                
-                # Prise en charge élargie des structures de listes de produits selon l'API v2
                 content_data = raw_response.get("content") or raw_response.get("data")
                 temp_list = []
                 if isinstance(content_data, dict):
                     temp_list = content_data.get("productList", []) or content_data.get("list", []) or content_data.get("records", [])
                 elif isinstance(content_data, list):
                     temp_list = content_data
-                elif isinstance(raw_response.get("list"), list):
-                    temp_list = raw_response.get("list")
 
                 if temp_list:
                     print(f"    📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
