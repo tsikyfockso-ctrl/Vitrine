@@ -6,7 +6,7 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Computer Accessoires", "Desktop Computer", "Laptops", "Networking", "Informatique"]
+MOTS_CLES_RECHERCHE = ["Computer Accessoires", "Desktop Computer", "Laptops", "Networking", "Informatique", "usb hub"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
@@ -19,7 +19,7 @@ def get_cj_access_token():
         return None
     payload = {"apiKey": CJ_API_KEY}
     try:
-        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=60)
+        response = requests.post(CJ_AUTH_URL, json=payload, headers=headers, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict) and data.get("result"):
@@ -36,7 +36,7 @@ def api_get(url, token, params=None):
         "Content-Type": "application/json"
     }
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=60)
+        response = requests.get(url, headers=headers, params=params, timeout=15)
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
