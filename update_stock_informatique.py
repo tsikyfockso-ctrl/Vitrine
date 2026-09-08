@@ -207,16 +207,23 @@ def generate_update_stock_informatique_json():
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
             
-            # 🕒 Pause obligatoire pour respecter la limite QPS de 1 requête / seconde de l'API CJ
+            # 🔎 DEBUG pour analyser la structure exacte retournée par l'API v2
+            print(f"    🔎 DEBUG Contenu brut (Page {page_num}) : {str(raw_response)[:300]}")
+            
             time.sleep(1.2)
             
             if raw_response and isinstance(raw_response, dict):
-                content_data = raw_response.get("content")
+                print(f"    🔑 Clés disponibles : {list(raw_response.keys())}")
+                
+                # Prise en charge élargie des structures de listes de produits selon l'API v2
+                content_data = raw_response.get("content") or raw_response.get("data")
                 temp_list = []
                 if isinstance(content_data, dict):
-                    temp_list = content_data.get("productList", [])
+                    temp_list = content_data.get("productList", []) or content_data.get("list", []) or content_data.get("records", [])
                 elif isinstance(content_data, list):
                     temp_list = content_data
+                elif isinstance(raw_response.get("list"), list):
+                    temp_list = raw_response.get("list")
 
                 if temp_list:
                     print(f"    📄 Page {page_num} : {len(temp_list)} produits récupérés pour '{keyword}'.")
@@ -274,7 +281,7 @@ def generate_update_stock_informatique_json():
             ))
 
             variants = get_product_variants(token, pid)
-            time.sleep(1.0) # Petite pause aussi pour la requête des variantes si nécessaire
+            time.sleep(1.0)
             
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
