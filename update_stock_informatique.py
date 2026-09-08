@@ -37,12 +37,15 @@ def api_get(url, token, params=None):
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=60)
+        print(f"    📡 [API Status] {response.status_code} pour URL: {url} avec params={params}")
         if response.status_code == 200:
             data = response.json()
             if isinstance(data, dict):
                 return data.get("data")
-    except Exception:
-        pass
+        else:
+            print(f"    ⚠️ [API Erreur Texte] {response.text}")
+    except Exception as e:
+        print(f"    ⚠️ [API Exception] {e}")
     return None
 
 def get_product_variants(token, pid):
@@ -182,6 +185,7 @@ def generate_update_stock_informatique_json():
             print(f"    ⚠️ Impossible de lire l'ancien fichier JSON : {e}")
 
     if not token:
+        print("    ⚠️ Token d'accès introuvable ou invalide.")
         if produits_existants:
             with open("update_stock_informatique.json", "w", encoding="utf-8") as f:
                 json.dump(list(produits_existants.values()), f, ensure_ascii=False, indent=4)
@@ -201,7 +205,6 @@ def generate_update_stock_informatique_json():
             }
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
-            print(f"    🔎 DEBUG Response pour '{keyword}' (Page {page_num}) : Type={type(raw_response)}")
             
             if raw_response and isinstance(raw_response, dict):
                 content_data = raw_response.get("content")
