@@ -1,6 +1,7 @@
 from collections import defaultdict
 import os
 import json
+import time
 import requests
 from deep_translator import GoogleTranslator
 
@@ -206,6 +207,9 @@ def generate_update_stock_informatique_json():
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
             
+            # 🕒 Pause obligatoire pour respecter la limite QPS de 1 requête / seconde de l'API CJ
+            time.sleep(1.2)
+            
             if raw_response and isinstance(raw_response, dict):
                 content_data = raw_response.get("content")
                 temp_list = []
@@ -270,6 +274,8 @@ def generate_update_stock_informatique_json():
             ))
 
             variants = get_product_variants(token, pid)
+            time.sleep(1.0) # Petite pause aussi pour la requête des variantes si nécessaire
+            
             if not variants or not isinstance(variants, list):
                 variants = item_data.get("variants", []) or item_data.get("variantList", [])
             if not variants:
@@ -325,7 +331,9 @@ def generate_update_stock_informatique_json():
                 
                 if vid and poids_var > 0:
                     m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
+                    time.sleep(0.5)
                     m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
+                    time.sleep(0.5)
 
                 if m_us == "N/A" and pid in produits_existants:
                     old_prod = produits_existants[pid]
