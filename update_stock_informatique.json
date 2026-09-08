@@ -120,9 +120,277 @@
                 "poids": 2180.0,
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 24.46,
+                "shippingCostFR": 27.94,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 30.12
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2408240308171618500",
+        "nom": "Sac à doublure horizontale en cuir Crazy Horse multifonctionnel pour ordinateur",
+        "prixBase": 12.27,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/6257e94a-cb8d-497f-813b-b7120d1de090.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD211882902BY",
+                "vid": "2408240308171618700",
+                "taille": "L",
+                "couleur": "Brown",
+                "prix": 12.27,
+                "poids": 380.0,
+                "stock": 37670,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.28,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.15
+            },
+            {
+                "sku": "CJYD211882904DW",
+                "vid": "2408240308171618900",
+                "taille": "L",
+                "couleur": "Coffee",
+                "prix": 12.27,
+                "poids": 380.0,
+                "stock": 37670,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.28,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.15
+            },
+            {
+                "sku": "CJYD211882905EV",
+                "vid": "2408240308171619000",
+                "taille": "M",
+                "couleur": "Coffee",
+                "prix": 12.27,
+                "poids": 280.0,
+                "stock": 37670,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.28,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2409280743101607000",
+        "nom": "Câble réseau CAT6 de cavalier de réseau d'ordinateur RJ45",
+        "prixBase": 1.0,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/5a5ae72a-ec65-407a-99aa-0d477cb7e821.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD214898001AZ",
+                "vid": "2409280743101607200",
+                "taille": "2 M",
+                "couleur": "Silver Gray",
+                "prix": 1.0,
+                "poids": 120.0,
+                "stock": 13370,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "20FB13BD-CF9F-47D7-9013-F87C3DEF455B",
+        "nom": "Hub de clavier de souris d'ordinateur portable",
+        "prixBase": 1.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/16012224/1193438556856.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJXFLPSM00276-BLACK-4 HOLES",
+                "vid": "15874C33-FDBA-4288-9AC8-A0CE51DC365E",
+                "taille": "4 holes",
+                "couleur": "Black",
+                "prix": 1.2,
+                "poids": 120.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJXFLPSM00276-BLACK 2PCS-7 HOLES",
+                "vid": "2511150628191629400",
+                "taille": "7 holes",
+                "couleur": "Black 2pcs",
+                "prix": 1.2,
+                "poids": 310.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJXFLPSM00276-WHITE-7 HOLES",
+                "vid": "A248B82F-07A9-4968-A0C0-B0838AEDB161",
+                "taille": "7 holes",
+                "couleur": "White",
+                "prix": 1.2,
+                "poids": 160.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJXFLPSM00276-BLACK-7 HOLES",
+                "vid": "C6599F97-6925-4D50-85C1-35EA7BC6EE1B",
+                "taille": "7 holes",
+                "couleur": "Black",
+                "prix": 1.2,
+                "poids": 160.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJXFLPSM00276-WHITE-4 HOLES",
+                "vid": "F3E256B2-02BF-4213-8FEE-57851D46CBA8",
+                "taille": "4 holes",
+                "couleur": "White",
+                "prix": 1.2,
+                "poids": 120.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1770742791589601280",
+        "nom": "Ultra-thin USB Charging Intelligent Induction LED Light",
+        "prixBase": 1.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17109792/2403210922350326800.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT199311101AZ",
+                "vid": "1770742791665098752",
+                "taille": "1PCS",
+                "couleur": "10CM",
+                "prix": 1.45,
+                "poids": 77.0,
+                "stock": 59570,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.12,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJJT199311102BY",
+                "vid": "1770742791736401920",
+                "taille": "1PCS",
+                "couleur": "20CM",
+                "prix": 1.45,
+                "poids": 100.0,
+                "stock": 59570,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.12,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJJT199311103CX",
+                "vid": "1770742791795122176",
+                "taille": "1PCS",
+                "couleur": "30CM",
+                "prix": 1.45,
+                "poids": 115.0,
+                "stock": 59570,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.12,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJJT199311104DW",
+                "vid": "1770742791853842432",
+                "taille": "1PCS",
+                "couleur": "40CM",
+                "prix": 1.45,
+                "poids": 140.0,
+                "stock": 59570,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.99,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJJT199311106FU",
+                "vid": "2608140726101604700",
+                "taille": "2PCS",
+                "couleur": "20CM",
+                "prix": 1.45,
+                "poids": 190.0,
+                "stock": 59570,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.12,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 8.1
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1451740912882421760",
+        "nom": "4.2A Dual USB Car Mobile Phone Charger Motorcycle ATV Universal 12Vor24V Modified Lead",
+        "prixBase": 4.25,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/528b2ad1-697c-4615-8534-7f9657eaaea2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJMT132799301AZ",
+                "vid": "1451740912949530624",
+                "taille": "Car Power",
+                "couleur": "Blue",
+                "prix": 4.25,
+                "poids": 122.0,
+                "stock": 72288,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJMT132799302BY",
+                "vid": "1451740912949530625",
+                "taille": "Car Power",
+                "couleur": "Red",
+                "prix": 4.25,
+                "poids": 122.0,
+                "stock": 72288,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.63
             }
         ]
     }
