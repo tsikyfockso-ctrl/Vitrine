@@ -6,7 +6,7 @@ from deep_translator import GoogleTranslator
 
 # Clé API CJ (récupérée depuis les secrets GitHub)
 CJ_API_KEY = os.environ.get("CJ_API_KEY")
-MOTS_CLES_RECHERCHE = ["Computer", "Laptop", "Mouse", "usb hub", "keyboard", "monitor"]
+MOTS_CLES_RECHERCHE = ["computer", "laptop", "mouse", "usb hub", "keyboard", "monitor"]
 
 CJ_AUTH_URL = "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken"
 CJ_PRODUCT_LIST_V2_URL = "https://developers.cjdropshipping.com/api2.0/v1/product/listV2"
@@ -144,17 +144,13 @@ def nettoyer_texte(val):
         val = val[0] if val else ""
     val_str = str(val).strip()
     
-    # Si le texte reçu est une erreur serveur HTML de l'API, 
-    # on évite de planter mais on ne met plus "Produit CJ" aveuglément
     if "500" in val_str or "Server Error" in val_str or "<html" in val_str.lower():
-        return "" # ou un nom générique basé sur l'ID si vous préférez
+        return ""
         
     return val_str.strip('[]"\'')
 
 def traduire_texte(texte):
     texte_propre = nettoyer_texte(texte)
-    # Si le texte propre est vide ou invalide, on retourne une chaîne vide 
-    # ou on garde le texte d'origine au lieu de forcer "Produit CJ"
     if not texte_propre:
         return "Nom indisponible" 
         
@@ -170,7 +166,6 @@ def traduire_texte(texte):
 def generate_update_stock_informatique_json():
     token = get_cj_access_token()
     
-    # 1. Charger l'ancien fichier JSON existant pour préserver les produits ayant encore du stock
     produits_existants = {}
     if os.path.exists("update_stock_informatique.json"):
         try:
@@ -180,7 +175,6 @@ def generate_update_stock_informatique_json():
                     for p in old_data:
                         pid_old = p.get("pid")
                         if pid_old:
-                            # On vérifie si au moins une variante a un stock > 0
                             has_stock = any(v.get("stock", 0) > 0 for v in p.get("variantes", []))
                             if has_stock:
                                 produits_existants[pid_old] = p
@@ -188,7 +182,6 @@ def generate_update_stock_informatique_json():
             print(f"    ⚠️ Impossible de lire l'ancien fichier JSON : {e}")
 
     if not token:
-        # S'il n'y a pas de token, on conserve au moins ce qu'on a déjà en stock
         if produits_existants:
             with open("update_stock_informatique.json", "w", encoding="utf-8") as f:
                 json.dump(list(produits_existants.values()), f, ensure_ascii=False, indent=4)
@@ -203,11 +196,12 @@ def generate_update_stock_informatique_json():
             params = {
                 "page": page_num,
                 "size": 100,
-                "keyWord": keyword,
+                "keyword": keyword,
                 "features": "enable_description"
             }
             
             raw_response = api_get(CJ_PRODUCT_LIST_V2_URL, token, params=params)
+            print(f"    🔎 DEBUG Response pour '{keyword}' (Page {page_num}) : Type={type(raw_response)}")
             
             if raw_response and isinstance(raw_response, dict):
                 content_data = raw_response.get("content")
@@ -238,7 +232,6 @@ def generate_update_stock_informatique_json():
     products_to_process = list(all_items_dict.values())
 
     if not products_to_process:
-        # Si l'API ne renvoie rien, on garde les anciens produits en stock
         resultat_final = list(produits_existants.values())
         with open("update_stock_informatique.json", "w", encoding="utf-8") as f:
             json.dump(resultat_final, f, ensure_ascii=False, indent=4)
@@ -247,7 +240,6 @@ def generate_update_stock_informatique_json():
 
     print(f"📦 Total de produits uniques à traiter : {len(products_to_process)}")
     
-    # On commence par inclure les anciens produits qui ont encore du stock
     produits_figures = produits_existants.copy()
     
     for index, item_data in enumerate(products_to_process, start=1):
@@ -332,8 +324,6 @@ def generate_update_stock_informatique_json():
                     m_fr, c_fr = get_logistics_details_for_country(token, vid, poids_var, ship_to="FR")
                     m_us, c_us = get_logistics_details_for_country(token, vid, poids_var, ship_to="US")
 
-                # --- SÉCURITÉ ANTI-N/A ---
-                # Si l'API retourne N/A pour les US, on va chercher si l'ancienne version avait une valeur valide
                 if m_us == "N/A" and pid in produits_existants:
                     old_prod = produits_existants[pid]
                     for old_v in old_prod.get("variantes", []):
@@ -341,7 +331,7 @@ def generate_update_stock_informatique_json():
                             m_us = old_v.get("shippingMethodUS")
                             c_us = old_v.get("shippingCostUS")
                             break
-                # Idem par sécurité pour la France
+
                 if m_fr == "N/A" and pid in produits_existants:
                     old_prod = produits_existants[pid]
                     for old_v in old_prod.get("variantes", []):
@@ -349,7 +339,6 @@ def generate_update_stock_informatique_json():
                             m_fr = old_v.get("shippingMethodFR")
                             c_fr = old_v.get("shippingCostFR")
                             break
-                # -------------------------
 
                 variant_obj = {
                     "sku": sku_var,
@@ -368,7 +357,6 @@ def generate_update_stock_informatique_json():
                 if variant_obj not in liste_variantes_produit:
                     liste_variantes_produit.append(variant_obj)
 
-            # Harmonisation des transporteurs
             best_fr_method, best_fr_cost = "N/A", 0.0
             best_us_method, best_us_cost = "N/A", 0.0
 
@@ -392,7 +380,6 @@ def generate_update_stock_informatique_json():
                     v["shippingMethodUS"] = best_us_method
                     v["shippingCostUS"] = best_us_cost
 
-            # Vérification si le nouveau produit a du stock
             has_stock_new = any(v.get("stock", 0) > 0 for v in liste_variantes_produit)
 
             produit_unique = {
@@ -406,11 +393,9 @@ def generate_update_stock_informatique_json():
             }
 
             if has_stock_new:
-                # S'il a du stock, on l'ajoute ou on met à jour
                 produits_figures[pid] = produit_unique
                 print(f"    ✅ [{index}/{len(products_to_process)}] Ajouté/Mis à jour (En stock) : {nom_traduite[:30]}...")
             else:
-                # S'il n'a plus de stock (0), on le supprime de la liste s'il y était
                 if pid in produits_figures:
                     del produits_figures[pid]
                 print(f"    ❌ [{index}/{len(products_to_process)}] Écarté (Rupture de stock / 0) : {nom_traduite[:30]}...")
