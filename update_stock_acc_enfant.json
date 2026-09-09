@@ -3647,7 +3647,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2504170323181620000",
-        "nom": "Bow Hair Band Cute Super Cute Accessories Baby Girl Hair Accessories Headdress",
+        "nom": "Bandeau à nœud pour cheveux, accessoires mignons et Super mignons, accessoires pour cheveux de bébé fille, coiffure",
         "prixBase": 0.66,
         "productFee": 0.0,
         "images": [
@@ -9513,6 +9513,109 @@
                 "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1385427595620913152",
+        "nom": "Lit pliant pour bébé, sac pour maman, Portable, à une épaule, multifonctionnel, grande capacité, sortie Portable",
+        "prixBase": 7.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1619159671633.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE109439901AZ",
+                "vid": "1385427597000839168",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439902BY",
+                "vid": "1385427597009227776",
+                "taille": "N/A",
+                "couleur": "Beige",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439903CX",
+                "vid": "1385427597017616384",
+                "taille": "N/A",
+                "couleur": "Dark gray coffee",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439904DW",
+                "vid": "1385427597026004992",
+                "taille": "N/A",
+                "couleur": "Dark Blue",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439905EV",
+                "vid": "1385427597034393600",
+                "taille": "N/A",
+                "couleur": "Bright red",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439906FU",
+                "vid": "1385427597042782208",
+                "taille": "N/A",
+                "couleur": "Light gray blue",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
+            },
+            {
+                "sku": "CJYE109439907GT",
+                "vid": "1385427597046976512",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 7.63,
+                "poids": 1820.0,
+                "stock": 280000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.32,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 28.12
             }
         ]
     }
