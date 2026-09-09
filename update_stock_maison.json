@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -186,30 +186,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -470,7 +457,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1944947310978183169",
-        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
+        "nom": "Gazebo à toit rigide gris 10x13, avec rideaux de toit en acier, filet, crochet de plafond de pavillon pour Patio et jardin",
         "prixBase": 1191.05,
         "productFee": 0.0,
         "images": [
@@ -1650,7 +1637,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1821469053664776192",
-        "nom": "Kitchen Floor Mat Two-piece Set Of Non-slip, Waterproof And Easy To Scrub For Home, Kitchen",
+        "nom": "Tapis de sol de cuisine, ensemble de deux pièces, antidérapant, imperméable et facile à nettoyer pour la maison et la cuisine",
         "prixBase": 12.8,
         "productFee": 0.0,
         "images": [
@@ -4165,7 +4152,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "17D00524-1730-4798-847B-046104CD85CE",
-        "nom": "Grande boucle d'oreille avec rideau de douche de construction moderne, fille africaine avec cheveux noirs, Graffiti Art Hip Hop, pour décor de salle de bain",
+        "nom": "Grande boucle d'oreille avec rideau de douche de bâtiment moderne, fille africaine avec cheveux noirs, Design artistique Graffiti Hip Hop, décor de salle de bain",
         "prixBase": 4.5,
         "productFee": 0.0,
         "images": [
@@ -4246,7 +4233,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -5457,6 +5444,146 @@
                 "shippingCostFR": 79.17,
                 "shippingMethodUS": "CJPacket Sea",
                 "shippingCostUS": 82.98
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406100536001624600",
+        "nom": "Lampe suspendue en métal de jardin solaire simple à la mode",
+        "prixBase": 4.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/d3a396ad-f50d-44c9-803a-2c1c198e67e1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD205703502BY",
+                "vid": "2406100536001624800",
+                "taille": "1 Warm Color Conical",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 425.0,
+                "stock": 78797,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 11.71,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            },
+            {
+                "sku": "CJYD205703503CX",
+                "vid": "2406100536001625000",
+                "taille": "1 Warm Vertical Bar",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 700.0,
+                "stock": 78797,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 11.71,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            },
+            {
+                "sku": "CJYD205703504DW",
+                "vid": "2406100536001625200",
+                "taille": "1 Warm White Oval",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 605.0,
+                "stock": 78797,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 11.71,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            },
+            {
+                "sku": "CJYD205703505EV",
+                "vid": "2406100536001625400",
+                "taille": "1 Warm White Round",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 599.0,
+                "stock": 78797,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 11.71,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            },
+            {
+                "sku": "CJYD205703506FU",
+                "vid": "2406100536001625600",
+                "taille": "Arc Chain Lamp",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 710.0,
+                "stock": 78797,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 15.32,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            },
+            {
+                "sku": "CJYD205703507GT",
+                "vid": "2406100536001625800",
+                "taille": "Warm Color Conical2pcs",
+                "couleur": "1.2V",
+                "prix": 4.63,
+                "poids": 1188.0,
+                "stock": 78797,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 11.71,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.55
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1904804418548293634",
+        "nom": "Tissu noir 85kg d'Oxford de support de fer de chaise de pêche avec le parasol",
+        "prixBase": 40.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/512217e1-27c3-4c8d-9f3d-0df37d9d184c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU233766501AZ",
+                "vid": "1904804418913198081",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 40.82,
+                "poids": 5920.0,
+                "stock": 8,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2030172707814993921",
+        "nom": "Hangar de rangement extérieur en acier galvanisé de 6 x 8 pi avec portes doubles verrouillables, appentis en métal pour hangar avec panneau lumineux PC gratuit pour outils, vélos et patio sans planchers",
+        "prixBase": 336.7,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17728416/be6eba38-20ef-4a75-b624-3c586a062417.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27791380001",
+                "vid": "2030172708070846466",
+                "taille": "N/A",
+                "couleur": "Carbon Black",
+                "prix": 336.7,
+                "poids": 29030.0,
+                "stock": 49,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
