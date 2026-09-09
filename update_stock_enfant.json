@@ -409,8 +409,8 @@
                 "stock": 2033216,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.77,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.88
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJET114831632FU",
@@ -566,7 +566,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.38,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.88
+                "shippingCostUS": 7.17
             },
             {
                 "sku": "CJET114831644RI",
@@ -681,7 +681,7 @@
                 "poids": 200.0,
                 "stock": 2033216,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.3
             },
@@ -846,7 +846,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1371372671513792512",
-        "nom": "Genouillère de protection pour enfants, chauffe-jambes de sécurité pour bébé rampant",
+        "nom": "Protector Knee-Pad Kids Safety Leg-Warmer Crawling Baby Cush",
         "prixBase": 7.4,
         "productFee": 0.0,
         "images": [
@@ -1068,7 +1068,7 @@
                 "poids": 196.0,
                 "stock": 145458,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.14,
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.25
             },
@@ -1107,7 +1107,7 @@
                 "poids": 196.0,
                 "stock": 145458,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.14,
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.25
             },
@@ -1161,7 +1161,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.34,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.82
+                "shippingCostUS": 7.1
             }
         ]
     },
@@ -3687,6 +3687,278 @@
                 "shippingCostFR": 5.75,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.85
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406110244101620100",
+        "nom": "Costume à manches courtes avec patch de crème glacée pour bébé",
+        "prixBase": 4.44,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/60b70cd2-383e-479a-bb43-9f15d73253cf.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE205756001AZ",
+                "vid": "2406110244101620300",
+                "taille": "6to9M",
+                "couleur": "Camel",
+                "prix": 4.44,
+                "poids": 120.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756002BY",
+                "vid": "2406110244101620500",
+                "taille": "9to12M",
+                "couleur": "Camel",
+                "prix": 4.44,
+                "poids": 130.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756003CX",
+                "vid": "2406110244101620600",
+                "taille": "12to18M",
+                "couleur": "Camel",
+                "prix": 4.44,
+                "poids": 140.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756004DW",
+                "vid": "2406110244101620800",
+                "taille": "18to24M",
+                "couleur": "Camel",
+                "prix": 4.44,
+                "poids": 160.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE205756005EV",
+                "vid": "2406110244101621000",
+                "taille": "2to3Y",
+                "couleur": "Camel",
+                "prix": 4.44,
+                "poids": 170.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756006FU",
+                "vid": "2406110244101621200",
+                "taille": "6to9M",
+                "couleur": "White",
+                "prix": 4.44,
+                "poids": 120.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756007GT",
+                "vid": "2406110244101621300",
+                "taille": "9to12M",
+                "couleur": "White",
+                "prix": 4.44,
+                "poids": 130.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756008HS",
+                "vid": "2406110244101621500",
+                "taille": "12to18M",
+                "couleur": "White",
+                "prix": 4.44,
+                "poids": 140.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756009IR",
+                "vid": "2406110244101621700",
+                "taille": "18to24M",
+                "couleur": "White",
+                "prix": 4.44,
+                "poids": 160.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756010JQ",
+                "vid": "2406110244101621800",
+                "taille": "2to3Y",
+                "couleur": "White",
+                "prix": 4.44,
+                "poids": 170.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE205756011KP",
+                "vid": "2406110244101622000",
+                "taille": "6to9M",
+                "couleur": "Pink",
+                "prix": 4.44,
+                "poids": 120.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756012LO",
+                "vid": "2406110244101622100",
+                "taille": "9to12M",
+                "couleur": "Pink",
+                "prix": 4.44,
+                "poids": 130.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756013MN",
+                "vid": "2406110244101622300",
+                "taille": "12to18M",
+                "couleur": "Pink",
+                "prix": 4.44,
+                "poids": 140.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756014NM",
+                "vid": "2406110244101622500",
+                "taille": "18to24M",
+                "couleur": "Pink",
+                "prix": 4.44,
+                "poids": 160.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE205756015OL",
+                "vid": "2406110244101622600",
+                "taille": "2to3Y",
+                "couleur": "Pink",
+                "prix": 4.44,
+                "poids": 170.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE205756016PK",
+                "vid": "2406110244101622800",
+                "taille": "6to9M",
+                "couleur": "Blue",
+                "prix": 4.44,
+                "poids": 120.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756017QJ",
+                "vid": "2406110244101623000",
+                "taille": "9to12M",
+                "couleur": "Blue",
+                "prix": 4.44,
+                "poids": 130.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756018RI",
+                "vid": "2406110244101623200",
+                "taille": "12to18M",
+                "couleur": "Blue",
+                "prix": 4.44,
+                "poids": 140.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYE205756019SH",
+                "vid": "2406110244101623300",
+                "taille": "18to24M",
+                "couleur": "Blue",
+                "prix": 4.44,
+                "poids": 160.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE205756020TG",
+                "vid": "2406110244101623500",
+                "taille": "2to3Y",
+                "couleur": "Blue",
+                "prix": 4.44,
+                "poids": 170.0,
+                "stock": 247555,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
             }
         ]
     }
