@@ -458,32 +458,31 @@ setInterval(() => {
     }
 }, 1200000);
 
-// admin.js
+// MARGE DE POURCENTAGE 
 
 document.addEventListener('DOMContentLoaded', () => {
     const inputMarge = document.getElementById('margeInput');
     const boutonEnregistrer = document.getElementById('btnSaveMarge');
 
     if (inputMarge) {
-        // 1. Charger la marge enregistrée existante (par défaut 0 si rien n'est défini)
+        // Charger la marge existante au démarrage de la page admin
         const margeActuelle = localStorage.getItem('admin_marge_pourcentage') || '0';
         inputMarge.value = margeActuelle;
     }
 
     if (boutonEnregistrer) {
-        // 2. Enregistrer la nouvelle valeur lors du clic
         boutonEnregistrer.addEventListener('click', () => {
             const nouvelleMarge = inputMarge.value;
             
             if (nouvelleMarge !== '' && !isNaN(nouvelleMarge)) {
                 localStorage.setItem('admin_marge_pourcentage', nouvelleMarge);
-                alert('Marge commerciale mise à jour avec succès ! Elle s\'applique désormais sur la vitrine.');
+                alert('Marge commerciale mise à jour avec succès !');
             } else {
-                alert('Veuillez entrer un nombre valide pour la marge.');
+                alert('Veuillez entrer un nombre valide.');
             }
         });
     }
-});
+})
 
 //STATISTIQUE DE VENTE
 let mySalesChart = null;
