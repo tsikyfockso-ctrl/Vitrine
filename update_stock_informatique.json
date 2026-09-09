@@ -70,7 +70,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 24.46,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.12
+                "shippingCostUS": 30.09
             },
             {
                 "sku": "CJYD203644802BY",
@@ -83,7 +83,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 24.46,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.12
+                "shippingCostUS": 30.09
             },
             {
                 "sku": "CJYD203644803CX",
@@ -96,7 +96,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 24.46,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.12
+                "shippingCostUS": 30.09
             },
             {
                 "sku": "CJYD203644804DW",
@@ -235,8 +235,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.58,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.74
             },
             {
                 "sku": "CJXFLPSM00276-WHITE-7 HOLES",
@@ -259,8 +259,8 @@
                 "prix": 1.2,
                 "poids": 160.0,
                 "stock": 50379,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.51,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.74
             },
@@ -359,7 +359,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1451740912882421760",
-        "nom": "4.2A Dual USB Car Mobile Phone Charger Motorcycle ATV Universal 12Vor24V Modified Lead",
+        "nom": "Chargeur de téléphone portable double USB 4,2a pour voiture, moto, ATV, universel, 12V ou 24V, plomb modifié",
         "prixBase": 4.25,
         "productFee": 0.0,
         "images": [
@@ -391,6 +391,107 @@
                 "shippingCostFR": 5.74,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.63
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1373833606748835840",
+        "nom": "Moniteur d'ordinateur en alliage d'aluminium, support de rangement pour ordinateur de bureau, Base surélevée",
+        "prixBase": 28.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1616382186663.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJPB105043502BY",
+                "vid": "1373833608166510592",
+                "taille": "N/A",
+                "couleur": "50x22x6cm",
+                "prix": 28.65,
+                "poids": 3136.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 36.45,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 42.27
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406260404451628700",
+        "nom": "Carte son d'enregistrement sur ordinateur, équipement de Streaming en direct intégré, USB",
+        "prixBase": 5.99,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/06/26/09/1b715ff5-8cd0-4e53-88d0-c9ea22910265.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD206902401AZ",
+                "vid": "2406260404451628900",
+                "taille": "N/A",
+                "couleur": "AK3",
+                "prix": 5.99,
+                "poids": 420.0,
+                "stock": 29164,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 9.82,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.33
+            },
+            {
+                "sku": "CJYD206902402BY",
+                "vid": "2406260404451629100",
+                "taille": "N/A",
+                "couleur": "USB Mini Microphone",
+                "prix": 5.99,
+                "poids": 420.0,
+                "stock": 29164,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 9.82,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.33
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1400340680026492928",
+        "nom": "USB Drive-free Camera, External Camera With Microphone",
+        "prixBase": 1.84,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1622702115091.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJCZ115756501AZ",
+                "vid": "1400343045077078016",
+                "taille": "USB",
+                "couleur": "Black",
+                "prix": 1.84,
+                "poids": 138.0,
+                "stock": 60169,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.75,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.97
+            },
+            {
+                "sku": "CJCZ115756502BY",
+                "vid": "1400343045085466624",
+                "taille": "USB",
+                "couleur": "Red",
+                "prix": 1.84,
+                "poids": 138.0,
+                "stock": 60169,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.75,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.97
             }
         ]
     }
