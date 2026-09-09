@@ -18,21 +18,19 @@ window.onload = async () => {
     afficherMessagesClient();
 };
 
-// script.js
-
-// 1. Récupérer la marge enregistrée dans la session admin
+ // Récupérer la marge enregistrée dans la session admin
 function obtenirMargeAdmin() {
     return parseFloat(localStorage.getItem('admin_marge_pourcentage')) || 0.0;
 }
 
-// 2. Calculer le prix de vente affiché sur la vitrine
+// Calculer le prix de vente affiché sur la vitrine avec la marge
 function calculerPrixVitrine(prixOriginal) {
     const marge = obtenirMargeAdmin();
     const prixFinal = prixOriginal * (1 + marge / 100);
-    return prixFinal.toFixed(2); // Arrondi à 2 décimales
+    return prixFinal.toFixed(2);
 }
 
-// 3. Charger et afficher les produits depuis update_stock_informatique.json
+// Charger et afficher les produits depuis update_stock_informatique.json
 async function chargerVitrine() {
     try {
         const reponse = await fetch('update_stock_informatique.json');
@@ -44,7 +42,6 @@ async function chargerVitrine() {
         conteneur.innerHTML = '';
 
         produits.forEach(produit => {
-            // Le prix d'origine du JSON reste intact, on applique le calcul ici
             const prixBrut = produit.prixBase || (produit.variantes && produit.variantes[0] ? produit.variantes[0].prix : 0);
             const prixAffiche = calculerPrixVitrine(prixBrut);
 
@@ -62,7 +59,6 @@ async function chargerVitrine() {
     }
 }
 
-// Lancer le chargement au démarrage de la page
 document.addEventListener('DOMContentLoaded', chargerVitrine);
 
 // --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
