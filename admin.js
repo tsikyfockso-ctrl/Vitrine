@@ -758,4 +758,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     afficherStatistiquesVentesEtStocks();
     afficherCumulVentesParMois();
+// Actualisation silencieuse toutes les 1000ms (1 seconde)
+    setInterval(() => {
+        afficherCumulVentesParMois(true);
+    }, 1000); 
 });
