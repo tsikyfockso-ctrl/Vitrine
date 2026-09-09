@@ -497,6 +497,7 @@ async function afficherStatistiquesVentesEtStocks() {
             '#e84393', '#00b894', '#0984e3', '#6c5ce7'
         ];
 
+        // 1. Gestion du graphique en camembert (Cercle de statistiques) - INCHANGÉ
         const ctx = document.getElementById('salesStatsChart');
         if (ctx) {
             if (window.mySalesChart) window.mySalesChart.destroy();
@@ -514,8 +515,24 @@ async function afficherStatistiquesVentesEtStocks() {
             });
         }
 
+        // 2. Gestion de la barre de volume avec le scroll vertical appliqué uniquement ici
         const tableBody = document.getElementById('sales-volume-table-body');
         if (tableBody) {
+            // Optionnel : si tableBody est un <tbody>, le scroll s'applique mieux sur son conteneur parent (ex: une div autour de la table). 
+            // Si vous enveloppez votre tableau ou le tbody dans une div ayant un id, ciblez cette div. 
+            // Ici, on applique les styles directement au parent ou au conteneur si c'est un bloc englobant :
+            const containerVolume = tableBody.closest('.volume-container') || tableBody.parentElement; 
+            if (containerVolume && containerVolume.tagName !== 'TABLE') {
+                containerVolume.style.maxHeight = "400px";
+                containerVolume.style.overflowY = "auto";
+                containerVolume.style.paddingRight = "5px";
+            }
+
+            if (labelsProduitsOriginaux.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="2" style="padding: 10px; color: #777;">Chargement de barre du volume...</td></tr>`;
+                return;
+            }
+
             let htmlRows = '';
             
             labelsProduitsOriginaux.forEach((produitKey, index) => {
@@ -545,6 +562,7 @@ async function afficherStatistiquesVentesEtStocks() {
         console.error("Erreur lors de la mise à jour des statistiques :", e);
     }
 }
+
 // =========================================================================
 // GESTION INTERACTIVE DU CUMUL DES VENTES, MODALES ET ARCHIVAGE ANNUEL (SESSION)
 // =========================================================================
