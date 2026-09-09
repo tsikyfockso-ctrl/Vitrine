@@ -545,12 +545,199 @@ async function afficherStatistiquesVentesEtStocks() {
         console.error("Erreur lors de la mise à jour des statistiques :", e);
     }
 }
+// =========================================================================
+// GESTION INTERACTIVE DU CUMUL DES VENTES, MODALES ET ARCHIVAGE ANNUEL (SESSION)
+// =========================================================================
+let globalPaiementsData = [];
+let donutMonthChart = null;
 
-// Initialisation globale de l'admin au chargement du DOM
+async function afficherCumulVentesParMois() {
+    const containerList = document.getElementById('monthly-sales-list');
+    if (!containerList) return;
+
+    try {
+        if (typeof SCRIPT_URL === 'undefined' || !SCRIPT_URL) {
+            containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur : SCRIPT_URL non défini.</em>";
+            return;
+        }
+
+        const resPayments = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
+        if (!resPayments.ok) throw new Error(`Erreur HTTP: ${resPayments.status}`);
+
+        globalPaiementsData = await resPayments.json();
+
+        if (!Array.isArray(globalPaiementsData) || globalPaiementsData.length === 0) {
+            containerList.innerHTML = "<em>Aucun paiement enregistré.</em>";
+            return;
+        }
+
+        const cumulParMois = {};
+        const archivesParAnnee = {};
+        const NomsMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+        const anneeActuelle = new Date().getFullYear();
+
+        globalPaiementsData.forEach(p => {
+            const dateStr = p.date || p.datePaiement;
+            if (!dateStr) return;
+
+            const dateObj = new Date(dateStr);
+            if (isNaN(dateObj.getTime())) return;
+
+            const moisNom = NomsMois[dateObj.getMonth()];
+            const annee = dateObj.getFullYear();
+            const cleMois = `${moisNom} ${annee}`;
+            const prixTotal = parseFloat(String(p.total || '0').replace(/[^0-9.-]+/g, "")) || 0;
+
+            // 3. Archivage automatique par année dans sessionStorage
+            if (annee < anneeActuelle) {
+                if (!archivesParAnnee[annee]) archivesParAnnee[annee] = {};
+                if (!archivesParAnnee[annee][cleMois]) archivesParAnnee[annee][cleMois] = 0;
+                archivesParAnnee[annee][cleMois] += prixTotal;
+            } else {
+                if (!cumulParMois[cleMois]) cumulParMois[cleMois] = 0;
+                cumulParMois[cleMois] += prixTotal;
+            }
+        });
+
+        // Sauvegarde des archives dans la session du navigateur
+        if (Object.keys(archivesParAnnee).length > 0) {
+            sessionStorage.setItem("archives_ventes_annees", JSON.stringify(archivesParAnnee));
+        }
+
+        let htmlContent = "";
+        const clesMoisTriees = Object.keys(cumulParMois).sort((a, b) => new Date(b) - new Date(a));
+
+        if (clesMoisTriees.length === 0 && Object.keys(archivesParAnnee).length === 0) {
+            containerList.innerHTML = "<em>Aucune donnée exploitable.</em>";
+            return;
+        }
+
+        // 1. Affichage du cumul cliquable pour ouvrir la modale des mois passés de l'année courante
+        clesMoisTriees.forEach(mois => {
+            const totalMois = cumulParMois[mois].toFixed(2);
+            htmlContent += `
+                <div onclick="ouvrirModaleMoisPasses('${mois}')" style="display: flex; justify-content: space-between; padding: 10px; margin-bottom: 6px; background: #fdfdfd; border: 1px solid #eee; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1ffec'" onmouseout="this.style.background='#fdfdfd'">
+                    <span style="font-weight: 500; color: #2c3e50;">📅 ${mois} <span style="font-size: 0.75rem; color: #27ae60; font-weight: normal;">(Cliquer pour détails)</span></span>
+                    <span style="font-weight: bold; color: #27ae60;">${totalMois} $</span>
+                </div>
+            `;
+        });
+
+        // 4. Option pour ouvrir le dossier des archives des années passées stockées en session
+        if (Object.keys(archivesParAnnee).length > 0) {
+            htmlContent += `
+                <div style="margin-top: 15px; text-align: center;">
+                    <button onclick="ouvrirDossierArchivesSession()" style="background: #2980b9; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold;">📁 Ouvrir le dossier des Années Passées</button>
+                </div>
+            `;
+        }
+
+        containerList.innerHTML = htmlContent;
+
+    } catch (e) {
+        console.error("Erreur lors du calcul du cumul des ventes par mois :", e);
+        containerList.innerHTML = "<em style='color: #e74c3c;'>Erreur de chargement des données.</em>";
+    }
+}
+
+// 1 & 2. Gestion des modales cliquables et du graphique en anneau (Donut) par mois
+function ouvrirModaleMoisPasses(moisCle) {
+    let modalEl = document.getElementById('modalMoisDetail');
+    if (!modalEl) {
+        // Création dynamique de la structure HTML des modales si elles n'existent pas dans le DOM
+        const modalDiv = document.createElement('div');
+        modalDiv.id = 'modalMoisDetail';
+        modalDiv.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;";
+        modalDiv.innerHTML = `
+            <div style="background:white; padding:20px; border-radius:8px; width:90%; max-width:400px; text-align:center; position:relative;">
+                <h3 id="modalMoisTitre" style="margin-top:0; color:#2c3e50;"></h3>
+                <div style="width: 220px; height: 220px; margin: 0 auto;">
+                    <canvas id="donutMonthChartCanvas"></canvas>
+                </div>
+                <p id="modalMoisTotal" style="font-weight:bold; font-size:1.1rem; color:#27ae60; margin-top:15px;"></p>
+                <button onclick="document.getElementById('modalMoisDetail').style.display='none'" style="background:#e74c3c; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer; margin-top:10px;">Fermer</button>
+            </div>
+        `;
+        document.body.appendChild(modalDiv);
+        modalEl = modalDiv;
+    }
+
+    document.getElementById('modalMoisTitre').innerText = `Rapport : ${moisCle}`;
+
+    // Calcul du total et des données du mois sélectionné pour le graphique en anneau
+    let totalMoisPrix = 0;
+    let produitsDuMois = {};
+    const NomsMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+    globalPaiementsData.forEach(p => {
+        const dateStr = p.date || p.datePaiement;
+        if (!dateStr) return;
+        const dateObj = new Date(dateStr);
+        if (isNaN(dateObj.getTime())) return;
+
+        const cle = `${NomsMois[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+        if (cle === moisCle) {
+            const prix = parseFloat(String(p.total || '0').replace(/[^0-9.-]+/g, "")) || 0;
+            totalMoisPrix += prix;
+            const prod = (p.produit || 'Autre').trim();
+            produitsDuMois[prod] = (produitsDuMois[prod] || 0) + prix;
+        }
+    });
+
+    document.getElementById('modalMoisTotal').innerText = `Total cumulé : ${totalMoisPrix.toFixed(2)} $`;
+    modalEl.style.display = 'flex';
+
+    // Rendu du graphique en anneau (donut)
+    const ctxDonut = document.getElementById('donutMonthChartCanvas').getContext('2d');
+    if (window.donutMonthChart instanceof Chart) {
+        window.donutMonthChart.destroy();
+    }
+
+    window.donutMonthChart = new Chart(ctxDonut, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(produitsDuMois),
+            datasets: [{
+                data: Object.values(produitsDuMois),
+                backgroundColor: ['#e74c3c', '#3498db', '#27ae60', '#f1c40f', '#9b59b6', '#e67e22']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+        }
+    });
+}
+
+// 4. Fonction pour ouvrir le dossier virtuel des années passées stockées dans la session
+function ouvrirDossierArchivesSession() {
+    const archivesRaw = sessionStorage.getItem("archives_ventes_annees");
+    if (!archivesRaw) {
+        alert("Aucune archive des années précédentes disponible dans cette session.");
+        return;
+    }
+
+    const archives = JSON.parse(archivesRaw);
+    let texteArchives = "📁 DOSSIER DES ANNÉES PASSÉES (SESSION)\n\n";
+
+    for (const annee in archives) {
+        texteArchives += `Année ${annee} :\n`;
+        for (const mois in archives[annee]) {
+            texteArchives += ` - ${mois} : ${archives[annee][mois].toFixed(2)} $\n`;
+        }
+        texteArchives += "\n";
+    }
+
+    alert(texteArchives);
+}
+
+// Initialisation globale au chargement du DOM
 document.addEventListener("DOMContentLoaded", () => {
     updateNotificationBadge();
     if (typeof loadStock === 'function' && document.getElementById("stock-list")) {
         loadStock(false);
     }
     afficherStatistiquesVentesEtStocks();
+    afficherCumulVentesParMois();
 });
