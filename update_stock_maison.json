@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -186,15 +186,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -3468,7 +3481,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1933406181651927042",
-        "nom": "Machine d'aromathérapie de flamme de simulation de cheminée",
+        "nom": "Fireplace Simulation Flame Aromatherapy Machine",
         "prixBase": 20.99,
         "productFee": 0.0,
         "images": [
@@ -4152,7 +4165,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "17D00524-1730-4798-847B-046104CD85CE",
-        "nom": "Grande boucle d'oreille avec rideau de douche de bâtiment moderne, fille africaine avec cheveux noirs, Design artistique Graffiti Hip Hop, décor de salle de bain",
+        "nom": "Grande boucle d'oreille avec rideau de douche de construction moderne, fille africaine avec cheveux noirs, Graffiti Art Hip Hop, pour décor de salle de bain",
         "prixBase": 4.5,
         "productFee": 0.0,
         "images": [
@@ -4181,7 +4194,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -4207,7 +4220,7 @@
                 "poids": 460.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.98,
+                "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.23
             },
@@ -5584,6 +5597,210 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1942464256789467138",
+        "nom": "Serre pour l'hiver, serre en polycarbonate de 10 pi de longueur x 6 pi de largeur",
+        "prixBase": 423.93,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/835a933c-5a5e-4708-bf3c-79a289fd2cec.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL242440101AZ",
+                "vid": "1942464256877547522",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 423.93,
+                "poids": 12750.0,
+                "stock": 100,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037350035782402050",
+        "nom": "Arche de jardin en métal tonnelles de jardin en fer Gazebo Dia 81,3 X 114,2 pavillon de Pergola en forme de cage à oiseaux pour cérémonie de mariage blanc crème",
+        "prixBase": 110.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/759fdb5c-cf45-4bd4-a9d9-f71ef93163f2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28069810001",
+                "vid": "2037350035899842561",
+                "taille": "N/A",
+                "couleur": "Cream White",
+                "prix": 110.65,
+                "poids": 15422.0,
+                "stock": 13,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2029045534164299778",
+        "nom": "Armoire de rangement murale pour salle de bain 35 x 28, armoire à pharmacie, armoire murale de salle de bain moderne avec miroir, armoire à miroir avec 6 étagères ouvertes, vanité de salle de bain non incluse",
+        "prixBase": 117.83,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17725824/55446bb0-1fb8-4166-8883-acbebc8cd702.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27745060001",
+                "vid": "2029045534399180801",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 117.83,
+                "poids": 18702.0,
+                "stock": 65,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1750823982347063296",
+        "nom": "Masseur de genou électrique Intelligent à usage domestique, pétrissage chauffant, Rechargeable, soulagement de la douleur, Vibration Laser infrarouge, masseur de genou",
+        "prixBase": 15.0,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/09/22/07/9bc1ab32-d772-4c8e-81ea-2a754fc8924f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJAM195758601AZ",
+                "vid": "1750823982414172160",
+                "taille": "1PC",
+                "couleur": "White",
+                "prix": 15.0,
+                "poids": 882.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
+            },
+            {
+                "sku": "CJAM195758602BY",
+                "vid": "2411020325581612100",
+                "taille": "1PC",
+                "couleur": "Wood Color",
+                "prix": 15.0,
+                "poids": 882.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
+            },
+            {
+                "sku": "CJAM195758603CX",
+                "vid": "2511110259481607000",
+                "taille": "2PCS",
+                "couleur": "White",
+                "prix": 15.0,
+                "poids": 1754.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
+            },
+            {
+                "sku": "CJAM195758607GT",
+                "vid": "2603231152331614300",
+                "taille": "1PC",
+                "couleur": "White S set",
+                "prix": 15.0,
+                "poids": 1045.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.92,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
+            },
+            {
+                "sku": "CJAM195758609IR",
+                "vid": "2603231152331614600",
+                "taille": "1PC",
+                "couleur": "White M set",
+                "prix": 15.0,
+                "poids": 1051.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJAM195758611KP",
+                "vid": "2603231152331615000",
+                "taille": "1PC",
+                "couleur": "White L set",
+                "prix": 15.0,
+                "poids": 1057.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJAM195758613MN",
+                "vid": "2603251241441604700",
+                "taille": "1PC",
+                "couleur": "White S set1",
+                "prix": 15.0,
+                "poids": 1922.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 34.4
+            },
+            {
+                "sku": "CJAM195758615OL",
+                "vid": "2603251241441605200",
+                "taille": "1PC",
+                "couleur": "White M set1",
+                "prix": 15.0,
+                "poids": 1928.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.73,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
+            },
+            {
+                "sku": "CJAM195758617QJ",
+                "vid": "2603251241441605500",
+                "taille": "1PC",
+                "couleur": "White L set1",
+                "prix": 15.0,
+                "poids": 1934.0,
+                "stock": 81216,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 28.43,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 21.57
             }
         ]
     }
