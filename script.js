@@ -18,6 +18,53 @@ window.onload = async () => {
     afficherMessagesClient();
 };
 
+// script.js
+
+// 1. Récupérer la marge enregistrée dans la session admin
+function obtenirMargeAdmin() {
+    return parseFloat(localStorage.getItem('admin_marge_pourcentage')) || 0.0;
+}
+
+// 2. Calculer le prix de vente affiché sur la vitrine
+function calculerPrixVitrine(prixOriginal) {
+    const marge = obtenirMargeAdmin();
+    const prixFinal = prixOriginal * (1 + marge / 100);
+    return prixFinal.toFixed(2); // Arrondi à 2 décimales
+}
+
+// 3. Charger et afficher les produits depuis update_stock_informatique.json
+async function chargerVitrine() {
+    try {
+        const reponse = await fetch('update_stock_informatique.json');
+        const produits = await reponse.json();
+        
+        const conteneur = document.getElementById('vitrine-produits-container');
+        if (!conteneur) return;
+        
+        conteneur.innerHTML = '';
+
+        produits.forEach(produit => {
+            // Le prix d'origine du JSON reste intact, on applique le calcul ici
+            const prixBrut = produit.prixBase || (produit.variantes && produit.variantes[0] ? produit.variantes[0].prix : 0);
+            const prixAffiche = calculerPrixVitrine(prixBrut);
+
+            const carteHTML = `
+                <div class="product-card">
+                    <img src="${produit.images && produit.images[0] ? produit.images[0] : ''}" alt="${produit.nom}">
+                    <h3>${produit.nom}</h3>
+                    <p class="price">${prixAffiche} €</p>
+                </div>
+            `;
+            conteneur.innerHTML += carteHTML;
+        });
+    } catch (erreur) {
+        console.error("Erreur lors du chargement des produits :", erreur);
+    }
+}
+
+// Lancer le chargement au démarrage de la page
+document.addEventListener('DOMContentLoaded', chargerVitrine);
+
 // --- 2. GESTION DU CHARGEMENT DES CATÉGORIES (JSON DISTINCTS) ---
 async function chargerCategorie(jsonFileName, containerId) {
     const jsonUrl = jsonFileName + "?v=" + new Date().getTime(); 
