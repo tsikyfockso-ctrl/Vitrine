@@ -49,7 +49,7 @@ function formaterDate(dateString) {
         second: '2-digit'
     });
 }
-
+//Historique de Payement 
 async function chargerHistoriquePaiements() {
     const container = document.getElementById('payment-history-list');
     if (!container) return;
@@ -57,14 +57,28 @@ async function chargerHistoriquePaiements() {
     container.style.maxHeight = "400px";
     container.style.overflowY = "auto";
     container.style.paddingRight = "5px";
-  
     container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Chargement des paiements...</p>`;
 
     try {
-        const response = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime());
-        if (!response.ok) throw new Error("Erreur de chargement des paiements");
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // Timeout de 10 secondes
 
-        const paiements = await response.json();
+        const response = await fetch(SCRIPT_URL + "?action=getPayments&v=" + new Date().getTime(), {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error("Erreur HTTP : " + response.status);
+
+        const textResponse = await response.text();
+        let paiements;
+        try {
+            paiements = JSON.parse(textResponse);
+        } catch (err) {
+            console.error("Réponse non JSON reçue :", textResponse);
+            throw new Error("Le serveur a renvoyé un format invalide (probablement une erreur Google Script).");
+        }
+
         if (!Array.isArray(paiements) || paiements.length === 0) {
             container.innerHTML = `<p style="font-size: 0.9rem; color: #777;">Aucun paiement validé pour le moment.</p>`;
             return;
@@ -73,7 +87,6 @@ async function chargerHistoriquePaiements() {
         let html = '';
         paiements.slice().reverse().forEach((p) => {
             let datePaiement = formaterDate(p.date);
-            
             html += `
                 <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 12px; margin-bottom: 12px; border-radius: 6px; font-size: 0.90rem; display: flex; justify-content: space-between; align-items: flex-start;">
                     <div style="flex-grow: 1;">
@@ -96,7 +109,7 @@ async function chargerHistoriquePaiements() {
         container.innerHTML = html;
     } catch (e) {
         console.error("Erreur de chargement des paiements :", e);
-        container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur lors du chargement de l'historique.</p>`;
+        container.innerHTML = `<p style="font-size: 0.9rem; color: #e74c3c;">Erreur de chargement : ${e.message}</p>`;
     }
 }
 
@@ -142,17 +155,24 @@ async function checkAdminNotifications() {
     inbox.style.maxHeight = "400px";
     inbox.style.overflowY = "auto";
     inbox.style.paddingRight = "5px";
-
     inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Chargement des messages...</p>";
     
     try {
         const response = await fetch(SCRIPT_URL + "?action=getMessages&v=" + new Date().getTime());
-        const messages = await response.json();
-        if (!Array.isArray(messages)) throw new Error("Format invalide");
-        
+        if (!response.ok) throw new Error("Erreur HTTP : " + response.status);
+
+        const textResponse = await response.text();
+        let messages;
+        try {
+            messages = JSON.parse(textResponse);
+        } catch (err) {
+            console.error("Réponse non JSON reçue pour les messages :", textResponse);
+            throw new Error("Format de réponse invalide.");
+        }
+
         inbox.innerHTML = "";
         
-        if (messages.length === 0) {
+        if (!Array.isArray(messages) || messages.length === 0) {
             inbox.innerHTML = "<p style='padding: 10px; color: #666;'>Aucun message reçu pour le moment.</p>";
             return;
         }
@@ -210,7 +230,7 @@ async function checkAdminNotifications() {
         updateNotificationBadge();
     } catch (e) {
         console.error("Erreur de chargement des messages :", e);
-        inbox.innerHTML = "<p style='padding: 10px; color: red;'>Erreur de chargement des messages.</p>";
+        inbox.innerHTML = `<p style='padding: 10px; color: red;'>Erreur de chargement : ${e.message}</p>`;
     }
 }
 
