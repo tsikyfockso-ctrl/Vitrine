@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
+        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
+        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -178,7 +178,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1727528401138880512",
-        "nom": "Simulation Ornamental Fish Lamp Home Night Decoration Home Decor",
+        "nom": "Simulation de lampe de poisson ornementale, décoration de nuit pour la maison",
         "prixBase": 6.6,
         "productFee": 0.0,
         "images": [
@@ -186,17 +186,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             }
         ]
     },
@@ -305,7 +318,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Patio Chair With Cushions",
+        "nom": "Chaise de patio avec coussins",
         "prixBase": 71.95,
         "productFee": 0.0,
         "images": [
@@ -3468,7 +3481,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1933406181651927042",
-        "nom": "Fireplace Simulation Flame Aromatherapy Machine",
+        "nom": "Machine d'aromathérapie de flamme de simulation de cheminée",
         "prixBase": 20.99,
         "productFee": 0.0,
         "images": [
@@ -4222,7 +4235,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.59
+                "shippingCostUS": 10.23
             },
             {
                 "sku": "CJJJJTYS00246-5 STYLE-180X200CM",
@@ -5834,6 +5847,159 @@
                 "prix": 271.29,
                 "poids": 0.0,
                 "stock": 30,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508080501141611700",
+        "nom": "Pot de fleur de bonsaï d'orchidée Zisha en céramique avec plateau",
+        "prixBase": 6.25,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/08/08/07/39fe07e2-58ab-47a3-96b0-7c1c8245b88a_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL245077701AZ",
+                "vid": "2508080501141612000",
+                "taille": "Extra Large",
+                "couleur": "T Antique Beijing Clock Basin",
+                "prix": 6.25,
+                "poids": 1050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 23.96
+            },
+            {
+                "sku": "CJYL245077702BY",
+                "vid": "2508080501141612200",
+                "taille": "Extra Large",
+                "couleur": "Blue Painted 30cm",
+                "prix": 6.25,
+                "poids": 1050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 23.96
+            },
+            {
+                "sku": "CJYL245077703CX",
+                "vid": "2508130723191605100",
+                "taille": "Extra Large",
+                "couleur": "Extra large T point 31cm",
+                "prix": 6.25,
+                "poids": 1050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 23.96
+            },
+            {
+                "sku": "CJYL245077704DW",
+                "vid": "2508130723191605300",
+                "taille": "Extra Large",
+                "couleur": "Antique clay painting 31cm",
+                "prix": 6.25,
+                "poids": 1050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 23.96
+            },
+            {
+                "sku": "CJYL245077705EV",
+                "vid": "2508130723191605500",
+                "taille": "Extra Large",
+                "couleur": "Oversized T point 36cm",
+                "prix": 6.25,
+                "poids": 4050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 23.96
+            },
+            {
+                "sku": "CJYL245077706FU",
+                "vid": "2508130723191605600",
+                "taille": "Extra Large",
+                "couleur": "Antique bell basin 36cm",
+                "prix": 6.25,
+                "poids": 4050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 44.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 53.87
+            },
+            {
+                "sku": "CJYL245077707GT",
+                "vid": "2508130723191605800",
+                "taille": "Extra Large",
+                "couleur": "Antique clay painting 37cm",
+                "prix": 6.25,
+                "poids": 6050.0,
+                "stock": 50231,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 17.93,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 79.28
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045348236428152833",
+        "nom": "L005030-D48-P48B W1340P31077948 Inches Luxury Chandeliers Crystal Living Room Decorative Lights Simple Modern Dining Room LED Lighting,for Home Decor Bulbs Included Black",
+        "prixBase": 776.47,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/50dd64a3-ce57-4c8f-8697-8833426e36e2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28410480001",
+                "vid": "2045348237967462402",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 776.47,
+                "poids": 32477.0,
+                "stock": 47,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2029040419611377665",
+        "nom": "Meuble-lavabo de salle de bain 30 avec lavabo en céramique, meuble de lavabo à structure en bois massif avec étagère réglable, tiroir à pointe, panneaux avant en rotin",
+        "prixBase": 202.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17725824/159a8830-3a4d-4727-ac35-77d65ed93a58.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27744480001",
+                "vid": "2029040419758178306",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 202.9,
+                "poids": 39998.0,
+                "stock": 42,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
