@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
-        "nom": "Computer Desk",
+        "nom": "Bureau d'ordinateur",
         "prixBase": 180.18,
         "productFee": 0.0,
         "images": [
@@ -205,7 +205,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "20FB13BD-CF9F-47D7-9013-F87C3DEF455B",
-        "nom": "Notebook computer mouse keyboard HUB hub",
+        "nom": "Hub de clavier de souris d'ordinateur portable",
         "prixBase": 1.2,
         "productFee": 0.0,
         "images": [
@@ -282,7 +282,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1770742791589601280",
-        "nom": "Ultra-thin USB Charging Intelligent Induction LED Light",
+        "nom": "Lumière LED à induction intelligente de chargement USB ultra-mince",
         "prixBase": 1.45,
         "productFee": 0.0,
         "images": [
@@ -311,7 +311,7 @@
                 "poids": 100.0,
                 "stock": 59570,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 5.12,
+                "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
             },
@@ -350,7 +350,7 @@
                 "poids": 190.0,
                 "stock": 59570,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 5.12,
+                "shippingCostFR": 6.69,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 8.1
             }
@@ -1081,6 +1081,31 @@
                 "shippingCostFR": 5.67,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.58
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "D2C96C37-2C87-4D67-AF74-73B7AB62946F",
+        "nom": "Carte réseau sans fil 300M avec antenne USB 802.11n, adaptateur réseau sans fil, récepteur WIFI",
+        "prixBase": 4.13,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20180830/233758037106.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJXFLPSM00025-BLACK",
+                "vid": "1DB7E73B-2F27-4D0A-8F98-01F2A3218935",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 4.13,
+                "poids": 85.0,
+                "stock": 14632,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
