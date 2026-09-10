@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
+        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -154,7 +154,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2045062109725036545",
         "nom": "Niche pour chien en bois massif de 45 pouces, abri extérieur confortable pour chiens de taille moyenne et petite avec porte ventilée verrouillable, toit en feutre isolé imperméable et design charmant",
-        "prixBase": 116.7,
+        "prixBase": 116.97,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17763840/0845d9b7-5543-4ad8-bcc5-d4dff2417488.jpg"
@@ -165,9 +165,9 @@
                 "vid": "2045062111448895490",
                 "taille": "N/A",
                 "couleur": "Dark yellow",
-                "prix": 116.7,
+                "prix": 116.97,
                 "poids": 16193.0,
-                "stock": 18,
+                "stock": 17,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -470,7 +470,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1944947310978183169",
-        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
+        "nom": "Gazebo à toit rigide gris 10x13, avec rideaux de toit en acier, filet, crochet de plafond de pavillon pour Patio et jardin",
         "prixBase": 1191.05,
         "productFee": 0.0,
         "images": [
@@ -478,12 +478,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD2430334",
-                "vid": "1944947310978183169",
+                "sku": "CJHD243033401AZ",
+                "vid": "1944947311066263554",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Gray",
                 "prix": 1191.05,
-                "poids": 0.0,
+                "poids": 5450.0,
                 "stock": 24,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -4165,7 +4165,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "17D00524-1730-4798-847B-046104CD85CE",
-        "nom": "Grande boucle d'oreille avec rideau de douche de construction moderne, fille africaine avec cheveux noirs, Graffiti Art Hip Hop, pour décor de salle de bain",
+        "nom": "Grande boucle d'oreille avec rideau de douche de bâtiment moderne, fille africaine avec cheveux noirs, Design artistique Graffiti Hip Hop, décor de salle de bain",
         "prixBase": 4.5,
         "productFee": 0.0,
         "images": [
@@ -6000,6 +6000,108 @@
                 "prix": 202.9,
                 "poids": 39998.0,
                 "stock": 42,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501040547001606800",
+        "nom": "Gardening Household Planting Flowers Small Shovel Planting Vegetables Planting Flowers Succulent Suit",
+        "prixBase": 0.54,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/14808728-58ad-43da-8a14-9a63f1a891d4.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD226085001AZ",
+                "vid": "2501040547001607100",
+                "taille": "N/A",
+                "couleur": "Narrow Shovel",
+                "prix": 0.54,
+                "poids": 178.0,
+                "stock": 40594,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.65,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.99
+            },
+            {
+                "sku": "CJYD226085002BY",
+                "vid": "2501040547001607200",
+                "taille": "N/A",
+                "couleur": "Wide Shovel",
+                "prix": 0.54,
+                "poids": 217.0,
+                "stock": 40594,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.65,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.54
+            },
+            {
+                "sku": "CJYD226085003CX",
+                "vid": "2501040547001607400",
+                "taille": "N/A",
+                "couleur": "Five Tooth Rake",
+                "prix": 0.54,
+                "poids": 201.0,
+                "stock": 40594,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.65,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.99
+            },
+            {
+                "sku": "CJYD226085004DW",
+                "vid": "2501040547001607600",
+                "taille": "N/A",
+                "couleur": "Two Hoes",
+                "prix": 0.54,
+                "poids": 268.0,
+                "stock": 40594,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.65,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.99
+            },
+            {
+                "sku": "CJYD226085005EV",
+                "vid": "2601260216121621400",
+                "taille": "N/A",
+                "couleur": "Set",
+                "prix": 0.54,
+                "poids": 844.0,
+                "stock": 40594,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.65,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 14.34
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037352577886244866",
+        "nom": "Paquet de 4 treillis de jardin en métal 71X19.7 treillis antirouille pour plantes grimpantes Support de fleur extérieur blanc crème",
+        "prixBase": 58.22,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/d3c0a7c7-8c8c-4793-9e1c-5022aea21367.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28070270001",
+                "vid": "2037352578041434113",
+                "taille": "N/A",
+                "couleur": "Cream White",
+                "prix": 58.22,
+                "poids": 9299.0,
+                "stock": 150,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
