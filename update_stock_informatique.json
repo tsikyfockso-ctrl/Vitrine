@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
-        "nom": "Bureau d'ordinateur",
+        "nom": "Computer Desk",
         "prixBase": 180.18,
         "productFee": 0.0,
         "images": [
@@ -180,7 +180,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2409280743101607000",
-        "nom": "Câble réseau CAT6 de cavalier de réseau d'ordinateur RJ45",
+        "nom": "Computer RJ45 Network Jumper CAT6 Network Cable",
         "prixBase": 1.0,
         "productFee": 0.0,
         "images": [
@@ -205,7 +205,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "20FB13BD-CF9F-47D7-9013-F87C3DEF455B",
-        "nom": "Hub de clavier de souris d'ordinateur portable",
+        "nom": "Notebook computer mouse keyboard HUB hub",
         "prixBase": 1.2,
         "productFee": 0.0,
         "images": [
@@ -248,8 +248,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJXFLPSM00276-BLACK-7 HOLES",
@@ -272,8 +272,8 @@
                 "prix": 1.2,
                 "poids": 120.0,
                 "stock": 50379,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.51,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.58
             }
@@ -780,7 +780,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1635090261476913152",
-        "nom": "Microphone capacitif à diaphragme 34mm, pour ordinateur, téléphone portable, 48V",
+        "nom": "Capacitive Microphone 34mm Diaphragm Computer Mobile Phone 48V Microphone",
         "prixBase": 154.51,
         "productFee": 0.0,
         "images": [
@@ -869,7 +869,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2504210422221620900",
-        "nom": "Karaoké Microphone en direct Ordinateur de bureau Microphone filaire USB",
+        "nom": "Karaoke Live Microphone Desktop Computer USB Wired Microphone",
         "prixBase": 5.01,
         "productFee": 0.0,
         "images": [
@@ -894,7 +894,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2504100431151608300",
-        "nom": "Chauffe-mains Portable à affichage numérique, chauffage Double face de grande capacité, chargement USB",
+        "nom": "Large Capacity Double-sided Heating Digital Display USB Charging Portable Hand Warmer",
         "prixBase": 3.69,
         "productFee": 0.0,
         "images": [
@@ -1027,7 +1027,7 @@
                 "poids": 508.0,
                 "stock": 80522,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 16.08,
+                "shippingCostFR": 20.08,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 13.99
             },
@@ -1040,9 +1040,47 @@
                 "poids": 508.0,
                 "stock": 80522,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 16.08,
+                "shippingCostFR": 20.08,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 13.99
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1595972610997891072",
+        "nom": "Humidifier Desktop On Board Air Purifier",
+        "prixBase": 2.85,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/3988d3c7-8eaf-4bc8-b1c2-fbd562523c09.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT162084301AZ",
+                "vid": "1595972611119525888",
+                "taille": "USB",
+                "couleur": "White",
+                "prix": 2.85,
+                "poids": 120.0,
+                "stock": 27668,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJJT162084302BY",
+                "vid": "1595972611123720192",
+                "taille": "USB",
+                "couleur": "Black",
+                "prix": 2.85,
+                "poids": 120.0,
+                "stock": 27668,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
             }
         ]
     }
