@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
-        "nom": "Bureau d'ordinateur",
+        "nom": "Computer Desk",
         "prixBase": 180.18,
         "productFee": 0.0,
         "images": [
@@ -52,7 +52,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1790909620114952192",
-        "nom": "Support pour ordinateur portable, en alliage d'aluminium, Base réglable, Rotation à 360 degrés",
+        "nom": "Notebook Bracket Laptop Bracket Aluminum Alloy Desktop Adjustable Base 360-degree Rotation",
         "prixBase": 24.1,
         "productFee": 0.0,
         "images": [
@@ -282,7 +282,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1770742791589601280",
-        "nom": "Lumière LED à induction intelligente de chargement USB ultra-mince",
+        "nom": "Ultra-thin USB Charging Intelligent Induction LED Light",
         "prixBase": 1.45,
         "productFee": 0.0,
         "images": [
@@ -324,7 +324,7 @@
                 "poids": 115.0,
                 "stock": 59570,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 5.12,
+                "shippingCostFR": 5.64,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
             },
@@ -339,7 +339,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 5.99,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
+                "shippingCostUS": 7.02
             },
             {
                 "sku": "CJJT199311106FU",
@@ -397,7 +397,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1373833606748835840",
-        "nom": "Moniteur d'ordinateur en alliage d'aluminium, support de rangement pour ordinateur de bureau, Base surélevée",
+        "nom": "Aluminum Alloy Computer Monitor Increase Rack Desktop Storage Bracket Notebook Desktop Computer Elevated Base",
         "prixBase": 28.65,
         "productFee": 0.0,
         "images": [
@@ -422,7 +422,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2406260404451628700",
-        "nom": "Carte son d'enregistrement sur ordinateur, équipement de Streaming en direct intégré, USB",
+        "nom": "Computer Recording Sound Card Integrated Live Streaming Equipment USB",
         "prixBase": 5.99,
         "productFee": 0.0,
         "images": [
@@ -1106,6 +1106,44 @@
                 "shippingCostFR": 5.04,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.83
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508160953561608400",
+        "nom": "USB Handheld Garment Steamer Household Portable Electric Iron Small Fabulous Clothes Ironing Equipment",
+        "prixBase": 2.72,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/08/16/09/4d5163f2-6002-43df-8402-fd92e81e5b72_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD245844002BY",
+                "vid": "2508160953561608700",
+                "taille": "USB",
+                "couleur": "G1 Cream Yellow",
+                "prix": 2.72,
+                "poids": 250.0,
+                "stock": 16268,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD245844003CX",
+                "vid": "2508160953561608900",
+                "taille": "USB",
+                "couleur": "G1 Gray",
+                "prix": 2.72,
+                "poids": 250.0,
+                "stock": 16268,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
