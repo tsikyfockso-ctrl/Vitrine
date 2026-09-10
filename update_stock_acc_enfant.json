@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "47FA2AB0-D1CA-447D-BCB8-96D4BD394C19",
-        "nom": "Ensemble d'accessoires pour cheveux pour filles",
+        "nom": "Girls hair accessories set",
         "prixBase": 0.69,
         "productFee": 0.0,
         "images": [
@@ -10363,6 +10363,96 @@
                 "shippingCostFR": 5.67,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.58
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1524226887629942784",
+        "nom": "Kids Wave Frame Vintage Round Frame Sunglasses",
+        "prixBase": 1.52,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ffe7ce9f-7fc5-42fd-a5fe-f904edd5c346.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT148053201AZ",
+                "vid": "1524226887776743424",
+                "taille": "N/A",
+                "couleur": "Black grey",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJNT148053202BY",
+                "vid": "1524226887780937728",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJNT148053203CX",
+                "vid": "1524226887785132032",
+                "taille": "N/A",
+                "couleur": "White grey",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJNT148053204DW",
+                "vid": "1524226887789326336",
+                "taille": "N/A",
+                "couleur": "Red grey",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJNT148053205EV",
+                "vid": "1524226887793520640",
+                "taille": "N/A",
+                "couleur": "Tea",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
+            },
+            {
+                "sku": "CJNT148053206FU",
+                "vid": "1524226887797714944",
+                "taille": "N/A",
+                "couleur": "Rice tea",
+                "prix": 1.52,
+                "poids": 41.0,
+                "stock": 282315,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.16
             }
         ]
     }
