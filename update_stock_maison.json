@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1796379648016781312",
-        "nom": "Sculpture d'art mural homme feuille verte, décoration murale suspendue pour jardin et maison",
+        "nom": "Green Leaf Man Wall Art Sculpture Home Garden Wall Hanging Decoration",
         "prixBase": 2.68,
         "productFee": 0.0,
         "images": [
@@ -103,7 +103,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1852222438118412288",
-        "nom": "Chaises pliantes en bois pour événements spéciaux, meubles à lattes",
+        "nom": "Furniture Slatted Wood Folding Special Event Chairs",
         "prixBase": 116.8,
         "productFee": 0.0,
         "images": [
@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU217859601AZ",
-                "vid": "1852222438353293312",
+                "sku": "CJFU2178596",
+                "vid": "1852222438118412288",
                 "taille": "N/A",
-                "couleur": "White",
+                "couleur": "N/A",
                 "prix": 116.8,
-                "poids": 11176.0,
+                "poids": 0.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -178,7 +178,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1727528401138880512",
-        "nom": "Simulation de lampe de poisson ornementale, décoration de nuit pour la maison",
+        "nom": "Simulation Ornamental Fish Lamp Home Night Decoration Home Decor",
         "prixBase": 6.6,
         "productFee": 0.0,
         "images": [
@@ -186,28 +186,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -318,7 +305,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Chaise de patio avec coussins",
+        "nom": "Patio Chair With Cushions",
         "prixBase": 71.95,
         "productFee": 0.0,
         "images": [
@@ -470,7 +457,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1944947310978183169",
-        "nom": "Gazebo à toit rigide gris 10x13, avec rideaux de toit en acier, filet, crochet de plafond de pavillon pour Patio et jardin",
+        "nom": "10x13 Gray Hardtop Gazebo With Steel Roof Curtains Netting Pavilion Ceiling Hook For Patio Garden",
         "prixBase": 1191.05,
         "productFee": 0.0,
         "images": [
@@ -478,12 +465,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD243033401AZ",
-                "vid": "1944947311066263554",
+                "sku": "CJHD2430334",
+                "vid": "1944947310978183169",
                 "taille": "N/A",
-                "couleur": "Gray",
+                "couleur": "N/A",
                 "prix": 1191.05,
-                "poids": 5450.0,
+                "poids": 0.0,
                 "stock": 24,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -3317,8 +3304,8 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2055565548429402114",
-        "nom": "Abri d'auto Outsunny 19 'X 19,5', tente de garage portable et d'auvent de patio, couverture anti-UV pour voiture, camion, bateau, restauration, mariage Forfaits multiples",
-        "prixBase": 267.42,
+        "nom": "Outsunny 19' X 19.5' Carport, Portable Garage And Patio Canopy Tent, Anti-UV Cover For Car, Truck, Boat, Catering, WeddingMultiple Packages",
+        "prixBase": 265.57,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/a53c31b2-5e7e-4ac8-9f0f-c03e53d003cc.jpg"
@@ -3329,9 +3316,9 @@
                 "vid": "2055565548567814146",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 267.42,
+                "prix": 265.57,
                 "poids": 69000.0,
-                "stock": 85,
+                "stock": 45,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -5801,6 +5788,56 @@
                 "shippingCostFR": 28.43,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 21.57
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1919686063897223169",
+        "nom": "Outdoor Planter Box Galvanized Raised Garden Bed",
+        "prixBase": 105.69,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/79bd1327-6ce6-41f3-b77a-4c1dee037050.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSB236975801AZ",
+                "vid": "1919686066665463810",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 105.69,
+                "poids": 5600.0,
+                "stock": 100,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031973977105547265",
+        "nom": "Large Outdoor Chicken Coops, Wooden Chicken Coops With Brooding Boxes, Bird Cages,Can Accommodate 3 To 5 Chickens  Rabbit Cages - Black Waterproof And Sun-protective Felt Roofs Dark Gray Beige",
+        "prixBase": 271.29,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/66e326c7-d6db-490d-91ec-4b60489a2b22.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2784736",
+                "vid": "2031973977105547265",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 271.29,
+                "poids": 0.0,
+                "stock": 30,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
