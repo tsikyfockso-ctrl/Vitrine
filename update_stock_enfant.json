@@ -1206,7 +1206,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1447510738200563712",
-        "nom": "Eco-friendly Conjoined Raincoat With Pants Children Rain Coat Kids",
+        "nom": "Imperméable conjoint écologique avec pantalon, manteau de pluie pour enfants",
         "prixBase": 7.48,
         "productFee": 0.0,
         "images": [
@@ -4384,6 +4384,148 @@
                 "shippingCostFR": 6.17,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.3
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "CF4C5A63-F0C6-4BE5-BE26-2BDA1670F5F4",
+        "nom": "Maggie New Girl, Baby, Birthday, Full Moon Wine, Wedding Dress, Princess Dress",
+        "prixBase": 6.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15096384/4100896071_110248069.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE00060-RED-3MONTH",
+                "vid": "0D249B6E-6D37-473D-B965-CE31CBB3A848",
+                "taille": "3month",
+                "couleur": "red",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-WHITE-3MONTH",
+                "vid": "4C3CC75D-7B1C-44BC-A271-24B6C1EAB2FA",
+                "taille": "3month",
+                "couleur": "white",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-RED-6MONTH",
+                "vid": "724A441A-C13F-472D-A72A-C2C30EFF3D0E",
+                "taille": "6month",
+                "couleur": "red",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-WHITE-12MONTH",
+                "vid": "8F578377-FB0F-40F9-B3A2-52C8099B584C",
+                "taille": "12month",
+                "couleur": "white",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-WHITE-24MONTH",
+                "vid": "A807204A-0185-43CC-B45B-406A158A3DD7",
+                "taille": "24month",
+                "couleur": "white",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-RED-24MONTH",
+                "vid": "B547B08D-308F-4DA1-AF4D-CF30B1993716",
+                "taille": "24month",
+                "couleur": "red",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-RED-12MONTH",
+                "vid": "C5BD1A94-AC18-417A-967D-7D35AF387276",
+                "taille": "12month",
+                "couleur": "red",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-WHITE-6MONTH",
+                "vid": "D1D7DC11-389D-4161-BB03-58BE9462DBFA",
+                "taille": "6month",
+                "couleur": "white",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-RED-18MONTH",
+                "vid": "D749713C-9B91-4AFF-B9CF-A336C99D4B98",
+                "taille": "18month",
+                "couleur": "red",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
+            },
+            {
+                "sku": "CJWJYEYE00060-WHITE-18MONTH",
+                "vid": "F4089727-B706-4837-AED3-150D5D3369AA",
+                "taille": "18month",
+                "couleur": "white",
+                "prix": 6.62,
+                "poids": 210.0,
+                "stock": 130017,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.13
             }
         ]
     }
