@@ -186,17 +186,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 18.09,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             }
         ]
     },
@@ -305,7 +318,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Chaise de patio avec coussins",
+        "nom": "Patio Chair With Cushions",
         "prixBase": 71.95,
         "productFee": 0.0,
         "images": [
@@ -313,12 +326,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2251689",
-                "vid": "1871135084781035521",
+                "sku": "CJFU225168902BY",
+                "vid": "1871135084860727297",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey",
                 "prix": 71.95,
-                "poids": 0.0,
+                "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -465,12 +478,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD2430334",
-                "vid": "1944947310978183169",
+                "sku": "CJHD243033401AZ",
+                "vid": "1944947311066263554",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Gray",
                 "prix": 1191.05,
-                "poids": 0.0,
+                "poids": 5450.0,
                 "stock": 24,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -540,17 +553,43 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD1914416",
-                "vid": "1732295333251649536",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJYD191441601AZ",
+                "vid": "1732295333343924224",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Pink",
                 "prix": 3.49,
-                "poids": 0.0,
+                "poids": 271.0,
                 "stock": 38977,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.82,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.79
+            },
+            {
+                "sku": "CJYD191441602BY",
+                "vid": "1732295333415227392",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Green",
+                "prix": 3.49,
+                "poids": 272.0,
+                "stock": 38977,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.83,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.82
+            },
+            {
+                "sku": "CJYD191441603CX",
+                "vid": "1732295333478141952",
+                "taille": "USB",
+                "couleur": "Sunflower Humidifier Purple",
+                "prix": 3.49,
+                "poids": 264.0,
+                "stock": 38977,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.72,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.68
             }
         ]
     },
@@ -2305,7 +2344,7 @@
                 "couleur": "2pcTY22",
                 "prix": 1.94,
                 "poids": 162.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.09,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -2318,7 +2357,7 @@
                 "couleur": "TY23D with amplifier",
                 "prix": 1.94,
                 "poids": 173.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.21,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -2331,7 +2370,7 @@
                 "couleur": "2pcBlack",
                 "prix": 1.94,
                 "poids": 260.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.08,
                 "shippingMethodUS": "LuWei Ordinary US",
@@ -2344,7 +2383,7 @@
                 "couleur": "TY22",
                 "prix": 1.94,
                 "poids": 90.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.11,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -2357,7 +2396,7 @@
                 "couleur": "TY13",
                 "prix": 1.94,
                 "poids": 90.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.11,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -2370,7 +2409,7 @@
                 "couleur": "Black",
                 "prix": 1.94,
                 "poids": 226.0,
-                "stock": 208732,
+                "stock": 208733,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.74,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -3925,7 +3964,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2034925661148282881",
-        "nom": "Miroir carré ondulé en bois massif-noir 36X 36 décoration murale de miroir moderne pour salle de bain, chambre à coucher, salon, salle à manger, vestiaire, entrée",
+        "nom": "Solid Wood Wavy Square Mirror-Black 36X 36 Modern Mirror Wall Decor For Bathroom, Bedroom, Living Room, Dining Room, Cloakroom, Entryway",
         "prixBase": 109.67,
         "productFee": 0.0,
         "images": [
@@ -5713,6 +5752,275 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2411050346431629700",
+        "nom": "Pillar Lamp Outdoor Wall Waterproof Garden Lamp",
+        "prixBase": 11.28,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/11/05/03/2b49a625-fb7a-4f55-9948-2b18c8272fae_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLE218214101AZ",
+                "vid": "2411050346431629900",
+                "taille": "N/A",
+                "couleur": "Black Small",
+                "prix": 11.28,
+                "poids": 850.0,
+                "stock": 56047,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 15.1,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.68
+            },
+            {
+                "sku": "CJLE218214102BY",
+                "vid": "2411050346441620100",
+                "taille": "N/A",
+                "couleur": "Black Medium",
+                "prix": 11.28,
+                "poids": 950.0,
+                "stock": 56047,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 16.33,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 18.34
+            },
+            {
+                "sku": "CJLE218214103CX",
+                "vid": "2411050346441620300",
+                "taille": "N/A",
+                "couleur": "Black Large",
+                "prix": 11.28,
+                "poids": 3061.0,
+                "stock": 56047,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 42.29,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 53.24
+            },
+            {
+                "sku": "CJLE218214104DW",
+                "vid": "2504100344441623300",
+                "taille": "N/A",
+                "couleur": "12.5x12.5x15cm solar energy",
+                "prix": 11.28,
+                "poids": 650.0,
+                "stock": 56047,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 12.64,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.92
+            },
+            {
+                "sku": "CJLE218214105EV",
+                "vid": "2504100344441623400",
+                "taille": "N/A",
+                "couleur": "12.5x12.5x15.1cm power on",
+                "prix": 11.28,
+                "poids": 650.0,
+                "stock": 56047,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 15.1,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.92
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1852272002514964480",
+        "nom": "Wooden Porch Rocker Chair Blue",
+        "prixBase": 114.51,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/9ebd323c-3dcc-4edd-8b11-57a438ec0d3a.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU217903001AZ",
+                "vid": "1852272002758234112",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 114.51,
+                "poids": 10001.0,
+                "stock": 23,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2033894538382602241",
+        "nom": "26.77'H Wooden Nightstand With One Drawer One Shelf For Kids, Adults, Navy Golden Handle",
+        "prixBase": 59.24,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17737056/725dae3a-3e49-4bf8-adfc-a3cbd36af8bb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27910150001",
+                "vid": "2033894538508431361",
+                "taille": "N/A",
+                "couleur": "White Navy",
+                "prix": 59.24,
+                "poids": 14501.0,
+                "stock": 34,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508300353231606800",
+        "nom": "Peony Rose Home Decoration Wedding Hand Holding",
+        "prixBase": 0.88,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/08/30/03/51c6fdea-b678-473f-b977-12bb833dde7c_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD247295901AZ",
+                "vid": "2508300353231607000",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295902BY",
+                "vid": "2508300353231607100",
+                "taille": "N/A",
+                "couleur": "Light Pink",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295903CX",
+                "vid": "2508300353231607300",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295904DW",
+                "vid": "2508300353231607400",
+                "taille": "N/A",
+                "couleur": "Rose Pink",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295905EV",
+                "vid": "2508300353231607600",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295906FU",
+                "vid": "2508300353231607700",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295907GT",
+                "vid": "2508300353231607900",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295908HS",
+                "vid": "2508300353231608100",
+                "taille": "N/A",
+                "couleur": "Champagne",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295909IR",
+                "vid": "2508300353231608200",
+                "taille": "N/A",
+                "couleur": "Purple",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
+            },
+            {
+                "sku": "CJYD247295910JQ",
+                "vid": "2508300353231608400",
+                "taille": "N/A",
+                "couleur": "Deep Pink",
+                "prix": 0.88,
+                "poids": 77.0,
+                "stock": 78092,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.94,
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 7.39
             }
         ]
     }
