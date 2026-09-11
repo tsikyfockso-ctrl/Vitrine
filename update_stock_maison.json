@@ -111,12 +111,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2178596",
-                "vid": "1852222438118412288",
+                "sku": "CJFU217859601AZ",
+                "vid": "1852222438353293312",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 116.8,
-                "poids": 0.0,
+                "poids": 11176.0,
                 "stock": 33,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -267,7 +267,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1597502296488300544",
-        "nom": "Cendrier électronique Intelligent, purificateur d'air, pour filtrer la fumée secondaire des Cigarettes, éliminer la fumée, pour le bureau et la maison",
+        "nom": "Air Purifier Ashtray Intelligent Electronic Ashtray For Filtering Second-Hand Smoke From Cigarettes Remove Smoking Home Office",
         "prixBase": 4.0,
         "productFee": 0.0,
         "images": [
@@ -275,50 +275,24 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT1623924-GREEN",
-                "vid": "1597502296509272064",
+                "sku": "CJJT1623924",
+                "vid": "1597502296488300544",
                 "taille": "N/A",
-                "couleur": "Green",
+                "couleur": "N/A",
                 "prix": 4.0,
-                "poids": 270.0,
+                "poids": 0.0,
                 "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
-            },
-            {
-                "sku": "CJJT1623924-GREY",
-                "vid": "1597502296509272065",
-                "taille": "N/A",
-                "couleur": "Grey",
-                "prix": 4.0,
-                "poids": 270.0,
-                "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
-            },
-            {
-                "sku": "CJJT1623924-WHITE",
-                "vid": "1597502296509272066",
-                "taille": "N/A",
-                "couleur": "White",
-                "prix": 4.0,
-                "poids": 270.0,
-                "stock": 39006,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.8,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.78
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
-        "nom": "Patio Chair With Cushions",
+        "nom": "Chaise de patio avec coussins",
         "prixBase": 71.95,
         "productFee": 0.0,
         "images": [
@@ -646,7 +620,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2412240907191608500",
-        "nom": "Lampe solaire en résille LED, guirlande lumineuse colorée décorative pour cour extérieure, jardin, treillis en maille basse tension",
+        "nom": "Solar Fishnet Lamp LED Outdoor Courtyard Garden Decorative Colored Light String Low Voltage Mesh Lattice",
         "prixBase": 5.8,
         "productFee": 0.0,
         "images": [
@@ -3964,7 +3938,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2034925661148282881",
-        "nom": "Solid Wood Wavy Square Mirror-Black 36X 36 Modern Mirror Wall Decor For Bathroom, Bedroom, Living Room, Dining Room, Cloakroom, Entryway",
+        "nom": "Miroir carré ondulé en bois massif-noir 36X 36 décoration murale de miroir moderne pour salle de bain, chambre à coucher, salon, salle à manger, vestiaire, entrée",
         "prixBase": 109.67,
         "productFee": 0.0,
         "images": [
@@ -6021,6 +5995,159 @@
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket FJTY Eub Special Line",
                 "shippingCostUS": 7.39
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2410010137461629400",
+        "nom": "Halloween Party Decoration Linen Garden Banner",
+        "prixBase": 0.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/1f588202-3b5d-4dfa-9f34-d6d53a0b5112.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD215059201AZ",
+                "vid": "2410010137461629600",
+                "taille": "N/A",
+                "couleur": "1 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059202BY",
+                "vid": "2410010137461629700",
+                "taille": "N/A",
+                "couleur": "2 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059203CX",
+                "vid": "2410010137461629900",
+                "taille": "N/A",
+                "couleur": "3 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059204DW",
+                "vid": "2410010137471620100",
+                "taille": "N/A",
+                "couleur": "4 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059205EV",
+                "vid": "2410010137471620200",
+                "taille": "N/A",
+                "couleur": "5 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059206FU",
+                "vid": "2410010137471620400",
+                "taille": "N/A",
+                "couleur": "6 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJYD215059207GT",
+                "vid": "2410010137471620500",
+                "taille": "N/A",
+                "couleur": "7 Style",
+                "prix": 0.9,
+                "poids": 75.0,
+                "stock": 78905,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045062008403234817",
+        "nom": "New Style  Solid Wood & Iron Frame Raised Garden Bed - Reversible & Replaceable Wood Panels, No Paint Formaldehyde, DIY Planter Box For Vegetables, Fruits, Flowers",
+        "prixBase": 91.97,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17763840/0a1bd50d-7bf7-4d29-9664-072471e0a3e7.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28395420001",
+                "vid": "2045062009762189313",
+                "taille": "N/A",
+                "couleur": "Natural",
+                "prix": 91.97,
+                "poids": 18597.0,
+                "stock": 46,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2029077282176675842",
+        "nom": "Tilted Laundry Hamper With Removable Basket, Hidden Laundry Hamper, Bathroom Laundry Hamper Storage Cabinet, Free-Standing Home Organizer, White",
+        "prixBase": 77.81,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17725824/96ae5386-f8db-44a3-af1c-91b7bd922521.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27747610001",
+                "vid": "2029077282428334082",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 77.81,
+                "poids": 15499.0,
+                "stock": 45,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
