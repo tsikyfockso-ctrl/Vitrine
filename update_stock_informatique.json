@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
-        "nom": "Bureau d'ordinateur",
+        "nom": "Computer Desk",
         "prixBase": 180.18,
         "productFee": 0.0,
         "images": [
@@ -405,17 +405,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJPB105043502BY",
-                "vid": "1373833608166510592",
+                "sku": "CJPB1050435",
+                "vid": "1373833606748835840",
                 "taille": "N/A",
-                "couleur": "50x22x6cm",
+                "couleur": "N/A",
                 "prix": 28.65,
-                "poids": 3136.0,
+                "poids": 0.0,
                 "stock": 40000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 36.45,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 42.27
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -805,7 +805,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2407190725221606500",
-        "nom": "Mini radiateur de bureau à ventilateur d'air chaud domestique",
+        "nom": "Household Warm Air Blower Desktop Mini Heater",
         "prixBase": 6.97,
         "productFee": 0.0,
         "images": [
