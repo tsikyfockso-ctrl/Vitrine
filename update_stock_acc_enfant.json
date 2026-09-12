@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "47FA2AB0-D1CA-447D-BCB8-96D4BD394C19",
-        "nom": "Ensemble d'accessoires pour cheveux pour filles",
+        "nom": "Girls hair accessories set",
         "prixBase": 0.69,
         "productFee": 0.0,
         "images": [
@@ -310,7 +310,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1415250941262827520",
-        "nom": "Casquettes de baseball lavées pour hommes et femmes, chapeaux de soleil en détresse pour l'extérieur, casquettes simples",
+        "nom": "Washed Baseball Caps For Men And Women Outdoor Distressed Sun Hats Simple Caps",
         "prixBase": 1.52,
         "productFee": 0.0,
         "images": [
@@ -1049,7 +1049,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2411180859061605500",
-        "nom": "Bavoir imperméable à manches longues pour bébé",
+        "nom": "Baby Long Sleeved Waterproof Bib",
         "prixBase": 4.95,
         "productFee": 0.0,
         "images": [
@@ -1131,8 +1131,8 @@
                 "stock": 747252,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.76,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.37
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.3
             },
             {
                 "sku": "CJYD219972007GT",
@@ -1389,8 +1389,8 @@
                 "prix": 4.95,
                 "poids": 120.0,
                 "stock": 747252,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.38,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
             },
@@ -1454,8 +1454,8 @@
                 "prix": 4.95,
                 "poids": 110.0,
                 "stock": 747252,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.38,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.37
             },
@@ -1753,8 +1753,8 @@
                 "prix": 4.95,
                 "poids": 130.0,
                 "stock": 747252,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.38,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.3
             },
@@ -11196,7 +11196,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2505151150191611300",
-        "nom": "Chapeau en laine tricoté en queue de cheval personnalisé pour femmes",
+        "nom": "Personalized Women's Ponytail Knitted Wool Hat",
         "prixBase": 1.2,
         "productFee": 0.0,
         "images": [
@@ -11409,6 +11409,70 @@
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.23
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1713528079446331392",
+        "nom": "Cute Deer Hat Women Plush Rabbit Ear Funny Lolita Sweet Kawaii Winter Fluffy Fleece Warm Hat Plush Winter Thickened Cute Antlers Baby Hat With Scarf For 5-10 Y Children",
+        "prixBase": 7.34,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/de1d12f5-1e18-4b48-a418-6cb863b40316.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT187170901AZ",
+                "vid": "1713528079513440256",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 7.34,
+                "poids": 200.0,
+                "stock": 4041,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT187170902BY",
+                "vid": "1713528079513440257",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 7.34,
+                "poids": 200.0,
+                "stock": 4041,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT187170903CX",
+                "vid": "1713528079513440258",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 7.34,
+                "poids": 200.0,
+                "stock": 4041,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT187170904DW",
+                "vid": "1713528079513440259",
+                "taille": "N/A",
+                "couleur": "Khaki",
+                "prix": 7.34,
+                "poids": 200.0,
+                "stock": 4041,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
