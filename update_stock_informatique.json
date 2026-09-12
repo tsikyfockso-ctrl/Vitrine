@@ -2,7 +2,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
-        "nom": "Computer Desk",
+        "nom": "Bureau d'ordinateur",
         "prixBase": 180.18,
         "productFee": 0.0,
         "images": [
@@ -780,7 +780,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1635090261476913152",
-        "nom": "Capacitive Microphone 34mm Diaphragm Computer Mobile Phone 48V Microphone",
+        "nom": "Microphone capacitif à diaphragme 34mm, pour ordinateur, téléphone portable, 48V",
         "prixBase": 154.51,
         "productFee": 0.0,
         "images": [
@@ -1150,7 +1150,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1394198586664816640",
-        "nom": "Computer External Mobile External Burning Optical Drive Tray Drive Disc Dvd Burner",
+        "nom": "Ordinateur externe Mobile gravure externe lecteur optique plateau lecteur disque Dvd graveur",
         "prixBase": 8.32,
         "productFee": 0.0,
         "images": [
@@ -1182,6 +1182,57 @@
                 "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1797172030220021760",
+        "nom": "Adorable miroir de maquillage de bureau avec motif tournesol",
+        "prixBase": 0.84,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/40347d22-870a-4942-b4fa-101bf88da380.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD205189601AZ",
+                "vid": "1797172030295519232",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 0.84,
+                "poids": 223.0,
+                "stock": 35747,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.62
+            },
+            {
+                "sku": "CJYD205189602BY",
+                "vid": "1797172030358433792",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 0.84,
+                "poids": 223.0,
+                "stock": 35747,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.62
+            },
+            {
+                "sku": "CJYD205189603CX",
+                "vid": "1797172030425542656",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 0.84,
+                "poids": 223.0,
+                "stock": 35747,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.62
             }
         ]
     }
