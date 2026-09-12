@@ -1099,7 +1099,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "718292A1-CB3F-4479-97E6-DED6C1EFE43A",
-        "nom": "Foulards pour hommes",
+        "nom": "Men's scarves",
         "prixBase": 2.25,
         "productFee": 0.0,
         "images": [
@@ -1818,56 +1818,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJNS183176801AZ",
-                "vid": "1695643049512144896",
+                "sku": "CJNS1831768",
+                "vid": "1695643049436647424",
                 "taille": "N/A",
-                "couleur": "Black",
+                "couleur": "N/A",
                 "prix": 7.46,
-                "poids": 490.0,
+                "poids": 0.0,
                 "stock": 45956,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.78,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.65
-            },
-            {
-                "sku": "CJNS183176802BY",
-                "vid": "1695643049566670848",
-                "taille": "N/A",
-                "couleur": "Burgundy",
-                "prix": 7.46,
-                "poids": 490.0,
-                "stock": 45956,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.78,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.65
-            },
-            {
-                "sku": "CJNS183176804DW",
-                "vid": "1695643049671528448",
-                "taille": "N/A",
-                "couleur": "Green",
-                "prix": 7.46,
-                "poids": 490.0,
-                "stock": 45956,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.78,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.65
-            },
-            {
-                "sku": "CJNS183176805EV",
-                "vid": "2609011237041605900",
-                "taille": "N/A",
-                "couleur": "Green1",
-                "prix": 7.46,
-                "poids": 490.0,
-                "stock": 45956,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.78,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.65
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -1958,17 +1919,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJSL230511101AZ",
-                "vid": "2502240122261621000",
+                "sku": "CJSL2305111",
+                "vid": "2502240122261620800",
                 "taille": "N/A",
-                "couleur": "Gold",
+                "couleur": "N/A",
                 "prix": 0.84,
-                "poids": 20.0,
+                "poids": 0.0,
                 "stock": 7630,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.17,
-                "shippingMethodUS": "Jewel Shipping",
-                "shippingCostUS": 2.06
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -3317,7 +3278,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2410040234451622700",
-        "nom": "Chaussures de course à plateforme Chaussures papa Femmes",
+        "nom": "Platform Running Shoes Dad Shoes Women",
         "prixBase": 5.41,
         "productFee": 0.0,
         "images": [
@@ -10727,30 +10688,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJNS212319001AZ",
-                "vid": "2408290621441613600",
-                "taille": "Free Size",
-                "couleur": "Orange",
+                "sku": "CJNS2123190",
+                "vid": "2408290621441613400",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 5.56,
-                "poids": 370.0,
+                "poids": 0.0,
                 "stock": 22107,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.0
-            },
-            {
-                "sku": "CJNS212319002BY",
-                "vid": "2408290621441613800",
-                "taille": "Free Size",
-                "couleur": "Black",
-                "prix": 5.56,
-                "poids": 370.0,
-                "stock": 22107,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.0
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -11570,7 +11518,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1779765521068601344",
-        "nom": "Curling rayonne rides écharpe femmes simple embout",
+        "nom": "Curling Rayon Wrinkle Scarf Women's Simple Toe Cap",
         "prixBase": 2.61,
         "productFee": 0.0,
         "images": [
@@ -13450,8 +13398,8 @@
                 "stock": 57150,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJYD205208602BY",
@@ -13463,8 +13411,8 @@
                 "stock": 57150,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJYD205208603CX",
@@ -13476,8 +13424,8 @@
                 "stock": 57150,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.89,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.58
             },
             {
                 "sku": "CJYD205208604DW",
@@ -13489,8 +13437,8 @@
                 "stock": 57150,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJYD205208605EV",
@@ -13502,8 +13450,8 @@
                 "stock": 57150,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             }
         ]
     },
@@ -14014,11 +13962,11 @@
                 "couleur": "JDB2305006color",
                 "prix": 3.32,
                 "poids": 19.0,
-                "stock": 25019,
+                "stock": 25026,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.16,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             },
             {
                 "sku": "CJSL214915502BY",
@@ -14027,11 +13975,11 @@
                 "couleur": "Silver",
                 "prix": 3.32,
                 "poids": 20.0,
-                "stock": 25019,
+                "stock": 25026,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.16,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     },
@@ -24433,7 +24381,7 @@
                 "poids": 280.0,
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.53,
+                "shippingCostFR": 7.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
@@ -24460,8 +24408,8 @@
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.53,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.07
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.48
             },
             {
                 "sku": "CJNS199778204DW",
@@ -24526,7 +24474,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.53,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.07
+                "shippingCostUS": 8.22
             },
             {
                 "sku": "CJNS199778209IR",
@@ -24551,8 +24499,8 @@
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.53,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.07
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.42
             },
             {
                 "sku": "CJNS199778211KP",
@@ -24589,7 +24537,7 @@
                 "poids": 300.0,
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.53,
+                "shippingCostFR": 7.48,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
@@ -24617,7 +24565,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.53,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.07
+                "shippingCostUS": 8.14
             },
             {
                 "sku": "CJNS199778216PK",
@@ -24654,7 +24602,7 @@
                 "poids": 285.0,
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.53,
+                "shippingCostFR": 7.32,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
@@ -24681,8 +24629,8 @@
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.53,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.07
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.55
             },
             {
                 "sku": "CJNS199778221UF",
@@ -24719,7 +24667,7 @@
                 "poids": 310.0,
                 "stock": 307449,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.53,
+                "shippingCostFR": 7.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
@@ -24756,8 +24704,8 @@
                 "prix": 0.99,
                 "poids": 90.0,
                 "stock": 264120,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.46,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.02
             },
@@ -24771,8 +24719,8 @@
                 "stock": 264120,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             },
             {
                 "sku": "CJNS204197603CX",
@@ -24797,8 +24745,8 @@
                 "stock": 264120,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
             },
             {
                 "sku": "CJNS204197607GT",
@@ -24810,8 +24758,8 @@
                 "stock": 264120,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             },
             {
                 "sku": "CJNS204197608HS",
@@ -24873,10 +24821,10 @@
                 "prix": 0.99,
                 "poids": 90.0,
                 "stock": 264120,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.46,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
             },
             {
                 "sku": "CJNS204197617QJ",
@@ -24888,8 +24836,8 @@
                 "stock": 264120,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             },
             {
                 "sku": "CJNS204197618RI",
@@ -24926,7 +24874,7 @@
                 "poids": 120.0,
                 "stock": 264120,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.46,
+                "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.02
             },
@@ -24967,7 +24915,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJNS204197630DW",
@@ -25019,7 +24967,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.02
+                "shippingCostUS": 6.3
             }
         ]
     },
@@ -26028,6 +25976,251 @@
                 "shippingCostFR": 7.48,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.62
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1405048494791725056",
+        "nom": "Amalek Weekender Duffle Bag",
+        "prixBase": 39.67,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1623823848730.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS1176445",
+                "vid": "1405048494791725056",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 39.67,
+                "poids": 0.0,
+                "stock": 27677,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "BC8227D1-728A-4E41-ABD6-CE9A06F20230",
+        "nom": "Natural Blue Apatite Bracelets Are Suitable For Men And Women To Wear Elastic Beaded Jewelry",
+        "prixBase": 2.33,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/82940ddf-39f3-4dea-8a07-d0d0eafc6200.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZBLXSL01320-8MM 3PCS",
+                "vid": "0AB64B0B-E495-4586-90E0-E4DF907B65A2",
+                "taille": "N/A",
+                "couleur": "8mm 3pcs",
+                "prix": 2.33,
+                "poids": 99.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-6MM 3PCS",
+                "vid": "1B4EF4B5-7646-4427-B082-8D731A56B4CE",
+                "taille": "N/A",
+                "couleur": "6mm 3pcs",
+                "prix": 2.33,
+                "poids": 50.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-12MM 3PCS",
+                "vid": "2116E4F9-36A1-408B-9853-54BA7230BA10",
+                "taille": "N/A",
+                "couleur": "12mm 3pcs",
+                "prix": 2.33,
+                "poids": 95.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-12MM",
+                "vid": "2D1E06D2-2B1D-4F36-9188-B17F61C3AB4E",
+                "taille": "N/A",
+                "couleur": "12mm",
+                "prix": 2.33,
+                "poids": 70.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-6MM",
+                "vid": "31EA0BDF-313A-4132-8A28-9F477FCC2B22",
+                "taille": "N/A",
+                "couleur": "6mm",
+                "prix": 2.33,
+                "poids": 30.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-4MM 2PCS",
+                "vid": "45D6B8D1-54B8-4654-8595-2DF23FB5FACC",
+                "taille": "N/A",
+                "couleur": "4mm 2pcs",
+                "prix": 2.33,
+                "poids": 36.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-8MM 2PCS",
+                "vid": "6EEDC50B-148B-4BB9-A0FB-7F571185704D",
+                "taille": "N/A",
+                "couleur": "8mm 2pcs",
+                "prix": 2.33,
+                "poids": 66.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-4MM",
+                "vid": "83574D59-128E-4AED-B5EB-B0B31A05D345",
+                "taille": "N/A",
+                "couleur": "4mm",
+                "prix": 2.33,
+                "poids": 28.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-10MM",
+                "vid": "878BF8E5-3C7A-4CA8-9103-3E8E6118FCF6",
+                "taille": "N/A",
+                "couleur": "10mm",
+                "prix": 2.33,
+                "poids": 49.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-8MM 4PCS",
+                "vid": "9012E9B5-CBF3-43EB-BACC-1A39C14C8451",
+                "taille": "N/A",
+                "couleur": "8mm 4pcs",
+                "prix": 2.33,
+                "poids": 132.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-6MM 2PCS",
+                "vid": "96F92442-6002-4173-911D-4D9F8F18C64B",
+                "taille": "N/A",
+                "couleur": "6mm 2pcs",
+                "prix": 2.33,
+                "poids": 40.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-10MM 2PCS",
+                "vid": "B2D6E357-D914-4016-9224-BB65E7A380B4",
+                "taille": "N/A",
+                "couleur": "10mm 2pcs",
+                "prix": 2.33,
+                "poids": 80.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-4MM 3PCS",
+                "vid": "C2D7C780-201C-4A47-A205-512D8768E3BD",
+                "taille": "N/A",
+                "couleur": "4mm 3pcs",
+                "prix": 2.33,
+                "poids": 44.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-8MM",
+                "vid": "D45BC4CA-761E-4C0F-B900-342BC53E1C31",
+                "taille": "N/A",
+                "couleur": "8mm",
+                "prix": 2.33,
+                "poids": 38.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-10MM 3PCS",
+                "vid": "F6D94828-406F-408E-A04B-B2BB09CBC409",
+                "taille": "N/A",
+                "couleur": "10mm 3pcs",
+                "prix": 2.33,
+                "poids": 110.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBLXSL01320-12MM 2PCS",
+                "vid": "F973A63B-E00B-4740-AAD0-D5ACDB2401DF",
+                "taille": "N/A",
+                "couleur": "12mm 2pcs",
+                "prix": 2.33,
+                "poids": 120.0,
+                "stock": 184538,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
