@@ -2538,7 +2538,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1402446458522832896",
-        "nom": "Mignon oreilles de lapin Bowknot sac à dos étudiant",
+        "nom": "Cute Bunny Ears Bowknot Backpack Student",
         "prixBase": 4.54,
         "productFee": 0.0,
         "images": [
@@ -8511,7 +8511,7 @@
                 "poids": 180.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.27,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.02
             },
@@ -8539,7 +8539,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.28
             },
             {
                 "sku": "CJYE205233316PK",
@@ -8849,7 +8849,7 @@
                 "poids": 200.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.3
             },
@@ -8916,7 +8916,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.3
             },
             {
                 "sku": "CJYE205233345SH",
@@ -8968,7 +8968,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.27,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.02
             },
             {
                 "sku": "CJYE205233349WD",
@@ -9057,7 +9057,7 @@
                 "poids": 220.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -9083,7 +9083,7 @@
                 "poids": 160.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.74
             },
@@ -9150,7 +9150,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJYE205233363KP",
@@ -9163,7 +9163,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.02
             },
             {
                 "sku": "CJYE205233364LO",
@@ -9189,7 +9189,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.28
             },
             {
                 "sku": "CJYE205233381CX",
@@ -9241,7 +9241,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.3
             },
             {
                 "sku": "CJYE205233385GT",
@@ -9317,7 +9317,7 @@
                 "poids": 220.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -9343,7 +9343,7 @@
                 "poids": 160.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -9356,9 +9356,9 @@
                 "poids": 180.0,
                 "stock": 994674,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 6.27,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 7.02
             },
             {
                 "sku": "CJYE205233394PK",
@@ -11886,6 +11886,57 @@
                 "shippingCostFR": 5.51,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "9BAA49C7-F2FD-4560-B860-EF0CCB1B6A10",
+        "nom": "Male and female Babies Handmade Knitted Wool Soft Bottom Babies",
+        "prixBase": 2.44,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20210123/2489295780499.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE05437-YELLOW-11CM",
+                "vid": "A904D684-FBBF-4EA2-920D-64AF347D9396",
+                "taille": "11CM",
+                "couleur": "Yellow",
+                "prix": 2.44,
+                "poids": 130.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJWJYEYE05437-RED-11CM",
+                "vid": "B53AB9D0-ABF1-4815-A186-FBDC343BDC0B",
+                "taille": "11CM",
+                "couleur": "Red",
+                "prix": 2.44,
+                "poids": 130.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJWJYEYE05437-BLUE-11CM",
+                "vid": "DE0D73D7-5928-4D33-A4FE-B8C48390ED6A",
+                "taille": "11CM",
+                "couleur": "Blue",
+                "prix": 2.44,
+                "poids": 130.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.8
             }
         ]
     }
