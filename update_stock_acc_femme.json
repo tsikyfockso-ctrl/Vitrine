@@ -1825,8 +1825,8 @@
                 "prix": 7.46,
                 "poids": 490.0,
                 "stock": 45956,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.65
             },
@@ -1838,8 +1838,8 @@
                 "prix": 7.46,
                 "poids": 490.0,
                 "stock": 45956,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.65
             },
@@ -1851,8 +1851,8 @@
                 "prix": 7.46,
                 "poids": 490.0,
                 "stock": 45956,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.65
             },
@@ -1864,8 +1864,8 @@
                 "prix": 7.46,
                 "poids": 490.0,
                 "stock": 45956,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.65
             }
@@ -13826,7 +13826,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.06,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.29
+                "shippingCostUS": 11.05
             },
             {
                 "sku": "CJBHNSNS06737-KHAKI",
@@ -17816,7 +17816,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 9.82,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 12.57
+                "shippingCostUS": 11.33
             },
             {
                 "sku": "CJYD190755104DW",
@@ -26761,7 +26761,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.98,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.15
+                "shippingCostUS": 12.3
             },
             {
                 "sku": "CJNS198721313MN",
@@ -26798,7 +26798,7 @@
                 "poids": 620.0,
                 "stock": 298905,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.98,
+                "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.52
             },
@@ -26837,7 +26837,7 @@
                 "poids": 595.0,
                 "stock": 298905,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.98,
+                "shippingCostFR": 10.84,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.15
             },
@@ -26865,7 +26865,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.98,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.15
+                "shippingCostUS": 12.3
             },
             {
                 "sku": "CJNS198721321UF",
@@ -26878,7 +26878,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.98,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.15
+                "shippingCostUS": 12.37
             },
             {
                 "sku": "CJNS198721322VE",
@@ -26902,7 +26902,7 @@
                 "poids": 620.0,
                 "stock": 298905,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.98,
+                "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.15
             },
@@ -26918,6 +26918,134 @@
                 "shippingCostFR": 11.14,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1408609323382345728",
+        "nom": "Men's Chest Small Backpack Casual Waist Bag",
+        "prixBase": 4.59,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/79dce79b-3dd3-4cc8-a8b7-f353ba3fe1de.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS119178801AZ",
+                "vid": "1408609324837769216",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 4.59,
+                "poids": 310.0,
+                "stock": 117406,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS119178802BY",
+                "vid": "1408609324850352128",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 4.59,
+                "poids": 310.0,
+                "stock": 117406,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS119178803CX",
+                "vid": "1408609324862935040",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 4.59,
+                "poids": 310.0,
+                "stock": 117406,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS119178804DW",
+                "vid": "1408609324875517952",
+                "taille": "N/A",
+                "couleur": "Apricot",
+                "prix": 4.59,
+                "poids": 310.0,
+                "stock": 117406,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504181318451606000",
+        "nom": "Navy Blue Plaid Top Suit Women",
+        "prixBase": 11.28,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/18/13/89fce227-9e12-4fc2-9aea-ef5218aff6fc_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLY235728002BY",
+                "vid": "2504181318451606300",
+                "taille": "L",
+                "couleur": "Dark Blue Suit",
+                "prix": 11.28,
+                "poids": 320.0,
+                "stock": 29121,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLY235728003CX",
+                "vid": "2504181318451606500",
+                "taille": "M",
+                "couleur": "Dark Blue Suit",
+                "prix": 11.28,
+                "poids": 330.0,
+                "stock": 29121,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLY235728004DW",
+                "vid": "2504181318451606700",
+                "taille": "S",
+                "couleur": "Dark Blue Suit",
+                "prix": 11.28,
+                "poids": 340.0,
+                "stock": 29121,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLY235728005EV",
+                "vid": "2504181318451606900",
+                "taille": "XL",
+                "couleur": "Dark Blue Suit",
+                "prix": 11.28,
+                "poids": 350.0,
+                "stock": 29121,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
