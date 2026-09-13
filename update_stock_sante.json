@@ -783,5 +783,30 @@
                 "shippingCostUS": 5.62
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1829012600345481216",
+        "nom": "8-character Puller, 8-character Silicone Yoga Auxiliary Home Elastic Band Mini Band Kit, A Set Of 3, Light Three Medium, And Heavy Lower Body Loop Resistance Bands For Legs And Booty",
+        "prixBase": 16.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0a42e559-e337-46f5-b259-158678551f70.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM212302301AZ",
+                "vid": "1829012600383229952",
+                "taille": "N/A",
+                "couleur": "3Pcs",
+                "prix": 16.98,
+                "poids": 270.0,
+                "stock": 1158,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region #4",
+                "shippingCostFR": 7.01,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
