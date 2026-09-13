@@ -2538,7 +2538,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1402446458522832896",
-        "nom": "Cute Bunny Ears Bowknot Backpack Student",
+        "nom": "Mignon oreilles de lapin Bowknot sac à dos étudiant",
         "prixBase": 4.54,
         "productFee": 0.0,
         "images": [
@@ -3647,7 +3647,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2504170323181620000",
-        "nom": "Bandeau à nœud pour cheveux, accessoires mignons et Super mignons, accessoires pour cheveux de bébé fille, coiffure",
+        "nom": "Bow Hair Band Cute Super Cute Accessories Baby Girl Hair Accessories Headdress",
         "prixBase": 0.66,
         "productFee": 0.0,
         "images": [
@@ -11415,7 +11415,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1713528079446331392",
-        "nom": "Cute Deer Hat Women Plush Rabbit Ear Funny Lolita Sweet Kawaii Winter Fluffy Fleece Warm Hat Plush Winter Thickened Cute Antlers Baby Hat With Scarf For 5-10 Y Children",
+        "nom": "Chapeau de cerf mignon pour femmes, oreilles de lapin en peluche, drôle Lolita doux Kawaii, chapeau chaud en polaire moelleuse d'hiver en peluche épais, chapeau de bébé en bois mignon avec écharpe pour enfants de 5 à 10 ans",
         "prixBase": 7.34,
         "productFee": 0.0,
         "images": [
@@ -11432,8 +11432,8 @@
                 "stock": 4041,
                 "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 5.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Yunexpress CN to US",
+                "shippingCostUS": 3.0
             },
             {
                 "sku": "CJNT187170902BY",
@@ -11445,8 +11445,8 @@
                 "stock": 4041,
                 "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 5.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Yunexpress CN to US",
+                "shippingCostUS": 3.0
             },
             {
                 "sku": "CJNT187170903CX",
@@ -11458,8 +11458,8 @@
                 "stock": 4041,
                 "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 5.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Yunexpress CN to US",
+                "shippingCostUS": 3.0
             },
             {
                 "sku": "CJNT187170904DW",
@@ -11471,8 +11471,357 @@
                 "stock": 4041,
                 "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 5.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Yunexpress CN to US",
+                "shippingCostUS": 3.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503081322471622900",
+        "nom": "Baby Season Korean Style Rabbit Floral Princess Dress",
+        "prixBase": 4.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/0d393125-f9fc-4896-9d1d-9b3e00d5a54b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD231941101AZ",
+                "vid": "2503081322471623100",
+                "taille": "73",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 160.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941102BY",
+                "vid": "2503081322471623300",
+                "taille": "80",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 165.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.12,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941103CX",
+                "vid": "2503081322471623400",
+                "taille": "90",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 170.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYD231941104DW",
+                "vid": "2503081322471623600",
+                "taille": "100",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 175.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.22,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.95
+            },
+            {
+                "sku": "CJYD231941105EV",
+                "vid": "2503081322471623800",
+                "taille": "110",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 180.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
+            },
+            {
+                "sku": "CJYD231941106FU",
+                "vid": "2503081322471623900",
+                "taille": "120",
+                "couleur": "Dress Floral Apricot",
+                "prix": 4.02,
+                "poids": 185.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.09
+            },
+            {
+                "sku": "CJYD231941107GT",
+                "vid": "2503081322471624100",
+                "taille": "73",
+                "couleur": "Baby Shirt Floral Apricot",
+                "prix": 4.02,
+                "poids": 160.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941111KP",
+                "vid": "2503081322471624800",
+                "taille": "110",
+                "couleur": "Baby Shirt Floral Apricot",
+                "prix": 4.02,
+                "poids": 180.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941112LO",
+                "vid": "2503081322471625000",
+                "taille": "120",
+                "couleur": "Baby Shirt Floral Apricot",
+                "prix": 4.02,
+                "poids": 185.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941113MN",
+                "vid": "2503081322471625200",
+                "taille": "73",
+                "couleur": "Jeans",
+                "prix": 4.02,
+                "poids": 160.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941116PK",
+                "vid": "2503081322471625700",
+                "taille": "100",
+                "couleur": "Jeans",
+                "prix": 4.02,
+                "poids": 175.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.95
+            },
+            {
+                "sku": "CJYD231941117QJ",
+                "vid": "2503081322471625800",
+                "taille": "110",
+                "couleur": "Jeans",
+                "prix": 4.02,
+                "poids": 180.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            },
+            {
+                "sku": "CJYD231941118RI",
+                "vid": "2503081322471626000",
+                "taille": "120",
+                "couleur": "Jeans",
+                "prix": 4.02,
+                "poids": 185.0,
+                "stock": 92006,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.8
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1573860617579147264",
+        "nom": "Cute Bear Baby Carrier Bodysuit",
+        "prixBase": 6.58,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/b6a08341-cdb8-4455-993c-2aafaf1f9d9d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE157183801AZ",
+                "vid": "1573860617608507392",
+                "taille": "66cm",
+                "couleur": "Checkered",
+                "prix": 6.58,
+                "poids": 100.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.31
+            },
+            {
+                "sku": "CJYE157183802BY",
+                "vid": "1573860617608507393",
+                "taille": "73cm",
+                "couleur": "Checkered",
+                "prix": 6.58,
+                "poids": 107.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.31
+            },
+            {
+                "sku": "CJYE157183803CX",
+                "vid": "1573860617612701696",
+                "taille": "80cm",
+                "couleur": "Checkered",
+                "prix": 6.58,
+                "poids": 114.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.31
+            },
+            {
+                "sku": "CJYE157183804DW",
+                "vid": "1573860617612701697",
+                "taille": "90cm",
+                "couleur": "Checkered",
+                "prix": 6.58,
+                "poids": 121.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.18
+            },
+            {
+                "sku": "CJYE157183805EV",
+                "vid": "1573860617612701698",
+                "taille": "66cm",
+                "couleur": "Bear",
+                "prix": 6.58,
+                "poids": 100.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJYE157183806FU",
+                "vid": "1573860617616896000",
+                "taille": "73cm",
+                "couleur": "Bear",
+                "prix": 6.58,
+                "poids": 107.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.31
+            },
+            {
+                "sku": "CJYE157183807GT",
+                "vid": "1573860617616896001",
+                "taille": "80cm",
+                "couleur": "Bear",
+                "prix": 6.58,
+                "poids": 114.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.45
+            },
+            {
+                "sku": "CJYE157183808HS",
+                "vid": "1573860617616896002",
+                "taille": "90cm",
+                "couleur": "Bear",
+                "prix": 6.58,
+                "poids": 121.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.18
+            },
+            {
+                "sku": "CJYE157183809IR",
+                "vid": "1573860617616896003",
+                "taille": "66cm",
+                "couleur": "Floral",
+                "prix": 6.58,
+                "poids": 100.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJYE157183810JQ",
+                "vid": "1573860617621090304",
+                "taille": "73cm",
+                "couleur": "Floral",
+                "prix": 6.58,
+                "poids": 107.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.31
+            },
+            {
+                "sku": "CJYE157183811KP",
+                "vid": "1573860617621090305",
+                "taille": "80cm",
+                "couleur": "Floral",
+                "prix": 6.58,
+                "poids": 114.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.43,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.45
+            },
+            {
+                "sku": "CJYE157183812LO",
+                "vid": "1573860617625284608",
+                "taille": "90cm",
+                "couleur": "Floral",
+                "prix": 6.58,
+                "poids": 121.0,
+                "stock": 153181,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.18
             }
         ]
     }
