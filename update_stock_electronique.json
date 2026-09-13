@@ -1207,7 +1207,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1671069855589609472",
-        "nom": "Montre intelligente TWS Bluetooth casque 2-en-1 GT100 double appel mémoire 128m",
+        "nom": "Smart Watch TWS Bluetooth Headset 2-in-1 GT100 Dual Call 128m Memory",
         "prixBase": 41.34,
         "productFee": 0.0,
         "images": [
@@ -7280,7 +7280,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1399995976726482944",
-        "nom": "Haut-parleur Bluetooth sans fil, double haut-parleurs, carte Audio Hifi, Usb, Portable",
+        "nom": "Wireless Bluetooth Speaker Dual Speakers Hifi Audio Card Usb Portable",
         "prixBase": 23.12,
         "productFee": 0.0,
         "images": [
@@ -7543,7 +7543,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.66,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.23
             },
             {
                 "sku": "CJSJBHIP00362-BAMBOO-IPHONE15",
@@ -22724,7 +22724,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 5.15,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.72
+                "shippingCostUS": 5.5
             },
             {
                 "sku": "CJJT1997155109EV",
@@ -39324,7 +39324,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1631322973493800960",
-        "nom": "Étui de téléphone à rabat à motif de vache",
+        "nom": "Cow Pattern Flip Phone Case",
         "prixBase": 1.46,
         "productFee": 0.0,
         "images": [
@@ -46012,7 +46012,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1660114293867679744",
-        "nom": "Gadgets antidérapants pour brosse à chaussures double face",
+        "nom": "Double Sided Shoe Brush Anti Slip Gadgets",
         "prixBase": 0.62,
         "productFee": 0.0,
         "images": [
@@ -48339,6 +48339,173 @@
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501201503051619600",
+        "nom": "Wireless Bluetooth Translation Headphones Open Ear-mounted",
+        "prixBase": 19.73,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/01/20/15/fc97229a-f955-4ef9-ad08-29a56814515a.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD227549301AZ",
+                "vid": "2501201503051619900",
+                "taille": "N/A",
+                "couleur": "OWS Black",
+                "prix": 19.73,
+                "poids": 220.0,
+                "stock": 14390,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.1,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.9
+            },
+            {
+                "sku": "CJYD227549302BY",
+                "vid": "2501201503061610000",
+                "taille": "N/A",
+                "couleur": "OWS Skin Color",
+                "prix": 19.73,
+                "poids": 220.0,
+                "stock": 14390,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 7.1,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.9
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1421296069895131136",
+        "nom": "Blu-ray Butterfly Flower Phone Case",
+        "prixBase": 1.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/df240c33-79a0-482e-af67-ec9fed5017e2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJIP123412501AZ",
+                "vid": "1421296072562708480",
+                "taille": "Iphone11",
+                "couleur": "A",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412502BY",
+                "vid": "1421296072571097088",
+                "taille": "Iphone11Pro",
+                "couleur": "A",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412503CX",
+                "vid": "1421296072583680000",
+                "taille": "IPhone11MAX",
+                "couleur": "A",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412504DW",
+                "vid": "1421296072592068608",
+                "taille": "Iphone11",
+                "couleur": "B",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412505EV",
+                "vid": "1421296072600457216",
+                "taille": "Iphone11Pro",
+                "couleur": "B",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412506FU",
+                "vid": "1421296072608845824",
+                "taille": "IPhone11MAX",
+                "couleur": "B",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412507GT",
+                "vid": "1421296072621428736",
+                "taille": "Iphone11",
+                "couleur": "C",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412508HS",
+                "vid": "1421296072629817344",
+                "taille": "Iphone11Pro",
+                "couleur": "C",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
+            },
+            {
+                "sku": "CJIP123412509IR",
+                "vid": "1421296072638205952",
+                "taille": "IPhone11MAX",
+                "couleur": "C",
+                "prix": 1.9,
+                "poids": 75.0,
+                "stock": 275004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.9,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.62
             }
         ]
     }
