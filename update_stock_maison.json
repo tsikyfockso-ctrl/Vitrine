@@ -193,8 +193,8 @@
                 "prix": 6.6,
                 "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 20.7
             },
@@ -206,8 +206,8 @@
                 "prix": 6.6,
                 "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.09,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 20.7
             }
@@ -5679,9 +5679,9 @@
                 "couleur": "White",
                 "prix": 15.0,
                 "poids": 882.0,
-                "stock": 81207,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.73,
+                "stock": 81205,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.95,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 21.57
             },
@@ -5692,7 +5692,7 @@
                 "couleur": "Wood Color",
                 "prix": 15.0,
                 "poids": 882.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.73,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -5705,7 +5705,7 @@
                 "couleur": "White",
                 "prix": 15.0,
                 "poids": 1754.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.73,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -5718,7 +5718,7 @@
                 "couleur": "White S set",
                 "prix": 15.0,
                 "poids": 1045.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 20.92,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -5731,9 +5731,9 @@
                 "couleur": "White M set",
                 "prix": 15.0,
                 "poids": 1051.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.73,
+                "shippingCostFR": 20.92,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 24.5
             },
@@ -5744,7 +5744,7 @@
                 "couleur": "White L set",
                 "prix": 15.0,
                 "poids": 1057.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.73,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -5757,7 +5757,7 @@
                 "couleur": "White S set1",
                 "prix": 15.0,
                 "poids": 1922.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 28.29,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -5770,9 +5770,9 @@
                 "couleur": "White M set1",
                 "prix": 15.0,
                 "poids": 1928.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.73,
+                "shippingCostFR": 28.35,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 34.5
             },
@@ -5783,7 +5783,7 @@
                 "couleur": "White L set1",
                 "prix": 15.0,
                 "poids": 1934.0,
-                "stock": 81207,
+                "stock": 81205,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 28.43,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -8640,7 +8640,7 @@
                 "couleur": "Black White",
                 "prix": 57.08,
                 "poids": 8300.0,
-                "stock": 332,
+                "stock": 331,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -8810,6 +8810,56 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031974052040982530",
+        "nom": "Chicken Coop With Chicken Run, Chicken Coops For 10 Chickens Outdoor With Nesting Boxes , Wooden Walk-in Chicken House With Pull Out Trays , Garden Backyard Cage 95X80X83",
+        "prixBase": 546.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/49249184-0dd1-4cef-bdd5-277f344a61a3.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27847370001",
+                "vid": "2031974052154228738",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 546.17,
+                "poids": 36999.0,
+                "stock": 27,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506160925091624800",
+        "nom": "Multi-sound Luminous 40W Wireless Bluetooth Fabric Speaker",
+        "prixBase": 32.84,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/16/09/533984ab-9758-4b63-bdc2-e30f1f102030_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD240330901AZ",
+                "vid": "2506160925091625000",
+                "taille": "N/A",
+                "couleur": "Black And Blue",
+                "prix": 32.84,
+                "poids": 610.0,
+                "stock": 5391,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.63,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.25
             }
         ]
     }
