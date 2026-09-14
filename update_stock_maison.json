@@ -649,7 +649,7 @@
                 "poids": 590.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.53,
+                "shippingCostFR": 21.41,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 15.61
             },
@@ -662,9 +662,9 @@
                 "poids": 970.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.53,
+                "shippingCostFR": 27.54,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 9.81
+                "shippingCostUS": 25.44
             },
             {
                 "sku": "CJHD225250104DW",
@@ -729,7 +729,7 @@
                 "shippingMethodFR": "CJPacket Pure Electricity",
                 "shippingCostFR": 21.41,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 9.81
+                "shippingCostUS": 15.61
             },
             {
                 "sku": "CJHD225250109IR",
@@ -742,7 +742,7 @@
                 "shippingMethodFR": "CJPacket Pure Electricity",
                 "shippingCostFR": 27.54,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 9.81
+                "shippingCostUS": 25.44
             },
             {
                 "sku": "CJHD225250110JQ",
@@ -2407,7 +2407,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "D639DC8C-F255-460C-AD0E-1D35EFA06D61",
-        "nom": "Mini humidificateur USB pour bureau à domicile",
+        "nom": "Home office mini USB humidifier",
         "prixBase": 4.83,
         "productFee": 0.0,
         "images": [
@@ -2424,8 +2424,8 @@
                 "stock": 37285,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 12.52,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.75
             },
             {
                 "sku": "CJJJJTJT16129-GOLD",
@@ -2437,8 +2437,8 @@
                 "stock": 37285,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 12.52,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.75
             },
             {
                 "sku": "CJJJJTJT16129-PURPLE",
@@ -2450,8 +2450,8 @@
                 "stock": 37285,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 12.52,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.75
             }
         ]
     },
@@ -7973,7 +7973,7 @@
                 "couleur": "Middle Finger Ghost",
                 "prix": 0.9,
                 "poids": 100.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -7986,11 +7986,11 @@
                 "couleur": "White Love Ghost",
                 "prix": 0.9,
                 "poids": 174.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.21,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.94
             },
             {
                 "sku": "CJJT210687703CX",
@@ -7999,7 +7999,7 @@
                 "couleur": "Red Love Ghost",
                 "prix": 0.9,
                 "poids": 100.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -8012,7 +8012,7 @@
                 "couleur": "A Pair Of Ghosts",
                 "prix": 0.9,
                 "poids": 100.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -8025,7 +8025,7 @@
                 "couleur": "Middle Finger Ghost",
                 "prix": 0.9,
                 "poids": 282.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.3,
                 "shippingMethodUS": "LuWei Ordinary US",
@@ -8038,7 +8038,7 @@
                 "couleur": "Red Love Ghost",
                 "prix": 0.9,
                 "poids": 282.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.3,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -8051,7 +8051,7 @@
                 "couleur": "White Love Ghost",
                 "prix": 0.9,
                 "poids": 510.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.98,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -8064,7 +8064,7 @@
                 "couleur": "Cat Ghost",
                 "prix": 0.9,
                 "poids": 100.0,
-                "stock": 77888,
+                "stock": 77770,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
@@ -8760,6 +8760,56 @@
                 "shippingCostFR": 5.08,
                 "shippingMethodUS": "CJPacket FJTY Eub Special Line",
                 "shippingCostUS": 7.62
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1944958758268215298",
+        "nom": "4 L X 6 W Walk-In Polycarbonate Greenhouse With Roof Vent, Outdoor Greenhouse For Winter, Clear",
+        "prixBase": 282.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/08c572db-a283-404a-b7e8-f47c77c9927d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL243039701AZ",
+                "vid": "1944958758406627330",
+                "taille": "N/A",
+                "couleur": "With",
+                "prix": 282.62,
+                "poids": 9000.0,
+                "stock": 67,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037390838621290497",
+        "nom": "39.37  Rectangle Clear Glass Glass Coffee Table,Stylish Design With White Metal Legs, Coffee Table For Living Room",
+        "prixBase": 102.33,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/713289f4-b129-4265-8583-cba4fb55c8ee.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28075130001",
+                "vid": "2037390838818422786",
+                "taille": "N/A",
+                "couleur": "Transparent",
+                "prix": 102.33,
+                "poids": 15422.0,
+                "stock": 53,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
