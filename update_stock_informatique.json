@@ -1106,17 +1106,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJBJ1132742",
-                "vid": "1394198586664816640",
+                "sku": "CJBJ113274201AZ",
+                "vid": "1394198588023771136",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black",
                 "prix": 8.32,
-                "poids": 0.0,
+                "poids": 470.0,
                 "stock": 80000,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.37
+            },
+            {
+                "sku": "CJBJ113274202BY",
+                "vid": "1394198588036354048",
+                "taille": "N/A",
+                "couleur": "Silver black wire rod",
+                "prix": 8.32,
+                "poids": 470.0,
+                "stock": 80000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.58,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.37
             }
         ]
     },
@@ -1203,7 +1216,7 @@
                 "poids": 320.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 7.68,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.87
             },
@@ -1218,7 +1231,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.02
+                "shippingCostUS": 10.37
             },
             {
                 "sku": "CJJT202386904DW",
@@ -1424,7 +1437,7 @@
                 "poids": 470.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -1476,7 +1489,7 @@
                 "poids": 470.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -1516,8 +1529,8 @@
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.02
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.87
             },
             {
                 "sku": "CJJT202386927AZ",
@@ -1567,7 +1580,7 @@
                 "poids": 320.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 7.68,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.02
             },
@@ -1619,7 +1632,7 @@
                 "poids": 320.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 7.68,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.87
             },
@@ -1684,7 +1697,7 @@
                 "poids": 470.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -2308,7 +2321,7 @@
                 "poids": 470.0,
                 "stock": 1094538,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -2363,17 +2376,42 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD1598459",
-                "vid": "1585596481053143040",
+                "sku": "CJYD159845902BY",
+                "vid": "1585596481132834816",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "black",
                 "prix": 0.98,
-                "poids": 0.0,
+                "poids": 65.0,
                 "stock": 11092,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1499218764133175296",
+        "nom": "Car USB To 3.5MM Male Audio Adapter Cable",
+        "prixBase": 0.77,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/66b98c91-927a-49d0-ab70-ea1c73b80341.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYP142872001AZ",
+                "vid": "1499218764284170240",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 0.77,
+                "poids": 40.0,
+                "stock": 43472,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 4.14,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     }
