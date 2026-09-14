@@ -2414,5 +2414,121 @@
                 "shippingCostUS": 5.07
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1618061912267304960",
+        "nom": "Raspberry PI CM4 Computing Module Core Board Bottom Plate",
+        "prixBase": 115.18,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1e90b669-128e-4a65-80dd-bd0142045029.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWL166758501AZ",
+                "vid": "1618061912376356864",
+                "taille": "N/A",
+                "couleur": "CM4104000",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758502BY",
+                "vid": "1618061912384745472",
+                "taille": "N/A",
+                "couleur": "CM4104008",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758503CX",
+                "vid": "1618061912388939776",
+                "taille": "N/A",
+                "couleur": "CM4104016",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758504DW",
+                "vid": "1618061912393134080",
+                "taille": "N/A",
+                "couleur": "CM4104032",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758505EV",
+                "vid": "1618061912397328384",
+                "taille": "N/A",
+                "couleur": "CM4108000",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758506FU",
+                "vid": "1618061912401522688",
+                "taille": "N/A",
+                "couleur": "CM4108008",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758507GT",
+                "vid": "1618061912405716992",
+                "taille": "N/A",
+                "couleur": "CM4108016",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            },
+            {
+                "sku": "CJWL166758508HS",
+                "vid": "1618061912409911296",
+                "taille": "N/A",
+                "couleur": "CM4108032",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.5
+            }
+        ]
     }
 ]
