@@ -2589,7 +2589,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1371372671513792512",
-        "nom": "Genouillère de protection pour enfants, chauffe-jambes de sécurité pour bébé rampant",
+        "nom": "Protector Knee-Pad Kids Safety Leg-Warmer Crawling Baby Cush",
         "prixBase": 7.4,
         "productFee": 0.0,
         "images": [
@@ -11937,6 +11937,122 @@
                 "shippingCostFR": 5.64,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.8
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406260301201615200",
+        "nom": "Baby Embroidery Long Sleeve Butt Wrap Clothes Wool",
+        "prixBase": 13.43,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/e78afcf8-a6b7-4971-ab43-5b2b6abf3296.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE206896501AZ",
+                "vid": "2406260301201615400",
+                "taille": "70 Yards",
+                "couleur": "Purplish Red",
+                "prix": 13.43,
+                "poids": 220.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.57
+            },
+            {
+                "sku": "CJYE206896502BY",
+                "vid": "2406260301201615500",
+                "taille": "80 Yards",
+                "couleur": "Purplish Red",
+                "prix": 13.43,
+                "poids": 230.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE206896503CX",
+                "vid": "2406260301201615700",
+                "taille": "90 Yards",
+                "couleur": "Purplish Red",
+                "prix": 13.43,
+                "poids": 240.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.88,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.84
+            },
+            {
+                "sku": "CJYE206896504DW",
+                "vid": "2406260301201615800",
+                "taille": "100 Yards",
+                "couleur": "Purplish Red",
+                "prix": 13.43,
+                "poids": 250.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.96
+            },
+            {
+                "sku": "CJYE206896505EV",
+                "vid": "2406260301201616000",
+                "taille": "70 Yards",
+                "couleur": "Brown",
+                "prix": 13.43,
+                "poids": 220.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.57
+            },
+            {
+                "sku": "CJYE206896506FU",
+                "vid": "2406260301201616200",
+                "taille": "80 Yards",
+                "couleur": "Brown",
+                "prix": 13.43,
+                "poids": 230.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.57
+            },
+            {
+                "sku": "CJYE206896507GT",
+                "vid": "2406260301201616300",
+                "taille": "90 Yards",
+                "couleur": "Brown",
+                "prix": 13.43,
+                "poids": 240.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.88,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.84
+            },
+            {
+                "sku": "CJYE206896508HS",
+                "vid": "2406260301201616500",
+                "taille": "100 Yards",
+                "couleur": "Brown",
+                "prix": 13.43,
+                "poids": 250.0,
+                "stock": 104122,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.98,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.96
             }
         ]
     }
