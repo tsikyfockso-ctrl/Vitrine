@@ -1392,5 +1392,69 @@
                 "shippingCostUS": 6.96
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "0C862543-E20F-4900-8AA6-24505AA12662",
+        "nom": "Skipping Rope With Counter Adjustable Length Counter Wear-resistant Foam Cotton Handle JumpRope Exercise Portable Sports Training Equipment",
+        "prixBase": 0.99,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/16/05/126af1ff-2a81-4034-bebd-e87bf30bfb55.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYDQTJM00256-GREEN",
+                "vid": "2E69A44E-1D42-49F9-9D45-7423DDD3CA82",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 0.99,
+                "poids": 120.0,
+                "stock": 50024,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYDQTJM00256-ORANGE",
+                "vid": "6A4C4BFE-B584-4121-95BD-12B5813C767D",
+                "taille": "N/A",
+                "couleur": "Orange",
+                "prix": 0.99,
+                "poids": 120.0,
+                "stock": 50024,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYDQTJM00256-RED",
+                "vid": "94D35DEB-2691-4835-A8CD-61D46651B4F6",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 0.99,
+                "poids": 120.0,
+                "stock": 50024,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            },
+            {
+                "sku": "CJYDQTJM00256-BLUE",
+                "vid": "B73839FB-AAEF-425A-88D6-6B6F82BE2F2E",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 0.99,
+                "poids": 120.0,
+                "stock": 50024,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.58
+            }
+        ]
     }
 ]
