@@ -8937,5 +8937,119 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1905185978893697025",
+        "nom": "Black Hydroponic Planting System",
+        "prixBase": 91.73,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/29abf368-3659-416c-a68d-02af8b2576ed.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL233876701AZ",
+                "vid": "1905185979103412225",
+                "taille": "N/A",
+                "couleur": "Black White",
+                "prix": 91.73,
+                "poids": 2800.0,
+                "stock": 96,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2042458567594639361",
+        "nom": "12  Bathroom Side Cabinet Soft Close Doors Float Mounting Design  KD- Packing",
+        "prixBase": 134.93,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17757792/a55a689c-cef8-4c65-829f-a62a3c33b418.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28268450001",
+                "vid": "2042458567699496961",
+                "taille": "N/A",
+                "couleur": "Imitative Oak",
+                "prix": 134.93,
+                "poids": 10977.0,
+                "stock": 50,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504240228201616500",
+        "nom": "USB Charging Automatic Cleaning Machine Vacuum Cleaner",
+        "prixBase": 2.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/78a3a7d3-4d9a-49e7-bf06-74b50d55de5f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD236121501AZ",
+                "vid": "2504240228201617000",
+                "taille": "N/A",
+                "couleur": "Ordinary White",
+                "prix": 2.9,
+                "poids": 530.0,
+                "stock": 24779,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.69,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 12.92
+            },
+            {
+                "sku": "CJYD236121502BY",
+                "vid": "2504240228201617600",
+                "taille": "N/A",
+                "couleur": "Ordinary Black",
+                "prix": 2.9,
+                "poids": 530.0,
+                "stock": 24779,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.69,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 12.92
+            },
+            {
+                "sku": "CJYD236121503CX",
+                "vid": "2504240228201618400",
+                "taille": "N/A",
+                "couleur": "Upgrade White",
+                "prix": 2.9,
+                "poids": 550.0,
+                "stock": 24779,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.69,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.24
+            },
+            {
+                "sku": "CJYD236121504DW",
+                "vid": "2504240228201618800",
+                "taille": "N/A",
+                "couleur": "Upgrade Black",
+                "prix": 2.9,
+                "poids": 550.0,
+                "stock": 24779,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.92,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.24
+            }
+        ]
     }
 ]
