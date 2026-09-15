@@ -884,8 +884,8 @@
                 "prix": 5.01,
                 "poids": 190.0,
                 "stock": 6284,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 6.69,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.9,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 8.1
             }
@@ -2682,6 +2682,70 @@
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1754334295935692800",
+        "nom": "Smart Desktop Electric Pumping Water Device",
+        "prixBase": 7.93,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/61174b75-df14-4330-9ca0-0aeb8efce835.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD196422201AZ",
+                "vid": "1754334296057327616",
+                "taille": "N/A",
+                "couleur": "White 1800 MA",
+                "prix": 7.93,
+                "poids": 415.0,
+                "stock": 49917,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.24
+            },
+            {
+                "sku": "CJYD196422202BY",
+                "vid": "1754334296145408000",
+                "taille": "N/A",
+                "couleur": "Dark Blue 1800 MA",
+                "prix": 7.93,
+                "poids": 415.0,
+                "stock": 49917,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.24
+            },
+            {
+                "sku": "CJYD196422203CX",
+                "vid": "1754334296237682688",
+                "taille": "N/A",
+                "couleur": "Black 1800 MA",
+                "prix": 7.93,
+                "poids": 415.0,
+                "stock": 49917,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.24
+            },
+            {
+                "sku": "CJYD196422204DW",
+                "vid": "1754334296329957376",
+                "taille": "N/A",
+                "couleur": "Pink 1800 MA",
+                "prix": 7.93,
+                "poids": 415.0,
+                "stock": 49917,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.24
             }
         ]
     }
