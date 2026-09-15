@@ -2748,5 +2748,30 @@
                 "shippingCostUS": 11.24
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1379978939526680576",
+        "nom": "USB 2.0 2.5 Inch IDE HD Hard Disk Drive HDD External Case En",
+        "prixBase": 4.64,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1617847335320.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD107007501AZ",
+                "vid": "1379978940944355328",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 4.64,
+                "poids": 102.0,
+                "stock": 40000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.27,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
