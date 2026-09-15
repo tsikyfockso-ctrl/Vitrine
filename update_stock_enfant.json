@@ -846,7 +846,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1371372671513792512",
-        "nom": "Genouillère de protection pour enfants, chauffe-jambes de sécurité pour bébé rampant",
+        "nom": "Protector Knee-Pad Kids Safety Leg-Warmer Crawling Baby Cush",
         "prixBase": 7.4,
         "productFee": 0.0,
         "images": [
@@ -884,7 +884,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1676765179884871680",
-        "nom": "Nouveau-né chaud anti-rayures gant pince coton pour bébé gants de protection",
+        "nom": "Newborn Warm Anti-scratch Glove Clip Cotton For Baby Protective Gloves",
         "prixBase": 0.58,
         "productFee": 0.0,
         "images": [
@@ -1018,7 +1018,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.23,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.82
+                "shippingCostUS": 6.97
             },
             {
                 "sku": "CJWJYEYE01358-BLACK-80CM",
@@ -1122,7 +1122,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.82
+                "shippingCostUS": 7.3
             },
             {
                 "sku": "CJWJYEYE01358-BROWN-100CM",
@@ -3155,7 +3155,7 @@
                 "poids": 300.0,
                 "stock": 94874,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.48,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.35
             },
@@ -4771,6 +4771,135 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.93
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503081230451607500",
+        "nom": "Baby Girl Triangle Rompers Purple Dress",
+        "prixBase": 5.57,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/034a0fa3-4414-4c32-aba5-5313d0e629bc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE231938901AZ",
+                "vid": "2503081230451607700",
+                "taille": "66cm",
+                "couleur": "9Y923 Magic Purple Climbing",
+                "prix": 5.57,
+                "poids": 170.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE231938902BY",
+                "vid": "2503081230451607900",
+                "taille": "73CM",
+                "couleur": "9Y923 Magic Purple Climbing",
+                "prix": 5.57,
+                "poids": 180.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE231938903CX",
+                "vid": "2503081230451608100",
+                "taille": "80cm",
+                "couleur": "9Y923 Magic Purple Climbing",
+                "prix": 5.57,
+                "poids": 190.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE231938904DW",
+                "vid": "2503081230451608200",
+                "taille": "90cm",
+                "couleur": "9Y923 Magic Purple Climbing",
+                "prix": 5.57,
+                "poids": 200.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.3
+            },
+            {
+                "sku": "CJYE231938910JQ",
+                "vid": "2503081230451608400",
+                "taille": "80cm",
+                "couleur": "9Y923 Magic Purple Skirt",
+                "prix": 5.57,
+                "poids": 190.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.88
+            },
+            {
+                "sku": "CJYE231938911KP",
+                "vid": "2503081230451608600",
+                "taille": "90cm",
+                "couleur": "9Y923 Magic Purple Skirt",
+                "prix": 5.57,
+                "poids": 200.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.3
+            },
+            {
+                "sku": "CJYE231938912LO",
+                "vid": "2503081230451608700",
+                "taille": "100cm",
+                "couleur": "9Y923 Magic Purple Skirt",
+                "prix": 5.57,
+                "poids": 212.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.17,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.17
+            },
+            {
+                "sku": "CJYE231938913MN",
+                "vid": "2503081230451608900",
+                "taille": "110cm",
+                "couleur": "9Y923 Magic Purple Skirt",
+                "prix": 5.57,
+                "poids": 220.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.28
+            },
+            {
+                "sku": "CJYE231938914NM",
+                "vid": "2503081230451609100",
+                "taille": "120cm",
+                "couleur": "9Y923 Magic Purple Skirt",
+                "prix": 5.57,
+                "poids": 230.0,
+                "stock": 61840,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
             }
         ]
     }
