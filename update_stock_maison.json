@@ -1126,7 +1126,7 @@
                 "shippingMethodFR": "CJPacket Sensitive Pro",
                 "shippingCostFR": 10.81,
                 "shippingMethodUS": "CJPacket Eub Special Line",
-                "shippingCostUS": 9.73
+                "shippingCostUS": 9.18
             },
             {
                 "sku": "CJCF139051708HS",
@@ -9110,9 +9110,9 @@
                 "poids": 332.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 8.34,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 11.7
             },
             {
                 "sku": "CJJJJTJT15143-HEXAGON 3PC",
@@ -9138,7 +9138,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.27,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 11.56
             },
             {
                 "sku": "CJJJJTJT15143-ICE CONE 3PC",
@@ -9229,7 +9229,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 10.4,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 14.33
             },
             {
                 "sku": "CJJJJTJT15143-MEDIUM EGG CONE 2PC",
@@ -9318,7 +9318,7 @@
                 "poids": 272.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 7.54,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 10.68
             },
@@ -9333,7 +9333,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 9.35,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 13.0
             },
             {
                 "sku": "CJJJJTJT15143-SQUARE TUBE 2PC",
@@ -9409,7 +9409,7 @@
                 "poids": 486.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 10.4,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 14.33
             },
@@ -9694,6 +9694,107 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 12.29
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037390969038979074",
+        "nom": "Set Of 2 Rectangle End Table, Tempered Glass Tabletop With MDF Layer, Modern Table For Living Room , Transparent Glass",
+        "prixBase": 102.77,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/ed2f1de1-3177-4456-aed6-91367a02bb37.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28075170001",
+                "vid": "2037390969286443010",
+                "taille": "N/A",
+                "couleur": "Transparent",
+                "prix": 102.77,
+                "poids": 15467.0,
+                "stock": 6,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2016746237725298689",
+        "nom": "Bookshelf,Storage Rack,Multifunctional Rack",
+        "prixBase": 100.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17696448/2013c8fc-6085-46bd-bd16-b8a93cd312f7.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27478600001",
+                "vid": "2016746237834350593",
+                "taille": "N/A",
+                "couleur": "Rustic Brown",
+                "prix": 100.26,
+                "poids": 21200.0,
+                "stock": 65,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1895380659291201538",
+        "nom": "Electric Standing Desk Whole Piece Adjustable Height Desk Home Office Computer Workstation Sit Stand Up Desk",
+        "prixBase": 68.15,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/66d88ecf-81a3-4404-919b-ba8437352490.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT231126201AZ",
+                "vid": "1895380659916152834",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 68.15,
+                "poids": 16942.0,
+                "stock": 267,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT231126202BY",
+                "vid": "1895380659916152835",
+                "taille": "N/A",
+                "couleur": "WhiteNatural",
+                "prix": 68.15,
+                "poids": 16942.0,
+                "stock": 267,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT231126203CX",
+                "vid": "1895380659916152836",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 68.15,
+                "poids": 16942.0,
+                "stock": 267,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
