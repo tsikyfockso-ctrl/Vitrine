@@ -414,8 +414,8 @@
                 "stock": 40000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 36.45,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 42.27
             }
         ]
     },
@@ -1126,9 +1126,9 @@
                 "couleur": "G1 Cream Yellow",
                 "prix": 2.72,
                 "poids": 250.0,
-                "stock": 16268,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.52,
+                "stock": 16267,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 8.43
             },
@@ -1139,9 +1139,9 @@
                 "couleur": "G1 Gray",
                 "prix": 2.72,
                 "poids": 250.0,
-                "stock": 16268,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 7.52,
+                "stock": 16267,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 8.43
             }
@@ -2963,6 +2963,44 @@
                 "shippingCostFR": 9.88,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.79
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1873987701496766466",
+        "nom": "Adjustable Mobile Bed Table, Computer Desk, Mobile Standing Table",
+        "prixBase": 49.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/bb52d793-b505-43c5-850f-3c24650d11f0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT225784901AZ",
+                "vid": "1873987701572263937",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 49.17,
+                "poids": 10160.0,
+                "stock": 9920,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT225784902BY",
+                "vid": "1873987701572263938",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 49.17,
+                "poids": 10160.0,
+                "stock": 9920,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
