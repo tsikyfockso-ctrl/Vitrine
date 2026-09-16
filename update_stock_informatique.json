@@ -2460,8 +2460,8 @@
                 "prix": 0.77,
                 "poids": 40.0,
                 "stock": 43472,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.14,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.13,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
             }
@@ -2771,6 +2771,83 @@
                 "shippingCostFR": 5.27,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1492400224193351680",
+        "nom": "USB Power Display Car Charging Beard Knife Men And Women Self-service Shaver",
+        "prixBase": 3.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2a647144-0c2c-4de3-bd0f-18059b21606c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTX141427501AZ",
+                "vid": "1492403210982395904",
+                "taille": "USB",
+                "couleur": "Black",
+                "prix": 3.02,
+                "poids": 104.0,
+                "stock": 215057,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.88,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJTX141427502BY",
+                "vid": "1492403210986590208",
+                "taille": "USB",
+                "couleur": "Blue",
+                "prix": 3.02,
+                "poids": 104.0,
+                "stock": 215057,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.88,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJTX141427503CX",
+                "vid": "1492403210990784512",
+                "taille": "USB",
+                "couleur": "Gold",
+                "prix": 3.02,
+                "poids": 104.0,
+                "stock": 215057,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.88,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJTX141427504DW",
+                "vid": "1492403210990784513",
+                "taille": "USB",
+                "couleur": "Silver",
+                "prix": 3.02,
+                "poids": 104.0,
+                "stock": 215057,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.88,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJTX141427505EV",
+                "vid": "1492403210994978816",
+                "taille": "USB",
+                "couleur": "White",
+                "prix": 3.02,
+                "poids": 104.0,
+                "stock": 215057,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.88,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.24
             }
         ]
     }
