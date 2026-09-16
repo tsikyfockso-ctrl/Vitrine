@@ -30852,9 +30852,9 @@
                 "poids": 634.0,
                 "stock": 383092,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.83,
+                "shippingCostFR": 11.22,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.43
+                "shippingCostUS": 12.72
             },
             {
                 "sku": "CJXX206914706FU",
@@ -30919,7 +30919,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.92,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.43
+                "shippingCostUS": 12.29
             },
             {
                 "sku": "CJXX206914711KP",
@@ -31034,7 +31034,7 @@
                 "poids": 624.0,
                 "stock": 383092,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.83,
+                "shippingCostFR": 11.13,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.57
             },
@@ -31060,7 +31060,7 @@
                 "poids": 654.0,
                 "stock": 383092,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.83,
+                "shippingCostFR": 11.43,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.0
             },
@@ -31151,7 +31151,7 @@
                 "poids": 654.0,
                 "stock": 383092,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.83,
+                "shippingCostFR": 11.43,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.0
             },
@@ -31192,7 +31192,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.24,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.43
+                "shippingCostUS": 9.08
             }
         ]
     },
@@ -31373,7 +31373,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.18,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.1
+                "shippingCostUS": 7.23
             },
             {
                 "sku": "CJYD228934814NM",
@@ -37781,6 +37781,96 @@
                 "shippingCostFR": 8.91,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.49
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2510130758401631000",
+        "nom": "Men's Vintage Corduroy Long-sleeved Jacket",
+        "prixBase": 23.05,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/2ec40df6-010e-422b-a460-1e12e3cf635a.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJXZ255700201AZ",
+                "vid": "2510130758401631200",
+                "taille": "M",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 520.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.08
+            },
+            {
+                "sku": "CJXZ255700202BY",
+                "vid": "2510130758401631400",
+                "taille": "L",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 540.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.37
+            },
+            {
+                "sku": "CJXZ255700203CX",
+                "vid": "2510130758401631600",
+                "taille": "XL",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 560.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.48,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.08
+            },
+            {
+                "sku": "CJXZ255700204DW",
+                "vid": "2510130758401631800",
+                "taille": "2XL",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 580.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.68,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.94
+            },
+            {
+                "sku": "CJXZ255700205EV",
+                "vid": "2510130758401632000",
+                "taille": "3XL",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 600.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 12.23
+            },
+            {
+                "sku": "CJXZ255700206FU",
+                "vid": "2510130758401632100",
+                "taille": "4XL",
+                "couleur": "Khaki",
+                "prix": 23.05,
+                "poids": 620.0,
+                "stock": 44604,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 11.09,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.08
             }
         ]
     }
