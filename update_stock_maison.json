@@ -4324,7 +4324,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.48,
+                "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.59
             },
@@ -4363,7 +4363,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.48,
+                "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.59
             },
@@ -4508,7 +4508,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.23
+                "shippingCostUS": 9.59
             },
             {
                 "sku": "CJJJJTYS00246-F-180X180",
@@ -4521,7 +4521,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.23
+                "shippingCostUS": 9.59
             },
             {
                 "sku": "CJJJJTYS00246-J-180X180",
@@ -4584,7 +4584,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.48,
+                "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.59
             },
@@ -4597,7 +4597,7 @@
                 "poids": 410.0,
                 "stock": 1360017,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.48,
+                "shippingCostFR": 8.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.59
             }
@@ -6702,7 +6702,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.59
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJYD226062803CX",
@@ -9136,7 +9136,7 @@
                 "poids": 324.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 8.23,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 11.56
             },
@@ -9177,7 +9177,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 10.27,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 14.18
             },
             {
                 "sku": "CJJJJTJT15143-LONG TUBE 2PC",
@@ -9202,8 +9202,8 @@
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 21.69,
-                "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 33.93
             },
             {
                 "sku": "CJJJJTJT15143-LOVE 2PC",
@@ -9268,7 +9268,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.18,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 8.94
             },
             {
                 "sku": "CJJJJTJT15143-MOUSE 3PC",
@@ -9292,9 +9292,9 @@
                 "poids": 322.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 8.2,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 11.54
             },
             {
                 "sku": "CJJJJTJT15143-PLUM BLOSSOM 3PC",
@@ -9307,7 +9307,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 10.35,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 9.06
+                "shippingCostUS": 14.28
             },
             {
                 "sku": "CJJJJTJT15143-ROUND CAKE 2PC",
@@ -9383,7 +9383,7 @@
                 "poids": 486.0,
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.27,
+                "shippingCostFR": 10.4,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 14.33
             },
@@ -9954,6 +9954,132 @@
                 "prix": 77.39,
                 "poids": 0.0,
                 "stock": 42,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1889912347079864322",
+        "nom": "VEVOR Hose Reel Cart, Hold Up To 175 Ft Of Hose  Hose Not Included , Garden Water Hose Carts Mobile Tools With Wheels, Heavy Duty Powder Coated Steel Outdoor Planting For Garden, Yard, Lawn",
+        "prixBase": 51.12,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/733744ca-646a-4e92-b8e8-f5c7ae29492f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT229046901AZ",
+                "vid": "1889912347151167489",
+                "taille": "N/A",
+                "couleur": "Default",
+                "prix": 51.12,
+                "poids": 7940.0,
+                "stock": 431,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2033892630339186690",
+        "nom": "Kids Bookshelf With 3 Fabric Storage Bins, White Wooden Book Display Organizer For Toddlers And Children, Front-Facing Book Rack With Pine Legs For Playroom, Nursery, Or Bedroom",
+        "prixBase": 42.53,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17737056/ed342d9f-9e07-4059-9bdd-76666a24c874.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27910070001",
+                "vid": "2033892630477598722",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 42.53,
+                "poids": 16660.0,
+                "stock": 16,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037351099125649409",
+        "nom": "2 Pack Metal Garden Trellis 71  X 19.7  Rustproof Trellis For Climbing Plants Outdoor Flower Support Cream White",
+        "prixBase": 41.11,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/6db33e76-a286-4cc1-972f-c585b4b99095.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28070010001",
+                "vid": "2037351099226312706",
+                "taille": "N/A",
+                "couleur": "Cream White",
+                "prix": 41.11,
+                "poids": 4989.0,
+                "stock": 25,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1963879307648978945",
+        "nom": "Marble Wall Stickers Home Decoration Self-adhesive Wallpaper, Kitchen Bathroom Backsplash PVC Removable Without Leaving Glue",
+        "prixBase": 15.15,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/082e65ba-4cee-43d1-bc3c-2ec0f0ca92ee.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT248945901AZ",
+                "vid": "1963879307737059329",
+                "taille": "N/A",
+                "couleur": "48pcs",
+                "prix": 15.15,
+                "poids": 1100.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT248945902BY",
+                "vid": "1963879307737059330",
+                "taille": "N/A",
+                "couleur": "24pcs",
+                "prix": 15.15,
+                "poids": 590.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT248945903CX",
+                "vid": "1963879307737059331",
+                "taille": "N/A",
+                "couleur": "12pcs",
+                "prix": 15.15,
+                "poids": 300.0,
+                "stock": 600,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
