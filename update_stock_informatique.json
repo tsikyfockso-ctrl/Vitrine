@@ -2850,5 +2850,120 @@
                 "shippingCostUS": 6.24
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2411130954551601000",
+        "nom": "White Vase Desktop Flower Arrangement Ornaments",
+        "prixBase": 6.6,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/11/13/09/7f7cfc27-7201-44e1-ac5e-2225a0053576.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD219407502BY",
+                "vid": "2411130954551601200",
+                "taille": "N/A",
+                "couleur": "Medium Bottle",
+                "prix": 6.6,
+                "poids": 2340.0,
+                "stock": 41508,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 29.36,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 32.15
+            },
+            {
+                "sku": "CJYD219407503CX",
+                "vid": "2411130954551601400",
+                "taille": "N/A",
+                "couleur": "Tall Bottle",
+                "prix": 6.6,
+                "poids": 2640.0,
+                "stock": 41508,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 29.36,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 32.15
+            },
+            {
+                "sku": "CJYD219407504DW",
+                "vid": "2411130954551601600",
+                "taille": "N/A",
+                "couleur": "Low bottle",
+                "prix": 6.6,
+                "poids": 2040.0,
+                "stock": 41508,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 26.69,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 32.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1564190637237882880",
+        "nom": "Laptop Backpack With USB Design Business Bags Men",
+        "prixBase": 2.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/b5d9caeb-7f2f-4cb2-937a-720468eea876.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS1552395-RED",
+                "vid": "1564190637292408832",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 2.98,
+                "poids": 500.0,
+                "stock": 89317,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.88,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.79
+            },
+            {
+                "sku": "CJNS1552395-LIGHT GREY",
+                "vid": "1564190637292408833",
+                "taille": "N/A",
+                "couleur": "Light grey",
+                "prix": 2.98,
+                "poids": 500.0,
+                "stock": 89317,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.88,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.79
+            },
+            {
+                "sku": "CJNS1552395-BLACK",
+                "vid": "1564190637292408834",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 2.98,
+                "poids": 500.0,
+                "stock": 89317,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.88,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.79
+            },
+            {
+                "sku": "CJNS1552395-DARK BLUE",
+                "vid": "1564190637292408835",
+                "taille": "N/A",
+                "couleur": "Dark blue",
+                "prix": 2.98,
+                "poids": 500.0,
+                "stock": 89317,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.88,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.79
+            }
+        ]
     }
 ]
