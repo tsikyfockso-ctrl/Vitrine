@@ -2485,7 +2485,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1903383255069097985",
         "nom": "Adjustable Telescopic Weed Trimmer",
-        "prixBase": 57.63,
+        "prixBase": 59.4,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/01573238-7cb8-48e2-89ca-f6e4a35bb9fd.jpg"
@@ -2496,9 +2496,9 @@
                 "vid": "1903383255144595458",
                 "taille": "N/A",
                 "couleur": "Red",
-                "prix": 57.63,
+                "prix": 59.4,
                 "poids": 2700.0,
-                "stock": 167,
+                "stock": 164,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -10626,6 +10626,56 @@
                 "prix": 76.22,
                 "poids": 7394.0,
                 "stock": 213,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2027285158387556354",
+        "nom": "360 Rotating Bookshelf With Acrylic Plate, 5-Tier Tall, Floor Rack Simple Bookcase, Modern Display Shelf For Living Room Home Office Bedroom",
+        "prixBase": 49.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17721504/b92a54f6-e7cd-4169-920d-f844289d545e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27693830001",
+                "vid": "2027285158525968385",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 49.82,
+                "poids": 16692.0,
+                "stock": 32,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045398076963315714",
+        "nom": "5-piece Modern Kitchen Table With Four Bar Stools Bar Table Set 5PC,metal Frame And MDF, White Oak,47.5  L X 23.7  W X 35.5  H.",
+        "prixBase": 140.89,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/c249aef0-e2f3-45e8-addb-5529eeef83b1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28416870001",
+                "vid": "2045398078599094274",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 140.89,
+                "poids": 30844.0,
+                "stock": 28,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
