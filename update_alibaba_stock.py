@@ -32,6 +32,9 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
+# Passerelle globale AliExpress / Alibaba Open Platform
+ALIBABA_GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
+
 def recuperer_produits_alibaba_api(keyword):
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
     
@@ -41,36 +44,39 @@ def recuperer_produits_alibaba_api(keyword):
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "keyword": keyword,
-        "pageSize": 50,
-        "pageNo": 1
+        "method": "aliexpress.affiliate.product.query", # Méthode standard de recherche de produits
+        "keywords": keyword, # ou "keyword" selon votre console
+        "page_size": 50,
+        "page_no": 1
     }
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/json;charset=utf-8"}
 
-    url_requete = f"{ALIBABA_GATEWAY_URL}/eco/buyer/product/check"
-
+    # On utilise l'URL de synchronisation sans chemin d'API supplémentaire
     try:
-        response = requests.post(url_requete, json=payload, headers=headers, timeout=20)
+        response = requests.post(ALIBABA_GATEWAY_URL, json=payload, headers=headers, timeout=20)
         print(f"Réponse brute Alibaba ({response.status_code}) pour '{keyword}'")
         
         if response.status_code == 200:
             data = response.json()
-            # 🔍 Affichons les clés de la réponse pour comprendre où sont cachés les produits
             print(f"Structure JSON reçue : {list(data.keys())}")
-            print(f"Contenu brut complet : {json.dumps(data, ensure_ascii=False)[:500]}...")
             
-            # Essayez de récupérer selon la structure standard ou l'adapter après le log
-            return data.get("result", {}).get("products", data.get("data", {}).get("list", []))
-        else:
-            print(f"⚠️ Erreur HTTP : {response.status_code} - Contenu : {response.text[:200]}")
-            
+            # Gestion de la réponse de l'API affiliée/produits
+            if "error_response" in data:
+                print(f"⚠️ Erreur renvoyée par l'API : {data['error_response']}")
+                return []
+                
+            # Extraction selon le chemin de réponse de l'API AliExpress
+            resp_key = [k for k in data.keys() if "response" in k]
+            if resp_key:
+                inner_data = data[resp_key[0]]
+                return inner_data.get("resp_result", {}).get("result", {}).get("products", [])
+                
     except Exception as e:
-        print(f"⚠️ Erreur de connexion pour '{keyword}': {e}")
+        print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
     
     return []
-
 def generate_update_stock_alibaba_json():
     # 1. Charger l'ancien fichier JSON pour préserver l'existant en cas de besoin
     produits_existants = {}
