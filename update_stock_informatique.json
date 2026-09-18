@@ -3894,5 +3894,81 @@
                 "shippingCostUS": 6.38
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1357149457908633600",
+        "nom": "Desktop Wireless Smart Humidifier Usb Charging",
+        "prixBase": 6.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1612404524134.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT100568001AZ",
+                "vid": "1357149457925410816",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 6.2,
+                "poids": 330.0,
+                "stock": 60000,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.77
+            },
+            {
+                "sku": "CJJT100568002BY",
+                "vid": "1357149457925410817",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 6.2,
+                "poids": 330.0,
+                "stock": 60000,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.94,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 9.77
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "F1F58600-1FBA-45DF-8C40-FE42EF250F29",
+        "nom": "Led Portable USB Charging Lamp Mini Night Light",
+        "prixBase": 3.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2041/1175438203966.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJZSNSN00436-WZRM WHITE",
+                "vid": "52267AFE-E4AE-42CE-B164-2ABFD315C6A3",
+                "taille": "N/A",
+                "couleur": "Wzrm white",
+                "prix": 3.45,
+                "poids": 100.0,
+                "stock": 25681,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJZSNSN00436-WHITE",
+                "vid": "F166A26A-408A-4137-BDB5-D9707EA03996",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 3.45,
+                "poids": 100.0,
+                "stock": 25681,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
