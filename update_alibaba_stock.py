@@ -49,7 +49,6 @@ def recuperer_produits_alibaba_api(keyword):
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/json;charset=utf-8"}
 
-    # Utilisation du chemin exact /eco/buyer/product/check
     url_requete = f"{ALIBABA_GATEWAY_URL}/eco/buyer/product/check"
 
     try:
@@ -58,12 +57,17 @@ def recuperer_produits_alibaba_api(keyword):
         
         if response.status_code == 200:
             data = response.json()
-            return data.get("result", {}).get("products", [])
+            # 🔍 Affichons les clés de la réponse pour comprendre où sont cachés les produits
+            print(f"Structure JSON reçue : {list(data.keys())}")
+            print(f"Contenu brut complet : {json.dumps(data, ensure_ascii=False)[:500]}...")
+            
+            # Essayez de récupérer selon la structure standard ou l'adapter après le log
+            return data.get("result", {}).get("products", data.get("data", {}).get("list", []))
         else:
             print(f"⚠️ Erreur HTTP : {response.status_code} - Contenu : {response.text[:200]}")
             
     except Exception as e:
-        print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
+        print(f"⚠️ Erreur de connexion pour '{keyword}': {e}")
     
     return []
 
