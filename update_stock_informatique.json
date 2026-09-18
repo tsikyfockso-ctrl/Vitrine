@@ -222,8 +222,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJXFLPSM00276-BLACK 2PCS-7 HOLES",
@@ -755,7 +755,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2410210322471613100",
-        "nom": "Dispositif de perçage d'ongles pour animaux de compagnie, avec LED, contrôle à Double vitesse, chargement USB, faible bruit",
+        "nom": "Pet Nail Piercing Device With LED Double Speed Control USB Charging Low Noise",
         "prixBase": 12.27,
         "productFee": 0.0,
         "images": [
@@ -770,8 +770,8 @@
                 "prix": 12.27,
                 "poids": 470.0,
                 "stock": 10741,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 10.43,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -3953,8 +3953,8 @@
                 "stock": 25681,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             },
             {
                 "sku": "CJJZSNSN00436-WHITE",
@@ -3966,8 +3966,123 @@
                 "stock": 25681,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1401042356643434496",
+        "nom": "Waterproof Laptop Bag 13 14 15.6 Inch Computer Case",
+        "prixBase": 4.19,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1622945382773.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBJ1160318",
+                "vid": "1401042356643434496",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 4.19,
+                "poids": 0.0,
+                "stock": 940232,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1374184579807711232",
+        "nom": "Desktop two-in-one wireless charger",
+        "prixBase": 11.75,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1616465299853.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSJ105158801AZ",
+                "vid": "1374184581271523328",
+                "taille": "N/A",
+                "couleur": "Starry sky gray",
+                "prix": 11.75,
+                "poids": 185.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
+            },
+            {
+                "sku": "CJSJ105158802BY",
+                "vid": "1374184581334437888",
+                "taille": "N/A",
+                "couleur": "Cool silver",
+                "prix": 11.75,
+                "poids": 185.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
+            },
+            {
+                "sku": "CJSJ105158803CX",
+                "vid": "1374725391637417984",
+                "taille": "N/A",
+                "couleur": "Cool silver US PLUG",
+                "prix": 11.75,
+                "poids": 245.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
+            },
+            {
+                "sku": "CJSJ105158804DW",
+                "vid": "1374725391675166720",
+                "taille": "N/A",
+                "couleur": "Cool silver EU PLUG",
+                "prix": 11.75,
+                "poids": 255.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
+            },
+            {
+                "sku": "CJSJ105158805EV",
+                "vid": "1374725391721304064",
+                "taille": "N/A",
+                "couleur": "Grey US PLUG",
+                "prix": 11.75,
+                "poids": 245.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
+            },
+            {
+                "sku": "CJSJ105158806FU",
+                "vid": "1374725391759052800",
+                "taille": "N/A",
+                "couleur": "Grey EU PLUG",
+                "prix": 11.75,
+                "poids": 255.0,
+                "stock": 240000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.33,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.9
             }
         ]
     }
