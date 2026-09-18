@@ -10,8 +10,9 @@ APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
-# Endpoint officiel de l'Open Platform Alibaba
-ALIBABA_API_URL = "https://api.alibaba.com/router/json"
+
+# Nouvelle URL de passerelle officielle pour les API de type REST / Chemin d'accès Alibaba ICBU
+ALIBABA_GATEWAY_URL = "https://api.alibaba.com/router"
 
 def generer_signature(params, secret):
     """
@@ -33,17 +34,17 @@ def traduire_texte(texte):
 
 def recuperer_produits_alibaba_api(keyword):
     """
-    Interroge l'API Alibaba pour récupérer les produits selon un mot-clé.
+    Interroge l'API Alibaba en ciblant le chemin d'API officiel (ex: query/v2 ou listing/v2)
     """
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
     
+    # Paramètres standards de l'Open Platform Alibaba
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "alibaba.icbu.product.query", # Méthode de recherche Alibaba Open Platform
         "keyword": keyword,
         "pageSize": 50,
         "pageNo": 1
@@ -52,19 +53,27 @@ def recuperer_produits_alibaba_api(keyword):
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/json;charset=utf-8"}
 
+    # On cible directement le chemin d'API visible dans la documentation officielle Alibaba
+    url_requete = f"{ALIBABA_GATEWAY_URL}/alibaba/icbu/product/query/v2"
+
     try:
-        response = requests.post(ALIBABA_API_URL, json=payload, headers=headers, timeout=20)
-        print(f"Réponse brute Alibaba ({response.status_code}) : {response.text}")
+        response = requests.post(url_requete, json=payload, headers=headers, timeout=20)
+        print(f"Réponse brute Alibaba ({response.status_code}) pour '{keyword}'")
+        
         if response.status_code == 200:
             data = response.json()
+            # Vérification de la structure de retour de l'API
             return data.get("result", {}).get("products", [])
+        else:
+            print(f"⚠️ Erreur HTTP : {response.status_code} - Contenu : {response.text[:200]}")
+            
     except Exception as e:
-        print(f"⚠️ Erreur lors de la requête Alibaba pour '{keyword}' : {e}")
+        print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
     
     return []
 
 def generate_update_stock_alibaba_json():
-    # 1. Charger l'ancien fichier JSON existant pour préserver les stocks si besoin
+    # 1. Charger l'ancien fichier JSON existant pour préserver les stocks si l'API échoue temporairement
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
         try:
@@ -79,6 +88,7 @@ def generate_update_stock_alibaba_json():
             print(f"⚠️ Impossible de lire l'ancien fichier JSON : {e}")
 
     tous_les_produits = produits_existants.copy()
+    produits_trouves = 0
 
     # 2. Recherche par mots-clés
     for keyword in MOTS_CLES_RECHERCHE:
@@ -90,13 +100,13 @@ def generate_update_stock_alibaba_json():
             if not pid:
                 continue
                 
+            produits_trouves += 1
             nom_original = item.get("subject") or item.get("title") or "Produit Alibaba"
             nom_fr = traduire_texte(nom_original)
             
             image_url = item.get("imageUrl") or item.get("image") or ""
             prix_base = float(item.get("price") or item.get("salePrice") or 0.0)
             
-            # Construction des variantes
             variantes = []
             variants_list = item.get("skuList", [])
             
@@ -141,11 +151,11 @@ def generate_update_stock_alibaba_json():
 
     resultat_final = list(tous_les_produits.values())
 
-    # 3. Sauvegarde finale au format JSON pour le site
+    # 3. Sauvegarde finale
     with open("update_alibaba_stock.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Succès : {len(resultat_final)} produits enregistrés dans update_stock_alibaba.json")
+    print(f"🎉 Traitement terminé : {len(resultat_final)} produits enregistrés dans update_stock_alibaba.json (Nouveaux: {produits_trouves})")
 
 if __name__ == "__main__":
     generate_update_stock_alibaba_json()
