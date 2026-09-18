@@ -32,6 +32,9 @@ def traduire_texte(texte):
         return texte
 
 def recuperer_produits_alibaba_api(keyword):
+    """
+    Interroge l'API Alibaba pour récupérer les produits selon un mot-clé.
+    """
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
     
     payload = {
@@ -40,7 +43,7 @@ def recuperer_produits_alibaba_api(keyword):
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "alibaba.icbu.product.query", # Méthode standard de recherche de produits ICBU
+        "method": "alibaba.icbu.product.query", # Méthode de recherche Alibaba Open Platform
         "keyword": keyword,
         "pageSize": 50,
         "pageNo": 1
@@ -61,10 +64,11 @@ def recuperer_produits_alibaba_api(keyword):
     return []
 
 def generate_update_stock_alibaba_json():
+    # 1. Charger l'ancien fichier JSON existant pour préserver les stocks si besoin
     produits_existants = {}
-    if os.path.exists("update_stock_alibaba.json"):
+    if os.path.exists("update_alibaba_stock.json"):
         try:
-            with open("update_stock_alibaba.json", "r", encoding="utf-8") as f:
+            with open("update_alibaba_stock.json", "r", encoding="utf-8") as f:
                 old_data = json.load(f)
                 if isinstance(old_data, list):
                     for p in old_data:
@@ -76,6 +80,7 @@ def generate_update_stock_alibaba_json():
 
     tous_les_produits = produits_existants.copy()
 
+    # 2. Recherche par mots-clés
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba en cours pour : '{keyword}'")
         items = recuperer_produits_alibaba_api(keyword)
@@ -91,6 +96,7 @@ def generate_update_stock_alibaba_json():
             image_url = item.get("imageUrl") or item.get("image") or ""
             prix_base = float(item.get("price") or item.get("salePrice") or 0.0)
             
+            # Construction des variantes
             variantes = []
             variants_list = item.get("skuList", [])
             
@@ -135,7 +141,8 @@ def generate_update_stock_alibaba_json():
 
     resultat_final = list(tous_les_produits.values())
 
-    with open("update_stock_alibaba.json", "w", encoding="utf-8") as f:
+    # 3. Sauvegarde finale au format JSON pour le site
+    with open("update_alibaba_stock.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
     print(f"🎉 Succès : {len(resultat_final)} produits enregistrés dans update_stock_alibaba.json")
