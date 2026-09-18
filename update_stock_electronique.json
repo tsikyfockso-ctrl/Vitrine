@@ -71444,5 +71444,30 @@
                 "shippingCostUS": 5.3
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "D2FD0498-D764-4F04-83E0-F28EE48895DC",
+        "nom": "Mobile Phone Protective Cover Sliding Cover Goggles",
+        "prixBase": 3.4,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2057/4175424201151.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSJBHXM00037-BLACK-NOTE9 10X",
+                "vid": "978D0324-ACC3-41EA-A4C9-BDA913356145",
+                "taille": "Note9 10X",
+                "couleur": "Black",
+                "prix": 3.4,
+                "poids": 60.0,
+                "stock": 20000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
