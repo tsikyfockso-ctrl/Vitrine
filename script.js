@@ -12,6 +12,7 @@ window.onload = async () => {
     chargerCategorie("update_stock_maison.json", "product-container-maison");
     chargerCategorie("update_stock_electronique.json", "product-container-electrov");
     chargerCategorie("update_stock_informatique.json", "product-container-info");
+    chargerCategorie("update_stock_alibaba.json", "product-container-alibaba");
 
     initialiserPays();
     initEventListeners();
