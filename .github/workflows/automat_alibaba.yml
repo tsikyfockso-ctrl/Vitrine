@@ -2,8 +2,8 @@ name: Mettre à jour le stock_alibaba_Mayah_Store
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
-  workflow_dispatch: # Permet de le lancer manuellement depuis l'onglet Actions
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -24,7 +24,6 @@ jobs:
         run: |
           pip install requests
           pip install deep-translator
-          pip install iop
 
       - name: Run update_alibaba_stock.py
         env:
@@ -41,4 +40,4 @@ jobs:
               git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique de update_alibaba_stock.json [skip ci]" && git pull --rebase origin main && git push origin main)
             else
               echo "⚠️ Le fichier update_alibaba_stock.json n'a pas été généré par le script Python."
-            fi 
+            fi
