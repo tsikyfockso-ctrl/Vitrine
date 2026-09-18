@@ -41,3 +41,6 @@ jobs:
             else
               echo "⚠️ Le fichier update_alibaba_stock.json n'a pas été généré par le script Python."
             fi
+      - name: Installer les dépendances
+        run: |
+          pip install requests deep-translator iop
