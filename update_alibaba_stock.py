@@ -11,12 +11,12 @@ APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30J
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-# Nouvelle URL de passerelle officielle pour les API de type REST / Chemin d'accès Alibaba ICBU
-ALIBABA_GATEWAY_URL = "https://api.alibaba.com/router"
+# Passerelle officielle pour l'écosystème Eco / AliExpress Open Platform
+ALIBABA_GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
 
 def generer_signature(params, secret):
     """
-    Génère la signature MD5 requise par l'API Alibaba Open Platform.
+    Génère la signature MD5 requise par l'Open Platform.
     """
     sorted_params = sorted(params.items())
     query_string = "".join([f"{k}{v}" for k, v in sorted_params])
@@ -33,12 +33,8 @@ def traduire_texte(texte):
         return texte
 
 def recuperer_produits_alibaba_api(keyword):
-    """
-    Interroge l'API Alibaba en ciblant le chemin d'API officiel (ex: query/v2 ou listing/v2)
-    """
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
     
-    # Paramètres standards de l'Open Platform Alibaba
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
@@ -53,8 +49,8 @@ def recuperer_produits_alibaba_api(keyword):
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/json;charset=utf-8"}
 
-    # On cible directement le chemin d'API visible dans la documentation officielle Alibaba
-    url_requete = f"{ALIBABA_GATEWAY_URL}/alibaba/icbu/product/query/v2"
+    # Utilisation du chemin exact /eco/buyer/product/check
+    url_requete = f"{ALIBABA_GATEWAY_URL}/eco/buyer/product/check"
 
     try:
         response = requests.post(url_requete, json=payload, headers=headers, timeout=20)
@@ -62,7 +58,6 @@ def recuperer_produits_alibaba_api(keyword):
         
         if response.status_code == 200:
             data = response.json()
-            # Vérification de la structure de retour de l'API
             return data.get("result", {}).get("products", [])
         else:
             print(f"⚠️ Erreur HTTP : {response.status_code} - Contenu : {response.text[:200]}")
@@ -73,7 +68,7 @@ def recuperer_produits_alibaba_api(keyword):
     return []
 
 def generate_update_stock_alibaba_json():
-    # 1. Charger l'ancien fichier JSON existant pour préserver les stocks si l'API échoue temporairement
+    # 1. Charger l'ancien fichier JSON pour préserver l'existant en cas de besoin
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
         try:
