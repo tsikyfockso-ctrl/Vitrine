@@ -2151,12 +2151,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2857327",
-                "vid": "2048998184558907394",
+                "sku": "CJFU28573270001",
+                "vid": "2048998185951416321",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey",
                 "prix": 291.81,
-                "poids": 0.0,
+                "poids": 44905.0,
                 "stock": 259,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -2448,8 +2448,8 @@
                 "prix": 4.83,
                 "poids": 640.0,
                 "stock": 37285,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 12.52,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.99,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 14.75
             },
@@ -9514,8 +9514,8 @@
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.27,
-                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
-                "shippingCostUS": 9.5
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 9.06
             },
             {
                 "sku": "CJJJJTJT15143-TRUMPET CONE",
@@ -9553,8 +9553,8 @@
                 "stock": 1316667,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.27,
-                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
-                "shippingCostUS": 9.5
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 9.06
             },
             {
                 "sku": "CJJJJTJT15143-WATER DROP",
@@ -10922,6 +10922,197 @@
                 "shippingCostFR": 24.57,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 29.42
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "D47DC5B2-1977-419C-A451-AD9E62E60036",
+        "nom": "Outdoor Stainless Steel Garden Landscape Light",
+        "prixBase": 1.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15259104/15032192733372.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJZHWFG00024-8PCS WARM LIGHT",
+                "vid": "0319B52B-DF14-4B4D-B314-D00B74AB0F3D",
+                "taille": "N/A",
+                "couleur": "8pcs Warm light",
+                "prix": 1.8,
+                "poids": 1312.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-12PCS WARM LIGHT",
+                "vid": "13D53CCE-3803-432D-A006-D114507B832F",
+                "taille": "N/A",
+                "couleur": "12pcs Warm light",
+                "prix": 1.8,
+                "poids": 1968.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 28.85,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-4PCS WHITE",
+                "vid": "485BBD51-41F8-4660-A12A-E86D0DD6208D",
+                "taille": "N/A",
+                "couleur": "4pcs white",
+                "prix": 1.8,
+                "poids": 600.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-12PCS WHITE",
+                "vid": "82398E53-DFF8-4E9D-B288-91B1098FBD9A",
+                "taille": "N/A",
+                "couleur": "12pcs white",
+                "prix": 1.8,
+                "poids": 1968.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 28.85,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-WHITE",
+                "vid": "9F5277F8-818A-430E-908D-42918B6A28BA",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 1.8,
+                "poids": 170.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-WARM LIGHT",
+                "vid": "B4B7AADB-42C3-4707-837C-9572DDF016B6",
+                "taille": "N/A",
+                "couleur": "Warm light",
+                "prix": 1.8,
+                "poids": 170.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.78
+            },
+            {
+                "sku": "CJJZHWFG00024-8PCS WHITE",
+                "vid": "C93A55C1-26B2-4152-A07E-F3663B157711",
+                "taille": "N/A",
+                "couleur": "8pcs white",
+                "prix": 1.8,
+                "poids": 1312.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 35.17
+            },
+            {
+                "sku": "CJJZHWFG00024-4PCS WARM LIGHT",
+                "vid": "F4F6C4C4-C664-4263-8B55-43615EF645D8",
+                "taille": "N/A",
+                "couleur": "4pcs warm light",
+                "prix": 1.8,
+                "poids": 600.0,
+                "stock": 104076,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 20.78,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 14.08
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2016746581268156418",
+        "nom": "Console Table,Living Room Table,kitchen Table",
+        "prixBase": 99.54,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17696448/4fe02e51-3511-4f44-8b7d-eb4ce5c0186f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27478800001",
+                "vid": "2016746581364625409",
+                "taille": "N/A",
+                "couleur": "brown",
+                "prix": 99.54,
+                "poids": 12400.0,
+                "stock": 61,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034891463969112065",
+        "nom": "Wooden Full Size House Bed With 2 Drawers,Kids Bed With Storage Shelf, White",
+        "prixBase": 383.79,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/3fba58a8-e3b1-4240-8908-e57fa2aa1023.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27961760001",
+                "vid": "2034891464128495617",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 383.79,
+                "poids": 34799.0,
+                "stock": 42,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1901830817069821954",
+        "nom": "Pilates Reformer Machine For Home Gym Workout, Foldable Pilates Equipment With High Strength Alloy Springs For Beginners, Up To 330lbs",
+        "prixBase": 192.19,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/04c9d945-fe23-417f-9333-b4b6f97be8f7.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT233027402BY",
+                "vid": "1901830817166290946",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 192.19,
+                "poids": 34032.0,
+                "stock": 97,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
