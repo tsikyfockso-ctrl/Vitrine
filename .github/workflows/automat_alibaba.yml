@@ -2,8 +2,8 @@ name: Mettre à jour le stock_alibaba_Mayah_Store
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
+  workflow_dispatch: # Permet de le lancer manuellement depuis l'onglet Actions
 
 permissions:
   contents: write
