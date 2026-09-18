@@ -1,0 +1,39 @@
+name: Mettre à jour le stock_alibaba Mayah_Store
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # S'exécute automatiquement toutes les 6 heures
+  workflow_dispatch: # Permet de le lancer manuellement depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v3
+
+      - name: Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Installer les dépendances
+        run: |
+          pip install requests
+          pip install deep-translator
+
+      - name: Run update_alibaba_stock.py
+        env:
+          ALIBABA_APP_KEY: ${{ secrets.ALIBABA_APP_KEY }}
+          ALIBABA_APP_SECRET: ${{ secrets.ALIBABA_APP_SECRET }}
+        run: python update_alibaba_stock.py
+
+      - name: Commit and Push if JSON exists
+        run: |
+            git config --global user.name "Mayah Bot"
+            git config --global user.email "bot@mayahstore.com"
+            git add update_alibaba_stock.json
+            git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique de update_alibaba_stock.json [skip ci]" && git pull --rebase origin main && git push origin main)
