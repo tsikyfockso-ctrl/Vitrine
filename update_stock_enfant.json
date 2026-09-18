@@ -5516,9 +5516,125 @@
                 "poids": 50.0,
                 "stock": 106502,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.71,
+                "shippingCostFR": 4.57,
                 "shippingMethodUS": "Jewel Shipping",
                 "shippingCostUS": 2.54
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501100139071613200",
+        "nom": "Korean Lace Onesie Jumpsuit Baby Romper",
+        "prixBase": 4.86,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/59ce8190-371c-4a98-929b-85c49db5dac6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE226641301AZ",
+                "vid": "2501100139071613600",
+                "taille": "66cm",
+                "couleur": "White",
+                "prix": 4.86,
+                "poids": 150.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641302BY",
+                "vid": "2501100139071613800",
+                "taille": "73CM",
+                "couleur": "White",
+                "prix": 4.86,
+                "poids": 160.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641303CX",
+                "vid": "2501100139071614000",
+                "taille": "80cm",
+                "couleur": "White",
+                "prix": 4.86,
+                "poids": 170.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641304DW",
+                "vid": "2501100139071614200",
+                "taille": "90cm",
+                "couleur": "White",
+                "prix": 4.86,
+                "poids": 180.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641305EV",
+                "vid": "2501100139071614500",
+                "taille": "66cm",
+                "couleur": "Pink",
+                "prix": 4.86,
+                "poids": 150.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641306FU",
+                "vid": "2501100139071614700",
+                "taille": "73CM",
+                "couleur": "Pink",
+                "prix": 4.86,
+                "poids": 160.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641307GT",
+                "vid": "2501100139071614900",
+                "taille": "80cm",
+                "couleur": "Pink",
+                "prix": 4.86,
+                "poids": 170.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE226641308HS",
+                "vid": "2501100139071615100",
+                "taille": "90cm",
+                "couleur": "Pink",
+                "prix": 4.86,
+                "poids": 180.0,
+                "stock": 55508,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
