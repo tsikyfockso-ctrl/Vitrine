@@ -62,7 +62,7 @@ def recuperer_produits_alibaba_api(keyword):
     
     return []
 
-def generate_update_stock_json():
+def generate_update_stock_alibaba_json():
     # 1. Charger l'ancien fichier JSON existant pour préserver les stocks si besoin
     produits_existants = {}
     if os.path.exists("update_stock_alibaba.json"):
