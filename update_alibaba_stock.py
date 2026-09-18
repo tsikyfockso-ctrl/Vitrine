@@ -31,9 +31,6 @@ def traduire_texte(texte):
         return texte
 
 def recuperer_produits_alibaba_api(keyword):
-    """
-    Interroge l'API Alibaba pour récupérer les produits selon un mot-clé.
-    """
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
     
     payload = {
@@ -53,9 +50,9 @@ def recuperer_produits_alibaba_api(keyword):
 
     try:
         response = requests.post(ALIBABA_API_URL, json=payload, headers=headers, timeout=20)
+        print(f"Réponse brute Alibaba ({response.status_code}) : {response.text}") # <-- Ajoutez cette ligne pour le debug
         if response.status_code == 200:
             data = response.json()
-            # Adaptez cette ligne selon la structure exacte du retour JSON d'Alibaba
             return data.get("result", {}).get("products", [])
     except Exception as e:
         print(f"⚠️ Erreur lors de la requête Alibaba pour '{keyword}' : {e}")
