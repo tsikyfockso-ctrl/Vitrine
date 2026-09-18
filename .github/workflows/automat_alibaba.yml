@@ -24,6 +24,7 @@ jobs:
         run: |
           pip install requests
           pip install deep-translator
+          pip install iop
 
       - name: Run update_alibaba_stock.py
         env:
@@ -40,7 +41,4 @@ jobs:
               git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique de update_alibaba_stock.json [skip ci]" && git pull --rebase origin main && git push origin main)
             else
               echo "⚠️ Le fichier update_alibaba_stock.json n'a pas été généré par le script Python."
-            fi
-      - name: Installer les dépendances
-        run: |
-          pip install requests deep-translator iop
+            fi 
