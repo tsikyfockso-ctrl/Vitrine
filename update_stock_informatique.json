@@ -4175,5 +4175,43 @@
                 "shippingCostUS": 10.17
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506221110201622900",
+        "nom": "Wireless Bluetooth Speaker Portable Desktop Car",
+        "prixBase": 2.46,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/22/11/4700d88c-6c3a-40fc-8615-981e9ac25b0b_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD240861702BY",
+                "vid": "2506221110201623100",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 2.46,
+                "poids": 270.0,
+                "stock": 18018,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.22,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJYD240861705EV",
+                "vid": "2506221110201623300",
+                "taille": "N/A",
+                "couleur": "Silver Gray",
+                "prix": 2.46,
+                "poids": 270.0,
+                "stock": 18018,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.22,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            }
+        ]
     }
 ]
