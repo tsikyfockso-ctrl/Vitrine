@@ -145,7 +145,7 @@
                 "poids": 60.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.3
             },
@@ -158,7 +158,7 @@
                 "poids": 60.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.3
             },
@@ -171,7 +171,7 @@
                 "poids": 60.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.3
             },
@@ -223,7 +223,7 @@
                 "poids": 60.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.3
             },
@@ -522,7 +522,7 @@
                 "poids": 162.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 6.0,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 7.49
             },
@@ -537,7 +537,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 9.32,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 9.01
             },
             {
                 "sku": "CJJY109273734HS",
@@ -561,7 +561,7 @@
                 "poids": 468.0,
                 "stock": 1224692,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 9.32,
+                "shippingCostFR": 10.65,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 15.08
             },
@@ -2240,6 +2240,31 @@
                 "prix": 73.57,
                 "poids": 14502.0,
                 "stock": 110,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1972143772766232577",
+        "nom": "360 Degree Rotation Outdoor Kids Spinning Seesaw Sit Spin Teeter Totter Swivel Teeter",
+        "prixBase": 49.72,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/f9deb15a-3bdd-4171-a94e-e32583cf84f2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM254406201AZ",
+                "vid": "1972143772845924353",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 49.72,
+                "poids": 8400.0,
+                "stock": 142,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
