@@ -2983,7 +2983,7 @@
                 "couleur": "Brown",
                 "prix": 49.17,
                 "poids": 10160.0,
-                "stock": 9920,
+                "stock": 9483,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -2996,7 +2996,7 @@
                 "couleur": "White",
                 "prix": 49.17,
                 "poids": 10160.0,
-                "stock": 9920,
+                "stock": 9483,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -4287,6 +4287,44 @@
                 "shippingCostFR": 6.47,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406150719261618500",
+        "nom": "Usb Mini-portable Digital Display Bladeless Halter Fan",
+        "prixBase": 6.31,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/06/15/07/84c62333-c531-4c59-bc3e-5523f217e283_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD206105903CX",
+                "vid": "2406150719261619100",
+                "taille": "N/A",
+                "couleur": "Glacier White 2400mAh",
+                "prix": 6.31,
+                "poids": 430.0,
+                "stock": 28147,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.5
+            },
+            {
+                "sku": "CJYD206105904DW",
+                "vid": "2406150719261619300",
+                "taille": "N/A",
+                "couleur": "Deep Sea Blue 2400mAh",
+                "prix": 6.31,
+                "poids": 430.0,
+                "stock": 28147,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 11.5
             }
         ]
     }
