@@ -2233,7 +2233,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692106FU",
@@ -2376,7 +2376,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692117QJ",
@@ -2415,7 +2415,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692120TG",
@@ -2743,7 +2743,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "305DB8CB-34A1-4E04-A84F-DA84A8AD32F5",
-        "nom": "Écharpe en peluche Pure, écharpe chaude d'hiver pour filles coréennes, bébé garçon, col décoratif, assemblage, écharpe chaude",
+        "nom": "Pure Plush scarf winter warm scarf Korean girls baby boy decorative collar assembly warm scarf",
         "prixBase": 2.02,
         "productFee": 0.0,
         "images": [
@@ -2773,8 +2773,8 @@
                 "stock": 65642,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.98,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.26
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.72
             },
             {
                 "sku": "CJWJNHNT00029-RICE WHITE",
@@ -11173,8 +11173,8 @@
                 "prix": 2.58,
                 "poids": 134.0,
                 "stock": 194158,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.7,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.81,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.37
             },
@@ -12026,7 +12026,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.57
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJYE206896507GT",
@@ -19441,6 +19441,31 @@
                 "shippingCostFR": 6.17,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.88
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406180952191628100",
+        "nom": "Beaded Bag Cap Women's Fashion All-matching",
+        "prixBase": 1.6,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/23542df4-c070-4aef-b7f4-64410c90b66f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBQ2063319",
+                "vid": "2406180952191628100",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 1.6,
+                "poids": 0.0,
+                "stock": 62696,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
