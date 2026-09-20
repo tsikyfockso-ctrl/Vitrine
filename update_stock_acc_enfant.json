@@ -1841,7 +1841,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1461224137614823424",
-        "nom": "Gants tricotés chauds licou mignons pour enfants",
+        "nom": "Children's Cute Halter Warm Knitted Gloves",
         "prixBase": 0.74,
         "productFee": 0.0,
         "images": [
@@ -4381,7 +4381,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2501200730521627600",
-        "nom": "Ensemble deux pièces mignon et décontracté pour bébé avec haut rayé",
+        "nom": "Cute Casual Baby Striped Top Two-piece Set",
         "prixBase": 4.18,
         "productFee": 0.0,
         "images": [
@@ -4411,8 +4411,8 @@
                 "stock": 73923,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.28,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.22
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 5.92
             },
             {
                 "sku": "CJYE227517603CX",
@@ -4489,8 +4489,8 @@
                 "stock": 73923,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.64,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.22
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.53
             },
             {
                 "sku": "CJYE227517609IR",
@@ -11056,8 +11056,8 @@
                 "prix": 2.58,
                 "poids": 124.0,
                 "stock": 194158,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.56,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.7,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.22
             },
@@ -19455,17 +19455,69 @@
         ],
         "variantes": [
             {
-                "sku": "CJBQ2063319",
-                "vid": "2406180952191628100",
+                "sku": "CJBQ206331901AZ",
+                "vid": "2406180952191628300",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Coffee Color",
                 "prix": 1.6,
-                "poids": 0.0,
+                "poids": 80.0,
                 "stock": 62696,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJBQ206331902BY",
+                "vid": "2406180952191628500",
+                "taille": "N/A",
+                "couleur": "Navy Blue",
+                "prix": 1.6,
+                "poids": 80.0,
+                "stock": 62696,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJBQ206331903CX",
+                "vid": "2406180952191628800",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.6,
+                "poids": 80.0,
+                "stock": 62696,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJBQ206331904DW",
+                "vid": "2406180952191628900",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.6,
+                "poids": 80.0,
+                "stock": 62696,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
+            },
+            {
+                "sku": "CJBQ206331905EV",
+                "vid": "2406180952191629100",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 1.6,
+                "poids": 80.0,
+                "stock": 62696,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.72
             }
         ]
     }
