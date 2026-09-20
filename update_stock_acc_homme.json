@@ -9141,7 +9141,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2406100633561629400",
-        "nom": "Lettre Patch Brodé Manches Courtes Hommes",
+        "nom": "Letter Patch Embroidered Short Sleeve Men",
         "prixBase": 9.0,
         "productFee": 0.0,
         "images": [
@@ -9171,8 +9171,8 @@
                 "stock": 95941,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.58,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.74
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.14
             },
             {
                 "sku": "CJYH205710403CX",
@@ -9236,8 +9236,8 @@
                 "stock": 95941,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.87
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJYH205710408HS",
@@ -22624,7 +22624,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.1,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.42
             },
             {
                 "sku": "CJWY220179802BY",
@@ -22676,7 +22676,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.1,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.69
             },
             {
                 "sku": "CJWY220179806FU",
@@ -22687,7 +22687,7 @@
                 "poids": 950.0,
                 "stock": 357627,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 14.1,
+                "shippingCostFR": 14.4,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 15.84
             },
@@ -22728,7 +22728,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.51,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.98
             },
             {
                 "sku": "CJWY220179810JQ",
@@ -22778,7 +22778,7 @@
                 "poids": 930.0,
                 "stock": 357627,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 14.1,
+                "shippingCostFR": 14.21,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 15.55
             },
@@ -22858,7 +22858,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.51,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.98
             },
             {
                 "sku": "CJWY220179820TG",
@@ -22884,7 +22884,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.1,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.42
             },
             {
                 "sku": "CJWY220179822VE",
@@ -22923,7 +22923,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.31,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.69
             },
             {
                 "sku": "CJWY220179825YB",
@@ -22949,7 +22949,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.1,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.84
             },
             {
                 "sku": "CJWY220179827AZ",
@@ -22975,7 +22975,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.51,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.55
+                "shippingCostUS": 15.98
             },
             {
                 "sku": "CJWY220179829CX",
@@ -54432,6 +54432,44 @@
                 "shippingCostFR": 4.36,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "8A87A4CB-B3F8-4F24-A888-F92FFD492B7C",
+        "nom": "Harmony Sale Pin Buckle Round Glass Rose Gold Stainless Steel Mesh Belt Watch For Women",
+        "prixBase": 1.95,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15379776/2659444262145.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZBNSLX00133-ROSE GOLD",
+                "vid": "13BCF4F9-253B-418D-BFD4-679806AE6C2B",
+                "taille": "N/A",
+                "couleur": "Rose Gold",
+                "prix": 1.95,
+                "poids": 55.0,
+                "stock": 24783,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.31,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJZBNSLX00133-SILVERY",
+                "vid": "BB2D8427-2588-42E2-AAC0-EB4D37814F53",
+                "taille": "N/A",
+                "couleur": "silvery",
+                "prix": 1.95,
+                "poids": 55.0,
+                "stock": 24783,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.31,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             }
         ]
     }
