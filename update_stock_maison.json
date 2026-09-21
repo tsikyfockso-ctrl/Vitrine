@@ -1739,7 +1739,7 @@
                 "couleur": "Black",
                 "prix": 109.81,
                 "poids": 17554.0,
-                "stock": 24,
+                "stock": 23,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -12688,7 +12688,7 @@
                 "poids": 1020.0,
                 "stock": 299175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 16.82,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 16.83
             },
@@ -13293,6 +13293,107 @@
                 "shippingCostFR": 10.38,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.52
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501030604001616800",
+        "nom": "Electric Screwdriver Bits Extension Stick",
+        "prixBase": 0.42,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/01/03/05/25aa3ad6-46bf-4f81-9a93-0430317261e1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD225997502BY",
+                "vid": "2501030604001617100",
+                "taille": "Black",
+                "couleur": "295MM",
+                "prix": 0.42,
+                "poids": 190.0,
+                "stock": 19375,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.38,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD225997503CX",
+                "vid": "2501030604001617300",
+                "taille": "Black",
+                "couleur": "250MM",
+                "prix": 0.42,
+                "poids": 160.0,
+                "stock": 19375,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.38,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD225997504DW",
+                "vid": "2501030604001617600",
+                "taille": "Black",
+                "couleur": "195MM",
+                "prix": 0.42,
+                "poids": 1400.0,
+                "stock": 19375,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.38,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045378448585285634",
+        "nom": "Twin Size Metal Platform Bed Frame With Light, Kids Twin Metal Bed With Upholstered And Pull Out Storage Shelves, Black Expect Arrival Date 2025 10 5",
+        "prixBase": 258.88,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/86c5aff8-c1fb-4cdc-bfa7-8f9e779c0e62.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28412960001",
+                "vid": "2045378450221064194",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 258.88,
+                "poids": 46203.0,
+                "stock": 92,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2027288178483023874",
+        "nom": "Modern Over The Toilet Space Saver Organization Wood Storage Cabinet For Home, Bathroom - Espresso",
+        "prixBase": 63.35,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17721504/42c2683b-9ec6-47ff-94ab-7bd9bd361a2e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27694080001",
+                "vid": "2027288178667573250",
+                "taille": "N/A",
+                "couleur": "Espresso",
+                "prix": 63.35,
+                "poids": 16016.0,
+                "stock": 45,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
