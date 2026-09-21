@@ -2683,5 +2683,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1925443682068377602",
+        "nom": "Brand New Home Treadmill, 2.5HP Silent Folding Treadmill With Heart Rate Sensor, Weighing 300 Pounds, Banned Platform Temu",
+        "prixBase": 212.43,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/e771f2f0-18a5-4f84-8a1d-5bbba6e8b1bb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM2382774",
+                "vid": "1925443682068377602",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 212.43,
+                "poids": 0.0,
+                "stock": 203,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
