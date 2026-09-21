@@ -2272,7 +2272,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692109IR",
@@ -2311,7 +2311,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692112LO",
@@ -2389,7 +2389,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.65
+                "shippingCostUS": 6.45
             },
             {
                 "sku": "CJNT109692118RI",
@@ -10254,7 +10254,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "0B60DDD6-549D-4090-A756-C2764BBFB933",
-        "nom": "Cartable Panda",
+        "nom": "Panda School Bag",
         "prixBase": 3.27,
         "productFee": 0.0,
         "images": [
@@ -16104,7 +16104,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.47,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.74
+                "shippingCostUS": 7.3
             },
             {
                 "sku": "CJWJNHNT04019-GREEN-24M",
@@ -16181,8 +16181,8 @@
                 "stock": 500000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJWJNHNT04019-WHITE-18M",
@@ -16311,8 +16311,8 @@
                 "stock": 500000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJWJNHNT04019-PINK-18M",
@@ -20140,6 +20140,122 @@
                 "shippingCostFR": 4.31,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1685482901372153856",
+        "nom": "Baby Thin Cotton Vertical Stripes Korean Casual Shorts",
+        "prixBase": 2.93,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/e812d6be-c8e1-474a-950e-6d9162dfb319.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT181074501AZ",
+                "vid": "1685482901451845632",
+                "taille": "73CM",
+                "couleur": "Coffee",
+                "prix": 2.93,
+                "poids": 110.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
+            },
+            {
+                "sku": "CJNT181074502BY",
+                "vid": "1685482901527343104",
+                "taille": "80cm",
+                "couleur": "Coffee",
+                "prix": 2.93,
+                "poids": 120.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
+            },
+            {
+                "sku": "CJNT181074503CX",
+                "vid": "1685482901594451968",
+                "taille": "90cm",
+                "couleur": "Coffee",
+                "prix": 2.93,
+                "poids": 130.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
+            },
+            {
+                "sku": "CJNT181074504DW",
+                "vid": "1685482901665755136",
+                "taille": "100cm",
+                "couleur": "Coffee",
+                "prix": 2.93,
+                "poids": 140.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
+            },
+            {
+                "sku": "CJNT181074505EV",
+                "vid": "1685482901724475392",
+                "taille": "73CM",
+                "couleur": "Light Green",
+                "prix": 2.93,
+                "poids": 110.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
+            },
+            {
+                "sku": "CJNT181074506FU",
+                "vid": "1685482901787389952",
+                "taille": "80cm",
+                "couleur": "Light Green",
+                "prix": 2.93,
+                "poids": 120.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
+            },
+            {
+                "sku": "CJNT181074507GT",
+                "vid": "1685482901854498816",
+                "taille": "90cm",
+                "couleur": "Light Green",
+                "prix": 2.93,
+                "poids": 130.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.3
+            },
+            {
+                "sku": "CJNT181074508HS",
+                "vid": "1685482901934190592",
+                "taille": "100cm",
+                "couleur": "Light Green",
+                "prix": 2.93,
+                "poids": 140.0,
+                "stock": 95353,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
             }
         ]
     }
