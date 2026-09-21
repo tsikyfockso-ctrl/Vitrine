@@ -1079,8 +1079,8 @@
                 "stock": 27668,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             }
         ]
     },
@@ -2478,15 +2478,106 @@
         ],
         "variantes": [
             {
-                "sku": "CJWL1667585",
-                "vid": "1618061912267304960",
+                "sku": "CJWL166758501AZ",
+                "vid": "1618061912376356864",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "CM4104000",
                 "prix": 115.18,
-                "poids": 0.0,
+                "poids": 70.0,
                 "stock": 93225,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758502BY",
+                "vid": "1618061912384745472",
+                "taille": "N/A",
+                "couleur": "CM4104008",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758503CX",
+                "vid": "1618061912388939776",
+                "taille": "N/A",
+                "couleur": "CM4104016",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758504DW",
+                "vid": "1618061912393134080",
+                "taille": "N/A",
+                "couleur": "CM4104032",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758505EV",
+                "vid": "1618061912397328384",
+                "taille": "N/A",
+                "couleur": "CM4108000",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758506FU",
+                "vid": "1618061912401522688",
+                "taille": "N/A",
+                "couleur": "CM4108008",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758507GT",
+                "vid": "1618061912405716992",
+                "taille": "N/A",
+                "couleur": "CM4108016",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWL166758508HS",
+                "vid": "1618061912409911296",
+                "taille": "N/A",
+                "couleur": "CM4108032",
+                "prix": 115.18,
+                "poids": 70.0,
+                "stock": 93225,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
