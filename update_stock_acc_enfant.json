@@ -15159,7 +15159,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.58
+                "shippingCostUS": 9.44
             },
             {
                 "sku": "CJYE132873355CX",
@@ -15222,7 +15222,7 @@
                 "poids": 360.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.08,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.58
             },
@@ -15276,7 +15276,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.58
+                "shippingCostUS": 10.03
             },
             {
                 "sku": "CJYE132873364LO",
@@ -15315,7 +15315,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.58
+                "shippingCostUS": 8.87
             },
             {
                 "sku": "CJYE132873367OL",
@@ -15339,7 +15339,7 @@
                 "poids": 400.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -15547,7 +15547,7 @@
                 "poids": 440.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.03
             }
@@ -20256,6 +20256,278 @@
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.02
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "F963F0EE-4AA6-4265-9746-80493EB35159",
+        "nom": "Children floor socks",
+        "prixBase": 1.89,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2056/2610281473423.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE04112-YELLOW-14.5CM",
+                "vid": "0A01FEB1-2F5C-4372-8554-943338E52BA2",
+                "taille": "14.5cm",
+                "couleur": "Yellow",
+                "prix": 1.89,
+                "poids": 144.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-COFFEE-15.5CM",
+                "vid": "0BE974F6-2A9B-4E2E-B633-47AE169191A4",
+                "taille": "15.5cm",
+                "couleur": "Coffee",
+                "prix": 1.89,
+                "poids": 154.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.65
+            },
+            {
+                "sku": "CJWJYEYE04112-COFFEE-14.5CM",
+                "vid": "0ECFBF05-2936-4D47-A5D5-17229B5C0024",
+                "taille": "14.5cm",
+                "couleur": "Coffee",
+                "prix": 1.89,
+                "poids": 144.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-RED-26 27",
+                "vid": "201A5F8A-0877-43B2-A6CC-6F4104F6E97B",
+                "taille": "26 27",
+                "couleur": "Red",
+                "prix": 1.89,
+                "poids": 154.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.02,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-BLUE-14.5CM",
+                "vid": "2989B634-5809-4517-8048-B292F05F07C2",
+                "taille": "14.5cm",
+                "couleur": "Blue",
+                "prix": 1.89,
+                "poids": 144.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-RED-12.5CM",
+                "vid": "351924AD-2D5B-40E7-9E09-AD045ABD0F2E",
+                "taille": "12.5cm",
+                "couleur": "Red",
+                "prix": 1.89,
+                "poids": 124.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-YELLOW-13.5CM",
+                "vid": "35E8E972-35A9-4058-982B-2C3A0F5D1063",
+                "taille": "13.5cm",
+                "couleur": "Yellow",
+                "prix": 1.89,
+                "poids": 134.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.81,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-COFFEE-13.5CM",
+                "vid": "388C4925-861D-4B44-B575-D2E9ED437993",
+                "taille": "13.5cm",
+                "couleur": "Coffee",
+                "prix": 1.89,
+                "poids": 134.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.37
+            },
+            {
+                "sku": "CJWJYEYE04112-YELLOW-15.5CM",
+                "vid": "4916C798-952F-4AAE-B34F-58062EE4ED0C",
+                "taille": "15.5cm",
+                "couleur": "Yellow",
+                "prix": 1.89,
+                "poids": 154.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-YELLOW-12.5CM",
+                "vid": "4BADDFA9-C266-4C88-97D3-088C845B6A63",
+                "taille": "12.5cm",
+                "couleur": "Yellow",
+                "prix": 1.89,
+                "poids": 124.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.7,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-PINK-14.5CM",
+                "vid": "6FB2752D-3DF8-4B55-8057-ABDAFAB88F5D",
+                "taille": "14.5cm",
+                "couleur": "Pink",
+                "prix": 1.89,
+                "poids": 144.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-BLUE-15.5CM",
+                "vid": "7E123E34-9447-4717-BE87-CDA427B42CC5",
+                "taille": "15.5cm",
+                "couleur": "Blue",
+                "prix": 1.89,
+                "poids": 154.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-PINK-12.5CM",
+                "vid": "910E1D30-01E4-4BAB-A407-E1ECBA1DFD32",
+                "taille": "12.5cm",
+                "couleur": "Pink",
+                "prix": 1.89,
+                "poids": 124.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.7,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-BLUE-13.5CM",
+                "vid": "94806953-3B91-4E48-93F7-097AC133E4A5",
+                "taille": "13.5cm",
+                "couleur": "Blue",
+                "prix": 1.89,
+                "poids": 134.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.81,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-COFFEE-12.5CM",
+                "vid": "9B2CE3C9-F913-440D-B69C-AB64CBC65E0B",
+                "taille": "12.5cm",
+                "couleur": "Coffee",
+                "prix": 1.89,
+                "poids": 124.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.22
+            },
+            {
+                "sku": "CJWJYEYE04112-RED-24 25",
+                "vid": "A821A679-55F3-4461-9004-EFA4AA58EC5A",
+                "taille": "24 25",
+                "couleur": "Red",
+                "prix": 1.89,
+                "poids": 144.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-RED-13.5CM",
+                "vid": "CBB73731-25C9-48A3-A752-6F1E98A0B13D",
+                "taille": "13.5cm",
+                "couleur": "Red",
+                "prix": 1.89,
+                "poids": 134.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.81,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-PINK-15.5CM",
+                "vid": "EE660D28-2C3D-4D4B-ADC8-B8F7BD026D8C",
+                "taille": "15.5cm",
+                "couleur": "Pink",
+                "prix": 1.89,
+                "poids": 154.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.65
+            },
+            {
+                "sku": "CJWJYEYE04112-BLUE-12.5CM",
+                "vid": "F70CF4CA-BD02-487F-8798-906F42EB5802",
+                "taille": "12.5cm",
+                "couleur": "Blue",
+                "prix": 1.89,
+                "poids": 124.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.91,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
+            },
+            {
+                "sku": "CJWJYEYE04112-PINK-13.5CM",
+                "vid": "F95EB4E8-19C2-440B-9587-9C2B282E5923",
+                "taille": "13.5cm",
+                "couleur": "Pink",
+                "prix": 1.89,
+                "poids": 134.0,
+                "stock": 800677,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.81,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.5
             }
         ]
     }
