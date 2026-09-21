@@ -1364,7 +1364,7 @@
                 "couleur": "RUST",
                 "prix": 75.13,
                 "poids": 24494.0,
-                "stock": 11624,
+                "stock": 11567,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -1377,7 +1377,7 @@
                 "couleur": "BK",
                 "prix": 75.13,
                 "poids": 24494.0,
-                "stock": 11624,
+                "stock": 11567,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -11184,7 +11184,7 @@
                 "couleur": "Black",
                 "prix": 100.29,
                 "poids": 13381.0,
-                "stock": 29,
+                "stock": 24,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -12610,7 +12610,7 @@
                 "poids": 1020.0,
                 "stock": 299175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 16.82,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 16.83
             },
@@ -12675,7 +12675,7 @@
                 "poids": 770.0,
                 "stock": 299175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 12.6,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.29
             },
@@ -12805,7 +12805,7 @@
                 "poids": 1020.0,
                 "stock": 299175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 16.82,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 16.83
             },
@@ -12831,7 +12831,7 @@
                 "poids": 770.0,
                 "stock": 299175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 12.6,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.29
             },
@@ -12872,7 +12872,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 12.6,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 13.29
             },
             {
                 "sku": "CJYD186182024XC",
@@ -12885,7 +12885,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 16.82,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 16.83
             }
         ]
     },
@@ -12986,6 +12986,313 @@
                 "shippingCostFR": 10.24,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406120711151622200",
+        "nom": "Totem Outdoor Surfboard Garden Decoration",
+        "prixBase": 2.36,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/06/12/07/5868846e-6597-4557-bd4f-b31c3a2fd918.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT205870901AZ",
+                "vid": "2406120711151622400",
+                "taille": "18x7x10",
+                "couleur": "Totem Outdoor Surfing",
+                "prix": 2.36,
+                "poids": 172.0,
+                "stock": 10028,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.2,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.9
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2033898299834429442",
+        "nom": "Nesting Coffee Table Set Of 2, 27.6inch Round Coffee Table Wood Marble Pattern Top With Sturdy Metal Frame, End Table Side Tables For Living Room Bedroom Balcony Yard Black",
+        "prixBase": 55.53,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17737056/25601575-b152-4848-9854-ea0e85cf8376.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27910350001",
+                "vid": "2033898299972841474",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 55.53,
+                "poids": 11068.0,
+                "stock": 40,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1951126245317574658",
+        "nom": "Twin Size Bed Frame, Storage Headboard With Charging Station, Solid And Stable, No Box Spring Needed, Easy Assembly",
+        "prixBase": 71.27,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/859f4e9a-cbb5-4ca4-8eab-7c10d857d9c8.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU244508901AZ",
+                "vid": "1951126245405655042",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 71.27,
+                "poids": 21779.0,
+                "stock": 16,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "122125A0-E459-4986-B512-F92C606B99BB",
+        "nom": "Christmas Stocking Socks Snowman Santa Elk Xmas Fireplace Xmas Tree Ornaments New Year Candy Bag Gift Christmas Decor",
+        "prixBase": 2.33,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/11/11/05/9c531e55-0f43-4186-8626-dc353f5830d0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJJJRSD00395-SNOWMAN",
+                "vid": "15004633-0BC0-4916-898A-CB28B7D3E2A2",
+                "taille": "N/A",
+                "couleur": "Snowman",
+                "prix": 2.33,
+                "poids": 125.0,
+                "stock": 40204,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.72,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJJJJRSD00395-OLD MAN",
+                "vid": "1D211DF8-0886-475E-BBA2-2F277D9864F6",
+                "taille": "N/A",
+                "couleur": "Old man",
+                "prix": 2.33,
+                "poids": 125.0,
+                "stock": 40204,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.72,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.24
+            },
+            {
+                "sku": "CJJJJRSD00395-ELK",
+                "vid": "1E43FE91-F84F-4662-9231-BF45BB31F466",
+                "taille": "N/A",
+                "couleur": "Elk",
+                "prix": 2.33,
+                "poids": 125.0,
+                "stock": 40204,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.72,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.24
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1785123425023963136",
+        "nom": "Creative Home Living Room Art Cement Ashtray",
+        "prixBase": 2.15,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/1f2521f2-8e11-43c8-8c25-4ee5885a2863.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD202421001AZ",
+                "vid": "1785123425124626432",
+                "taille": "N/A",
+                "couleur": "Orange Does Not Look",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421002BY",
+                "vid": "1785123425208512512",
+                "taille": "N/A",
+                "couleur": "Gray Does Not Look",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421003CX",
+                "vid": "1785123425284009984",
+                "taille": "N/A",
+                "couleur": "White Does Not Look",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421004DW",
+                "vid": "1785123425363701760",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421005EV",
+                "vid": "1785123425439199232",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421006FU",
+                "vid": "1785123425544056832",
+                "taille": "N/A",
+                "couleur": "Matte Black Does Not Look",
+                "prix": 2.15,
+                "poids": 756.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.46,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 13.1
+            },
+            {
+                "sku": "CJYD202421007GT",
+                "vid": "1785123425627942912",
+                "taille": "N/A",
+                "couleur": "Matt Black",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421008HS",
+                "vid": "1785123425724411904",
+                "taille": "N/A",
+                "couleur": "Pink Doesn't Look Good",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421009IR",
+                "vid": "1785123425804103680",
+                "taille": "N/A",
+                "couleur": "Half Face Gray",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421010JQ",
+                "vid": "1785123425883795456",
+                "taille": "N/A",
+                "couleur": "Small Gray Face",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421011KP",
+                "vid": "1785123425971875840",
+                "taille": "N/A",
+                "couleur": "Little White Face",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421012LO",
+                "vid": "1785550895325917184",
+                "taille": "N/A",
+                "couleur": "Dont look at bean green",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYD202421013MN",
+                "vid": "1785550895397220352",
+                "taille": "N/A",
+                "couleur": "Not to mention bean green",
+                "prix": 2.15,
+                "poids": 550.0,
+                "stock": 170113,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
             }
         ]
     }
