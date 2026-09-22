@@ -20530,5 +20530,30 @@
                 "shippingCostUS": 6.5
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508140649031624100",
+        "nom": "Hand-damaged Worn Looking Washed-out Hat",
+        "prixBase": 33.0,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/08/14/06/0fca9356-6138-406b-b52f-e9185e31caa2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD245607901AZ",
+                "vid": "2508140649031624300",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 33.0,
+                "poids": 140.0,
+                "stock": 6976,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.87,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
