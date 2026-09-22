@@ -13907,5 +13907,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031971360333807618",
+        "nom": "PawHut 59 Small Wooden Chicken Coop Hen House Poultry Cage For Outdoor Backyard With 2 Doors, Nesting Box And Removable Tray, Gray",
+        "prixBase": 167.47,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/9e948f19-7243-4d43-b01f-aab30361234d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2784683",
+                "vid": "2031971360333807618",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 167.47,
+                "poids": 0.0,
+                "stock": 43,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
