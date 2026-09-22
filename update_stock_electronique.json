@@ -85966,5 +85966,43 @@
                 "shippingCostUS": 5.3
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2410090859141615700",
+        "nom": "LA102 Outdoor Smart Watch Bluetooth Calling",
+        "prixBase": 17.74,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/10/09/08/74e94465-8201-4f2a-b807-c7c7f7061f98.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJX215542901AZ",
+                "vid": "2410090859141615900",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 17.74,
+                "poids": 185.0,
+                "stock": 21180,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJX215542902BY",
+                "vid": "2410090859141616100",
+                "taille": "N/A",
+                "couleur": "Army Green",
+                "prix": 17.74,
+                "poids": 185.0,
+                "stock": 21180,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.84,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
