@@ -3181,7 +3181,7 @@
                 "poids": 280.0,
                 "stock": 94874,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.28,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.35
             },
@@ -5635,6 +5635,70 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506150447441625100",
+        "nom": "Baby Girl Minimalist Bowknot Printed Long Sleeve Triangle One-piece Romper",
+        "prixBase": 4.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/caec3fc0-def9-4695-b9fe-c4009ef76af2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE240234901AZ",
+                "vid": "2506150447441625300",
+                "taille": "0 To 3m",
+                "couleur": "Pink",
+                "prix": 4.62,
+                "poids": 130.0,
+                "stock": 33186,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE240234902BY",
+                "vid": "2506150447441625900",
+                "taille": "3 To 6m",
+                "couleur": "Pink",
+                "prix": 4.62,
+                "poids": 140.0,
+                "stock": 33186,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE240234903CX",
+                "vid": "2506150447441626200",
+                "taille": "6 To 12m",
+                "couleur": "Pink",
+                "prix": 4.62,
+                "poids": 150.0,
+                "stock": 33186,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
+            },
+            {
+                "sku": "CJYE240234904DW",
+                "vid": "2506150447441626700",
+                "taille": "12 To 18m",
+                "couleur": "Pink",
+                "prix": 4.62,
+                "poids": 160.0,
+                "stock": 33186,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             }
         ]
     }
