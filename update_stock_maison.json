@@ -186,15 +186,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -10086,12 +10099,38 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT2489459",
-                "vid": "1963879307648978945",
+                "sku": "CJJT248945901AZ",
+                "vid": "1963879307737059329",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "48pcs",
                 "prix": 15.15,
-                "poids": 0.0,
+                "poids": 1100.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT248945902BY",
+                "vid": "1963879307737059330",
+                "taille": "N/A",
+                "couleur": "24pcs",
+                "prix": 15.15,
+                "poids": 590.0,
+                "stock": 600,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT248945903CX",
+                "vid": "1963879307737059331",
+                "taille": "N/A",
+                "couleur": "12pcs",
+                "prix": 15.15,
+                "poids": 300.0,
                 "stock": 600,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -14167,6 +14206,133 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031970266618707969",
+        "nom": "Chicken Coop Wooden Hen House Poultry Cage Pen Portable With Wheels And Nesting Box, Chicken Cage For Backyard Outdoor, Natural",
+        "prixBase": 444.04,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/d06e188c-301b-416a-8c49-7073c4acdd6f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846570001",
+                "vid": "2031970266899726337",
+                "taille": "N/A",
+                "couleur": "Natural",
+                "prix": 444.04,
+                "poids": 16692.0,
+                "stock": 24,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2027294411647672321",
+        "nom": "Upholstered Chenille Fabric Accent Dining Chair, Curved Solid Wood Legs, Elegant Tufted Club Dining Room Kitchen Room Arm Dining Chair, Single Pack,Black,SW1895BK",
+        "prixBase": 81.46,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17721504/14859eca-f37f-423d-aa12-5d09a8ad93b9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27694920001",
+                "vid": "2027294411802861569",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 81.46,
+                "poids": 11975.0,
+                "stock": 207,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1770035341261541376",
+        "nom": "Cute LED Night Light Touch Sensor Cartoon Kid's Nightlights Big Face Rabbit Silicone Night Light Christmas Gift Bedside Lamp Home Decor",
+        "prixBase": 5.31,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/04/29/03/1b0f237d-a557-4ea2-b497-5fc2445be890.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD199189901AZ",
+                "vid": "1770035341332844544",
+                "taille": "N/A",
+                "couleur": "Lying Bunny Ordinary Style",
+                "prix": 5.31,
+                "poids": 250.0,
+                "stock": 47005,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.43
+            },
+            {
+                "sku": "CJYD199189902BY",
+                "vid": "1770035341399953408",
+                "taille": "N/A",
+                "couleur": "Lying Bunny Voice Version",
+                "prix": 5.31,
+                "poids": 250.0,
+                "stock": 47005,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.43
+            },
+            {
+                "sku": "CJYD199189903CX",
+                "vid": "2508290315021627200",
+                "taille": "N/A",
+                "couleur": "Lying flat duck",
+                "prix": 5.31,
+                "poids": 250.0,
+                "stock": 47005,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.43
+            },
+            {
+                "sku": "CJYD199189904DW",
+                "vid": "2602230343161617800",
+                "taille": "N/A",
+                "couleur": "Big Face Rabbit Voice Version",
+                "prix": 5.31,
+                "poids": 250.0,
+                "stock": 47005,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.43
+            },
+            {
+                "sku": "CJYD199189905EV",
+                "vid": "2604230845001613900",
+                "taille": "N/A",
+                "couleur": "Set1",
+                "prix": 5.31,
+                "poids": 257.0,
+                "stock": 47005,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.43
             }
         ]
     }
