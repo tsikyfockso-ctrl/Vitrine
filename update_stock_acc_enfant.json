@@ -3603,30 +3603,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD235581801AZ",
-                "vid": "2504170323181622600",
+                "sku": "CJYD2355818",
+                "vid": "2504170323181620000",
                 "taille": "N/A",
-                "couleur": "Flower Style",
+                "couleur": "N/A",
                 "prix": 0.66,
-                "poids": 30.0,
+                "poids": 0.0,
                 "stock": 11497,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.31,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
-            },
-            {
-                "sku": "CJYD235581802BY",
-                "vid": "2504170323181622900",
-                "taille": "N/A",
-                "couleur": "Wave Style",
-                "prix": 0.66,
-                "poids": 30.0,
-                "stock": 11497,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.31,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
