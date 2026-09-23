@@ -1107,17 +1107,69 @@
         ],
         "variantes": [
             {
-                "sku": "CJNSFJWJ00066",
-                "vid": "718292A1-CB3F-4479-97E6-DED6C1EFE43A",
+                "sku": "CJNSFJWJ00066-GREY BLUE",
+                "vid": "5D8C1F64-B91A-423B-BF2E-A25E1AB33F48",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey blue",
                 "prix": 2.25,
-                "poids": 0.0,
+                "poids": 180.0,
                 "stock": 57445,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
+            },
+            {
+                "sku": "CJNSFJWJ00066-BLUE",
+                "vid": "A10F4294-0421-402D-A006-44AC487722A3",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 2.25,
+                "poids": 180.0,
+                "stock": 57445,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
+            },
+            {
+                "sku": "CJNSFJWJ00066-BLACK",
+                "vid": "D29A0A82-8C41-4F40-92FF-D55546D772F3",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 2.25,
+                "poids": 180.0,
+                "stock": 57445,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
+            },
+            {
+                "sku": "CJNSFJWJ00066-GREY WHITE",
+                "vid": "D300A54B-1AEC-4961-BE4D-95924813DC3D",
+                "taille": "N/A",
+                "couleur": "Grey white",
+                "prix": 2.25,
+                "poids": 180.0,
+                "stock": 57445,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
+            },
+            {
+                "sku": "CJNSFJWJ00066-GREY RED",
+                "vid": "D5DC4498-ECD8-4E3C-9CCC-F9B90629C31D",
+                "taille": "N/A",
+                "couleur": "Grey red",
+                "prix": 2.25,
+                "poids": 180.0,
+                "stock": 57445,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.27,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.02
             }
         ]
     },
@@ -1915,15 +1967,15 @@
                 "stock": 7630,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     },
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "50A4F2BD-A70F-4E2F-842F-DBC436C7AC21",
-        "nom": "Ensemble pendentif et boucles d'oreilles en argent Sterling, bijoux à la mode, Style tendance, cristal autrichien, couleurs de fiançailles pour femmes",
+        "nom": "Sterling Silver Pendant Necklace Earrings Set Fashion Jewelry Trendy Style Austrian Crystal Women Engagement Colours",
         "prixBase": 0.96,
         "productFee": 0.0,
         "images": [
@@ -1938,8 +1990,8 @@
                 "prix": 0.96,
                 "poids": 28.0,
                 "stock": 12884,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -3048,8 +3100,8 @@
                 "stock": 219459,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.39,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.26
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.3
             },
             {
                 "sku": "CJNS215187310JQ",
@@ -9415,7 +9467,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.49,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.1
+                "shippingCostUS": 15.95
             },
             {
                 "sku": "CJNS217316913MN",
@@ -12810,7 +12862,7 @@
                 "poids": 518.0,
                 "stock": 60952,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.53,
+                "shippingCostFR": 10.06,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.05
             },
@@ -12825,7 +12877,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.06,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.29
+                "shippingCostUS": 11.05
             },
             {
                 "sku": "CJBHNSNS06737-MILITARY GREEN",
@@ -13013,7 +13065,7 @@
                 "couleur": "JDB2305006color",
                 "prix": 3.32,
                 "poids": 19.0,
-                "stock": 25026,
+                "stock": 25025,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.16,
                 "shippingMethodUS": "Jewel Shipping",
@@ -13026,7 +13078,7 @@
                 "couleur": "Silver",
                 "prix": 3.32,
                 "poids": 20.0,
-                "stock": 25026,
+                "stock": 25025,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.16,
                 "shippingMethodUS": "Jewel Shipping",
@@ -13062,7 +13114,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2410050826161609000",
-        "nom": "Jeans larges déchirés élégants pour femmes",
+        "nom": "Elegant Ripped Wide-leg Jeans Women",
         "prixBase": 8.62,
         "productFee": 0.0,
         "images": [
@@ -13080,7 +13132,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.6,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.08
+                "shippingCostUS": 10.39
             },
             {
                 "sku": "CJNZ215253402BY",
@@ -13104,7 +13156,7 @@
                 "poids": 516.0,
                 "stock": 232365,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.6,
+                "shippingCostFR": 10.05,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.03
             },
@@ -13119,7 +13171,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.29,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.08
+                "shippingCostUS": 11.37
             },
             {
                 "sku": "CJNZ215253405EV",
@@ -13143,7 +13195,7 @@
                 "poids": 590.0,
                 "stock": 232365,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.6,
+                "shippingCostFR": 10.79,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.08
             },
@@ -13171,7 +13223,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.08
+                "shippingCostUS": 10.65
             },
             {
                 "sku": "CJNZ215253409IR",
@@ -13182,7 +13234,7 @@
                 "poids": 516.0,
                 "stock": 232365,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.6,
+                "shippingCostFR": 10.05,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.08
             },
@@ -13247,7 +13299,7 @@
                 "poids": 490.0,
                 "stock": 232365,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.6,
+                "shippingCostFR": 9.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.65
             },
@@ -13273,7 +13325,7 @@
                 "poids": 540.0,
                 "stock": 232365,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.6,
+                "shippingCostFR": 10.29,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.37
             },
@@ -20965,10 +21017,10 @@
                 "prix": 4.17,
                 "poids": 330.0,
                 "stock": 38701,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.78,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJNS207088802BY",
@@ -20978,10 +21030,10 @@
                 "prix": 4.17,
                 "poids": 330.0,
                 "stock": 38701,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.78,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             },
             {
                 "sku": "CJNS207088803CX",
@@ -20991,10 +21043,10 @@
                 "prix": 4.17,
                 "poids": 330.0,
                 "stock": 38701,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.78,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.43
             }
         ]
     },
@@ -28959,9 +29011,9 @@
                 "poids": 620.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.52
             },
             {
                 "sku": "CJYD205231602BY",
@@ -28974,7 +29026,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.8
             },
             {
                 "sku": "CJYD205231603CX",
@@ -28987,7 +29039,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.09
             },
             {
                 "sku": "CJYD205231604DW",
@@ -29013,7 +29065,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.65
             },
             {
                 "sku": "CJYD205231606FU",
@@ -29026,7 +29078,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.59
             },
             {
                 "sku": "CJYD205231607GT",
@@ -29037,9 +29089,9 @@
                 "poids": 740.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.29,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.88
             },
             {
                 "sku": "CJYD205231608HS",
@@ -29052,7 +29104,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.15
             },
             {
                 "sku": "CJYD205231609IR",
@@ -29063,7 +29115,7 @@
                 "poids": 780.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.7,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29076,7 +29128,7 @@
                 "poids": 620.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29091,7 +29143,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.8
             },
             {
                 "sku": "CJYD205231612LO",
@@ -29115,7 +29167,7 @@
                 "poids": 680.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.69,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29141,7 +29193,7 @@
                 "poids": 720.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.1,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29154,7 +29206,7 @@
                 "poids": 740.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.29,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.88
             },
@@ -29167,7 +29219,7 @@
                 "poids": 760.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.5,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29180,9 +29232,9 @@
                 "poids": 780.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.7,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.44
             },
             {
                 "sku": "CJYD205231619SH",
@@ -29219,7 +29271,7 @@
                 "poids": 660.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29232,7 +29284,7 @@
                 "poids": 680.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.69,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.38
             },
@@ -29245,7 +29297,7 @@
                 "poids": 700.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 11.9,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.65
             },
@@ -29258,7 +29310,7 @@
                 "poids": 720.0,
                 "stock": 330718,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.28,
+                "shippingCostFR": 12.1,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.59
             },
@@ -29273,7 +29325,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.88
             },
             {
                 "sku": "CJYD205231626ZA",
@@ -29286,7 +29338,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.15
             },
             {
                 "sku": "CJYD205231627AZ",
@@ -29299,7 +29351,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 13.44
             }
         ]
     },
@@ -41983,6 +42035,70 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2410190703011622000",
+        "nom": "Color Matching Female Ornament Hair Band Small Silk Scarf",
+        "prixBase": 3.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/17764a91-c567-4504-8aef-f557742645d0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD216473601AZ",
+                "vid": "2410190703011622200",
+                "taille": "53X53cm",
+                "couleur": "Bright Yellow Light Blue",
+                "prix": 3.62,
+                "poids": 40.0,
+                "stock": 47286,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD216473602BY",
+                "vid": "2410190703011622400",
+                "taille": "53X53cm",
+                "couleur": "Pink Gray",
+                "prix": 3.62,
+                "poids": 40.0,
+                "stock": 47286,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD216473603CX",
+                "vid": "2410190703011622500",
+                "taille": "53X53cm",
+                "couleur": "Turmeric Purple",
+                "prix": 3.62,
+                "poids": 40.0,
+                "stock": 47286,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJYD216473604DW",
+                "vid": "2410190703011622600",
+                "taille": "53X53cm",
+                "couleur": "Red Pink",
+                "prix": 3.62,
+                "poids": 40.0,
+                "stock": 47286,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     }
