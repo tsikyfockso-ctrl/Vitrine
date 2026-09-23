@@ -11076,8 +11076,8 @@
                 "prix": 2.55,
                 "poids": 60.0,
                 "stock": 29276,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.44,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.37,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.3
             },
@@ -57856,6 +57856,121 @@
                 "shippingCostFR": 10.08,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.03
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1768572927970119680",
+        "nom": "Women's Rectangular Gold Fashion Retro Steel Belt Quartz Watch",
+        "prixBase": 12.44,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/13227223-33bd-4727-9dc0-8e7670acd524.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS198926001AZ",
+                "vid": "1768572928062394368",
+                "taille": "N/A",
+                "couleur": "HMA339 Gold Gold Surface",
+                "prix": 12.44,
+                "poids": 100.0,
+                "stock": 10247,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.84,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1798253496878374912",
+        "nom": "Fashion Cardigan Short Sleeve Shirt For Men",
+        "prixBase": 13.74,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/839dfb2d-00ef-4143-bd70-f2769d326584.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJDS205389401AZ",
+                "vid": "1798253496962260992",
+                "taille": "S",
+                "couleur": "White",
+                "prix": 13.74,
+                "poids": 370.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJDS205389402BY",
+                "vid": "1798253497025175552",
+                "taille": "M",
+                "couleur": "White",
+                "prix": 13.74,
+                "poids": 380.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJDS205389403CX",
+                "vid": "1798253497092284416",
+                "taille": "L",
+                "couleur": "White",
+                "prix": 13.74,
+                "poids": 390.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJDS205389404DW",
+                "vid": "1798253497155198976",
+                "taille": "S",
+                "couleur": "Pink",
+                "prix": 13.74,
+                "poids": 370.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJDS205389405EV",
+                "vid": "1798253497222307840",
+                "taille": "M",
+                "couleur": "Pink",
+                "prix": 13.74,
+                "poids": 380.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJDS205389406FU",
+                "vid": "1798253497293611008",
+                "taille": "L",
+                "couleur": "Pink",
+                "prix": 13.74,
+                "poids": 390.0,
+                "stock": 72027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.39,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
