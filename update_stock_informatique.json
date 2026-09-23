@@ -4275,5 +4275,30 @@
                 "shippingCostUS": 11.5
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1359778682092261376",
+        "nom": "Step-Down Module Ams1117 Ldo 800Ma For Dc-Dc Step-Down",
+        "prixBase": 0.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1613031407365.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWL101136001AZ",
+                "vid": "1359778683656736768",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 0.17,
+                "poids": 40.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
