@@ -21268,5 +21268,82 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "AC324F5B-4AA6-491A-9EFD-72055622E5BC",
+        "nom": "Hand knitting hairpin",
+        "prixBase": 0.66,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15143040/7242399354_1821046090.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE01570-GREEN",
+                "vid": "6C68E406-92DD-4668-987A-B9CE65ED5D46",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 0.66,
+                "poids": 35.0,
+                "stock": 63159,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJWJYEYE01570-PURPLE",
+                "vid": "8FA5B7D2-6633-445B-B726-3F5DA09426D6",
+                "taille": "N/A",
+                "couleur": "Purple",
+                "prix": 0.66,
+                "poids": 35.0,
+                "stock": 63159,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJWJYEYE01570-YELLOW",
+                "vid": "91EFA312-E265-46BF-9829-0D6AF3EF36EB",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 0.66,
+                "poids": 35.0,
+                "stock": 63159,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJWJYEYE01570-ORANGE",
+                "vid": "B1CA16F3-4E6E-4B57-830C-34B08ED98079",
+                "taille": "N/A",
+                "couleur": "Orange",
+                "prix": 0.66,
+                "poids": 35.0,
+                "stock": 63159,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJWJYEYE01570-WINE RED",
+                "vid": "C121A06E-E424-45A7-8F55-C1520D2C579A",
+                "taille": "N/A",
+                "couleur": "Wine red",
+                "prix": 0.66,
+                "poids": 35.0,
+                "stock": 63159,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            }
+        ]
     }
 ]
