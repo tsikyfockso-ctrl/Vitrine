@@ -1274,7 +1274,7 @@
                 "poids": 280.0,
                 "stock": 452420,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.38,
+                "shippingCostFR": 7.28,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.35
             },
@@ -5699,6 +5699,161 @@
                 "shippingCostFR": 5.76,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.74
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "ABFB4AC3-6104-4CDC-BDE3-F3131D774AE5",
+        "nom": "Cotton Portable Foldable Baby Bed",
+        "prixBase": 16.94,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200506/2765946638536.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE01989-DINOSAUR BLUE",
+                "vid": "1448882723379875840",
+                "taille": "N/A",
+                "couleur": "Dinosaur Blue",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-GREY ELEPHANT",
+                "vid": "14C946F1-6C1B-4504-80E0-0B4DDFC467EE",
+                "taille": "N/A",
+                "couleur": "Grey elephant",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-PINK POINTS",
+                "vid": "1B01851E-D278-4382-8479-961A43E8D558",
+                "taille": "N/A",
+                "couleur": "Pink points",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-DINOSAUR",
+                "vid": "25EFBC1A-1978-4932-93C9-48E19942991F",
+                "taille": "N/A",
+                "couleur": "Dinosaur",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-BLACK WHITE DOT",
+                "vid": "4D615D4E-6DCE-4D90-A7A4-EC09222B9F6C",
+                "taille": "N/A",
+                "couleur": "Black white dot",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-HOUNDSTOOTH",
+                "vid": "57BF50D4-78B1-4F21-84D6-5EEC8EF89CDE",
+                "taille": "N/A",
+                "couleur": "Houndstooth",
+                "prix": 16.94,
+                "poids": 1850.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 23.56,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-POLAR BEAR",
+                "vid": "5C29B8D5-2F3D-45AD-BBA7-F389859008DD",
+                "taille": "N/A",
+                "couleur": "Polar bear",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-GREY CROWN",
+                "vid": "63EE4BB9-7219-48AF-8E8A-744A27906481",
+                "taille": "N/A",
+                "couleur": "Grey Crown",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-GRAY STARS",
+                "vid": "6D8561D5-4FAE-4092-A861-FB49593BABBD",
+                "taille": "N/A",
+                "couleur": "Gray stars",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-RAINDROP CLOUD",
+                "vid": "F37CEB21-9F95-4973-954B-2681CE7BD393",
+                "taille": "N/A",
+                "couleur": "Raindrop cloud",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
+            },
+            {
+                "sku": "CJWJYEYE01989-COLOR STAR",
+                "vid": "FFB33B39-2CF8-4F6A-AA97-749415D10B5C",
+                "taille": "N/A",
+                "couleur": "Color star",
+                "prix": 16.94,
+                "poids": 1564.0,
+                "stock": 159813,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 21.24,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 24.5
             }
         ]
     }
