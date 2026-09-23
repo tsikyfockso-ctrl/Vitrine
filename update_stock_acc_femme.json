@@ -19577,15 +19577,93 @@
         ],
         "variantes": [
             {
-                "sku": "CJSJ2230094",
-                "vid": "2412020603571603200",
+                "sku": "CJSJ223009401AZ",
+                "vid": "2412020603571603500",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Persimmon Chrysanthemum Coffee",
                 "prix": 1.76,
-                "poids": 0.0,
+                "poids": 250.0,
                 "stock": 94571,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009402BY",
+                "vid": "2412020603571603700",
+                "taille": "N/A",
+                "couleur": "Turmeric Mocha",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009403CX",
+                "vid": "2412020603571603800",
+                "taille": "N/A",
+                "couleur": "Pink Coffee Color",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009404DW",
+                "vid": "2412020603571604000",
+                "taille": "N/A",
+                "couleur": "Orange Blue",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009405EV",
+                "vid": "2412020603571604200",
+                "taille": "N/A",
+                "couleur": "Red And Green",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009406FU",
+                "vid": "2412020603571604400",
+                "taille": "N/A",
+                "couleur": "Purple red black",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ223009407GT",
+                "vid": "2412020603571604600",
+                "taille": "N/A",
+                "couleur": "Dark Brown Milk Coffee",
+                "prix": 1.76,
+                "poids": 250.0,
+                "stock": 94571,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.61,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -21282,12 +21360,38 @@
         ],
         "variantes": [
             {
-                "sku": "CJLX2793885",
-                "vid": "2034456577990619137",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJLX279388501AZ",
+                "vid": "2034456578066116609",
+                "taille": "1pcs",
+                "couleur": "Style 1",
                 "prix": 4.59,
-                "poids": 0.0,
+                "poids": 8.0,
+                "stock": 37997,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLX279388502BY",
+                "vid": "2034456578066116610",
+                "taille": "1pcs",
+                "couleur": "Style 2",
+                "prix": 4.59,
+                "poids": 8.0,
+                "stock": 37997,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLX279388503CX",
+                "vid": "2034456578066116611",
+                "taille": "1pcs",
+                "couleur": "Style 3",
+                "prix": 4.59,
+                "poids": 8.0,
                 "stock": 37997,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -42485,7 +42589,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.03
+                "shippingCostUS": 10.15
             },
             {
                 "sku": "CJNS195688305EV",
@@ -42576,7 +42680,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.03
+                "shippingCostUS": 10.17
             },
             {
                 "sku": "CJNS195688318RI",
