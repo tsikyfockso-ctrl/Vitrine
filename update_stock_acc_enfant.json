@@ -3603,15 +3603,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD2355818",
-                "vid": "2504170323181620000",
+                "sku": "CJYD235581801AZ",
+                "vid": "2504170323181622600",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Flower Style",
                 "prix": 0.66,
-                "poids": 0.0,
+                "poids": 30.0,
                 "stock": 11497,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD235581802BY",
+                "vid": "2504170323181622900",
+                "taille": "N/A",
+                "couleur": "Wave Style",
+                "prix": 0.66,
+                "poids": 30.0,
+                "stock": 11497,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -14728,7 +14741,7 @@
                 "poids": 400.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -14962,7 +14975,7 @@
                 "poids": 340.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 7.89,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.58
             },
@@ -21330,6 +21343,44 @@
                 "shippingCostFR": 4.37,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1535193852502618112",
+        "nom": "New Girl Painter Wool Beret Winter",
+        "prixBase": 1.71,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/cf9f8d85-a4dd-4b2c-a282-17293ab515e5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE150029601AZ",
+                "vid": "1535193852892688384",
+                "taille": "2to4 years old one size",
+                "couleur": "Camel",
+                "prix": 1.71,
+                "poids": 105.0,
+                "stock": 89525,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE150029602BY",
+                "vid": "1535193852896882688",
+                "taille": "4to8 years old one size",
+                "couleur": "Camel",
+                "prix": 1.71,
+                "poids": 110.0,
+                "stock": 89525,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
