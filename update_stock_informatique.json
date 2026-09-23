@@ -4300,5 +4300,68 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1790688288462876672",
+        "nom": "Resin Bookworm Ornaments Home Desktop Decorations",
+        "prixBase": 2.57,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/abcf6837-7d9b-44e7-9226-3c14def7ba4f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT203628701AZ",
+                "vid": "1790688288555151360",
+                "taille": "N/A",
+                "couleur": "Hooded Bookworm",
+                "prix": 2.57,
+                "poids": 60.0,
+                "stock": 25392,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT203628702BY",
+                "vid": "1790688288655814656",
+                "taille": "N/A",
+                "couleur": "Book Worm Without Hat",
+                "prix": 2.57,
+                "poids": 60.0,
+                "stock": 25392,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1359774290949574656",
+        "nom": "Digital Tube Display Module Control Module",
+        "prixBase": 0.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1613030366868.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWL101134701AZ",
+                "vid": "1359774292266586112",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 0.98,
+                "poids": 33.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.35,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
