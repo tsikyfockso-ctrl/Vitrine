@@ -88624,5 +88624,43 @@
                 "shippingCostUS": 5.07
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501170832501611500",
+        "nom": "Multi-function Audio Integrated Desktop Folding Portable Induction Bluetooth Mobile Phone Stand",
+        "prixBase": 5.8,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/01/17/08/8150a7ce-15d9-404c-93a5-ee022d643e00_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSJ227342301AZ",
+                "vid": "2501170832501611700",
+                "taille": "N/A",
+                "couleur": "Bluetooth Sensor",
+                "prix": 5.8,
+                "poids": 245.0,
+                "stock": 13871,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.55,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJSJ227342302BY",
+                "vid": "2501170832501612200",
+                "taille": "N/A",
+                "couleur": "Wireless Charger Bluetooth",
+                "prix": 5.8,
+                "poids": 245.0,
+                "stock": 13871,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.55,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
