@@ -21538,5 +21538,120 @@
                 "shippingCostUS": 6.63
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1619947405103869952",
+        "nom": "Baby Waffle Hat For Boys And Girls Kids",
+        "prixBase": 1.37,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1cec1eb0-e842-4c6d-957e-d39dac46872d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE167131301AZ",
+                "vid": "1619947405137424384",
+                "taille": "N/A",
+                "couleur": "Light apricot",
+                "prix": 1.37,
+                "poids": 60.0,
+                "stock": 32831,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYE167131302BY",
+                "vid": "1619947405137424385",
+                "taille": "N/A",
+                "couleur": "Dark apricot",
+                "prix": 1.37,
+                "poids": 60.0,
+                "stock": 32831,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            },
+            {
+                "sku": "CJYE167131303CX",
+                "vid": "1619947405137424386",
+                "taille": "N/A",
+                "couleur": "Coffee",
+                "prix": 1.37,
+                "poids": 60.0,
+                "stock": 32831,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.71,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.3
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1449277083086884864",
+        "nom": "New Cartoon Lunch Box Portable Cooler Bag",
+        "prixBase": 0.71,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/f0b99b57-c219-4a7a-893c-29c3ca032daa.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE132070701AZ",
+                "vid": "1449277083149799424",
+                "taille": "N/A",
+                "couleur": "Fox",
+                "prix": 0.71,
+                "poids": 105.0,
+                "stock": 145027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE132070702BY",
+                "vid": "1449277083153993728",
+                "taille": "N/A",
+                "couleur": "Tiger",
+                "prix": 0.71,
+                "poids": 105.0,
+                "stock": 145027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE132070703CX",
+                "vid": "1449277083153993729",
+                "taille": "N/A",
+                "couleur": "Rabbit",
+                "prix": 0.71,
+                "poids": 105.0,
+                "stock": 145027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE132070704DW",
+                "vid": "1449277083158188032",
+                "taille": "N/A",
+                "couleur": "Cow",
+                "prix": 0.71,
+                "poids": 105.0,
+                "stock": 145027,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
