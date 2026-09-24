@@ -4415,5 +4415,69 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "E30A4D09-FB13-44EC-87BB-028ADC5E1F94",
+        "nom": "Anti-theft Travel Backpack Large Capacity Business Computer Backpack",
+        "prixBase": 4.19,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15139008/6177896150400.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBHNSNS00030-BLUE",
+                "vid": "121D348F-8059-448A-BAA7-CC96903C8862",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 4.19,
+                "poids": 745.0,
+                "stock": 52356,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.35,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 12.94
+            },
+            {
+                "sku": "CJBHNSNS00030-PURPLE",
+                "vid": "3AE27AB6-7771-4456-99F9-08321FB6CAA8",
+                "taille": "N/A",
+                "couleur": "Purple",
+                "prix": 4.19,
+                "poids": 745.0,
+                "stock": 52356,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.35,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 12.94
+            },
+            {
+                "sku": "CJBHNSNS00030-BLACK",
+                "vid": "4D1BB972-AE5F-4550-90DE-16C940F9AB9F",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 4.19,
+                "poids": 745.0,
+                "stock": 52356,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.35,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 12.94
+            },
+            {
+                "sku": "CJBHNSNS00030-GREY",
+                "vid": "4EF29E60-FD32-4070-84F0-3E946CCB8F2D",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 4.19,
+                "poids": 653.0,
+                "stock": 52356,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.35,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 12.99
+            }
+        ]
     }
 ]
