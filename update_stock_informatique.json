@@ -222,8 +222,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJXFLPSM00276-BLACK 2PCS-7 HOLES",
@@ -235,8 +235,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJXFLPSM00276-WHITE-7 HOLES",
@@ -248,8 +248,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJXFLPSM00276-BLACK-7 HOLES",
@@ -261,8 +261,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             },
             {
                 "sku": "CJXFLPSM00276-WHITE-4 HOLES",
@@ -274,8 +274,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             }
         ]
     },
@@ -4477,6 +4477,29 @@
                 "shippingCostFR": 12.35,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.99
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504180704391604000",
+        "nom": "Bicycle Light LED Bead Mountain Bike USB Charging",
+        "prixBase": 6.3,
+        "productFee": 0.0,
+        "images": [],
+        "variantes": [
+            {
+                "sku": "CJYD235694901AZ",
+                "vid": "2504180704391604200",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 6.3,
+                "poids": 186.0,
+                "stock": 7161,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.86,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
