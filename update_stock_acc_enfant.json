@@ -3612,8 +3612,8 @@
                 "stock": 11497,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.31,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJYD235581802BY",
@@ -3625,8 +3625,8 @@
                 "stock": 11497,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.31,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     },
@@ -16955,8 +16955,8 @@
                 "stock": 67366,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
-                "shippingMethodUS": "CJPacket Postal",
-                "shippingCostUS": 4.73
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJYD240736203CX",
@@ -16968,8 +16968,8 @@
                 "stock": 67366,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
-                "shippingMethodUS": "CJPacket Postal",
-                "shippingCostUS": 4.73
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJYD240736204DW",
@@ -17007,8 +17007,8 @@
                 "stock": 67366,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
-                "shippingMethodUS": "CJPacket Postal",
-                "shippingCostUS": 4.73
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJYD240736207GT",
@@ -17033,8 +17033,8 @@
                 "stock": 67366,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
-                "shippingMethodUS": "CJPacket Postal",
-                "shippingCostUS": 4.73
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             },
             {
                 "sku": "CJYD240736209IR",
@@ -21381,6 +21381,161 @@
                 "shippingCostFR": 5.52,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "D4A2C882-1DA7-459A-9B7F-06044F3E381A",
+        "nom": "Fashion Personality Kindergarten Cartoon Backpack Small",
+        "prixBase": 4.38,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1532594847188-QQ截图20180726164554.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJXDYE00159-COFFEE SQUIRREL",
+                "vid": "18260993-F15E-4055-AE7A-038816033390",
+                "taille": "N/A",
+                "couleur": "Coffee squirrel",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-YELLOW PUPPY",
+                "vid": "23FCAB8B-BF9D-4144-BB97-E30E4C001AF1",
+                "taille": "N/A",
+                "couleur": "Yellow puppy",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-COFFEE MONKEY",
+                "vid": "2C8BC220-16AF-41D4-B9E6-CFD18220F141",
+                "taille": "N/A",
+                "couleur": "Coffee monkey",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-RABBIT",
+                "vid": "37D371E0-1A76-40B2-A374-C878F9F620C9",
+                "taille": "N/A",
+                "couleur": "Rabbit",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-RED OWL",
+                "vid": "59841EE1-B5D1-4BB3-B029-A460107A9933",
+                "taille": "N/A",
+                "couleur": "Red owl",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-ORANGE TIGER",
+                "vid": "705B8CC7-765C-43B1-BB10-359E0BA4113F",
+                "taille": "N/A",
+                "couleur": "Orange tiger",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-DINOSAUR",
+                "vid": "8408537A-9D12-4DF2-A221-CDD1C683DFDC",
+                "taille": "N/A",
+                "couleur": "Dinosaur",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-GIRAFFE",
+                "vid": "9AFB0113-4452-42CA-8E6F-99BCE8FCD6EC",
+                "taille": "N/A",
+                "couleur": "Giraffe",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-YELLOW CHICK",
+                "vid": "CA37A993-0F3C-45C2-B6A7-2FDA3D175772",
+                "taille": "N/A",
+                "couleur": "Yellow chick",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-PIGGY",
+                "vid": "CC3CBA7A-E705-4C92-9BF0-C9C3F7BC6511",
+                "taille": "N/A",
+                "couleur": "Piggy",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
+            },
+            {
+                "sku": "CJWJXDYE00159-PINK LAMB",
+                "vid": "FF93BBC5-6E14-4553-A1C3-7CCD2C47FD3E",
+                "taille": "N/A",
+                "couleur": "Pink lamb",
+                "prix": 4.38,
+                "poids": 224.0,
+                "stock": 137453,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.71,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.63
             }
         ]
     }
