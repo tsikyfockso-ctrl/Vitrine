@@ -186,15 +186,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -2610,7 +2623,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2501060448571606100",
-        "nom": "Alliage humain versoir charrue main pêche charrue trancheuse cravate Ridger",
+        "nom": "Alloy Human Moldboard Plow Hand Fishing Plow Trencher Tie Ridger",
         "prixBase": 35.99,
         "productFee": 0.0,
         "images": [
@@ -7943,12 +7956,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2779278",
-                "vid": "2030184061682675713",
+                "sku": "CJFU27792780001",
+                "vid": "2030184062232129537",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black",
                 "prix": 407.7,
-                "poids": 0.0,
+                "poids": 15966.0,
                 "stock": 43,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -15167,6 +15180,56 @@
                 "shippingCostFR": 13.26,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 13.53
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037390881981108226",
+        "nom": "Set Of 2 Rectangle End Table, Tempered Glass Tabletop With MDF Layer, Modern Table For Living Room , Gray Glass",
+        "prixBase": 39.33,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/ff34ef76-34e4-409e-8e5b-3610b8502acd.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28075150001",
+                "vid": "2037390882085965826",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 39.33,
+                "poids": 15467.0,
+                "stock": 48,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1760949012842156032",
+        "nom": "Panda LED Night Light Cute Silicone Night Light USB Rechargeable Touch Night Lamp Bedroom Timing Lamp Decoration Children's Gift Home Decor",
+        "prixBase": 6.3,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/04/11/07/894ef23a-65a4-46d4-bad7-58067f506ca8.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT197464801AZ",
+                "vid": "1760949012879904768",
+                "taille": "Head Silicone Lamp",
+                "couleur": "1W",
+                "prix": 6.3,
+                "poids": 240.0,
+                "stock": 12163,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.49,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
