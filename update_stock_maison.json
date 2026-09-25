@@ -326,12 +326,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2251689",
-                "vid": "1871135084781035521",
+                "sku": "CJFU225168902BY",
+                "vid": "1871135084860727297",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Grey",
                 "prix": 71.95,
-                "poids": 0.0,
+                "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -3185,30 +3185,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD236375801AZ",
-                "vid": "2504270618491606200",
+                "sku": "CJYD2363758",
+                "vid": "2504270618491606000",
                 "taille": "N/A",
-                "couleur": "Gray",
+                "couleur": "N/A",
                 "prix": 7.13,
-                "poids": 550.0,
+                "poids": 0.0,
                 "stock": 16311,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.52
-            },
-            {
-                "sku": "CJYD236375802BY",
-                "vid": "2504270618491606400",
-                "taille": "N/A",
-                "couleur": "Purple",
-                "prix": 7.13,
-                "poids": 550.0,
-                "stock": 16311,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.52
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -3846,15 +3833,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD2056173",
-                "vid": "2406080758171617100",
+                "sku": "CJYD205617301AZ",
+                "vid": "2406080758171617300",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "120g",
                 "prix": 1.43,
-                "poids": 0.0,
+                "poids": 180.0,
                 "stock": 10963,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 6.27,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -4061,12 +4048,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU2747878",
-                "vid": "2016746548227506177",
+                "sku": "CJFU27478780001",
+                "vid": "2016746548370112514",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White Gold",
                 "prix": 102.74,
-                "poids": 0.0,
+                "poids": 17000.0,
                 "stock": 346,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -14790,15 +14777,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJTY3167587",
-                "vid": "2100030782547972098",
+                "sku": "CJTY316758701AZ",
+                "vid": "2100030782803824642",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "W72077",
                 "prix": 14.35,
-                "poids": 0.0,
+                "poids": 1715.0,
                 "stock": 7208,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 25.74,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -14922,6 +14909,107 @@
                 "prix": 197.46,
                 "poids": 0.0,
                 "stock": 27,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503120220541603100",
+        "nom": "Home Watering Flowers Sprinkling Can Gardening Household Disinfection Watering Pot",
+        "prixBase": 0.64,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/03/12/02/339fdff5-1df6-4561-94fe-2088043ea023_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD232463401AZ",
+                "vid": "2503120220541603300",
+                "taille": "N/A",
+                "couleur": "Pink 360ml",
+                "prix": 0.64,
+                "poids": 80.0,
+                "stock": 20425,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD232463402BY",
+                "vid": "2503120220541603500",
+                "taille": "N/A",
+                "couleur": "Grass Green 360ml",
+                "prix": 0.64,
+                "poids": 80.0,
+                "stock": 20425,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD232463403CX",
+                "vid": "2503120220541603700",
+                "taille": "N/A",
+                "couleur": "Blue 360ml",
+                "prix": 0.64,
+                "poids": 80.0,
+                "stock": 20425,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2042455721608781825",
+        "nom": "SALEM PE WICKER SNACK TABLE",
+        "prixBase": 78.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17757792/fd9dbcb1-74cb-40ff-bdd0-9483277cca15.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28268180001",
+                "vid": "2042455721742999553",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 78.26,
+                "poids": 5439.0,
+                "stock": 109,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031969829968572417",
+        "nom": "Chicken Nesting Box, 8 Compartment Wood Laying Boxes For Chicken Coop",
+        "prixBase": 172.1,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/d0267b50-3478-42b3-9115-894e934029f8.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846500001",
+                "vid": "2031969830123761665",
+                "taille": "N/A",
+                "couleur": "GreyWhite",
+                "prix": 172.1,
+                "poids": 25446.0,
+                "stock": 30,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
