@@ -2772,5 +2772,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1928338419342163969",
+        "nom": "TotheCORE Basketball Stand 7.55-10.00 Ft Adjustable Portable Basketball Hoop & Goal PC Backplate, Large Base & Wheels",
+        "prixBase": 140.89,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/c917fbff-aee6-4a2c-9b0c-e5c60f89128b.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM238945901AZ",
+                "vid": "1928338419535101953",
+                "taille": "N/A",
+                "couleur": "Basketball hoops",
+                "prix": 140.89,
+                "poids": 500.0,
+                "stock": 50,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
