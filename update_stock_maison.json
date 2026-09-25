@@ -186,30 +186,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 18.34,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 18.34,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 20.7
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -8242,7 +8229,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2019255335974330369",
         "nom": "Metal Planter Box With Trellis",
-        "prixBase": 137.92,
+        "prixBase": 144.62,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/fcd8e603-7f67-4289-a204-16b92c5113a6.jpg"
@@ -8253,7 +8240,7 @@
                 "vid": "2019255336171462657",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 137.92,
+                "prix": 144.62,
                 "poids": 18100.0,
                 "stock": 24,
                 "shippingMethodFR": "N/A",
@@ -15014,6 +15001,172 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031926272306081794",
+        "nom": "Solid Wood Mini Nordic Style Writing Desk, 1 Drawer, Brown",
+        "prixBase": 315.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/018ee8a7-c495-4f86-822f-b0bf186c760f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27843770001",
+                "vid": "2031926272410939393",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 315.45,
+                "poids": 19500.0,
+                "stock": 7,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037388784557916162",
+        "nom": "Coffee Table And End Tables Set Of 3, Tempered Glass Table With MDF Layer, Modern Tables For Living Room , Gray Glass",
+        "prixBase": 223.0,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/5cca6d41-1dee-47a9-a5bf-fada5d1de929.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28074940001",
+                "vid": "2037388784734076929",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 223.0,
+                "poids": 15467.0,
+                "stock": 26,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1737406434993778688",
+        "nom": "Beech Crystal Ball Night Light 3D Laser Engraving Elk Jellyfish LED Nightlights USB Dimmable Lamp For Bedroom Decoration Gifts Home Decor",
+        "prixBase": 4.28,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/ef26c2bb-4f62-4ac0-a005-ff73ed4b3372.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT192570901AZ",
+                "vid": "1737406435081859072",
+                "taille": "6cm Usb Connection",
+                "couleur": "Moon",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570902BY",
+                "vid": "1737406435157356544",
+                "taille": "6cm Usb Connection",
+                "couleur": "Solar System",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570903CX",
+                "vid": "1737406435237048320",
+                "taille": "6cm Usb Connection",
+                "couleur": "Little Astronaut",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570904DW",
+                "vid": "1737406435320934400",
+                "taille": "6cm Usb Connection",
+                "couleur": "Jellyfish",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570905EV",
+                "vid": "1737406435400626176",
+                "taille": "6cm Usb Connection",
+                "couleur": "Elf Deer",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570907GT",
+                "vid": "1737406435543232512",
+                "taille": "6cm Usb Connection",
+                "couleur": "Carousel",
+                "prix": 4.28,
+                "poids": 692.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570908HS",
+                "vid": "1737406435614535680",
+                "taille": "6cm Usb Connection",
+                "couleur": "Castle",
+                "prix": 4.28,
+                "poids": 567.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.12,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
+            },
+            {
+                "sku": "CJJT192570909IR",
+                "vid": "1737406435685838848",
+                "taille": "6cm Usb Connection",
+                "couleur": "Galaxy",
+                "prix": 4.28,
+                "poids": 663.0,
+                "stock": 98679,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 13.26,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.53
             }
         ]
     }
