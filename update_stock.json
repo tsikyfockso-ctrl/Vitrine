@@ -59,7 +59,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.15
+                "shippingCostUS": 9.44
             },
             {
                 "sku": "CJLY214073305EV",
@@ -706,7 +706,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 13.38
+                "shippingCostUS": 12.8
             },
             {
                 "sku": "CJYD226671313MN",
@@ -22418,8 +22418,8 @@
                 "stock": 1568515,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.08,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 10.47
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.08
             },
             {
                 "sku": "CJLY154323416PK",
@@ -22470,8 +22470,8 @@
                 "stock": 1568515,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.98,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 10.34
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.94
             },
             {
                 "sku": "CJLY154323420TG",
@@ -22588,7 +22588,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.88,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.5
+                "shippingCostUS": 10.79
             },
             {
                 "sku": "CJLY154323429CX",
@@ -22639,8 +22639,8 @@
                 "stock": 1568515,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.78,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 10.08
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.65
             },
             {
                 "sku": "CJLY154323443QJ",
@@ -45021,7 +45021,7 @@
                 "prix": 26.68,
                 "poids": 550.0,
                 "stock": 30,
-                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingMethodFR": "JS Express CN to Multi-Region",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "Yunexpress CN to Multi-Region",
                 "shippingCostUS": 0.0
@@ -47022,6 +47022,31 @@
                 "prix": 7.13,
                 "poids": 0.0,
                 "stock": 65441,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501091249161616700",
+        "nom": "Puff Mesh Stitching Pearlescent Dress",
+        "prixBase": 31.18,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/01/10/03/2dda00ad-6146-42ec-8a7f-f84397fee0cc_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLY2266222",
+                "vid": "2501091249161616700",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 31.18,
+                "poids": 0.0,
+                "stock": 63384,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
