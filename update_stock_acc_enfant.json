@@ -14832,7 +14832,7 @@
                 "poids": 400.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -15302,7 +15302,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.58
+                "shippingCostUS": 9.74
             },
             {
                 "sku": "CJYE132873370RI",
@@ -21378,7 +21378,7 @@
                 "poids": 110.0,
                 "stock": 89525,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.52,
+                "shippingCostFR": 5.57,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -21651,6 +21651,96 @@
                 "shippingCostFR": 5.52,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406250720571627600",
+        "nom": "Women's Casual Printed Reversible Fisherman Hat",
+        "prixBase": 2.11,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/fa4be681-eb1f-412b-b27e-d6af4d4a38f2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBQ206839401AZ",
+                "vid": "2406250720571627800",
+                "taille": "M56 To 58cm",
+                "couleur": "Pure Cotton Navy Blue",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBQ206839402BY",
+                "vid": "2406250720571628000",
+                "taille": "M56 To 58cm",
+                "couleur": "Gray",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBQ206839403CX",
+                "vid": "2406250720571628200",
+                "taille": "M56 To 58cm",
+                "couleur": "Pink",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBQ206839404DW",
+                "vid": "2406250720571628400",
+                "taille": "M56 To 58cm",
+                "couleur": "Orange",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBQ206839405EV",
+                "vid": "2406250720571628600",
+                "taille": "M56 To 58cm",
+                "couleur": "Blue",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
+            },
+            {
+                "sku": "CJBQ206839406FU",
+                "vid": "2406250720571628800",
+                "taille": "M56 To 58cm",
+                "couleur": "Green",
+                "prix": 2.11,
+                "poids": 100.0,
+                "stock": 76045,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.15
             }
         ]
     }
