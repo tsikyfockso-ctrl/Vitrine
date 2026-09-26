@@ -35,15 +35,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJJM1038421",
-                "vid": "1369902277694984192",
+                "sku": "CJJM103842101AZ",
+                "vid": "1369902279062327296",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "default",
                 "prix": 4.53,
-                "poids": 0.0,
+                "poids": 1120.0,
                 "stock": 40001,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.63,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -2793,6 +2793,161 @@
                 "stock": 50,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "C645D8ED-D7BD-492A-8218-A58BB649EB76",
+        "nom": "5 Level Resistance Rubber Bands Yoga Training Elastic Bands",
+        "prixBase": 0.23,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20190915/752951027905.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYDQTJM00248-GREEN-0.7CM",
+                "vid": "06FFEDA5-D112-4AFE-9E71-8549810E92CD",
+                "taille": "0.7cm",
+                "couleur": "Green",
+                "prix": 0.23,
+                "poids": 41.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-SET-1PC",
+                "vid": "1471033317741694976",
+                "taille": "1PC",
+                "couleur": "Set",
+                "prix": 0.23,
+                "poids": 165.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-ALL COLOURS-5PC+BAG",
+                "vid": "1E2445AC-8D4A-4AC2-85F8-5212CF7D1164",
+                "taille": "5pc+bag",
+                "couleur": "All colours",
+                "prix": 0.23,
+                "poids": 152.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-PINK-BOX",
+                "vid": "2411270848341622000",
+                "taille": "Box",
+                "couleur": "Pink",
+                "prix": 0.23,
+                "poids": 17.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.13,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-3 COLORS-3PCS BAG",
+                "vid": "269B9281-505D-4E6D-B80A-0E33F7B835AA",
+                "taille": "3pcs bag",
+                "couleur": "3 colors",
+                "prix": 0.23,
+                "poids": 70.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-YELLOW-0.35CM",
+                "vid": "626E0023-FC0E-480C-9F93-85DA7C0776FA",
+                "taille": "0.35cm",
+                "couleur": "Yellow",
+                "prix": 0.23,
+                "poids": 30.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-BLACK-1.1CM",
+                "vid": "7D7C9E12-194C-44F8-BDC7-72F4BB0708E2",
+                "taille": "1.1cm",
+                "couleur": "Black",
+                "prix": 0.23,
+                "poids": 53.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.62,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-BLACK-BAG",
+                "vid": "8FAC31A0-FCA1-4B5C-AB32-758FFF2422B0",
+                "taille": "Bag",
+                "couleur": "Black",
+                "prix": 0.23,
+                "poids": 25.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-5PCS SET-11PCS",
+                "vid": "C5F8E5CA-3580-43D9-BC1B-05EF0A578FCD",
+                "taille": "11pcs",
+                "couleur": "5pcs set",
+                "prix": 0.23,
+                "poids": 775.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-RED-0.5CM",
+                "vid": "D3CABCA2-0D71-4281-8061-FADDB74015A9",
+                "taille": "0.5cm",
+                "couleur": "Red",
+                "prix": 0.23,
+                "poids": 35.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.37,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYDQTJM00248-BLUE-0.9CM",
+                "vid": "D48F421A-A77B-4BCB-9F57-B489F8988AB1",
+                "taille": "0.9cm",
+                "couleur": "Blue",
+                "prix": 0.23,
+                "poids": 47.0,
+                "stock": 164607,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.46,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
