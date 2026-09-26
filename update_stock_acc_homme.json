@@ -20,7 +20,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.91,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.13
+                "shippingCostUS": 16.54
             },
             {
                 "sku": "CJBHNSNS01977-GRAY-39",
@@ -9611,7 +9611,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJDS238444810JQ",
@@ -9672,8 +9672,8 @@
                 "prix": 1.07,
                 "poids": 55.0,
                 "stock": 38616,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.37,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.31,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.18
             },
@@ -10305,7 +10305,7 @@
                 "poids": 1450.0,
                 "stock": 39846,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 19.25,
+                "shippingCostFR": 20.31,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 22.89
             },
@@ -62278,6 +62278,252 @@
                 "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.72
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2425ACC4-F76F-4598-B4ED-04A84EE2D0FD",
+        "nom": "Fenix 6SQuick release canvas nylon strap",
+        "prixBase": 4.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/203208/819649853744.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZBNSCY00445-KHAKI-6",
+                "vid": "17629081-4711-420A-B58A-0140D0EFA3D5",
+                "taille": "6",
+                "couleur": "Khaki",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ORANGE-6",
+                "vid": "2DF08D07-68B2-46D7-BA73-C3EAC962112C",
+                "taille": "6",
+                "couleur": "Orange",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-GREY-6S",
+                "vid": "3726E737-3D8D-43DE-BB45-FE1BB6EA35B1",
+                "taille": "6s",
+                "couleur": "Grey",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ARMYGREEN-6S",
+                "vid": "40BDD320-A55C-4B37-A3FF-EC511F9DF658",
+                "taille": "6s",
+                "couleur": "ArmyGreen",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-KHAKI-6X",
+                "vid": "48D2A09C-CF01-40C9-9550-770C0BA15536",
+                "taille": "6x",
+                "couleur": "Khaki",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-KHAKI-6S",
+                "vid": "4CB748BF-8B75-45D2-96BD-CFDD3D3365DA",
+                "taille": "6s",
+                "couleur": "Khaki",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-BLACK-6S",
+                "vid": "50A01541-0BCF-4FD9-AED7-B05D7E2BFD8B",
+                "taille": "6s",
+                "couleur": "Black",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ORANGE-6S",
+                "vid": "913E8B57-0588-46ED-8DC7-2D95C4D42914",
+                "taille": "6s",
+                "couleur": "Orange",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-GREY-6",
+                "vid": "9B909A3F-E518-421E-9E92-F6BCB5DA2028",
+                "taille": "6",
+                "couleur": "Grey",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ARMYGREEN-6",
+                "vid": "A406F336-3251-4790-B26B-D352F8880718",
+                "taille": "6",
+                "couleur": "ArmyGreen",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-DARK BLUE-6X",
+                "vid": "A5EC130C-3801-4667-9E7B-8AC16B6D2DA0",
+                "taille": "6x",
+                "couleur": "Dark blue",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-DARK BLUE-6S",
+                "vid": "ADAC735F-2644-42EC-85A0-62E2DC859E11",
+                "taille": "6s",
+                "couleur": "Dark blue",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-BLACK-6X",
+                "vid": "B24DA200-591C-4020-9674-449E9AD9B08C",
+                "taille": "6x",
+                "couleur": "Black",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-BLACK-6",
+                "vid": "B92FEDCF-5E88-4AE6-A010-3579C14B0AB9",
+                "taille": "6",
+                "couleur": "Black",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-GREY-6X",
+                "vid": "D47441B6-462E-4CC7-B5AE-204F81F19FBF",
+                "taille": "6x",
+                "couleur": "Grey",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-DARK BLUE-6",
+                "vid": "D7B2ADAE-233A-4DD9-B468-11FA9E00E051",
+                "taille": "6",
+                "couleur": "Dark blue",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ARMYGREEN-6X",
+                "vid": "E051252B-6621-41F1-8BD8-F10F0FFC7FAC",
+                "taille": "6x",
+                "couleur": "ArmyGreen",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
+            },
+            {
+                "sku": "CJZBNSCY00445-ORANGE-6X",
+                "vid": "F5B953FE-562B-4263-8079-FF5AC7D84976",
+                "taille": "6x",
+                "couleur": "Orange",
+                "prix": 4.65,
+                "poids": 45.0,
+                "stock": 360000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.34
             }
         ]
     }
