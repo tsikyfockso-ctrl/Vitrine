@@ -195,8 +195,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 18.34,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             },
             {
                 "sku": "CJHD190402902BY",
@@ -208,8 +208,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 18.34,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 20.7
             }
         ]
     },
@@ -2028,10 +2028,10 @@
                 "taille": "18cm",
                 "couleur": "Type A",
                 "prix": 5.47,
-                "poids": 470.0,
+                "poids": 250.0,
                 "stock": 50547,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 12.08,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 13.47
             },
@@ -2106,10 +2106,10 @@
                 "taille": "18cm",
                 "couleur": "Type A 2pcs",
                 "prix": 5.47,
-                "poids": 928.0,
+                "poids": 488.0,
                 "stock": 50547,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 18.74,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 13.09,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 21.27
             }
@@ -10775,7 +10775,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2031968044948287489",
         "nom": "Newly Marketed Gain Height Windproofaluminum Greenhouse 10x12 FT Polycarbonate Greenhouse Raised Base And Anchor Aluminum Heavy Duty Walk-in Greenhouses For Outdoor Backyard In All Season",
-        "prixBase": 634.34,
+        "prixBase": 633.96,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17732736/aef310cb-5dab-4bee-b513-ee95cfe4be95.jpg"
@@ -10786,9 +10786,9 @@
                 "vid": "2031968045061533698",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 634.34,
+                "prix": 633.96,
                 "poids": 29937.0,
-                "stock": 17,
+                "stock": 16,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -15516,8 +15516,8 @@
                 "stock": 90002,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 14.18,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 19.18
             },
             {
                 "sku": "CJJJJTJT10929-STYLE02",
@@ -15529,8 +15529,8 @@
                 "stock": 90002,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 14.18,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 19.18
             },
             {
                 "sku": "CJJJJTJT10929-STYLE01",
@@ -15542,6 +15542,31 @@
                 "stock": 90002,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 14.18,
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 19.18
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2029077130412326914",
+        "nom": "31.5-Inch Grooved Half-Moon Console Table, Farmhouse Sofa Table Behind Couch, Modern Entryway Table, Decorative Table For Living Room, Hallway, Entryway Or Foyer Narrow Entry, Walnut",
+        "prixBase": 90.88,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17725824/51f6cd04-68f7-49e6-8cda-2f3536eec1e5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27747570001",
+                "vid": "2029077130613653506",
+                "taille": "N/A",
+                "couleur": "Walnut",
+                "prix": 90.88,
+                "poids": 12701.0,
+                "stock": 147,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
