@@ -6764,5 +6764,69 @@
                 "shippingCostUS": 8.43
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1936973757368950785",
+        "nom": "Baby Girl Honeybee Bubble Romper - 1st Bee Day Romper, Infant Bee Birthday Outfit, Cute Bee Romper For Baby",
+        "prixBase": 13.99,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/54d06527-a572-4c5b-9662-40e7cd93b3e9.JPG"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE240878001AZ",
+                "vid": "1936973757457031170",
+                "taille": "0to3 Months",
+                "couleur": "Apricot",
+                "prix": 13.99,
+                "poids": 160.0,
+                "stock": 34,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE240878002BY",
+                "vid": "1936973757457031171",
+                "taille": "3to6 Months",
+                "couleur": "Apricot",
+                "prix": 13.99,
+                "poids": 160.0,
+                "stock": 34,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE240878003CX",
+                "vid": "1936973757457031172",
+                "taille": "6to9 Months",
+                "couleur": "Apricot",
+                "prix": 13.99,
+                "poids": 160.0,
+                "stock": 34,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE240878004DW",
+                "vid": "1936973757457031173",
+                "taille": "9to12 Months",
+                "couleur": "Apricot",
+                "prix": 13.99,
+                "poids": 160.0,
+                "stock": 34,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
