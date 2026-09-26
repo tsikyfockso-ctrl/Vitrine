@@ -21366,8 +21366,8 @@
                 "stock": 89525,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.52,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
             },
             {
                 "sku": "CJYE150029602BY",
@@ -21379,8 +21379,8 @@
                 "stock": 89525,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.57,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
             }
         ]
     },
@@ -21741,6 +21741,290 @@
                 "shippingCostFR": 5.46,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "73899638-CF9E-4CE4-8B63-A561F56E933C",
+        "nom": "Wild travel cartoon school bag",
+        "prixBase": 3.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200702/372261755790.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJXDYE00185-PINK-RABBIT",
+                "vid": "0243FFDC-24E6-48B1-965F-021E95546891",
+                "taille": "Rabbit",
+                "couleur": "Pink",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-GREEN-RABBIT",
+                "vid": "0E30A2C1-5FCF-4D0A-AD27-3F545AA04B4C",
+                "taille": "Rabbit",
+                "couleur": "Green",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-ORANGE-LITTLE BEAR",
+                "vid": "3412D6D0-FBE9-4812-B31D-2ED53DD97675",
+                "taille": "Little bear",
+                "couleur": "Orange",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-PURPLE-RABBIT",
+                "vid": "3AF9C019-419C-4D45-8D05-889C8F265BBD",
+                "taille": "Rabbit",
+                "couleur": "Purple",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-WHITE-LITTLE BEAR",
+                "vid": "3BD094D4-57DF-4093-A916-CA2E3489BFED",
+                "taille": "Little bear",
+                "couleur": "White",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-PINK-LITTLE BEAR",
+                "vid": "636CF2C0-240A-4985-AE1F-865E7838BF9B",
+                "taille": "Little bear",
+                "couleur": "Pink",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-ORANGE-RABBIT",
+                "vid": "6AFB17B2-8345-4822-9345-192D6C562F21",
+                "taille": "Rabbit",
+                "couleur": "Orange",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-PURPLE-LITTLE BEAR",
+                "vid": "9C003555-5985-48DF-B4A6-B2E2C252F117",
+                "taille": "Little bear",
+                "couleur": "Purple",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-GREEN-LITTLE BEAR",
+                "vid": "D032D4F5-440B-4BE1-95F3-7EFE9F44CE4C",
+                "taille": "Little bear",
+                "couleur": "Green",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJWJXDYE00185-WHITE-RABBIT",
+                "vid": "E0F02184-727C-49D7-8962-8F9938294831",
+                "taille": "Rabbit",
+                "couleur": "White",
+                "prix": 3.63,
+                "poids": 230.0,
+                "stock": 119068,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2407010739191606100",
+        "nom": "Elastic Cotton Printed Double-layer Lining Satin Nightcap",
+        "prixBase": 1.54,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/542617f7-9b95-4458-af64-554f4e3fcf81.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD207297201AZ",
+                "vid": "2407010739191606300",
+                "taille": "Free Size",
+                "couleur": "YH0011",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297202BY",
+                "vid": "2407010739191606400",
+                "taille": "Free Size",
+                "couleur": "YH0012",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297203CX",
+                "vid": "2407010739191606600",
+                "taille": "Free Size",
+                "couleur": "YH0013",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297204DW",
+                "vid": "2407010739191606700",
+                "taille": "Free Size",
+                "couleur": "YH0014",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297205EV",
+                "vid": "2407010739191606900",
+                "taille": "Free Size",
+                "couleur": "YH0015",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297206FU",
+                "vid": "2407010739191607100",
+                "taille": "Free Size",
+                "couleur": "YH0016",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297207GT",
+                "vid": "2407010739191607200",
+                "taille": "Free Size",
+                "couleur": "YH0017",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297208HS",
+                "vid": "2407010739191607400",
+                "taille": "Free Size",
+                "couleur": "YH0018",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297209IR",
+                "vid": "2407010739191607800",
+                "taille": "Free Size",
+                "couleur": "YH0019",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
+            },
+            {
+                "sku": "CJYD207297210JQ",
+                "vid": "2407010739191608100",
+                "taille": "Free Size",
+                "couleur": "YH00110",
+                "prix": 1.54,
+                "poids": 85.0,
+                "stock": 118463,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.83
             }
         ]
     }
