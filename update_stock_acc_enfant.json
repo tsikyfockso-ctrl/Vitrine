@@ -22104,5 +22104,95 @@
                 "shippingCostUS": 8.28
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1363666563160477696",
+        "nom": "Boys Boat Socks Spring Summer Autumn Boys Thin Net Socks White Baby Cotton Socks",
+        "prixBase": 2.64,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1613958075158.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNT101783601AZ",
+                "vid": "1363666564477489152",
+                "taille": "S",
+                "couleur": "A",
+                "prix": 2.64,
+                "poids": 70.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT101783602BY",
+                "vid": "1363666564532015104",
+                "taille": "M",
+                "couleur": "A",
+                "prix": 2.64,
+                "poids": 80.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT101783603CX",
+                "vid": "1363666564578152448",
+                "taille": "L",
+                "couleur": "A",
+                "prix": 2.64,
+                "poids": 90.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT101783604DW",
+                "vid": "1363666564628484096",
+                "taille": "S",
+                "couleur": "B",
+                "prix": 2.64,
+                "poids": 70.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT101783605EV",
+                "vid": "1363666564674621440",
+                "taille": "M",
+                "couleur": "B",
+                "prix": 2.64,
+                "poids": 80.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNT101783606FU",
+                "vid": "1363666564724953088",
+                "taille": "L",
+                "couleur": "B",
+                "prix": 2.64,
+                "poids": 90.0,
+                "stock": 180000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
