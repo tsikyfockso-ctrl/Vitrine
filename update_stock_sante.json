@@ -2952,5 +2952,56 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1682008781574000640",
+        "nom": "Yoga Fitness Resistance Band, Arm Back Training Elastic Ropes - Pure Barre Workout Chest Arm And Shoulder Stretch Bands Exercise Equipment For Physical Therapy,Yoga,Pilates,Stretching",
+        "prixBase": 9.98,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/05548731-1692-4412-bfd0-428ed95fce57.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM1804042-PINK",
+                "vid": "1682008781620137984",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 9.98,
+                "poids": 120.0,
+                "stock": 2904,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJM1804042-BLUE",
+                "vid": "1682008781620137985",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 9.98,
+                "poids": 120.0,
+                "stock": 2904,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJM1804042-PURPLE",
+                "vid": "1682008781620137986",
+                "taille": "N/A",
+                "couleur": "Purple",
+                "prix": 9.98,
+                "poids": 120.0,
+                "stock": 2904,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
