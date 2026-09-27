@@ -46,7 +46,12 @@ async function chargerCategorie(jsonFileName, containerId) {
         const stock = await response.json();
         
         if (Array.isArray(stock) && stock.length > 0) {
-            localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
+            // Tentative sécurisée de mise en cache pour éviter le plantage si le quota est dépassé
+            try {
+                localStorage.setItem("cached_" + containerId, JSON.stringify(stock));
+            } catch (storageError) {
+                console.warn(`⚠️ Quota localStorage dépassé pour ${containerId}. Le cache a été ignoré.`);
+            }
             renderCategoryProducts(stock, container);
         } else {
             container.innerHTML = `<p style="text-align:center; width:100%; color:#888; font-size:0.85rem;">Aucun produit.</p>`;
