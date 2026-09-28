@@ -706,12 +706,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJMB2360455",
-                "vid": "1914884885643104257",
+                "sku": "CJMB236045501AZ",
+                "vid": "1914884885718601730",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "White",
                 "prix": 20.37,
-                "poids": 0.0,
+                "poids": 210.0,
                 "stock": 144,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -2999,6 +2999,31 @@
                 "stock": 2904,
                 "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1871374277110312962",
+        "nom": "Power Tower Pull Pull Up Rod Stand, Adjustable Height Heavy Duty Multi Functional Fitness Training Equipment",
+        "prixBase": 50.67,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1cfc44e6-857b-4052-9459-a80916308d1c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM225182201AZ",
+                "vid": "1871374277181616129",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 50.67,
+                "poids": 10202.0,
+                "stock": 7,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
