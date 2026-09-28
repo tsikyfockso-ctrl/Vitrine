@@ -92911,7 +92911,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 20.2,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 27.2
+                "shippingCostUS": 27.03
             },
             {
                 "sku": "CJMT117510803CX",
@@ -92963,7 +92963,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 20.34,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 27.2
+                "shippingCostUS": 27.03
             },
             {
                 "sku": "CJMT117510807GT",
@@ -93002,7 +93002,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 20.2,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 27.2
+                "shippingCostUS": 26.86
             },
             {
                 "sku": "CJMT117510810JQ",
@@ -93026,7 +93026,7 @@
                 "poids": 1240.0,
                 "stock": 355080,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 20.2,
+                "shippingCostFR": 20.46,
                 "shippingMethodUS": "CJPacket Eub",
                 "shippingCostUS": 27.2
             },
@@ -93041,7 +93041,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 20.2,
                 "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 27.2
+                "shippingCostUS": 27.37
             }
         ]
     },
@@ -94557,6 +94557,69 @@
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.31
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1450850147046133760",
+        "nom": "Car Universal Card Radio Bluetooth Player",
+        "prixBase": 28.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/bca1fb9c-84e3-4c76-80e2-0811b90c27a4.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJQC132567301AZ",
+                "vid": "1450850147113242624",
+                "taille": "N/A",
+                "couleur": "Standard",
+                "prix": 28.2,
+                "poids": 910.0,
+                "stock": 39884,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 16.17,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1797794362076704768",
+        "nom": "Simple And Portable Plastic Car Phone Holder",
+        "prixBase": 5.31,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/5ae606ef-64a2-4cbe-bcc6-59bcaafaf11d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD205276501AZ",
+                "vid": "1797794362168979456",
+                "taille": "With wireless",
+                "couleur": "Silver",
+                "prix": 5.31,
+                "poids": 200.0,
+                "stock": 16163,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.01,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.92
+            },
+            {
+                "sku": "CJYD205276502BY",
+                "vid": "2504080312461618100",
+                "taille": "Without wireless",
+                "couleur": "Silver",
+                "prix": 5.31,
+                "poids": 200.0,
+                "stock": 16163,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.01,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.92
             }
         ]
     }
