@@ -4604,5 +4604,30 @@
                 "shippingCostUS": 12.94
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2016680823986712578",
+        "nom": "Computer Desk",
+        "prixBase": 200.16,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17696448/aa56e637-8a6c-4805-a078-45ee7aa15116.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBG27472460001",
+                "vid": "2016680824162873345",
+                "taille": "N/A",
+                "couleur": "defaulttitle",
+                "prix": 200.16,
+                "poids": 39304.0,
+                "stock": 460,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
