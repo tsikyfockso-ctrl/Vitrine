@@ -193,8 +193,8 @@
                 "prix": 6.6,
                 "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 20.7
             },
@@ -206,8 +206,8 @@
                 "prix": 6.6,
                 "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 20.7
             }
@@ -8242,7 +8242,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2019255335974330369",
         "nom": "Metal Planter Box With Trellis",
-        "prixBase": 144.62,
+        "prixBase": 144.58,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/fcd8e603-7f67-4289-a204-16b92c5113a6.jpg"
@@ -8253,7 +8253,7 @@
                 "vid": "2019255336171462657",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 144.62,
+                "prix": 144.58,
                 "poids": 18100.0,
                 "stock": 24,
                 "shippingMethodFR": "N/A",
@@ -15942,6 +15942,56 @@
                 "prix": 365.29,
                 "poids": 19800.0,
                 "stock": 22,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2099359481116884993",
+        "nom": "Solar Powered Motion Sensor Waterproof Garden Light W767 2 For Yard Decoration LED Landscape Lighting",
+        "prixBase": 18.72,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/9ed31b0c-83b8-4a14-acdd-ff9c2420da7c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY316131301AZ",
+                "vid": "2099359481183993857",
+                "taille": "N/A",
+                "couleur": "W7672",
+                "prix": 18.72,
+                "poids": 2110.0,
+                "stock": 6647,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 30.59,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031974467107188737",
+        "nom": "Chicken Coop",
+        "prixBase": 169.37,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/e92f59f6-4db9-43e9-adb1-a036e35c4182.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27847460001",
+                "vid": "2031974467216240642",
+                "taille": "N/A",
+                "couleur": "Orange",
+                "prix": 169.37,
+                "poids": 33566.0,
+                "stock": 128,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
