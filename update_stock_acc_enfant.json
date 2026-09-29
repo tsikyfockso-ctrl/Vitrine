@@ -15946,8 +15946,8 @@
                 "prix": 4.43,
                 "poids": 130.0,
                 "stock": 36089,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.64,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.76,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.8
             },
@@ -22696,6 +22696,31 @@
                 "shippingCostFR": 6.9,
                 "shippingMethodUS": "CJPacket FJTY Eub Special Line",
                 "shippingCostUS": 7.87
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "90E2C080-D1CF-414B-9B38-74FE6F8709D8",
+        "nom": "Plush panda backpack",
+        "prixBase": 4.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20200615/321828609751.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJXDYE00183-BLACK-38CM",
+                "vid": "46D28A43-6921-400B-96B2-AF02ED096FED",
+                "taille": "38cm",
+                "couleur": "Black",
+                "prix": 4.82,
+                "poids": 280.0,
+                "stock": 11899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.28,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
