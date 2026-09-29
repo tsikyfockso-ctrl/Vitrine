@@ -27415,8 +27415,8 @@
                 "stock": 37410,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.68,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.3
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.57
             }
         ]
     },
@@ -30969,7 +30969,7 @@
                 "poids": 310.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.58,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31021,7 +31021,7 @@
                 "poids": 290.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.38,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31060,7 +31060,7 @@
                 "poids": 305.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.53,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31086,7 +31086,7 @@
                 "poids": 315.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.64,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.22
             },
@@ -31164,7 +31164,7 @@
                 "poids": 305.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.53,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
@@ -31190,7 +31190,7 @@
                 "poids": 315.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.64,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31242,7 +31242,7 @@
                 "poids": 295.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.43,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31268,7 +31268,7 @@
                 "poids": 305.0,
                 "stock": 405847,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.53,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.48
             },
@@ -31652,10 +31652,10 @@
                 "prix": 0.57,
                 "poids": 20.0,
                 "stock": 24108,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.17,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             },
             {
                 "sku": "CJST214282602BY",
@@ -31665,10 +31665,10 @@
                 "prix": 0.57,
                 "poids": 20.0,
                 "stock": 24108,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.17,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     },
