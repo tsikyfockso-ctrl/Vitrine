@@ -4035,7 +4035,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.3
             },
             {
                 "sku": "CJWJYEYE01791-BEIGE-S",
@@ -6824,6 +6824,83 @@
                 "stock": 34,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2504260931041619200",
+        "nom": "Baby Boys' And Girls' Knitted Solid Color Hollow-out Dot Quilt Quilt",
+        "prixBase": 5.32,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/04/26/09/f9432922-379c-4b0d-8e82-889be2a221ea_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD236341401AZ",
+                "vid": "2504260931041619600",
+                "taille": "70x90",
+                "couleur": "Pink",
+                "prix": 5.32,
+                "poids": 285.0,
+                "stock": 39090,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.32,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD236341402BY",
+                "vid": "2504260931041619900",
+                "taille": "70x90",
+                "couleur": "Beige",
+                "prix": 5.32,
+                "poids": 285.0,
+                "stock": 39090,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.32,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD236341403CX",
+                "vid": "2504260931051610100",
+                "taille": "70x90",
+                "couleur": "Light Green",
+                "prix": 5.32,
+                "poids": 285.0,
+                "stock": 39090,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.32,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD236341404DW",
+                "vid": "2504260931051610200",
+                "taille": "70x90",
+                "couleur": "Sky Blue",
+                "prix": 5.32,
+                "poids": 285.0,
+                "stock": 39090,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.32,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD236341405EV",
+                "vid": "2504260931051610500",
+                "taille": "70x90",
+                "couleur": "Camel",
+                "prix": 5.32,
+                "poids": 285.0,
+                "stock": 39090,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.32,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
