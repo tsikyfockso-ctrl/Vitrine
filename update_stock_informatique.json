@@ -4629,5 +4629,69 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506090710581610100",
+        "nom": "USB To 5521DC Plug DC55 21 Head Power Cord DC55 DC Power Cord",
+        "prixBase": 0.5,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/aab8486c-4934-468b-9fef-2f994699a663.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD239684701AZ",
+                "vid": "2506090710581610200",
+                "taille": "N/A",
+                "couleur": "Straight Head Black 1 M",
+                "prix": 0.5,
+                "poids": 32.0,
+                "stock": 27022,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.33,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD239684702BY",
+                "vid": "2506090710581610500",
+                "taille": "N/A",
+                "couleur": "Straight White 1 M",
+                "prix": 0.5,
+                "poids": 32.0,
+                "stock": 27022,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.33,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD239684703CX",
+                "vid": "2506090710581610700",
+                "taille": "N/A",
+                "couleur": "Elbow Black 1 M",
+                "prix": 0.5,
+                "poids": 32.0,
+                "stock": 27022,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.33,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD239684704DW",
+                "vid": "2506090710581611000",
+                "taille": "N/A",
+                "couleur": "Elbow White 1 M",
+                "prix": 0.5,
+                "poids": 32.0,
+                "stock": 27022,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.33,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
