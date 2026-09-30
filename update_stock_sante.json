@@ -3028,5 +3028,82 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1724813769018183680",
+        "nom": "Hand Grip Strengthener Hand Finger Exerciser Forearm Rings Hand Exerciser Silicone Squeezer Grippers For Finger",
+        "prixBase": 1.76,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/05/26/07/b2db8636-7287-4532-abc2-91118c050d64.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD189795601AZ",
+                "vid": "1724813769085292544",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.76,
+                "poids": 98.0,
+                "stock": 64714,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.21,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD189795602BY",
+                "vid": "1724813769135624192",
+                "taille": "N/A",
+                "couleur": "Grass Green",
+                "prix": 1.76,
+                "poids": 102.0,
+                "stock": 64714,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.21,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD189795603CX",
+                "vid": "1724813769185955840",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 1.76,
+                "poids": 106.0,
+                "stock": 64714,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.21,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD189795604DW",
+                "vid": "1724813769236287488",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 1.76,
+                "poids": 107.0,
+                "stock": 64714,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.54,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD189795605EV",
+                "vid": "1724813769286619136",
+                "taille": "N/A",
+                "couleur": "Coffee Black",
+                "prix": 1.76,
+                "poids": 110.0,
+                "stock": 64714,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.21,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
