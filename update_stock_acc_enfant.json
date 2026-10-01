@@ -14431,7 +14431,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.15
             },
             {
                 "sku": "CJYE132873305EV",
@@ -14741,7 +14741,7 @@
                 "poids": 440.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.87
             },
@@ -14793,7 +14793,7 @@
                 "poids": 380.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.15
             },
@@ -14834,7 +14834,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 10.03
             },
             {
                 "sku": "CJYE132873336JQ",
@@ -14886,7 +14886,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.15
             },
             {
                 "sku": "CJYE132873340NM",
@@ -14990,7 +14990,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.44
             },
             {
                 "sku": "CJYE132873348VE",
@@ -15029,7 +15029,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJYE132873351YB",
@@ -15068,7 +15068,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.15
             },
             {
                 "sku": "CJYE132873354BY",
@@ -15224,7 +15224,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.89,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 8.58
             },
             {
                 "sku": "CJYE132873366NM",
@@ -15263,7 +15263,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.44
             },
             {
                 "sku": "CJYE132873369QJ",
@@ -15315,7 +15315,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.89,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 8.58
             },
             {
                 "sku": "CJYE132873373UF",
@@ -15367,7 +15367,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.87
+                "shippingCostUS": 9.74
             },
             {
                 "sku": "CJYE132873377YB",
@@ -15430,7 +15430,7 @@
                 "poids": 380.0,
                 "stock": 3140343,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.15
             },
@@ -23457,6 +23457,161 @@
                 "shippingCostFR": 5.92,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.52
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "532150B6-4B51-4A3C-8F89-BEDF617443B9",
+        "nom": "Children's anti-blue glasses",
+        "prixBase": 1.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2058/2836057335371.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJNHNT00534-GREEN FRAMED LEGS",
+                "vid": "12859C20-5D7B-4692-960F-0262A48491B0",
+                "taille": "N/A",
+                "couleur": "Green framed legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-BLUE FRAME BLUE LEGS",
+                "vid": "192FC41C-2D17-4FEC-9FB4-B8CEF5B883EC",
+                "taille": "N/A",
+                "couleur": "Blue frame blue legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-YELLOW FRAME BLUE LEG",
+                "vid": "39DC0463-9762-467A-9832-74665F93A1CA",
+                "taille": "N/A",
+                "couleur": "Yellow frame blue leg",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-BLACK FRAME RED LEG",
+                "vid": "77773093-9EAB-4238-B1F0-946616D4A403",
+                "taille": "N/A",
+                "couleur": "Black frame red leg",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-PINK FRAME PINK LEGS",
+                "vid": "79D7ED23-B073-4F2C-89C6-7BFCF7552FEB",
+                "taille": "N/A",
+                "couleur": "Pink frame pink legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-FULL BLACK",
+                "vid": "86F8C956-933D-4854-BC13-B9912392CFF5",
+                "taille": "N/A",
+                "couleur": "Full black",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-RED FRAME WHITE LEG",
+                "vid": "8A03E0F8-2108-487F-B251-6BFE6A58B317",
+                "taille": "N/A",
+                "couleur": "Red frame white leg",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-BLUE FRAME YELLOW LEG",
+                "vid": "9DB6B79F-AD51-41EE-BF26-D140DF7CB8B3",
+                "taille": "N/A",
+                "couleur": "Blue frame yellow leg",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-GREY FRAME BLACK LEGS",
+                "vid": "A08C1A98-AA42-4D22-93AB-35BFF4F78C2A",
+                "taille": "N/A",
+                "couleur": "Grey frame black legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-BLACK FRAME BLUE LEGS",
+                "vid": "B67CC463-F734-48D3-BE70-05CC081B2008",
+                "taille": "N/A",
+                "couleur": "Black frame blue legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
+            },
+            {
+                "sku": "CJWJNHNT00534-PURPLE FRAME PURPLE LEGS",
+                "vid": "DF5B6C32-8B2A-4F90-A8E0-71D9D7F52DC7",
+                "taille": "N/A",
+                "couleur": "Purple frame purple legs",
+                "prix": 1.9,
+                "poids": 30.0,
+                "stock": 127083,
+                "shippingMethodFR": "Qfulfillment A line",
+                "shippingCostFR": 6.39,
+                "shippingMethodUS": "CJPacket LX Sensitive Plant",
+                "shippingCostUS": 6.21
             }
         ]
     }
