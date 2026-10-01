@@ -319,7 +319,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
         "nom": "Patio Chair With Cushions",
-        "prixBase": 71.95,
+        "prixBase": 72.31,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/b7e6d781-f3ad-43ce-991f-c08a226aab8d.png"
@@ -330,7 +330,7 @@
                 "vid": "1871135084860727297",
                 "taille": "N/A",
                 "couleur": "Grey",
-                "prix": 71.95,
+                "prix": 72.31,
                 "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
@@ -9007,7 +9007,7 @@
                 "couleur": "Black White",
                 "prix": 91.73,
                 "poids": 2800.0,
-                "stock": 96,
+                "stock": 72,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -16803,8 +16803,8 @@
                 "stock": 7200,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 36.5,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 45.45
             }
         ]
     },
@@ -16825,7 +16825,7 @@
                 "couleur": "Violet",
                 "prix": 86.3,
                 "poids": 11795.0,
-                "stock": 77,
+                "stock": 76,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17166,6 +17166,106 @@
                 "stock": 7210,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1870306212286951425",
+        "nom": "4-drawer Bedside Storage Cabinet, Black",
+        "prixBase": 57.34,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/5a80b6c6-3fef-4598-9b75-9a24d0bd7187.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224972901AZ",
+                "vid": "1870306212412780546",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 57.34,
+                "poids": 20500.0,
+                "stock": 220,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045391075766996993",
+        "nom": "Storage Bench, Shoe Bench, Entryway Bench With Padded Cushion, Drawer And Open Compartments, Bench With Storage, 3 Tier Shoe Rack Bench",
+        "prixBase": 78.03,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/3d836312-dfe0-4246-ae80-660c87f9a988.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28415700001",
+                "vid": "2045391077121757185",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 78.03,
+                "poids": 21546.0,
+                "stock": 55,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2084116784201969665",
+        "nom": "Handmade Crochet Potted Bouquet, Everlasting Soft Yarn Crochet Flower Arrangement With Eucalyptus Leaves, Eternal Floral Decor Ornament For Home Desk, Birthday And Holiday Gifts",
+        "prixBase": 2.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0d7f7aef-d0a9-4cba-8093-f02aab408c12.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHD303028501AZ",
+                "vid": "2084116784281661441",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 2.62,
+                "poids": 93.0,
+                "stock": 6313,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.15,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1555112370152943616",
+        "nom": "Thanksgiving Break Rooster Home Ornament Fence Decoration",
+        "prixBase": 4.0,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/77ffde8d-189d-4432-8be1-4269a05f1102.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT153829301AZ",
+                "vid": "1555112370186498048",
+                "taille": "N/A",
+                "couleur": "28x13cm",
+                "prix": 4.0,
+                "poids": 175.0,
+                "stock": 43769,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.22,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
