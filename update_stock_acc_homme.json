@@ -29948,8 +29948,8 @@
                 "prix": 1.74,
                 "poids": 104.0,
                 "stock": 176220,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.29,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.51,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 5.94
             },
@@ -52682,8 +52682,8 @@
                 "stock": 133026,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJYH205248804DW",
@@ -52747,8 +52747,8 @@
                 "stock": 133026,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJYH205248809IR",
@@ -64077,7 +64077,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.19,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.3
+                "shippingCostUS": 9.0
             },
             {
                 "sku": "CJYH205729802BY",
@@ -64129,7 +64129,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.19,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.3
+                "shippingCostUS": 9.0
             },
             {
                 "sku": "CJYH205729806FU",
@@ -67767,6 +67767,57 @@
                 "shippingCostFR": 4.5,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "AE77602B-024F-47CF-B3A9-2C3D448C2D99",
+        "nom": "Roman scale butterfly belt watch Fashion universal gold shell watch",
+        "prixBase": 1.22,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15545664/434520437325.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZBNSCY00129-WHITE",
+                "vid": "3DAF1472-B382-44E1-8A19-1F1B8BD1F132",
+                "taille": "N/A",
+                "couleur": "white",
+                "prix": 1.22,
+                "poids": 60.0,
+                "stock": 40924,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.37,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBNSCY00129-BROWN",
+                "vid": "6F5A8E72-1888-462A-9A46-973B399E7859",
+                "taille": "N/A",
+                "couleur": "brown",
+                "prix": 1.22,
+                "poids": 60.0,
+                "stock": 40924,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.37,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBNSCY00129-BLACK",
+                "vid": "836C3C3F-18FA-41A1-9406-88B1E8500407",
+                "taille": "N/A",
+                "couleur": "black",
+                "prix": 1.22,
+                "poids": 60.0,
+                "stock": 40924,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.37,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
