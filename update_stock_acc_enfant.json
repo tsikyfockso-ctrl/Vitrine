@@ -24054,5 +24054,121 @@
                 "shippingCostUS": 5.93
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "D6DD3825-81DC-4091-95C2-5A77EA821EF3",
+        "nom": "Pleated Cuffed",
+        "prixBase": 1.28,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15971616/7583977171800.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNSFSMZ01371-NAVY BLUE",
+                "vid": "1453922287869890560",
+                "taille": "N/A",
+                "couleur": "Navy blue",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-LIGHT GREY",
+                "vid": "1462338375834013696",
+                "taille": "N/A",
+                "couleur": "Light grey",
+                "prix": 1.28,
+                "poids": 77.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-BLACK",
+                "vid": "2AC19E40-7AB8-473F-AE2C-293C1E30FF1B",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-RED",
+                "vid": "413A6C55-6541-4D93-9A77-455CBC1E945E",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-BEIGE",
+                "vid": "78ACD4DB-1E05-41BF-B2DF-0844B437F10B",
+                "taille": "N/A",
+                "couleur": "Beige",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-BROWN",
+                "vid": "7F63FFA8-9714-4455-9187-EB3C00E3F792",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-GREY",
+                "vid": "BBB17277-E373-4267-AE98-61F146E0E5E4",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            },
+            {
+                "sku": "CJNSFSMZ01371-WHITE",
+                "vid": "DD26049B-6870-421A-87B3-28B4553A0BD1",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 1.28,
+                "poids": 90.0,
+                "stock": 151382,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.93
+            }
+        ]
     }
 ]
