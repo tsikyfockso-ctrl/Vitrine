@@ -4882,7 +4882,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 11.8
             },
             {
                 "sku": "CJYD214908804DW",
@@ -4919,7 +4919,7 @@
                 "poids": 1420.0,
                 "stock": 452807,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.08,
+                "shippingCostFR": 20.07,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 22.47
             },
@@ -4947,7 +4947,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 30.96,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 34.44
             },
             {
                 "sku": "CJYD214908809IR",
@@ -4984,7 +4984,7 @@
                 "poids": 470.0,
                 "stock": 452807,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.08,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -5012,7 +5012,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 12.59
             },
             {
                 "sku": "CJYD214908814NM",
@@ -5075,7 +5075,7 @@
                 "poids": 2920.0,
                 "stock": 452807,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.08,
+                "shippingCostFR": 34.53,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -5101,7 +5101,7 @@
                 "poids": 470.0,
                 "stock": 452807,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.08,
+                "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -5127,7 +5127,7 @@
                 "poids": 720.0,
                 "stock": 452807,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.08,
+                "shippingCostFR": 12.1,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
             },
@@ -5155,7 +5155,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 22.47
             },
             {
                 "sku": "CJYD214908825YB",
@@ -5207,7 +5207,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 9.74
             },
             {
                 "sku": "CJYD214908829CX",
@@ -5272,7 +5272,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 20.07,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 22.47
             },
             {
                 "sku": "CJYD214908834HS",
@@ -5312,6 +5312,44 @@
                 "shippingCostFR": 34.53,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.37
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1659496644175876096",
+        "nom": "Mini Humidifier With LED Night Light, Cool Mist Humidifier, USB Personal Desktop Humidifier For Car Home Mini Mist Maker With Colorful Night USB Sprayer Essential Oil Diffuser Air Purifier",
+        "prixBase": 6.42,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/16981920/1716998614951399424.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT1761341-PINK",
+                "vid": "1659496644557557761",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 6.42,
+                "poids": 60.0,
+                "stock": 3129,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT1761341-WHITE",
+                "vid": "1659496644557557762",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 6.42,
+                "poids": 60.0,
+                "stock": 3129,
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
+                "shippingCostFR": 5.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
