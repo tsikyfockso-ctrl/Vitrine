@@ -11791,10 +11791,10 @@
                 "prix": 2.67,
                 "poids": 120.0,
                 "stock": 160000,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.51,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJNT110587202BY",
@@ -11806,8 +11806,8 @@
                 "stock": 160000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.51,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJNT110587203CX",
@@ -11819,8 +11819,8 @@
                 "stock": 160000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.51,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJNT110587204DW",
@@ -11832,8 +11832,8 @@
                 "stock": 160000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.51,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             }
         ]
     },
