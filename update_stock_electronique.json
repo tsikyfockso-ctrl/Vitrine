@@ -81258,7 +81258,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.3,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.37
+                "shippingCostUS": 7.02
             },
             {
                 "sku": "CJJT208557121UF",
@@ -81295,7 +81295,7 @@
                 "poids": 140.0,
                 "stock": 303481,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 5.96,
+                "shippingCostFR": 6.3,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 7.02
             },
@@ -99563,8 +99563,8 @@
                 "stock": 28455,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 7.25,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.9
             },
             {
                 "sku": "CJEJ205297602BY",
@@ -99576,8 +99576,8 @@
                 "stock": 28455,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 7.25,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 7.9
             }
         ]
     },
@@ -104916,6 +104916,278 @@
                 "shippingCostFR": 6.84,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506260911071618500",
+        "nom": "Solid Wood Shell Light Phone Case",
+        "prixBase": 2.63,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/26/09/47056da2-5c25-4918-97b2-b7d159d78a3f_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT241208901AZ",
+                "vid": "2506260911071619500",
+                "taille": "IPhone 15",
+                "couleur": "White Maple",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208902BY",
+                "vid": "2506260911071619700",
+                "taille": "IPhone 15 pro",
+                "couleur": "White Maple",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208903CX",
+                "vid": "2506260911081610000",
+                "taille": "IPhone 15 pro max",
+                "couleur": "White Maple",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208904DW",
+                "vid": "2506260911081610600",
+                "taille": "IPhone 15 plus",
+                "couleur": "White Maple",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208905EV",
+                "vid": "2506260911081611000",
+                "taille": "IPhone 15",
+                "couleur": "Walnut",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208906FU",
+                "vid": "2506260911081611600",
+                "taille": "IPhone 15 pro",
+                "couleur": "Walnut",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208907GT",
+                "vid": "2506260911081611800",
+                "taille": "IPhone 15 pro max",
+                "couleur": "Walnut",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208908HS",
+                "vid": "2506260911081612600",
+                "taille": "IPhone 15 plus",
+                "couleur": "Walnut",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208909IR",
+                "vid": "2506260911081613500",
+                "taille": "IPhone 15",
+                "couleur": "Rosewood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208910JQ",
+                "vid": "2506260911081614000",
+                "taille": "IPhone 15 pro",
+                "couleur": "Rosewood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208911KP",
+                "vid": "2506260911081614400",
+                "taille": "IPhone 15 pro max",
+                "couleur": "Rosewood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208912LO",
+                "vid": "2506260911081614800",
+                "taille": "IPhone 15 plus",
+                "couleur": "Rosewood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208913MN",
+                "vid": "2506260911081615200",
+                "taille": "IPhone 15",
+                "couleur": "Cherrywood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208914NM",
+                "vid": "2506260911081615700",
+                "taille": "IPhone 15 pro",
+                "couleur": "Cherrywood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208915OL",
+                "vid": "2506260911081616100",
+                "taille": "IPhone 15 pro max",
+                "couleur": "Cherrywood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208916PK",
+                "vid": "2506260911081616600",
+                "taille": "IPhone 15 plus",
+                "couleur": "Cherrywood",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208917QJ",
+                "vid": "2506260911081617100",
+                "taille": "IPhone 15",
+                "couleur": "Bamboo",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208918RI",
+                "vid": "2506260911081617500",
+                "taille": "IPhone 15 pro",
+                "couleur": "Bamboo",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208919SH",
+                "vid": "2506260911081617800",
+                "taille": "IPhone 15 pro max",
+                "couleur": "Bamboo",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
+            },
+            {
+                "sku": "CJJT241208920TG",
+                "vid": "2506260911081618100",
+                "taille": "IPhone 15 plus",
+                "couleur": "Bamboo",
+                "prix": 2.63,
+                "poids": 65.0,
+                "stock": 153853,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.78,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.4
             }
         ]
     }
