@@ -17641,8 +17641,8 @@
                 "prix": 0.5,
                 "poids": 120.0,
                 "stock": 146375,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.57,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
             },
@@ -17693,8 +17693,8 @@
                 "prix": 0.5,
                 "poids": 120.0,
                 "stock": 146375,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.57,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
             },
@@ -17761,7 +17761,82 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.17
+                "shippingCostUS": 7.09
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031924967275675649",
+        "nom": "Solid Wood California Walnut Rounded Small Console Table, 1 Drawer, Brown",
+        "prixBase": 365.86,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/1df693d2-36e9-4b29-a709-9e2f5ab9f78b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27843530001",
+                "vid": "2031924967409893378",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 365.86,
+                "poids": 20600.0,
+                "stock": 9,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1989166347779022850",
+        "nom": "A Modern Channel Sofa Take On A Traditional Chesterfield,Navy Blue Color,3 Seater",
+        "prixBase": 792.3,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/51e116bd-3805-4697-b8dd-7d1683dfe294.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU259203001AZ",
+                "vid": "1989166348462694401",
+                "taille": "N/A",
+                "couleur": "Navy Blue",
+                "prix": 792.3,
+                "poids": 100.0,
+                "stock": 16,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2084171546962997250",
+        "nom": "Handmade Crochet Flower Bouquet, Sunflower Matched With Green Leaves And Ladybug Ornament, Soft Yarn Everlasting Crochet Potted Floral Decor, Indoor Home Tabletop Decorative Ornament",
+        "prixBase": 5.15,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/c86120fb-cffc-4ec0-8b41-4b18fdc45923.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHD303139001AZ",
+                "vid": "2084171547025911810",
+                "taille": "N/A",
+                "couleur": "MXD57",
+                "prix": 5.15,
+                "poids": 79.0,
+                "stock": 5979,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.96,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
