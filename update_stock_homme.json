@@ -11289,7 +11289,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.29,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.08
+                "shippingCostUS": 11.37
             },
             {
                 "sku": "CJPK213876709IR",
@@ -11573,7 +11573,7 @@
                 "poids": 620.0,
                 "stock": 543440,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.08,
+                "shippingCostFR": 11.09,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.52
             },
@@ -11692,7 +11692,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.48,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.08
+                "shippingCostUS": 11.65
             },
             {
                 "sku": "CJPK213876740NM",
@@ -11744,7 +11744,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.28,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.08
+                "shippingCostUS": 12.8
             },
             {
                 "sku": "CJPK213876743QJ",
@@ -68172,6 +68172,252 @@
                 "shippingCostFR": 13.76,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.69
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1454452068835266560",
+        "nom": "Children's Cotton Clothes Winter Disposable Girls Mid-length",
+        "prixBase": 13.51,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0e12da13-10b9-4492-b51b-5b26bd03ce97.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYR133611201AZ",
+                "vid": "1454452068923346944",
+                "taille": "120cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 520.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611202BY",
+                "vid": "1454452068931735552",
+                "taille": "130cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 530.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611203CX",
+                "vid": "1454452068935929856",
+                "taille": "140cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 540.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611204DW",
+                "vid": "1454452068935929857",
+                "taille": "150cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 550.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611205EV",
+                "vid": "1454452068940124160",
+                "taille": "160cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 560.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611206FU",
+                "vid": "1454452068944318464",
+                "taille": "170cm",
+                "couleur": "Purple",
+                "prix": 13.51,
+                "poids": 570.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611207GT",
+                "vid": "1454452068948512768",
+                "taille": "120cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 520.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611208HS",
+                "vid": "1454452068948512769",
+                "taille": "130cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 530.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.23
+            },
+            {
+                "sku": "CJYR133611209IR",
+                "vid": "1454452068952707072",
+                "taille": "140cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 540.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611210JQ",
+                "vid": "1454452068956901376",
+                "taille": "150cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 550.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611211KP",
+                "vid": "1454452068956901377",
+                "taille": "160cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 560.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611212LO",
+                "vid": "1454452068961095680",
+                "taille": "170cm",
+                "couleur": "Blue",
+                "prix": 13.51,
+                "poids": 570.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.8
+            },
+            {
+                "sku": "CJYR133611213MN",
+                "vid": "1454452068965289984",
+                "taille": "120cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 520.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611214NM",
+                "vid": "1454452068969484288",
+                "taille": "130cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 530.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611215OL",
+                "vid": "1454452068973678592",
+                "taille": "140cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 540.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611216PK",
+                "vid": "1454452068973678593",
+                "taille": "150cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 550.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611217QJ",
+                "vid": "1454452068977872896",
+                "taille": "160cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 560.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
+            },
+            {
+                "sku": "CJYR133611218RI",
+                "vid": "1454452068982067200",
+                "taille": "170cm",
+                "couleur": "Pink",
+                "prix": 13.51,
+                "poids": 570.0,
+                "stock": 665917,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 11.52
             }
         ]
     }
