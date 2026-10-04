@@ -33331,7 +33331,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "1768534701209296896",
-        "nom": "Montre à la mode pour hommes et femmes, bague multicolore",
+        "nom": "Trendy Fashion Men's And Women's Watch Multi-color Ring",
         "prixBase": 0.92,
         "productFee": 0.0,
         "images": [
@@ -33346,8 +33346,8 @@
                 "prix": 0.92,
                 "poids": 35.0,
                 "stock": 46663,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.06,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.07,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.07
             },
@@ -58756,8 +58756,8 @@
                 "stock": 170380,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.98,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.72
             },
             {
                 "sku": "CJNS208803309IR",
@@ -58767,8 +58767,8 @@
                 "prix": 0.99,
                 "poids": 350.0,
                 "stock": 170380,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.83,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.72
             },
@@ -68967,6 +68967,95 @@
                 "shippingCostFR": 6.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.23
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406140633581614500",
+        "nom": "Outdoor Multifunctional Shoulder Messenger Bag Men",
+        "prixBase": 15.24,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/9af5756f-1a43-45f4-9352-ba61220cdeba.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS206032101AZ",
+                "vid": "2406140633581614700",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 15.24,
+                "poids": 520.0,
+                "stock": 25567,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS206032102BY",
+                "vid": "2406140633581614900",
+                "taille": "N/A",
+                "couleur": "Army Green",
+                "prix": 15.24,
+                "poids": 520.0,
+                "stock": 25567,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.08,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "A510590D-B776-4E0F-BE3B-03BA425F1A03",
+        "nom": "BOBO BIRD Wooden Watch GP016/17/18 Fashion Trend Men's Business Casual Wooden Watch",
+        "prixBase": 24.77,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20210123/1857141318769.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZBNSCY00488-SILVER",
+                "vid": "1107895A-B4B5-4ACD-B7BE-79DBDF60EA8C",
+                "taille": "N/A",
+                "couleur": "Silver",
+                "prix": 24.77,
+                "poids": 120.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBNSCY00488-PINK",
+                "vid": "B41209AA-1D0D-45AA-B6CA-B984F18E7A00",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 24.77,
+                "poids": 120.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJZBNSCY00488-BLACK",
+                "vid": "D96CEEAA-99A1-4D1C-BAC7-3C29EE978CF6",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 24.77,
+                "poids": 120.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.08,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
