@@ -16812,7 +16812,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1905172454550298625",
         "nom": "Furniture Office Chair",
-        "prixBase": 86.3,
+        "prixBase": 86.68,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/3121cbe9-9215-412a-9610-7f3ca1bc4cc0.jpg"
@@ -16823,9 +16823,9 @@
                 "vid": "1905172454722265089",
                 "taille": "N/A",
                 "couleur": "Violet",
-                "prix": 86.3,
+                "prix": 86.68,
                 "poids": 11795.0,
-                "stock": 75,
+                "stock": 73,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -16951,7 +16951,7 @@
                 "couleur": "Silver",
                 "prix": 108.43,
                 "poids": 12820.0,
-                "stock": 171,
+                "stock": 170,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17049,7 +17049,7 @@
                 "couleur": "Black",
                 "prix": 59.72,
                 "poids": 15095.0,
-                "stock": 834,
+                "stock": 829,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18534,6 +18534,106 @@
                 "stock": 5647,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.04,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2087719182913531905",
+        "nom": "M591 Gasoline Chainsaw Built With Premium-quality Components, Delivering 2.5 KW Of Power At A High Speed Of 12,000 RPM. Ideal For Professional Logging Applications.",
+        "prixBase": 79.14,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2d43cbb6-d930-4088-bd44-cb3c13aae397.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL305670401AZ",
+                "vid": "2087719183010000898",
+                "taille": "M591",
+                "couleur": "OrangeRed  Grey Color Block",
+                "prix": 79.14,
+                "poids": 8000.0,
+                "stock": 7246,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2098244319432503298",
+        "nom": "Solar Powered Rechargeable Motion Sensor Garden Light W7105 1 For Yard Decoration LED Landscape Lighting",
+        "prixBase": 7.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/00ea32ee-f994-4ed7-9253-37568e2622c1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY315318101AZ",
+                "vid": "2098244319612858369",
+                "taille": "N/A",
+                "couleur": "W71051",
+                "prix": 7.8,
+                "poids": 743.0,
+                "stock": 7004,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.2,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037385630985129985",
+        "nom": "TV Stand With Shelf For Living Room, Bedroom,Offices,Mobile TV Cart For 32-75 Inches,Floor Stand With Mount On Lockable Wheels,Natural",
+        "prixBase": 119.94,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/cdd498af-b389-4bb9-b5db-b8c9666e7553.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28074660001",
+                "vid": "2037385631094181890",
+                "taille": "N/A",
+                "couleur": "Natural",
+                "prix": 119.94,
+                "poids": 17781.0,
+                "stock": 38,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1867078460859371520",
+        "nom": "4-layer 8-grid Non-woven Fabric Wardrobe",
+        "prixBase": 23.74,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/cdd37adb-6a99-4b99-9f1d-b7879cde3124.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224146301AZ",
+                "vid": "1867078461010366464",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 23.74,
+                "poids": 3300.0,
+                "stock": 339,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
