@@ -3053,5 +3053,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1876471716595154945",
+        "nom": "8-foot Medium-sized Table Tennis Table Foldable Portable Set",
+        "prixBase": 202.83,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/bf99a324-39f4-4eae-b335-23c2a3fd3d16.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM226316301AZ",
+                "vid": "1876471716649680898",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 202.83,
+                "poids": 40824.0,
+                "stock": 43,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
