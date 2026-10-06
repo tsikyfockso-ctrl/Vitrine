@@ -46,7 +46,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.91,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.27
+                "shippingCostUS": 16.54
             },
             {
                 "sku": "CJBHNSNS01977-YELLOW-47",
@@ -33205,7 +33205,7 @@
                 "poids": 250.0,
                 "stock": 96330,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
+                "shippingCostFR": 6.98,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.58
             },
@@ -33297,8 +33297,8 @@
                 "stock": 96330,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.08,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.58
+                "shippingMethodUS": "YunExpress Clothing Line",
+                "shippingCostUS": 7.72
             },
             {
                 "sku": "CJWS238266412LO",
@@ -34626,17 +34626,82 @@
         ],
         "variantes": [
             {
-                "sku": "CJJX1930249",
-                "vid": "1739484043684614144",
+                "sku": "CJJX193024901AZ",
+                "vid": "1739484043743334400",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Steel Belt Black",
                 "prix": 21.23,
-                "poids": 0.0,
+                "poids": 270.0,
                 "stock": 76660,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJJX193024902BY",
+                "vid": "1739484043793666048",
+                "taille": "N/A",
+                "couleur": "Steel Belt Silver",
+                "prix": 21.23,
+                "poids": 270.0,
+                "stock": 76660,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJJX193024903CX",
+                "vid": "1739484043843997696",
+                "taille": "N/A",
+                "couleur": "Steel Belt Gold",
+                "prix": 21.23,
+                "poids": 270.0,
+                "stock": 76660,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJJX193024904DW",
+                "vid": "1739484043890135040",
+                "taille": "N/A",
+                "couleur": "Belt Black",
+                "prix": 21.23,
+                "poids": 270.0,
+                "stock": 76660,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJJX193024905EV",
+                "vid": "1739484043940466688",
+                "taille": "N/A",
+                "couleur": "Belt Silver",
+                "prix": 21.23,
+                "poids": 270.0,
+                "stock": 76660,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
+            },
+            {
+                "sku": "CJJX193024906FU",
+                "vid": "1739484043986604032",
+                "taille": "N/A",
+                "couleur": "Belt Gold",
+                "prix": 21.23,
+                "poids": 270.0,
+                "stock": 76660,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.78
             }
         ]
     },
@@ -48890,7 +48955,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.38,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.15
+                "shippingCostUS": 9.88
             },
             {
                 "sku": "CJBHNSNS11033-RED-36",
@@ -48927,7 +48992,7 @@
                 "poids": 445.0,
                 "stock": 474922,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.38,
+                "shippingCostFR": 9.33,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.1
             },
@@ -48966,7 +49031,7 @@
                 "poids": 440.0,
                 "stock": 474922,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.38,
+                "shippingCostFR": 9.28,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.03
             },
@@ -70686,6 +70751,83 @@
                 "shippingCostFR": 5.76,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.88
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1735230206459256832",
+        "nom": "Waterproof Double Display Watch Outdoor Sports Student Double Time Calendar Chronograph Electronic Watch",
+        "prixBase": 5.65,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/3afbadb6-ad16-47ca-b881-c76164cec794.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJQL192104401AZ",
+                "vid": "1735230206635417600",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 5.65,
+                "poids": 78.0,
+                "stock": 70802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.69
+            },
+            {
+                "sku": "CJQL192104402BY",
+                "vid": "1735230206731886592",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 5.65,
+                "poids": 78.0,
+                "stock": 70802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.69
+            },
+            {
+                "sku": "CJQL192104403CX",
+                "vid": "1735230206828355584",
+                "taille": "N/A",
+                "couleur": "Army Green",
+                "prix": 5.65,
+                "poids": 78.0,
+                "stock": 70802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.69
+            },
+            {
+                "sku": "CJQL192104404DW",
+                "vid": "1735230206933213184",
+                "taille": "N/A",
+                "couleur": "Blue Circle Black Belt",
+                "prix": 5.65,
+                "poids": 78.0,
+                "stock": 70802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.69
+            },
+            {
+                "sku": "CJQL192104405EV",
+                "vid": "1735230207025487872",
+                "taille": "N/A",
+                "couleur": "Red Circle Black Belt",
+                "prix": 5.65,
+                "poids": 78.0,
+                "stock": 70802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.69
             }
         ]
     }
