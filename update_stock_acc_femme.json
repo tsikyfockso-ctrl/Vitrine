@@ -2910,8 +2910,8 @@
                 "stock": 72951,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.98,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.26
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.72
             }
         ]
     },
@@ -18573,12 +18573,64 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD1907551",
-                "vid": "1729064891924885504",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJYD190755102BY",
+                "vid": "1729064892042326016",
+                "taille": "USB",
+                "couleur": "Cherry Blossom Pink",
                 "prix": 5.01,
-                "poids": 0.0,
+                "poids": 420.0,
+                "stock": 56450,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD190755103CX",
+                "vid": "1729064892184932352",
+                "taille": "USB",
+                "couleur": "Grass Green",
+                "prix": 5.01,
+                "poids": 420.0,
+                "stock": 56450,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD190755104DW",
+                "vid": "1729064892289789952",
+                "taille": "USB",
+                "couleur": "Warm White",
+                "prix": 5.01,
+                "poids": 420.0,
+                "stock": 56450,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD190755101AZ",
+                "vid": "2506060737381600100",
+                "taille": "USB",
+                "couleur": "Cherry Blossom Pink set",
+                "prix": 5.01,
+                "poids": 509.0,
+                "stock": 56450,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD190755105EV",
+                "vid": "2506060737381600300",
+                "taille": "USB",
+                "couleur": "Warm White set",
+                "prix": 5.01,
+                "poids": 505.0,
                 "stock": 56450,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -26935,7 +26987,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.23,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 6.13
             },
             {
                 "sku": "CJZBLXSL01320-6MM 3PCS",
@@ -26998,7 +27050,7 @@
                 "poids": 36.0,
                 "stock": 184530,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.83,
+                "shippingCostFR": 4.39,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.5
             },
@@ -53474,6 +53526,224 @@
                 "stock": 210218,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.47,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2407250921181622700",
+        "nom": "Dirt-resistant Large Capacity Schoolbag Travel Backpack",
+        "prixBase": 3.08,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/70d3e698-2b68-45a4-8785-b727fcef9981.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD209338701AZ",
+                "vid": "2407250921181622900",
+                "taille": "Backpack Without Pendant",
+                "couleur": "Black",
+                "prix": 3.08,
+                "poids": 420.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338702BY",
+                "vid": "2407250921181623100",
+                "taille": "Backpack With Panda Doll",
+                "couleur": "Black",
+                "prix": 3.08,
+                "poids": 450.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338703CX",
+                "vid": "2407250921181623200",
+                "taille": "Backpack Without Pendant",
+                "couleur": "Red",
+                "prix": 3.08,
+                "poids": 420.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338704DW",
+                "vid": "2407250921181623400",
+                "taille": "Backpack With Panda Doll",
+                "couleur": "Red",
+                "prix": 3.08,
+                "poids": 450.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338705EV",
+                "vid": "2407250921181623500",
+                "taille": "Backpack Without Pendant",
+                "couleur": "Green",
+                "prix": 3.08,
+                "poids": 420.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338706FU",
+                "vid": "2407250921181623700",
+                "taille": "Backpack With Panda Doll",
+                "couleur": "Green",
+                "prix": 3.08,
+                "poids": 450.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338707GT",
+                "vid": "2407250921181623900",
+                "taille": "Backpack Without Pendant",
+                "couleur": "Blue",
+                "prix": 3.08,
+                "poids": 420.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.74
+            },
+            {
+                "sku": "CJYD209338708HS",
+                "vid": "2407250921181624000",
+                "taille": "Backpack With Panda Doll",
+                "couleur": "Blue",
+                "prix": 3.08,
+                "poids": 450.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338709IR",
+                "vid": "2407250921181624200",
+                "taille": "Backpack Without Pendant",
+                "couleur": "Khaki",
+                "prix": 3.08,
+                "poids": 420.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            },
+            {
+                "sku": "CJYD209338710JQ",
+                "vid": "2407250921181624300",
+                "taille": "Backpack With Panda Doll",
+                "couleur": "Khaki",
+                "prix": 3.08,
+                "poids": 450.0,
+                "stock": 131819,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.38,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 10.17
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1731624254359220224",
+        "nom": "New Design Sweet Christmas Tree Earrings For Women Light Luxury Sparkling Zircon Dangle Earring Xmas Holiday Party Jewelry",
+        "prixBase": 0.78,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2023/12/04/10/38dc558e-906a-47d8-9ecc-ab12e8624650.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLX191285201AZ",
+                "vid": "1731624254464077824",
+                "taille": "N/A",
+                "couleur": "Pink Christmas Earrings",
+                "prix": 0.78,
+                "poids": 15.0,
+                "stock": 14244,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.11,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406160232191601400",
+        "nom": "Synthetic Lace Split Sling Dress Women",
+        "prixBase": 7.88,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/845fb45c-7bd3-4b76-b110-a3b73c3ca743.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLY206140201AZ",
+                "vid": "2406160232191601600",
+                "taille": "S",
+                "couleur": "Blue",
+                "prix": 7.88,
+                "poids": 270.0,
+                "stock": 40094,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLY206140202BY",
+                "vid": "2406160232191601800",
+                "taille": "M",
+                "couleur": "Blue",
+                "prix": 7.88,
+                "poids": 280.0,
+                "stock": 40094,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJLY206140203CX",
+                "vid": "2406160232191602000",
+                "taille": "L",
+                "couleur": "Blue",
+                "prix": 7.88,
+                "poids": 290.0,
+                "stock": 40094,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
