@@ -2670,8 +2670,8 @@
                 "stock": 102008,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJYE204936604DW",
@@ -2708,7 +2708,7 @@
                 "poids": 310.0,
                 "stock": 102008,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.48,
+                "shippingCostFR": 7.58,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.74
             },
@@ -13239,8 +13239,8 @@
                 "prix": 1.76,
                 "poids": 100.0,
                 "stock": 61093,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.24,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.46,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
             },
@@ -23749,8 +23749,8 @@
                 "prix": 1.68,
                 "poids": 90.0,
                 "stock": 560000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.11,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.93
             },
@@ -23803,8 +23803,8 @@
                 "stock": 560000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.93
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.17
             },
             {
                 "sku": "CJWJNHNT05428-SKIN POWDER-90",
@@ -23855,8 +23855,8 @@
                 "stock": 560000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.57,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.93
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.02
             },
             {
                 "sku": "CJWJNHNT05428-BEIGE-76",
@@ -23997,7 +23997,7 @@
                 "poids": 100.0,
                 "stock": 560000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
+                "shippingCostFR": 5.46,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
             },
@@ -24051,7 +24051,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.93
+                "shippingCostUS": 6.15
             }
         ]
     },
