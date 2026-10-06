@@ -3078,5 +3078,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1706528462997032960",
+        "nom": "Hand Grip",
+        "prixBase": 0.29,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/643bd47f-acd4-43f9-a403-646545fac2f7.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM185634901AZ",
+                "vid": "1706528463076724736",
+                "taille": "N/A",
+                "couleur": "Overgrip",
+                "prix": 0.29,
+                "poids": 12.0,
+                "stock": 14324,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.06,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
