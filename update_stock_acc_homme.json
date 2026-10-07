@@ -59,7 +59,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 17.06,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.27
+                "shippingCostUS": 17.25
             },
             {
                 "sku": "CJBHNSNS01977-02YELLOW-38.",
@@ -161,7 +161,7 @@
                 "poids": 970.0,
                 "stock": 931734,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 14.91,
+                "shippingCostFR": 14.61,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 16.12
             },
@@ -228,7 +228,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.91,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.27
+                "shippingCostUS": 16.54
             },
             {
                 "sku": "CJBHNSNS01977-BLACK-39",
@@ -605,7 +605,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.91,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 15.27
+                "shippingCostUS": 16.54
             },
             {
                 "sku": "CJBHNSNS01977-GRAY-46",
@@ -6018,8 +6018,8 @@
                 "prix": 5.94,
                 "poids": 63.0,
                 "stock": 72257,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.49,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.4,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.36
             },
@@ -71291,6 +71291,83 @@
                 "shippingCostFR": 6.08,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406260751251604700",
+        "nom": "Loose Straight Trousers Retro American Men",
+        "prixBase": 14.2,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/e1dd49b0-31d0-41d8-95a6-3f650726f838.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJXX206927401AZ",
+                "vid": "2406260751251604900",
+                "taille": "S",
+                "couleur": "Turquoise Blue",
+                "prix": 14.2,
+                "poids": 800.0,
+                "stock": 62351,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.9,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 13.87
+            },
+            {
+                "sku": "CJXX206927402BY",
+                "vid": "2406260751251605000",
+                "taille": "M",
+                "couleur": "Turquoise Blue",
+                "prix": 14.2,
+                "poids": 810.0,
+                "stock": 62351,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.9,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 13.87
+            },
+            {
+                "sku": "CJXX206927403CX",
+                "vid": "2406260751251605200",
+                "taille": "L",
+                "couleur": "Turquoise Blue",
+                "prix": 14.2,
+                "poids": 820.0,
+                "stock": 62351,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 13.1,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 13.87
+            },
+            {
+                "sku": "CJXX206927404DW",
+                "vid": "2406260751251605300",
+                "taille": "XL",
+                "couleur": "Turquoise Blue",
+                "prix": 14.2,
+                "poids": 830.0,
+                "stock": 62351,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.9,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 14.14
+            },
+            {
+                "sku": "CJXX206927405EV",
+                "vid": "2406260751251605500",
+                "taille": "XXL",
+                "couleur": "Turquoise Blue",
+                "prix": 14.2,
+                "poids": 840.0,
+                "stock": 62351,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.9,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 13.87
             }
         ]
     }
