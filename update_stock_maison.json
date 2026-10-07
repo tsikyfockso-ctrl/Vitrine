@@ -11021,8 +11021,8 @@
                 "prix": 1.8,
                 "poids": 170.0,
                 "stock": 104076,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 20.78,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.66,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 35.17
             },
@@ -11579,7 +11579,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2029122718681972738",
         "nom": "29'' X 28'' Modern Wall Mounted Bathroom Medicine Cabinet, Bathroom Wall Storage Cabinet With Mirror, Over The Toilet Space Saver Cabinet With Towels Bar",
-        "prixBase": 110.13,
+        "prixBase": 110.58,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17725824/5a4cca05-eb42-433b-86cd-06f670d20376.jpg"
@@ -11590,9 +11590,9 @@
                 "vid": "2029122718828773378",
                 "taille": "N/A",
                 "couleur": "White",
-                "prix": 110.13,
+                "prix": 110.58,
                 "poids": 18702.0,
-                "stock": 56,
+                "stock": 40,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17404,7 +17404,7 @@
                 "poids": 160.0,
                 "stock": 53695,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingCostFR": 6.08,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -17815,13 +17815,13 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU27843530001",
-                "vid": "2031924967409893378",
+                "sku": "CJFU2784353",
+                "vid": "2031924967275675649",
                 "taille": "N/A",
-                "couleur": "Brown",
+                "couleur": "N/A",
                 "prix": 365.86,
-                "poids": 20600.0,
-                "stock": 9,
+                "poids": 0.0,
+                "stock": 8,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18872,6 +18872,31 @@
                 "prix": 207.81,
                 "poids": 42402.0,
                 "stock": 86,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1919636680270143489",
+        "nom": "Galvanized Steel Planter Box With Crop Cage And Shade Cloth, Raised Garden Bed-Green",
+        "prixBase": 116.45,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ddcf1bd3-03ce-4c3b-bd0c-8378426b0f79.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJSB236950701AZ",
+                "vid": "1919636680475664385",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 116.45,
+                "poids": 1200.0,
+                "stock": 48,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
