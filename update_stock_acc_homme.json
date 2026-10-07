@@ -59710,7 +59710,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 18.2,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 20.07
+                "shippingCostUS": 19.23
             },
             {
                 "sku": "CJYD246450203CX",
@@ -59734,7 +59734,7 @@
                 "poids": 1230.0,
                 "stock": 69541,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 18.04,
+                "shippingCostFR": 18.52,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 20.07
             },
@@ -59812,7 +59812,7 @@
                 "poids": 1450.0,
                 "stock": 69541,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 18.04,
+                "shippingCostFR": 20.31,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 22.89
             }
@@ -67248,7 +67248,7 @@
                 "poids": 400.0,
                 "stock": 154788,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -67263,7 +67263,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.19,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.44
+                "shippingCostUS": 9.0
             },
             {
                 "sku": "CJYH206122706FU",
@@ -67300,7 +67300,7 @@
                 "poids": 400.0,
                 "stock": 154788,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
+                "shippingCostFR": 8.49,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -67315,7 +67315,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.19,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.44
+                "shippingCostUS": 9.0
             },
             {
                 "sku": "CJYH206122710JQ",
@@ -67339,7 +67339,7 @@
                 "poids": 390.0,
                 "stock": 154788,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
+                "shippingCostFR": 8.39,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.44
             },
@@ -71368,6 +71368,147 @@
                 "shippingCostFR": 12.9,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 13.87
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1798252767178526720",
+        "nom": "Retro Diamond Inlaid High-end Women's Quartz Watch Couple",
+        "prixBase": 10.08,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/06/05/07/f369e2c7-2c86-4888-936a-dde3930414d0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJQL205388101AZ",
+                "vid": "1798252767266607104",
+                "taille": "Womens style",
+                "couleur": "Black",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            },
+            {
+                "sku": "CJQL205388102BY",
+                "vid": "1798252767333715968",
+                "taille": "Mens style",
+                "couleur": "Black",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            },
+            {
+                "sku": "CJQL205388103CX",
+                "vid": "1798252767396630528",
+                "taille": "Womens style",
+                "couleur": "Coffee",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            },
+            {
+                "sku": "CJQL205388104DW",
+                "vid": "1798252767459545088",
+                "taille": "Mens style",
+                "couleur": "Coffee",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            },
+            {
+                "sku": "CJQL205388105EV",
+                "vid": "1798252767514071040",
+                "taille": "Womens style",
+                "couleur": "Silvery",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            },
+            {
+                "sku": "CJQL205388106FU",
+                "vid": "1798252767572791296",
+                "taille": "Mens style",
+                "couleur": "Silvery",
+                "prix": 10.08,
+                "poids": 167.0,
+                "stock": 72979,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.63,
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 6.72
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1786236364158148608",
+        "nom": "Quicksand Beads Watch Female Belt Quartz Watch",
+        "prixBase": 1.05,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/68446db8-3b7a-44b0-a396-03ff43f7180e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS202642701AZ",
+                "vid": "1786236364233646080",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 1.05,
+                "poids": 50.0,
+                "stock": 38711,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.25,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJNS202642702BY",
+                "vid": "1786236364296560640",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.05,
+                "poids": 50.0,
+                "stock": 38711,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.25,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
+            },
+            {
+                "sku": "CJNS202642703CX",
+                "vid": "1786236364363669504",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.05,
+                "poids": 50.0,
+                "stock": 38711,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.25,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.07
             }
         ]
     }
