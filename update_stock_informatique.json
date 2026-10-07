@@ -7285,5 +7285,69 @@
                 "shippingCostUS": 11.84
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1733478000882098176",
+        "nom": "Remote Control Helicopter USB Charging Children Boys' Toys",
+        "prixBase": 4.32,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/8edc7b7b-ed6c-4f95-9d2c-33134fd5b278.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD191715701AZ",
+                "vid": "1733478000982761472",
+                "taille": "N/A",
+                "couleur": "Rescue Helicopter Blue",
+                "prix": 4.32,
+                "poids": 200.0,
+                "stock": 47020,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD191715702BY",
+                "vid": "1733478001062453248",
+                "taille": "N/A",
+                "couleur": "Rescue Helicopter Army Green",
+                "prix": 4.32,
+                "poids": 200.0,
+                "stock": 47020,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD191715703CX",
+                "vid": "1733478001137950720",
+                "taille": "N/A",
+                "couleur": "Rescue Helicopter Red",
+                "prix": 4.32,
+                "poids": 200.0,
+                "stock": 47020,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD191715704DW",
+                "vid": "1733478001221836800",
+                "taille": "N/A",
+                "couleur": "Rescue Helicopter White",
+                "prix": 4.32,
+                "poids": 200.0,
+                "stock": 47020,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 7.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
