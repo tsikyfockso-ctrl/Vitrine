@@ -16825,7 +16825,7 @@
                 "couleur": "Violet",
                 "prix": 86.68,
                 "poids": 11795.0,
-                "stock": 73,
+                "stock": 72,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17366,8 +17366,8 @@
                 "stock": 53695,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJJT169544302BY",
@@ -17379,8 +17379,8 @@
                 "stock": 53695,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 8.28
             },
             {
                 "sku": "CJJT169544303CX",
@@ -17392,8 +17392,8 @@
                 "stock": 53695,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.33,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.23
             },
             {
                 "sku": "CJJT169544305EV",
@@ -17405,8 +17405,8 @@
                 "stock": 53695,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.74
             }
         ]
     },
@@ -18899,6 +18899,131 @@
                 "stock": 48,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1892134240428093441",
+        "nom": "3ft X 16ft High Quality Artificial Turf Mat With Drainage Holes, No Weekend Shipping, Banned From Amazon",
+        "prixBase": 46.79,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/cbf16e65-2f83-4ec0-a908-9a436680f297.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL229587001AZ",
+                "vid": "1892134240503590914",
+                "taille": "N/A",
+                "couleur": "3ft X 16ft",
+                "prix": 46.79,
+                "poids": 4500.0,
+                "stock": 300,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2100029111753621505",
+        "nom": "Solar Powered Motion Sensor Outdoor Light W7114 1 Black For Garden Yard Street Wall LED",
+        "prixBase": 16.08,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/8c84c79a-ec1e-41df-8b93-a4e3143a97fa.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY316754501AZ",
+                "vid": "2100029111829118977",
+                "taille": "N/A",
+                "couleur": "W71141",
+                "prix": 16.08,
+                "poids": 1940.0,
+                "stock": 9239,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 28.5,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1867501228969054208",
+        "nom": "Black Luggage Rack",
+        "prixBase": 21.57,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/8fe04913-435f-4362-bd62-5d2986205eb0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224301701AZ",
+                "vid": "1867501229120049152",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 21.57,
+                "poids": 2060.0,
+                "stock": 92,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031971493991575553",
+        "nom": "PawHut 47 Chicken Coop Wooden Chicken House Rabbit Hutch Raised Poultry Cage Portable Hen Pen Backyard With Nesting Box And Handles",
+        "prixBase": 278.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/bdbfc593-b4e9-4fee-8a04-ba42825d980e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846860001",
+                "vid": "2031971494104821762",
+                "taille": "N/A",
+                "couleur": "Multicolor",
+                "prix": 278.82,
+                "poids": 29937.0,
+                "stock": 13,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2086708334936948737",
+        "nom": "Handmade Crochet Hanging Potted Ornament With Trailing Yellow Flower Buds And Green Leaf Vines Everlasting Soft Yarn Crochet Blossom Indoor Home Hanging Decor",
+        "prixBase": 3.66,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ba90f3bc-cda1-4b40-b876-35c90964d4da.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHD304879701AZ",
+                "vid": "2086708335050194945",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 3.66,
+                "poids": 45.0,
+                "stock": 9482,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.5,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
