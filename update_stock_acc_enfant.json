@@ -28006,5 +28006,121 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2409290516181625900",
+        "nom": "Printed Baby Bodysuit Shorts Suit",
+        "prixBase": 4.53,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/09/29/05/a0e46d32-86b4-4c2a-a56f-df11a4b90909.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE214944401AZ",
+                "vid": "2409290516181626200",
+                "taille": "70cm",
+                "couleur": "Pink",
+                "prix": 4.53,
+                "poids": 220.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE214944402BY",
+                "vid": "2409290516181626500",
+                "taille": "80cm",
+                "couleur": "Pink",
+                "prix": 4.53,
+                "poids": 230.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE214944403CX",
+                "vid": "2409290516181626800",
+                "taille": "90cm",
+                "couleur": "Pink",
+                "prix": 4.53,
+                "poids": 240.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE214944404DW",
+                "vid": "2409290516181627000",
+                "taille": "100cm",
+                "couleur": "Pink",
+                "prix": 4.53,
+                "poids": 250.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.96
+            },
+            {
+                "sku": "CJYE214944405EV",
+                "vid": "2409290516181627300",
+                "taille": "70cm",
+                "couleur": "Apricot",
+                "prix": 4.53,
+                "poids": 220.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE214944406FU",
+                "vid": "2409290516181627700",
+                "taille": "80cm",
+                "couleur": "Apricot",
+                "prix": 4.53,
+                "poids": 230.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.77,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYE214944407GT",
+                "vid": "2409290516181628100",
+                "taille": "90cm",
+                "couleur": "Apricot",
+                "prix": 4.53,
+                "poids": 240.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.84
+            },
+            {
+                "sku": "CJYE214944408HS",
+                "vid": "2409290516181628600",
+                "taille": "100cm",
+                "couleur": "Apricot",
+                "prix": 4.53,
+                "poids": 250.0,
+                "stock": 99987,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.68,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.71
+            }
+        ]
     }
 ]
