@@ -28052,7 +28052,7 @@
                 "poids": 240.0,
                 "stock": 99987,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
+                "shippingCostFR": 6.88,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.71
             },
@@ -28104,7 +28104,7 @@
                 "poids": 240.0,
                 "stock": 99987,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
+                "shippingCostFR": 6.88,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.84
             },
@@ -28120,6 +28120,174 @@
                 "shippingCostFR": 6.68,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.71
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1447119303127207936",
+        "nom": "Children's Knee Pad Terry Floor Socks Set Toddler Protection",
+        "prixBase": 1.06,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/542417c3-7592-4732-b150-1eabf743ac10.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE131448601AZ",
+                "vid": "1447119303190122496",
+                "taille": "S",
+                "couleur": "Pink",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448602BY",
+                "vid": "1447119303202705408",
+                "taille": "M",
+                "couleur": "Pink",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448603CX",
+                "vid": "1447119303211094016",
+                "taille": "S",
+                "couleur": "Brown",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448604DW",
+                "vid": "1447119303227871232",
+                "taille": "M",
+                "couleur": "Brown",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448605EV",
+                "vid": "1447119303240454144",
+                "taille": "S",
+                "couleur": "Light Grey",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448606FU",
+                "vid": "1447119303248842752",
+                "taille": "M",
+                "couleur": "Light Grey",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448607GT",
+                "vid": "1521751608781189120",
+                "taille": "M",
+                "couleur": "Light Purple",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.1,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448608HS",
+                "vid": "1521751608781189121",
+                "taille": "S",
+                "couleur": "Light Purple",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448609IR",
+                "vid": "1521751608785383424",
+                "taille": "M",
+                "couleur": "Blue",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448610JQ",
+                "vid": "1521751608785383425",
+                "taille": "S",
+                "couleur": "Blue",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448611KP",
+                "vid": "1521751608852492288",
+                "taille": "M",
+                "couleur": "Light Army Green",
+                "prix": 1.06,
+                "poids": 89.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
+            },
+            {
+                "sku": "CJYE131448612LO",
+                "vid": "1521751608856686592",
+                "taille": "S",
+                "couleur": "Light Army Green",
+                "prix": 1.06,
+                "poids": 69.0,
+                "stock": 499912,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.82,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
             }
         ]
     }
