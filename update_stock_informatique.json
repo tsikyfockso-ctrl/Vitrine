@@ -3,7 +3,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2016681315768856578",
         "nom": "Computer Desk",
-        "prixBase": 179.28,
+        "prixBase": 194.72,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17696448/380d7edb-18e0-486e-b3ea-00b9db6f7549.jpg"
@@ -14,7 +14,7 @@
                 "vid": "2016681315907268609",
                 "taille": "N/A",
                 "couleur": "defaulttitle",
-                "prix": 179.28,
+                "prix": 194.72,
                 "poids": 26503.0,
                 "stock": 460,
                 "shippingMethodFR": "N/A",
@@ -310,8 +310,8 @@
                 "prix": 1.45,
                 "poids": 100.0,
                 "stock": 59570,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 5.43,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.84,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.15
             },
@@ -326,7 +326,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 5.64,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.15
+                "shippingCostUS": 6.6
             },
             {
                 "sku": "CJJT199311104DW",
@@ -339,7 +339,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.3,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 7.02
+                "shippingCostUS": 7.17
             },
             {
                 "sku": "CJJT199311106FU",
@@ -351,8 +351,8 @@
                 "stock": 59570,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 6.69,
-                "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 7.11
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 8.3
             }
         ]
     },
@@ -413,7 +413,7 @@
                 "poids": 3136.0,
                 "stock": 40000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 36.45,
+                "shippingCostFR": 38.27,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 42.27
             }
@@ -1143,7 +1143,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 7.61,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.43
+                "shippingCostUS": 9.08
             }
         ]
     },
@@ -1166,9 +1166,9 @@
                 "poids": 470.0,
                 "stock": 80000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.58,
+                "shippingCostFR": 9.86,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 11.79
             },
             {
                 "sku": "CJBJ113274202BY",
@@ -1181,7 +1181,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.58,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.37
+                "shippingCostUS": 11.79
             }
         ]
     },
@@ -2602,7 +2602,7 @@
                 "poids": 530.0,
                 "stock": 35952,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.77,
+                "shippingCostFR": 11.1,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.05
             },
@@ -2615,7 +2615,7 @@
                 "poids": 530.0,
                 "stock": 35952,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.77,
+                "shippingCostFR": 11.1,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 12.05
             },
@@ -2629,8 +2629,8 @@
                 "stock": 35952,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.77,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.05
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 12.67
             }
         ]
     },
@@ -7449,6 +7449,57 @@
                 "shippingCostFR": 5.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.88
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1420207861400735744",
+        "nom": "New Style Handbag Men's Horizontal One-shoulder Diagonal Computer",
+        "prixBase": 8.64,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/8dc2ccc7-41eb-4800-8f92-4a9e2429bbe8.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS122985901AZ",
+                "vid": "1420207862814216192",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 8.64,
+                "poids": 1020.0,
+                "stock": 84179,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.4,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS122985902BY",
+                "vid": "1420207862822604800",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 8.64,
+                "poids": 1020.0,
+                "stock": 84179,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.4,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNS122985903CX",
+                "vid": "1420207862830993408",
+                "taille": "N/A",
+                "couleur": "Coffee",
+                "prix": 8.64,
+                "poids": 1020.0,
+                "stock": 84179,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 17.4,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
