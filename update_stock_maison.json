@@ -1814,7 +1814,7 @@
                 "couleur": "White",
                 "prix": 4.19,
                 "poids": 386.0,
-                "stock": 27308,
+                "stock": 27309,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 9.6,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -1827,7 +1827,7 @@
                 "couleur": "Black",
                 "prix": 4.19,
                 "poids": 386.0,
-                "stock": 27308,
+                "stock": 27309,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 9.6,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -19449,6 +19449,31 @@
                 "stock": 1534,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1956254468090212353",
+        "nom": "Wireless Car And Home Vacuum Cleaner, Powerful Small-sized With Large Suction, Silent, Integrated With Carpet Washing And Mopping, Portable Vacuum Cleaner",
+        "prixBase": 32.58,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/6670a556-bdbc-43cb-bf87-bef0cf77156e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJD245709401AZ",
+                "vid": "1956254468169904129",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 32.58,
+                "poids": 3000.0,
+                "stock": 11923,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 42.14,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
