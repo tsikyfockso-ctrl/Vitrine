@@ -221,7 +221,7 @@
                 "poids": 120.0,
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
+                "shippingCostFR": 5.74,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
             },
@@ -260,7 +260,7 @@
                 "poids": 160.0,
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.08,
+                "shippingCostFR": 6.16,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.74
             },
@@ -7434,8 +7434,8 @@
                 "stock": 150000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.74,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.88
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJMK102318305EV",
@@ -7536,6 +7536,31 @@
                 "stock": 13739,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 16.25,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "5E25904C-B5D5-423B-A60B-7BAFC1FBF8F6",
+        "nom": "USB Mini 5Pin 5P Right angle Male to USB 2.0 A Male Plug Cable 0.2m Power Charger Cable for Chromecast",
+        "prixBase": 0.83,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15200352/359331795450.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJSWLWX00002-0.2",
+                "vid": "209F6582-5188-4CBD-9875-19D39FCBC80D",
+                "taille": "N/A",
+                "couleur": "0.2",
+                "prix": 0.83,
+                "poids": 30.0,
+                "stock": 13330,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.31,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
