@@ -662,7 +662,7 @@
                 "poids": 350.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.53,
+                "shippingCostFR": 17.85,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 9.81
             },
@@ -688,7 +688,7 @@
                 "poids": 970.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 27.54,
+                "shippingCostFR": 28.43,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 25.44
             },
@@ -703,7 +703,7 @@
                 "shippingMethodFR": "CJPacket Pure Electricity",
                 "shippingCostFR": 17.53,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 9.81
+                "shippingCostUS": 10.33
             },
             {
                 "sku": "CJHD225250105EV",
@@ -740,7 +740,7 @@
                 "poids": 350.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.53,
+                "shippingCostFR": 17.85,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 9.81
             },
@@ -766,7 +766,7 @@
                 "poids": 970.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 27.54,
+                "shippingCostFR": 28.43,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 25.44
             },
@@ -794,7 +794,7 @@
                 "shippingMethodFR": "CJPacket Pure Electricity",
                 "shippingCostFR": 21.41,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 15.61
+                "shippingCostUS": 16.5
             },
             {
                 "sku": "CJHD225250112LO",
@@ -16106,7 +16106,7 @@
                 "poids": 185.0,
                 "stock": 13332,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.33,
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.94
             },
@@ -16902,7 +16902,7 @@
                 "poids": 120.0,
                 "stock": 37906,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
+                "shippingCostFR": 5.74,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -19372,6 +19372,81 @@
                 "prix": 16.52,
                 "poids": 1980.0,
                 "stock": 306,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2042456090363199489",
+        "nom": "CAMBRIA 3 SEATER BENCH",
+        "prixBase": 84.67,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17757792/12770adf-e74e-4d60-b053-459ea0072628.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28268220001",
+                "vid": "2042456090459668481",
+                "taille": "N/A",
+                "couleur": "Teak",
+                "prix": 84.67,
+                "poids": 15399.0,
+                "stock": 56,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1943972541144608769",
+        "nom": "Elegant Design Buffet Cabinet Storage Cabinet With Drawers, Suitable For Dining Room, Living Room, Kitchen Cabinet",
+        "prixBase": 87.47,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/968b400f-cdd1-46ef-a6cd-6c5a529b3a8a.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU242869901AZ",
+                "vid": "1943972541245272066",
+                "taille": "N/A",
+                "couleur": "Beige and White",
+                "prix": 87.47,
+                "poids": 47234.0,
+                "stock": 230,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1964238188349349890",
+        "nom": "2 Drawer Mobile File Cabinet, Metal Under Desk Cabinet With Lock Name Card Holder For Office Home, Legal Letter Size, Assembly Required",
+        "prixBase": 63.25,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/989f1ada-d74c-4125-bbe5-bb00443fe10d.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT249024101AZ",
+                "vid": "1964238188458401794",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 63.25,
+                "poids": 17335.0,
+                "stock": 1534,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
