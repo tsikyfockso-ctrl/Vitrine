@@ -18,7 +18,7 @@
                 "poids": 250.0,
                 "stock": 85859,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingCostFR": 7.12,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             },
@@ -96,7 +96,7 @@
                 "poids": 250.0,
                 "stock": 85859,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.98,
+                "shippingCostFR": 7.12,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             }
@@ -3864,7 +3864,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "40C9EA3A-E1B5-41C2-904C-627D181AE092",
-        "nom": "Sac de chaise de salle à manger portable",
+        "nom": "Portable dining chair bag",
         "prixBase": 7.96,
         "productFee": 0.0,
         "images": [
@@ -3879,8 +3879,8 @@
                 "prix": 7.96,
                 "poids": 459.0,
                 "stock": 40863,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.74,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.5
             },
@@ -3892,8 +3892,8 @@
                 "prix": 7.96,
                 "poids": 480.0,
                 "stock": 40863,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.74,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.5
             },
@@ -3905,8 +3905,8 @@
                 "prix": 7.96,
                 "poids": 480.0,
                 "stock": 40863,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.96,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.5
             }
@@ -6017,7 +6017,7 @@
                 "poids": 254.0,
                 "stock": 13621,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.02,
+                "shippingCostFR": 7.17,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.02
             }
