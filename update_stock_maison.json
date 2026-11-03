@@ -2029,11 +2029,11 @@
                 "couleur": "Type A",
                 "prix": 5.47,
                 "poids": 250.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "CJPacket Sensitive Over Length",
                 "shippingCostFR": 8.49,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 13.47
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 11.04
             },
             {
                 "sku": "CJYD296761902BY",
@@ -2042,7 +2042,7 @@
                 "couleur": "Type A",
                 "prix": 5.47,
                 "poids": 670.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "CJPacket Sensitive Over Length",
                 "shippingCostFR": 17.84,
                 "shippingMethodUS": "CJPacket FJTY Eub Special Line",
@@ -2055,7 +2055,7 @@
                 "couleur": "Type B",
                 "prix": 5.47,
                 "poids": 470.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 12.08,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -2068,9 +2068,9 @@
                 "couleur": "Type B",
                 "prix": 5.47,
                 "poids": 670.0,
-                "stock": 50547,
-                "shippingMethodFR": "CJPacket Sensitive Over Length",
-                "shippingCostFR": 17.84,
+                "stock": 50553,
+                "shippingMethodFR": "PostNL",
+                "shippingCostFR": 18.4,
                 "shippingMethodUS": "CJPacket Sensitive Over Length",
                 "shippingCostUS": 27.31
             },
@@ -2081,7 +2081,7 @@
                 "couleur": "Type C",
                 "prix": 5.47,
                 "poids": 470.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 12.08,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -2094,11 +2094,11 @@
                 "couleur": "Type C",
                 "prix": 5.47,
                 "poids": 311.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "PostNL",
                 "shippingCostFR": 11.48,
-                "shippingMethodUS": "CJPacket Sensitive Over Length",
-                "shippingCostUS": 27.31
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 12.33
             },
             {
                 "sku": "CJYD296761907GT",
@@ -2107,7 +2107,7 @@
                 "couleur": "Type A 2pcs",
                 "prix": 5.47,
                 "poids": 488.0,
-                "stock": 50547,
+                "stock": 50553,
                 "shippingMethodFR": "CJPacket Sensitive Over Length",
                 "shippingCostFR": 13.09,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -3855,8 +3855,8 @@
                 "stock": 10963,
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 6.27,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 8.06
             }
         ]
     },
@@ -5896,7 +5896,7 @@
     {
         "dropshipping": "CJ Dropshipping",
         "pid": "2508080501141611700",
-        "nom": "Pot de fleur de bonsaï d'orchidée Zisha en céramique avec plateau",
+        "nom": "Ceramic Zisha Orchid Bonsai Flower Pot With Tray",
         "prixBase": 6.25,
         "productFee": 0.0,
         "images": [
@@ -5965,8 +5965,8 @@
                 "stock": 50231,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 17.93,
-                "shippingMethodUS": "CJPacket Eub",
-                "shippingCostUS": 23.96
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 66.12
             },
             {
                 "sku": "CJYL245077706FU",
@@ -8844,7 +8844,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2037390838621290497",
         "nom": "39.37  Rectangle Clear Glass Glass Coffee Table,Stylish Design With White Metal Legs, Coffee Table For Living Room",
-        "prixBase": 102.33,
+        "prixBase": 105.36,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17745696/713289f4-b129-4265-8583-cba4fb55c8ee.jpg"
@@ -8855,9 +8855,9 @@
                 "vid": "2037390838818422786",
                 "taille": "N/A",
                 "couleur": "Transparent",
-                "prix": 102.33,
+                "prix": 105.36,
                 "poids": 15422.0,
-                "stock": 53,
+                "stock": 51,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -13671,7 +13671,7 @@
                 "poids": 1020.0,
                 "stock": 152790,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.63,
+                "shippingCostFR": 18.87,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 24.3
             },
@@ -13699,7 +13699,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.63,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 24.3
+                "shippingCostUS": 24.4
             },
             {
                 "sku": "CJYD201230804DW",
@@ -13736,7 +13736,7 @@
                 "poids": 1020.0,
                 "stock": 152790,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.63,
+                "shippingCostFR": 18.87,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 24.3
             },
@@ -13775,7 +13775,7 @@
                 "poids": 1020.0,
                 "stock": 152790,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.63,
+                "shippingCostFR": 18.87,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 24.3
             },
@@ -13801,7 +13801,7 @@
                 "poids": 1020.0,
                 "stock": 152790,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 18.63,
+                "shippingCostFR": 18.87,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 24.3
             },
@@ -13828,8 +13828,8 @@
                 "stock": 152790,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 18.63,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 24.3
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.13
             }
         ]
     },
@@ -18840,15 +18840,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT1765561",
-                "vid": "1662036846991388672",
+                "sku": "CJJT176556101AZ",
+                "vid": "1662036847075274752",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Photo Color",
                 "prix": 8.69,
-                "poids": 0.0,
+                "poids": 103.0,
                 "stock": 13885,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.28,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -19322,6 +19322,56 @@
                 "prix": 330.48,
                 "poids": 0.0,
                 "stock": 7,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2100029562424938498",
+        "nom": "Solar Powered Motion Sensor Outdoor Light W7115 1 Black For Garden Yard Street Wall LED",
+        "prixBase": 17.23,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/14c65e82-7dec-45a6-80c2-9c0c10af8a71.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY316756001AZ",
+                "vid": "2100029562672402434",
+                "taille": "N/A",
+                "couleur": "W71151",
+                "prix": 17.23,
+                "poids": 1868.0,
+                "stock": 9015,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 28.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1867487976423837696",
+        "nom": "10 Layers Of 9-grid Non-woven Fabric Shoe Cabinet In Coffee Color",
+        "prixBase": 16.52,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ff538c7c-9fae-4177-afd7-0c1b8521f6f6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224291701AZ",
+                "vid": "1867487976813907968",
+                "taille": "N/A",
+                "couleur": "Coffee",
+                "prix": 16.52,
+                "poids": 1980.0,
+                "stock": 306,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
