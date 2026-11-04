@@ -12496,7 +12496,7 @@
                 "poids": 2010.0,
                 "stock": 26035,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 26.42,
+                "shippingCostFR": 27.59,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 35.7
             },
@@ -16421,7 +16421,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1875383188586532865",
         "nom": "Firewood Stands",
-        "prixBase": 35.44,
+        "prixBase": 33.94,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/75e879b9-fc49-4bed-bf9b-eaa4adfd83ef.jpg"
@@ -16432,9 +16432,9 @@
                 "vid": "1875383188657836033",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 35.44,
+                "prix": 33.94,
                 "poids": 4700.0,
-                "stock": 98,
+                "stock": 92,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -16903,8 +16903,8 @@
                 "stock": 37906,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.74,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.59
             },
             {
                 "sku": "CJJJJTJT13311-BLACK-74X74CM",
@@ -16916,8 +16916,8 @@
                 "stock": 37906,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.59
             },
             {
                 "sku": "CJJJJTJT13311-BLACK-57X57CM",
@@ -16928,9 +16928,9 @@
                 "poids": 130.0,
                 "stock": 37906,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingCostFR": 5.85,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.59
             }
         ]
     },
@@ -19446,7 +19446,7 @@
                 "couleur": "Black",
                 "prix": 63.25,
                 "poids": 17335.0,
-                "stock": 1534,
+                "stock": 1499,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -19624,6 +19624,56 @@
                 "stock": 7688,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 36.73,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1867136480150704128",
+        "nom": "4 Layers, 8 Grids With Fabric Cover, 3 Hanging Clothes Poles, Non-woven Wardrobe",
+        "prixBase": 22.57,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/40a1c1dc-e034-4741-9997-c961d2c6bcd9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224201201AZ",
+                "vid": "1867136480561745920",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 22.57,
+                "poids": 3500.0,
+                "stock": 357,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031968403265601537",
+        "nom": "Wooden Chicken Coop For 3-4 Chickens",
+        "prixBase": 550.25,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/57e7bedc-06a5-41bc-9ea1-bbc2a0cf6cf2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846230001",
+                "vid": "2031968403391430657",
+                "taille": "N/A",
+                "couleur": "Dark Gray",
+                "prix": 550.25,
+                "poids": 16964.0,
+                "stock": 39,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
