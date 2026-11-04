@@ -82,8 +82,8 @@
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 25.6,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.09
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 32.61
             },
             {
                 "sku": "CJYD203644803CX",
@@ -107,7 +107,7 @@
                 "poids": 2180.0,
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 27.94,
+                "shippingCostFR": 29.2,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 30.12
             },
@@ -4610,7 +4610,7 @@
                 "poids": 220.0,
                 "stock": 24707,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.68,
+                "shippingCostFR": 6.81,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.57
             },
@@ -7563,6 +7563,70 @@
                 "shippingCostFR": 4.31,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1419105473776455680",
+        "nom": "Desktop Recording Wired USB With Microphone",
+        "prixBase": 2.34,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0a86ca5e-7da0-4c95-8e07-154066b4095f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJMK122646501AZ",
+                "vid": "1419109035369697280",
+                "taille": "USB",
+                "couleur": "Black Standard Edition",
+                "prix": 2.34,
+                "poids": 183.0,
+                "stock": 120210,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.41,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.54
+            },
+            {
+                "sku": "CJMK122646502BY",
+                "vid": "1419109035386474496",
+                "taille": "USB",
+                "couleur": "Black upgrade version",
+                "prix": 2.34,
+                "poids": 183.0,
+                "stock": 120210,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.41,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.54
+            },
+            {
+                "sku": "CJMK122646503CX",
+                "vid": "1419109035390668800",
+                "taille": "USB",
+                "couleur": "White standard version",
+                "prix": 2.34,
+                "poids": 183.0,
+                "stock": 120210,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.41,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.54
+            },
+            {
+                "sku": "CJMK122646504DW",
+                "vid": "1419109035399057408",
+                "taille": "USB",
+                "couleur": "White upgrade version",
+                "prix": 2.34,
+                "poids": 183.0,
+                "stock": 120210,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.41,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.54
             }
         ]
     }
