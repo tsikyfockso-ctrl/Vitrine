@@ -19,8 +19,8 @@
                 "stock": 12036,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.44,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Eub Special Line",
+                "shippingCostUS": 8.54
             }
         ]
     },
@@ -678,7 +678,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 17.24,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 19.17
+                "shippingCostUS": 21.78
             },
             {
                 "sku": "CJYDQTJM01094-SKY BLUE",
@@ -688,8 +688,8 @@
                 "prix": 28.62,
                 "poids": 1000.0,
                 "stock": 33468,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 16.94,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 17.24,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 19.17
             },
@@ -725,7 +725,7 @@
                 "couleur": "White",
                 "prix": 20.37,
                 "poids": 210.0,
-                "stock": 140,
+                "stock": 127,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
