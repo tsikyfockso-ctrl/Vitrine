@@ -16573,8 +16573,8 @@
                 "prix": 7.11,
                 "poids": 688.0,
                 "stock": 9212,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 13.55,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 15.55
             }
@@ -16929,8 +16929,8 @@
                 "stock": 37906,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.85,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.59
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.64
             }
         ]
     },
@@ -17102,8 +17102,8 @@
                 "stock": 9313,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.04,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.92
             }
         ]
     },
@@ -19971,6 +19971,81 @@
                 "shippingCostFR": 4.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.82
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1950760980626710529",
+        "nom": "Outdoor Walk-In Tunnel Greenhouse 11.5 X 10 X 6.5 With Roll-up Windows Zippered Door PE Cover Green",
+        "prixBase": 131.21,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/9b03f267-e7ff-4a4d-bdb3-2dc5bcf8d152.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL244411501AZ",
+                "vid": "1950760980706402305",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 131.21,
+                "poids": 1750.0,
+                "stock": 418,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1905146684067045378",
+        "nom": "10pcs White, Plastic Folding Chair",
+        "prixBase": 137.59,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/76ec699e-10a6-4f2e-a91f-e8e9f48a1c02.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU233847101AZ",
+                "vid": "1905146684301926402",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 137.59,
+                "poids": 34000.0,
+                "stock": 203,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1872114894454059009",
+        "nom": "Wall Hugger Recliner,Power Recliner Chair,Electric Recliner For Living Room,PU Leather Reclining Armchair For Small Space,Reclining Sofa For Bedroom Apartment RV,with USB Port",
+        "prixBase": 321.62,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/8a09e6b2-7b64-46ca-88e1-60dad89a0186.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU225383901AZ",
+                "vid": "1872114894621831170",
+                "taille": "N/A",
+                "couleur": "Light Gray",
+                "prix": 321.62,
+                "poids": 25015.0,
+                "stock": 41,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
