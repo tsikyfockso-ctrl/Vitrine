@@ -9,7 +9,7 @@ from deep_translator import GoogleTranslator
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
 
-MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
+MOTS_CLES_RECHERCHE = ["New products"]
 
 def generer_signature(params, secret):
     """
