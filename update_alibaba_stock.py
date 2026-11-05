@@ -11,9 +11,6 @@ APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30J
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-# Passerelle officielle Alibaba (ICBU Open Platform)
-ALIBABA_GATEWAY_URL = "https://gw.open.alibaba.com/openapi/param2/1/system.oauth2/" # ou passerelle standard ICBU
-
 def generer_signature(params, secret):
     """
     Génère la signature MD5 requise par l'Open Platform Alibaba.
@@ -33,29 +30,31 @@ def traduire_texte(texte):
         return texte
 
 def recuperer_produits_alibaba_api(keyword):
-    timestamp = str(int(time.time() * 1000)) # Timestamp en millisecondes souvent requis pour ICBU
+    timestamp = str(int(time.time() * 1000))
     
-    # Paramètres spécifiques à l'API de recherche de produits Alibaba B2B (ICBU)
+    # Paramètres conformes à l'API Alibaba ICBU V2 (searchV2)
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "alibaba.icbu.product.list", # Méthode standard ICBU pour lister/rechercher des produits
+        "method": "alibaba.icbu.product.searchV2", # Méthode officielle issue de votre documentation
         "keywords": keyword,
         "page_size": 50,
         "page_no": 1
     }
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
-    headers = {"Content-Type": "application/json;charset=utf-8"}
+    
+    # L'API Alibaba Open Platform nécessite un encodage de formulaire standard
+    headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
 
-    # URL de la passerelle OpenAPI Alibaba B2B
-    url_requete = "https://api.alibaba.com/router/json" # Passerelle universelle Alibaba Open Platform
+    # URL de la passerelle OpenAPI officielle Alibaba ICBU
+    url_requete = f"https://gw.open.alibaba.com/openapi/param2/1/system.icbu/alibaba.icbu.product.searchV2/{APP_KEY}"
 
     try:
-        response = requests.post(url_requete, json=payload, headers=headers, timeout=20)
+        response = requests.post(url_requete, data=payload, headers=headers, timeout=20)
         print(f"Réponse brute Alibaba ICBU ({response.status_code}) pour '{keyword}'")
         
         if response.status_code == 200:
@@ -66,11 +65,10 @@ def recuperer_produits_alibaba_api(keyword):
                 print(f"⚠️ Erreur renvoyée par l'API Alibaba : {data['error_response']}")
                 return []
                 
-            # Extraction de la réponse selon le format standard Alibaba Open Platform
-            resp_key = [k for k in data.keys() if "response" in k]
-            if resp_key:
-                inner_data = data[resp_key[0]]
-                return inner_data.get("result", {}).get("products", inner_data.get("products", []))
+            # Extraction des produits selon la structure de réponse ICBU
+            return data.get("result", {}).get("products", data.get("products", []))
+        else:
+            print(f"⚠️ Erreur HTTP {response.status_code} : {response.text[:200]}")
                 
     except Exception as e:
         print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
