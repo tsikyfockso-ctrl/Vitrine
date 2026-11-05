@@ -5,16 +5,12 @@ import time
 import hashlib
 from deep_translator import GoogleTranslator
 
-# Récupération des clés officielles depuis les secrets GitHub
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
 def generer_signature(params, secret):
-    """
-    Génère la signature MD5 requise par l'Open Platform Alibaba.
-    """
     sorted_params = sorted(params.items())
     query_string = "".join([f"{k}{v}" for k, v in sorted_params])
     sign_str = secret + query_string + secret
@@ -30,10 +26,6 @@ def traduire_texte(texte):
         return texte
 
 def obtenir_access_token():
-    """
-    Récupère le jeton d'accès OAuth officiel auprès d'Alibaba Open Platform 
-    maintenant que l'application est validée (Online).
-    """
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
@@ -48,22 +40,20 @@ def obtenir_access_token():
     
     try:
         response = requests.post(url, data=payload, timeout=15)
+        print(f"🔍 Réponse brute Alibaba (Auth) [Statut {response.status_code}] : {response.text}")
+        
         if response.status_code == 200:
             data = response.json()
             token = data.get("access_token")
             if token:
-                print("✅ Jeton d'accès OAuth obtenu avec succès !")
                 return token
             else:
-                print(f"⚠️ Erreur dans la réponse du token : {data}")
+                print(f"⚠️ JSON reçu mais pas d'access_token : {data}")
     except Exception as e:
         print(f"⚠️ Erreur de connexion pour le token : {e}")
     return None
 
 def recuperer_details_produit_reel(product_id, access_token):
-    """
-    Interroge l'API Alibaba pour récupérer toutes les données réelles et détaillées du produit.
-    """
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
@@ -93,9 +83,6 @@ def recuperer_details_produit_reel(product_id, access_token):
     return None
 
 def rechercher_produits_alibaba(keyword, access_token):
-    """
-    Recherche les produits correspondants au mot-clé via l'API Alibaba ICBU.
-    """
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
@@ -132,7 +119,7 @@ def generate_update_stock_alibaba_json():
     access_token = obtenir_access_token()
     
     if not access_token:
-        print("⚠️ Impossible d'obtenir l'access_token. Vérifiez vos accès.")
+        print("⚠️ Impossible d'obtenir l'access_token. Regardez le message brut ci-dessus pour identifier le paramètre manquant.")
         return
 
     produits_existants = {}
