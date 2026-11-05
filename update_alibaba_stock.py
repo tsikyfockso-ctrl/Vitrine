@@ -11,12 +11,12 @@ APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30J
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-# Passerelle officielle pour l'écosystème Eco / AliExpress Open Platform
-ALIBABA_GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
+# Passerelle officielle Alibaba (ICBU Open Platform)
+ALIBABA_GATEWAY_URL = "https://gw.open.alibaba.com/openapi/param2/1/system.oauth2/" # ou passerelle standard ICBU
 
 def generer_signature(params, secret):
     """
-    Génère la signature MD5 requise par l'Open Platform.
+    Génère la signature MD5 requise par l'Open Platform Alibaba.
     """
     sorted_params = sorted(params.items())
     query_string = "".join([f"{k}{v}" for k, v in sorted_params])
@@ -32,20 +32,18 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
-# Passerelle globale AliExpress / Alibaba Open Platform
-ALIBABA_GATEWAY_URL = "https://api-sg.aliexpress.com/sync"
-
 def recuperer_produits_alibaba_api(keyword):
-    timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
+    timestamp = str(int(time.time() * 1000)) # Timestamp en millisecondes souvent requis pour ICBU
     
+    # Paramètres spécifiques à l'API de recherche de produits Alibaba B2B (ICBU)
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "aliexpress.affiliate.product.query", # Méthode standard de recherche de produits
-        "keywords": keyword, # ou "keyword" selon votre console
+        "method": "alibaba.icbu.product.list", # Méthode standard ICBU pour lister/rechercher des produits
+        "keywords": keyword,
         "page_size": 50,
         "page_no": 1
     }
@@ -53,32 +51,33 @@ def recuperer_produits_alibaba_api(keyword):
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/json;charset=utf-8"}
 
-    # On utilise l'URL de synchronisation sans chemin d'API supplémentaire
+    # URL de la passerelle OpenAPI Alibaba B2B
+    url_requete = "https://api.alibaba.com/router/json" # Passerelle universelle Alibaba Open Platform
+
     try:
-        response = requests.post(ALIBABA_GATEWAY_URL, json=payload, headers=headers, timeout=20)
-        print(f"Réponse brute Alibaba ({response.status_code}) pour '{keyword}'")
+        response = requests.post(url_requete, json=payload, headers=headers, timeout=20)
+        print(f"Réponse brute Alibaba ICBU ({response.status_code}) pour '{keyword}'")
         
         if response.status_code == 200:
             data = response.json()
             print(f"Structure JSON reçue : {list(data.keys())}")
             
-            # Gestion de la réponse de l'API affiliée/produits
             if "error_response" in data:
-                print(f"⚠️ Erreur renvoyée par l'API : {data['error_response']}")
+                print(f"⚠️ Erreur renvoyée par l'API Alibaba : {data['error_response']}")
                 return []
                 
-            # Extraction selon le chemin de réponse de l'API AliExpress
+            # Extraction de la réponse selon le format standard Alibaba Open Platform
             resp_key = [k for k in data.keys() if "response" in k]
             if resp_key:
                 inner_data = data[resp_key[0]]
-                return inner_data.get("resp_result", {}).get("result", {}).get("products", [])
+                return inner_data.get("result", {}).get("products", inner_data.get("products", []))
                 
     except Exception as e:
         print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
     
     return []
+
 def generate_update_stock_alibaba_json():
-    # 1. Charger l'ancien fichier JSON pour préserver l'existant en cas de besoin
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
         try:
@@ -95,9 +94,8 @@ def generate_update_stock_alibaba_json():
     tous_les_produits = produits_existants.copy()
     produits_trouves = 0
 
-    # 2. Recherche par mots-clés
     for keyword in MOTS_CLES_RECHERCHE:
-        print(f"🔍 Recherche Alibaba en cours pour : '{keyword}'")
+        print(f"🔍 Recherche Alibaba ICBU en cours pour : '{keyword}'")
         items = recuperer_produits_alibaba_api(keyword)
         
         for item in items:
@@ -156,11 +154,10 @@ def generate_update_stock_alibaba_json():
 
     resultat_final = list(tous_les_produits.values())
 
-    # 3. Sauvegarde finale
     with open("update_alibaba_stock.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Traitement terminé : {len(resultat_final)} produits enregistrés dans update_stock_alibaba.json (Nouveaux: {produits_trouves})")
+    print(f"🎉 Traitement terminé : {len(resultat_final)} produits enregistrés dans update_alibaba_stock.json (Nouveaux: {produits_trouves})")
 
 if __name__ == "__main__":
     generate_update_stock_alibaba_json()
