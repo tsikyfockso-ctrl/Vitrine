@@ -32,40 +32,42 @@ def traduire_texte(texte):
 def recuperer_produits_alibaba_api(keyword):
     timestamp = str(int(time.time() * 1000))
     
-    # Paramètres conformes à l'API Alibaba ICBU V2 (searchV2)
+    # Paramètres de la requête
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "alibaba.icbu.product.searchV2", # Méthode officielle issue de votre documentation
+        "method": "alibaba.icbu.product.searchV2",
         "keywords": keyword,
         "page_size": 50,
         "page_no": 1
     }
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
-    
-    # L'API Alibaba Open Platform nécessite un encodage de formulaire standard
     headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
 
-    # URL de la passerelle OpenAPI officielle Alibaba ICBU
-    url_requete = f"https://api.alibaba.com/router/json"
+    # Passerelle officielle OpenAPI Alibaba ICBU avec le format de routage standard
+    url_requete = f"https://api.alibaba.com/openapi/param2/1/system.icbu/alibaba.icbu.product.searchV2/{APP_KEY}"
 
     try:
         response = requests.post(url_requete, data=payload, headers=headers, timeout=20)
         print(f"Réponse brute Alibaba ICBU ({response.status_code}) pour '{keyword}'")
         
         if response.status_code == 200:
-            data = response.json()
+            try:
+                data = response.json()
+            except Exception:
+                print(f"⚠️ La réponse n'est pas du JSON valide : {response.text[:200]}")
+                return []
+                
             print(f"Structure JSON reçue : {list(data.keys())}")
             
             if "error_response" in data:
                 print(f"⚠️ Erreur renvoyée par l'API Alibaba : {data['error_response']}")
                 return []
                 
-            # Extraction des produits selon la structure de réponse ICBU
             return data.get("result", {}).get("products", data.get("products", []))
         else:
             print(f"⚠️ Erreur HTTP {response.status_code} : {response.text[:200]}")
@@ -74,7 +76,7 @@ def recuperer_produits_alibaba_api(keyword):
         print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
     
     return []
-
+    
 def generate_update_stock_alibaba_json():
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
