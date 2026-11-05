@@ -33,7 +33,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.12,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.96
+                "shippingCostUS": 7.53
             },
             {
                 "sku": "CJWJNHNT01879-GREY",
@@ -2194,7 +2194,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 6.82
             },
             {
                 "sku": "CJNT109692103CX",
@@ -2257,7 +2257,7 @@
                 "poids": 140.0,
                 "stock": 960000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 5.96,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.82
             },
@@ -2283,7 +2283,7 @@
                 "poids": 140.0,
                 "stock": 960000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 5.96,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -2348,7 +2348,7 @@
                 "poids": 140.0,
                 "stock": 960000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 5.96,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 30.65
             },
@@ -2402,7 +2402,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 6.82
             },
             {
                 "sku": "CJNT109692119SH",
@@ -2439,7 +2439,7 @@
                 "poids": 140.0,
                 "stock": 960000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.87,
+                "shippingCostFR": 5.96,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -2467,7 +2467,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.87,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.45
+                "shippingCostUS": 6.82
             },
             {
                 "sku": "CJNT109692124XC",
@@ -2671,7 +2671,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.86,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.28
+                "shippingCostUS": 9.25
             },
             {
                 "sku": "CJYE204936604DW",
@@ -28778,6 +28778,70 @@
                 "shippingCostFR": 4.78,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.7
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406150745031609400",
+        "nom": "Hand-woven Summer Hat Straw Hat Female Sunshade Flower Foldable Sun Protection Sun Hat",
+        "prixBase": 2.75,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/4e27e864-feac-4dd2-9a4c-f401270f3263.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBQ206111701AZ",
+                "vid": "2406150745031609600",
+                "taille": "M56to58cm",
+                "couleur": "Beige",
+                "prix": 2.75,
+                "poids": 220.0,
+                "stock": 52557,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.81,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.07
+            },
+            {
+                "sku": "CJBQ206111702BY",
+                "vid": "2406150745061603100",
+                "taille": "M56to58cm",
+                "couleur": "Khaki",
+                "prix": 2.75,
+                "poids": 220.0,
+                "stock": 52557,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.81,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.07
+            },
+            {
+                "sku": "CJBQ206111703CX",
+                "vid": "2406150745061603300",
+                "taille": "M56to58cm",
+                "couleur": "Pink",
+                "prix": 2.75,
+                "poids": 220.0,
+                "stock": 52557,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.81,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.07
+            },
+            {
+                "sku": "CJBQ206111704DW",
+                "vid": "2406150745061603400",
+                "taille": "M56to58cm",
+                "couleur": "Navy Blue",
+                "prix": 2.75,
+                "poids": 220.0,
+                "stock": 52557,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.81,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.07
             }
         ]
     }
