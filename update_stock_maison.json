@@ -509,7 +509,7 @@
                 "couleur": "Silvery",
                 "prix": 73.52,
                 "poids": 2070.0,
-                "stock": 98,
+                "stock": 49,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -10143,7 +10143,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2029126859464245250",
         "nom": "Modern Accent Chair, Contemporary Boucle Fabric Accent Armchair Comfy Upholstered Leisure Single Sofa Chair For Living Room Bedroom Apartment Office - Orange  - Green",
-        "prixBase": 118.41,
+        "prixBase": 124.63,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17725824/4dffa62e-61e3-4a30-9744-f1f5ce19b14d.jpg"
@@ -10154,9 +10154,9 @@
                 "vid": "2029126859736875010",
                 "taille": "N/A",
                 "couleur": "Antique Green",
-                "prix": 118.41,
+                "prix": 124.63,
                 "poids": 23002.0,
-                "stock": 22,
+                "stock": 12,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17681,7 +17681,7 @@
                 "poids": 120.0,
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.67,
+                "shippingCostFR": 5.74,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.17
             },
@@ -17734,8 +17734,8 @@
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.74,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.17
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJYD206667608HS",
@@ -17746,7 +17746,7 @@
                 "poids": 185.0,
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.33,
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.58
             },
@@ -17760,8 +17760,8 @@
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.17
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.13
             },
             {
                 "sku": "CJYD206667610JQ",
@@ -17798,7 +17798,7 @@
                 "poids": 185.0,
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.33,
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.58
             }
@@ -19676,6 +19676,301 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1904786778375757826",
+        "nom": "19 Inch Black Iron Lawn Roller Cylindrical",
+        "prixBase": 35.46,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/42b6178d-a51f-4505-bfe4-196ad3494761.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL233757201AZ",
+                "vid": "1904786778551918594",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 35.46,
+                "poids": 10650.0,
+                "stock": 384,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2099350185012494338",
+        "nom": "Solar Powered Rechargeable Motion Sensor Waterproof Garden Light W736A For Yard Decoration LED Landscape Lighting",
+        "prixBase": 14.81,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/619dc4bc-68ed-4743-8e55-622925296d21.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY316123301AZ",
+                "vid": "2099350185125740546",
+                "taille": "N/A",
+                "couleur": "W736A",
+                "prix": 14.81,
+                "poids": 1540.0,
+                "stock": 7697,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 23.89,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2610130634371602100",
+        "nom": "Portable Electric Space Heater For Bedroom - Fast Heating Energy Efficient Quiet Operation Winter Home Warmth Device",
+        "prixBase": 3.16,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2026/10/13/06/b40067db-997f-4114-9b33-a62d836eb5bb_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD325233101AZ",
+                "vid": "2610130634371603600",
+                "taille": "EU",
+                "couleur": "Gray",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233102BY",
+                "vid": "2610130634371603601",
+                "taille": "US",
+                "couleur": "Gray",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233103CX",
+                "vid": "2610130634371603602",
+                "taille": "AU",
+                "couleur": "Gray",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233104DW",
+                "vid": "2610130634371603603",
+                "taille": "UK",
+                "couleur": "Gray",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233105EV",
+                "vid": "2610130634371603604",
+                "taille": "EU",
+                "couleur": "Blue",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233106FU",
+                "vid": "2610130634371603605",
+                "taille": "US",
+                "couleur": "Blue",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233107GT",
+                "vid": "2610130634371603606",
+                "taille": "AU",
+                "couleur": "Blue",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233108HS",
+                "vid": "2610130634371603607",
+                "taille": "UK",
+                "couleur": "Blue",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233109IR",
+                "vid": "2610130634371603608",
+                "taille": "EU",
+                "couleur": "Green",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233110JQ",
+                "vid": "2610130634371603609",
+                "taille": "US",
+                "couleur": "Green",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233111KP",
+                "vid": "2610130634371603610",
+                "taille": "AU",
+                "couleur": "Green",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            },
+            {
+                "sku": "CJYD325233112LO",
+                "vid": "2610130634371603611",
+                "taille": "UK",
+                "couleur": "Green",
+                "prix": 3.16,
+                "poids": 470.0,
+                "stock": 94047,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.59,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 13.14
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1394548378536382464",
+        "nom": "Home Decoration Inkjet Printing Frameless Picture Core",
+        "prixBase": 0.82,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1621321086907.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJZS113413701AZ",
+                "vid": "1394548379874365440",
+                "taille": "20x40cm",
+                "couleur": "Green",
+                "prix": 0.82,
+                "poids": 40.0,
+                "stock": 200000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.8
+            },
+            {
+                "sku": "CJZS113413702BY",
+                "vid": "1394548379886948352",
+                "taille": "30x60cm",
+                "couleur": "Green",
+                "prix": 0.82,
+                "poids": 80.0,
+                "stock": 200000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.8
+            },
+            {
+                "sku": "CJZS113413703CX",
+                "vid": "1394548379899531264",
+                "taille": "40x80cm",
+                "couleur": "Green",
+                "prix": 0.82,
+                "poids": 100.0,
+                "stock": 200000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.8
+            },
+            {
+                "sku": "CJZS113413704DW",
+                "vid": "1394548379907919872",
+                "taille": "50x100cm",
+                "couleur": "Green",
+                "prix": 0.82,
+                "poids": 120.0,
+                "stock": 200000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.8
+            },
+            {
+                "sku": "CJZS113413705EV",
+                "vid": "1394548379916308480",
+                "taille": "60x120cm",
+                "couleur": "Green",
+                "prix": 0.82,
+                "poids": 140.0,
+                "stock": 200000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.44,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
             }
         ]
     }
