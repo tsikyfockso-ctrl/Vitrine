@@ -9,7 +9,7 @@ from deep_translator import GoogleTranslator
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
 
-MOTS_CLES_RECHERCHE = ["produict"]
+MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
 def generer_signature(params, secret):
     """
@@ -30,9 +30,12 @@ def traduire_texte(texte):
         return texte
 
 def recuperer_produits_alibaba_api(keyword):
+    """
+    Récupère les produits via l'API Alibaba en gérant proprement les erreurs 
+    pour éviter de bloquer le pipeline GitHub Actions.
+    """
     timestamp = str(int(time.time() * 1000))
     
-    # Paramètres de la requête
     payload = {
         "app_key": APP_KEY,
         "timestamp": timestamp,
@@ -41,42 +44,41 @@ def recuperer_produits_alibaba_api(keyword):
         "sign_method": "md5",
         "method": "alibaba.icbu.product.searchV2",
         "keywords": keyword,
-        "page_size": 50,
+        "page_size": 20,
         "page_no": 1
     }
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
 
-    # Passerelle officielle OpenAPI Alibaba ICBU avec le format de routage standard
-    url_requete = f"https://api.alibaba.com/openapi/param2/1/system.icbu/alibaba.icbu.product.searchV2/{APP_KEY}"
+    # Passerelle officielle
+    url_requete = f"https://api.alibaba.com/router/json"
 
     try:
-        response = requests.post(url_requete, data=payload, headers=headers, timeout=20)
-        print(f"Réponse brute Alibaba ICBU ({response.status_code}) pour '{keyword}'")
+        response = requests.post(url_requete, data=payload, headers=headers, timeout=15)
+        print(f"Requête Alibaba pour '{keyword}' - Statut : {response.status_code}")
         
+        # Vérification si la réponse est bien du JSON (et non une page d'erreur HTML 404)
         if response.status_code == 200:
             try:
                 data = response.json()
             except Exception:
-                print(f"⚠️ La réponse n'est pas du JSON valide : {response.text[:200]}")
+                print(f"⚠️ La passerelle a renvoyé du HTML (API restreinte ou jeton OAuth requis).")
                 return []
                 
-            print(f"Structure JSON reçue : {list(data.keys())}")
-            
             if "error_response" in data:
-                print(f"⚠️ Erreur renvoyée par l'API Alibaba : {data['error_response']}")
+                print(f"⚠️ Erreur API : {data['error_response']}")
                 return []
                 
-            return data.get("result", {}).get("products", data.get("products", []))
+            return data.get("result", {}).get("products", [])
         else:
-            print(f"⚠️ Erreur HTTP {response.status_code} : {response.text[:200]}")
-                
+            print(f"⚠️ Erreur HTTP {response.status_code}")
+            
     except Exception as e:
-        print(f"⚠️ Erreur de connexion pour '{keyword}' : {e}")
+        print(f"⚠️ Erreur de connexion : {e}")
     
     return []
-    
+
 def generate_update_stock_alibaba_json():
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -95,7 +97,7 @@ def generate_update_stock_alibaba_json():
     produits_trouves = 0
 
     for keyword in MOTS_CLES_RECHERCHE:
-        print(f"🔍 Recherche Alibaba ICBU en cours pour : '{keyword}'")
+        print(f"🔍 Recherche en cours pour : '{keyword}'")
         items = recuperer_produits_alibaba_api(keyword)
         
         for item in items:
@@ -108,56 +110,36 @@ def generate_update_stock_alibaba_json():
             nom_fr = traduire_texte(nom_original)
             
             image_url = item.get("imageUrl") or item.get("image") or ""
-            prix_base = float(item.get("price") or item.get("salePrice") or 0.0)
+            prix_base = float(item.get("price") or item.get("salePrice") or 10.0)
             
-            variantes = []
-            variants_list = item.get("skuList", [])
-            
-            if variants_list:
-                for var in variants_list:
-                    variantes.append({
-                        "sku": str(var.get("skuId") or pid),
-                        "vid": str(var.get("skuId") or "1"),
-                        "taille": str(var.get("size") or "Standard"),
-                        "couleur": str(var.get("color") or "Unique"),
-                        "prix": float(var.get("price") or prix_base),
-                        "poids": float(var.get("weight") or 0.5),
-                        "stock": int(var.get("stock") or 100),
-                        "shippingMethodFR": "Alibaba Standard Shipping",
-                        "shippingCostFR": 0.0,
-                        "shippingMethodUS": "Alibaba Standard Shipping",
-                        "shippingCostUS": 0.0
-                    })
-            else:
-                variantes.append({
-                    "sku": pid,
-                    "vid": pid,
-                    "taille": "Standard",
-                    "couleur": "Unique",
-                    "prix": prix_base,
-                    "poids": 0.5,
-                    "stock": int(item.get("stock") or 100),
-                    "shippingMethodFR": "Alibaba Standard Shipping",
-                    "shippingCostFR": 0.0,
-                    "shippingMethodUS": "Alibaba Standard Shipping",
-                    "shippingCostUS": 0.0
-                })
-
             tous_les_produits[pid] = {
                 "dropshipping": "Alibaba",
                 "pid": pid,
                 "nom": nom_fr,
                 "prixBase": round(prix_base, 2),
                 "images": [image_url] if image_url else [],
-                "variantes": variantes
+                "variantes": [{
+                    "sku": pid,
+                    "vid": pid,
+                    "taille": "Standard",
+                    "couleur": "Unique",
+                    "prix": prix_base,
+                    "poids": 0.5,
+                    "stock": 100,
+                    "shippingMethodFR": "Alibaba Standard",
+                    "shippingCostFR": 0.0,
+                    "shippingMethodUS": "Alibaba Standard",
+                    "shippingCostUS": 0.0
+                }]
             }
 
     resultat_final = list(tous_les_produits.values())
 
+    # Sauvegarde garantie pour alimenter la vitrine Mayah Store
     with open("update_alibaba_stock.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Traitement terminé : {len(resultat_final)} produits enregistrés dans update_alibaba_stock.json (Nouveaux: {produits_trouves})")
+    print(f"🎉 Synchronisation terminée : {len(resultat_final)} produits au total dans le fichier JSON.")
 
 if __name__ == "__main__":
     generate_update_stock_alibaba_json()
