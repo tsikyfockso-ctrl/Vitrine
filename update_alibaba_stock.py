@@ -51,7 +51,7 @@ def recuperer_produits_alibaba_api(keyword):
     headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
 
     # URL de la passerelle OpenAPI officielle Alibaba ICBU
-    url_requete = f"https://gw.open.alibaba.com/openapi/param2/1/system.icbu/alibaba.icbu.product.searchV2/{APP_KEY}"
+    url_requete = f"https://api.alibaba.com/router/json"
 
     try:
         response = requests.post(url_requete, data=payload, headers=headers, timeout=20)
