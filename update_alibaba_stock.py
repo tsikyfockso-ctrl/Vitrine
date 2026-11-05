@@ -65,7 +65,7 @@ def recuperer_details_produit_reel(product_id, access_token):
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": "alibaba.icbu.product.get", # Méthode officielle pour obtenir les détails complets d'un produit
+        "method": "alibaba.icbu.product.get",
         "product_id": product_id,
         "access_token": access_token
     }
@@ -80,7 +80,6 @@ def recuperer_details_produit_reel(product_id, access_token):
             data = response.json()
             if "error_response" in data:
                 return None
-            # Retourne l'objet produit complet fourni par l'API
             return data.get("result", data.get("product_info", {}))
     except Exception as e:
         print(f"⚠️ Erreur de connexion pour le produit {product_id} : {e}")
@@ -89,7 +88,7 @@ def recuperer_details_produit_reel(product_id, access_token):
 
 def rechercher_produits_alibaba(keyword, access_token):
     """
-    Recherche les produits correspondants au mot-clé.
+    Recherche les produits correspondants au mot-clé via l'API Alibaba.
     """
     timestamp = str(int(time.time() * 1000))
     payload = {
@@ -122,7 +121,7 @@ def rechercher_produits_alibaba(keyword, access_token):
     
     return []
 
-def synchroniser_catalogue_reel():
+def generate_update_stock_alibaba_json():
     print("🔑 Authentification auprès d'Alibaba Open Platform...")
     access_token = obtenir_access_token()
     
@@ -130,8 +129,21 @@ def synchroniser_catalogue_reel():
         print("⚠️ Impossible d'obtenir l'access_token. Vérifiez vos permissions ou vos clés.")
         return
 
-    tous_les_produits = {}
-    produits_traites = 0
+    produits_existants = {}
+    if os.path.exists("update_alibaba_stock.json"):
+        try:
+            with open("update_alibaba_stock.json", "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                if isinstance(old_data, list):
+                    for p in old_data:
+                        pid = p.get("pid")
+                        if pid:
+                            produits_existants[pid] = p
+        except Exception as e:
+            print(f"⚠️ Impossible de lire l'ancien fichier JSON : {e}")
+
+    tous_les_produits = produits_existants.copy()
+    produits_trouves = 0
 
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba ICBU pour le mot-clé : '{keyword}'")
@@ -146,63 +158,65 @@ def synchroniser_catalogue_reel():
             details_complets = recuperer_details_produit_reel(pid, access_token)
             
             if not details_complets:
-                # Utilisation des données brutes de recherche si l'appel détaillé est restreint par le plan API
                 details_complets = item
 
-            produits_traites += 1
+            produits_trouves += 1
             nom_original = details_complets.get("subject") or details_complets.get("title") or "Produit Alibaba"
             nom_fr = traduire_texte(nom_original)
             
-            # Récupération des images réelles
             images = details_complets.get("images") or details_complets.get("imageUrlList") or [details_complets.get("imageUrl", "")]
             images = [img for img in images if img]
 
             prix_base = float(details_complets.get("price") or details_complets.get("salePrice") or 0.0)
             
-            # Extraction réelle des variantes SKU renvoyées par l'API
             variantes = []
             skus_api = details_complets.get("skuList") or details_complets.get("skus", [])
             
             if skus_api:
                 for sku in skus_api:
                     variantes.append({
-                        "skuId": str(sku.get("skuId") or pid),
+                        "sku": str(sku.get("skuId") or pid),
+                        "vid": str(sku.get("skuId") or "1"),
                         "taille": str(sku.get("size") or sku.get("specification", {}).get("size", "Standard")),
                         "couleur": str(sku.get("color") or sku.get("specification", {}).get("color", "Unique")),
                         "prix": float(sku.get("price") or prix_base),
+                        "poids": float(sku.get("weight", 0.5)),
                         "stock": int(sku.get("stock") or sku.get("availableStock", 100)),
-                        "poids": float(sku.get("weight", 0.5))
+                        "shippingMethodFR": "Alibaba Standard Shipping",
+                        "shippingCostFR": 0.0,
+                        "shippingMethodUS": "Alibaba Standard Shipping",
+                        "shippingCostUS": 0.0
                     })
             else:
                 variantes.append({
-                    "skuId": pid,
+                    "sku": pid,
+                    "vid": pid,
                     "taille": "Standard",
                     "couleur": "Unique",
                     "prix": prix_base,
+                    "poids": 0.5,
                     "stock": int(details_complets.get("stock", 100)),
-                    "poids": 0.5
+                    "shippingMethodFR": "Alibaba Standard Shipping",
+                    "shippingCostFR": 0.0,
+                    "shippingMethodUS": "Alibaba Standard Shipping",
+                    "shippingCostUS": 0.0
                 })
 
-            # Sauvegarde exacte de toutes les données réelles du produit
             tous_les_produits[pid] = {
-                "fournisseur": "Alibaba ICBU",
+                "dropshipping": "Alibaba",
                 "pid": pid,
-                "nomOriginal": nom_original,
                 "nom": nom_fr,
-                "description": details_complets.get("description", "Description non disponible"),
                 "prixBase": round(prix_base, 2),
                 "images": images,
-                "attributs": details_complets.get("attributes", {}),
                 "variantes": variantes
             }
 
     resultat_final = list(tous_les_produits.values())
 
-    # Enregistrement direct dans le fichier JSON sans aucune valeur inventée
     with open("update_alibaba_stock.json", "w", encoding="utf-8") as f:
         json.dump(resultat_final, f, ensure_ascii=False, indent=4)
         
-    print(f"🎉 Synchronisation réussie : {len(resultat_final)} produits avec leurs détails réels enregistrés dans update_alibaba_stock.json.")
+    print(f"🎉 Synchronisation terminée : {len(resultat_final)} produits enregistrés dans update_alibaba_stock.json (Nouveaux: {produits_trouves})")
 
 if __name__ == "__main__":
     generate_update_stock_alibaba_json()
