@@ -17732,7 +17732,7 @@
                 "poids": 130.0,
                 "stock": 280418,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.76,
+                "shippingCostFR": 5.85,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.3
             },
@@ -17773,7 +17773,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.76,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.3
+                "shippingCostUS": 6.57
             },
             {
                 "sku": "CJWJYEYE03653-PINK-BEAR-XL",
@@ -17823,7 +17823,7 @@
                 "poids": 125.0,
                 "stock": 280418,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.72,
+                "shippingCostFR": 5.79,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.24
             },
@@ -17863,8 +17863,8 @@
                 "stock": 280418,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.76,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.3
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJWJYEYE03653-GREEN-RABBIT-L",
@@ -17915,8 +17915,8 @@
                 "stock": 280418,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.76,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.3
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
             },
             {
                 "sku": "CJWJYEYE03653-GREY-MOUSE-M",
@@ -17979,7 +17979,7 @@
                 "poids": 130.0,
                 "stock": 280418,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.76,
+                "shippingCostFR": 5.85,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.3
             },
@@ -29446,6 +29446,212 @@
                 "stock": 67627,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.81,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502140828481605000",
+        "nom": "Letter Graffiti Baseball Cap Curved Brim Soft Top Cotton Blend Adjustable Snapback Hat",
+        "prixBase": 1.75,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2026/04/07/11/faa2e9b6-7fa3-470f-9044-a136673c3a37.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBQ229174701AZ",
+                "vid": "2502140828481605200",
+                "taille": "Adjustable",
+                "couleur": "24A161 Black",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJBQ229174702BY",
+                "vid": "2502140828481605300",
+                "taille": "Adjustable",
+                "couleur": "24A161 Red",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJBQ229174703CX",
+                "vid": "2502140828481605500",
+                "taille": "Adjustable",
+                "couleur": "24 A161 Gray Blue",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJBQ229174704DW",
+                "vid": "2502140828481605600",
+                "taille": "Adjustable",
+                "couleur": "24A161 Orange",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJBQ229174705EV",
+                "vid": "2502140828481605800",
+                "taille": "Adjustable",
+                "couleur": "24A161 Beige",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJBQ229174707GT",
+                "vid": "2502140828481605900",
+                "taille": "Adjustable",
+                "couleur": "24A161 Smoky Gray",
+                "prix": 1.75,
+                "poids": 100.0,
+                "stock": 43492,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503260307351616100",
+        "nom": "Baby Wear Sleeveless Romper Women",
+        "prixBase": 3.68,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/f8cbeb73-42f3-4c60-ad4f-099106c515fa.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE233733001AZ",
+                "vid": "2503260307351616300",
+                "taille": "66cm",
+                "couleur": "Lotus Root Color",
+                "prix": 3.68,
+                "poids": 120.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733002BY",
+                "vid": "2503260307351616500",
+                "taille": "73CM",
+                "couleur": "Lotus Root Color",
+                "prix": 3.68,
+                "poids": 140.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733003CX",
+                "vid": "2503260307351616600",
+                "taille": "80cm",
+                "couleur": "Lotus Root Color",
+                "prix": 3.68,
+                "poids": 160.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733004DW",
+                "vid": "2503260307351616800",
+                "taille": "90cm",
+                "couleur": "Lotus Root Color",
+                "prix": 3.68,
+                "poids": 180.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.38,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733005EV",
+                "vid": "2503260307351617000",
+                "taille": "66cm",
+                "couleur": "Apricot",
+                "prix": 3.68,
+                "poids": 120.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733006FU",
+                "vid": "2503260307351617200",
+                "taille": "73CM",
+                "couleur": "Apricot",
+                "prix": 3.68,
+                "poids": 140.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733007GT",
+                "vid": "2503260307351617400",
+                "taille": "80cm",
+                "couleur": "Apricot",
+                "prix": 3.68,
+                "poids": 160.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE233733008HS",
+                "vid": "2503260307351617600",
+                "taille": "90cm",
+                "couleur": "Apricot",
+                "prix": 3.68,
+                "poids": 180.0,
+                "stock": 60384,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.38,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
