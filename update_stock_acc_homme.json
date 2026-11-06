@@ -4571,7 +4571,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.41,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.32
+                "shippingCostUS": 7.94
             },
             {
                 "sku": "CJNSFJPD00030-BLACK-1-120",
@@ -4608,7 +4608,7 @@
                 "poids": 277.0,
                 "stock": 592146,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.25,
+                "shippingCostFR": 7.41,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.94
             },
@@ -4634,7 +4634,7 @@
                 "poids": 219.0,
                 "stock": 592146,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.66,
+                "shippingCostFR": 6.8,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.05
             },
@@ -23361,8 +23361,8 @@
                 "stock": 127637,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.68,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.87
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.25
             },
             {
                 "sku": "CJYD209818008HS",
@@ -58187,7 +58187,7 @@
                 "poids": 170.0,
                 "stock": 42938,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.27,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.23
             },
@@ -58213,7 +58213,7 @@
                 "poids": 194.0,
                 "stock": 42938,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.53,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.23
             },
@@ -58239,7 +58239,7 @@
                 "poids": 187.0,
                 "stock": 42938,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingCostFR": 6.45,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.13
             },
@@ -58252,7 +58252,7 @@
                 "poids": 194.0,
                 "stock": 42938,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.41,
+                "shippingCostFR": 6.53,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.23
             }
@@ -77262,6 +77262,57 @@
                 "shippingCostFR": 5.25,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502250207411624700",
+        "nom": "PU Cassette Rfid Blocking Aluminum Alloy Polyurethane Card Mount",
+        "prixBase": 3.27,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/02/25/02/0b8f6c1f-5bb8-4987-ac58-6703cc8939d5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD230702601AZ",
+                "vid": "2502250207411624900",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 3.27,
+                "poids": 120.0,
+                "stock": 21380,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYD230702602BY",
+                "vid": "2502250207411625100",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 3.27,
+                "poids": 120.0,
+                "stock": 21380,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
+            },
+            {
+                "sku": "CJYD230702603CX",
+                "vid": "2502250207411625300",
+                "taille": "N/A",
+                "couleur": "Imitation Carbon Fiber Black",
+                "prix": 3.27,
+                "poids": 120.0,
+                "stock": 21380,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 6.71
             }
         ]
     }
