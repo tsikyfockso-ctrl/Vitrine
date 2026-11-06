@@ -14355,7 +14355,7 @@
                 "poids": 290.0,
                 "stock": 28476,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.38,
+                "shippingCostFR": 7.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.62
             },
@@ -14381,7 +14381,7 @@
                 "poids": 290.0,
                 "stock": 28476,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.38,
+                "shippingCostFR": 7.55,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.62
             },
@@ -16978,7 +16978,7 @@
                 "poids": 3270.0,
                 "stock": 9835,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 44.87,
+                "shippingCostFR": 45.52,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -17363,9 +17363,9 @@
                 "couleur": "10Piece Gift Box",
                 "prix": 0.74,
                 "poids": 580.0,
-                "stock": 53695,
+                "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingCostFR": 11.02,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.28
             },
@@ -17376,7 +17376,7 @@
                 "couleur": "5Piece Gift Box",
                 "prix": 0.74,
                 "poids": 320.0,
-                "stock": 53695,
+                "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.68,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -17389,9 +17389,9 @@
                 "couleur": "8Piece Gift Box",
                 "prix": 0.74,
                 "poids": 385.0,
-                "stock": 53695,
+                "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.33,
+                "shippingCostFR": 8.56,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.23
             },
@@ -17402,7 +17402,7 @@
                 "couleur": "Single piece gift box",
                 "prix": 0.74,
                 "poids": 160.0,
-                "stock": 53695,
+                "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -20583,6 +20583,56 @@
                 "prix": 193.29,
                 "poids": 29601.0,
                 "stock": 9,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2030188948432711682",
+        "nom": "10x10 FT Large Outdoor Metal Storage Shed - Updated Heavy-Duty Frame & Lockable Double Doors, All-Weather Utility Garden Shed For Backyard, Lawn, Patio Tools & Equipment, Black",
+        "prixBase": 465.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17728416/8e10ed86-035e-42e1-bd9f-6c2eb4ff1caf.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27793400001",
+                "vid": "2030188948545957890",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 465.63,
+                "poids": 8999.0,
+                "stock": 401,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1942460684188164097",
+        "nom": "Romantic Archway 86 Metal Garden Arch With Planters For Climbing Vines, Black",
+        "prixBase": 111.14,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/c2cf0aaf-156d-467e-aa41-5f8d53502ed2.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU242436101AZ",
+                "vid": "1942460684255272962",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 111.14,
+                "poids": 156.0,
+                "stock": 90,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
