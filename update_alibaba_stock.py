@@ -36,7 +36,9 @@ def obtenir_access_token():
         "method": "auth.token.create"
     }
     payload["sign"] = generer_signature(payload, APP_SECRET)
-    url = "https://api.alibaba.com/router/json"
+    
+    # URL de passerelle officielle OpenAPI corrigée
+    url = "https://gw.open.alibaba.com/openapi/json"
     
     try:
         response = requests.post(url, data=payload, timeout=15)
@@ -68,7 +70,9 @@ def recuperer_details_produit_reel(product_id, access_token):
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
-    url_requete = "https://api.alibaba.com/router/json"
+    
+    # URL de passerelle officielle OpenAPI corrigée
+    url_requete = "https://gw.open.alibaba.com/openapi/json"
 
     try:
         response = requests.post(url_requete, data=payload, headers=headers, timeout=15)
@@ -99,7 +103,9 @@ def rechercher_produits_alibaba(keyword, access_token):
     
     payload["sign"] = generer_signature(payload, APP_SECRET)
     headers = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
-    url_requete = "https://api.alibaba.com/router/json"
+    
+    # URL de passerelle officielle OpenAPI corrigée
+    url_requete = "https://gw.open.alibaba.com/openapi/json"
 
     try:
         response = requests.post(url_requete, data=payload, headers=headers, timeout=15)
