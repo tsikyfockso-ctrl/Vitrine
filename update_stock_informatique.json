@@ -69,8 +69,8 @@
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 25.6,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.09
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 32.61
             },
             {
                 "sku": "CJYD203644802BY",
@@ -122,7 +122,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 29.2,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 30.12
+                "shippingCostUS": 36.72
             }
         ]
     },
@@ -213,17 +213,69 @@
         ],
         "variantes": [
             {
-                "sku": "CJXFLPSM00276",
-                "vid": "20FB13BD-CF9F-47D7-9013-F87C3DEF455B",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJXFLPSM00276-BLACK-4 HOLES",
+                "vid": "15874C33-FDBA-4288-9AC8-A0CE51DC365E",
+                "taille": "4 holes",
+                "couleur": "Black",
                 "prix": 1.2,
-                "poids": 0.0,
+                "poids": 120.0,
                 "stock": 50379,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.15
+            },
+            {
+                "sku": "CJXFLPSM00276-BLACK 2PCS-7 HOLES",
+                "vid": "2511150628191629400",
+                "taille": "7 holes",
+                "couleur": "Black 2pcs",
+                "prix": 1.2,
+                "poids": 310.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.15
+            },
+            {
+                "sku": "CJXFLPSM00276-WHITE-7 HOLES",
+                "vid": "A248B82F-07A9-4968-A0C0-B0838AEDB161",
+                "taille": "7 holes",
+                "couleur": "White",
+                "prix": 1.2,
+                "poids": 160.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.16,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.15
+            },
+            {
+                "sku": "CJXFLPSM00276-BLACK-7 HOLES",
+                "vid": "C6599F97-6925-4D50-85C1-35EA7BC6EE1B",
+                "taille": "7 holes",
+                "couleur": "Black",
+                "prix": 1.2,
+                "poids": 160.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.15
+            },
+            {
+                "sku": "CJXFLPSM00276-WHITE-4 HOLES",
+                "vid": "F3E256B2-02BF-4213-8FEE-57851D46CBA8",
+                "taille": "4 holes",
+                "couleur": "White",
+                "prix": 1.2,
+                "poids": 120.0,
+                "stock": 50379,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 5.74,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 7.15
             }
         ]
     },
@@ -2715,8 +2767,8 @@
                 "prix": 4.64,
                 "poids": 102.0,
                 "stock": 40000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.49,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.27,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 5.9
             }
