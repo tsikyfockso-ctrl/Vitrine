@@ -3645,5 +3645,30 @@
                 "shippingCostUS": 3.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502181029241614000",
+        "nom": "Real Cowhide Solid Wood Handle Bearing Rope",
+        "prixBase": 3.18,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/f5388fe7-5190-4429-a8ea-965c984acbaa.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD229491901AZ",
+                "vid": "2502181029241614200",
+                "taille": "N/A",
+                "couleur": "Cowhide",
+                "prix": 3.18,
+                "poids": 470.0,
+                "stock": 5294,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.86,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
