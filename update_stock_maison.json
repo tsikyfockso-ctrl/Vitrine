@@ -14798,7 +14798,7 @@
                 "poids": 1715.0,
                 "stock": 7208,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 25.74,
+                "shippingCostFR": 27.82,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -20759,6 +20759,56 @@
                 "prix": 460.0,
                 "poids": 40501.0,
                 "stock": 245,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037442779642703873",
+        "nom": "Modern Console Table With 4 Drawers  59.2  Entryway Table In Natural Wood Finish",
+        "prixBase": 267.66,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/effa3561-87f3-46f4-9952-a4d1c8acb58a.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28084870001",
+                "vid": "2037442779865001985",
+                "taille": "N/A",
+                "couleur": "Natural",
+                "prix": 267.66,
+                "poids": 28998.0,
+                "stock": 29,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034892724802465794",
+        "nom": "ON-TREND Luxury Fluted TV Stand For TVs Up To 85, Faux Marble Tabletop Media Console With 4 Drawers, Curved Profile Design, Modern Entertainment Center With Gold Base For Living Room, White",
+        "prixBase": 205.58,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/bf34103d-c37e-4bc3-bf2f-40df0f126f30.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27962020001",
+                "vid": "2034892725465165825",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 205.58,
+                "poids": 42950.0,
+                "stock": 42,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
