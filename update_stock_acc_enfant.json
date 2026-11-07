@@ -2751,17 +2751,69 @@
         ],
         "variantes": [
             {
-                "sku": "CJWJNHNT00029",
-                "vid": "305DB8CB-34A1-4E04-A84F-DA84A8AD32F5",
+                "sku": "CJWJNHNT00029-MILK WHITE",
+                "vid": "0D6323EF-6873-459C-920A-6902C36D087B",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Milk white",
                 "prix": 2.02,
-                "poids": 0.0,
+                "poids": 350.0,
                 "stock": 65642,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.78
+            },
+            {
+                "sku": "CJWJNHNT00029-DARK YELLOW",
+                "vid": "3144A3C7-D539-4330-9B88-1A2A8AA42E6E",
+                "taille": "N/A",
+                "couleur": "Dark yellow",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.78
+            },
+            {
+                "sku": "CJWJNHNT00029-RICE WHITE",
+                "vid": "4C70CEC3-E8DE-4D9C-A40E-7B974939BA3E",
+                "taille": "N/A",
+                "couleur": "Rice white",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.78
+            },
+            {
+                "sku": "CJWJNHNT00029-PINK",
+                "vid": "70E44DD9-17D8-46C9-8BFC-DE1BB7C2FC8F",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.78
+            },
+            {
+                "sku": "CJWJNHNT00029-GRAY",
+                "vid": "FBDE3AA1-6438-42D2-BBB2-A07D309993AE",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 2.02,
+                "poids": 350.0,
+                "stock": 65642,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.19,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 9.78
             }
         ]
     },
@@ -3626,7 +3678,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.31,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.13
             }
         ]
     },
