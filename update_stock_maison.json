@@ -319,7 +319,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1871135084781035521",
         "nom": "Patio Chair With Cushions",
-        "prixBase": 90.55,
+        "prixBase": 75.0,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/b7e6d781-f3ad-43ce-991f-c08a226aab8d.png"
@@ -330,7 +330,7 @@
                 "vid": "1871135084860727297",
                 "taille": "N/A",
                 "couleur": "Grey",
-                "prix": 90.55,
+                "prix": 75.0,
                 "poids": 8989.0,
                 "stock": 5,
                 "shippingMethodFR": "N/A",
@@ -16825,7 +16825,7 @@
                 "couleur": "Violet",
                 "prix": 86.68,
                 "poids": 11795.0,
-                "stock": 63,
+                "stock": 62,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17406,7 +17406,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.08,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.74
+                "shippingCostUS": 7.15
             }
         ]
     },
@@ -17515,7 +17515,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1879430305031278594",
         "nom": "Outdoor Elevated Flower Bed",
-        "prixBase": 52.84,
+        "prixBase": 53.22,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17369856/1879713894268932096.jpg"
@@ -17526,9 +17526,9 @@
                 "vid": "1879430305081610241",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 52.84,
+                "prix": 53.22,
                 "poids": 9324.0,
-                "stock": 390,
+                "stock": 569,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -20633,6 +20633,82 @@
                 "prix": 111.14,
                 "poids": 156.0,
                 "stock": 90,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1900377911561736194",
+        "nom": "26 Counter Height Bar Stools Velvet Kitchen Island Counter Bar Stool With Hand- Wave Back,golden Chromed Base And Footrest",
+        "prixBase": 138.11,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/7cbee52f-a4a8-4b50-bfa8-2db4fb08d7fb.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU232709101AZ",
+                "vid": "1900377912232824833",
+                "taille": "N/A",
+                "couleur": "Beige",
+                "prix": 138.11,
+                "poids": 17379.0,
+                "stock": 164,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJFU232709102BY",
+                "vid": "1900377912232824834",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 138.11,
+                "poids": 17379.0,
+                "stock": 164,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJFU232709103CX",
+                "vid": "1900377912232824835",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 138.11,
+                "poids": 17379.0,
+                "stock": 164,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2000872206794256386",
+        "nom": "Golf Travel Bag, Outdoors Soft-Sided Golf Travel Cover Case, Heavy Duty Nylon Wear-Resistant, Padded Golf Luggage Case Cover With Wheels, Foldable Golf Club Storage Bag For Airlines",
+        "prixBase": 56.79,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17658432/6eb248c8-b4fe-42b6-9eba-ac6b35a67bf9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU26493350001",
+                "vid": "2000872207154966529",
+                "taille": "N/A",
+                "couleur": "Multicolored",
+                "prix": 56.79,
+                "poids": 3700.0,
+                "stock": 42,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
