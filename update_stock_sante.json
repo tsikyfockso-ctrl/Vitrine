@@ -3670,5 +3670,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034081753817608193",
+        "nom": "Foldable Bike Cargo Trailer Cart With Hitch, 88 Lbs. Capacity, Black",
+        "prixBase": 99.94,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/8f68aa99-f874-44d3-8ab6-19b732c8b420.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM279121101AZ",
+                "vid": "2034081753972797441",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 99.94,
+                "poids": 14000.0,
+                "stock": 60,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
