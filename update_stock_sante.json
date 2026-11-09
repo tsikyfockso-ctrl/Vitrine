@@ -35,15 +35,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJJM1038421",
-                "vid": "1369902277694984192",
+                "sku": "CJJM103842101AZ",
+                "vid": "1369902279062327296",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "default",
                 "prix": 4.53,
-                "poids": 0.0,
+                "poids": 1120.0,
                 "stock": 40001,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 18.28,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -147,7 +147,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 5.35
             },
             {
                 "sku": "CJJY109273703CX",
@@ -199,7 +199,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.21,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.13
             },
             {
                 "sku": "CJJY109273707GT",
