@@ -1662,7 +1662,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1889916721505026050",
         "nom": "2PCS Brown Free Splicing Injection Molded Planter Box",
-        "prixBase": 37.5,
+        "prixBase": 40.77,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/e7c7910e-b750-462a-81ef-b32c6617aa1e.jpg"
@@ -1673,9 +1673,9 @@
                 "vid": "1889916721647632385",
                 "taille": "N/A",
                 "couleur": "Brown",
-                "prix": 37.5,
+                "prix": 40.77,
                 "poids": 4500.0,
-                "stock": 170,
+                "stock": 246,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -15766,8 +15766,8 @@
                 "prix": 26.2,
                 "poids": 4020.0,
                 "stock": 62405,
-                "shippingMethodFR": "CJPacket Sensitive Oversize Line",
-                "shippingCostFR": 78.61,
+                "shippingMethodFR": "CJPacket Sensitive Over Length",
+                "shippingCostFR": 80.7,
                 "shippingMethodUS": "CJPacket Sensitive Over Length",
                 "shippingCostUS": 57.24
             }
@@ -16773,7 +16773,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1905172454550298625",
         "nom": "Furniture Office Chair",
-        "prixBase": 86.68,
+        "prixBase": 89.59,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/3121cbe9-9215-412a-9610-7f3ca1bc4cc0.jpg"
@@ -16784,7 +16784,7 @@
                 "vid": "1905172454722265089",
                 "taille": "N/A",
                 "couleur": "Violet",
-                "prix": 86.68,
+                "prix": 89.59,
                 "poids": 11795.0,
                 "stock": 62,
                 "shippingMethodFR": "N/A",
@@ -17327,8 +17327,8 @@
                 "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.02,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.28
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 12.54
             },
             {
                 "sku": "CJJT169544302BY",
@@ -17339,7 +17339,7 @@
                 "poids": 320.0,
                 "stock": 53685,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingCostFR": 7.86,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.28
             },
@@ -17354,7 +17354,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.56,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.23
+                "shippingCostUS": 10.39
             },
             {
                 "sku": "CJJT169544305EV",
@@ -21256,6 +21256,81 @@
                 "stock": 20000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.24,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2099345760843177985",
+        "nom": "Solar Powered Rechargeable Motion Sensor Garden Light W124 For Yard Decoration LED Landscape Lighting Outdoor",
+        "prixBase": 6.88,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/e7219700-52dc-4aad-abb9-73c759ef5e2c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJTY316114501AZ",
+                "vid": "2099345760914481153",
+                "taille": "N/A",
+                "couleur": "W124",
+                "prix": 6.88,
+                "poids": 404.0,
+                "stock": 5753,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 9.81,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 12.1
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2030143286269800450",
+        "nom": "Portable Wardrobe Closet Storage Organizer For Clothes,Clothes Dresser,17 Magnetic Doors-17 Cubes & 1 Hanging Rod,6 Pcs Hangers , Baby Wardrobe Storage Cabinet,White",
+        "prixBase": 300.1,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17728416/1f7d49bd-e2f7-4a22-9b21-70f574072e54.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27788400001",
+                "vid": "2030143286387240962",
+                "taille": "N/A",
+                "couleur": "Creamy White",
+                "prix": 300.1,
+                "poids": 28998.0,
+                "stock": 10,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037351564378279938",
+        "nom": "Metal Garden Arch With Gate 79.5  Wide X 86.6  High Climbing Plants Support Rose Arch Outdoor Black",
+        "prixBase": 65.69,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/fc50a6fa-0a0c-482d-baf9-8bd168edb9e1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28070080001",
+                "vid": "2037351564483137538",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 65.69,
+                "poids": 14197.0,
+                "stock": 119,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
