@@ -1958,17 +1958,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJSL230511101AZ",
-                "vid": "2502240122261621000",
+                "sku": "CJSL2305111",
+                "vid": "2502240122261620800",
                 "taille": "N/A",
-                "couleur": "Gold",
+                "couleur": "N/A",
                 "prix": 0.84,
-                "poids": 20.0,
+                "poids": 0.0,
                 "stock": 7628,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.17,
-                "shippingMethodUS": "Jewel Shipping",
-                "shippingCostUS": 2.06
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -11494,30 +11494,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJNS212319001AZ",
-                "vid": "2408290621441613600",
-                "taille": "Free Size",
-                "couleur": "Orange",
+                "sku": "CJNS2123190",
+                "vid": "2408290621441613400",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 5.56,
-                "poids": 370.0,
+                "poids": 0.0,
                 "stock": 22107,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.62,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.13
-            },
-            {
-                "sku": "CJNS212319002BY",
-                "vid": "2408290621441613800",
-                "taille": "Free Size",
-                "couleur": "Black",
-                "prix": 5.56,
-                "poids": 370.0,
-                "stock": 22107,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.4,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.13
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -21745,30 +21732,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJLX198664901AZ",
-                "vid": "1767385852394606592",
+                "sku": "CJLX1986649",
+                "vid": "1767385852319109120",
                 "taille": "N/A",
-                "couleur": "Gold",
+                "couleur": "N/A",
                 "prix": 0.94,
-                "poids": 18.0,
+                "poids": 0.0,
                 "stock": 27558,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.14,
-                "shippingMethodUS": "Jewel Shipping",
-                "shippingCostUS": 2.06
-            },
-            {
-                "sku": "CJLX198664902BY",
-                "vid": "1767385852453326848",
-                "taille": "N/A",
-                "couleur": "Silver",
-                "prix": 0.94,
-                "poids": 18.0,
-                "stock": 27558,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.14,
-                "shippingMethodUS": "Jewel Shipping",
-                "shippingCostUS": 2.06
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -32043,12 +32017,90 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD2062824",
-                "vid": "2406180445531625800",
+                "sku": "CJYD206282401AZ",
+                "vid": "2406180445531626000",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "01 Powdered Milk",
                 "prix": 1.05,
-                "poids": 0.0,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282402BY",
+                "vid": "2406180445531626300",
+                "taille": "N/A",
+                "couleur": "02 Cold Extract Peach",
+                "prix": 1.05,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282403CX",
+                "vid": "2406180445531626500",
+                "taille": "N/A",
+                "couleur": "03 # Semi ripe Apricots",
+                "prix": 1.05,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282404DW",
+                "vid": "2406180445531626800",
+                "taille": "N/A",
+                "couleur": "04 Cold Rose",
+                "prix": 1.05,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282405EV",
+                "vid": "2406180445531626900",
+                "taille": "N/A",
+                "couleur": "05 Apricot Tea Brown",
+                "prix": 1.05,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282406FU",
+                "vid": "2406180445531627100",
+                "taille": "N/A",
+                "couleur": "06 Smoke Peach Brown",
+                "prix": 1.05,
+                "poids": 40.0,
+                "stock": 84840,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206282407GT",
+                "vid": "2406180445531627300",
+                "taille": "N/A",
+                "couleur": "07 Hangover Cherry",
+                "prix": 1.05,
+                "poids": 40.0,
                 "stock": 84840,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -64509,6 +64561,69 @@
                 "shippingCostFR": 8.39,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.13
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508160219071607500",
+        "nom": "High School And College Student Mori Style Contrast Color Travel Backpack",
+        "prixBase": 5.97,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/dcf6642a-3b81-4ae2-a15c-1458335bd993.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD245764101AZ",
+                "vid": "2508160219071607700",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 5.97,
+                "poids": 560.0,
+                "stock": 14773,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD245764102BY",
+                "vid": "2508160219071608000",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 5.97,
+                "poids": 560.0,
+                "stock": 14773,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502140236171616600",
+        "nom": "Dopamine Street Product Plaid Scarf Color Thickened",
+        "prixBase": 2.18,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/2e675e75-8ac9-4035-91eb-c846d4f2537f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD2291264",
+                "vid": "2502140236171616600",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 2.18,
+                "poids": 0.0,
+                "stock": 68965,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
