@@ -15780,7 +15780,7 @@
                 "poids": 2020.0,
                 "stock": 62405,
                 "shippingMethodFR": "CJPacket Sensitive Over Length",
-                "shippingCostFR": 41.0,
+                "shippingCostFR": 42.87,
                 "shippingMethodUS": "CJPacket Sensitive Over Length",
                 "shippingCostUS": 57.24
             },
@@ -16825,7 +16825,7 @@
                 "couleur": "Violet",
                 "prix": 89.59,
                 "poids": 11795.0,
-                "stock": 61,
+                "stock": 59,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18733,7 +18733,7 @@
                 "poids": 370.0,
                 "stock": 44091,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.4,
+                "shippingCostFR": 8.62,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.0
             },
@@ -18772,9 +18772,9 @@
                 "poids": 370.0,
                 "stock": 44091,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.4,
+                "shippingCostFR": 8.62,
                 "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.0
+                "shippingCostUS": 10.13
             },
             {
                 "sku": "CJYD227894205EV",
@@ -18798,7 +18798,7 @@
                 "poids": 370.0,
                 "stock": 44091,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.19,
+                "shippingCostFR": 8.62,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.0
             }
@@ -21518,6 +21518,56 @@
                 "prix": 97.36,
                 "poids": 23160.0,
                 "stock": 150,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034891032249806850",
+        "nom": "Wooden Twin Size House Bed With 2 Drawers,Kids Bed With Storage Shelf, White",
+        "prixBase": 375.91,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/4f66703b-ebc9-41ba-a542-4cec37e960c6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27961640001",
+                "vid": "2034891032967032833",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 375.91,
+                "poids": 27202.0,
+                "stock": 6,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1879060169858371585",
+        "nom": "Combination Type Simple Shoe Rack No Dust Cover 3 Layers 9 Pairs High Foot Shoe Rack Gray Tube",
+        "prixBase": 13.25,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/7c2a537d-4a03-4dab-99e5-d34ae7c8c370.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU227031401AZ",
+                "vid": "1879060169917091842",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 13.25,
+                "poids": 620.0,
+                "stock": 60,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
