@@ -14946,7 +14946,7 @@
                 "couleur": "Pink 360ml",
                 "prix": 0.64,
                 "poids": 80.0,
-                "stock": 20425,
+                "stock": 20424,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.97,
                 "shippingMethodUS": "N/A",
@@ -14959,7 +14959,7 @@
                 "couleur": "Grass Green 360ml",
                 "prix": 0.64,
                 "poids": 80.0,
-                "stock": 20425,
+                "stock": 20424,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.97,
                 "shippingMethodUS": "N/A",
@@ -14972,7 +14972,7 @@
                 "couleur": "Blue 360ml",
                 "prix": 0.64,
                 "poids": 80.0,
-                "stock": 20425,
+                "stock": 20424,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.97,
                 "shippingMethodUS": "N/A",
@@ -16877,7 +16877,7 @@
                 "poids": 3648.0,
                 "stock": 9179,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 43.12,
+                "shippingCostFR": 45.24,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -16927,8 +16927,8 @@
                 "prix": 1.65,
                 "poids": 130.0,
                 "stock": 37906,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.85,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.64,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.64
             }
@@ -21992,6 +21992,69 @@
                 "shippingCostFR": 18.93,
                 "shippingMethodUS": "CJPacket Sensitive Pro+",
                 "shippingCostUS": 16.68
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1875424059260977154",
+        "nom": "Rotating Velvet Bar Stool Gray 2-piece Set",
+        "prixBase": 129.26,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/e4e5d7fe-b5c5-40a7-b3e6-5df596ab719b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU226088001AZ",
+                "vid": "1875424059336474626",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 129.26,
+                "poids": 19521.0,
+                "stock": 5,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1729020821370318848",
+        "nom": "Microphone Karaoke Machine Bluetooth-compatible Speaker With 2 Wireless Mic RGB Light Home Family Singing Speaker",
+        "prixBase": 6.3,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/04/07/06/5aae9313-cf4b-4dde-ac10-6af5ab69f2db.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD190730401AZ",
+                "vid": "1729020821466787840",
+                "taille": "N/A",
+                "couleur": "Y1 Pink Double Wheat",
+                "prix": 6.3,
+                "poids": 600.0,
+                "stock": 26001,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.51,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.65
+            },
+            {
+                "sku": "CJYD190730402BY",
+                "vid": "1729020821546479616",
+                "taille": "N/A",
+                "couleur": "Y1 White Double Wheat",
+                "prix": 6.3,
+                "poids": 600.0,
+                "stock": 26001,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 12.51,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 15.65
             }
         ]
     }
