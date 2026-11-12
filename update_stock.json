@@ -10,69 +10,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJLY214073301AZ",
-                "vid": "2409180929321610000",
-                "taille": "S",
-                "couleur": "Pink",
+                "sku": "CJLY2140733",
+                "vid": "2409180929311619800",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 8.76,
-                "poids": 370.0,
+                "poids": 0.0,
                 "stock": 58227,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.62,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.13
-            },
-            {
-                "sku": "CJLY214073302BY",
-                "vid": "2409180929321610200",
-                "taille": "M",
-                "couleur": "Pink",
-                "prix": 8.76,
-                "poids": 380.0,
-                "stock": 58227,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.73,
-                "shippingMethodUS": "CJPacket SF Clothing Line",
-                "shippingCostUS": 9.64
-            },
-            {
-                "sku": "CJLY214073303CX",
-                "vid": "2409180929321610400",
-                "taille": "L",
-                "couleur": "Pink",
-                "prix": 8.76,
-                "poids": 390.0,
-                "stock": 58227,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.84,
-                "shippingMethodUS": "CJPacket SF Clothing Line",
-                "shippingCostUS": 9.8
-            },
-            {
-                "sku": "CJLY214073304DW",
-                "vid": "2409180929321610600",
-                "taille": "XL",
-                "couleur": "Pink",
-                "prix": 8.76,
-                "poids": 400.0,
-                "stock": 58227,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.96,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.65
-            },
-            {
-                "sku": "CJLY214073305EV",
-                "vid": "2409180929321610800",
-                "taille": "XXL",
-                "couleur": "Pink",
-                "prix": 8.76,
-                "poids": 410.0,
-                "stock": 58227,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.45,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 9.95
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
