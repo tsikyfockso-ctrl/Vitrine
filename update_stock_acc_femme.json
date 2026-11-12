@@ -1107,69 +1107,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJNSFJWJ00066-GREY BLUE",
-                "vid": "5D8C1F64-B91A-423B-BF2E-A25E1AB33F48",
+                "sku": "CJNSFJWJ00066",
+                "vid": "718292A1-CB3F-4479-97E6-DED6C1EFE43A",
                 "taille": "N/A",
-                "couleur": "Grey blue",
+                "couleur": "N/A",
                 "prix": 2.25,
-                "poids": 180.0,
+                "poids": 0.0,
                 "stock": 57445,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.48,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
-            },
-            {
-                "sku": "CJNSFJWJ00066-BLUE",
-                "vid": "A10F4294-0421-402D-A006-44AC487722A3",
-                "taille": "N/A",
-                "couleur": "Blue",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
-            },
-            {
-                "sku": "CJNSFJWJ00066-BLACK",
-                "vid": "D29A0A82-8C41-4F40-92FF-D55546D772F3",
-                "taille": "N/A",
-                "couleur": "Black",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.48,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
-            },
-            {
-                "sku": "CJNSFJWJ00066-GREY WHITE",
-                "vid": "D300A54B-1AEC-4961-BE4D-95924813DC3D",
-                "taille": "N/A",
-                "couleur": "Grey white",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
-            },
-            {
-                "sku": "CJNSFJWJ00066-GREY RED",
-                "vid": "D5DC4498-ECD8-4E3C-9CCC-F9B90629C31D",
-                "taille": "N/A",
-                "couleur": "Grey red",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -3231,8 +3179,8 @@
                 "stock": 91722,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.89,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.58
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 9.02
             },
             {
                 "sku": "CJYD232397806FU",
@@ -3670,7 +3618,7 @@
                 "poids": 280.0,
                 "stock": 203593,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.6,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.35
             },
@@ -3709,7 +3657,7 @@
                 "poids": 270.0,
                 "stock": 203593,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.18,
+                "shippingCostFR": 7.49,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.82
             },
@@ -3750,7 +3698,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.08,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.1
+                "shippingCostUS": 7.68
             },
             {
                 "sku": "CJNS199780019SH",
@@ -24095,17 +24043,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJSL279389701AZ",
-                "vid": "2034457723996508162",
-                "taille": "1pcs",
-                "couleur": "Style 1",
+                "sku": "CJSL2793897",
+                "vid": "2034457723925204994",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 29.85,
-                "poids": 39.0,
+                "poids": 0.0,
                 "stock": 10337,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.43,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -64919,6 +64867,173 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406180351141603700",
+        "nom": "Small Jelly Face Powder Make-up Lasting",
+        "prixBase": 0.7,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/3d30b20f-1e17-4c65-b7b2-fe4943e7dddc.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD206280301AZ",
+                "vid": "2406180351141603900",
+                "taille": "N/A",
+                "couleur": "C01 Transparent Color",
+                "prix": 0.7,
+                "poids": 62.0,
+                "stock": 59552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206280302BY",
+                "vid": "2406180351141604100",
+                "taille": "N/A",
+                "couleur": "C02 Ice Blue",
+                "prix": 0.7,
+                "poids": 62.0,
+                "stock": 59552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206280303CX",
+                "vid": "2406180351141604200",
+                "taille": "N/A",
+                "couleur": "W01 Transparent Color",
+                "prix": 0.7,
+                "poids": 62.0,
+                "stock": 59552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206280304DW",
+                "vid": "2406180351141604400",
+                "taille": "N/A",
+                "couleur": "W02 Soft Skin Color",
+                "prix": 0.7,
+                "poids": 62.0,
+                "stock": 59552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD206280305EV",
+                "vid": "2406180351141604500",
+                "taille": "N/A",
+                "couleur": "W03 Shimmer Powder",
+                "prix": 0.7,
+                "poids": 62.0,
+                "stock": 59552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1702241350818729984",
+        "nom": "Printing Shoulder Girdle Women's Bucket Bag Lychee Pattern",
+        "prixBase": 1.16,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2dac9449-3069-4328-9e04-f6965084a33f.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNS184719101AZ",
+                "vid": "1702241350894227456",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
+            },
+            {
+                "sku": "CJNS184719102BY",
+                "vid": "1702241350948753408",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
+            },
+            {
+                "sku": "CJNS184719103CX",
+                "vid": "1702241350999085056",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
+            },
+            {
+                "sku": "CJNS184719104DW",
+                "vid": "1702241351049416704",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
+            },
+            {
+                "sku": "CJNS184719105EV",
+                "vid": "1702241351099748352",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
+            },
+            {
+                "sku": "CJNS184719106FU",
+                "vid": "1702241351154274304",
+                "taille": "N/A",
+                "couleur": "Stone Pattern Black",
+                "prix": 1.16,
+                "poids": 140.0,
+                "stock": 76133,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "YunExpress Ordinary",
+                "shippingCostUS": 6.82
             }
         ]
     }
