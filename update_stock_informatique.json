@@ -8225,5 +8225,30 @@
                 "shippingCostUS": 8.39
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1365898909943205888",
+        "nom": "Mobile Phone Computer Repair Magnetic Heat Insulation Work Mat",
+        "prixBase": 5.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1614490555816.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWL102389501AZ",
+                "vid": "1365898911356686336",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 5.17,
+                "poids": 820.0,
+                "stock": 30000,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 14.06,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
