@@ -25,7 +25,7 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
-def executer requete alibaba(method_name, extra_params=None):
+def executer_requete_alibaba(method_name, extra_params=None):
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
