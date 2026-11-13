@@ -7,7 +7,7 @@ from deep_translator import GoogleTranslator
 
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "505288")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "B2FvDgenPgnGwvdSS0z2YKxPxeKBXrSj")
-ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901937eWbatok8cdv4nRwEjDuiYDuiYDr0kdyHTpburYQNow1c427519QDVTX")
+ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901729hiOirZzQdZhbsdnTxCGfwGwlRtBlb91d78b872pPdwPXRmH4cw5")
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
