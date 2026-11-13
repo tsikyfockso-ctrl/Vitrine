@@ -17694,7 +17694,7 @@
                 "poids": 185.0,
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.44,
+                "shippingCostFR": 6.54,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.09
             },
@@ -17732,8 +17732,8 @@
                 "prix": 0.5,
                 "poids": 120.0,
                 "stock": 146375,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.74,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.71
             },
@@ -17784,8 +17784,8 @@
                 "prix": 0.5,
                 "poids": 120.0,
                 "stock": 146375,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.74,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.71
             },
@@ -22078,6 +22078,106 @@
                 "stock": 545,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1869938212616032258",
+        "nom": "White Four-step Ladder, Light Folding Four-step Stool, Wide Anti-skid Pedal And Safety Handle, Strong Steel Ladder, Multi-purpose Ladder, Applicable To Family, Kitchen, Office Elevator",
+        "prixBase": 85.71,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/490a14af-22b2-4169-aca9-d2ef451b6508.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL224879501AZ",
+                "vid": "1869938212767027201",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 85.71,
+                "poids": 9606.0,
+                "stock": 562,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037346049082429442",
+        "nom": "4 Pack Metal Garden Trellis 71  X 19.7  Rustproof Trellis For Climbing Plants Outdoor Flower Support Black",
+        "prixBase": 56.33,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/3d8f9e84-5e83-44bb-b4cd-bba0aeff045b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28069290001",
+                "vid": "2037346049199869954",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 56.33,
+                "poids": 10296.0,
+                "stock": 21,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1962433258103533570",
+        "nom": "Upholstered Double Bed 150 X 200cm With Wireless Charging USB Tyep-C, Hydraulic Storage Bed With Hydraulic Lever, Linen Fabric 5FT King Size Bed Frame With Large Storage Space,Grey No Mattress",
+        "prixBase": 334.23,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/974f6e5b-d66c-4a70-9e55-9d6fb4b17594.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU247489401AZ",
+                "vid": "1962433258216779777",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 334.23,
+                "poids": 13800.0,
+                "stock": 11,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2410120857531617300",
+        "nom": "Dachshund Calendar Daily Weekly Monthly Planner Paper Hanging Wall Calendar Gift Home Decor Wall Calendar Supplies",
+        "prixBase": 1.36,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/12/09/06/8b9b4da6-e3f4-4508-a71a-b7968bc7f1e9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD215794701AZ",
+                "vid": "2410120857531617500",
+                "taille": "Picture Style",
+                "couleur": "2025Year",
+                "prix": 1.36,
+                "poids": 220.0,
+                "stock": 10301,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.93,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
