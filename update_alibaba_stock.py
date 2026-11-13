@@ -26,7 +26,7 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
-def executer_requete_alibaba(method_name, extra_params=None):
+def executer_requete_alibaba(api_path, extra_params=None):
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
@@ -34,7 +34,6 @@ def executer_requete_alibaba(method_name, extra_params=None):
         "format": "json",
         "v": "2.0",
         "sign_method": "md5",
-        "method": method_name,
         "access_token": ACCESS_TOKEN
     }
     
@@ -43,24 +42,24 @@ def executer_requete_alibaba(method_name, extra_params=None):
         
     payload["sign"] = generer_signature(payload, APP_SECRET)
     
-    url = "https://api.alibaba.com/router/rest"
+    # Utilisation du chemin REST validé par votre console (identique à /auth/token/create)
+    url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        "Host": "api.alibaba.com"
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
     }
 
     try:
-        response = requests.post(url, data=payload, headers=headers, timeout=20)
-        print(f"🔍 Requête {method_name} [Statut {response.status_code}] : {response.text[:300]}")
+        response = requests.get(url, params=payload, headers=headers, timeout=20)
+        print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
             return response.json()
     except Exception as e:
-        print(f"⚠️ Erreur réseau pour {method_name} : {e}")
+        print(f"⚠️ Erreur réseau pour {api_path} : {e}")
         
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba ICBU avec authentification active...")
+    print("🚀 Interrogation du catalogue Alibaba avec les chemins d'API REST...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -79,8 +78,9 @@ def generate_update_stock_alibaba_json():
     produits_trouves = 0
 
     for keyword in MOTS_CLES_RECHERCHE:
-        print(f"🔍 Recherche Alibaba ICBU pour le mot-clé : '{keyword}'")
-        search_response = executer_requete_alibaba("alibaba.icbu.product.searchV2", {
+        print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
+        # Chemin standard de recherche de produits ICBU
+        search_response = executer_requete_alibaba("/icbu/product/search", {
             "keywords": keyword,
             "page_size": 20,
             "page_no": 1
@@ -89,7 +89,7 @@ def generate_update_stock_alibaba_json():
         if not search_response:
             continue
             
-        items = search_response.get("result", {}).get("products", [])
+        items = search_response.get("result", {}).get("products", search_response.get("products", []))
         
         for item in items:
             pid = str(item.get("productId") or item.get("id"))
