@@ -25,7 +25,7 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
-def executer_requete_alibaba(method_name, extra_params=None):
+def executer requete alibaba(method_name, extra_params=None):
     timestamp = str(int(time.time() * 1000))
     payload = {
         "app_key": APP_KEY,
@@ -41,7 +41,6 @@ def executer_requete_alibaba(method_name, extra_params=None):
         
     payload["sign"] = generer_signature(payload, APP_SECRET)
     
-    # URL du routeur officiel Alibaba (toujours /router/rest, même pour du JSON)
     url = "https://api.alibaba.com/router/rest"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
@@ -58,23 +57,8 @@ def executer_requete_alibaba(method_name, extra_params=None):
         
     return None
 
-def obtenir_access_token():
-    print("🔑 Authentification auprès d'Alibaba Open Platform...")
-    data = executer_requete_alibaba("auth.token.create")
-    if data:
-        token = data.get("access_token")
-        if token:
-            print("✅ Jeton d'accès OAuth obtenu avec succès !")
-            return token
-        print(f"⚠️ Réponse reçue sans token : {data}")
-    return None
-
 def generate_update_stock_alibaba_json():
-    access_token = obtenir_access_token()
-    
-    if not access_token:
-        print("⚠️ Impossible d'obtenir l'access_token. Vérification du fichier existant...")
-        return
+    print("🚀 Interrogation directe du catalogue Alibaba ICBU...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -97,8 +81,7 @@ def generate_update_stock_alibaba_json():
         search_response = executer_requete_alibaba("alibaba.icbu.product.searchV2", {
             "keywords": keyword,
             "page_size": 20,
-            "page_no": 1,
-            "access_token": access_token
+            "page_no": 1
         })
         
         if not search_response:
