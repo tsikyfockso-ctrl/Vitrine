@@ -35735,7 +35735,7 @@
                 "poids": 250.0,
                 "stock": 21546,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.9,
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.96
             }
@@ -109063,7 +109063,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.37,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 5.35
             },
             {
                 "sku": "CJJT204814212LO",
@@ -109323,7 +109323,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.37,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 5.35
             },
             {
                 "sku": "CJJT204814232FU",
@@ -109633,7 +109633,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.13
             },
             {
                 "sku": "CJSJBHGA00167-TRANSPARENT-NOTE10PRO",
@@ -126033,6 +126033,186 @@
                 "stock": 40000,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.59,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1739209765584121856",
+        "nom": "Folding Three-in-one Wireless Charger Portable Magnetic Suction",
+        "prixBase": 7.94,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/03/04/05/e56db74e-e289-4604-a992-815283800025.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD192984101AZ",
+                "vid": "1739209765688979456",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 7.94,
+                "poids": 154.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984102BY",
+                "vid": "1739209765768671232",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 7.94,
+                "poids": 154.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984103CX",
+                "vid": "1758770566573596672",
+                "taille": "N/A",
+                "couleur": "Black storage bag",
+                "prix": 7.94,
+                "poids": 194.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 8.39
+            },
+            {
+                "sku": "CJYD192984104DW",
+                "vid": "1758770566623928320",
+                "taille": "N/A",
+                "couleur": "White storage bag",
+                "prix": 7.94,
+                "poids": 194.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984105EV",
+                "vid": "1772867782292541440",
+                "taille": "N/A",
+                "couleur": "Black storage bag BlackEU",
+                "prix": 7.94,
+                "poids": 237.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.46,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984106FU",
+                "vid": "1772867782347067392",
+                "taille": "N/A",
+                "couleur": "Black storage bag WhiteEU",
+                "prix": 7.94,
+                "poids": 238.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984107GT",
+                "vid": "1772867782397399040",
+                "taille": "N/A",
+                "couleur": "White storage bag BlackEU",
+                "prix": 7.94,
+                "poids": 236.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 7.44,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            },
+            {
+                "sku": "CJYD192984108HS",
+                "vid": "1772867782447730688",
+                "taille": "N/A",
+                "couleur": "White storage bag WhiteEU",
+                "prix": 7.94,
+                "poids": 237.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.47,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 8.82
+            },
+            {
+                "sku": "CJYD192984109IR",
+                "vid": "1772867782498062336",
+                "taille": "N/A",
+                "couleur": "Set",
+                "prix": 7.94,
+                "poids": 426.0,
+                "stock": 108562,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 10.07,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 7.48
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2084901248586985474",
+        "nom": "KP-592 Best-Selling Wireless Bluetooth Speaker Portable Outdoor RGB Subwoofer Home Desktop Speaker With Card Slot Mini Home Audio In Stock",
+        "prixBase": 15.06,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/44404f23-8375-48ca-a07c-191cda520f1c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYS303815201AZ",
+                "vid": "2084901248658288642",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 15.06,
+                "poids": 973.0,
+                "stock": 18894,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS303815202BY",
+                "vid": "2084901248658288643",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 15.06,
+                "poids": 973.0,
+                "stock": 18894,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS303815203CX",
+                "vid": "2084901248658288644",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 15.06,
+                "poids": 973.0,
+                "stock": 18894,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
