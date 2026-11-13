@@ -60,69 +60,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD203644801AZ",
-                "vid": "1790909620186255360",
+                "sku": "CJYD2036448",
+                "vid": "1790909620114952192",
                 "taille": "N/A",
-                "couleur": "DT018 Silver",
+                "couleur": "N/A",
                 "prix": 24.1,
-                "poids": 1960.0,
+                "poids": 0.0,
                 "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 26.74,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 32.61
-            },
-            {
-                "sku": "CJYD203644802BY",
-                "vid": "1790909620240781312",
-                "taille": "N/A",
-                "couleur": "DT018 Gray",
-                "prix": 24.1,
-                "poids": 1960.0,
-                "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 26.74,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 32.61
-            },
-            {
-                "sku": "CJYD203644803CX",
-                "vid": "1790909620295307264",
-                "taille": "N/A",
-                "couleur": "DT018 Rose Gold",
-                "prix": 24.1,
-                "poids": 1960.0,
-                "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 26.74,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 32.61
-            },
-            {
-                "sku": "CJYD203644804DW",
-                "vid": "1790909620358221824",
-                "taille": "N/A",
-                "couleur": "DT018XS Silver Rotating",
-                "prix": 24.1,
-                "poids": 2180.0,
-                "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 30.47,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 36.72
-            },
-            {
-                "sku": "CJYD203644805EV",
-                "vid": "1790909620412747776",
-                "taille": "N/A",
-                "couleur": "DT018XS Gray Rotating Style",
-                "prix": 24.1,
-                "poids": 2180.0,
-                "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 30.47,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 36.72
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
