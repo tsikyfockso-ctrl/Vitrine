@@ -4482,7 +4482,7 @@
                 "poids": 450.0,
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.64,
+                "shippingCostFR": 9.9,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 10.56
             },
@@ -4495,7 +4495,7 @@
                 "poids": 450.0,
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.38,
+                "shippingCostFR": 9.9,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 10.56
             },
@@ -4522,8 +4522,8 @@
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.17
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 10.56
             },
             {
                 "sku": "CJJT104645205EV",
@@ -4534,7 +4534,7 @@
                 "poids": 450.0,
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.64,
+                "shippingCostFR": 9.9,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 10.17
             },
@@ -4548,8 +4548,8 @@
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 9.64,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.17
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 10.56
             }
         ]
     },
