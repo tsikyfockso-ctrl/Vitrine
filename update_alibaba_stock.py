@@ -42,7 +42,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
         
     payload["sign"] = generer_signature(payload, APP_SECRET)
     
-    # Utilisation du chemin REST validé par votre console (identique à /auth/token/create)
+    # Utilisation du chemin REST officiel affiché dans la documentation (ex: /alibaba/icbu/product/search/v2)
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
@@ -59,7 +59,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec les chemins d'API REST...")
+    print("🚀 Interrogation du catalogue Alibaba avec les chemins d'API REST officiels...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -79,8 +79,8 @@ def generate_update_stock_alibaba_json():
 
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
-        # Chemin standard de recherche de produits ICBU
-        search_response = executer_requete_alibaba("/icbu/product/search", {
+        # Chemin officiel extrait de la documentation de votre console Alibaba
+        search_response = executer_requete_alibaba("/alibaba/icbu/product/search/v2", {
             "keywords": keyword,
             "page_size": 20,
             "page_no": 1
