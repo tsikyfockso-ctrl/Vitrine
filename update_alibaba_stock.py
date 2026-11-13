@@ -10,6 +10,14 @@ APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "B2FvDgenPgnGwvdSS0z2YKxPxeKBX
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
+# Liste des noms de méthodes alternatifs à tester sur l'API Alibaba ICBU
+METHODES_TESTEES = [
+    "alibaba.product.search",
+    "alibaba.product.list",
+    "alibaba.icbu.product.list",
+    "alibaba.crossborder.product.search"
+]
+
 def generer_signature(params, secret):
     sorted_params = sorted(params.items())
     query_string = "".join([f"{k}{v}" for k, v in sorted_params])
@@ -49,16 +57,33 @@ def executer_requete_alibaba(method_name, extra_params=None):
 
     try:
         response = requests.post(url, data=payload, headers=headers, timeout=20)
-        print(f"🔍 Requête {method_name} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
-            return response.json()
+            data = response.json()
+            if "error_response" not in data:
+                return data
+            else:
+                print(f"   ↪️ {method_name} -> Refusé : {data['error_response'].get('sub_msg', data['error_response'].get('msg'))}")
     except Exception as e:
         print(f"⚠️ Erreur réseau pour {method_name} : {e}")
         
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation directe du catalogue Alibaba ICBU...")
+    print("🚀 Recherche de la méthode API valide pour le catalogue Alibaba...")
+
+    # Trouver la bonne méthode fonctionnelle
+    methode_valide = None
+    for methode in METHODES_TESTEES:
+        print(f"🧪 Test de la méthode : {methode}")
+        res = executer_requete_alibaba(methode, {"keywords": "Women Dress", "page_size": 5, "page_no": 1})
+        if res and "error_response" not in res:
+            methode_valide = methode
+            print(f"✅ Méthode validée avec succès : {methode_valide}")
+            break
+            
+    if not methode_valide:
+        print("❌ Aucune des méthodes testées n'a fonctionné directement. Veuillez consulter l'« Explorateur d'API » dans votre console Alibaba pour copier le nom exact de la méthode de recherche.")
+        return
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -78,7 +103,7 @@ def generate_update_stock_alibaba_json():
 
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba ICBU pour le mot-clé : '{keyword}'")
-        search_response = executer_requete_alibaba("alibaba.icbu.product.searchV2", {
+        search_response = executer_requete_alibaba(methode_valide, {
             "keywords": keyword,
             "page_size": 20,
             "page_no": 1
@@ -87,7 +112,7 @@ def generate_update_stock_alibaba_json():
         if not search_response:
             continue
             
-        items = search_response.get("result", {}).get("products", [])
+        items = search_response.get("result", {}).get("products", search_response.get("products", []))
         
         for item in items:
             pid = str(item.get("productId") or item.get("id"))
