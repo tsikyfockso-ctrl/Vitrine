@@ -41,8 +41,8 @@ def executer_requete_alibaba(method_name, extra_params=None):
         
     payload["sign"] = generer_signature(payload, APP_SECRET)
     
-    # Utilisation de l'endpoint IP/routeur global stable pour éviter les erreurs DNS de sous-domaines ISV
-    url = "https://api.alibaba.com/router/json"
+    # URL du routeur officiel Alibaba (toujours /router/rest, même pour du JSON)
+    url = "https://api.alibaba.com/router/rest"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
         "Host": "api.alibaba.com"
@@ -50,7 +50,7 @@ def executer_requete_alibaba(method_name, extra_params=None):
 
     try:
         response = requests.post(url, data=payload, headers=headers, timeout=20)
-        print(f"🔍 Requête {method_name} [Statut {response.status_code}] : {response.text[:200]}")
+        print(f"🔍 Requête {method_name} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
             return response.json()
     except Exception as e:
@@ -60,7 +60,7 @@ def executer_requete_alibaba(method_name, extra_params=None):
 
 def obtenir_access_token():
     print("🔑 Authentification auprès d'Alibaba Open Platform...")
-    data = executer_requete_alibaba("/auth/token/create")
+    data = executer_requete_alibaba("auth.token.create")
     if data:
         token = data.get("access_token")
         if token:
