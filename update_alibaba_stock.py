@@ -56,6 +56,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     }
 
     try:
+        # Utilisation de GET comme validé dans l'API Explorer
         response = requests.get(url, params=payload, headers=headers, timeout=20)
         print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
@@ -97,6 +98,7 @@ def generate_update_stock_alibaba_json():
         if not search_response:
             continue
             
+        # Extraction de la liste des produits selon la structure standard de la v2
         result_data = search_response.get("result", search_response)
         items = result_data.get("products", result_data.get("resultList", result_data.get("data", [])))
         
