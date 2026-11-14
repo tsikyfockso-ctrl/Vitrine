@@ -11,14 +11,12 @@ ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901d06tgOXdDP1329d67
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature_rest_sha256(api_path, params, secret):
-    # Tri alphabétique des paramètres (en excluant 'sign' si présent)
-    filtered_params = {k: v for k, v in params.items() if k != "sign"}
-    sorted_params = sorted(filtered_params.items())
-    query_string = "".join([f"{k}{v}" for k, v in sorted_params])
-    
-    # Pour l'API REST Alibaba, la signature inclut le chemin de l'API entre le secret et les paramètres
-    sign_str = secret + api_path + query_string + secret
+def generer_signature_standard_sha256(params, secret):
+    # Tri alphabétique strict des paramètres (clés et valeurs)
+    sorted_params = sorted(params.items())
+    query_string = "".join([f"{k}{v}" for k, v in sorted_params if k != "sign"])
+    # Standard de signature Alibaba Open Platform (Secret + QueryString + Secret)
+    sign_str = secret + query_string + secret
     return hashlib.sha256(sign_str.encode('utf-8')).hexdigest().upper()
 
 def traduire_texte(texte):
@@ -44,7 +42,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature_rest_sha256(api_path, payload, APP_SECRET)
+    payload["sign"] = generer_signature_standard_sha256(payload, APP_SECRET)
     
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
@@ -52,7 +50,8 @@ def executer_requete_alibaba(api_path, extra_params=None):
     }
 
     try:
-        response = requests.get(url, params=payload, headers=headers, timeout=20)
+        # Envoi en POST pour s'aligner sur les standards de l'API REST Alibaba
+        response = requests.post(url, data=payload, headers=headers, timeout=20)
         print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
             return response.json()
@@ -62,7 +61,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec la signature REST SHA-256...")
+    print("🚀 Interrogation du catalogue Alibaba avec la méthode POST et signature standard...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
