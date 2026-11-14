@@ -2,6 +2,7 @@ import os
 import json
 import requests
 import time
+import hmac
 import hashlib
 from deep_translator import GoogleTranslator
 
@@ -11,13 +12,19 @@ ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901d06tgOXdDP1329d67
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature_standard_sha256(params, secret):
-    # Tri alphabétique strict des paramètres (clés et valeurs)
-    sorted_params = sorted(params.items())
-    query_string = "".join([f"{k}{v}" for k, v in sorted_params if k != "sign"])
-    # Standard de signature Alibaba Open Platform (Secret + QueryString + Secret)
-    sign_str = secret + query_string + secret
-    return hashlib.sha256(sign_str.encode('utf-8')).hexdigest().upper()
+def generer_signature_alibaba(api_path, params, secret):
+    # Exclusion du paramètre 'sign' du calcul
+    filtered_params = {k: v for k, v in params.items() if k != "sign"}
+    
+    # Tri alphabétique strict des clés
+    sorted_keys = sorted(filtered_params.keys())
+    
+    # Concaténation selon le standard Alibaba OpenAPI (api_path + key1value1 + key2value2...)
+    query_string = api_path + "".join([f"{k}{filtered_params[k]}" for k in sorted_keys])
+    
+    # HMAC-SHA256 avec le secret comme clé
+    hmac_obj = hmac.new(secret.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
+    return hmac_obj.hexdigest().upper()
 
 def traduire_texte(texte):
     if not texte:
@@ -42,7 +49,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature_standard_sha256(payload, APP_SECRET)
+    payload["sign"] = generer_signature_alibaba(api_path, payload, APP_SECRET)
     
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
@@ -50,7 +57,6 @@ def executer_requete_alibaba(api_path, extra_params=None):
     }
 
     try:
-        # Envoi en POST pour s'aligner sur les standards de l'API REST Alibaba
         response = requests.post(url, data=payload, headers=headers, timeout=20)
         print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
@@ -61,7 +67,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec la méthode POST et signature standard...")
+    print("🚀 Interrogation du catalogue Alibaba avec la signature HMAC-SHA256 officielle...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
