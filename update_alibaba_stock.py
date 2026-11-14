@@ -2,6 +2,7 @@ import os
 import json
 import requests
 import time
+import hmac
 import hashlib
 from deep_translator import GoogleTranslator
 
@@ -11,18 +12,18 @@ ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901127xfbaaykUFnQBSQ
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature_rest(params, secret):
+def generer_signature_rest_complete(api_path, params, secret):
     # Exclusion du paramètre 'sign' du calcul
     filtered_params = {k: v for k, v in params.items() if k != "sign"}
     
     # Tri alphabétique strict des clés
     sorted_keys = sorted(filtered_params.keys())
     
-    # Concaténation clé + valeur
+    # Concaténation : key + value
     query_string = "".join([f"{k}{filtered_params[k]}" for k in sorted_keys])
     
-    # Standard de signature Alibaba REST API (Secret + QueryString + Secret)
-    sign_str = secret + query_string + secret
+    # Formule exacte exigée par la passerelle REST Alibaba : Secret + api_path + QueryString + Secret
+    sign_str = secret + api_path + query_string + secret
     return hashlib.sha256(sign_str.encode('utf-8')).hexdigest().upper()
 
 def traduire_texte(texte):
@@ -48,7 +49,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature_rest(payload, APP_SECRET)
+    payload["sign"] = generer_signature_rest_complete(api_path, payload, APP_SECRET)
     
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
@@ -56,8 +57,8 @@ def executer_requete_alibaba(api_path, extra_params=None):
     }
 
     try:
-        # Utilisation de GET comme validé dans l'API Explorer
-        response = requests.get(url, params=payload, headers=headers, timeout=20)
+        # Envoi en POST avec les paramètres dans le corps (standard validé)
+        response = requests.post(url, data=payload, headers=headers, timeout=20)
         print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
             return response.json()
@@ -67,7 +68,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba (/alibaba/icbu/product/search/v2)...")
+    print("🚀 Interrogation du catalogue Alibaba avec la signature REST complète...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -89,8 +90,10 @@ def generate_update_stock_alibaba_json():
 
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
+        # On passe à la fois 'keywords' et 'keyword' pour s'adapter au paramètre attendu par l'API v2
         search_response = executer_requete_alibaba(api_path, {
             "keywords": keyword,
+            "keyword": keyword,
             "page_size": 20,
             "page_no": 1
         })
@@ -98,7 +101,6 @@ def generate_update_stock_alibaba_json():
         if not search_response:
             continue
             
-        # Extraction de la liste des produits selon la structure standard de la v2
         result_data = search_response.get("result", search_response)
         items = result_data.get("products", result_data.get("resultList", result_data.get("data", [])))
         
