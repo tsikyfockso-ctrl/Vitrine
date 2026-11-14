@@ -186,30 +186,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD190402901AZ",
-                "vid": "1727528401222766592",
-                "taille": "EU",
-                "couleur": "5W",
+                "sku": "CJHD1904029",
+                "vid": "1727528401138880512",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 6.6,
-                "poids": 838.0,
+                "poids": 0.0,
                 "stock": 22067,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 18.34,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 23.57
-            },
-            {
-                "sku": "CJHD190402902BY",
-                "vid": "1772568136894648320",
-                "taille": "US",
-                "couleur": "5W",
-                "prix": 6.6,
-                "poids": 838.0,
-                "stock": 22067,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 18.34,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 23.57
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -18493,7 +18480,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2031971130047623170",
         "nom": "Hen House,Small Wooden Chicken Coop",
-        "prixBase": 190.72,
+        "prixBase": 193.33,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17732736/e50d764b-0c4d-471c-a2e0-823154c35776.jpg"
@@ -18504,9 +18491,9 @@
                 "vid": "2031971130173452289",
                 "taille": "N/A",
                 "couleur": "Grey",
-                "prix": 190.72,
+                "prix": 193.33,
                 "poids": 17962.0,
-                "stock": 13,
+                "stock": 18,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -22264,6 +22251,56 @@
                 "prix": 397.1,
                 "poids": 13800.0,
                 "stock": 30,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501080657241625900",
+        "nom": "Agricultural Pointed Hoe Manganese Steel Quenching Weeding Ripper Plough Tool",
+        "prixBase": 3.35,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/01/08/06/9f32b85e-5d4e-4d17-827f-5d4ed969bca1_trans.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD226470802BY",
+                "vid": "2501080657241626100",
+                "taille": "N/A",
+                "couleur": "Steel Horse Tip",
+                "prix": 3.35,
+                "poids": 680.0,
+                "stock": 6343,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 12.48,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2027295434541408257",
+        "nom": "29.2 Small Size Drawer Desktop Vanity Table  Cushioned Stool, 2 AC-2 USB Power Station, Hair Dryer Bracket, Extra Large Touch Control Sliding LED Mirror, 3-color Switching, EPA, GCC, UL Certificate",
+        "prixBase": 137.19,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17721504/6ed12cca-b444-4099-9f51-ad0f3403b173.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2769506",
+                "vid": "2027295434541408257",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 137.19,
+                "poids": 0.0,
+                "stock": 24,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
