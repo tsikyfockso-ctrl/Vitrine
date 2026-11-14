@@ -6,9 +6,9 @@ import hmac
 import hashlib
 from deep_translator import GoogleTranslator
 
-APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
-APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
-ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901d06tgOXdDP1329d674AMz1DHfQpwGwTkFz9QQFwO3Tqr22jvcljMlz")
+APP_KEY = os.environ.get("ALIBABA_APP_KEY", "505290")
+APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "cPs3QbmUQ2MNPAqPIek1hRMENUtyM4pm")
+ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901127xfbaaykUFnQBSQGfkEvBNxxjfgxm13894bf7xdUxHjZAvp5SVn6")
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
