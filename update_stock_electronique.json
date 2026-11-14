@@ -5339,7 +5339,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.01,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.85
+                "shippingCostUS": 5.93
             }
         ]
     },
@@ -26831,7 +26831,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093007GT",
@@ -26867,8 +26867,8 @@
                 "prix": 1.32,
                 "poids": 65.0,
                 "stock": 242516,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 4.94,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.4
             },
@@ -26896,7 +26896,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093012LO",
@@ -26974,7 +26974,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.46
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093018RI",
@@ -27000,7 +27000,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093020TG",
@@ -27039,7 +27039,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093023WD",
@@ -27078,7 +27078,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093026ZA",
@@ -27117,7 +27117,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.46
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093029CX",
@@ -27130,7 +27130,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 4.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.4
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093030DW",
@@ -27156,7 +27156,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.46
+                "shippingCostUS": 5.53
             },
             {
                 "sku": "CJJT247093032FU",
@@ -126215,6 +126215,96 @@
                 "shippingCostFR": 16.92,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 21.27
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1427185175124643840",
+        "nom": "Simple Anti-drop Transparent Mobile Phone Case",
+        "prixBase": 1.9,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/b66675fe-6440-43d2-8975-fe9065f203c5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJHW125358301AZ",
+                "vid": "1427185177666392064",
+                "taille": "P30lite nova4e",
+                "couleur": "Black",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHW125358302BY",
+                "vid": "1427185177674780672",
+                "taille": "Huawei P30",
+                "couleur": "Black",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHW125358303CX",
+                "vid": "1427185177683169280",
+                "taille": "Huawei P30 PRO",
+                "couleur": "Black",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHW125358304DW",
+                "vid": "1427185177691557888",
+                "taille": "P30lite nova4e",
+                "couleur": "Red",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHW125358305EV",
+                "vid": "1427185177699946496",
+                "taille": "Huawei P30",
+                "couleur": "Red",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHW125358306FU",
+                "vid": "1427185177704140800",
+                "taille": "Huawei P30 PRO",
+                "couleur": "Red",
+                "prix": 1.9,
+                "poids": 70.0,
+                "stock": 184875,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.83,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
