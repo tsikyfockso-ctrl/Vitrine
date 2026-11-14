@@ -2,8 +2,8 @@ import os
 import json
 import requests
 import time
-import hmac
 import hashlib
+from datetime import datetime, timezone, timedelta
 from deep_translator import GoogleTranslator
 
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "505290")
@@ -12,19 +12,15 @@ ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901127xfbaaykUFnQBSQ
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature_alibaba(api_path, params, secret):
-    # Exclusion du paramètre 'sign' du calcul
+def generer_signature_top(params, secret):
+    # Tri alphabétique strict des paramètres (en excluant 'sign')
     filtered_params = {k: v for k, v in params.items() if k != "sign"}
+    sorted_params = sorted(filtered_params.items())
+    query_string = "".join([f"{k}{v}" for k, v in sorted_params])
     
-    # Tri alphabétique strict des clés
-    sorted_keys = sorted(filtered_params.keys())
-    
-    # Concaténation selon le standard Alibaba OpenAPI (api_path + key1value1 + key2value2...)
-    query_string = api_path + "".join([f"{k}{filtered_params[k]}" for k in sorted_keys])
-    
-    # HMAC-SHA256 avec le secret comme clé
-    hmac_obj = hmac.new(secret.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
-    return hmac_obj.hexdigest().upper()
+    # Standard de signature Alibaba TOP (Secret + QueryString + Secret)
+    sign_str = secret + query_string + secret
+    return hashlib.sha256(sign_str.encode('utf-8')).hexdigest().upper()
 
 def traduire_texte(texte):
     if not texte:
@@ -35,39 +31,44 @@ def traduire_texte(texte):
     except Exception:
         return texte
 
-def executer_requete_alibaba(api_path, extra_params=None):
-    timestamp = str(int(time.time() * 1000))
+def executer_requete_alibaba(method_name, extra_params=None):
+    # Format de timestamp requis par l'API TOP : yyyy-MM-dd HH:mm:ss (GMT+8)
+    tz_gmt8 = timezone(timedelta(hours=8))
+    timestamp = datetime.now(tz_gmt8).strftime('%Y-%m-%d %H:%M:%S')
+    
     payload = {
+        "method": method_name,
         "app_key": APP_KEY,
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
         "sign_method": "sha256",
-        "access_token": ACCESS_TOKEN
+        "session": ACCESS_TOKEN
     }
     
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature_alibaba(api_path, payload, APP_SECRET)
+    payload["sign"] = generer_signature_top(payload, APP_SECRET)
     
-    url = f"https://openapi-api.alibaba.com/rest{api_path}"
+    # URL du routeur officiel Alibaba TOP
+    url = "https://api.taobao.com/router/rest"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
     }
 
     try:
         response = requests.post(url, data=payload, headers=headers, timeout=20)
-        print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
+        print(f"🔍 Requête {method_name} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
             return response.json()
     except Exception as e:
-        print(f"⚠️ Erreur réseau pour {api_path} : {e}")
+        print(f"⚠️ Erreur réseau pour {method_name} : {e}")
         
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec le nouvel endpoint REST...")
+    print("🚀 Interrogation du catalogue Alibaba via l'API TOP...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -85,25 +86,24 @@ def generate_update_stock_alibaba_json():
     tous_les_produits = produits_existants.copy()
     produits_trouves = 0
 
-    # Utilisation du chemin REST officiel pour la recherche de produits ICBU
-    api_path = "/alibaba/icbu/product/queryProductList" 
-
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
-        search_response = executer_requete_alibaba(api_path, {
-            "keyword": keyword,
-            "pageSize": 20,
-            "pageNo": 1
+        # Méthode standard de recherche de produits ICBU
+        search_response = executer_requete_alibaba("alibaba.icbu.product.search", {
+            "keywords": keyword,
+            "page_size": 20,
+            "page_no": 1
         })
         
         if not search_response:
             continue
             
-        result_data = search_response.get("result", search_response)
-        items = result_data.get("products", result_data.get("data", result_data.get("resultList", [])))
+        # Extraction des items selon la structure de réponse de l'API
+        result_node = search_response.get("alibaba_icbu_product_search_response", search_response.get("result", {}))
+        items = result_node.get("products", result_node.get("result_list", []))
         
         for item in items:
-            pid = str(item.get("productId") or item.get("id") or item.get("offerId"))
+            pid = str(item.get("productId") or item.get("id"))
             if not pid:
                 continue
             
