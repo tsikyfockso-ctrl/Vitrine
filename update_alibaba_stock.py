@@ -12,14 +12,18 @@ ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901127xfbaaykUFnQBSQ
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature_hmac(api_path, params, secret):
-    filtered_params = {k: v for k, v in params.items() if k != "sign"}
-    sorted_keys = sorted(filtered_params.keys())
-    query_string = "".join([f"{k}{filtered_params[k]}" for k in sorted_keys])
+def generer_signature_hmac_officielle(api_path, params, secret):
+    # Conversion stricte de tous les paramètres en chaînes de caractères (en excluant 'sign')
+    cleaned_params = {str(k): str(v) for k, v in params.items() if k != "sign"}
     
-    # Formule exacte validée par la plateforme
-    sign_str = secret + api_path + query_string + secret
-    hmac_obj = hmac.new(secret.encode('utf-8'), sign_str.encode('utf-8'), hashlib.sha256)
+    # Tri alphabétique strict des clés
+    sorted_keys = sorted(cleaned_params.keys())
+    
+    # Concaténation officielle : api_path + key1 + value1 + key2 + value2 ...
+    query_string = api_path + "".join([f"{k}{cleaned_params[k]}" for k in sorted_keys])
+    
+    # Signature HMAC-SHA256 utilisant la clé secrète comme clé cryptographique
+    hmac_obj = hmac.new(secret.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
     return hmac_obj.hexdigest().upper()
 
 def traduire_texte(texte):
@@ -45,7 +49,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature_hmac(api_path, payload, APP_SECRET)
+    payload["sign"] = generer_signature_hmac_officielle(api_path, payload, APP_SECRET)
     
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
@@ -53,6 +57,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     }
 
     try:
+        # Envoi en POST avec les paramètres encodés dans le corps de la requête
         response = requests.post(url, data=payload, headers=headers, timeout=20)
         print(f"🔍 Requête {api_path} [Statut {response.status_code}] : {response.text[:300]}")
         if response.status_code == 200:
@@ -63,7 +68,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec authentification validée...")
+    print("🚀 Interrogation du catalogue Alibaba avec la signature HMAC-SHA256 officielle...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -87,8 +92,8 @@ def generate_update_stock_alibaba_json():
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
         search_response = executer_requete_alibaba(api_path, {
             "keywords": keyword,
-            "page_size": 20,
-            "page_no": 1
+            "page_size": "20",
+            "page_no": "1"
         })
         
         if not search_response:
@@ -109,7 +114,7 @@ def generate_update_stock_alibaba_json():
             images = item.get("images") or item.get("imageUrlList") or [item.get("imageUrl", "")]
             images = [img for img in images if img]
 
-            prix_base = float(item.get("price") or item.get("saleProfile") or item.get("salePrice") or 0.0)
+            prix_base = float(item.get("price") or item.get("salePrice") or 0.0)
             
             tous_les_produits[pid] = {
                 "dropshipping": "Alibaba",
