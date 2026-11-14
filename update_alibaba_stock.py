@@ -67,7 +67,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec la signature HMAC-SHA256 officielle...")
+    print("🚀 Interrogation du catalogue Alibaba avec le nouvel endpoint REST...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -85,21 +85,25 @@ def generate_update_stock_alibaba_json():
     tous_les_produits = produits_existants.copy()
     produits_trouves = 0
 
+    # Utilisation du chemin REST officiel pour la recherche de produits ICBU
+    api_path = "/alibaba/icbu/product/queryProductList" 
+
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
-        search_response = executer_requete_alibaba("/alibaba/icbu/product/search/v2", {
-            "keywords": keyword,
-            "page_size": 20,
-            "page_no": 1
+        search_response = executer_requete_alibaba(api_path, {
+            "keyword": keyword,
+            "pageSize": 20,
+            "pageNo": 1
         })
         
         if not search_response:
             continue
             
-        items = search_response.get("result", {}).get("products", search_response.get("products", []))
+        result_data = search_response.get("result", search_response)
+        items = result_data.get("products", result_data.get("data", result_data.get("resultList", [])))
         
         for item in items:
-            pid = str(item.get("productId") or item.get("id"))
+            pid = str(item.get("productId") or item.get("id") or item.get("offerId"))
             if not pid:
                 continue
             
