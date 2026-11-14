@@ -29,6 +29,7 @@ jobs:
         env:
           ALIBABA_APP_KEY: ${{ secrets.ALIBABA_APP_KEY }}
           ALIBABA_APP_SECRET: ${{ secrets.ALIBABA_APP_SECRET }}
+          ALIBABA_ACCESS_TOKEN: ${{ secrets.ALIBABA_ACCESS_TOKEN }}
         run: python update_alibaba_stock.py
 
       - name: Commit and Push if JSON exists
