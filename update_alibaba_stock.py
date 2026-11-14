@@ -6,16 +6,18 @@ import hashlib
 from deep_translator import GoogleTranslator
 
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "504452")
-APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "yJ6EZQfA529GJbpDxKqqoP61ww30JH0R")
-ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901d06tgOXdDP1329d674AMz1DHfQpwGwTkFz9QQFwO3Tqr22jvcljMlz")
+APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "VOTRE_APP_SECRET")
+ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "VOTRE_ACCESS_TOKEN")
 
 MOTS_CLES_RECHERCHE = ["Women Dress", "Lady Dress", "Women clothing"]
 
-def generer_signature(params, secret):
+def generer_signature_sha256(params, secret):
+    # Tri alphabétique des paramètres
     sorted_params = sorted(params.items())
     query_string = "".join([f"{k}{v}" for k, v in sorted_params])
+    # Signature SHA-256 spécifique à l'API REST d'Alibaba
     sign_str = secret + query_string + secret
-    return hashlib.md5(sign_str.encode('utf-8')).hexdigest().upper()
+    return hashlib.sha256(sign_str.encode('utf-8')).hexdigest().upper()
 
 def traduire_texte(texte):
     if not texte:
@@ -33,16 +35,15 @@ def executer_requete_alibaba(api_path, extra_params=None):
         "timestamp": timestamp,
         "format": "json",
         "v": "2.0",
-        "sign_method": "md5",
+        "sign_method": "sha256",
         "access_token": ACCESS_TOKEN
     }
     
     if extra_params:
         payload.update(extra_params)
         
-    payload["sign"] = generer_signature(payload, APP_SECRET)
+    payload["sign"] = generer_signature_sha256(payload, APP_SECRET)
     
-    # Utilisation du chemin REST officiel affiché dans la documentation (ex: /alibaba/icbu/product/search/v2)
     url = f"https://openapi-api.alibaba.com/rest{api_path}"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
@@ -59,7 +60,7 @@ def executer_requete_alibaba(api_path, extra_params=None):
     return None
 
 def generate_update_stock_alibaba_json():
-    print("🚀 Interrogation du catalogue Alibaba avec les chemins d'API REST officiels...")
+    print("🚀 Interrogation du catalogue Alibaba avec la signature SHA-256...")
 
     produits_existants = {}
     if os.path.exists("update_alibaba_stock.json"):
@@ -79,7 +80,6 @@ def generate_update_stock_alibaba_json():
 
     for keyword in MOTS_CLES_RECHERCHE:
         print(f"🔍 Recherche Alibaba pour le mot-clé : '{keyword}'")
-        # Chemin officiel extrait de la documentation de votre console Alibaba
         search_response = executer_requete_alibaba("/alibaba/icbu/product/search/v2", {
             "keywords": keyword,
             "page_size": 20,
