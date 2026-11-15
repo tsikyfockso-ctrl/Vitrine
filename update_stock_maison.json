@@ -399,8 +399,8 @@
                 "stock": 31830,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.84,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 8.18
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 7.41
             }
         ]
     },
@@ -22364,6 +22364,31 @@
                 "prix": 116.84,
                 "poids": 23541.0,
                 "stock": 31,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2045379190788349953",
+        "nom": "Full Montessori Floor Bed Frame With High Rails, Wood Kids Floor Beds With Light And Storage Shelf, GrayExpect Arrival Date 2025 8 15",
+        "prixBase": 185.48,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17764704/0e0eca3a-f5ff-42f4-83fc-f9b95e1f79d0.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28413040001",
+                "vid": "2045379192306688001",
+                "taille": "N/A",
+                "couleur": "Grey",
+                "prix": 185.48,
+                "poids": 29438.0,
+                "stock": 202,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
