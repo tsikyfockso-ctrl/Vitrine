@@ -10863,8 +10863,8 @@
                 "stock": 194158,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.56,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.54
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.09
             },
             {
                 "sku": "CJWJYEYE01270-BROWN-13CM",
@@ -10902,8 +10902,8 @@
                 "stock": 194158,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.7,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.72
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.25
             },
             {
                 "sku": "CJWJYEYE01270-PINK-12CM",
@@ -10942,7 +10942,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingCostUS": 6.7
             },
             {
                 "sku": "CJWJYEYE01270-BLUE-13CM",
@@ -10965,10 +10965,10 @@
                 "prix": 2.58,
                 "poids": 124.0,
                 "stock": 194158,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.78,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.54
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.56,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.09
             },
             {
                 "sku": "CJWJYEYE01270-PINK-11CM",
@@ -10981,7 +10981,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.43,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.58
+                "shippingCostUS": 6.7
             },
             {
                 "sku": "CJWJYEYE01270-BROWN-12CM",
@@ -11045,8 +11045,8 @@
                 "stock": 194158,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.7,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.72
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.25
             }
         ]
     },
@@ -32891,6 +32891,44 @@
                 "shippingCostFR": 5.24,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.6
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "C64FDEC3-CB54-4F37-9B26-313FA98157F1",
+        "nom": "Spring and Autumn Baby Jumpsuit",
+        "prixBase": 11.08,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/05/30/07/dbda3919-7054-4e26-958d-6382dccaf424.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJNHNT02742-LIGHT GREY-90CM",
+                "vid": "C62F7571-5828-40D0-A0B8-C580147E6098",
+                "taille": "90cm",
+                "couleur": "Light grey",
+                "prix": 11.08,
+                "poids": 210.0,
+                "stock": 24636,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.82,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJWJNHNT02742-LIGHT GREY-80CM",
+                "vid": "E5BACD15-07CF-441B-B906-37710A4E896B",
+                "taille": "80cm",
+                "couleur": "Light grey",
+                "prix": 11.08,
+                "poids": 190.0,
+                "stock": 24636,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.59,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
