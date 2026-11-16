@@ -68,7 +68,7 @@
                 "poids": 1960.0,
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 26.74,
+                "shippingCostFR": 28.64,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 32.61
             },
@@ -248,8 +248,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.26,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.15
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.67
             },
             {
                 "sku": "CJXFLPSM00276-BLACK-7 HOLES",
@@ -4391,8 +4391,8 @@
                 "prix": 11.75,
                 "poids": 185.0,
                 "stock": 240000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.44,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.38,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.9
             },
@@ -4418,7 +4418,7 @@
                 "poids": 245.0,
                 "stock": 240000,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.33,
+                "shippingCostFR": 7.44,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.45
             },
@@ -4446,7 +4446,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.07,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.9
+                "shippingCostUS": 7.45
             },
             {
                 "sku": "CJSJ105158806FU",
@@ -7368,8 +7368,8 @@
                 "prix": 21.3,
                 "poids": 180.0,
                 "stock": 20000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.48,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.31,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
