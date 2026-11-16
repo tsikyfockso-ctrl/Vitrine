@@ -1112,17 +1112,95 @@
         ],
         "variantes": [
             {
-                "sku": "CJYP2057090",
-                "vid": "2406100621251617100",
+                "sku": "CJYP205709001AZ",
+                "vid": "2406100621251617300",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Knight Black",
                 "prix": 222.79,
-                "poids": 0.0,
+                "poids": 34.0,
                 "stock": 88070,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.06,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709002BY",
+                "vid": "2406100621251617500",
+                "taille": "N/A",
+                "couleur": "Denim Blue",
+                "prix": 222.79,
+                "poids": 34.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.06,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709003CX",
+                "vid": "2406100621251617700",
+                "taille": "N/A",
+                "couleur": "Grapefruit Pink",
+                "prix": 222.79,
+                "poids": 34.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.06,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709004DW",
+                "vid": "2406100621251617800",
+                "taille": "N/A",
+                "couleur": "Desert Yellow",
+                "prix": 222.79,
+                "poids": 34.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.06,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709005EV",
+                "vid": "2406100621251618000",
+                "taille": "N/A",
+                "couleur": "EK Orange",
+                "prix": 222.79,
+                "poids": 34.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.06,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709006FU",
+                "vid": "2406100621251618200",
+                "taille": "N/A",
+                "couleur": "Knight Black Mini Version",
+                "prix": 222.79,
+                "poids": 33.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJYP205709007GT",
+                "vid": "2406100621251618300",
+                "taille": "N/A",
+                "couleur": "Desert Yellow Mini Version",
+                "prix": 222.79,
+                "poids": 33.0,
+                "stock": 88070,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.04,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             }
         ]
     },
@@ -7233,7 +7311,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.65,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 13.24
+                "shippingCostUS": 13.43
             }
         ]
     },
@@ -7478,7 +7556,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-BAMBOO-IPHONE15PRO",
@@ -7491,7 +7569,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-BAMBOO-IPHONE 15PLUS",
@@ -7504,7 +7582,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-BAMBOO-IPHONE 15PROMAX",
@@ -7530,7 +7608,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-CHERRY WOOD-IPHONE 15PRO",
@@ -7543,7 +7621,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-CHERRY WOOD-IPHONE15PLUS",
@@ -7569,7 +7647,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-ROSEWOOD-IPHONE 15",
@@ -7582,7 +7660,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-ROSEWOOD-IPHONE 15PRO",
@@ -7608,7 +7686,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-ROSEWOOD-IPHONE 15PROMAX",
@@ -7647,7 +7725,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-WALNUT-IPHONE 15PLUS",
@@ -7673,7 +7751,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJSJBHIP00362-WALNUT-IPHONE11",
@@ -7712,7 +7790,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.31,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             }
         ]
     },
@@ -10709,7 +10787,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118502BY",
@@ -10722,7 +10800,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118503CX",
@@ -10735,7 +10813,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118504DW",
@@ -10761,7 +10839,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118506FU",
@@ -10774,7 +10852,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118507GT",
@@ -10787,7 +10865,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118508HS",
@@ -10813,7 +10891,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118510JQ",
@@ -10839,7 +10917,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118512LO",
@@ -10852,7 +10930,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118513MN",
@@ -10865,7 +10943,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118514NM",
@@ -10878,7 +10956,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118515OL",
@@ -10891,7 +10969,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118516PK",
@@ -10917,7 +10995,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118518RI",
@@ -10956,7 +11034,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118521UF",
@@ -10969,7 +11047,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118522VE",
@@ -10982,7 +11060,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118523WD",
@@ -11021,7 +11099,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118526ZA",
@@ -11047,7 +11125,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118528BY",
@@ -11086,7 +11164,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118531EV",
@@ -11099,7 +11177,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118532FU",
@@ -11138,7 +11216,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118535IR",
@@ -11151,7 +11229,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118536JQ",
@@ -11164,7 +11242,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118537KP",
@@ -11177,7 +11255,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118538LO",
@@ -11190,7 +11268,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118539MN",
@@ -11203,7 +11281,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118540NM",
@@ -11216,7 +11294,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118541OL",
@@ -11255,7 +11333,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118544RI",
@@ -11268,7 +11346,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118545SH",
@@ -11281,7 +11359,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118546TG",
@@ -11294,7 +11372,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118547UF",
@@ -11307,7 +11385,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118548VE",
@@ -11320,7 +11398,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118549WD",
@@ -11333,7 +11411,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118550XC",
@@ -11346,7 +11424,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118551YB",
@@ -11359,7 +11437,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118552ZA",
@@ -11372,7 +11450,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118553AZ",
@@ -11385,7 +11463,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118554BY",
@@ -11398,7 +11476,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118555CX",
@@ -11411,7 +11489,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118556DW",
@@ -11424,7 +11502,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118557EV",
@@ -11437,7 +11515,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118558FU",
@@ -11463,7 +11541,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118560HS",
@@ -11476,7 +11554,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118561IR",
@@ -11502,7 +11580,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118563KP",
@@ -11515,7 +11593,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118564LO",
@@ -11528,7 +11606,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118565MN",
@@ -11554,7 +11632,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118567OL",
@@ -11567,7 +11645,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118568PK",
@@ -11580,7 +11658,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118569QJ",
@@ -11606,7 +11684,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJJT236118571SH",
@@ -32199,9 +32277,9 @@
                 "poids": 530.0,
                 "stock": 31820,
                 "shippingMethodFR": "CJPacket Sensitive Pro",
-                "shippingCostFR": 16.74,
+                "shippingCostFR": 18.18,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 17.11
+                "shippingCostUS": 17.66
             },
             {
                 "sku": "CJYD231487903CX",
@@ -32214,7 +32292,7 @@
                 "shippingMethodFR": "CJPacket Sensitive Pro",
                 "shippingCostFR": 18.18,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 17.11
+                "shippingCostUS": 17.66
             },
             {
                 "sku": "CJYD231487904DW",
@@ -79920,7 +79998,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444002BY",
@@ -79933,7 +80011,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444003CX",
@@ -79946,7 +80024,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444004DW",
@@ -79959,7 +80037,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444005EV",
@@ -80011,7 +80089,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444009IR",
@@ -80024,7 +80102,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444010JQ",
@@ -80037,7 +80115,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444011KP",
@@ -80050,7 +80128,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444012LO",
@@ -80063,7 +80141,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444013MN",
@@ -80089,7 +80167,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444015OL",
@@ -80102,7 +80180,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444016PK",
@@ -80141,7 +80219,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444019SH",
@@ -80180,7 +80258,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444022VE",
@@ -80232,7 +80310,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444026ZA",
@@ -80284,7 +80362,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444030DW",
@@ -80323,7 +80401,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444033GT",
@@ -80336,7 +80414,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444034HS",
@@ -80349,7 +80427,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444035IR",
@@ -80414,7 +80492,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444040NM",
@@ -80466,7 +80544,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444044RI",
@@ -80479,7 +80557,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444045SH",
@@ -80570,7 +80648,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444052ZA",
@@ -80596,7 +80674,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444054BY",
@@ -80609,7 +80687,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444055CX",
@@ -80648,7 +80726,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444058FU",
@@ -80661,7 +80739,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444059GT",
@@ -80700,7 +80778,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444062JQ",
@@ -80791,7 +80869,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444069QJ",
@@ -80817,7 +80895,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444071SH",
@@ -80830,7 +80908,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444072TG",
@@ -80843,7 +80921,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444073UF",
@@ -80882,7 +80960,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444076XC",
@@ -80921,7 +80999,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444079AZ",
@@ -80947,7 +81025,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444081CX",
@@ -81129,7 +81207,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444095QJ",
@@ -81142,7 +81220,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJGJ203444096RI",
@@ -87779,7 +87857,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLACK-MATE20PRO",
@@ -87948,7 +88026,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-DARK GREEN-MATE20",
@@ -87961,7 +88039,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-RED-MATE30PRO",
@@ -88000,7 +88078,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-DARK GREEN-P40PRO",
@@ -88013,7 +88091,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLACK-P20",
@@ -88039,7 +88117,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-DARK GREEN-MATE20PRO",
@@ -88078,7 +88156,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLUE-MATE30PRO",
@@ -88117,7 +88195,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLACK-P40PRO",
@@ -88130,7 +88208,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLACK-MATE20",
@@ -88195,7 +88273,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-SKY BLUE-P30PRO",
@@ -88221,7 +88299,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLACK-P20PRO",
@@ -88234,7 +88312,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-DARK GREEN-MATE30PRO",
@@ -88247,7 +88325,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-SKY BLUE-NOVA6",
@@ -88390,7 +88468,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-DARK GREEN-NOVA6",
@@ -88403,7 +88481,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLUE-P20",
@@ -88455,7 +88533,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-SKY BLUE-MATE20",
@@ -88494,7 +88572,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             },
             {
                 "sku": "CJSJBHTA00720-BLUE-P30",
@@ -88533,7 +88611,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingCostUS": 5.66
             }
         ]
     },
@@ -115487,11 +115565,11 @@
                 "couleur": "Black",
                 "prix": 6.63,
                 "poids": 182.0,
-                "stock": 24601,
+                "stock": 24599,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.81,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 7.35
             },
             {
                 "sku": "CJBQ202388402BY",
@@ -115500,11 +115578,11 @@
                 "couleur": "Light Gray",
                 "prix": 6.63,
                 "poids": 182.0,
-                "stock": 24601,
+                "stock": 24599,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.81,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 7.35
             }
         ]
     },
@@ -121754,8 +121832,8 @@
                 "stock": 80000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.64,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.64
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.19
             },
             {
                 "sku": "CJSJ102928802BY",
@@ -121765,10 +121843,10 @@
                 "prix": 11.7,
                 "poids": 130.0,
                 "stock": 80000,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.85,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.64
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.64,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.19
             }
         ]
     },
@@ -126277,6 +126355,70 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1576187876231098368",
+        "nom": "All-inclusive Frosted TPU Phone Case",
+        "prixBase": 0.72,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/40b0fa0c-1dea-40a9-92f5-d0d6df4528e9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT157706201AZ",
+                "vid": "1576187876260458496",
+                "taille": "Huawei MATE9",
+                "couleur": "TPU Black",
+                "prix": 0.72,
+                "poids": 50.0,
+                "stock": 46428,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJJT157706202BY",
+                "vid": "1576187876260458497",
+                "taille": "Huawei MATE9PRO",
+                "couleur": "TPU Black",
+                "prix": 0.72,
+                "poids": 50.0,
+                "stock": 46428,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJJT157706203CX",
+                "vid": "1576187876264652800",
+                "taille": "Huawei MATE10",
+                "couleur": "TPU Black",
+                "prix": 0.72,
+                "poids": 50.0,
+                "stock": 46428,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJJT157706204DW",
+                "vid": "1576187876264652801",
+                "taille": "Huawei Mate RS",
+                "couleur": "TPU Black",
+                "prix": 0.72,
+                "poids": 50.0,
+                "stock": 46428,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             }
         ]
     }
