@@ -18,7 +18,7 @@
                 "poids": 250.0,
                 "stock": 85859,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.26,
+                "shippingCostFR": 7.5,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.53
             },
@@ -275,7 +275,7 @@
                 "poids": 320.0,
                 "stock": 96175,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.06,
+                "shippingCostFR": 8.37,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 8.58
             },
@@ -10420,9 +10420,9 @@
                 "couleur": "white",
                 "prix": 3.03,
                 "poids": 345.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.94,
+                "shippingCostFR": 8.67,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.64
             },
@@ -10433,7 +10433,7 @@
                 "couleur": "blue",
                 "prix": 3.03,
                 "poids": 345.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.94,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -10446,9 +10446,9 @@
                 "couleur": "gray",
                 "prix": 3.03,
                 "poids": 226.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.74,
+                "shippingCostFR": 7.22,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.37
             },
@@ -10459,7 +10459,7 @@
                 "couleur": "Purple",
                 "prix": 3.03,
                 "poids": 345.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.94,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -10472,11 +10472,11 @@
                 "couleur": "green",
                 "prix": 3.03,
                 "poids": 345.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.94,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 8.64
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 8.96
             },
             {
                 "sku": "CJWJYEYE01162-PINK-102X76CM",
@@ -10485,7 +10485,7 @@
                 "couleur": "Pink",
                 "prix": 3.03,
                 "poids": 345.0,
-                "stock": 71206,
+                "stock": 71202,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.94,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -26056,7 +26056,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.5,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT00905-KHAKI",
@@ -26082,7 +26082,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.5,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJWJNHNT00905-BROWN",
@@ -33175,6 +33175,120 @@
                 "shippingCostFR": 6.2,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.51
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1624587526235238400",
+        "nom": "Newborn Anti-kick Quilt Cotton Baby Sleeping Bag",
+        "prixBase": 28.08,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/08d7ad9d-9a06-429d-9513-5482c2fbbff2.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE168209601AZ",
+                "vid": "1624587526306541568",
+                "taille": "85cmx35cm",
+                "couleur": "Sleeping bag",
+                "prix": 28.08,
+                "poids": 320.0,
+                "stock": 13866,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.37,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2508160915071615400",
+        "nom": "Autumn New Baby Lace Collar Knitted Long Sleeve",
+        "prixBase": 6.76,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/e95df1f5-34b7-401f-b84a-bcf6eb484b08.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE245837601AZ",
+                "vid": "2508160915071615700",
+                "taille": "66cm",
+                "couleur": "OFF White",
+                "prix": 6.76,
+                "poids": 199.0,
+                "stock": 29683,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.56,
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.8
+            },
+            {
+                "sku": "CJYE245837602BY",
+                "vid": "2508160915071615900",
+                "taille": "73cm",
+                "couleur": "OFF White",
+                "prix": 6.76,
+                "poids": 218.0,
+                "stock": 29683,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.56,
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.8
+            },
+            {
+                "sku": "CJYE245837603CX",
+                "vid": "2508160915071616200",
+                "taille": "80cm",
+                "couleur": "OFF White",
+                "prix": 6.76,
+                "poids": 237.0,
+                "stock": 29683,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.56,
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.8
+            },
+            {
+                "sku": "CJYE245837604DW",
+                "vid": "2508160915071616500",
+                "taille": "90cm",
+                "couleur": "OFF White",
+                "prix": 6.76,
+                "poids": 253.0,
+                "stock": 29683,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.56,
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.8
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1849684619160342528",
+        "nom": "VEVOR Trench Drain System, Channel Drain With Plastic Grate, 5.9x5.1-Inch HDPE Drainage Trench, Black Plastic Garage Floor Drain, 6x39 Trench Drain Grate, With 6 End Caps, For Garden, Driveway-6 Pack",
+        "prixBase": 103.92,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/78739ea9-25d6-4e47-b0e8-80ad41e5ffe5.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL217127501AZ",
+                "vid": "1849684619277783040",
+                "taille": "N/A",
+                "couleur": "Default",
+                "prix": 103.92,
+                "poids": 18500.0,
+                "stock": 300,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
