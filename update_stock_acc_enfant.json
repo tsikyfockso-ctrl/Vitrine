@@ -267,17 +267,43 @@
         ],
         "variantes": [
             {
-                "sku": "CJYE1240168",
-                "vid": "1423126076338606080",
+                "sku": "CJYE124016801AZ",
+                "vid": "1423126078871965696",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black",
                 "prix": 3.99,
-                "poids": 0.0,
+                "poids": 320.0,
                 "stock": 96175,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.06,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 8.58
+            },
+            {
+                "sku": "CJYE124016802BY",
+                "vid": "1423126078884548608",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 3.99,
+                "poids": 320.0,
+                "stock": 96175,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.06,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 8.58
+            },
+            {
+                "sku": "CJYE124016803CX",
+                "vid": "1423126078892937216",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 3.99,
+                "poids": 320.0,
+                "stock": 96175,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 8.06,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 8.58
             }
         ]
     },
@@ -18778,8 +18804,8 @@
                 "stock": 57404,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.1,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.3
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.5
             },
             {
                 "sku": "CJWJYEYE00078-3M",
@@ -18804,8 +18830,8 @@
                 "stock": 57404,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.1,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.77
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 7.5
             },
             {
                 "sku": "CJWJYEYE00078-12M",
@@ -32914,8 +32940,8 @@
                 "stock": 24636,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.82,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.16
             },
             {
                 "sku": "CJWJNHNT02742-LIGHT GREY-80CM",
@@ -32927,8 +32953,228 @@
                 "stock": 24636,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.59,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.16
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "335AC364-7BAA-4A5F-BAFC-B7451462F866",
+        "nom": "Batman Baby One Piece",
+        "prixBase": 4.68,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20190915/38512281561.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE01207-LIGHT GRAY-80CM",
+                "vid": "18D7E0B9-93C5-4F5B-9649-B127D87533D0",
+                "taille": "80cm",
+                "couleur": "Light gray",
+                "prix": 4.68,
+                "poids": 150.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-DARK GRAY-80CM",
+                "vid": "24ADE8DF-877B-44F5-92F7-C0E7B31A1EDD",
+                "taille": "80cm",
+                "couleur": "Dark gray",
+                "prix": 4.68,
+                "poids": 150.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK A-70CM",
+                "vid": "2F2D836F-D139-4257-A51B-68D78AC511D9",
+                "taille": "70cm",
+                "couleur": "Black A",
+                "prix": 4.68,
+                "poids": 140.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.03,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-LIGHT GRAY-90CM",
+                "vid": "3D1864BF-2669-42F2-B337-AB5614F6749E",
+                "taille": "90cm",
+                "couleur": "Light gray",
+                "prix": 4.68,
+                "poids": 160.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.67
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK-100CM",
+                "vid": "3F61C5A9-A870-45C1-AE34-6824143F3234",
+                "taille": "100cm",
+                "couleur": "Black",
+                "prix": 4.68,
+                "poids": 165.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-DARK GRAY-90CM",
+                "vid": "4919C214-CF1B-489B-BB91-C0649F7D14FE",
+                "taille": "90cm",
+                "couleur": "Dark gray",
+                "prix": 4.68,
+                "poids": 160.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.26,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-DARK GRAY-70CM",
+                "vid": "6A648B65-CF7D-4D40-A6EB-E9315A6C1D4A",
+                "taille": "70cm",
+                "couleur": "Dark gray",
+                "prix": 4.68,
+                "poids": 140.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.03,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.35
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK-70CM",
+                "vid": "792B5F11-2B1F-43DB-98D7-04A6BF4B6811",
+                "taille": "70cm",
+                "couleur": "Black",
+                "prix": 4.68,
+                "poids": 135.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.27
+            },
+            {
+                "sku": "CJWJYEYE01207-LIGHT GRAY-70CM",
+                "vid": "84480821-53D2-4F0C-8DFB-4B8A57FF60B1",
+                "taille": "70cm",
+                "couleur": "Light gray",
+                "prix": 4.68,
+                "poids": 140.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK A-80CM",
+                "vid": "89A236CA-A285-4362-AABF-95E0EB79C611",
+                "taille": "80cm",
+                "couleur": "Black A",
+                "prix": 4.68,
+                "poids": 150.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK-80CM",
+                "vid": "A3515898-43F4-4E94-8ECC-E6822737765C",
+                "taille": "80cm",
+                "couleur": "Black",
+                "prix": 4.68,
+                "poids": 145.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK A-100CM",
+                "vid": "AA38DE2B-4AD6-4799-A091-232FB5199FF4",
+                "taille": "100cm",
+                "couleur": "Black A",
+                "prix": 4.68,
+                "poids": 170.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.36,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-LIGHT GRAY-100CM",
+                "vid": "B4D33DC1-7521-4F01-A4DF-8AF2B9C5E31D",
+                "taille": "100cm",
+                "couleur": "Light gray",
+                "prix": 4.68,
+                "poids": 170.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.84
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK A-90CM",
+                "vid": "C7305C26-434A-44E2-B276-E93F67E246B2",
+                "taille": "90cm",
+                "couleur": "Black A",
+                "prix": 4.68,
+                "poids": 160.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.67
+            },
+            {
+                "sku": "CJWJYEYE01207-DARK GRAY-100CM",
+                "vid": "D27FCD0C-2127-4B06-96A0-B2ED8B10E48B",
+                "taille": "100cm",
+                "couleur": "Dark gray",
+                "prix": 4.68,
+                "poids": 170.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.15,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
+            },
+            {
+                "sku": "CJWJYEYE01207-BLACK-90CM",
+                "vid": "D9FE565B-670A-4D8C-8391-9BD31131693C",
+                "taille": "90cm",
+                "couleur": "Black",
+                "prix": 4.68,
+                "poids": 155.0,
+                "stock": 207899,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 6.2,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.51
             }
         ]
     }
