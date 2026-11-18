@@ -1142,8 +1142,8 @@
                 "stock": 57445,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.48,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.49
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.0
             },
             {
                 "sku": "CJNSFJWJ00066-GREY WHITE",
@@ -1839,7 +1839,7 @@
                 "poids": 490.0,
                 "stock": 45956,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.35,
+                "shippingCostFR": 10.83,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 11.17
             },
@@ -1958,17 +1958,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJSL230511101AZ",
-                "vid": "2502240122261621000",
+                "sku": "CJSL2305111",
+                "vid": "2502240122261620800",
                 "taille": "N/A",
-                "couleur": "Gold",
+                "couleur": "N/A",
                 "prix": 0.84,
-                "poids": 20.0,
+                "poids": 0.0,
                 "stock": 7628,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.17,
-                "shippingMethodUS": "Jewel Shipping",
-                "shippingCostUS": 2.06
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -22150,7 +22150,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "2028511589371006977",
         "nom": "Vintage Baroque Heart Crystal Dangle Earrings 925 Sterling Silver Post Statement Drop Earrings Hypoallergenic Bridal Party Jewelry For Women",
-        "prixBase": 5.9,
+        "prixBase": 6.9,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/ffb47364-db12-4120-bd22-caeb004dfc69.jpg"
@@ -22161,7 +22161,7 @@
                 "vid": "2028511589522001922",
                 "taille": "N/A",
                 "couleur": "Red",
-                "prix": 5.9,
+                "prix": 6.9,
                 "poids": 30.0,
                 "stock": 14087,
                 "shippingMethodFR": "CJPacket Eub",
@@ -28595,8 +28595,8 @@
                 "prix": 0.57,
                 "poids": 62.0,
                 "stock": 34284,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 4.48,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -28608,8 +28608,8 @@
                 "prix": 0.57,
                 "poids": 62.0,
                 "stock": 34284,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 4.48,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -28621,8 +28621,8 @@
                 "prix": 0.57,
                 "poids": 62.0,
                 "stock": 34284,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Liquid Line",
+                "shippingCostFR": 4.48,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -33096,8 +33096,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246610JQ",
@@ -33135,8 +33135,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246613MN",
@@ -33187,8 +33187,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246617QJ",
@@ -33226,8 +33226,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246620TG",
@@ -33278,8 +33278,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246624XC",
@@ -33330,8 +33330,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246628BY",
@@ -33369,8 +33369,8 @@
                 "stock": 228444,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.48,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.62
+                "shippingMethodUS": "CJPacket SF Clothing Line",
+                "shippingCostUS": 8.56
             },
             {
                 "sku": "CJYD229246631EV",
@@ -59216,82 +59216,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJMI314457301AZ",
-                "vid": "2097264383587774466",
-                "taille": "Big",
-                "couleur": "Pink",
+                "sku": "CJMI3144573",
+                "vid": "2097264383319339010",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 1.72,
-                "poids": 1.0,
+                "poids": 0.0,
                 "stock": 43562,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
-            },
-            {
-                "sku": "CJMI314457302BY",
-                "vid": "2097264383587774467",
-                "taille": "Small",
-                "couleur": "Pink",
-                "prix": 1.72,
-                "poids": 1.0,
-                "stock": 43562,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
-            },
-            {
-                "sku": "CJMI314457303CX",
-                "vid": "2097264383587774468",
-                "taille": "Big",
-                "couleur": "White",
-                "prix": 1.72,
-                "poids": 1.0,
-                "stock": 43562,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
-            },
-            {
-                "sku": "CJMI314457304DW",
-                "vid": "2097264383587774469",
-                "taille": "Small",
-                "couleur": "White",
-                "prix": 1.72,
-                "poids": 1.0,
-                "stock": 43562,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
-            },
-            {
-                "sku": "CJMI314457305EV",
-                "vid": "2097264383587774470",
-                "taille": "Big",
-                "couleur": "Yellow",
-                "prix": 1.72,
-                "poids": 1.0,
-                "stock": 43562,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
-            },
-            {
-                "sku": "CJMI314457306FU",
-                "vid": "2097264383587774471",
-                "taille": "Small",
-                "couleur": "Yellow",
-                "prix": 1.72,
-                "poids": 1.0,
-                "stock": 43562,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -64938,6 +64873,173 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2506121214301628100",
+        "nom": "Shoulder Messenger Retro For Boys Cattle Leather Bag",
+        "prixBase": 6.14,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/06/13/05/52821664-2eb9-43e3-9b37-0f5255d57e6e_fine.jpeg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD240070101AZ",
+                "vid": "2506121214301628300",
+                "taille": "8inch",
+                "couleur": "Black",
+                "prix": 6.14,
+                "poids": 450.0,
+                "stock": 14342,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD240070102BY",
+                "vid": "2506121214301628500",
+                "taille": "8inch",
+                "couleur": "Brown",
+                "prix": 6.14,
+                "poids": 450.0,
+                "stock": 14342,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 10.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501130111251614900",
+        "nom": "Ins Three-colored Painting Round Earrings Fashion Elegant Versatile Geometric Earrings For Women Jewelry",
+        "prixBase": 1.19,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/07/28/05/185e39fc-0c4b-47fc-9170-99b750bef4f1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJLX226902101AZ",
+                "vid": "2501130111251615100",
+                "taille": "N/A",
+                "couleur": "Color",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902102BY",
+                "vid": "2507280526011628500",
+                "taille": "N/A",
+                "couleur": "Black Silver",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902103CX",
+                "vid": "2507280526011628701",
+                "taille": "N/A",
+                "couleur": "Light Blue",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902104DW",
+                "vid": "2507280526011628900",
+                "taille": "N/A",
+                "couleur": "Yellow",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902105EV",
+                "vid": "2507280526011629100",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902106FU",
+                "vid": "2507280526011629200",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902107GT",
+                "vid": "2507280526011629500",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902108HS",
+                "vid": "2507280526011629700",
+                "taille": "N/A",
+                "couleur": "Rose Red",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
+            },
+            {
+                "sku": "CJLX226902109IR",
+                "vid": "2507280526011629900",
+                "taille": "N/A",
+                "couleur": "Purple",
+                "prix": 1.19,
+                "poids": 22.0,
+                "stock": 67201,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.2,
+                "shippingMethodUS": "Jewel Shipping",
+                "shippingCostUS": 2.06
             }
         ]
     }
