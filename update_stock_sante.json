@@ -368,7 +368,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.41
             },
             {
                 "sku": "CJJY109273721UF",
@@ -420,7 +420,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.41
             },
             {
                 "sku": "CJJY109273725YB",
@@ -628,7 +628,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 7.7,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 10.48
             }
         ]
     },
@@ -5366,6 +5366,31 @@
                 "stock": 52448,
                 "shippingMethodFR": "CJPacket Ordinary E",
                 "shippingCostFR": 67.65,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1877194180923129857",
+        "nom": "The 35LBS APOLLO Gym Has The Same Octagonal Dumbbells For Home Use, Which Can Assist With Push-ups - Not Shipped On Weekends",
+        "prixBase": 86.63,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/5eb268a1-4e90-4f0f-834b-84e0ca966cba.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM226542301AZ",
+                "vid": "1877194180990238721",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 86.63,
+                "poids": 16780.0,
+                "stock": 55,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
