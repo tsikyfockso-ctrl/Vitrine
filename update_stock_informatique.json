@@ -121,8 +121,8 @@
                 "stock": 67614,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 32.57,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 38.47
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 35.67
             }
         ]
     },
@@ -246,8 +246,8 @@
                 "prix": 1.2,
                 "poids": 160.0,
                 "stock": 50379,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.26,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.04,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.67
             },
@@ -261,8 +261,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.26,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.15
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.42
             },
             {
                 "sku": "CJXFLPSM00276-WHITE-4 HOLES",
@@ -453,7 +453,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.0,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 12.43
+                "shippingCostUS": 12.59
             }
         ]
     },
@@ -2601,8 +2601,8 @@
                 "prix": 3.07,
                 "poids": 530.0,
                 "stock": 35952,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 11.45,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 10.99,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 12.67
             },
@@ -2616,8 +2616,8 @@
                 "stock": 35952,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.1,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 12.05
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 11.32
             },
             {
                 "sku": "CJJT188609603CX",
@@ -2652,8 +2652,8 @@
                 "prix": 1.43,
                 "poids": 140.0,
                 "stock": 83340,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 5.96,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.78,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.45
             },
@@ -2680,8 +2680,8 @@
                 "stock": 83340,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 5.96,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.82
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.14
             }
         ]
     },
@@ -5118,7 +5118,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.59,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 11.9
+                "shippingCostUS": 13.33
             },
             {
                 "sku": "CJMD163323304DW",
@@ -5144,7 +5144,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.59,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 11.9
+                "shippingCostUS": 13.33
             },
             {
                 "sku": "CJMD163323306FU",
@@ -5157,7 +5157,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.59,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 11.9
+                "shippingCostUS": 13.33
             },
             {
                 "sku": "CJMD163323307GT",
@@ -5183,7 +5183,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 10.59,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 11.9
+                "shippingCostUS": 13.33
             }
         ]
     },
