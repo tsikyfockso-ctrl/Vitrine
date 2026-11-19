@@ -613,7 +613,7 @@
                 "poids": 164.0,
                 "stock": 1234307,
                 "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.44,
+                "shippingCostFR": 6.03,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 7.88
             },
@@ -5393,6 +5393,174 @@
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "56FED318-6199-47FE-A3AB-455CF5CFD6FB",
+        "nom": "Beauty Instrument",
+        "prixBase": 12.22,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/20190624/2041461070746.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJBJMRPF00140-AU-RED",
+                "vid": "1498663300295168000",
+                "taille": "Red",
+                "couleur": "AU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-EU-RED",
+                "vid": "1498663300295168001",
+                "taille": "Red",
+                "couleur": "EU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-UK-RED",
+                "vid": "1498663300299362304",
+                "taille": "Red",
+                "couleur": "UK",
+                "prix": 12.22,
+                "poids": 751.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-US-RED",
+                "vid": "1498663300379054080",
+                "taille": "Red",
+                "couleur": "US",
+                "prix": 12.22,
+                "poids": 733.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-AU-PURPLE",
+                "vid": "4371914F-2509-4410-A499-2F8E53A23871",
+                "taille": "Purple",
+                "couleur": "AU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-US-PURPLE",
+                "vid": "5205CE25-E7EC-490E-A31C-57DA81006DE4",
+                "taille": "Purple",
+                "couleur": "US",
+                "prix": 12.22,
+                "poids": 733.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-AU-ORANGE",
+                "vid": "5DEC8EBE-E17A-49B5-97DD-ECE7720F17C9",
+                "taille": "Orange",
+                "couleur": "AU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-UK-PURPLE",
+                "vid": "9F2C1E48-A9EE-484E-85CA-573734CCF049",
+                "taille": "Purple",
+                "couleur": "UK",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-US-ORANGE",
+                "vid": "A3C27D6A-6D84-49B0-A37B-2D8EB75726AC",
+                "taille": "Orange",
+                "couleur": "US",
+                "prix": 12.22,
+                "poids": 751.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-EU-ORANGE",
+                "vid": "A696DE0D-8790-4355-B760-E780CE9CBE4B",
+                "taille": "Orange",
+                "couleur": "EU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-EU-PURPLE",
+                "vid": "E4D14178-016B-4B5B-9505-DD0888D06150",
+                "taille": "Purple",
+                "couleur": "EU",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
+            },
+            {
+                "sku": "CJBJMRPF00140-UK-ORANGE",
+                "vid": "ED588D20-CD58-44A0-A6C3-A9FE581B7135",
+                "taille": "Orange",
+                "couleur": "UK",
+                "prix": 12.22,
+                "poids": 747.0,
+                "stock": 275443,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 14.25,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 16.97
             }
         ]
     }
