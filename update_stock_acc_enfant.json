@@ -85,7 +85,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.26,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.53
+                "shippingCostUS": 7.36
             },
             {
                 "sku": "CJWJNHNT01879-RED",
@@ -14186,7 +14186,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.41
             },
             {
                 "sku": "CJNT120496613MN",
@@ -33780,6 +33780,251 @@
                 "shippingCostFR": 7.14,
                 "shippingMethodUS": "CJPacket SF Clothing Line",
                 "shippingCostUS": 7.48
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2502091018111626700",
+        "nom": "Simple And Versatile Sunscreen Solid Color Breathable Scarf",
+        "prixBase": 3.17,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/95db4a0d-fb05-479d-8bbb-d2315c111abd.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD228737201AZ",
+                "vid": "2502091018111626800",
+                "taille": "N/A",
+                "couleur": "Classic Color",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737202BY",
+                "vid": "2502091018111627000",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737203CX",
+                "vid": "2502091018111627200",
+                "taille": "N/A",
+                "couleur": "Champagne",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737204DW",
+                "vid": "2502091018111627300",
+                "taille": "N/A",
+                "couleur": "Wine Red",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737205EV",
+                "vid": "2502091018111627500",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737206FU",
+                "vid": "2502091018111627600",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737207GT",
+                "vid": "2502091018111627800",
+                "taille": "N/A",
+                "couleur": "Cameo Brown",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737208HS",
+                "vid": "2502091018111627900",
+                "taille": "N/A",
+                "couleur": "Caramel Color",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737209IR",
+                "vid": "2502091018111628100",
+                "taille": "N/A",
+                "couleur": "Brown",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737210JQ",
+                "vid": "2502091018111628200",
+                "taille": "N/A",
+                "couleur": "Army Green",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737211KP",
+                "vid": "2502091018111628400",
+                "taille": "N/A",
+                "couleur": "Mousse Brown",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228737212LO",
+                "vid": "2502091018111628500",
+                "taille": "N/A",
+                "couleur": "Light Gray",
+                "prix": 3.17,
+                "poids": 50.0,
+                "stock": 94007,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.57,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406181500161620500",
+        "nom": "Baby Boys And Girls Denim Romper Korean Style Baby Jumpsuit",
+        "prixBase": 5.49,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/3173b407-102f-499a-bbde-2268d8bdda1c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE206342501AZ",
+                "vid": "2406181500161620700",
+                "taille": "66cm",
+                "couleur": "Denim Romper",
+                "prix": 5.49,
+                "poids": 220.0,
+                "stock": 64159,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE206342502BY",
+                "vid": "2406181500161621000",
+                "taille": "73CM",
+                "couleur": "Denim Romper",
+                "prix": 5.49,
+                "poids": 230.0,
+                "stock": 64159,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE206342503CX",
+                "vid": "2406181500161621500",
+                "taille": "80cm",
+                "couleur": "Denim Romper",
+                "prix": 5.49,
+                "poids": 240.0,
+                "stock": 64159,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE206342504DW",
+                "vid": "2406181500161621800",
+                "taille": "90cm",
+                "couleur": "Denim Romper",
+                "prix": 5.49,
+                "poids": 250.0,
+                "stock": 64159,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYE206342505EV",
+                "vid": "2406181500161622500",
+                "taille": "100cm",
+                "couleur": "Denim Romper",
+                "prix": 5.49,
+                "poids": 260.0,
+                "stock": 64159,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.14,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
