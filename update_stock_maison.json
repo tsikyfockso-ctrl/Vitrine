@@ -186,15 +186,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -347,8 +360,8 @@
                 "stock": 31830,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.84,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 8.18
+                "shippingMethodUS": "CJPacket Super Pure Electricity",
+                "shippingCostUS": 7.41
             },
             {
                 "sku": "CJJT246167403CX",
@@ -13937,7 +13950,7 @@
                 "couleur": "Red",
                 "prix": 133.92,
                 "poids": 25200.0,
-                "stock": 38,
+                "stock": 36,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -16208,7 +16221,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.26,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.93
+                "shippingCostUS": 7.22
             },
             {
                 "sku": "CJJT135649102BY",
@@ -16247,7 +16260,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 11.52,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 12.68
+                "shippingCostUS": 14.24
             },
             {
                 "sku": "CJJT135649105EV",
@@ -16258,9 +16271,9 @@
                 "poids": 260.0,
                 "stock": 237305,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 6.26,
+                "shippingCostFR": 8.12,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 8.6
+                "shippingCostUS": 9.39
             },
             {
                 "sku": "CJJT135649106FU",
@@ -16310,7 +16323,7 @@
                 "poids": 256.0,
                 "stock": 237305,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 6.26,
+                "shippingCostFR": 8.07,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.93
             },
@@ -17105,13 +17118,52 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT2258802",
-                "vid": "1874656244046942210",
+                "sku": "CJJT225880201AZ",
+                "vid": "1874656244118245378",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "Black18 in",
                 "prix": 74.0,
-                "poids": 0.0,
-                "stock": 7244,
+                "poids": 14061.0,
+                "stock": 7548,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT225880202BY",
+                "vid": "1874656244118245379",
+                "taille": "N/A",
+                "couleur": "Brown18 in",
+                "prix": 74.0,
+                "poids": 14061.0,
+                "stock": 7548,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT225880203CX",
+                "vid": "1933089071592419330",
+                "taille": "N/A",
+                "couleur": "Brown30 in",
+                "prix": 74.0,
+                "poids": 14061.0,
+                "stock": 7548,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT225880205EV",
+                "vid": "1961353510219988995",
+                "taille": "N/A",
+                "couleur": "Black30 in",
+                "prix": 74.0,
+                "poids": 14061.0,
+                "stock": 7548,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17823,7 +17875,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.96,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.79
+                "shippingCostUS": 5.87
             }
         ]
     },
@@ -19471,7 +19523,7 @@
                 "poids": 1029.0,
                 "stock": 5073,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 17.5,
+                "shippingCostFR": 18.55,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -22642,7 +22694,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 59.35,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 31.97
+                "shippingCostUS": 81.83
             },
             {
                 "sku": "CJYD200895309IR",
@@ -22666,7 +22718,7 @@
                 "poids": 14420.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 24.9,
+                "shippingCostFR": 199.43,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 31.97
             },
@@ -22679,7 +22731,7 @@
                 "poids": 14420.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 24.9,
+                "shippingCostFR": 199.43,
                 "shippingMethodUS": "CJPacket Sea",
                 "shippingCostUS": 82.98
             },
@@ -22693,8 +22745,8 @@
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 24.9,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 31.97
+                "shippingMethodUS": "CJPacket Sea",
+                "shippingCostUS": 82.98
             },
             {
                 "sku": "CJYD200895313MN",
@@ -22706,8 +22758,8 @@
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 24.9,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 31.97
+                "shippingMethodUS": "CJPacket Sea",
+                "shippingCostUS": 149.37
             }
         ]
     },
@@ -22754,6 +22806,56 @@
                 "prix": 42.81,
                 "poids": 0.0,
                 "stock": 62,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2030152429251358721",
+        "nom": "Plastic Utility Shed 8x6 Ft With Floor  Lockable Storage Shed For Garden Tools & Trash Bins, All-Weather Outdoor Organizer In Gray-White",
+        "prixBase": 638.38,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17728416/298a099f-d0a2-4ab8-9ca6-d235ea8e3fd1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27789000001",
+                "vid": "2030152429452685314",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 638.38,
+                "poids": 30300.0,
+                "stock": 129,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2031971064392105986",
+        "nom": "Gray  Large Chicken Coop For 8-12 Chickens With Water-Resistant And Anti-UV Cove ,Nesting Box",
+        "prixBase": 617.96,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17732736/8f3267d2-6431-4c45-9fde-67034552f3ca.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27846760001",
+                "vid": "2031971064526323713",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 617.96,
+                "poids": 31035.0,
+                "stock": 27,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
