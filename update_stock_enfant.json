@@ -293,7 +293,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.14,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.07
+                "shippingCostUS": 6.93
             },
             {
                 "sku": "CJET114831623WD",
@@ -605,7 +605,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.14,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.07
+                "shippingCostUS": 6.93
             },
             {
                 "sku": "CJET114831647UF",
@@ -722,7 +722,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.26,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.22
+                "shippingCostUS": 7.07
             },
             {
                 "sku": "CJET114831656DW",
@@ -3685,8 +3685,8 @@
                 "stock": 42139,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.15,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.85
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.54
             }
         ]
     },
@@ -4185,9 +4185,9 @@
                 "couleur": "Yellow",
                 "prix": 7.87,
                 "poids": 160.0,
-                "stock": 240005,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.26,
+                "stock": 240004,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.04,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 6.74
             },
@@ -4198,7 +4198,7 @@
                 "couleur": "Yellow",
                 "prix": 7.87,
                 "poids": 330.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.97,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -4211,7 +4211,7 @@
                 "couleur": "Yellow",
                 "prix": 7.87,
                 "poids": 340.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -4224,7 +4224,7 @@
                 "couleur": "Yellow",
                 "prix": 7.87,
                 "poids": 350.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.98,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -4237,9 +4237,9 @@
                 "couleur": "Black",
                 "prix": 7.87,
                 "poids": 320.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.06,
+                "shippingCostFR": 8.37,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.25
             },
@@ -4250,7 +4250,7 @@
                 "couleur": "Black",
                 "prix": 7.87,
                 "poids": 330.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.78,
                 "shippingMethodUS": "LuWei Ordinary US",
@@ -4263,7 +4263,7 @@
                 "couleur": "Black",
                 "prix": 7.87,
                 "poids": 340.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.28,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -4276,7 +4276,7 @@
                 "couleur": "Black",
                 "prix": 7.87,
                 "poids": 350.0,
-                "stock": 240005,
+                "stock": 240004,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.39,
                 "shippingMethodUS": "YunExpress Ordinary",
