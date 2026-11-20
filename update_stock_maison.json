@@ -478,12 +478,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD243033401AZ",
-                "vid": "1944947311066263554",
+                "sku": "CJHD2430334",
+                "vid": "1944947310978183169",
                 "taille": "N/A",
-                "couleur": "Gray",
+                "couleur": "N/A",
                 "prix": 1191.05,
-                "poids": 5450.0,
+                "poids": 0.0,
                 "stock": 34,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -2301,13 +2301,13 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU27478710001",
-                "vid": "2016746431112073217",
+                "sku": "CJFU2747871",
+                "vid": "2016746431003021313",
                 "taille": "N/A",
-                "couleur": "black",
+                "couleur": "N/A",
                 "prix": 168.65,
-                "poids": 45600.0,
-                "stock": 148,
+                "poids": 0.0,
+                "stock": 102,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -13837,7 +13837,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1876457655606231041",
         "nom": "Portable Foldable Telescopic Trolley, Driver's Cart, Luggage Cart",
-        "prixBase": 30.5,
+        "prixBase": 36.99,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/79c80789-7f05-4d82-a98b-c8cac82572c2.png"
@@ -13848,9 +13848,9 @@
                 "vid": "1876457655753031682",
                 "taille": "N/A",
                 "couleur": "Blue",
-                "prix": 30.5,
+                "prix": 36.99,
                 "poids": 2701.0,
-                "stock": 46,
+                "stock": 432,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17695,8 +17695,8 @@
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.54,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 7.09
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 6.8
             },
             {
                 "sku": "CJYD206667605EV",
@@ -17745,8 +17745,8 @@
                 "prix": 0.5,
                 "poids": 185.0,
                 "stock": 146375,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.54,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.38,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 7.58
             },
@@ -17786,8 +17786,8 @@
                 "stock": 146375,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.51,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.71
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 5.84
             },
             {
                 "sku": "CJYD206667612LO",
@@ -22856,6 +22856,31 @@
                 "prix": 617.96,
                 "poids": 31035.0,
                 "stock": 27,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2001878093709746178",
+        "nom": "Roman Chair Hyperextension Bench, 350 Lbs Adjustable Extension Machine, Multi-Function Exercise Equipment For Glute, Hamstring, Lower Back, And Ab Workout, Fitness Weight Bench For Home Gym",
+        "prixBase": 75.92,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17661024/4a4dca20-9283-4d8a-a397-d897cccc9528.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU26600780001",
+                "vid": "2001878094074650625",
+                "taille": "N/A",
+                "couleur": "Black red",
+                "prix": 75.92,
+                "poids": 19100.0,
+                "stock": 107,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
