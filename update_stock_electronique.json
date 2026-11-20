@@ -31293,7 +31293,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.75,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.8
+                "shippingCostUS": 5.89
             },
             {
                 "sku": "CJIP111384307GT",
@@ -31384,7 +31384,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.72
+                "shippingCostUS": 5.89
             },
             {
                 "sku": "CJIP111384314NM",
@@ -31436,7 +31436,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.75,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.8
+                "shippingCostUS": 5.89
             },
             {
                 "sku": "CJIP111384318RI",
@@ -31485,8 +31485,8 @@
                 "prix": 11.51,
                 "poids": 80.0,
                 "stock": 1280000,
-                "shippingMethodFR": "CJPacket Liquid Line",
-                "shippingCostFR": 4.75,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.72
             },
@@ -31527,7 +31527,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.72
+                "shippingCostUS": 5.89
             },
             {
                 "sku": "CJIP111384325YB",
@@ -31566,7 +31566,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.6,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.72
+                "shippingCostUS": 5.89
             },
             {
                 "sku": "CJIP111384328BY",
@@ -60459,15 +60459,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT2056429",
-                "vid": "2406090203351615300",
+                "sku": "CJJT205642901AZ",
+                "vid": "2406090203351615900",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "L12 Length 106cm No Fill Light",
                 "prix": 5.31,
-                "poids": 0.0,
+                "poids": 300.0,
                 "stock": 26969,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJJT205642902BY",
+                "vid": "2406090203351616400",
+                "taille": "N/A",
+                "couleur": "L12D Double Fill Light",
+                "prix": 5.31,
+                "poids": 300.0,
+                "stock": 26969,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -81336,7 +81349,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.96,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.37
+                "shippingCostUS": 6.6
             },
             {
                 "sku": "CJJT208557105EV",
@@ -81388,7 +81401,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.96,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.37
+                "shippingCostUS": 6.6
             },
             {
                 "sku": "CJJT208557109IR",
@@ -81466,7 +81479,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.3,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 7.02
+                "shippingCostUS": 7.31
             },
             {
                 "sku": "CJJT208557115OL",
@@ -81557,7 +81570,7 @@
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.96,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 7.02
+                "shippingCostUS": 7.31
             },
             {
                 "sku": "CJJT208557122VE",
@@ -105584,9 +105597,9 @@
                 "couleur": "ABS Base No 25 Clip",
                 "prix": 2.28,
                 "poids": 550.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
+                "shippingCostFR": 11.56,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.52
             },
@@ -105597,7 +105610,7 @@
                 "couleur": "ABS Base No 19 Clip",
                 "prix": 2.28,
                 "poids": 540.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.38,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -105610,11 +105623,11 @@
                 "couleur": "ABS Base Small Pull Clip",
                 "prix": 2.28,
                 "poids": 530.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.18,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 10.43
             },
             {
                 "sku": "CJSJ202512204DW",
@@ -105623,7 +105636,7 @@
                 "couleur": "No 25 Clip Of Bedside Base",
                 "prix": 2.28,
                 "poids": 825.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.38,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -105636,7 +105649,7 @@
                 "couleur": "No 19 Clip Of Bedside Base",
                 "prix": 2.28,
                 "poids": 550.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.38,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -105649,7 +105662,7 @@
                 "couleur": "Bedside Base Small Pull Clip",
                 "prix": 2.28,
                 "poids": 540.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.38,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -105662,9 +105675,9 @@
                 "couleur": "No 25 Clip Of Lazy Base",
                 "prix": 2.28,
                 "poids": 540.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
+                "shippingCostFR": 11.43,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.37
             },
@@ -105675,9 +105688,9 @@
                 "couleur": "No 19 Clip Of Lazy Base",
                 "prix": 2.28,
                 "poids": 530.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
+                "shippingCostFR": 11.31,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.52
             },
@@ -105688,9 +105701,9 @@
                 "couleur": "Lazy Base Small Pull Clip",
                 "prix": 2.28,
                 "poids": 520.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.38,
+                "shippingCostFR": 11.19,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.52
             },
@@ -105701,7 +105714,7 @@
                 "couleur": "No 25 Clip Of Bedside Base2pcs",
                 "prix": 2.28,
                 "poids": 1480.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 20.56,
                 "shippingMethodUS": "YunExpress Ordinary",
@@ -105714,11 +105727,11 @@
                 "couleur": "No 25 Clip Of Bedside Base3pcs",
                 "prix": 2.28,
                 "poids": 2220.0,
-                "stock": 130663,
+                "stock": 130664,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.38,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 36.28
             }
         ]
     },
@@ -118204,7 +118217,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.57,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingCostUS": 5.18
             }
         ]
     },
@@ -128078,6 +128091,31 @@
                 "shippingCostFR": 6.08,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 6.84
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2095359171823685633",
+        "nom": "KP-8014 Hot-selling 80W High-power Outdoor Bluetooth Speaker With Dual Microphones Featuring Heavy Bass And Long Battery Life In Stock",
+        "prixBase": 82.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/0ff13544-5f6e-492f-859e-dec6781575fb.png"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYS312270401AZ",
+                "vid": "2095359171974680577",
+                "taille": "N/A",
+                "couleur": "Monochrome",
+                "prix": 82.8,
+                "poids": 9000.0,
+                "stock": 7182,
+                "shippingMethodFR": "YunExpress Sensitive",
+                "shippingCostFR": 126.22,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
