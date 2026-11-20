@@ -8,10 +8,7 @@ from deep_translator import GoogleTranslator
 
 APP_KEY = os.environ.get("ALIBABA_APP_KEY", "505290")
 APP_SECRET = os.environ.get("ALIBABA_APP_SECRET", "cPs3QbmUQ2MNPAqPIek1hRMENUtyM4pm")
-ACCESS_TOKEN = os.environ.get(
-    "ALIBABA_ACCESS_TOKEN",
-    "50000901138xfbaaykUFnQBSQGfkEvBNxxjfgxmxdUxHjZAvp51cea4168SVn6",
-)
+ACCESS_TOKEN = os.environ.get("ALIBABA_ACCESS_TOKEN", "50000901138xfbaaykUFnQBSQGfkEvBNxxjfgxmxdUxHjZAvp51cea4168SVn6")
 
 # Renseignez ici vos propres model_number ou sku_code enregistrés sur votre compte ICBU
 RECHERCHES_PRODUITS = [
