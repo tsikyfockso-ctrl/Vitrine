@@ -1964,7 +1964,7 @@
                 "couleur": "Gold",
                 "prix": 0.84,
                 "poids": 20.0,
-                "stock": 7628,
+                "stock": 7629,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.17,
                 "shippingMethodUS": "N/A",
@@ -3438,8 +3438,8 @@
                 "stock": 219459,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.84,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 10.48
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 9.42
             },
             {
                 "sku": "CJNS215187310JQ",
@@ -3540,8 +3540,8 @@
                 "prix": 8.9,
                 "poids": 430.0,
                 "stock": 219459,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.68,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 9.65,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 10.01
             },
@@ -6908,8 +6908,8 @@
                 "stock": 128569,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.08,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.08
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 9.21
             },
             {
                 "sku": "CJLS197505503CX",
@@ -25593,7 +25593,7 @@
                 "poids": 770.0,
                 "stock": 151575,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 12.6,
+                "shippingCostFR": 14.24,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 14.1
             },
@@ -25620,8 +25620,8 @@
                 "stock": 151575,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 14.97,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 16.65
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 15.03
             }
         ]
     },
@@ -45476,7 +45476,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.12,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.28
+                "shippingCostUS": 8.1
             },
             {
                 "sku": "CJNS199780202BY",
@@ -45567,7 +45567,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.66,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.43
+                "shippingCostUS": 8.25
             },
             {
                 "sku": "CJNS199780209IR",
@@ -60170,7 +60170,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.54,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.09
+                "shippingCostUS": 6.81
             },
             {
                 "sku": "CJJJ135463269QJ",
@@ -60206,8 +60206,8 @@
                 "prix": 0.6,
                 "poids": 152.0,
                 "stock": 3333501,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.17,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.94,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.55
             },
@@ -60235,7 +60235,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.56,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.09
+                "shippingCostUS": 5.9
             },
             {
                 "sku": "CJJJ135463238LO",
@@ -60300,7 +60300,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.08,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.28
+                "shippingCostUS": 7.13
             },
             {
                 "sku": "CJJJ135463242PK",
@@ -60336,8 +60336,8 @@
                 "prix": 0.6,
                 "poids": 156.0,
                 "stock": 3333501,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 6.21,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.98,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 6.61
             },
@@ -60365,7 +60365,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.56,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.09
+                "shippingCostUS": 5.9
             },
             {
                 "sku": "CJJJ135463240NM",
@@ -60560,7 +60560,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.39,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 7.09
+                "shippingCostUS": 6.81
             },
             {
                 "sku": "CJJJ135463271SH",
@@ -60597,7 +60597,7 @@
                 "poids": 69.0,
                 "stock": 3333501,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.44,
+                "shippingCostFR": 4.82,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
                 "shippingCostUS": 5.63
             },
@@ -65195,6 +65195,200 @@
                 "shippingCostFR": 7.76,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1796008778228305920",
+        "nom": "Cotton Candy Cushion Powder Puff Dry And Wet Dual-purpose",
+        "prixBase": 0.28,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/4514f1ca-6747-4ff8-9ff2-3703b406405b.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJMB204924202BY",
+                "vid": "1796008778303803392",
+                "taille": "N/A",
+                "couleur": "L Drop Shape",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924203CX",
+                "vid": "1796008778366717952",
+                "taille": "N/A",
+                "couleur": "L Drop Shape Small Green Nude",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924204DW",
+                "vid": "1796008778429632512",
+                "taille": "N/A",
+                "couleur": "L Drop Shape Yellow Nude",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924205EV",
+                "vid": "1796008778492547072",
+                "taille": "N/A",
+                "couleur": "L Drop Shape Yellow OPP Bag",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924206FU",
+                "vid": "1796008778555461632",
+                "taille": "N/A",
+                "couleur": "L Square",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924207GT",
+                "vid": "1796008778626764800",
+                "taille": "N/A",
+                "couleur": "L Square Yellow Boxed",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924208HS",
+                "vid": "1796008778698067968",
+                "taille": "N/A",
+                "couleur": "L Square Yellow OPP Bag",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924209IR",
+                "vid": "1796008778773565440",
+                "taille": "N/A",
+                "couleur": "L Water Drop",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924210JQ",
+                "vid": "1796008778840674304",
+                "taille": "N/A",
+                "couleur": "XL",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924211KP",
+                "vid": "1796008778911977472",
+                "taille": "N/A",
+                "couleur": "XL Drop Shape",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924212LO",
+                "vid": "1796008778979086336",
+                "taille": "N/A",
+                "couleur": "XL Drop Shape Big Green Nude",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924213MN",
+                "vid": "1796008779046195200",
+                "taille": "N/A",
+                "couleur": "XL Drop Shape Rhubarb Boxed",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924214NM",
+                "vid": "1796008779117498368",
+                "taille": "N/A",
+                "couleur": "XL Drop Shape Rhubarb Nude",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
+            },
+            {
+                "sku": "CJMB204924215OL",
+                "vid": "1796008779188801536",
+                "taille": "N/A",
+                "couleur": "XL Drop Shape Rhubarb OPP Bag",
+                "prix": 0.28,
+                "poids": 28.0,
+                "stock": 174760,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.28,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.18
             }
         ]
     }
