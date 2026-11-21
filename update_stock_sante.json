@@ -5588,5 +5588,30 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503160513541625000",
+        "nom": "EPP Stretch Board Adjustable Sports Training Oblique Pedal",
+        "prixBase": 3.68,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2025/03/16/05/19224e83-44c7-4f7d-9f99-c2fb7640c41e.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD2328869",
+                "vid": "2503160513541625000",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 3.68,
+                "poids": 0.0,
+                "stock": 29885,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
