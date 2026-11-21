@@ -498,7 +498,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.44,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.41
             },
             {
                 "sku": "CJJY109273731EV",
@@ -550,7 +550,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 5.94,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 7.57
+                "shippingCostUS": 7.74
             },
             {
                 "sku": "CJJY109273735IR",
@@ -5561,6 +5561,31 @@
                 "shippingCostFR": 14.25,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 16.97
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1928333208430174209",
+        "nom": "TotheCORE Basketball Stand 5.25-8.53 Ft Adjustable Portable Basketball Hoop & Goal With PC Backplate, Large Base And Wheels",
+        "prixBase": 74.89,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/edd8fff5-fbed-4330-8a10-e87baf862de6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM238943701AZ",
+                "vid": "1928333208568586242",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 74.89,
+                "poids": 500.0,
+                "stock": 180,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
