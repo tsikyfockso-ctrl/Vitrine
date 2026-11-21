@@ -1107,69 +1107,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJNSFJWJ00066-GREY BLUE",
-                "vid": "5D8C1F64-B91A-423B-BF2E-A25E1AB33F48",
+                "sku": "CJNSFJWJ00066",
+                "vid": "718292A1-CB3F-4479-97E6-DED6C1EFE43A",
                 "taille": "N/A",
-                "couleur": "Grey blue",
+                "couleur": "N/A",
                 "prix": 2.25,
-                "poids": 180.0,
+                "poids": 0.0,
                 "stock": 57445,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.31,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.72
-            },
-            {
-                "sku": "CJNSFJWJ00066-BLUE",
-                "vid": "A10F4294-0421-402D-A006-44AC487722A3",
-                "taille": "N/A",
-                "couleur": "Blue",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.31,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.72
-            },
-            {
-                "sku": "CJNSFJWJ00066-BLACK",
-                "vid": "D29A0A82-8C41-4F40-92FF-D55546D772F3",
-                "taille": "N/A",
-                "couleur": "Black",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.31,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.72
-            },
-            {
-                "sku": "CJNSFJWJ00066-GREY WHITE",
-                "vid": "D300A54B-1AEC-4961-BE4D-95924813DC3D",
-                "taille": "N/A",
-                "couleur": "Grey white",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.31,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.72
-            },
-            {
-                "sku": "CJNSFJWJ00066-GREY RED",
-                "vid": "D5DC4498-ECD8-4E3C-9CCC-F9B90629C31D",
-                "taille": "N/A",
-                "couleur": "Grey red",
-                "prix": 2.25,
-                "poids": 180.0,
-                "stock": 57445,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 6.31,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.72
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -1965,8 +1913,8 @@
                 "prix": 0.84,
                 "poids": 20.0,
                 "stock": 7629,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.17,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -2008,17 +1956,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJLX278576601AZ",
-                "vid": "2032142235943223298",
+                "sku": "CJLX2785766",
+                "vid": "2032142235737702401",
                 "taille": "N/A",
-                "couleur": "Flower",
+                "couleur": "N/A",
                 "prix": 6.9,
-                "poids": 40.0,
+                "poids": 0.0,
                 "stock": 14805,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 4.44,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.13
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -20070,7 +20018,7 @@
                 "shippingMethodFR": "CJPacket Liquid Line",
                 "shippingCostFR": 4.05,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.07
+                "shippingCostUS": 5.18
             },
             {
                 "sku": "CJYD206388603CX",
@@ -65239,6 +65187,31 @@
                 "prix": 3.69,
                 "poids": 270.0,
                 "stock": 52552,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2406290901501610400",
+        "nom": "Double Zipper Thick Large Capacity Tactical Wear-resistant Belt Waist Bag",
+        "prixBase": 2.59,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/9b32ab87-51e0-4a0f-8330-2945534d47d1.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD2071734",
+                "vid": "2406290901501610400",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 2.59,
+                "poids": 0.0,
+                "stock": 64992,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
