@@ -8142,8 +8142,8 @@
                 "prix": 0.76,
                 "poids": 190.0,
                 "stock": 31339,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -8155,8 +8155,8 @@
                 "prix": 0.76,
                 "poids": 230.0,
                 "stock": 31339,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -8168,8 +8168,8 @@
                 "prix": 0.76,
                 "poids": 230.0,
                 "stock": 31339,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             },
@@ -8181,8 +8181,8 @@
                 "prix": 0.76,
                 "poids": 190.0,
                 "stock": 31339,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -22692,7 +22692,7 @@
                 "poids": 3284.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 59.35,
+                "shippingCostFR": 63.44,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 81.83
             },
@@ -22744,7 +22744,7 @@
                 "poids": 14420.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 24.9,
+                "shippingCostFR": 213.97,
                 "shippingMethodUS": "CJPacket Sea",
                 "shippingCostUS": 82.98
             },
@@ -23031,6 +23031,31 @@
                 "prix": 111.21,
                 "poids": 10310.0,
                 "stock": 40,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2048998616798711809",
+        "nom": "Heavy Duty Drywall Sheet Cart & Panel Dolly-SL 3000 Lbs Load Capacity,panel Service Cart",
+        "prixBase": 112.78,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17773344/418ffe2c-8a02-4094-9b5e-ade243e32994.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU2857333",
+                "vid": "2048998616798711809",
+                "taille": "N/A",
+                "couleur": "N/A",
+                "prix": 112.78,
+                "poids": 0.0,
+                "stock": 162,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
