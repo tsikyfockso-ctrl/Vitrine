@@ -2012,7 +2012,7 @@
                 "poids": 290.0,
                 "stock": 452420,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.72,
+                "shippingCostFR": 8.0,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.95
             },
@@ -34025,6 +34025,122 @@
                 "shippingCostFR": 7.64,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.52
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "B62FD68C-A1AB-45EE-B841-FA95799A8D15",
+        "nom": "Children's Autumn And Winter Woolen Tube Breathable Non-slip Socks",
+        "prixBase": 0.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/2057/4267530158860.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJWJYEYE05066-GREY-0 2 YEARS OLD",
+                "vid": "167F3278-F7C1-4A38-A1B7-6652ADF7B44A",
+                "taille": "0 2 years old",
+                "couleur": "Grey",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-GREY-2 4 YEARS OLD",
+                "vid": "214DE3B8-433F-43F6-84F5-3BA896923887",
+                "taille": "2 4 years old",
+                "couleur": "Grey",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-BLACK-2 4 YEARS OLD",
+                "vid": "26B0A87C-4ACA-4FDD-94EE-68AC7A5C5A19",
+                "taille": "2 4 years old",
+                "couleur": "Black",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-BEIGE-0 2 YEARS OLD",
+                "vid": "50E469EB-E9EB-4F57-95DD-6AE3949BE0E1",
+                "taille": "0 2 years old",
+                "couleur": "Beige",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-PINK-2 4 YEARS OLD",
+                "vid": "573DE086-B23D-4ABF-AD0A-47EA97D5802D",
+                "taille": "2 4 years old",
+                "couleur": "Pink",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-PINK-0 2 YEARS OLD",
+                "vid": "5C1E9C67-D6E9-49B8-BD30-0EF7E5C3A3E4",
+                "taille": "0 2 years old",
+                "couleur": "Pink",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-BLACK-0 2 YEARS OLD",
+                "vid": "BF12B37F-4010-4423-81FF-ED6B567D5C4B",
+                "taille": "0 2 years old",
+                "couleur": "Black",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
+            },
+            {
+                "sku": "CJWJYEYE05066-BEIGE-2 4 YEARS OLD",
+                "vid": "FB695D17-1562-4B26-9504-036FD43EBBA0",
+                "taille": "2 4 years old",
+                "couleur": "Beige",
+                "prix": 0.8,
+                "poids": 55.0,
+                "stock": 160000,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 4.64,
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.36
             }
         ]
     }
