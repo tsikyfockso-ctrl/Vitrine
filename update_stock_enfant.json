@@ -3144,7 +3144,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.0,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 8.14
+                "shippingCostUS": 7.95
             },
             {
                 "sku": "CJYE157895404DW",
@@ -3181,7 +3181,7 @@
                 "poids": 280.0,
                 "stock": 94874,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.44,
+                "shippingCostFR": 7.88,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.8
             },
@@ -3363,7 +3363,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 5.48
             },
             {
                 "sku": "CJYD235402104DW",
@@ -3389,7 +3389,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.48
             },
             {
                 "sku": "CJYD235402106FU",
@@ -3415,7 +3415,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.3
+                "shippingCostUS": 5.48
             },
             {
                 "sku": "CJYD235402108HS",
@@ -3441,7 +3441,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.48
             },
             {
                 "sku": "CJYD235402110JQ",
@@ -3480,7 +3480,7 @@
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.71,
                 "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.35
+                "shippingCostUS": 5.48
             },
             {
                 "sku": "CJYD235402113MN",
@@ -10104,6 +10104,148 @@
                 "stock": 117084,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 6.57,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2503090128431605000",
+        "nom": "Baby Floral Onesie Rabbit Jumpsuit",
+        "prixBase": 4.69,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/f05d6d85-4eac-4349-ac0d-b570b7bbd188.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYE232006301AZ",
+                "vid": "2503090128431605200",
+                "taille": "66",
+                "couleur": "Romper Fairy Tale Pink",
+                "prix": 4.69,
+                "poids": 170.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006302BY",
+                "vid": "2503090128431605400",
+                "taille": "73",
+                "couleur": "Romper Fairy Tale Pink",
+                "prix": 4.69,
+                "poids": 180.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006303CX",
+                "vid": "2503090128431605600",
+                "taille": "80",
+                "couleur": "Romper Fairy Tale Pink",
+                "prix": 4.69,
+                "poids": 190.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.44,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006304DW",
+                "vid": "2503090128431605700",
+                "taille": "90",
+                "couleur": "Romper Fairy Tale Pink",
+                "prix": 4.69,
+                "poids": 200.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006305EV",
+                "vid": "2503090128431605900",
+                "taille": "73",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 180.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.31,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006306FU",
+                "vid": "2503090128431606000",
+                "taille": "80",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 190.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006307GT",
+                "vid": "2503090128431606200",
+                "taille": "90",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 200.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006308HS",
+                "vid": "2503090128431606400",
+                "taille": "100",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 210.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006309IR",
+                "vid": "2503090128431606500",
+                "taille": "110",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 220.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 6.18,
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 7.01
+            },
+            {
+                "sku": "CJYE232006310JQ",
+                "vid": "2503090128431606700",
+                "taille": "120",
+                "couleur": "Princess Dress Crushed Flower",
+                "prix": 4.69,
+                "poids": 230.0,
+                "stock": 70075,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 7.26,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 7.01
             }
