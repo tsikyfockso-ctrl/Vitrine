@@ -186,17 +186,30 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 24.67
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "YunExpress Sensitive",
+                "shippingCostUS": 24.67
             }
         ]
     },
@@ -5952,8 +5965,8 @@
                 "stock": 50231,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 17.93,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 66.12
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 64.26
             },
             {
                 "sku": "CJYL245077706FU",
@@ -5976,8 +5989,8 @@
                 "prix": 6.25,
                 "poids": 6050.0,
                 "stock": 50231,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 17.93,
+                "shippingMethodFR": "CJPacket Ordinary E",
+                "shippingCostFR": 73.36,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 79.28
             }
@@ -19160,7 +19173,7 @@
                 "poids": 820.0,
                 "stock": 9920,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 13.1,
+                "shippingCostFR": 14.85,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -21580,8 +21593,8 @@
                 "prix": 27.23,
                 "poids": 2500.0,
                 "stock": 9479,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 38.42,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 37.67,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -22626,8 +22639,8 @@
                 "prix": 13.27,
                 "poids": 1448.0,
                 "stock": 103736,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 24.9,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 24.3,
                 "shippingMethodUS": "YunExpress Sensitive",
                 "shippingCostUS": 31.97
             },
@@ -22642,7 +22655,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 24.9,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 31.97
+                "shippingCostUS": 32.88
             },
             {
                 "sku": "CJYD200895303CX",
@@ -22668,7 +22681,7 @@
                 "shippingMethodFR": "YunExpress Sensitive",
                 "shippingCostFR": 24.9,
                 "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 31.97
+                "shippingCostUS": 32.88
             },
             {
                 "sku": "CJYD200895308HS",
@@ -22692,7 +22705,7 @@
                 "poids": 14420.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 24.9,
+                "shippingCostFR": 213.97,
                 "shippingMethodUS": "CJPacket Sea",
                 "shippingCostUS": 82.98
             },
@@ -22718,7 +22731,7 @@
                 "poids": 14420.0,
                 "stock": 103736,
                 "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 199.43,
+                "shippingCostFR": 213.97,
                 "shippingMethodUS": "CJPacket Sea",
                 "shippingCostUS": 82.98
             },
@@ -22968,6 +22981,56 @@
                 "prix": 4.56,
                 "poids": 0.0,
                 "stock": 19685,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037350792739590145",
+        "nom": "4 Pack Metal Garden Trellis 71  X 19.7  Rustproof Trellis For Climbing Plants Outdoor Flower Support Black",
+        "prixBase": 57.31,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/8dd3cb68-775e-48c4-a3f8-dd8513dedbbb.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28069950001",
+                "vid": "2037350792848642050",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 57.31,
+                "poids": 9888.0,
+                "stock": 62,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1910180856818593793",
+        "nom": "Modern Round Dining Table - Black",
+        "prixBase": 111.21,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ea6cc1f1-7940-4290-8116-9d0d1ca996f9.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU235033901AZ",
+                "vid": "1910180857233829890",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 111.21,
+                "poids": 10310.0,
+                "stock": 40,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
