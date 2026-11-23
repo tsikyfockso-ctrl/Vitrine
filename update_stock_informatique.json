@@ -96,7 +96,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 28.64,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 32.61
+                "shippingCostUS": 33.82
             },
             {
                 "sku": "CJYD203644804DW",
@@ -541,8 +541,8 @@
                 "stock": 183748,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 27.51,
-                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
-                "shippingCostUS": 43.14
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 36.21
             },
             {
                 "sku": "CJNS131339305EV",
@@ -580,8 +580,8 @@
                 "stock": 183748,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 27.51,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 41.57
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 36.44
             },
             {
                 "sku": "CJNS131339308HS",
@@ -619,8 +619,8 @@
                 "stock": 183748,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 28.5,
-                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
-                "shippingCostUS": 43.14
+                "shippingMethodUS": "CJPacket Eub",
+                "shippingCostUS": 37.47
             }
         ]
     },
@@ -2630,7 +2630,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 11.1,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 12.67
+                "shippingCostUS": 11.78
             }
         ]
     },
