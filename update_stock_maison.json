@@ -208,8 +208,8 @@
                 "stock": 22067,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 18.34,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 24.67
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 20.74
             }
         ]
     },
@@ -373,8 +373,8 @@
                 "stock": 31830,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.84,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 8.18
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 6.86
             },
             {
                 "sku": "CJJT246167404DW",
@@ -386,8 +386,8 @@
                 "stock": 31830,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.84,
-                "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 7.41
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 6.86
             },
             {
                 "sku": "CJJT246167405EV",
@@ -399,8 +399,8 @@
                 "stock": 31830,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 6.84,
-                "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 7.41
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 6.86
             }
         ]
     },
@@ -14418,8 +14418,8 @@
                 "prix": 10.79,
                 "poids": 1212.0,
                 "stock": 7686,
-                "shippingMethodFR": "YunExpress Sensitive",
-                "shippingCostFR": 21.02,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 20.46,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -16511,7 +16511,7 @@
                 "poids": 1410.0,
                 "stock": 8977,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 20.81,
+                "shippingCostFR": 22.98,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -17124,7 +17124,7 @@
                 "couleur": "Black18 in",
                 "prix": 74.0,
                 "poids": 14061.0,
-                "stock": 7798,
+                "stock": 7554,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17137,7 +17137,7 @@
                 "couleur": "Brown18 in",
                 "prix": 74.0,
                 "poids": 14061.0,
-                "stock": 7798,
+                "stock": 7554,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17150,7 +17150,7 @@
                 "couleur": "Brown30 in",
                 "prix": 74.0,
                 "poids": 14061.0,
-                "stock": 7798,
+                "stock": 7554,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -17163,7 +17163,7 @@
                 "couleur": "Black30 in",
                 "prix": 74.0,
                 "poids": 14061.0,
-                "stock": 7798,
+                "stock": 7554,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18668,7 +18668,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1889517055286231042",
         "nom": "7ft, Black, Double-decked, Rounded Roof, With Door, Wrought Iron, Iron Arch, Courtyard",
-        "prixBase": 76.44,
+        "prixBase": 70.32,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17393184/1889590466618593280.jpg"
@@ -18679,9 +18679,9 @@
                 "vid": "1889517055365922817",
                 "taille": "N/A",
                 "couleur": "Black",
-                "prix": 76.44,
+                "prix": 70.32,
                 "poids": 13700.0,
-                "stock": 62,
+                "stock": 121,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -21211,15 +21211,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT1097670",
-                "vid": "1386152823909126144",
+                "sku": "CJJT109767001AZ",
+                "vid": "1386152825255497728",
                 "taille": "N/A",
-                "couleur": "N/A",
+                "couleur": "50x70cm",
                 "prix": 0.6,
-                "poids": 0.0,
+                "poids": 120.0,
                 "stock": 40000,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.51,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -23199,6 +23199,133 @@
                 "shippingCostFR": 20.37,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1905170064480690177",
+        "nom": "Wooden Rocking Chair With Original Wood Color, Poplar Wavy Shape And Armrests",
+        "prixBase": 82.56,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17520192/1942855759847231488.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU233866701AZ",
+                "vid": "1905170064640073730",
+                "taille": "N/A",
+                "couleur": "Original Color",
+                "prix": 82.56,
+                "poids": 10000.0,
+                "stock": 15,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1870350727458713602",
+        "nom": "Non Full Mirror Wooden Wall Mounted 4-layer Shelf With 2 Drawers And 8 Blue LED Lights For Jewelry Storage, White Mirror Cabinet",
+        "prixBase": 65.58,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/ee9dacea-3f5b-4954-808b-6a366e7c692c.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU224992401AZ",
+                "vid": "1870350727576154114",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 65.58,
+                "poids": 11000.0,
+                "stock": 298,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2409160807281623400",
+        "nom": "Simple Breathing Ambience Light Rechargeable Bedroom Small Night Lamp Creative Atmosphere Light Home Decoration",
+        "prixBase": 6.97,
+        "productFee": 0.0,
+        "images": [
+            "https://oss-cf.cjdropshipping.com/product/2024/10/08/02/0d88fca9-fd40-4818-9e6c-b4d1396e04f6.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJT213894502BY",
+                "vid": "2409160807281624200",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 6.97,
+                "poids": 520.0,
+                "stock": 63723,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 11.85
+            },
+            {
+                "sku": "CJJT213894503CX",
+                "vid": "2409160807281624500",
+                "taille": "N/A",
+                "couleur": "Dark Gray",
+                "prix": 6.97,
+                "poids": 520.0,
+                "stock": 63723,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 11.85
+            },
+            {
+                "sku": "CJJT213894504DW",
+                "vid": "2409160807281625400",
+                "taille": "N/A",
+                "couleur": "Gold",
+                "prix": 6.97,
+                "poids": 520.0,
+                "stock": 63723,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 11.85
+            },
+            {
+                "sku": "CJJT213894505EV",
+                "vid": "2409160807281626100",
+                "taille": "N/A",
+                "couleur": "Orange",
+                "prix": 6.97,
+                "poids": 520.0,
+                "stock": 63723,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 11.85
+            },
+            {
+                "sku": "CJJT213894506FU",
+                "vid": "2409160807281626400",
+                "taille": "N/A",
+                "couleur": "Silver",
+                "prix": 6.97,
+                "poids": 520.0,
+                "stock": 63723,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 11.57,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 11.85
             }
         ]
     }
