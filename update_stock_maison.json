@@ -8679,7 +8679,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1909882049789865985",
         "nom": "White Body, Black Cover, Wood Grain Style With Two Wheels Injection Molded Courtyard Plastic Storage Box",
-        "prixBase": 57.08,
+        "prixBase": 42.81,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/d7c8e568-de00-4b55-a7cb-e3928dfea310.jpg"
@@ -8690,9 +8690,9 @@
                 "vid": "1909882049890529281",
                 "taille": "N/A",
                 "couleur": "Black White",
-                "prix": 57.08,
+                "prix": 42.81,
                 "poids": 8300.0,
-                "stock": 331,
+                "stock": 267,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -10030,7 +10030,7 @@
                 "couleur": "Default",
                 "prix": 51.12,
                 "poids": 7940.0,
-                "stock": 692,
+                "stock": 673,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -16825,7 +16825,7 @@
                 "couleur": "Violet",
                 "prix": 89.59,
                 "poids": 11795.0,
-                "stock": 54,
+                "stock": 53,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18733,7 +18733,7 @@
                 "poids": 370.0,
                 "stock": 44091,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.62,
+                "shippingCostFR": 8.97,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.0
             },
@@ -18761,7 +18761,7 @@
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.62,
                 "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 9.34
+                "shippingCostUS": 9.41
             },
             {
                 "sku": "CJYD227894204DW",
@@ -18798,7 +18798,7 @@
                 "poids": 370.0,
                 "stock": 44091,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.62,
+                "shippingCostFR": 8.97,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 9.34
             }
@@ -23158,8 +23158,8 @@
                 "stock": 48714,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 20.37,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 21.62
             },
             {
                 "sku": "CJYD209421503CX",
@@ -23171,8 +23171,8 @@
                 "stock": 48714,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 20.37,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 21.62
             },
             {
                 "sku": "CJYD209421504DW",
@@ -23184,8 +23184,8 @@
                 "stock": 48714,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 20.37,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 21.62
             },
             {
                 "sku": "CJYD209421505EV",
@@ -23197,8 +23197,8 @@
                 "stock": 48714,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 20.37,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket FJTY Eub Special Line",
+                "shippingCostUS": 21.62
             }
         ]
     },
@@ -23326,6 +23326,56 @@
                 "shippingCostFR": 11.57,
                 "shippingMethodUS": "CJPacket SP Sensitive",
                 "shippingCostUS": 11.85
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1902628586382585857",
+        "nom": "Yard Plastic Storage Box",
+        "prixBase": 54.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/aef7691b-8a56-4037-af73-8de3979f8501.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYL233280601AZ",
+                "vid": "1902628586688770049",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 54.02,
+                "poids": 8400.0,
+                "stock": 44,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2037389953081184257",
+        "nom": "TV Stand With Push-pull Drawer For Living Room, Bedroom,Offices,Adjustable Height Mobile TV Cart For 32-75 Inches,Wood &glass TV Stand With Wheels,Natural",
+        "prixBase": 124.22,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17745696/a67bbf0f-fe2f-488c-8433-7c7ccaad06d3.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU28075040001",
+                "vid": "2037389953190236161",
+                "taille": "N/A",
+                "couleur": "Natural",
+                "prix": 124.22,
+                "poids": 27578.0,
+                "stock": 51,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
