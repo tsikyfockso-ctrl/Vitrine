@@ -5652,5 +5652,56 @@
                 "shippingCostUS": 9.28
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2412050801151617700",
+        "nom": "Facial Colorful LED Beauty Mask Beauty Device",
+        "prixBase": 4.39,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/6e96378d-9e2b-443d-a39b-bfc907b97eda.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD223390101AZ",
+                "vid": "2412050801151618000",
+                "taille": "White",
+                "couleur": "Rechargeable",
+                "prix": 4.39,
+                "poids": 1050.0,
+                "stock": 24463,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 18.3,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 9.24
+            },
+            {
+                "sku": "CJYD223390102BY",
+                "vid": "2509300319141622700",
+                "taille": "White Set",
+                "couleur": "Rechargeable",
+                "prix": 4.39,
+                "poids": 1394.0,
+                "stock": 24463,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 18.3,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 9.24
+            },
+            {
+                "sku": "CJYD223390103CX",
+                "vid": "2608040849151639800",
+                "taille": "Mask Without Box",
+                "couleur": "Rechargeable",
+                "prix": 4.39,
+                "poids": 358.0,
+                "stock": 24463,
+                "shippingMethodFR": "CJPacket Sensitive",
+                "shippingCostFR": 18.3,
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 9.24
+            }
+        ]
     }
 ]
