@@ -11321,8 +11321,8 @@
                 "stock": 22107,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.97,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 9.41
             },
             {
                 "sku": "CJNS212319002BY",
@@ -11334,8 +11334,8 @@
                 "stock": 22107,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 8.97,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 9.41
             }
         ]
     },
@@ -16520,8 +16520,8 @@
                 "stock": 72470,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 6.36,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 6.88
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 6.62
             },
             {
                 "sku": "CJWJ246946411KP",
@@ -19132,69 +19132,17 @@
         ],
         "variantes": [
             {
-                "sku": "CJYD190755102BY",
-                "vid": "1729064892042326016",
-                "taille": "USB",
-                "couleur": "Cherry Blossom Pink",
+                "sku": "CJYD1907551",
+                "vid": "1729064891924885504",
+                "taille": "N/A",
+                "couleur": "N/A",
                 "prix": 5.01,
-                "poids": 420.0,
-                "stock": 56435,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 10.0,
-                "shippingMethodUS": "CJPacket SP Sensitive",
-                "shippingCostUS": 10.24
-            },
-            {
-                "sku": "CJYD190755103CX",
-                "vid": "1729064892184932352",
-                "taille": "USB",
-                "couleur": "Grass Green",
-                "prix": 5.01,
-                "poids": 420.0,
-                "stock": 56435,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 10.0,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 12.85
-            },
-            {
-                "sku": "CJYD190755104DW",
-                "vid": "1729064892289789952",
-                "taille": "USB",
-                "couleur": "Warm White",
-                "prix": 5.01,
-                "poids": 420.0,
-                "stock": 56435,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 10.0,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 14.33
-            },
-            {
-                "sku": "CJYD190755101AZ",
-                "vid": "2506060737381600100",
-                "taille": "USB",
-                "couleur": "Cherry Blossom Pink set",
-                "prix": 5.01,
-                "poids": 509.0,
-                "stock": 56435,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 11.44,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 14.33
-            },
-            {
-                "sku": "CJYD190755105EV",
-                "vid": "2506060737381600300",
-                "taille": "USB",
-                "couleur": "Warm White set",
-                "prix": 5.01,
-                "poids": 505.0,
-                "stock": 56435,
-                "shippingMethodFR": "CJPacket Euro Sensitive F",
-                "shippingCostFR": 10.0,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 14.33
+                "poids": 0.0,
+                "stock": 56434,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     },
@@ -33419,7 +33367,7 @@
                 "poids": 320.0,
                 "stock": 392947,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 8.37,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 8.07
             },
