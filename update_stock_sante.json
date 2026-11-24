@@ -5703,5 +5703,30 @@
                 "shippingCostUS": 9.24
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1900088312711319553",
+        "nom": "Table Tennis Table Folding Portable Table Tennis Table Set",
+        "prixBase": 74.71,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/de2d44e3-1a44-476a-b7bc-d53b2f006392.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJJM232624701AZ",
+                "vid": "1900088312895868930",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 74.71,
+                "poids": 15180.0,
+                "stock": 47,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
