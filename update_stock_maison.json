@@ -186,15 +186,28 @@
         ],
         "variantes": [
             {
-                "sku": "CJHD1904029",
-                "vid": "1727528401138880512",
-                "taille": "N/A",
-                "couleur": "N/A",
+                "sku": "CJHD190402901AZ",
+                "vid": "1727528401222766592",
+                "taille": "EU",
+                "couleur": "5W",
                 "prix": 6.6,
-                "poids": 0.0,
+                "poids": 838.0,
                 "stock": 22067,
-                "shippingMethodFR": "N/A",
-                "shippingCostFR": 0.0,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJHD190402902BY",
+                "vid": "1772568136894648320",
+                "taille": "US",
+                "couleur": "5W",
+                "prix": 6.6,
+                "poids": 838.0,
+                "stock": 22067,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 18.34,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -649,7 +662,7 @@
                 "poids": 350.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.85,
+                "shippingCostFR": 19.59,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 9.81
             },
@@ -703,7 +716,7 @@
                 "shippingMethodFR": "CJPacket Pure Electricity",
                 "shippingCostFR": 21.41,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
-                "shippingCostUS": 15.61
+                "shippingCostUS": 17.37
             },
             {
                 "sku": "CJHD225250106FU",
@@ -766,7 +779,7 @@
                 "poids": 350.0,
                 "stock": 96000,
                 "shippingMethodFR": "CJPacket Pure Electricity",
-                "shippingCostFR": 17.53,
+                "shippingCostFR": 19.59,
                 "shippingMethodUS": "CJPacket Super Pure Electricity",
                 "shippingCostUS": 9.81
             },
@@ -1903,7 +1916,7 @@
         "dropshipping": "CJ Dropshipping",
         "pid": "1910166774171226113",
         "nom": "80x40x122.5CM, Carbon Color, 2-in-1 Assembly Type, Planting Trellis, Plastic Trellis With Planting Box",
-        "prixBase": 38.45,
+        "prixBase": 28.13,
         "productFee": 0.0,
         "images": [
             "https://cf.cjdropshipping.com/17521920/1943607734876508160.jpg"
@@ -1914,9 +1927,9 @@
                 "vid": "1910166774808760322",
                 "taille": "N/A",
                 "couleur": "Carbonized color",
-                "prix": 38.45,
+                "prix": 28.13,
                 "poids": 6050.0,
-                "stock": 127,
+                "stock": 115,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
@@ -18684,15 +18697,15 @@
         ],
         "variantes": [
             {
-                "sku": "CJJT176556101AZ",
-                "vid": "1662036847075274752",
+                "sku": "CJJT1765561",
+                "vid": "1662036846991388672",
                 "taille": "N/A",
-                "couleur": "Photo Color",
+                "couleur": "N/A",
                 "prix": 8.69,
-                "poids": 103.0,
+                "poids": 0.0,
                 "stock": 13885,
-                "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 5.28,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
                 "shippingCostUS": 0.0
             }
@@ -22843,12 +22856,12 @@
         ],
         "variantes": [
             {
-                "sku": "CJFU28069950001",
-                "vid": "2037350792848642050",
+                "sku": "CJFU2806995",
+                "vid": "2037350792739590145",
                 "taille": "N/A",
-                "couleur": "Black",
+                "couleur": "N/A",
                 "prix": 57.31,
-                "poids": 9888.0,
+                "poids": 0.0,
                 "stock": 62,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
@@ -23291,6 +23304,31 @@
                 "prix": 111.64,
                 "poids": 0.0,
                 "stock": 291,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2034922373636030466",
+        "nom": "35.98inch Round Coffee Table With Cylindrical Leg,Wood Veneer Tabletop Table,Rounded Sofa Side Table For Living Room Office,Brown",
+        "prixBase": 317.95,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/17739648/1f9e64fa-0579-4cf2-985a-9b6cbc863b96.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU27966430001",
+                "vid": "2034922373757665281",
+                "taille": "N/A",
+                "couleur": "Dark Brown",
+                "prix": 317.95,
+                "poids": 9680.0,
+                "stock": 104,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
