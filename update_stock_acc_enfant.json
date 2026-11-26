@@ -34621,5 +34621,43 @@
                 "shippingCostUS": 0.0
             }
         ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2F0B8A89-D916-4460-AE37-381240AEDBC4",
+        "nom": "Summer Outing Sunscreen Hat for Women with Foldable Straw Hats Holiday Cool Hat Beach Hat",
+        "prixBase": 2.02,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/15603552/19504632636.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJNSFSMZ00337-KHAKI-M 56 58CM",
+                "vid": "56208CF7-88A9-4DB5-A078-4EA3E56B86BC",
+                "taille": "M 56 58cm",
+                "couleur": "Khaki",
+                "prix": 2.02,
+                "poids": 155.0,
+                "stock": 24997,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJNSFSMZ00337-BEIGE-M 56 58CM",
+                "vid": "87FAB205-4592-40F9-ADD7-DCA1B0353923",
+                "taille": "M 56 58cm",
+                "couleur": "Beige",
+                "prix": 2.02,
+                "poids": 155.0,
+                "stock": 24997,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 5.97,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
     }
 ]
