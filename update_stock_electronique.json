@@ -1496,8 +1496,8 @@
                 "stock": 2894389,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 5.78,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 6.24
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 5.6
             },
             {
                 "sku": "CJFG137237919SH",
@@ -98409,8 +98409,8 @@
                 "stock": 493278,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.83,
-                "shippingMethodUS": "CJPacket Sensitive Pro",
-                "shippingCostUS": 5.5
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 5.2
             },
             {
                 "sku": "CJPG140452903CX",
@@ -132392,6 +132392,147 @@
                 "shippingCostFR": 8.16,
                 "shippingMethodUS": "CJPacket SP Sensitive",
                 "shippingCostUS": 7.91
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2085645876008247298",
+        "nom": "KP-309 Best-Selling Portable Mini Outdoor Bluetooth Speaker High-Quality Audio Deep Bass Long Battery Life In Stock",
+        "prixBase": 3.06,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/a6d3873d-a4f3-4cf5-904b-162b8b5e2f05.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYS304399401AZ",
+                "vid": "2085645876108910593",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 3.06,
+                "poids": 300.0,
+                "stock": 35802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS304399402BY",
+                "vid": "2085645876108910594",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 3.06,
+                "poids": 300.0,
+                "stock": 35802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS304399403CX",
+                "vid": "2085645876108910595",
+                "taille": "N/A",
+                "couleur": "Gray",
+                "prix": 3.06,
+                "poids": 300.0,
+                "stock": 35802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS304399404DW",
+                "vid": "2085645876108910596",
+                "taille": "N/A",
+                "couleur": "Pink",
+                "prix": 3.06,
+                "poids": 300.0,
+                "stock": 35802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYS304399405EV",
+                "vid": "2085645876108910597",
+                "taille": "N/A",
+                "couleur": "Blue",
+                "prix": 3.06,
+                "poids": 300.0,
+                "stock": 35802,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 8.58,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "2501310748231615800",
+        "nom": "Button Straight Mini Dual-card Mobile Phone",
+        "prixBase": 7.96,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/quick/product/1511d016-ef24-48fe-a167-e42081220c95.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJYD228186001AZ",
+                "vid": "2501310748231616100",
+                "taille": "N/A",
+                "couleur": "Red",
+                "prix": 7.96,
+                "poids": 170.0,
+                "stock": 24948,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.66,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228186002BY",
+                "vid": "2501310748231616200",
+                "taille": "N/A",
+                "couleur": "Dark Blue",
+                "prix": 7.96,
+                "poids": 170.0,
+                "stock": 24948,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.66,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228186003CX",
+                "vid": "2501310748231616400",
+                "taille": "N/A",
+                "couleur": "Green",
+                "prix": 7.96,
+                "poids": 170.0,
+                "stock": 24948,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.66,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJYD228186004DW",
+                "vid": "2501310748231616500",
+                "taille": "N/A",
+                "couleur": "Black",
+                "prix": 7.96,
+                "poids": 170.0,
+                "stock": 24948,
+                "shippingMethodFR": "CJPacket Euro Sensitive F",
+                "shippingCostFR": 6.66,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
