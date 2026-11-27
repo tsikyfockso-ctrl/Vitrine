@@ -170,8 +170,8 @@
                 "prix": 12.27,
                 "poids": 280.0,
                 "stock": 37670,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 8.28,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 7.64,
                 "shippingMethodUS": "CJPacket SP Sensitive",
                 "shippingCostUS": 8.0
             }
@@ -274,8 +274,8 @@
                 "stock": 50379,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 5.51,
-                "shippingMethodUS": "LuWei Ordinary US",
-                "shippingCostUS": 6.03
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 5.81
             }
         ]
     },
@@ -4725,8 +4725,8 @@
                 "stock": 30000,
                 "shippingMethodFR": "CJPacket Eub",
                 "shippingCostFR": 4.44,
-                "shippingMethodUS": "N/A",
-                "shippingCostUS": 0.0
+                "shippingMethodUS": "CJPacket Sensitive Pro",
+                "shippingCostUS": 5.23
             }
         ]
     },
@@ -8269,6 +8269,31 @@
                 "prix": 5.44,
                 "poids": 0.0,
                 "stock": 50013,
+                "shippingMethodFR": "N/A",
+                "shippingCostFR": 0.0,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1892033793961803777",
+        "nom": "4 Drawers, 2 USB  2 Sockets, Bedside Table",
+        "prixBase": 61.8,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/a009f68b-a654-4490-a3b2-d7ba99135757.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJFU229527401AZ",
+                "vid": "1892033794041495554",
+                "taille": "N/A",
+                "couleur": "White",
+                "prix": 61.8,
+                "poids": 22500.0,
+                "stock": 25,
                 "shippingMethodFR": "N/A",
                 "shippingCostFR": 0.0,
                 "shippingMethodUS": "N/A",
