@@ -106,8 +106,8 @@
                 "prix": 24.1,
                 "poids": 2180.0,
                 "stock": 67614,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 32.57,
+                "shippingMethodFR": "CJPacket Ordinary E",
+                "shippingCostFR": 29.16,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 37.35
             },
@@ -145,7 +145,7 @@
                 "poids": 380.0,
                 "stock": 37670,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 9.1,
+                "shippingCostFR": 9.32,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.15
             },
@@ -1126,7 +1126,7 @@
                 "couleur": "G1 Cream Yellow",
                 "prix": 2.72,
                 "poids": 250.0,
-                "stock": 16267,
+                "stock": 16266,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 7.61,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -1139,7 +1139,7 @@
                 "couleur": "G1 Gray",
                 "prix": 2.72,
                 "poids": 250.0,
-                "stock": 16267,
+                "stock": 16266,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 7.61,
                 "shippingMethodUS": "YunExpress Sensitive",
@@ -2705,8 +2705,8 @@
                 "stock": 49917,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 9.94,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 12.33
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 10.16
             },
             {
                 "sku": "CJYD196422202BY",
