@@ -3928,8 +3928,8 @@
                 "stock": 60000,
                 "shippingMethodFR": "CJPacket Euro Sensitive F",
                 "shippingCostFR": 8.94,
-                "shippingMethodUS": "YunExpress Sensitive",
-                "shippingCostUS": 10.63
+                "shippingMethodUS": "CJPacket SP Sensitive",
+                "shippingCostUS": 8.8
             }
         ]
     },
@@ -5710,7 +5710,7 @@
                 "prix": 6.42,
                 "poids": 60.0,
                 "stock": 3129,
-                "shippingMethodFR": "Yunexpress CN to Multi-Region #4",
+                "shippingMethodFR": "Yunexpress CN to Multi-Region",
                 "shippingCostFR": 7.0,
                 "shippingMethodUS": "Yunexpress CN to US",
                 "shippingCostUS": 3.0
