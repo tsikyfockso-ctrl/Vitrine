@@ -29997,8 +29997,8 @@
                 "prix": 8.62,
                 "poids": 320.0,
                 "stock": 418457,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 8.18,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.15
             },
@@ -30141,7 +30141,7 @@
                 "poids": 380.0,
                 "stock": 418457,
                 "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 7.68,
+                "shippingCostFR": 9.32,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 9.15
             },
@@ -30324,8 +30324,8 @@
                 "stock": 418457,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 7.89,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 9.15
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 8.96
             },
             {
                 "sku": "CJYD222204927AZ",
@@ -32785,8 +32785,8 @@
                 "prix": 8.13,
                 "poids": 520.0,
                 "stock": 1070367,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.68,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 10.85,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.23
             },
@@ -32943,8 +32943,8 @@
                 "stock": 1070367,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.08,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 11.8
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 11.49
             },
             {
                 "sku": "CJYD223171114NM",
@@ -33084,8 +33084,8 @@
                 "prix": 8.13,
                 "poids": 540.0,
                 "stock": 1070367,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.29,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 11.11,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 11.37
             },
@@ -33294,8 +33294,8 @@
                 "stock": 1070367,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 10.48,
-                "shippingMethodUS": "CJPacket SF Clothing Line",
-                "shippingCostUS": 12.36
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 11.33
             },
             {
                 "sku": "CJYD223171141OL",
@@ -33396,8 +33396,8 @@
                 "prix": 8.13,
                 "poids": 1220.0,
                 "stock": 1070367,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 10.08,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 20.2,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 19.64
             },
@@ -33578,8 +33578,8 @@
                 "prix": 8.13,
                 "poids": 1220.0,
                 "stock": 1070367,
-                "shippingMethodFR": "CJPacket Ordinary I",
-                "shippingCostFR": 18.45,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 20.2,
                 "shippingMethodUS": "YunExpress Ordinary",
                 "shippingCostUS": 19.64
             },
@@ -33801,8 +33801,8 @@
                 "stock": 1070367,
                 "shippingMethodFR": "CJPacket Ordinary I",
                 "shippingCostFR": 19.12,
-                "shippingMethodUS": "YunExpress Ordinary",
-                "shippingCostUS": 18.52
+                "shippingMethodUS": "LuWei Ordinary US",
+                "shippingCostUS": 20.64
             },
             {
                 "sku": "CJYD223171180BY",
@@ -93389,7 +93389,7 @@
                 "poids": 1100.0,
                 "stock": 226124,
                 "shippingMethodFR": "CJPacket Eub",
-                "shippingCostFR": 18.86,
+                "shippingCostFR": 18.6,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 19.36
             },
@@ -94117,6 +94117,291 @@
                 "shippingCostFR": 10.85,
                 "shippingMethodUS": "LuWei Ordinary US",
                 "shippingCostUS": 11.16
+            }
+        ]
+    },
+    {
+        "dropshipping": "CJ Dropshipping",
+        "pid": "1374283093137035264",
+        "nom": "Oversized corduroy wide-leg pants",
+        "prixBase": 6.11,
+        "productFee": 0.0,
+        "images": [
+            "https://cf.cjdropshipping.com/1616489215292.jpg"
+        ],
+        "variantes": [
+            {
+                "sku": "CJXX105246401AZ",
+                "vid": "1374283094441463808",
+                "taille": "M",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 370.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246402BY",
+                "vid": "1374283094479212544",
+                "taille": "L",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 380.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246403CX",
+                "vid": "1374283094521155584",
+                "taille": "XL",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 390.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246404DW",
+                "vid": "1374283094558904320",
+                "taille": "2XL",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 400.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246405EV",
+                "vid": "1374283094596653056",
+                "taille": "3XL",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 675.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246406FU",
+                "vid": "1374283094634401792",
+                "taille": "4XL",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 420.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246407GT",
+                "vid": "1374283094676344832",
+                "taille": "5XL",
+                "couleur": "Grey",
+                "prix": 6.11,
+                "poids": 430.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246408HS",
+                "vid": "1374283094714093568",
+                "taille": "M",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 370.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246409IR",
+                "vid": "1374283094751842304",
+                "taille": "L",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 242.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246410JQ",
+                "vid": "1374283094789591040",
+                "taille": "XL",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 390.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246411KP",
+                "vid": "1374283094827339776",
+                "taille": "2XL",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 400.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246412LO",
+                "vid": "1374283094869282816",
+                "taille": "3XL",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 628.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246413MN",
+                "vid": "1374283094907031552",
+                "taille": "4XL",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 420.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Eub",
+                "shippingCostFR": 9.52,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246414NM",
+                "vid": "1374283094944780288",
+                "taille": "5XL",
+                "couleur": "Black",
+                "prix": 6.11,
+                "poids": 430.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246415OL",
+                "vid": "1374283094982529024",
+                "taille": "M",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 370.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246416PK",
+                "vid": "1374283095024472064",
+                "taille": "L",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 536.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246417QJ",
+                "vid": "1374283095070609408",
+                "taille": "XL",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 390.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246418RI",
+                "vid": "1374283095112552448",
+                "taille": "2XL",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 400.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246419SH",
+                "vid": "1374283095183855616",
+                "taille": "3XL",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 410.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246420TG",
+                "vid": "1374283095229992960",
+                "taille": "4XL",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 420.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
+            },
+            {
+                "sku": "CJXX105246421UF",
+                "vid": "1374283095284518912",
+                "taille": "5XL",
+                "couleur": "Coffee",
+                "prix": 6.11,
+                "poids": 430.0,
+                "stock": 840001,
+                "shippingMethodFR": "CJPacket Ordinary I",
+                "shippingCostFR": 9.18,
+                "shippingMethodUS": "N/A",
+                "shippingCostUS": 0.0
             }
         ]
     }
